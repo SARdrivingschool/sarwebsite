@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo">SAR Driving School</a>
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
       <ul>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -20,9 +21,7 @@
       </ul>
     </div>
   </nav>
-
   <main>
-
     <section class="page-hero">
       <div class="page-hero-inner">
         <div class="section-label">Get started</div>
@@ -30,35 +29,26 @@
         <p>Pick a date and time that suits you. We'll confirm within a few hours.</p>
       </div>
     </section>
-
     <section class="book-section">
       <div class="book-inner">
-
-        <!-- PASTE YOUR CAL.COM EMBED CODE HERE -->
-         <!-- Cal inline embed code begins -->
-<div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-driving-lesson"></div>
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
-Cal("init", "driving-lesson", {origin:"https://app.cal.eu"});
-
-  Cal.ns["driving-lesson"]("inline", {
-    elementOrSelector:"#my-cal-inline-driving-lesson",
-    config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
-    calLink: "s-rizwan-wmi8l6/driving-lesson",
-  });
-
-  Cal.ns["driving-lesson"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-  </script>
-  <!-- Cal inline embed code ends -->
-
+        <!-- Cal inline embed code begins -->
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-driving-lesson"></div>
+        <script type="text/javascript">
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+          Cal("init", "driving-lesson", {origin:"https://app.cal.eu"});
+          Cal.ns["driving-lesson"]("inline", {
+            elementOrSelector:"#my-cal-inline-driving-lesson",
+            config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+            calLink: "s-rizwan-wmi8l6/driving-lesson",
+          });
+          Cal.ns["driving-lesson"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal inline embed code ends -->
       </div>
     </section>
-
   </main>
-
   <footer>
-    <p>© 2026 SAR Driving School. Milton Keynes & Bedford.</p>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
-
 </body>
 </html>

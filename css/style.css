@@ -807,3 +807,82 @@ footer {
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
+
+.pricing-grid-full {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.pricing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 100%;
+}
+
+.logo-img {
+  height: 180px;
+  width: auto;
+}
+
+.logo-img {
+  height: 150px;
+  width: auto;
+  padding: 18px 0;
+  filter: saturate(3.0) contrast(2.1) brightness(1.6);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+
+  .nav-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav ul a {
+    font-size: 0.85rem;
+  }
+
+  .btn-nav {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 60px 1.5rem;
+  }
+
+  .services {
+    padding: 60px 1.5rem;
+  }
+
+  .pricing {
+    padding: 60px 1.5rem;
+  }
+
+  .reviews {
+    padding: 60px 1.5rem;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-block {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-badge {
+    display: none;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+}
