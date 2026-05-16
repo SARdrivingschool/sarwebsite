@@ -888,5 +888,12 @@ footer {
   .logo-img {
     height: 150px;
   }
+  .logo-img {
+    height: 60px;
+    width: auto;
+    padding: 6px 0;
+    filter: brightness(10) saturate(0);
+  }
+
 
 }
