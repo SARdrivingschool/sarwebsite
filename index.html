@@ -3,243 +3,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAR Driving School | Milton Keynes </title>
+  <title>SAR Driving School | Milton Keynes</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav>
     <div class="nav-inner">
-       <a href="index.html" class="logo">
+      <a href="index.html" class="logo">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
-       </a>
-      <ul>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-menu">
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- YOUR PAGE CONTENT GOES HERE -->
-   
   <main>
-    <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-badge">⭐ 160+ five-star Google reviews</div>
-      <h1>Driving lessons in <span>Milton Keynes</span> & surrounding areas</h1>
-      <p>DVSA approved instructors. Manual & automatic. Tailored to you — whether you're a complete beginner or preparing for your test.</p>
-      <div class="hero-buttons">
-        <a href="book.html" class="btn-primary">Book your first lesson</a>
-        <a href="pricing.html" class="btn-secondary">View pricing</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <strong>1500+</strong>
-          <span>learners passed</span>
-        </div>
-        <div class="stat">
-          <strong>10+</strong>
-          <span>years experience</span>
-        </div>
-        <div class="stat">
-          <strong>100%</strong>
-          <span>DVSA approved</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SERVICES -->
-<section class="services">
-  <div class="services-inner">
-    <div class="section-label">What we offer</div>
-    <h2>Choose your lesson type</h2>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon">🚗</div>
-        <h3>Automatic lessons</h3>
-        <p>Easier to learn, no clutch or gears to worry about. Perfect if you want to pass faster.</p>
-        <a href="lessons.html">Learn more →</a>
-      </div>
-
-      <div class="service-card featured">
-        <div class="service-badge">Most popular</div>
-        <div class="service-icon">🔧</div>
-        <h3>Manual lessons</h3>
-        <p>Full licence, full control. Our most popular option for learners who want maximum flexibility.</p>
-        <a href="lessons.html">Learn more →</a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">🔄</div>
-        <h3>Refresher lessons</h3>
-        <p>Been off the road a while? Build your confidence back up with a tailored refresher course.</p>
-        <a href="lessons.html">Learn more →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- PRICING -->
-<section class="pricing">
-  <div class="pricing-inner">
-    <div class="section-label">Transparent pricing</div>
-    <h2>Simple, honest prices</h2>
-    <p class="pricing-sub">No hidden fees. Pay as you go or save with a block booking.</p>
-
-    <div class="pricing-grid">
-
-  <div class="pricing-card">
-    <h3>1 hour lesson</h3>
-    <p class="price-desc">1 hour · Automatic or manual</p>
-    <div class="price">
-      <span class="amount">£38</span>
-    </div>
-    <ul class="price-features">
-      <li>✓ 1 hour session</li>
-      <li>✓ Manual or automatic</li>
-      <li>✓ DVSA approved instructor</li>
-      <li>✓ Tailored to your level</li>
-      <li>✓ Pick-up from your area</li>
-    </ul>
-    <a href="book.html" class="btn-price">Book now</a>
-  </div>
-
-  <div class="pricing-card">
-    <h3>1.5 hour lesson</h3>
-    <p class="price-desc">1.5 hours · Automatic or manual</p>
-    <div class="price">
-      <span class="amount">£57</span>
-    </div>
-    <ul class="price-features">
-      <li>✓ 1.5 hour session</li>
-      <li>✓ Manual or automatic</li>
-      <li>✓ DVSA approved instructor</li>
-      <li>✓ Tailored to your level</li>
-      <li>✓ Pick-up from your area</li>
-    </ul>
-    <a href="book.html" class="btn-price">Book now</a>
-  </div>
-
-  <div class="pricing-card">
-    <h3>2 hour lesson</h3>
-    <p class="price-desc">2 hours · Automatic or manual</p>
-    <div class="price">
-      <span class="amount">£76</span>
-    </div>
-    <ul class="price-features">
-      <li>✓ 2 hour session</li>
-      <li>✓ Manual or automatic</li>
-      <li>✓ DVSA approved instructor</li>
-      <li>✓ Tailored to your level</li>
-      <li>✓ Pick-up from your area</li>
-    </ul>
-    <a href="book.html" class="btn-price">Book now</a>
-  </div>
-
-    <div class="pricing-card best-value">
-      <div class="pricing-badge">Best value</div>
-      <h3>10 hour block</h3>
-      <p class="price-desc">10 hours · Automatic or manual</p>
-      <div class="price">
-        <span class="amount">£360</span>
-        <span class="saving">save £20</span>
-      </div>
-      <ul class="price-features">
-        <li>✓ 10 hours total</li>
-        <li>✓ Manual or automatic</li>
-        <li>✓ DVSA approved instructor</li>
-        <li>✓ Progress tracked each lesson</li>
-        <li>✓ Pick-up from your area</li>
-      </ul>
-      <a href="book.html" class="btn-price">Book now</a>
-    </div>
-
-    <div class="pricing-card">
-      <h3>Intensive course</h3>
-      <p class="price-desc">20 hours · Automatic or manual</p>
-      <div class="price">
-        <span class="amount">£700</span>
-        <span class="saving">save £60</span>
-      </div>
-      <ul class="price-features">
-        <li>✓ 20 hours total</li>
-        <li>✓ Manual or automatic</li>
-        <li>✓ DVSA approved instructor</li>
-        <li>✓ Progress tracked each lesson</li>
-        <li>✓ Pick-up from your area</li>
-      </ul>
-      <a href="book.html" class="btn-price">Book now</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <div class="reviews-inner">
-    <div class="section-label">What students say</div>
-    <h2>160+ five-star reviews on Google</h2>
-
-    <div class="reviews-grid">
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Passed first time! My instructor was so patient and explained everything clearly. Couldn't recommend SAR enough."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">S</div>
-          <div>
-            <strong>Sarah M.</strong>
-            <span>Milton Keynes</span>
+    <section class="hero" id="hero">
+      <div class="hero-slideshow" id="heroSlideshow"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Driving lessons in<br><span>Milton Keynes</span><br>& surrounding areas</h1>
+          <p>Trusted by 500+ passers across Milton Keynes. Patient instructors, tailored lessons, real results.</p>
+          <div class="hero-buttons">
+            <a href="book.html" class="btn-primary">Book your first lesson</a>
+            <a href="pricing.html" class="btn-secondary">View pricing</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>500+</strong><span>learners passed</span></div>
+            <div class="stat"><strong>15+</strong><span>years experience</span></div>
+            <div class="stat"><strong>✅</strong><span>DVSA certified</span></div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Brilliant school. I was really nervous but felt completely at ease from the first lesson. Passed with only 2 minors."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">J</div>
-          <div>
-            <strong>James T.</strong>
-            <span>Bedford</span>
+    <section class="services">
+      <div class="services-inner">
+        <div class="section-label">What we offer</div>
+        <h2>Choose your lesson type</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🚗</div>
+            <h3>Automatic lessons</h3>
+            <p>Easier to learn, no clutch or gears to worry about. Perfect if you want to pass faster.</p>
+            <a href="lessons.html">Learn more →</a>
+          </div>
+          <div class="service-card featured">
+            <div class="service-badge">Most popular</div>
+            <div class="service-icon">🔧</div>
+            <h3>Manual lessons</h3>
+            <p>Full licence, full control. Our most popular option for learners who want maximum flexibility.</p>
+            <a href="lessons.html">Learn more →</a>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔄</div>
+            <h3>Refresher lessons</h3>
+            <p>Been off the road a while? Build your confidence back up with a tailored refresher course.</p>
+            <a href="lessons.html">Learn more →</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>"Took the 10 hour block booking — great value. My instructor tailored every lesson to exactly what I needed to work on."</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">A</div>
-          <div>
-            <strong>Aisha K.</strong>
-            <span>Leighton Buzzard</span>
+    <section class="pricing">
+      <div class="pricing-inner">
+        <div class="section-label">Transparent pricing</div>
+        <h2>Simple, honest prices</h2>
+        <p class="pricing-sub">No hidden fees. Select your lesson type to see pricing.</p>
+        <div class="pricing-selector">
+          <div class="pricing-tabs">
+            <button class="tab-btn active" onclick="showTab('single', this)">Single lessons</button>
+            <button class="tab-btn" onclick="showTab('block', this)">Block booking</button>
+            <button class="tab-btn" onclick="showTab('intensive', this)">Intensive course</button>
+          </div>
+          <div class="tab-content active" id="single">
+            <div class="tab-cards">
+              <div class="tab-card">
+                <h3>1 hour</h3>
+                <div class="tab-price">£38</div>
+                <p class="price-desc">Auto or manual</p>
+                <a href="book.html" class="btn-primary">Book now</a>
+              </div>
+              <div class="tab-card featured">
+                <h3>1.5 hours</h3>
+                <div class="tab-price">£57</div>
+                <p class="price-desc">Auto or manual</p>
+                <a href="book.html" class="btn-primary">Book now</a>
+              </div>
+              <div class="tab-card">
+                <h3>2 hours</h3>
+                <div class="tab-price">£76</div>
+                <p class="price-desc">Auto or manual</p>
+                <a href="book.html" class="btn-primary">Book now</a>
+              </div>
+            </div>
+            <p class="tab-note">✓ DVSA approved · ✓ Manual or automatic · ✓ Pick-up from your area · ✓ Tailored to your level</p>
+          </div>
+          <div class="tab-content" id="block">
+            <div class="tab-cards">
+              <div class="tab-card featured">
+                <div class="pricing-badge">Best value</div>
+                <h3>10 hours</h3>
+                <div class="tab-price">£360 <span class="saving">save £20</span></div>
+                <p class="price-desc">Auto or manual</p>
+                <a href="book.html" class="btn-primary">Book now</a>
+              </div>
+            </div>
+            <p class="tab-note">✓ Split into sessions at times that suit you · ✓ Progress tracked every lesson · ✓ Pick-up from your area</p>
+          </div>
+          <div class="tab-content" id="intensive">
+            <div class="tab-cards">
+              <div class="tab-card featured">
+                <h3>20 hours</h3>
+                <div class="tab-price">£700 <span class="saving">save £60</span></div>
+                <p class="price-desc">Auto or manual</p>
+                <a href="book.html" class="btn-primary">Book now</a>
+              </div>
+            </div>
+            <p class="tab-note">✓ Intensive back-to-back sessions · ✓ Fastest route to passing · ✓ Progress tracked every lesson</p>
           </div>
         </div>
+        <p class="pricing-note">Not sure which to pick? <a href="contact.html">Get in touch</a> and we'll help you choose.</p>
       </div>
+    </section>
 
-    </div>
-
-    <a href="https://g.page/r/sardrivingschool/review" class="btn-reviews" target="_blank">
-      Read all reviews on Google →
-    </a>
-  </div>
-</section>
+    <section class="reviews">
+      <div class="reviews-inner">
+        <div class="section-label">What students say</div>
+        <h2>170+ five-star reviews on Google</h2>
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-cc61d0bc-56d4-4164-a5b2-26f291dea5fe" data-elfsight-app-lazy></div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+
+    function showTab(tab, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tab).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    const photos = [
+      "Screenshot 2026-05-17 at 12.29.45.png","Screenshot 2026-05-17 at 12.29.40.png",
+      "Screenshot 2026-05-17 at 12.29.37.png","Screenshot 2026-05-17 at 12.29.33.png",
+      "Screenshot 2026-05-17 at 12.29.29.png","Screenshot 2026-05-17 at 12.29.25.png",
+      "Screenshot 2026-05-17 at 12.29.22.png","Screenshot 2026-05-17 at 12.29.17.png",
+      "Screenshot 2026-05-17 at 12.29.13.png","Screenshot 2026-05-17 at 12.29.10.png",
+      "Screenshot 2026-05-17 at 12.29.07.png","Screenshot 2026-05-17 at 12.29.02.png",
+      "Screenshot 2026-05-17 at 12.28.58.png","Screenshot 2026-05-17 at 12.28.55.png",
+      "Screenshot 2026-05-17 at 12.28.50.png","Screenshot 2026-05-17 at 12.28.47.png",
+      "Screenshot 2026-05-17 at 12.28.43.png","Screenshot 2026-05-17 at 12.28.40.png",
+      "Screenshot 2026-05-17 at 12.28.37.png","Screenshot 2026-05-17 at 12.28.33.png",
+      "Screenshot 2026-05-17 at 12.28.30.png","Screenshot 2026-05-17 at 12.28.27.png",
+      "Screenshot 2026-05-17 at 12.28.23.png","Screenshot 2026-05-17 at 12.28.20.png",
+      "Screenshot 2026-05-17 at 12.28.16.png","Screenshot 2026-05-17 at 12.28.11.png",
+      "Screenshot 2026-05-17 at 12.28.07.png","Screenshot 2026-05-17 at 12.28.03.png",
+      "Screenshot 2026-05-17 at 12.27.58.png","Screenshot 2026-05-17 at 12.27.49.png",
+      "Screenshot 2026-05-17 at 12.27.45.png","Screenshot 2026-05-17 at 12.27.36.png",
+      "Screenshot 2026-05-17 at 12.27.33.png","Screenshot 2026-05-17 at 12.27.28.png",
+      "Screenshot 2026-05-17 at 12.27.24.png","Screenshot 2026-05-17 at 12.27.19.png",
+      "Screenshot 2026-05-17 at 12.27.15.png","Screenshot 2026-05-17 at 12.27.08.png",
+      "Screenshot 2026-05-17 at 12.26.53.png","Screenshot 2026-05-17 at 12.26.41.png",
+      "Screenshot 2026-05-17 at 12.26.37.png","Screenshot 2026-05-17 at 12.26.34.png",
+      "Screenshot 2026-05-17 at 12.26.30.png","Screenshot 2026-05-17 at 12.26.26.png",
+      "Screenshot 2026-05-17 at 12.26.22.png","Screenshot 2026-05-17 at 12.26.17.png",
+      "Screenshot 2026-05-17 at 12.26.12.png","Screenshot 2026-05-17 at 12.26.08.png",
+      "Screenshot 2026-05-17 at 12.26.02.png","Screenshot 2026-05-17 at 12.25.54.png",
+      "Screenshot 2026-05-17 at 12.25.45.png","Screenshot 2026-05-17 at 12.25.39.png",
+      "Screenshot 2026-05-17 at 12.25.36.png","Screenshot 2026-05-17 at 12.25.29.png",
+      "Screenshot 2026-05-17 at 12.25.24.png","Screenshot 2026-05-17 at 12.25.19.png",
+      "Screenshot 2026-05-17 at 12.20.12.png","Screenshot 2026-05-17 at 12.20.09.png",
+      "Screenshot 2026-05-17 at 12.20.05.png","Screenshot 2026-05-17 at 12.20.02.png",
+      "Screenshot 2026-05-17 at 12.19.59.png","Screenshot 2026-05-17 at 12.19.46.png",
+      "Screenshot 2026-05-17 at 12.19.41.png","Screenshot 2026-05-17 at 12.19.38.png",
+      "Screenshot 2026-05-17 at 12.19.35.png","Screenshot 2026-05-17 at 12.19.31.png",
+      "Screenshot 2026-05-17 at 12.19.28.png","Screenshot 2026-05-17 at 12.19.25.png",
+      "Screenshot 2026-05-17 at 12.19.22.png","Screenshot 2026-05-17 at 12.19.17.png",
+      "Screenshot 2026-05-17 at 12.19.12.png","Screenshot 2026-05-17 at 12.19.09.png",
+      "Screenshot 2026-05-17 at 12.19.06.png","Screenshot 2026-05-17 at 12.19.01.png",
+      "Screenshot 2026-05-17 at 12.18.58.png","Screenshot 2026-05-17 at 12.18.54.png",
+      "Screenshot 2026-05-17 at 12.18.51.png","Screenshot 2026-05-17 at 12.18.47.png",
+      "Screenshot 2026-05-17 at 12.18.44.png","Screenshot 2026-05-17 at 12.18.40.png",
+      "Screenshot 2026-05-17 at 12.18.37.png","Screenshot 2026-05-17 at 12.18.33.png",
+      "Screenshot 2026-05-17 at 12.18.30.png","Screenshot 2026-05-17 at 12.18.26.png",
+      "Screenshot 2026-05-17 at 12.18.23.png","Screenshot 2026-05-17 at 12.18.19.png",
+      "Screenshot 2026-05-17 at 12.18.15.png","Screenshot 2026-05-17 at 12.18.10.png",
+      "Screenshot 2026-05-17 at 12.18.06.png","Screenshot 2026-05-17 at 12.17.59.png",
+      "Screenshot 2026-05-17 at 12.17.55.png","Screenshot 2026-05-17 at 12.17.51.png",
+      "Screenshot 2026-05-17 at 12.17.48.png","Screenshot 2026-05-17 at 12.17.42.png",
+      "Screenshot 2026-05-17 at 12.17.26.png","Screenshot 2026-05-17 at 12.17.20.png",
+      "Screenshot 2026-05-17 at 12.17.16.png","Screenshot 2026-05-17 at 12.17.13.png",
+      "Screenshot 2026-05-17 at 12.17.08.png","Screenshot 2026-05-17 at 12.17.04.png",
+      "Screenshot 2026-05-17 at 12.16.59.png","Screenshot 2026-05-17 at 12.16.55.png",
+      "Screenshot 2026-05-17 at 12.16.51.png","Screenshot 2026-05-17 at 12.16.46.png",
+      "Screenshot 2026-05-17 at 12.16.42.png","Screenshot 2026-05-17 at 12.16.31.png",
+      "Screenshot 2026-05-17 at 12.16.27.png","Screenshot 2026-05-17 at 12.16.22.png",
+      "Screenshot 2026-05-17 at 12.16.15.png","Screenshot 2026-05-17 at 12.16.05.png",
+      "Screenshot 2026-05-17 at 12.14.20.png"
+    ];
+    const slideshow = document.getElementById('heroSlideshow');
+    let current = 0;
+    function buildSlides() {
+      slideshow.innerHTML = '';
+      for (let i = 0; i < 3; i++) {
+        const idx = (current + i) % photos.length;
+        const div = document.createElement('div');
+        div.className = 'slide';
+        div.style.backgroundImage = `url('images/passes/${photos[idx]}')`;
+        slideshow.appendChild(div);
+      }
+    }
+    buildSlides();
+    setInterval(() => { current = (current + 3) % photos.length; buildSlides(); }, 4000);
+  </script>
 
 </body>
 </html>

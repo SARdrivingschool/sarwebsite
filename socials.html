@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Us | SAR Driving School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-menu">
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="socials-hero">
+      <div class="socials-hero-inner">
+        <img src="images/logo.png" alt="SAR Driving School" class="socials-logo">
+        <h1>SAR Driving School</h1>
+        <p>Milton Keynes & surrounding areas</p>
+        <a href="book.html" class="btn-primary">Book a lesson</a>
+      </div>
+    </section>
+
+    <section class="socials-links">
+      <div class="socials-inner">
+        <a href="https://sardrivingschool.co.uk" class="social-card" target="_blank">
+          <span class="social-icon">🌐</span>
+          <div><strong>Website</strong><span>sardrivingschool.co.uk</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="book.html" class="social-card">
+          <span class="social-icon">📅</span>
+          <div><strong>Book a lesson</strong><span>Pick your date and time</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://www.instagram.com/sardrivingschool/" class="social-card" target="_blank">
+          <span class="social-icon">📸</span>
+          <div><strong>Instagram</strong><span>@sardrivingschool</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://www.tiktok.com/@sardrivingschool" class="social-card" target="_blank">
+          <span class="social-icon">🎵</span>
+          <div><strong>TikTok</strong><span>@sardrivingschool</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://www.youtube.com/@SARdrivingschool" class="social-card" target="_blank">
+          <span class="social-icon">▶️</span>
+          <div><strong>YouTube</strong><span>@SARdrivingschool</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61588644880861" class="social-card" target="_blank">
+          <span class="social-icon">📘</span>
+          <div><strong>Facebook</strong><span>SAR driving school</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://wa.me/447902023737" class="social-card" target="_blank">
+          <span class="social-icon">💬</span>
+          <div><strong>WhatsApp</strong><span>Message us directly</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="tel:07902023737" class="social-card">
+          <span class="social-icon">📞</span>
+          <div><strong>Call us</strong><span>07902 023737</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="mailto:info@sardrivingschool.co.uk" class="social-card">
+          <span class="social-icon">✉️</span>
+          <div><strong>Email</strong><span>info@sardrivingschool.co.uk</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+        <a href="https://g.page/r/sardrivingschool/review" class="social-card" target="_blank">
+          <span class="social-icon">⭐</span>
+          <div><strong>Leave a Google review</strong><span>170+ five-star reviews</span></div>
+          <span class="social-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

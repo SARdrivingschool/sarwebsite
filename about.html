@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SAR Driving School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-menu">
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Who we are</div>
+        <h1>About SAR Driving School</h1>
+        <p>Solid, productive lessons worth every penny. Local, experienced, and trusted across Milton Keynes.</p>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-inner">
+        <div class="about-story">
+          <div class="section-label">Our story</div>
+          <h2>15+ years helping Milton Keynes learners pass</h2>
+          <p>SAR Driving School is a local Milton Keynes driving school built on one thing — results. Our instructors bring over 15 years of combined experience to every single lesson, and it shows.</p>
+          <p>With 500+ passes and counting, we've earned a reputation for solid, productive lessons that are genuinely worth the money. No filler, no wasted time — just focused instruction tailored to you.</p>
+          <p>We're proud to be local. We know the test routes, we know the roads, and we know exactly what it takes to pass in Milton Keynes.</p>
+        </div>
+        <div class="about-stats-grid">
+          <div class="about-stat"><strong>500+</strong><span>learners passed</span></div>
+          <div class="about-stat"><strong>15+</strong><span>years experience</span></div>
+          <div class="about-stat"><strong>170+</strong><span>five-star reviews</span></div>
+          <div class="about-stat"><strong>100%</strong><span>DVSA approved</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <div class="about-values-inner">
+        <div class="section-label">Why choose us</div>
+        <h2>What makes SAR different</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <h3>Tailored to you</h3>
+            <p>Every lesson is planned around your ability and goals — not a one-size-fits-all syllabus.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">😌</div>
+            <h3>Patient instructors</h3>
+            <p>We specialise in nervous and anxious learners. No pressure, no judgement — just calm, clear guidance.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌍</div>
+            <h3>Multilingual lessons</h3>
+            <p>We offer lessons in multiple languages so you can learn comfortably in your first language.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">✅</div>
+            <h3>DVSA approved</h3>
+            <p>All our instructors are fully DVSA approved and regularly assessed to maintain the highest standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lessons-cta">
+      <div class="lessons-cta-inner">
+        <h2>Ready to get started?</h2>
+        <p>Book your first lesson today and take the first step towards passing with confidence.</p>
+        <div class="hero-buttons">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="contact.html" class="btn-secondary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

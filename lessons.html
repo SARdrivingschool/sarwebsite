@@ -7,21 +7,29 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
       </a>
-      <ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-menu">
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
     </div>
   </nav>
+
   <main>
+
     <section class="page-hero">
       <div class="page-hero-inner">
         <div class="section-label">Our lessons</div>
@@ -29,8 +37,10 @@
         <p>DVSA approved instructors. Tailored to your ability. Milton Keynes & surrounding areas.</p>
       </div>
     </section>
+
     <section class="lesson-section">
       <div class="lesson-inner">
+
         <div class="lesson-block">
           <div class="lesson-text">
             <div class="section-label">Most popular</div>
@@ -47,7 +57,8 @@
           </div>
           <div class="lesson-badge">🔧</div>
         </div>
-        <div class="lesson-block reverse">
+
+        <div class="lesson-block">
           <div class="lesson-text">
             <div class="section-label">Easier to learn</div>
             <h2>Automatic driving lessons</h2>
@@ -63,6 +74,7 @@
           </div>
           <div class="lesson-badge">🚗</div>
         </div>
+
         <div class="lesson-block">
           <div class="lesson-text">
             <div class="section-label">Back on the road</div>
@@ -79,8 +91,10 @@
           </div>
           <div class="lesson-badge">🔄</div>
         </div>
+
       </div>
     </section>
+
     <section class="lessons-cta">
       <div class="lessons-cta-inner">
         <h2>Not sure where to start?</h2>
@@ -91,9 +105,27 @@
         </div>
       </div>
     </section>
+
   </main>
+
   <footer>
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
+  </script>
+
 </body>
 </html>
