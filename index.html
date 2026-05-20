@@ -65,6 +65,49 @@
       display: none !important;
     }
   }
+
+@media (max-width: 768px) {
+  /* existing styles already there... add these: */
+
+  .hero {
+    padding: 60px 1.25rem 50px;
+    min-height: unset;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .tab-cards {
+    flex-direction: column;
+  }
+
+  .tab-card {
+    min-width: unset !important;
+    width: 100% !important;
+  }
+}
+
+
+
 </style>
 </head>
 <body>
@@ -256,7 +299,10 @@
         const idx = (current + i) % photos.length;
         const div = document.createElement('div');
         div.className = 'slide';
-        div.style.backgroundImage = `url('images/websitepictures/${photos[idx]}')`;
+        div.style.backgroundIconst isMobile = window.innerWidth <= 768;
+        div.style.backgroundImage = isMobile 
+        ? `url('images/toyotacorollasarpic.png')`
+        : `url('images/websitepictures/${photos[idx]}')`;mage = `url('images/websitepictures/${photos[idx]}')`;
         slideshow.appendChild(div);
       }
     }
