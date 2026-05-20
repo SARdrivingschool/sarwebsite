@@ -524,15 +524,14 @@
               };
             })(window, "https://app.cal.eu/embed/embed.js", "init");
 
-            Cal("init", "driving-lesson", {origin:"https://app.cal.eu"});
-
+            Cal("init", "driving-lesson-request", {origin:"https://app.cal.com"});
             Cal.ns["driving-lesson"]("inline", {
               elementOrSelector:"#my-cal-inline-driving-lesson",
               config: {
                 "layout":"month_view",
                 "useSlotsViewOnSmallScreen":"true"
               },
-              calLink: "s-rizwan-wmi8l6/driving-lesson",
+              calLink: "sar-driving-school/driving-lesson-request",
             });
 
             Cal.ns["driving-lesson"]("ui", {
