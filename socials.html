@@ -5,141 +5,259 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find Us | SAR Driving School</title>
   <link rel="stylesheet" href="css/style.css">
+
   <style>
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex !important;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      z-index: 201;
+    body {
+      background: #1f1f1f;
     }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #111111;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+
+    .socials-page {
+      background: #1f1f1f;
+      min-height: 100vh;
+      padding: 70px 2rem;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    nav ul {
-      display: none !important;
+
+    .socials-container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    nav ul.open {
-      display: flex !important;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 1px solid #eeeeee;
-      padding: 0.5rem 1.5rem 1.25rem;
-      gap: 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      z-index: 200;
-    }
-    nav ul a {
-      display: block;
-      padding: 0.9rem 0;
-      font-size: 1rem;
-      color: #111111;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-inner {
-      position: relative;
-      height: 70px;
-    }
-    .hero-slideshow {
-      grid-template-columns: 1fr !important;
-    }
-    .slide:nth-child(2),
-    .slide:nth-child(3) {
-      display: none !important;
-    }
-  }
-</style>
-  <style>
-    .socials-hero {
-      background: #111111;
-      padding: 60px 2rem;
+
+    .socials-header {
       text-align: center;
+      margin-bottom: 3rem;
     }
-    .socials-hero-inner {
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+
+    .socials-header img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1.2rem;
     }
-    .socials-logo {
-      height: 80px !important;
-      width: auto !important;
-      max-width: 200px !important;
-      margin-bottom: 0.5rem;
+
+    .socials-header .section-label {
+      margin-bottom: 0.7rem;
     }
-    .socials-hero h1 {
-      font-size: 1.8rem;
-      font-weight: 800;
+
+    .socials-header h1 {
       color: #ffffff;
-      letter-spacing: -0.5px;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
-    .socials-hero p {
-      color: #aaaaaa;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-    .socials-links {
-      padding: 40px 2rem;
-      background: #f7f7f7;
-    }
-    .socials-inner {
-      max-width: 500px;
+
+    .socials-header p {
+      color: #bdbdbd;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 650px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
     }
+
+    .socials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+    }
+
     .social-card {
-      background: #ffffff;
-      border: 1.5px solid #eeeeee;
-      border-radius: 14px;
-      padding: 1.2rem 1.5rem;
+      background: #111111;
+      border: 1px solid #3a3a3a;
+      border-radius: 18px;
+      padding: 1.3rem 1.4rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
-      color: #111111;
       text-decoration: none;
+      color: #ffffff;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
+
     .social-card:hover {
+      transform: translateY(-4px);
       border-color: #e01e26;
-      transform: translateX(4px);
+      background: #161616;
     }
-    .social-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .social-card div { flex: 1; }
-    .social-card strong {
+
+    .social-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      font-weight: 900;
+    }
+
+    .icon-website { background: #e8f1ff; color: #1d4ed8; }
+    .icon-book { background: #fff1f2; color: #e01e26; }
+    .icon-instagram { background: linear-gradient(135deg, #feda75, #d62976, #962fbf, #4f5bd5); color: #ffffff; }
+    .icon-tiktok { background: #000000; color: #ffffff; border: 1px solid #333333; }
+    .icon-youtube { background: #ff0000; color: #ffffff; }
+    .icon-facebook { background: #1877f2; color: #ffffff; }
+    .icon-whatsapp { background: #25D366; color: #ffffff; }
+    .icon-phone { background: #eeeeee; color: #111111; }
+    .icon-email { background: #fef3c7; color: #b45309; }
+    .icon-review { background: #fff7ed; color: #f59e0b; }
+
+    .social-text {
+      flex: 1;
+    }
+
+    .social-text strong {
       display: block;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #111111;
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
     }
-    .social-card span { font-size: 0.85rem; color: #888888; }
+
+    .social-text span {
+      color: #a9a9a9;
+      font-size: 0.92rem;
+    }
+
     .social-arrow {
       color: #e01e26;
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    .socials-bottom {
+      margin-top: 3rem;
+      background: #111111;
+      border: 1px solid #333333;
+      border-radius: 22px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .socials-bottom h2 {
+      color: #ffffff;
+      font-size: 1.7rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .socials-bottom p {
+      color: #bdbdbd;
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
+    }
+
+    .socials-bottom-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        background: none;
+        border: none;
+        z-index: 201;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #111111;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      nav ul {
+        display: none !important;
+      }
+
+      nav ul.open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #eeeeee;
+        padding: 0.5rem 1.5rem 1.25rem;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        z-index: 200;
+      }
+
+      nav ul a {
+        display: block;
+        padding: 0.9rem 0;
+        font-size: 1rem;
+        color: #111111;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .nav-inner {
+        position: relative;
+        height: 70px;
+      }
+
+      .socials-page {
+        padding: 45px 1rem;
+      }
+
+      .socials-header h1 {
+        font-size: 2.1rem;
+      }
+
+      .socials-header p {
+        font-size: 1rem;
+      }
+
+      .socials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-card {
+        padding: 1.1rem;
+        border-radius: 16px;
+      }
+
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+
+      .socials-bottom {
+        padding: 1.4rem;
+      }
+
+      .socials-bottom-buttons {
+        flex-direction: column;
+      }
+
+      .socials-bottom-buttons a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        width: 56px !important;
+        height: 56px !important;
+        bottom: 18px !important;
+        right: 18px !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -147,9 +265,11 @@
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
       </a>
+
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
       <ul id="nav-menu">
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -162,72 +282,121 @@
     </div>
   </nav>
 
-  <main>
+  <main class="socials-page">
+    <div class="socials-container">
 
-    <section class="socials-hero">
-      <div class="socials-hero-inner">
-        <img src="images/logo.png" alt="SAR Driving School" class="socials-logo">
+      <section class="socials-header">
+        <img src="images/logo.png" alt="SAR Driving School">
+        <div class="section-label">Find us online</div>
         <h1>SAR Driving School</h1>
-        <p>Milton Keynes & surrounding areas</p>
-        <a href="book.html" class="btn-primary">Book a lesson</a>
-      </div>
-    </section>
+        <p>Book lessons, view our passes, follow us on social media, or message us directly on WhatsApp.</p>
+      </section>
 
-    <section class="socials-links">
-      <div class="socials-inner">
+      <section class="socials-grid">
+
         <a href="https://sardrivingschool.co.uk" class="social-card" target="_blank">
-          <span class="social-icon">🌐</span>
-          <div><strong>Website</strong><span>sardrivingschool.co.uk</span></div>
-          <span class="social-arrow">→</span>
+          <div class="social-icon icon-website">🌐</div>
+          <div class="social-text">
+            <strong>Website</strong>
+            <span>sardrivingschool.co.uk</span>
+          </div>
+          <div class="social-arrow">→</div>
         </a>
-        <a href="book.html" class="social-card">
-          <span class="social-icon">📅</span>
-          <div><strong>Book a lesson</strong><span>Pick your date and time</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://www.instagram.com/sardrivingschool/" class="social-card" target="_blank">
-          <span class="social-icon">📸</span>
-          <div><strong>Instagram</strong><span>@sardrivingschool</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://www.tiktok.com/@sardrivingschool" class="social-card" target="_blank">
-          <span class="social-icon">🎵</span>
-          <div><strong>TikTok</strong><span>@sardrivingschool</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://www.youtube.com/@SARdrivingschool" class="social-card" target="_blank">
-          <span class="social-icon">▶️</span>
-          <div><strong>YouTube</strong><span>@SARdrivingschool</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61588644880861" class="social-card" target="_blank">
-          <span class="social-icon">📘</span>
-          <div><strong>Facebook</strong><span>SAR driving school</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://wa.me/447902023737" class="social-card" target="_blank">
-          <span class="social-icon">💬</span>
-          <div><strong>WhatsApp</strong><span>Message us directly</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="tel:07902023737" class="social-card">
-          <span class="social-icon">📞</span>
-          <div><strong>Call us</strong><span>07902 023737</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="mailto:info@sardrivingschool.co.uk" class="social-card">
-          <span class="social-icon">✉️</span>
-          <div><strong>Email</strong><span>info@sardrivingschool.co.uk</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-        <a href="https://g.page/r/sardrivingschool/review" class="social-card" target="_blank">
-          <span class="social-icon">⭐</span>
-          <div><strong>Leave a Google review</strong><span>170+ five-star reviews</span></div>
-          <span class="social-arrow">→</span>
-        </a>
-      </div>
-    </section>
 
+        <a href="book.html" class="social-card">
+          <div class="social-icon icon-book">📅</div>
+          <div class="social-text">
+            <strong>Book a lesson</strong>
+            <span>Choose your lesson type and preferred time</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://www.instagram.com/sardrivingschool/" class="social-card" target="_blank">
+          <div class="social-icon icon-instagram">◎</div>
+          <div class="social-text">
+            <strong>Instagram</strong>
+            <span>@sardrivingschool</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://www.tiktok.com/@sardrivingschool" class="social-card" target="_blank">
+          <div class="social-icon icon-tiktok">♪</div>
+          <div class="social-text">
+            <strong>TikTok</strong>
+            <span>@sardrivingschool</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://www.youtube.com/@SARdrivingschool" class="social-card" target="_blank">
+          <div class="social-icon icon-youtube">▶</div>
+          <div class="social-text">
+            <strong>YouTube</strong>
+            <span>@SARdrivingschool</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=61588644880861" class="social-card" target="_blank">
+          <div class="social-icon icon-facebook">f</div>
+          <div class="social-text">
+            <strong>Facebook</strong>
+            <span>SAR Driving School</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://wa.me/447902023737" class="social-card" target="_blank">
+          <div class="social-icon icon-whatsapp">☏</div>
+          <div class="social-text">
+            <strong>WhatsApp</strong>
+            <span>Message us directly</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="tel:07902023737" class="social-card">
+          <div class="social-icon icon-phone">☎</div>
+          <div class="social-text">
+            <strong>Call us</strong>
+            <span>07902 023737</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="mailto:info@sardrivingschool.co.uk" class="social-card">
+          <div class="social-icon icon-email">✉</div>
+          <div class="social-text">
+            <strong>Email</strong>
+            <span>info@sardrivingschool.co.uk</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+        <a href="https://g.page/r/sardrivingschool/review" class="social-card" target="_blank">
+          <div class="social-icon icon-review">★</div>
+          <div class="social-text">
+            <strong>Leave a Google review</strong>
+            <span>Share your experience with SAR</span>
+          </div>
+          <div class="social-arrow">→</div>
+        </a>
+
+      </section>
+
+      <section class="socials-bottom">
+        <h2>Ready to start driving?</h2>
+        <p>Book your first lesson or message us on WhatsApp and we’ll help you choose the right option.</p>
+
+        <div class="socials-bottom-buttons">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-secondary">Message on WhatsApp</a>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <footer>
@@ -237,10 +406,12 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
     });
+
     navMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         hamburger.classList.remove('open');
@@ -249,27 +420,25 @@
     });
   </script>
 
-
-  <!-- WhatsApp Button -->
-<a href="https://wa.me/447902023737" target="_blank" style="
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  z-index: 9999;
-  transition: transform 0.2s;
-" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.2s;
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 
 </body>
 </html>

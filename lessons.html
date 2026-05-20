@@ -10,9 +10,9 @@
     .page-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.68) 45%, rgba(0,0,0,0.30) 100%),
         url("images/lessons-bg.png") center/cover no-repeat;
-      min-height: 430px;
+      min-height: 460px;
       display: flex;
       align-items: center;
     }
@@ -20,6 +20,19 @@
     .page-hero-inner {
       position: relative;
       z-index: 2;
+    }
+
+    .lesson-img img {
+      width: 390px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lesson-block {
+      align-items: center;
     }
 
     @media (max-width: 768px) {
@@ -81,11 +94,11 @@
       }
 
       .page-hero {
-        min-height: 520px;
-        background:
-          linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.78)),
-          url("images/lessons-bg.png") center right/cover no-repeat;
+        min-height: 540px;
         padding: 70px 1.25rem;
+        background:
+          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
+          url("images/lessons-bg.png") center right/cover no-repeat;
       }
 
       .page-hero h1 {
@@ -104,10 +117,14 @@
         gap: 1.5rem !important;
       }
 
+      .lesson-img {
+        width: 100%;
+      }
+
       .lesson-img img {
         width: 100% !important;
-        height: 220px !important;
-        border-radius: 12px !important;
+        height: 230px !important;
+        border-radius: 14px !important;
       }
 
       .lesson-text h2 {
@@ -154,7 +171,7 @@
       <div class="page-hero-inner">
         <div class="section-label">Our lessons</div>
         <h1>Find the right lesson for you</h1>
-        <p>DVSA approved instructors. Tailored to your ability. Milton Keynes & surrounding areas.</p>
+        <p>DVSA approved instructors. Tailored to your ability. Manual, automatic and refresher lessons across Milton Keynes and surrounding areas.</p>
       </div>
     </section>
 
@@ -166,18 +183,20 @@
             <div class="section-label">Most popular</div>
             <h2>Manual driving lessons</h2>
             <p>Our most popular option. A manual licence gives you the most flexibility — you can drive both manual and automatic cars. Perfect for first-time learners who want a full licence.</p>
+
             <ul class="lesson-features">
               <li>✓ DVSA approved instructor</li>
               <li>✓ Suitable for complete beginners</li>
               <li>✓ Pick-up from your home or agreed location</li>
               <li>✓ Progress tracked every lesson</li>
-              <li>✓ Test preparation included</li>
+              <li>✓ Confidence building and safe driving practice</li>
             </ul>
+
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
 
           <div class="lesson-img">
-            <img src="images/manual picture .png" alt="Manual driving lesson" style="width:500px; height:350px; object-fit:cover; border-radius:16px;">
+            <img src="images/manual-gear-stick.png" alt="Manual gear stick for manual driving lessons">
           </div>
         </div>
 
@@ -185,19 +204,21 @@
           <div class="lesson-text">
             <div class="section-label">Easier to learn</div>
             <h2>Automatic driving lessons</h2>
-            <p>No clutch, no gears — just steer and go. Automatic lessons are ideal if you find manual too stressful, want to pass faster, or have a physical condition that makes manual driving difficult.</p>
+            <p>No clutch, no gears — just steer and go. Automatic lessons are ideal if you find manual too stressful, want to pass faster, or prefer a simpler driving experience.</p>
+
             <ul class="lesson-features">
               <li>✓ DVSA approved instructor</li>
               <li>✓ Less to think about — easier to learn</li>
               <li>✓ Great for nervous learners</li>
               <li>✓ Pick-up from your home or agreed location</li>
-              <li>✓ Test preparation included</li>
+              <li>✓ Confidence building and safe driving practice</li>
             </ul>
+
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
 
           <div class="lesson-img">
-            <img src="images/automaticcar.png" alt="Automatic driving lesson" style="width:500px; height:320px; object-fit:cover; border-radius:16px;">
+            <img src="images/automaticcar.png" alt="Automatic driving lesson">
           </div>
         </div>
 
@@ -205,7 +226,8 @@
           <div class="lesson-text">
             <div class="section-label">Back on the road</div>
             <h2>Refresher lessons</h2>
-            <p>Already have a licence but haven't driven in a while? Our refresher lessons help you rebuild your confidence at your own pace — no judgement, just patient guidance from an experienced instructor.</p>
+            <p>Already have a licence but haven’t driven in a while? Our refresher lessons help you rebuild your confidence at your own pace — no judgement, just patient guidance.</p>
+
             <ul class="lesson-features">
               <li>✓ Tailored to your specific needs</li>
               <li>✓ Build confidence at your own pace</li>
@@ -213,11 +235,12 @@
               <li>✓ No minimum number of lessons</li>
               <li>✓ Flexible scheduling</li>
             </ul>
+
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
 
           <div class="lesson-img">
-            <img src="images/refresher.png" alt="Refresher driving lesson" style="width:500px; height:350px; object-fit:cover; border-radius:16px;">
+            <img src="images/refresher.png" alt="Refresher driving lesson">
           </div>
         </div>
 
@@ -227,7 +250,8 @@
     <section class="lessons-cta">
       <div class="lessons-cta-inner">
         <h2>Not sure where to start?</h2>
-        <p>Get in touch and we'll help you choose the right lesson type for your situation.</p>
+        <p>Get in touch and we’ll help you choose the right lesson type for your situation.</p>
+
         <div class="hero-buttons">
           <a href="book.html" class="btn-primary">Book a lesson</a>
           <a href="contact.html" class="btn-secondary">Contact us</a>
