@@ -1273,3 +1273,33 @@ footer {
   .book-inner { min-height: 600px; }
 
 }
+
+.selected-lesson-box {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-left: 5px solid #e01e26;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 2rem;
+  color: #111111;
+  font-size: 1rem;
+}
+
+.selected-lesson-box strong {
+  margin-right: 0.4rem;
+}
+
+.selected-lesson-box span {
+  color: #e01e26;
+  font-weight: 800;
+}
+
+.service-card {
+  border: 1px solid #333333;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  border-color: #e01e26;
+  transform: translateY(-4px);
+}

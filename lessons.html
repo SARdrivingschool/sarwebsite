@@ -5,90 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Driving Lessons | SAR Driving School</title>
   <link rel="stylesheet" href="css/style.css">
+
   <style>
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex !important;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      z-index: 201;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #111111;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    nav ul {
-      display: none !important;
-    }
-    nav ul.open {
-      display: flex !important;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 1px solid #eeeeee;
-      padding: 0.5rem 1.5rem 1.25rem;
-      gap: 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      z-index: 200;
-    }
-    nav ul a {
-      display: block;
-      padding: 0.9rem 0;
-      font-size: 1rem;
-      color: #111111;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-inner {
+    .page-hero {
       position: relative;
-      height: 70px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        url("images/lessons-bg.png") center/cover no-repeat;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
     }
-    .hero-slideshow {
-      grid-template-columns: 1fr !important;
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
     }
-    .slide:nth-child(2),
-    .slide:nth-child(3) {
-      display: none !important;
-    }
-  }
-</style>
-  <style>
-  .page-hero {
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                url('images/toyotacorollasarpic.png') center/cover no-repeat;
-  }
 
     @media (max-width: 768px) {
-    .lesson-block {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 1.5rem !important;
+      .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        background: none;
+        border: none;
+        z-index: 201;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #111111;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      nav ul {
+        display: none !important;
+      }
+
+      nav ul.open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #eeeeee;
+        padding: 0.5rem 1.5rem 1.25rem;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        z-index: 200;
+      }
+
+      nav ul a {
+        display: block;
+        padding: 0.9rem 0;
+        font-size: 1rem;
+        color: #111111;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .nav-inner {
+        position: relative;
+        height: 70px;
+      }
+
+      .page-hero {
+        min-height: 520px;
+        background:
+          linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.78)),
+          url("images/lessons-bg.png") center right/cover no-repeat;
+        padding: 70px 1.25rem;
+      }
+
+      .page-hero h1 {
+        font-size: 2.1rem;
+        line-height: 1.15;
+      }
+
+      .page-hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .lesson-block {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+
+      .lesson-img img {
+        width: 100% !important;
+        height: 220px !important;
+        border-radius: 12px !important;
+      }
+
+      .lesson-text h2 {
+        font-size: 1.6rem !important;
+      }
+
+      .whatsapp-float {
+        width: 56px !important;
+        height: 56px !important;
+        bottom: 18px !important;
+        right: 18px !important;
+      }
     }
-    .lesson-img img {
-      width: 100% !important;
-      height: 220px !important;
-      border-radius: 12px !important;
-    }
-    .lesson-text h2 {
-      font-size: 1.6rem !important;
-    }
-  }
-</style>
+  </style>
 </head>
+
 <body>
 
   <nav>
@@ -96,9 +131,11 @@
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
       </a>
+
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
       <ul id="nav-menu">
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -138,10 +175,10 @@
             </ul>
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
-          <div class="lesson-img">
-          <img src="images/manual picture .png" alt="Manual driving lesson" style="width:500px; height:350px; object-fit:cover; border-radius:16px;">
-          </div>
 
+          <div class="lesson-img">
+            <img src="images/manual picture .png" alt="Manual driving lesson" style="width:500px; height:350px; object-fit:cover; border-radius:16px;">
+          </div>
         </div>
 
         <div class="lesson-block">
@@ -158,7 +195,10 @@
             </ul>
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
-          <div class="lesson-img"><img src="images/automaticcar.png" alt="Automatic lesson" style="width:500px;height:320px;object-fit:cover;border-radius:16px;"></div>
+
+          <div class="lesson-img">
+            <img src="images/automaticcar.png" alt="Automatic driving lesson" style="width:500px; height:320px; object-fit:cover; border-radius:16px;">
+          </div>
         </div>
 
         <div class="lesson-block">
@@ -175,7 +215,10 @@
             </ul>
             <a href="pricing.html" class="btn-primary">View pricing</a>
           </div>
-          <img src="images/refresher.png" alt="Refresher lesson" style="width:500px;height:350px;object-fit:cover;border-radius:16px;">
+
+          <div class="lesson-img">
+            <img src="images/refresher.png" alt="Refresher driving lesson" style="width:500px; height:350px; object-fit:cover; border-radius:16px;">
+          </div>
         </div>
 
       </div>
@@ -201,10 +244,12 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
+
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
     });
+
     navMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         hamburger.classList.remove('open');
@@ -213,300 +258,25 @@
     });
   </script>
 
-
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAR Driving School | Milton Keynes</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex !important;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      z-index: 201;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #111111;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    nav ul {
-      display: none !important;
-    }
-    nav ul.open {
-      display: flex !important;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 1px solid #eeeeee;
-      padding: 0.5rem 1.5rem 1.25rem;
-      gap: 0;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      z-index: 200;
-    }
-    nav ul a {
-      display: block;
-      padding: 0.9rem 0;
-      font-size: 1rem;
-      color: #111111;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .nav-inner {
-      position: relative;
-      height: 70px;
-    }
-    .hero-slideshow {
-      grid-template-columns: 1fr !important;
-    }
-    .slide:nth-child(2),
-    .slide:nth-child(3) {
-      display: none !important;
-    }
-  }
-</style>
-</head>
-<body>
-
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul id="nav-menu">
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
-        <li><a href="book.html" class="btn-nav">Book now</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main>
-
-    <section class="hero" id="hero">
-      <div class="hero-slideshow" id="heroSlideshow"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <h1>Driving lessons in<br><span>Milton Keynes</span><br>& surrounding areas</h1>
-          <p>Trusted by 500+ passers across Milton Keynes. Patient instructors, tailored lessons, real results.</p>
-          <div class="hero-buttons">
-            <a href="book.html" class="btn-primary">Book your first lesson</a>
-            <a href="pricing.html" class="btn-secondary">View pricing</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat"><strong>500+</strong><span>learners passed</span></div>
-            <div class="stat"><strong>15+</strong><span>years experience</span></div>
-            <div class="stat"><strong>✅</strong><span>DVSA certified</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services">
-      <div class="services-inner">
-        <div class="section-label">What we offer</div>
-        <h2>Choose your lesson type</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">🚗</div>
-            <h3>Automatic lessons</h3>
-            <p>Easier to learn, no clutch or gears to worry about. Perfect if you want to pass faster.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-          <div class="service-card featured">
-            <div class="service-badge">Most popular</div>
-            <div class="service-icon">🔧</div>
-            <h3>Manual lessons</h3>
-            <p>Full licence, full control. Our most popular option for learners who want maximum flexibility.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🔄</div>
-            <h3>Refresher lessons</h3>
-            <p>Been off the road a while? Build your confidence back up with a tailored refresher course.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing">
-      <div class="pricing-inner">
-        <div class="section-label">Transparent pricing</div>
-        <h2>Simple, honest prices</h2>
-        <p class="pricing-sub">No hidden fees. Select your lesson type to see pricing.</p>
-        <div class="pricing-selector">
-          <div class="pricing-tabs">
-            <button class="tab-btn active" onclick="showTab('single', this)">Single lessons</button>
-            <button class="tab-btn" onclick="showTab('block', this)">Block booking</button>
-            <button class="tab-btn" onclick="showTab('intensive', this)">Intensive course</button>
-          </div>
-          <div class="tab-content active" id="single">
-            <div class="tab-cards">
-              <div class="tab-card">
-                <h3>1 hour</h3>
-                <div class="tab-price">£38</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-              <div class="tab-card featured">
-                <h3>1.5 hours</h3>
-                <div class="tab-price">£57</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-              <div class="tab-card">
-                <h3>2 hours</h3>
-                <div class="tab-price">£76</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-            <p class="tab-note">✓ DVSA approved · ✓ Manual or automatic · ✓ Pick-up from your area · ✓ Tailored to your level</p>
-          </div>
-          <div class="tab-content" id="block">
-            <div class="tab-cards">
-              <div class="tab-card featured">
-                <div class="pricing-badge">Best value</div>
-                <h3>10 hours</h3>
-                <div class="tab-price">£360 <span class="saving">save £20</span></div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-            <p class="tab-note">✓ Split into sessions at times that suit you · ✓ Progress tracked every lesson · ✓ Pick-up from your area</p>
-          </div>
-          <div class="tab-content" id="intensive">
-            <div class="tab-cards">
-              <div class="tab-card featured">
-                <h3>20 hours</h3>
-                <div class="tab-price">£700 <span class="saving">save £60</span></div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-            <p class="tab-note">✓ Intensive back-to-back sessions · ✓ Fastest route to passing · ✓ Progress tracked every lesson</p>
-          </div>
-        </div>
-        <p class="pricing-note">Not sure which to pick? <a href="contact.html">Get in touch</a> and we'll help you choose.</p>
-      </div>
-    </section>
-
-    <section class="reviews">
-      <div class="reviews-inner">
-        <div class="section-label">What students say</div>
-        <h2>170+ five-star reviews on Google</h2>
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="elfsight-app-cc61d0bc-56d4-4164-a5b2-26f291dea5fe" data-elfsight-app-lazy></div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
-  </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-    navMenu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-      });
-    });
-
-    function showTab(tab, btn) {
-      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(tab).classList.add('active');
-      btn.classList.add('active');
-    }
-
-    const photos = [
-      "Screenshot 2026-05-18 at 19.15.57.png",
-      "Screenshot 2026-05-18 at 19.16.48.png",
-      "Screenshot 2026-05-18 at 19.23.02.png",
-      "Screenshot 2026-05-18 at 19.23.13.png",
-      "Screenshot 2026-05-18 at 19.24.00.png",
-      "Screenshot 2026-05-18 at 19.26.18.png",
-      "Screenshot 2026-05-18 at 19.26.36.png",
-      "Screenshot 2026-05-18 at 19.26.48.png"
-    ];
-
-    const slideshow = document.getElementById('heroSlideshow');
-    let current = 0;
-    function buildSlides() {
-      slideshow.innerHTML = '';
-      for (let i = 0; i < 3; i++) {
-        const idx = (current + i) % photos.length;
-        const div = document.createElement('div');
-        div.className = 'slide';
-        div.style.backgroundImage = `url('images/websitepictures/${photos[idx]}')`;
-        slideshow.appendChild(div);
-      }
-    }
-    buildSlides();
-    setInterval(() => { current = (current + 1) % photos.length; buildSlides(); }, 3000);
-  </script>
-
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/447902023737" target="_blank" style="
-          position: fixed;
-          bottom: 24px;
-          right: 24px;
-          width: 60px;
-          height: 60px;
-          background: #25D366;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-          z-index: 9999;
-          transition: transform 0.2s;
-        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-        </a>
-
-
-
-
-</body>
-</html>
+  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.2s;
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 
 </body>
 </html>
