@@ -14,7 +14,7 @@
     .gallery-page {
       background: #1f1f1f;
       min-height: 100vh;
-      padding: 70px 2rem;
+      padding: 90px 2rem 70px;
     }
 
     .gallery-inner {
@@ -77,6 +77,7 @@
       overflow: hidden;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease;
+      aspect-ratio: 4 / 3;
     }
 
     .gallery-card:hover {
@@ -86,25 +87,10 @@
 
     .gallery-img {
       width: 100%;
-      height: 250px;
+      height: 100%;
       object-fit: cover;
       display: block;
       background: #000000;
-    }
-
-    .gallery-card-content {
-      padding: 1rem;
-    }
-
-    .gallery-card-content h3 {
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .gallery-card-content p {
-      color: #999999;
-      font-size: 0.9rem;
     }
 
     .gallery-lightbox {
@@ -259,7 +245,7 @@
       }
 
       .gallery-page {
-        padding: 45px 1rem;
+        padding: 55px 1rem 45px;
       }
 
       .gallery-header {
@@ -275,8 +261,8 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-img {
-        height: 330px;
+      .gallery-card {
+        aspect-ratio: 4 / 3;
       }
 
       .gallery-lightbox {
@@ -390,7 +376,6 @@
     });
 
     const galleryGrid = document.getElementById('galleryGrid');
-
     const totalImages = 111;
 
     const passImages = Array.from({ length: totalImages }, function(_, index) {
@@ -398,16 +383,12 @@
       return `images/passes/pass${number}.jpg`;
     });
 
-    passImages.forEach(function(src, index) {
+    passImages.forEach(function(src) {
       const card = document.createElement('div');
       card.className = 'gallery-card';
 
       card.innerHTML = `
         <img src="${src}" alt="SAR Driving School pass" class="gallery-img" loading="lazy">
-        <div class="gallery-card-content">
-          <h3>SAR Driving School pass</h3>
-          <p>Pass photo ${index + 1}</p>
-        </div>
       `;
 
       galleryGrid.appendChild(card);
@@ -555,4 +536,3 @@
 
 </body>
 </html>
-
