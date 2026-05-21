@@ -7,159 +7,564 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    :root {
+      --red: #ed1c24;
+      --dark: #0b0b0b;
+      --dark2: #111111;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
     .page-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.28) 100%),
         url("images/contact-bg.png") center/cover no-repeat;
-      min-height: 430px;
+      min-height: 460px;
       display: flex;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      pointer-events: none;
     }
 
     .page-hero-inner {
       position: relative;
       z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem;
     }
 
-    .contact-section {
-      background: #f6f6f6;
-      padding: 70px 2rem;
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      color: #ffffff;
+      margin: 0 0 1rem;
+      letter-spacing: -2px;
+    }
+
+    .page-hero p {
+      color: #d6d6d6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 920px;
+    }
+
+    .contact-main-section {
+      position: relative;
+      background: #0b0b0b;
+      padding: 85px 2rem;
+      overflow: hidden;
+    }
+
+    .contact-main-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 25%, rgba(237,28,36,0.13), transparent 34%),
+        radial-gradient(circle at 85% 85%, rgba(237,28,36,0.10), transparent 30%);
+      pointer-events: none;
     }
 
     .contact-inner {
-      max-width: 1100px;
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 2rem;
       align-items: start;
     }
 
-    .contact-details,
-    .contact-form {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid #eeeeee;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    .contact-card,
+    .form-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 2.3rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
     }
 
-    .contact-details h2,
-    .contact-form h2 {
-      color: #111111;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
+    .contact-card h2,
+    .form-card h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      margin-bottom: 1.4rem;
+      letter-spacing: -1px;
+    }
+
+    .contact-card-intro {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0;
+      margin-bottom: 2rem;
     }
 
     .contact-item {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: auto 1fr;
       gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid #eeeeee;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.11);
+      transition: transform 0.25s ease;
     }
 
-    .contact-item:last-child {
-      border-bottom: none;
+    .contact-item:hover {
+      transform: translateX(4px);
     }
 
     .contact-icon {
-      width: 42px;
-      height: 42px;
-      background: #111111;
-      color: #ffffff;
-      border-radius: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(237,28,36,0.14);
+      border: 1px solid rgba(237,28,36,0.3);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #ffffff;
       font-size: 1.2rem;
-      flex-shrink: 0;
     }
 
     .contact-item strong {
       display: block;
-      color: #111111;
-      margin-bottom: 0.25rem;
-      font-size: 1rem;
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
     }
 
     .contact-item a,
     .contact-item span {
-      color: #666666;
-      text-decoration: none;
-      line-height: 1.5;
+      color: #cfcfcf;
+      line-height: 1.55;
+      font-size: 0.98rem;
     }
 
     .contact-item a:hover {
-      color: #e01e26;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 800;
-      color: #111111;
-      margin-bottom: 0.45rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      border: 1px solid #dddddd;
-      border-radius: 12px;
-      padding: 0.95rem 1rem;
-      font-size: 1rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #e01e26;
-      box-shadow: 0 0 0 3px rgba(224, 30, 38, 0.12);
-    }
-
-    .btn-submit {
-      width: 100%;
-      background: #e01e26;
       color: #ffffff;
-      border: none;
-      border-radius: 999px;
-      padding: 1rem 1.3rem;
-      font-size: 1rem;
-      font-weight: 900;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
     }
 
-    .btn-submit:hover {
-      background: #c9161d;
+    .fast-reply-box {
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.035)),
+        rgba(0,0,0,0.32);
+      border: 1px solid rgba(237,28,36,0.28);
+      border-radius: 20px;
+      padding: 1.35rem;
+    }
+
+    .fast-reply-box h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .fast-reply-box p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
       transform: translateY(-2px);
     }
 
-    .contact-note {
-      margin-top: 1.5rem;
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.94rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 56px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      color: #ffffff;
+      padding: 0 1rem;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 138px;
+      padding: 1rem;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #a8a8a8;
+    }
+
+    .field select {
+      appearance: none;
+      background:
+        linear-gradient(45deg, transparent 50%, #ffffff 50%),
+        linear-gradient(135deg, #ffffff 50%, transparent 50%),
+        rgba(255,255,255,0.10);
+      background-position:
+        calc(100% - 20px) 24px,
+        calc(100% - 15px) 24px,
+        0 0;
+      background-size:
+        5px 5px,
+        5px 5px,
+        100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .field select option {
       background: #111111;
       color: #ffffff;
-      border-radius: 16px;
-      padding: 1.3rem;
-      line-height: 1.6;
     }
 
-    .contact-note strong {
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(237,28,36,0.75);
+      background: rgba(255,255,255,0.13);
+      box-shadow: 0 0 0 4px rgba(237,28,36,0.12);
+    }
+
+    .form-note {
+      color: #bfbfbf;
+      line-height: 1.65;
+      font-size: 0.94rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-form button {
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-options-section {
+      background: #101010;
+      padding: 80px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-options-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .options-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.4rem;
+    }
+
+    .options-head h2 {
       color: #ffffff;
-      display: block;
-      margin-bottom: 0.4rem;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      margin-bottom: 0.9rem;
+      letter-spacing: -1px;
     }
 
-    .contact-note p {
-      color: #cccccc;
+    .options-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .option-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .option-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        #151515;
+    }
+
+    .option-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.35rem;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.24);
+    }
+
+    .option-card h3 {
+      color: #ffffff;
+      font-size: 1.08rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .option-card p {
+      color: #bfbfbf;
+      line-height: 1.55;
+      font-size: 0.92rem;
       margin: 0;
+    }
+
+    .faq-section {
+      background: #0b0b0b;
+      padding: 80px 2rem;
+    }
+
+    .faq-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .faq-copy h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .faq-copy p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .faq-item {
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 64px;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      font: inherit;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .faq-question span {
+      color: var(--red);
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .faq-answer p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      padding: 0 1.25rem 1.25rem;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 180px;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    .final-cta-section {
+      background: #202020;
+      padding: 80px 2rem;
+      text-align: center;
+    }
+
+    .final-cta-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .final-cta-card h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      margin-bottom: 0.9rem;
+      letter-spacing: -1px;
+    }
+
+    .final-cta-card p {
+      color: #d0d0d0;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 1.7rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .contact-inner,
+      .faq-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -221,16 +626,20 @@
       }
 
       .page-hero {
-        min-height: 520px;
+        min-height: 460px;
+        padding: 70px 0;
         background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.8)),
+          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
           url("images/contact-bg.png") center right/cover no-repeat;
-        padding: 70px 1.25rem;
+      }
+
+      .page-hero-inner {
+        padding: 0 1.25rem;
       }
 
       .page-hero h1 {
-        font-size: 2.1rem;
-        line-height: 1.15;
+        font-size: 2.35rem;
+        line-height: 1.12;
       }
 
       .page-hero p {
@@ -238,34 +647,42 @@
         line-height: 1.6;
       }
 
-      .contact-section {
-        padding: 45px 1rem;
+      .contact-main-section,
+      .contact-options-section,
+      .faq-section,
+      .final-cta-section {
+        padding: 56px 1.25rem;
       }
 
-      .contact-inner {
+      .contact-card,
+      .form-card,
+      .final-cta-card {
+        border-radius: 20px;
+        padding: 1.55rem;
+      }
+
+      .form-row,
+      .options-grid {
         grid-template-columns: 1fr;
-        gap: 1.4rem;
-      }
-
-      .contact-details,
-      .contact-form {
-        padding: 1.4rem;
-        border-radius: 16px;
-      }
-
-      .contact-details h2,
-      .contact-form h2 {
-        font-size: 1.55rem;
       }
 
       .contact-item {
-        gap: 0.8rem;
+        grid-template-columns: 1fr;
       }
 
       .contact-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-whatsapp {
+        width: 100%;
       }
 
       .whatsapp-float {
@@ -312,86 +729,233 @@
       </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-main-section">
       <div class="contact-inner">
 
-        <div class="contact-details">
+        <div class="contact-card">
           <h2>Talk to us</h2>
+          <p class="contact-card-intro">
+            WhatsApp is usually the quickest way to reach us. Please include your name, area,
+            lesson type and availability so we can help faster.
+          </p>
 
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <div>
-              <strong>Phone</strong>
-              <a href="tel:07902023737">07902 023737</a>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:07902023737">07902 023737</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/447902023737" target="_blank">Message us on WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Areas covered</strong>
+                <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard, Kettering and surrounding areas</span>
+              </div>
             </div>
           </div>
 
-          <div class="contact-item">
-            <span class="contact-icon">💬</span>
-            <div>
-              <strong>WhatsApp</strong>
-              <a href="https://wa.me/447902023737" target="_blank">Message us on WhatsApp</a>
-            </div>
-          </div>
+          <div class="fast-reply-box">
+            <h3>Need a fast reply?</h3>
+            <p>
+              Send us your name, postcode, preferred lesson type and days/times you are available.
+            </p>
 
-          <div class="contact-item">
-            <span class="contact-icon">✉️</span>
-            <div>
-              <strong>Email</strong>
-              <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>
+            <div class="quick-actions">
+              <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp now</a>
+              <a href="book.html" class="btn-primary">Book a lesson</a>
             </div>
-          </div>
-
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <div>
-              <strong>Areas covered</strong>
-              <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard, Kettering and surrounding areas</span>
-            </div>
-          </div>
-
-          <div class="contact-note">
-            <strong>Need a fast reply?</strong>
-            <p>WhatsApp is usually the quickest way to reach us. Please include your name, area, lesson type and availability.</p>
           </div>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/xlgvrenw" method="POST">
-          <h2>Send a message</h2>
+        <div class="form-card">
+          <div class="section-label">Send a message</div>
+          <h2>Tell us what you need</h2>
 
-          <div class="form-group">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="John Smith" required>
+          <form class="contact-form" action="https://formsubmit.co/info@sardrivingschool.co.uk" method="POST">
+            <input type="hidden" name="_subject" value="New SAR Driving School contact enquiry">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="John Smith" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" placeholder="07700 000000" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="john@example.com">
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="lesson">Lesson type</label>
+                <select id="lesson" name="lesson_type" required>
+                  <option value="">Select lesson type</option>
+                  <option>Manual lessons</option>
+                  <option>Automatic lessons</option>
+                  <option>Refresher lessons</option>
+                  <option>Intensive course</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="area">Your area</label>
+                <input id="area" name="area" type="text" placeholder="Milton Keynes, Bletchley, Bedford..." required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="availability">Availability</label>
+              <input id="availability" name="availability" type="text" placeholder="Weekdays after 5pm, weekends, mornings...">
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="I’d like to find out about lessons..." required></textarea>
+            </div>
+
+            <p class="form-note">
+              We’ll use your details only to reply to your enquiry and confirm lesson availability.
+            </p>
+
+            <button type="submit" class="btn-primary">Send message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact-options-section">
+      <div class="contact-options-inner">
+        <div class="options-head">
+          <div class="section-label">Before you message</div>
+          <h2>Help us reply faster</h2>
+          <p>Include these details in your message so we can quickly check the right instructor and availability.</p>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card">
+            <div class="option-icon">📍</div>
+            <h3>Your area</h3>
+            <p>Tell us your postcode or town so we can check local availability.</p>
           </div>
 
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          <div class="option-card">
+            <div class="option-icon">🚗</div>
+            <h3>Lesson type</h3>
+            <p>Manual, automatic, refresher, intensive course or unsure.</p>
           </div>
 
-          <div class="form-group">
-            <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="07700 000000">
+          <div class="option-card">
+            <div class="option-icon">🕒</div>
+            <h3>Availability</h3>
+            <p>Let us know which days and times normally work for you.</p>
           </div>
 
-          <div class="form-group">
-            <label for="lesson">Lesson type</label>
-            <input type="text" id="lesson" name="lesson_type" placeholder="Manual, automatic, refresher or test day">
+          <div class="option-card">
+            <div class="option-icon">🎯</div>
+            <h3>Your experience</h3>
+            <p>Beginner, partly trained, test booked or returning to driving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="faq-inner">
+        <div class="faq-copy">
+          <div class="section-label">Common questions</div>
+          <h2>Quick answers before booking</h2>
+          <p>
+            These are the usual details learners ask before starting lessons with SAR Driving School.
+          </p>
+
+          <a href="pricing.html" class="btn-primary">View pricing</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              How quickly can I start lessons?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Availability depends on your area, lesson type and instructor schedule. Message us your postcode and availability so we can check properly.</p>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="area">Your area</label>
-            <input type="text" id="area" name="area" placeholder="Milton Keynes, Bletchley, Bedford...">
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              Do you offer manual and automatic?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, we offer both manual and automatic lessons depending on instructor availability in your area.</p>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="I'd like to find out about lessons..." required></textarea>
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              Can I book if I am nervous?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Our lessons are calm, patient and tailored to your confidence level. Nervous learners are welcome.</p>
+            </div>
           </div>
 
-          <button type="submit" class="btn-submit">Send message</button>
-        </form>
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              Do you cover outside Milton Keynes?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We may cover surrounding areas such as Bletchley, Bedford, Leighton Buzzard and Kettering, depending on instructor availability and travel time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="final-cta-section">
+      <div class="final-cta-card">
+        <div class="section-label">Ready to start?</div>
+        <h2>Let’s get your first lesson arranged</h2>
+        <p>
+          Send us your details and we’ll help you choose the right lesson type, check availability and confirm the next step.
+        </p>
+
+        <div class="cta-actions">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          <a href="pricing.html" class="btn-secondary">View pricing</a>
+        </div>
       </div>
     </section>
 
@@ -414,6 +978,22 @@
       link.addEventListener('click', function() {
         hamburger.classList.remove('open');
         navMenu.classList.remove('open');
+      });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', function() {
+        faqItems.forEach(function(otherItem) {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+
+        item.classList.toggle('active');
       });
     });
   </script>
