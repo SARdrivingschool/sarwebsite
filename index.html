@@ -9,7 +9,6 @@
     :root {
       --red: #ed1c24;
       --dark: #050505;
-      --dark2: #101010;
       --card: #141414;
       --text: #ffffff;
       --muted: #cfcfcf;
@@ -55,9 +54,8 @@
       position: relative;
       width: 100%;
       z-index: 50;
-      background: #ffffff;
-      border-bottom: 1px solid #eeeeee;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      background: #101010;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .nav {
@@ -81,7 +79,7 @@
     }
 
     .nav-links a {
-      color: #111111;
+      color: #ffffff;
       font-size: 0.96rem;
       font-weight: 800;
       transition: color 0.2s ease;
@@ -116,7 +114,7 @@
     .hamburger span {
       width: 30px;
       height: 3px;
-      background: #111111;
+      background: #ffffff;
       border-radius: 99px;
       transition: 0.25s;
     }
@@ -260,6 +258,27 @@
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 30px;
+    }
+
+    .google-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .google-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #4285F4;
+      line-height: 1;
     }
 
     .stars {
@@ -603,10 +622,6 @@
         width: min(100% - 28px, var(--max));
       }
 
-      header {
-        background: #ffffff;
-      }
-
       .nav {
         min-height: 82px;
       }
@@ -625,13 +640,13 @@
         top: 82px;
         left: 0;
         right: 0;
-        background: #ffffff;
+        background: #101010;
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
         padding: 12px 24px 20px;
-        border-top: 1px solid #eeeeee;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         z-index: 99;
       }
 
@@ -647,15 +662,14 @@
         display: block;
         width: 100%;
         padding: 14px 0;
-        color: #111111;
-        border-bottom: 1px solid #eeeeee;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
       }
 
       .btn-nav {
         margin-top: 12px;
         width: 100%;
         text-align: center;
-        color: #ffffff !important;
       }
 
       .hero {
@@ -726,6 +740,12 @@
         font-size: 0.88rem;
         line-height: 1.35;
         margin-bottom: 16px;
+      }
+
+      .google-icon {
+        width: 19px;
+        height: 19px;
+        font-size: 0.78rem;
       }
 
       .rating-row .stars {
@@ -1028,7 +1048,9 @@
           </div>
 
           <div class="rating-row">
-            <span>Rated 5.0 on Google</span>
+            <span class="google-rating">
+              Rated 5.0 on <span class="google-icon">G</span> Google
+            </span>
             <span class="stars">★★★★★</span>
             <span>170+ Reviews</span>
           </div>
@@ -1040,8 +1062,8 @@
             </div>
 
             <div class="stat-card">
-              <strong>170+</strong>
-              <span>Five-star Google reviews</span>
+              <strong>15+</strong>
+              <span>Years of teaching experience</span>
             </div>
 
             <div class="stat-card">
