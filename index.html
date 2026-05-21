@@ -276,9 +276,7 @@
       justify-content: center;
       font-weight: 900;
       font-size: 0.9rem;
-      font-family: Arial, Helvetica, sans-serif;
       color: #4285F4;
-      line-height: 1;
     }
 
     .stars {
@@ -415,6 +413,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+      align-items: stretch;
     }
 
     .review-card {
@@ -422,6 +421,16 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 26px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.45);
     }
 
     .review-card .stars {
@@ -433,6 +442,7 @@
       margin-bottom: 16px;
       color: var(--muted);
       line-height: 1.7;
+      flex: 1;
     }
 
     .review-card strong {
@@ -856,6 +866,7 @@
       }
 
       .review-card {
+        min-height: auto;
         padding: 18px;
         border-radius: 18px;
       }
@@ -1162,6 +1173,24 @@
               I had a great experience learning with Mr. Rizwan. He is very supportive and explained everything clearly which really helped build my confidence.
             </p>
             <strong>Rabia Islam</strong>
+            <small>Google review</small>
+          </div>
+
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              I couldn’t have asked for a better instructor. My lessons with Sikander were always clear and easy to follow, helping my confidence behind the wheel grow. I managed to pass first time through SAR Driving School and would highly recommend to anyone who wants a patient, supportive and reliable instructor.
+            </p>
+            <strong>Lena Brindle</strong>
+            <small>Google review</small>
+          </div>
+
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              He is the best driving instructor. After my third failed attempts, I went for SAR, and he helped me build my confidence level in everything regarding my driving. He is very patient, kind, respectful and professional. Just run to SAR Driving School if you want to pass your driving test and be a better driver.
+            </p>
+            <strong>Linda Mensah</strong>
             <small>Google review</small>
           </div>
         </div>
