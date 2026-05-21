@@ -10,6 +10,7 @@
       --red: #ed1c24;
       --dark: #050505;
       --dark2: #101010;
+      --card: #141414;
       --text: #ffffff;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -161,20 +162,26 @@
       max-width: 760px;
     }
 
-    .hero-label {
+    .hero-label,
+    .section-label {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-label {
+      color: #ffffff;
       padding: 14px 22px;
       border-radius: 999px;
       border: 1px solid rgba(237,28,36,0.5);
       background: rgba(95,0,0,0.46);
-      color: #ffffff;
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
       margin-bottom: 28px;
       backdrop-filter: blur(8px);
     }
@@ -215,7 +222,7 @@
       justify-content: center;
       font-weight: 900;
       font-size: 1.04rem;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
     .btn:hover {
@@ -284,16 +291,239 @@
       line-height: 1.5;
     }
 
-    /* BELOW SECTIONS */
+    /* QUICK FEATURES */
+    .quick-features {
+      background: #0b0b0b;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .quick-card span {
+      color: #bdbdbd;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* GALLERY PREVIEW */
+    .pass-preview {
+      background: #101010;
+      padding: 80px 0;
+    }
+
+    .pass-inner {
+      display: grid;
+      grid-template-columns: 0.85fr 1.45fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .section h2,
+    .pass-preview h2,
+    .reviews h2,
+    .why h2,
+    .cta h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .pass-preview p,
+    .reviews p,
+    .why p,
+    .cta p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .pass-copy p {
+      margin-bottom: 24px;
+    }
+
+    .pass-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .pass-grid img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+      transition: transform 0.25s ease;
+    }
+
+    .pass-grid img:hover {
+      transform: translateY(-5px);
+    }
+
+    /* REVIEWS */
+    .reviews {
+      background: #151515;
+      padding: 80px 0;
+    }
+
+    .reviews-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-card {
+      background: #0f0f0f;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+    }
+
+    .review-card .stars {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .review-card p {
+      margin-bottom: 16px;
+    }
+
+    .review-card strong {
+      color: #ffffff;
+    }
+
+    /* WHY */
+    .why {
+      background: #0c0c0c;
+      padding: 80px 0;
+    }
+
+    .why-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 18px;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .why-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.45rem;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: #bcbcbc;
+    }
+
+    /* CTA */
+    .cta {
+      background: #0c0c0c;
+      padding: 0 0 80px;
+    }
+
+    .cta-panel {
+      background:
+        linear-gradient(90deg, rgba(237,28,36,0.88), rgba(0,0,0,0.58)),
+        url("images/home-bg-fleet.png");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .cta p {
+      max-width: 620px;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+    }
+
+    .cta-box {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .cta-box strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-box span {
+      color: #dddddd;
+      line-height: 1.6;
+    }
+
+    /* BASIC LESSON CARDS */
     .section {
       padding: 80px 0;
       background: #0c0c0c;
-    }
-
-    .section h2 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      margin-bottom: 16px;
-      line-height: 1.08;
     }
 
     .section p {
@@ -315,6 +545,12 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
     }
 
     .card h3 {
@@ -470,16 +706,44 @@
         gap: 8px 12px;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
+      .stats,
+      .quick-grid,
+      .review-grid,
       .cards {
         grid-template-columns: 1fr;
       }
 
+      .pass-inner,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .pass-preview,
+      .reviews,
+      .why,
       .section {
         padding: 56px 0;
+      }
+
+      .pass-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pass-grid img {
+        height: 180px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding-bottom: 56px;
+      }
+
+      .cta-panel {
+        padding: 28px 20px;
+        border-radius: 22px;
       }
 
       .whatsapp-float {
@@ -534,7 +798,6 @@
 
     <section class="hero">
       <div class="container hero-inner">
-
         <div class="hero-content">
           <div class="hero-label">📍 Milton Keynes' trusted driving school</div>
 
@@ -577,13 +840,142 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
+    <section class="quick-features">
+      <div class="container quick-grid">
+        <div class="quick-card">
+          <strong>DVSA Approved</strong>
+          <span>Qualified and trusted instructors.</span>
+        </div>
+
+        <div class="quick-card">
+          <strong>Manual & Automatic</strong>
+          <span>Choose the lesson type that suits you.</span>
+        </div>
+
+        <div class="quick-card">
+          <strong>Local Test Knowledge</strong>
+          <span>Milton Keynes and surrounding test routes.</span>
+        </div>
+
+        <div class="quick-card">
+          <strong>Flexible Lessons</strong>
+          <span>Weekday and weekend availability.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pass-preview">
+      <div class="container pass-inner">
+        <div class="pass-copy">
+          <div class="section-label">Pass Gallery</div>
+          <h2>Our happy passers 🎉</h2>
+          <p>
+            Real learners. Real passes. Browse some of our recent successful students
+            who passed with SAR Driving School.
+          </p>
+          <a href="gallery.html" class="btn btn-primary">View Full Gallery →</a>
+        </div>
+
+        <div class="pass-grid">
+          <img src="images/passes/pass001.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/pass002.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/pass003.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/pass004.jpg" alt="SAR Driving School pass photo">
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <div class="container">
+        <div class="reviews-head">
+          <div class="section-label">What learners say</div>
+          <h2>Real reviews from real learners</h2>
+          <p>
+            Friendly instruction, calm teaching and real results. Here are just a few
+            of the comments from SAR learners.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              Great instructor. Very patient and explains everything clearly.
+              Passed first time with confidence. Highly recommend SAR.
+            </p>
+            <strong>Jessica M.</strong>
+          </div>
+
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              Professional, friendly and calm. Lessons were well structured and really helped me pass.
+            </p>
+            <strong>Daniel T.</strong>
+          </div>
+
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              Best decision choosing SAR. Amazing support throughout and very flexible lesson times.
+            </p>
+            <strong>Ayesha R.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="why-head">
+          <div class="section-label">Why choose SAR?</div>
+          <h2>More than just driving lessons</h2>
+          <p>
+            Structured lessons, modern teaching, local route knowledge and patient instructors.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">🎓</div>
+            <h3>Expert Instructors</h3>
+            <p>DVSA approved, friendly and experienced.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🛡️</div>
+            <h3>Proven Results</h3>
+            <p>Hundreds of learners passed with SAR.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🚗</div>
+            <h3>Modern Teaching</h3>
+            <p>Clear, structured lessons for today’s roads.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">⏰</div>
+            <h3>Flexible Scheduling</h3>
+            <p>Lessons to suit work, study and daily life.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">📍</div>
+            <h3>Local Knowledge</h3>
+            <p>Milton Keynes and nearby test routes.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2>Why learners choose SAR</h2>
+        <div class="section-label">Lesson options</div>
+        <h2>Choose the lesson that suits you</h2>
         <p>
           We offer manual, automatic and refresher lessons with patient instructors,
           clear guidance and a teaching style tailored to your confidence and ability.
@@ -603,6 +995,34 @@
           <div class="card">
             <h3>Refresher lessons</h3>
             <p>Great for motorway driving, parking, roundabouts and confidence building.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-label" style="color:#fff;">Ready to start?</div>
+            <h2>Ready to pass your driving test?</h2>
+            <p>
+              Join hundreds of happy learners who passed with SAR Driving School.
+              Book your first lesson today and start driving with confidence.
+            </p>
+
+            <div class="hero-actions">
+              <a href="book.html" class="btn btn-primary">Book Lessons Now →</a>
+              <a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <strong>Let’s get you test ready.</strong>
+            <span>
+              Manual, automatic and refresher lessons available across Milton Keynes
+              and surrounding areas.
+            </span>
           </div>
         </div>
       </div>
