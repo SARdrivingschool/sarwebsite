@@ -324,7 +324,7 @@
       line-height: 1.5;
     }
 
-    /* GALLERY PREVIEW */
+    /* PASS GALLERY PREVIEW */
     .pass-preview {
       background: #101010;
       padding: 80px 0;
@@ -388,13 +388,13 @@
 
     .reviews-head {
       text-align: center;
-      max-width: 760px;
+      max-width: 850px;
       margin: 0 auto 34px;
     }
 
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
@@ -403,19 +403,39 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.45);
     }
 
     .review-card .stars {
       display: block;
       margin-bottom: 14px;
+      color: #ffd84d;
     }
 
     .review-card p {
       margin-bottom: 16px;
+      color: #d4d4d4;
+      line-height: 1.75;
+      font-size: 0.98rem;
     }
 
     .review-card strong {
       color: #ffffff;
+      display: block;
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+
+    .review-meta {
+      display: block;
+      color: #999999;
+      font-size: 0.85rem;
+      margin-top: 5px;
     }
 
     /* WHY */
@@ -589,6 +609,17 @@
     .whatsapp-float svg {
       width: 32px;
       height: 32px;
+    }
+
+    /* TABLET */
+    @media (max-width: 1100px) {
+      .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     /* MOBILE */
@@ -894,8 +925,7 @@
           <div class="section-label">What learners say</div>
           <h2>Real reviews from real learners</h2>
           <p>
-            Friendly instruction, calm teaching and real results. Here are just a few
-            of the comments from SAR learners.
+            Genuine feedback from learners who passed with SAR Driving School.
           </p>
         </div>
 
@@ -903,26 +933,44 @@
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              Great instructor. Very patient and explains everything clearly.
-              Passed first time with confidence. Highly recommend SAR.
+              I can’t recommend Riz enough. I was very nervous to start driving, but he put me at ease straight away.
+              After my first lesson, I instantly felt more confident. Riz explained everything really clearly and made
+              it all easy to understand. I was so happy to pass first time and so did my husband.
             </p>
-            <strong>Jessica M.</strong>
+            <strong>Sarah Owen</strong>
+            <span class="review-meta">Google review</span>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              Professional, friendly and calm. Lessons were well structured and really helped me pass.
+              Sikandar was a great teacher! He was patient, calm and explained things in a way I could understand.
+              Would def recommend getting lessons with him! Thank you for helping me pass.
             </p>
-            <strong>Daniel T.</strong>
+            <strong>Lola Dog</strong>
+            <span class="review-meta">Google review</span>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              Best decision choosing SAR. Amazing support throughout and very flexible lesson times.
+              A great instructor who helped me learn quickly in only a few months and passed with one minor!
+              Would highly recommend.
             </p>
-            <strong>Ayesha R.</strong>
+            <strong>Laila Edwards</strong>
+            <span class="review-meta">Google review</span>
+          </div>
+
+          <div class="review-card">
+            <span class="stars">★★★★★</span>
+            <p>
+              I had a great experience learning with Mr. Rizwan. He is very supportive and explained everything clearly
+              which really helped build my confidence. Thanks to his guidance and encouragement, I passed my test today
+              with 2 minor mistakes. I would highly recommend him to anyone looking for a friendly, reliable and
+              professional driving instructor.
+            </p>
+            <strong>Rabia Islam</strong>
+            <span class="review-meta">Google review</span>
           </div>
         </div>
       </div>
