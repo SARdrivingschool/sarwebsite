@@ -3,69 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery | SAR Driving School</title>
+  <title>Pass Gallery | SAR Driving School</title>
   <link rel="stylesheet" href="css/style.css">
 
   <style>
     body {
-      background: #111111;
-      color: #ffffff;
-    }
-
-    .gallery-hero {
-      background: #111111;
-      padding: 95px 2rem 80px;
-      border-bottom: 1px solid #222222;
-    }
-
-    .gallery-hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .gallery-hero h1 {
-      font-size: 3.2rem;
-      line-height: 1.05;
-      margin: 1rem 0;
-      color: #ffffff;
-    }
-
-    .gallery-hero p {
-      max-width: 720px;
-      color: #cfcfcf;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
-
-    .gallery-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .gallery-stat {
-      background: #181818;
-      border: 1px solid #333333;
-      border-radius: 16px;
-      padding: 1.3rem;
-    }
-
-    .gallery-stat strong {
-      display: block;
-      color: #ffffff;
-      font-size: 2rem;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .gallery-stat span {
-      color: #bdbdbd;
-      font-weight: 700;
-    }
-
-    .gallery-section {
       background: #1f1f1f;
+    }
+
+    .gallery-page {
+      background: #1f1f1f;
+      min-height: 100vh;
       padding: 70px 2rem;
     }
 
@@ -74,7 +22,7 @@
       margin: 0 auto;
     }
 
-    .gallery-top {
+    .gallery-header {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
@@ -82,200 +30,186 @@
       margin-bottom: 2rem;
     }
 
-    .gallery-top h2 {
-      font-size: 2.2rem;
+    .gallery-header h1 {
       color: #ffffff;
-      margin: 0.5rem 0 0;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
     }
 
-    .gallery-top p {
+    .gallery-header p {
       color: #bdbdbd;
-      margin: 0.5rem 0 0;
-      line-height: 1.6;
+      font-size: 1.05rem;
     }
 
-    .gallery-controls {
+    .gallery-filters {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
 
-    .gallery-control-btn {
+    .gallery-filter-btn {
+      border: 1px solid #333333;
       background: #111111;
       color: #ffffff;
-      border: 1px solid #333333;
-      padding: 0.8rem 1rem;
+      padding: 0.8rem 1.2rem;
       border-radius: 999px;
-      font-weight: 800;
       cursor: pointer;
-      transition: 0.2s ease;
+      font-weight: 800;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .gallery-control-btn:hover,
-    .gallery-control-btn.active {
+    .gallery-filter-btn.active,
+    .gallery-filter-btn:hover {
       background: #e01e26;
       border-color: #e01e26;
     }
 
-    .pass-grid {
+    .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.1rem;
+      gap: 1.3rem;
     }
 
-    .pass-card {
+    .gallery-card {
       background: #111111;
       border: 1px solid #333333;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
-      transition: transform 0.2s ease, border-color 0.2s ease;
       cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .pass-card:hover {
-      transform: translateY(-4px);
+    .gallery-card:hover {
+      transform: translateY(-5px);
       border-color: #e01e26;
     }
 
-    .pass-card img {
+    .gallery-img {
       width: 100%;
-      height: 310px;
+      height: 250px;
       object-fit: cover;
       display: block;
-      background: #222222;
     }
 
-    .pass-card-info {
-      padding: 0.9rem;
+    .gallery-card-content {
+      padding: 1rem;
     }
 
-    .pass-card-info strong {
-      display: block;
+    .gallery-card-content h3 {
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 0.25rem;
     }
 
-    .pass-card-info span {
-      color: #bdbdbd;
-      font-size: 0.85rem;
+    .gallery-card-content p {
+      color: #999999;
+      font-size: 0.9rem;
     }
 
-    .load-more-wrap {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    .lightbox {
+    /* LIGHTBOX */
+    .gallery-lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 99999;
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 99999;
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
-    .lightbox.open {
+    .gallery-lightbox.open {
       display: flex;
     }
 
     .lightbox-content {
-      position: relative;
-      max-width: 900px;
       width: 100%;
-      text-align: center;
+      max-width: 920px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
     }
 
-    .lightbox img {
+    .lightbox-img-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img {
       max-width: 100%;
-      max-height: 82vh;
+      max-height: 72vh;
       object-fit: contain;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+      border-radius: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.7);
+      background: #111111;
     }
 
-    .lightbox-close,
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      background: #e01e26;
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      font-weight: 900;
+    .lightbox-controls {
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.2s ease;
+      gap: 1rem;
     }
 
-    .lightbox-close:hover,
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
-      transform: scale(1.05);
+    .lightbox-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: #e01e26;
+      color: #ffffff;
+      font-size: 1.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .lightbox-btn:hover {
+      transform: scale(1.08);
+      background: #ff2630;
+    }
+
+    .lightbox-counter {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1rem;
+      min-width: 95px;
+      text-align: center;
     }
 
     .lightbox-close {
-      top: -18px;
-      right: -18px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      font-size: 1.3rem;
-    }
-
-    .lightbox-prev,
-    .lightbox-next {
-      top: 50%;
-      transform: translateY(-50%);
+      position: absolute;
+      top: 24px;
+      right: 28px;
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      font-size: 1.8rem;
-    }
-
-    .lightbox-prev {
-      left: -65px;
-    }
-
-    .lightbox-next {
-      right: -65px;
-    }
-
-    .gallery-cta {
-      background: #111111;
-      padding: 70px 2rem;
-      text-align: center;
-      border-top: 1px solid #222222;
-    }
-
-    .gallery-cta-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .gallery-cta h2 {
+      border: none;
+      background: #e01e26;
       color: #ffffff;
-      font-size: 2.3rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .gallery-cta p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+    .lightbox-close:hover {
+      background: #ff2630;
     }
 
     @media (max-width: 1024px) {
-      .pass-grid {
+      .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      .pass-card img {
-        height: 280px;
       }
     }
 
@@ -337,100 +271,52 @@
         height: 70px;
       }
 
-      .gallery-hero {
-        padding: 60px 1.25rem 55px;
-      }
-
-      .gallery-hero h1 {
-        font-size: 2.25rem;
-        line-height: 1.1;
-      }
-
-      .gallery-hero p {
-        font-size: 1rem;
-      }
-
-      .gallery-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-section {
+      .gallery-page {
         padding: 45px 1rem;
       }
 
-      .gallery-top {
+      .gallery-header {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .gallery-top h2 {
-        font-size: 1.8rem;
+      .gallery-header h1 {
+        font-size: 2.2rem;
       }
 
-      .gallery-controls {
-        width: 100%;
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
 
-      .gallery-control-btn {
-        flex: 1;
-        text-align: center;
+      .gallery-img {
+        height: 320px;
       }
 
-      .pass-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8rem;
-      }
-
-      .pass-card {
-        border-radius: 14px;
-      }
-
-      .pass-card img {
-        height: 230px;
-      }
-
-      .pass-card-info {
-        padding: 0.75rem;
-      }
-
-      .pass-card-info strong {
-        font-size: 0.85rem;
-      }
-
-      .pass-card-info span {
-        font-size: 0.78rem;
-      }
-
-      .lightbox {
+      .gallery-lightbox {
         padding: 1rem;
       }
 
+      .lightbox-img {
+        max-height: 68vh;
+        border-radius: 14px;
+      }
+
+      .lightbox-controls {
+        gap: 0.8rem;
+      }
+
+      .lightbox-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
       .lightbox-close {
-        top: -55px;
-        right: 0;
-      }
-
-      .lightbox-prev,
-      .lightbox-next {
-        top: auto;
-        bottom: -62px;
-        transform: none;
-      }
-
-      .lightbox-prev {
-        left: 30%;
-      }
-
-      .lightbox-next {
-        right: 30%;
-      }
-
-      .gallery-cta {
-        padding: 50px 1.25rem;
-      }
-
-      .gallery-cta h2 {
-        font-size: 1.9rem;
+        top: 14px;
+        right: 14px;
+        width: 42px;
+        height: 42px;
       }
 
       .whatsapp-float {
@@ -438,17 +324,6 @@
         height: 56px !important;
         bottom: 18px !important;
         right: 18px !important;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .pass-card img {
-        height: 205px;
-      }
-
-      .gallery-control-btn {
-        width: 100%;
-        flex: none;
       }
     }
   </style>
@@ -478,86 +353,48 @@
     </div>
   </nav>
 
-  <main>
+  <main class="gallery-page">
+    <div class="gallery-inner">
 
-    <section class="gallery-hero">
-      <div class="gallery-hero-inner">
-        <div class="section-label">Pass gallery</div>
-        <h1>Our happy passers 🎉</h1>
-        <p>Real learners. Real passes. Here are just some of the learners who passed with SAR Driving School across Milton Keynes and surrounding test centres.</p>
-
-        <div class="gallery-stats">
-          <div class="gallery-stat">
-            <strong>500+</strong>
-            <span>learners passed</span>
-          </div>
-
-          <div class="gallery-stat">
-            <strong>170+</strong>
-            <span>five-star reviews</span>
-          </div>
-
-          <div class="gallery-stat">
-            <strong>DVSA</strong>
-            <span>approved instructors</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery-section">
-      <div class="gallery-inner">
-
-        <div class="gallery-top">
-          <div>
-            <div class="section-label">Success stories</div>
-            <h2>Pass photos</h2>
-            <p>Browse through our learner pass gallery.</p>
-          </div>
-
-          <div class="gallery-controls">
-            <button class="gallery-control-btn active" onclick="setGalleryAmount(12, this)">Show 12</button>
-            <button class="gallery-control-btn" onclick="setGalleryAmount(24, this)">Show 24</button>
-            <button class="gallery-control-btn" onclick="setGalleryAmount(111, this)">Show all</button>
-          </div>
+      <section class="gallery-header">
+        <div>
+          <div class="section-label">Pass gallery</div>
+          <h1>Our happy passers</h1>
+          <p>Browse through our learner pass gallery.</p>
         </div>
 
-        <div class="pass-grid" id="passGrid"></div>
-
-        <div class="load-more-wrap">
-          <button class="btn-primary" id="loadMoreBtn" onclick="loadMorePhotos()">Load more photos</button>
+        <div class="gallery-filters">
+          <button class="gallery-filter-btn active" data-limit="12">Show 12</button>
+          <button class="gallery-filter-btn" data-limit="24">Show 24</button>
+          <button class="gallery-filter-btn" data-limit="all">Show all</button>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <section class="gallery-grid" id="galleryGrid"></section>
 
-    <section class="gallery-cta">
-      <div class="gallery-cta-inner">
-        <div class="section-label">Your turn next</div>
-        <h2>Ready to start learning?</h2>
-        <p>Book your first lesson with SAR Driving School and start building confidence behind the wheel.</p>
-
-        <div class="hero-buttons">
-          <a href="book.html" class="btn-primary">Book a lesson</a>
-          <a href="contact.html" class="btn-secondary">Contact us</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-content">
-      <button class="lightbox-close" onclick="closeLightbox(event)">×</button>
-      <button class="lightbox-prev" onclick="previousPhoto(event)">‹</button>
-      <img id="lightboxImage" src="" alt="SAR Driving School pass photo">
-      <button class="lightbox-next" onclick="nextPhoto(event)">›</button>
     </div>
-  </div>
+  </main>
 
   <footer>
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap">
+        <img src="" alt="Expanded pass photo" class="lightbox-img" id="lightboxImg">
+      </div>
+
+      <div class="lightbox-controls">
+        <button class="lightbox-btn" id="lightboxPrev" aria-label="Previous">‹</button>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+        <button class="lightbox-btn" id="lightboxNext" aria-label="Next">›</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     const hamburger = document.getElementById('hamburger');
@@ -575,113 +412,163 @@
       });
     });
 
-    const passPhotos = Array.from({ length: 111 }, function(_, i) {
-      const number = String(i + 1).padStart(3, "0");
-      return `images/passes/pass${number}.jpg`;
+    const imageTimes = [
+      "12.29.45", "12.29.40", "12.29.37", "12.29.33", "12.29.29", "12.29.25",
+      "12.29.22", "12.29.17", "12.29.13", "12.29.10", "12.29.07", "12.29.02",
+      "12.28.58", "12.28.55", "12.28.50", "12.28.47", "12.28.43", "12.28.40",
+      "12.28.37", "12.28.33", "12.28.30", "12.28.27", "12.28.23", "12.28.20",
+      "12.28.16", "12.28.11", "12.28.07", "12.28.03", "12.27.58", "12.27.49",
+      "12.27.45", "12.27.36", "12.27.33", "12.27.28", "12.27.24", "12.27.19",
+      "12.27.15", "12.27.08", "12.26.53", "12.26.41", "12.26.37", "12.26.34",
+      "12.26.30", "12.26.26", "12.26.22", "12.26.17", "12.26.12", "12.26.08",
+      "12.26.02", "12.25.54", "12.25.45", "12.25.39", "12.25.36", "12.25.29",
+      "12.25.24", "12.25.19", "12.20.12", "12.20.09", "12.20.05", "12.20.02",
+      "12.19.59", "12.19.46", "12.19.41", "12.19.38", "12.19.35", "12.19.31",
+      "12.19.28", "12.19.25", "12.19.22", "12.19.17", "12.19.12", "12.19.09",
+      "12.19.06", "12.19.01", "12.18.58", "12.18.54", "12.18.51", "12.18.47",
+      "12.18.44", "12.18.40", "12.18.37", "12.18.33", "12.18.30", "12.18.26",
+      "12.18.23", "12.18.19", "12.18.15", "12.18.10", "12.18.06", "12.17.59",
+      "12.17.55", "12.17.51", "12.17.48", "12.17.42", "12.17.26", "12.17.20",
+      "12.17.16", "12.17.13", "12.17.08", "12.17.04", "12.16.59", "12.16.55",
+      "12.16.51", "12.16.46", "12.16.42", "12.16.31", "12.16.27", "12.16.22",
+      "12.16.15", "12.16.05", "12.14.20"
+    ];
+
+    const allImages = imageTimes.map(function(time, index) {
+      return {
+        src: `images/passes/Screenshot 2026-05-17 at ${time} Small.jpeg`,
+        title: "SAR Driving School pass",
+        caption: `Pass photo ${index + 1}`
+      };
     });
 
-    const passGrid = document.getElementById('passGrid');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
 
-    let visibleCount = 12;
-    let currentPhotoIndex = 0;
+    let visibleImages = [];
+    let currentLimit = 12;
 
-    function renderGallery() {
-      passGrid.innerHTML = '';
+    function renderGallery(limit) {
+      galleryGrid.innerHTML = '';
 
-      const photosToShow = passPhotos.slice(0, visibleCount);
+      if (limit === 'all') {
+        visibleImages = allImages;
+      } else {
+        visibleImages = allImages.slice(0, Number(limit));
+      }
 
-      photosToShow.forEach(function(photo, index) {
+      visibleImages.forEach(function(image, index) {
         const card = document.createElement('div');
-        card.className = 'pass-card';
-        card.onclick = function() {
-          openLightbox(index);
-        };
+        card.className = 'gallery-card';
 
         card.innerHTML = `
-          <img src="${photo}" alt="SAR Driving School pass photo ${index + 1}" loading="lazy">
-          <div class="pass-card-info">
-            <strong>SAR Driving School pass</strong>
-            <span>Pass photo ${index + 1}</span>
+          <img src="${image.src}" alt="${image.title}" class="gallery-img" loading="lazy">
+          <div class="gallery-card-content">
+            <h3>${image.title}</h3>
+            <p>${image.caption}</p>
           </div>
         `;
 
-        passGrid.appendChild(card);
+        card.addEventListener('click', function() {
+          openLightbox(index);
+        });
+
+        galleryGrid.appendChild(card);
       });
-
-      if (visibleCount >= passPhotos.length) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-block';
-      }
     }
 
-    function loadMorePhotos() {
-      visibleCount = Math.min(visibleCount + 12, passPhotos.length);
-      renderGallery();
-    }
+    filterButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
 
-    function setGalleryAmount(amount, button) {
-      visibleCount = amount;
+        button.classList.add('active');
 
-      document.querySelectorAll('.gallery-control-btn').forEach(function(btn) {
-        btn.classList.remove('active');
+        currentLimit = button.dataset.limit;
+        renderGallery(currentLimit);
       });
+    });
 
-      button.classList.add('active');
-      renderGallery();
-    }
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    let currentImageIndex = 0;
 
     function openLightbox(index) {
-      currentPhotoIndex = index;
-      lightboxImage.src = passPhotos[currentPhotoIndex];
+      currentImageIndex = index;
+      updateLightbox();
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
-    function closeLightbox(event) {
-      if (event.target === lightbox || event.target.classList.contains('lightbox-close')) {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const image = visibleImages[currentImageIndex];
+      lightboxImg.src = image.src;
+      lightboxImg.alt = image.title;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+    }
+
+    function showPreviousImage() {
+      currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+      updateLightbox();
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+      updateLightbox();
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', showPreviousImage);
+    lightboxNext.addEventListener('click', showNextImage);
+
+    lightbox.addEventListener('click', function(event) {
+      if (event.target === lightbox) {
+        closeLightbox();
       }
-    }
-
-    function previousPhoto(event) {
-      event.stopPropagation();
-      currentPhotoIndex = currentPhotoIndex === 0 ? passPhotos.length - 1 : currentPhotoIndex - 1;
-      lightboxImage.src = passPhotos[currentPhotoIndex];
-    }
-
-    function nextPhoto(event) {
-      event.stopPropagation();
-      currentPhotoIndex = currentPhotoIndex === passPhotos.length - 1 ? 0 : currentPhotoIndex + 1;
-      lightboxImage.src = passPhotos[currentPhotoIndex];
-    }
+    });
 
     document.addEventListener('keydown', function(event) {
       if (!lightbox.classList.contains('open')) return;
 
-      if (event.key === 'Escape') {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') showPreviousImage();
+      if (event.key === 'ArrowRight') showNextImage();
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener('touchend', function(event) {
+      touchEndX = event.changedTouches[0].screenX;
+
+      if (touchStartX - touchEndX > 50) {
+        showNextImage();
       }
 
-      if (event.key === 'ArrowLeft') {
-        currentPhotoIndex = currentPhotoIndex === 0 ? passPhotos.length - 1 : currentPhotoIndex - 1;
-        lightboxImage.src = passPhotos[currentPhotoIndex];
-      }
-
-      if (event.key === 'ArrowRight') {
-        currentPhotoIndex = currentPhotoIndex === passPhotos.length - 1 ? 0 : currentPhotoIndex + 1;
-        lightboxImage.src = passPhotos[currentPhotoIndex];
+      if (touchEndX - touchStartX > 50) {
+        showPreviousImage();
       }
     });
 
-    renderGallery();
+    renderGallery(12);
   </script>
 
+  <!-- WhatsApp Button -->
   <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
     position: fixed;
     bottom: 24px;
@@ -698,7 +585,7 @@
     transition: transform 0.2s;
   " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.150-1.255-.463-2.390-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.298-.347.446-.520.149-.174.198-.298.298-.497.099-.198.050-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.500-.669-.510-.173-.008-.371-.010-.570-.010-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413z"/>
     </svg>
   </a>
 
