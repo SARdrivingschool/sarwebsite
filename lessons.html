@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    :root {
+      --red: #ed1c24;
+      --dark: #0b0b0b;
+      --dark2: #111111;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
     .page-hero {
       position: relative;
       background:
@@ -15,24 +35,377 @@
       min-height: 460px;
       display: flex;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      pointer-events: none;
     }
 
     .page-hero-inner {
       position: relative;
       z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem;
     }
 
-    .lesson-img img {
-      width: 390px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 18px;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.08);
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      color: #ffffff;
+      margin: 0 0 1rem;
+      letter-spacing: -2px;
+    }
+
+    .page-hero p {
+      color: #d6d6d6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 880px;
+    }
+
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .lesson-section {
+      background: #0b0b0b;
+      padding: 78px 2rem 35px;
+    }
+
+    .lesson-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .lesson-block {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
       align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .lesson-block:first-child {
+      padding-top: 0;
+    }
+
+    .lesson-block:last-child {
+      border-bottom: none;
+      padding-bottom: 35px;
+    }
+
+    .lesson-text h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+      letter-spacing: -1px;
+    }
+
+    .lesson-text p {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      max-width: 650px;
+    }
+
+    .lesson-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .lesson-features li {
+      color: #e0e0e0;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .lesson-img {
+      position: relative;
+    }
+
+    .lesson-img::before {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      background: radial-gradient(circle at 50% 50%, rgba(237,28,36,0.16), transparent 62%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .lesson-img img {
+      position: relative;
+      z-index: 1;
+      width: 430px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .lesson-img img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 55px rgba(0,0,0,0.48);
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .lesson-help-section {
+      position: relative;
+      background: #0b0b0b;
+      padding: 65px 2rem 90px;
+      overflow: hidden;
+    }
+
+    .lesson-help-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
+        radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
+      pointer-events: none;
+    }
+
+    .lesson-help-card {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .lesson-help-content h2 {
+      color: #ffffff;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .lesson-help-content p {
+      color: #cfcfcf;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 26px;
+    }
+
+    .lesson-help-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .lesson-help-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .help-mini-card {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 16px;
+      row-gap: 4px;
+      align-items: start;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .help-mini-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.55);
+      background: rgba(237,28,36,0.08);
+    }
+
+    .help-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ed1c24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      grid-row: span 2;
+      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
+    }
+
+    .help-mini-card h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .help-mini-card p {
+      color: #bfbfbf;
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .lesson-extra-section {
+      background: #101010;
+      padding: 80px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lesson-extra-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .lesson-extra-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.3rem;
+    }
+
+    .lesson-extra-head h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .lesson-extra-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .lesson-extra-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .lesson-extra-card {
+      background: #151515;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 1.4rem;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .lesson-extra-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .lesson-extra-card span {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.35rem;
+      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
+    }
+
+    .lesson-extra-card h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-extra-card p {
+      color: #bdbdbd;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .lesson-block {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .lesson-img img {
+        width: 100%;
+      }
+
+      .lesson-help-card {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -94,16 +467,20 @@
       }
 
       .page-hero {
-        min-height: 540px;
-        padding: 70px 1.25rem;
+        min-height: 500px;
+        padding: 70px 0;
         background:
           linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
           url("images/lessons-bg.png") center right/cover no-repeat;
       }
 
+      .page-hero-inner {
+        padding: 0 1.25rem;
+      }
+
       .page-hero h1 {
-        font-size: 2.1rem;
-        line-height: 1.15;
+        font-size: 2.35rem;
+        line-height: 1.12;
       }
 
       .page-hero p {
@@ -111,10 +488,15 @@
         line-height: 1.6;
       }
 
+      .lesson-section {
+        padding: 50px 1.25rem 10px;
+      }
+
       .lesson-block {
         display: flex !important;
         flex-direction: column !important;
         gap: 1.5rem !important;
+        padding: 45px 0;
       }
 
       .lesson-img {
@@ -128,7 +510,45 @@
       }
 
       .lesson-text h2 {
-        font-size: 1.6rem !important;
+        font-size: 1.9rem !important;
+      }
+
+      .lesson-help-section {
+        padding: 52px 1.25rem 60px;
+      }
+
+      .lesson-help-card {
+        grid-template-columns: 1fr;
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .lesson-help-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-help-actions .btn-primary,
+      .lesson-help-actions .btn-secondary,
+      .lesson-help-actions .btn-whatsapp {
+        width: 100%;
+      }
+
+      .help-mini-card {
+        grid-template-columns: 1fr;
+      }
+
+      .help-icon {
+        grid-row: auto;
+        margin-bottom: 6px;
+      }
+
+      .lesson-extra-section {
+        padding: 55px 1.25rem;
+      }
+
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
       }
 
       .whatsapp-float {
@@ -247,14 +667,79 @@
       </div>
     </section>
 
-    <section class="lessons-cta">
-      <div class="lessons-cta-inner">
-        <h2>Not sure where to start?</h2>
-        <p>Get in touch and we’ll help you choose the right lesson type for your situation.</p>
+    <section class="lesson-help-section">
+      <div class="lesson-help-bg"></div>
 
-        <div class="hero-buttons">
-          <a href="book.html" class="btn-primary">Book a lesson</a>
-          <a href="contact.html" class="btn-secondary">Contact us</a>
+      <div class="lesson-help-card">
+        <div class="lesson-help-content">
+          <div class="section-label">Need help choosing?</div>
+          <h2>Not sure where to start?</h2>
+          <p>
+            Tell us your driving experience, location and preferred lesson type.
+            We’ll help you choose the right option and match you with a suitable instructor.
+          </p>
+
+          <div class="lesson-help-actions">
+            <a href="book.html" class="btn-primary">Book a lesson</a>
+            <a href="contact.html" class="btn-secondary">Contact us</a>
+            <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          </div>
+        </div>
+
+        <div class="lesson-help-grid">
+          <div class="help-mini-card">
+            <div class="help-icon">🚗</div>
+            <h3>First-time learner?</h3>
+            <p>Start with a normal manual or automatic lesson depending on your goal.</p>
+          </div>
+
+          <div class="help-mini-card">
+            <div class="help-icon">🔄</div>
+            <h3>Already driven before?</h3>
+            <p>Book a refresher lesson to rebuild confidence and sharpen your skills.</p>
+          </div>
+
+          <div class="help-mini-card">
+            <div class="help-icon">📍</div>
+            <h3>Unsure about area?</h3>
+            <p>Message us your postcode and we’ll confirm availability near you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-extra-section">
+      <div class="lesson-extra-inner">
+        <div class="lesson-extra-head">
+          <div class="section-label">How it works</div>
+          <h2>Simple steps to get started</h2>
+          <p>Book your preferred lesson, send your details and we’ll confirm the best instructor and availability for you.</p>
+        </div>
+
+        <div class="lesson-extra-grid">
+          <div class="lesson-extra-card">
+            <span>1</span>
+            <h3>Choose lesson type</h3>
+            <p>Pick manual, automatic or refresher depending on your needs.</p>
+          </div>
+
+          <div class="lesson-extra-card">
+            <span>2</span>
+            <h3>Send your details</h3>
+            <p>Tell us your area, experience level and availability.</p>
+          </div>
+
+          <div class="lesson-extra-card">
+            <span>3</span>
+            <h3>We confirm options</h3>
+            <p>We’ll check instructor availability and suggest the best fit.</p>
+          </div>
+
+          <div class="lesson-extra-card">
+            <span>4</span>
+            <h3>Start learning</h3>
+            <p>Begin your lessons with a clear plan and patient guidance.</p>
+          </div>
         </div>
       </div>
     </section>
