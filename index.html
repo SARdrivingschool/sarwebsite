@@ -24,11 +24,17 @@
       padding: 0;
     }
 
+    html {
+      overflow-x: hidden;
+      background: var(--dark);
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--dark);
       color: var(--text);
       overflow-x: hidden;
+      width: 100%;
     }
 
     a {
@@ -324,7 +330,7 @@
       line-height: 1.5;
     }
 
-    /* PASS GALLERY PREVIEW */
+    /* GALLERY PREVIEW */
     .pass-preview {
       background: #101010;
       padding: 80px 0;
@@ -388,13 +394,13 @@
 
     .reviews-head {
       text-align: center;
-      max-width: 850px;
+      max-width: 760px;
       margin: 0 auto 34px;
     }
 
     .review-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -403,39 +409,26 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 26px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .review-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.45);
     }
 
     .review-card .stars {
       display: block;
       margin-bottom: 14px;
-      color: #ffd84d;
     }
 
     .review-card p {
       margin-bottom: 16px;
-      color: #d4d4d4;
-      line-height: 1.75;
-      font-size: 0.98rem;
     }
 
     .review-card strong {
       color: #ffffff;
       display: block;
-      margin-top: 12px;
-      font-size: 1rem;
+      margin-bottom: 4px;
     }
 
-    .review-meta {
-      display: block;
-      color: #999999;
-      font-size: 0.85rem;
-      margin-top: 5px;
+    .review-card small {
+      color: #999;
+      font-weight: 700;
     }
 
     /* WHY */
@@ -611,19 +604,16 @@
       height: 32px;
     }
 
-    /* TABLET */
-    @media (max-width: 1100px) {
-      .review-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     /* MOBILE */
     @media (max-width: 768px) {
+      body {
+        background: #050505;
+      }
+
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
       header {
         position: relative;
         background: #ffffff;
@@ -631,11 +621,12 @@
       }
 
       .nav {
-        min-height: 82px;
+        min-height: 88px;
+        padding: 0;
       }
 
       .logo-img {
-        width: 135px;
+        width: 148px;
       }
 
       .hamburger {
@@ -645,7 +636,7 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 82px;
+        top: 88px;
         left: 0;
         right: 0;
         background: #ffffff;
@@ -682,66 +673,121 @@
       }
 
       .hero {
-        min-height: calc(100svh - 82px);
-        padding: 300px 0 44px;
-        align-items: flex-end;
+        min-height: auto;
+        display: block;
+        padding: 0 0 44px;
         background:
-          linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.12) 26%, rgba(0,0,0,0.76) 58%, rgba(0,0,0,0.98) 100%),
-          linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.08) 100%),
+          linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.12) 38%, rgba(0,0,0,0.92) 100%),
           url("images/home-bg-fleet.png");
-        background-size: auto 320px;
+        background-size: 100% auto;
         background-position: center top;
         background-repeat: no-repeat;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.92) 52%, #050505 100%),
+          radial-gradient(circle at 15% 66%, rgba(237,28,36,0.20), transparent 32%);
       }
 
       .hero-inner {
         width: 100%;
         max-width: 100%;
+        padding-top: 330px;
       }
 
       .hero-label {
         width: 100%;
-        padding: 13px 14px;
-        font-size: 0.7rem;
-        letter-spacing: 1.4px;
+        padding: 12px 13px;
+        font-size: 0.68rem;
+        letter-spacing: 1.35px;
         margin-bottom: 22px;
+        text-align: center;
+        white-space: normal;
       }
 
       .hero h1 {
-        font-size: 3.45rem;
-        line-height: 0.95;
+        font-size: clamp(3.05rem, 14vw, 4.2rem);
+        line-height: 0.98;
         letter-spacing: -2px;
         margin-bottom: 18px;
+        max-width: 100%;
       }
 
       .hero p {
-        font-size: 1.05rem;
-        line-height: 1.65;
+        font-size: 1.04rem;
+        line-height: 1.62;
         margin-bottom: 22px;
+        max-width: 100%;
       }
 
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
         gap: 12px;
-        margin-bottom: 22px;
+        margin-bottom: 24px;
       }
 
       .btn {
         width: 100%;
         min-height: 58px;
+        border-radius: 15px;
+        font-size: 1rem;
       }
 
       .rating-row {
-        font-size: 0.95rem;
-        gap: 8px 12px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        font-size: 0.98rem;
+        margin-bottom: 22px;
       }
 
-      .stats,
-      .quick-grid,
-      .review-grid,
-      .cards {
+      .stars {
+        letter-spacing: 2px;
+      }
+
+      .stats {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 22px 20px;
+        border-radius: 18px;
+      }
+
+      .stat-card strong {
+        font-size: 2.15rem;
+      }
+
+      .quick-features {
+        padding: 46px 0;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .quick-card {
+        border-radius: 18px;
+        padding: 22px 20px;
+      }
+
+      .quick-card strong {
+        font-size: 1.08rem;
+      }
+
+      .quick-card span {
+        font-size: 0.98rem;
+      }
+
+      .pass-preview,
+      .reviews,
+      .why,
+      .section {
+        padding: 58px 0;
       }
 
       .pass-inner,
@@ -749,32 +795,147 @@
         grid-template-columns: 1fr;
       }
 
-      .pass-preview,
-      .reviews,
-      .why,
-      .section {
-        padding: 56px 0;
+      .section-label {
+        font-size: 0.74rem;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+      }
+
+      .section h2,
+      .pass-preview h2,
+      .reviews h2,
+      .why h2,
+      .cta h2 {
+        font-size: clamp(2.05rem, 10vw, 3.1rem);
+        line-height: 1.08;
+        letter-spacing: -1px;
+      }
+
+      .pass-preview p,
+      .reviews p,
+      .why p,
+      .cta p,
+      .section p {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .pass-inner {
+        gap: 28px;
+      }
+
+      .pass-copy .btn {
+        margin-top: 4px;
       }
 
       .pass-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
       }
 
       .pass-grid img {
-        height: 180px;
+        height: 185px;
+        border-radius: 16px;
+      }
+
+      .reviews-head,
+      .why-head {
+        text-align: left;
+        margin-bottom: 26px;
+      }
+
+      .review-grid,
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .review-card {
+        padding: 22px 20px;
+        border-radius: 20px;
+      }
+
+      .review-card p {
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
       .why-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .why-card {
+        text-align: left;
+        padding: 22px 20px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .why-icon {
+        margin: 0;
+      }
+
+      .why-card h3 {
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+      }
+
+      .why-card p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .section .container > p {
+        max-width: 100%;
+      }
+
+      .cards {
+        margin-top: 26px;
+      }
+
+      .card {
+        padding: 22px 20px;
+        border-radius: 20px;
+      }
+
+      .card h3 {
+        font-size: 1.35rem;
+      }
+
+      .card p {
+        font-size: 0.98rem;
       }
 
       .cta {
-        padding-bottom: 56px;
+        padding-bottom: 58px;
       }
 
       .cta-panel {
-        padding: 28px 20px;
+        padding: 26px 20px;
         border-radius: 22px;
+        gap: 18px;
+        background:
+          linear-gradient(180deg, rgba(237,28,36,0.82), rgba(0,0,0,0.72)),
+          url("images/home-bg-fleet.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cta-box {
+        padding: 22px 20px;
+        border-radius: 18px;
+      }
+
+      .cta-box strong {
+        font-size: 1.25rem;
+      }
+
+      footer {
+        padding: 24px 16px;
+        font-size: 0.9rem;
       }
 
       .whatsapp-float {
@@ -785,14 +946,45 @@
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 430px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
       .hero {
-        padding-top: 285px;
-        background-size: auto 300px;
+        background-size: auto 315px;
+        background-position: center top;
+      }
+
+      .hero-inner {
+        padding-top: 295px;
       }
 
       .hero h1 {
-        font-size: 3.1rem;
+        font-size: 3.15rem;
+      }
+
+      .hero-label {
+        font-size: 0.62rem;
+        letter-spacing: 1.2px;
+      }
+
+      .pass-grid img {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero {
+        background-size: auto 292px;
+      }
+
+      .hero-inner {
+        padding-top: 275px;
+      }
+
+      .hero h1 {
+        font-size: 2.85rem;
       }
     }
   </style>
@@ -933,44 +1125,37 @@
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              I can’t recommend Riz enough. I was very nervous to start driving, but he put me at ease straight away.
-              After my first lesson, I instantly felt more confident. Riz explained everything really clearly and made
-              it all easy to understand. I was so happy to pass first time and so did my husband.
+              I can’t recommend Riz enough. I was very nervous to start driving, but he put me at ease straight away. After my first lesson, I instantly felt more confident. Riz explained everything really clearly and made it all easy to understand. I was so happy to pass first time and so did my husband.
             </p>
             <strong>Sarah Owen</strong>
-            <span class="review-meta">Google review</span>
+            <small>Google review</small>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              Sikandar was a great teacher! He was patient, calm and explained things in a way I could understand.
-              Would def recommend getting lessons with him! Thank you for helping me pass.
+              Sikandar was a great teacher! He was patient, calm and explained things in a way I could understand. Would def recommend getting lessons with him! Thank you for helping me pass.
             </p>
             <strong>Lola Dog</strong>
-            <span class="review-meta">Google review</span>
+            <small>Google review</small>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              A great instructor who helped me learn quickly in only a few months and passed with one minor!
-              Would highly recommend.
+              A great instructor who helped me learn quickly in only a few months and passed with one minor! Would highly recommend.
             </p>
             <strong>Laila Edwards</strong>
-            <span class="review-meta">Google review</span>
+            <small>Google review</small>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
             <p>
-              I had a great experience learning with Mr. Rizwan. He is very supportive and explained everything clearly
-              which really helped build my confidence. Thanks to his guidance and encouragement, I passed my test today
-              with 2 minor mistakes. I would highly recommend him to anyone looking for a friendly, reliable and
-              professional driving instructor.
+              I had a great experience learning with Mr. Rizwan. He is very supportive and explained everything clearly which really helped build my confidence. Thanks to his guidance and encouragement, I passed my test with 2 minor mistakes.
             </p>
             <strong>Rabia Islam</strong>
-            <span class="review-meta">Google review</span>
+            <small>Google review</small>
           </div>
         </div>
       </div>
@@ -989,32 +1174,42 @@
         <div class="why-grid">
           <div class="why-card">
             <div class="why-icon">🎓</div>
-            <h3>Expert Instructors</h3>
-            <p>DVSA approved, friendly and experienced.</p>
+            <div>
+              <h3>Expert Instructors</h3>
+              <p>DVSA approved, friendly and experienced.</p>
+            </div>
           </div>
 
           <div class="why-card">
             <div class="why-icon">🛡️</div>
-            <h3>Proven Results</h3>
-            <p>Hundreds of learners passed with SAR.</p>
+            <div>
+              <h3>Proven Results</h3>
+              <p>Hundreds of learners passed with SAR.</p>
+            </div>
           </div>
 
           <div class="why-card">
             <div class="why-icon">🚗</div>
-            <h3>Modern Teaching</h3>
-            <p>Clear, structured lessons for today’s roads.</p>
+            <div>
+              <h3>Modern Teaching</h3>
+              <p>Clear, structured lessons for today’s roads.</p>
+            </div>
           </div>
 
           <div class="why-card">
             <div class="why-icon">⏰</div>
-            <h3>Flexible Scheduling</h3>
-            <p>Lessons to suit work, study and daily life.</p>
+            <div>
+              <h3>Flexible Scheduling</h3>
+              <p>Lessons to suit work, study and daily life.</p>
+            </div>
           </div>
 
           <div class="why-card">
             <div class="why-icon">📍</div>
-            <h3>Local Knowledge</h3>
-            <p>Milton Keynes and nearby test routes.</p>
+            <div>
+              <h3>Local Knowledge</h3>
+              <p>Milton Keynes and nearby test routes.</p>
+            </div>
           </div>
         </div>
       </div>
