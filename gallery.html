@@ -89,6 +89,7 @@
       height: 250px;
       object-fit: cover;
       display: block;
+      background: #000000;
     }
 
     .gallery-card-content {
@@ -104,10 +105,6 @@
     .gallery-card-content p {
       color: #999999;
       font-size: 0.9rem;
-    }
-
-    .hidden-gallery-card {
-      display: none;
     }
 
     .gallery-lightbox {
@@ -279,7 +276,7 @@
       }
 
       .gallery-img {
-        height: 320px;
+        height: 330px;
       }
 
       .gallery-lightbox {
@@ -353,69 +350,8 @@
         </div>
       </section>
 
-      <section class="gallery-grid" id="galleryGrid">
+      <section class="gallery-grid" id="galleryGrid"></section>
 
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.45 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 1</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.40 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 2</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.37 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 3</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.33 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 4</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.29 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 5</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.25 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 6</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.22 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 7</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.17 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 8</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.13 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 9</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.10 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 10</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.07 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 11</p></div>
-        </div>
-
-        <div class="gallery-card">
-          <img src="images/passes/Screenshot 2026-05-17 at 12.29.02 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
-          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 12</p></div>
-        </div>
-
-      </section>
     </div>
   </main>
 
@@ -453,8 +389,32 @@
       });
     });
 
-    const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
-    const galleryImages = Array.from(document.querySelectorAll('.gallery-img'));
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    const totalImages = 111;
+
+    const passImages = Array.from({ length: totalImages }, function(_, index) {
+      const number = String(index + 1).padStart(3, '0');
+      return `images/passes/pass${number}.jpg`;
+    });
+
+    passImages.forEach(function(src, index) {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+
+      card.innerHTML = `
+        <img src="${src}" alt="SAR Driving School pass" class="gallery-img" loading="lazy">
+        <div class="gallery-card-content">
+          <h3>SAR Driving School pass</h3>
+          <p>Pass photo ${index + 1}</p>
+        </div>
+      `;
+
+      galleryGrid.appendChild(card);
+    });
+
+    let galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+    let galleryImages = Array.from(document.querySelectorAll('.gallery-img'));
 
     function showGalleryAmount(amount, button) {
       document.querySelectorAll('.gallery-filter-btn').forEach(function(btn) {
@@ -488,8 +448,15 @@
     }
 
     function openLightbox(index) {
+      const clickedImage = galleryImages[index];
       const visibleImages = getVisibleImages();
-      currentImageIndex = visibleImages.indexOf(galleryImages[index]);
+
+      currentImageIndex = visibleImages.indexOf(clickedImage);
+
+      if (currentImageIndex < 0) {
+        currentImageIndex = 0;
+      }
+
       updateLightbox();
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -588,3 +555,4 @@
 
 </body>
 </html>
+
