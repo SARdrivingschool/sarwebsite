@@ -7,39 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-slideshow {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      z-index: 0;
-    }
-
-    .hero-slideshow .slide {
-      width: 100%;
-      height: 100%;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.66);
-      z-index: 1;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-    }
-
+    /* MOBILE NAV */
     @media (max-width: 768px) {
       .hamburger {
         display: flex !important;
@@ -62,9 +30,17 @@
         transition: all 0.3s ease;
       }
 
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
       nav ul {
         display: none !important;
@@ -98,34 +74,25 @@
         height: 70px;
       }
 
-      .hero {
-        padding: 70px 1.25rem 60px;
-        min-height: 680px;
-      }
-
       .hero-slideshow {
-        display: block !important;
-      }
-
-      .hero-slideshow .slide {
-        width: 100%;
-        height: 100%;
-        background-size: cover !important;
-        background-position: center top !important;
+        grid-template-columns: 1fr !important;
       }
 
       .slide:nth-child(2),
       .slide:nth-child(3) {
         display: none !important;
       }
+    }
 
-      .hero-overlay {
-        background: rgba(0,0,0,0.72);
+    /* MOBILE HERO */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 1.25rem 50px;
+        min-height: unset;
       }
 
       .hero h1 {
         font-size: 2rem;
-        line-height: 1.15;
         letter-spacing: -0.5px;
       }
 
@@ -147,10 +114,6 @@
         padding: 1rem;
       }
 
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
       .tab-cards {
         flex-direction: column;
       }
@@ -159,12 +122,179 @@
         min-width: unset !important;
         width: 100% !important;
       }
+    }
 
-      .whatsapp-float {
-        width: 56px !important;
-        height: 56px !important;
-        bottom: 18px !important;
-        right: 18px !important;
+    @media (max-width: 768px) {
+      .hero-slideshow {
+        display: block !important;
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-slideshow .slide {
+        display: block !important;
+        width: 100%;
+        height: 100%;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-overlay {
+        z-index: 1;
+        background: rgba(0,0,0,0.65);
+      }
+    }
+
+    /* HOMEPAGE PRICING SECTION FIX */
+    .pricing {
+      background: #1f1f1f !important;
+      color: #ffffff !important;
+    }
+
+    .pricing-inner {
+      background: transparent !important;
+    }
+
+    .pricing h2,
+    .pricing h3,
+    .pricing .tab-price {
+      color: #ffffff !important;
+    }
+
+    .pricing-sub,
+    .price-desc,
+    .tab-note,
+    .pricing-note,
+    .pricing p {
+      color: #cfcfcf !important;
+    }
+
+    .pricing-tabs {
+      background: transparent !important;
+    }
+
+    .pricing .tab-btn {
+      background: #111111 !important;
+      color: #ffffff !important;
+      border: 1px solid #333333 !important;
+    }
+
+    .pricing .tab-btn.active,
+    .pricing .tab-btn:hover {
+      background: #e01e26 !important;
+      border-color: #e01e26 !important;
+      color: #ffffff !important;
+    }
+
+    .pricing .tab-content {
+      background: transparent !important;
+    }
+
+    .pricing .tab-card,
+    .pricing .tab-card.featured {
+      background: #111111 !important;
+      background-color: #111111 !important;
+      color: #ffffff !important;
+      border: 1.5px solid #333333 !important;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .pricing .tab-card.featured {
+      border: 2px solid #e01e26 !important;
+      box-shadow: 0 0 0 1px rgba(224,30,38,0.25), 0 8px 28px rgba(0,0,0,0.22) !important;
+    }
+
+    .pricing .tab-card h3,
+    .pricing .tab-card .tab-price {
+      color: #ffffff !important;
+    }
+
+    .pricing .tab-card p,
+    .pricing .tab-card .price-desc {
+      color: #cfcfcf !important;
+    }
+
+    .pricing .saving,
+    .pricing .pricing-badge {
+      background: #e01e26 !important;
+      color: #ffffff !important;
+    }
+
+    .pricing .btn-primary {
+      background: #e01e26 !important;
+      color: #ffffff !important;
+    }
+
+    .pricing-note a {
+      color: #e01e26 !important;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    /* EXTRA MOBILE PRICING OVERRIDE */
+    @media (max-width: 768px) {
+      .pricing {
+        background: #1f1f1f !important;
+        padding: 45px 1rem !important;
+      }
+
+      .pricing-inner {
+        background: transparent !important;
+      }
+
+      .pricing .pricing-selector,
+      .pricing .tab-content,
+      .pricing .tab-cards {
+        background: transparent !important;
+      }
+
+      .pricing .tab-card,
+      .pricing .tab-card.featured {
+        background: #111111 !important;
+        background-color: #111111 !important;
+        color: #ffffff !important;
+        border-radius: 18px !important;
+        border: 1.5px solid #333333 !important;
+        padding: 1.6rem !important;
+      }
+
+      .pricing .tab-card.featured {
+        border: 2px solid #e01e26 !important;
+      }
+
+      .pricing .tab-card *,
+      .pricing .tab-card.featured * {
+        color: inherit;
+      }
+
+      .pricing .tab-card h3,
+      .pricing .tab-card.featured h3,
+      .pricing .tab-price {
+        color: #ffffff !important;
+      }
+
+      .pricing .price-desc,
+      .pricing .tab-card p,
+      .pricing .tab-note {
+        color: #cfcfcf !important;
+      }
+
+      .pricing .tab-btn {
+        width: 100%;
+        background: #111111 !important;
+        color: #ffffff !important;
+      }
+
+      .pricing .tab-btn.active {
+        background: #e01e26 !important;
+        color: #ffffff !important;
       }
     }
   </style>
@@ -203,7 +333,6 @@
       <div class="hero-inner">
         <div class="hero-text">
           <h1>Driving lessons in<br><span>Milton Keynes</span><br>& surrounding areas</h1>
-
           <p>Trusted by 500+ passers across Milton Keynes. Patient instructors, tailored lessons, real results.</p>
 
           <div class="hero-buttons">
@@ -212,20 +341,9 @@
           </div>
 
           <div class="hero-stats">
-            <div class="stat">
-              <strong>500+</strong>
-              <span>learners passed</span>
-            </div>
-
-            <div class="stat">
-              <strong>15+</strong>
-              <span>years experience</span>
-            </div>
-
-            <div class="stat">
-              <strong>✅</strong>
-              <span>DVSA certified</span>
-            </div>
+            <div class="stat"><strong>500+</strong><span>learners passed</span></div>
+            <div class="stat"><strong>15+</strong><span>years experience</span></div>
+            <div class="stat"><strong>✅</strong><span>DVSA certified</span></div>
           </div>
         </div>
       </div>
@@ -237,7 +355,6 @@
         <h2>Choose your lesson type</h2>
 
         <div class="services-grid">
-
           <div class="service-card">
             <div class="service-icon">🚗</div>
             <h3>Automatic lessons</h3>
@@ -259,7 +376,6 @@
             <p>Been off the road a while? Build your confidence back up with a tailored refresher course.</p>
             <a href="lessons.html">Learn more →</a>
           </div>
-
         </div>
       </div>
     </section>
@@ -279,7 +395,6 @@
 
           <div class="tab-content active" id="single">
             <div class="tab-cards">
-
               <div class="tab-card">
                 <h3>1 hour</h3>
                 <div class="tab-price">£38</div>
@@ -300,7 +415,6 @@
                 <p class="price-desc">Auto or manual</p>
                 <a href="book.html" class="btn-primary">Book now</a>
               </div>
-
             </div>
 
             <p class="tab-note">✓ DVSA approved · ✓ Manual or automatic · ✓ Pick-up from your area · ✓ Tailored to your level</p>
@@ -334,7 +448,7 @@
           </div>
         </div>
 
-        <p class="pricing-note">Not sure which to pick? <a href="contact.html">Get in touch</a> and we’ll help you choose.</p>
+        <p class="pricing-note">Not sure which to pick? <a href="contact.html">Get in touch</a> and we'll help you choose.</p>
       </div>
     </section>
 
@@ -371,12 +485,12 @@
     });
 
     function showTab(tab, btn) {
-      document.querySelectorAll('.tab-content').forEach(function(content) {
-        content.classList.remove('active');
+      document.querySelectorAll('.tab-content').forEach(function(t) {
+        t.classList.remove('active');
       });
 
-      document.querySelectorAll('.tab-btn').forEach(function(button) {
-        button.classList.remove('active');
+      document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.remove('active');
       });
 
       document.getElementById(tab).classList.add('active');
@@ -384,9 +498,14 @@
     }
 
     const photos = [
-      "home-pass-1.png",
-      "home-pass-2.png",
-      "home-pass-3.png"
+      "Screenshot 2026-05-18 at 19.15.57.png",
+      "Screenshot 2026-05-18 at 19.16.48.png",
+      "Screenshot 2026-05-18 at 19.23.02.png",
+      "Screenshot 2026-05-18 at 19.23.13.png",
+      "Screenshot 2026-05-18 at 19.24.00.png",
+      "Screenshot 2026-05-18 at 19.26.18.png",
+      "Screenshot 2026-05-18 at 19.26.36.png",
+      "Screenshot 2026-05-18 at 19.26.48.png"
     ];
 
     const slideshow = document.getElementById('heroSlideshow');
@@ -395,15 +514,18 @@
     function buildSlides() {
       slideshow.innerHTML = '';
 
-      const isMobile = window.innerWidth <= 768;
-      const slidesToShow = isMobile ? 1 : 3;
-
-      for (let i = 0; i < slidesToShow; i++) {
+      for (let i = 0; i < 3; i++) {
         const idx = (current + i) % photos.length;
-
         const div = document.createElement('div');
         div.className = 'slide';
-        div.style.backgroundImage = `url('images/${photos[idx]}')`;
+
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+          div.style.backgroundImage = "url('images/toyotacorollasarpic.png')";
+        } else {
+          div.style.backgroundImage = `url('images/websitepictures/${photos[idx]}')`;
+        }
 
         slideshow.appendChild(div);
       }
@@ -414,12 +536,10 @@
     setInterval(function() {
       current = (current + 1) % photos.length;
       buildSlides();
-    }, 4000);
-
-    window.addEventListener('resize', buildSlides);
+    }, 3000);
   </script>
 
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
+  <a href="https://wa.me/447902023737" target="_blank" style="
     position: fixed;
     bottom: 24px;
     right: 24px;
