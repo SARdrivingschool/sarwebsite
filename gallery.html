@@ -56,7 +56,6 @@
       border-radius: 999px;
       cursor: pointer;
       font-weight: 800;
-      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .gallery-filter-btn.active,
@@ -107,7 +106,10 @@
       font-size: 0.9rem;
     }
 
-    /* LIGHTBOX */
+    .hidden-gallery-card {
+      display: none;
+    }
+
     .gallery-lightbox {
       position: fixed;
       inset: 0;
@@ -130,13 +132,6 @@
       flex-direction: column;
       align-items: center;
       gap: 1.2rem;
-    }
-
-    .lightbox-img-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .lightbox-img {
@@ -168,12 +163,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .lightbox-btn:hover {
-      transform: scale(1.08);
-      background: #ff2630;
     }
 
     .lightbox-counter {
@@ -198,13 +187,6 @@
       font-weight: 900;
       cursor: pointer;
       z-index: 100000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox-close:hover {
-      background: #ff2630;
     }
 
     @media (max-width: 1024px) {
@@ -235,9 +217,17 @@
         transition: all 0.3s ease;
       }
 
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
       nav ul {
         display: none !important;
@@ -286,7 +276,6 @@
 
       .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
       }
 
       .gallery-img {
@@ -299,17 +288,11 @@
 
       .lightbox-img {
         max-height: 68vh;
-        border-radius: 14px;
-      }
-
-      .lightbox-controls {
-        gap: 0.8rem;
       }
 
       .lightbox-btn {
         width: 50px;
         height: 50px;
-        font-size: 1.5rem;
       }
 
       .lightbox-close {
@@ -364,14 +347,75 @@
         </div>
 
         <div class="gallery-filters">
-          <button class="gallery-filter-btn active" data-limit="12">Show 12</button>
-          <button class="gallery-filter-btn" data-limit="24">Show 24</button>
-          <button class="gallery-filter-btn" data-limit="all">Show all</button>
+          <button class="gallery-filter-btn active" onclick="showGalleryAmount(12, this)">Show 12</button>
+          <button class="gallery-filter-btn" onclick="showGalleryAmount(24, this)">Show 24</button>
+          <button class="gallery-filter-btn" onclick="showGalleryAmount('all', this)">Show all</button>
         </div>
       </section>
 
-      <section class="gallery-grid" id="galleryGrid"></section>
+      <section class="gallery-grid" id="galleryGrid">
 
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.45 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 1</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.40 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 2</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.37 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 3</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.33 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 4</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.29 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 5</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.25 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 6</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.22 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 7</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.17 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 8</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.13 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 9</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.10 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 10</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.07 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 11</p></div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/passes/Screenshot 2026-05-17 at 12.29.02 Small.jpeg" alt="SAR Driving School pass" class="gallery-img">
+          <div class="gallery-card-content"><h3>SAR Driving School pass</h3><p>Pass photo 12</p></div>
+        </div>
+
+      </section>
     </div>
   </main>
 
@@ -379,19 +423,16 @@
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
-  <!-- LIGHTBOX -->
   <div class="gallery-lightbox" id="galleryLightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <button class="lightbox-close" id="lightboxClose">×</button>
 
     <div class="lightbox-content">
-      <div class="lightbox-img-wrap">
-        <img src="" alt="Expanded pass photo" class="lightbox-img" id="lightboxImg">
-      </div>
+      <img src="" alt="Expanded pass photo" class="lightbox-img" id="lightboxImg">
 
       <div class="lightbox-controls">
-        <button class="lightbox-btn" id="lightboxPrev" aria-label="Previous">‹</button>
+        <button class="lightbox-btn" id="lightboxPrev">‹</button>
         <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
-        <button class="lightbox-btn" id="lightboxNext" aria-label="Next">›</button>
+        <button class="lightbox-btn" id="lightboxNext">›</button>
       </div>
     </div>
   </div>
@@ -412,83 +453,24 @@
       });
     });
 
-    const imageTimes = [
-      "12.29.45", "12.29.40", "12.29.37", "12.29.33", "12.29.29", "12.29.25",
-      "12.29.22", "12.29.17", "12.29.13", "12.29.10", "12.29.07", "12.29.02",
-      "12.28.58", "12.28.55", "12.28.50", "12.28.47", "12.28.43", "12.28.40",
-      "12.28.37", "12.28.33", "12.28.30", "12.28.27", "12.28.23", "12.28.20",
-      "12.28.16", "12.28.11", "12.28.07", "12.28.03", "12.27.58", "12.27.49",
-      "12.27.45", "12.27.36", "12.27.33", "12.27.28", "12.27.24", "12.27.19",
-      "12.27.15", "12.27.08", "12.26.53", "12.26.41", "12.26.37", "12.26.34",
-      "12.26.30", "12.26.26", "12.26.22", "12.26.17", "12.26.12", "12.26.08",
-      "12.26.02", "12.25.54", "12.25.45", "12.25.39", "12.25.36", "12.25.29",
-      "12.25.24", "12.25.19", "12.20.12", "12.20.09", "12.20.05", "12.20.02",
-      "12.19.59", "12.19.46", "12.19.41", "12.19.38", "12.19.35", "12.19.31",
-      "12.19.28", "12.19.25", "12.19.22", "12.19.17", "12.19.12", "12.19.09",
-      "12.19.06", "12.19.01", "12.18.58", "12.18.54", "12.18.51", "12.18.47",
-      "12.18.44", "12.18.40", "12.18.37", "12.18.33", "12.18.30", "12.18.26",
-      "12.18.23", "12.18.19", "12.18.15", "12.18.10", "12.18.06", "12.17.59",
-      "12.17.55", "12.17.51", "12.17.48", "12.17.42", "12.17.26", "12.17.20",
-      "12.17.16", "12.17.13", "12.17.08", "12.17.04", "12.16.59", "12.16.55",
-      "12.16.51", "12.16.46", "12.16.42", "12.16.31", "12.16.27", "12.16.22",
-      "12.16.15", "12.16.05", "12.14.20"
-    ];
+    const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-img'));
 
-    const allImages = imageTimes.map(function(time, index) {
-      return {
-        src: `images/passes/Screenshot 2026-05-17 at ${time} Small.jpeg`,
-        title: "SAR Driving School pass",
-        caption: `Pass photo ${index + 1}`
-      };
-    });
+    function showGalleryAmount(amount, button) {
+      document.querySelectorAll('.gallery-filter-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
 
-    const galleryGrid = document.getElementById('galleryGrid');
-    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+      button.classList.add('active');
 
-    let visibleImages = [];
-    let currentLimit = 12;
-
-    function renderGallery(limit) {
-      galleryGrid.innerHTML = '';
-
-      if (limit === 'all') {
-        visibleImages = allImages;
-      } else {
-        visibleImages = allImages.slice(0, Number(limit));
-      }
-
-      visibleImages.forEach(function(image, index) {
-        const card = document.createElement('div');
-        card.className = 'gallery-card';
-
-        card.innerHTML = `
-          <img src="${image.src}" alt="${image.title}" class="gallery-img" loading="lazy">
-          <div class="gallery-card-content">
-            <h3>${image.title}</h3>
-            <p>${image.caption}</p>
-          </div>
-        `;
-
-        card.addEventListener('click', function() {
-          openLightbox(index);
-        });
-
-        galleryGrid.appendChild(card);
+      galleryCards.forEach(function(card, index) {
+        if (amount === 'all' || index < amount) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
       });
     }
-
-    filterButtons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        filterButtons.forEach(function(btn) {
-          btn.classList.remove('active');
-        });
-
-        button.classList.add('active');
-
-        currentLimit = button.dataset.limit;
-        renderGallery(currentLimit);
-      });
-    });
 
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -499,8 +481,15 @@
 
     let currentImageIndex = 0;
 
+    function getVisibleImages() {
+      return galleryImages.filter(function(img) {
+        return img.closest('.gallery-card').style.display !== 'none';
+      });
+    }
+
     function openLightbox(index) {
-      currentImageIndex = index;
+      const visibleImages = getVisibleImages();
+      currentImageIndex = visibleImages.indexOf(galleryImages[index]);
       updateLightbox();
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -512,21 +501,31 @@
     }
 
     function updateLightbox() {
+      const visibleImages = getVisibleImages();
       const image = visibleImages[currentImageIndex];
+
       lightboxImg.src = image.src;
-      lightboxImg.alt = image.title;
+      lightboxImg.alt = image.alt;
       lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
     }
 
     function showPreviousImage() {
+      const visibleImages = getVisibleImages();
       currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
       updateLightbox();
     }
 
     function showNextImage() {
+      const visibleImages = getVisibleImages();
       currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
       updateLightbox();
     }
+
+    galleryImages.forEach(function(image, index) {
+      image.addEventListener('click', function() {
+        openLightbox(index);
+      });
+    });
 
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', showPreviousImage);
@@ -565,10 +564,9 @@
       }
     });
 
-    renderGallery(12);
+    showGalleryAmount(12, document.querySelector('.gallery-filter-btn.active'));
   </script>
 
-  <!-- WhatsApp Button -->
   <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
     position: fixed;
     bottom: 24px;
@@ -582,10 +580,9 @@
     justify-content: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     z-index: 9999;
-    transition: transform 0.2s;
-  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  ">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.150-1.255-.463-2.390-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.298-.347.446-.520.149-.174.198-.298.298-.497.099-.198.050-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.500-.669-.510-.173-.008-.371-.010-.570-.010-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
