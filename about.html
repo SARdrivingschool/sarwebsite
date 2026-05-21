@@ -22,6 +22,133 @@
       z-index: 2;
     }
 
+    .about-section {
+      background: #ffffff;
+      padding: 80px 2rem;
+      overflow-x: hidden;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-story h2 {
+      font-size: 2.8rem;
+      line-height: 1.1;
+      margin: 1rem 0 1.5rem;
+      color: #111111;
+    }
+
+    .about-story p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #555555;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .about-stat {
+      background: #f5f5f5;
+      border-radius: 20px;
+      padding: 2rem;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-stat strong {
+      font-size: 2.7rem;
+      color: #111111;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .about-stat span {
+      color: #666666;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .about-values {
+      background: #111111;
+      padding: 80px 2rem;
+    }
+
+    .about-values-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-values h2 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .value-card {
+      background: #171717;
+      border: 1px solid #333333;
+      border-radius: 18px;
+      padding: 1.6rem;
+    }
+
+    .value-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .value-card p {
+      color: #bdbdbd;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .lessons-cta {
+      background: #1f1f1f;
+      padding: 70px 2rem;
+      text-align: center;
+    }
+
+    .lessons-cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .lessons-cta h2 {
+      color: #ffffff;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .lessons-cta p {
+      color: #cfcfcf;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
     @media (max-width: 768px) {
       .hamburger {
         display: flex !important;
@@ -81,21 +208,107 @@
       }
 
       .page-hero {
-        min-height: 520px;
+        min-height: 420px;
+        padding: 60px 1.25rem;
         background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.8)),
-          url("images/about-bg.png") center right/cover no-repeat;
-        padding: 70px 1.25rem;
+          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.82)),
+          url("images/about-bg.png") center/cover no-repeat;
       }
 
       .page-hero h1 {
-        font-size: 2.1rem;
+        font-size: 2.15rem;
         line-height: 1.15;
       }
 
       .page-hero p {
         font-size: 1rem;
         line-height: 1.6;
+      }
+
+      .about-section {
+        padding: 50px 1.25rem;
+      }
+
+      .about-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .about-story {
+        width: 100%;
+      }
+
+      .about-story h2 {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 1.2rem;
+      }
+
+      .about-story p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .about-stats-grid {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+      }
+
+      .about-stat {
+        min-height: 120px;
+        padding: 1.3rem;
+        border-radius: 16px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .about-stat strong {
+        font-size: 2rem;
+      }
+
+      .about-stat span {
+        font-size: 0.9rem;
+      }
+
+      .about-values {
+        padding: 50px 1.25rem;
+      }
+
+      .about-values h2 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-card {
+        padding: 1.4rem;
+      }
+
+      .lessons-cta {
+        padding: 55px 1.25rem;
+      }
+
+      .lessons-cta h2 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
       }
 
       .whatsapp-float {
@@ -105,90 +318,6 @@
         right: 18px !important;
       }
     }
-
-
-          /* ABOUT PAGE MOBILE FIX */
-    @media (max-width: 768px) {
-      .about-section {
-        padding: 45px 1.25rem !important;
-        overflow-x: hidden !important;
-      }
-
-      .about-inner {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 2rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .about-story {
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .about-story h2 {
-        font-size: 2rem !important;
-        line-height: 1.15 !important;
-        word-break: normal !important;
-        max-width: 100% !important;
-      }
-
-      .about-story p {
-        font-size: 1rem !important;
-        line-height: 1.7 !important;
-        max-width: 100% !important;
-      }
-
-      .about-stats-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      .about-stat {
-        width: 100% !important;
-        padding: 1.3rem !important;
-        border-radius: 16px !important;
-        text-align: center !important;
-      }
-
-      .about-stat strong {
-        font-size: 2rem !important;
-        line-height: 1 !important;
-      }
-
-      .about-stat span {
-        font-size: 0.9rem !important;
-        line-height: 1.3 !important;
-      }
-
-      .about-values {
-        padding: 45px 1.25rem !important;
-      }
-
-      .about-values-inner h2 {
-        font-size: 2rem !important;
-        line-height: 1.15 !important;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-      }
-
-      .value-card {
-        padding: 1.4rem !important;
-      }
-    }
-
-
-
-
-
-
   </style>
 </head>
 
@@ -228,20 +357,40 @@
 
     <section class="about-section">
       <div class="about-inner">
+
         <div class="about-story">
           <div class="section-label">Our story</div>
           <h2>Helping Milton Keynes learners drive with confidence</h2>
+
           <p>SAR Driving School is a local Milton Keynes driving school built around patient teaching, clear guidance and real progress.</p>
+
           <p>We help learners build safe driving habits, understand local test routes and feel confident behind the wheel. Whether you are a complete beginner, switching instructors or returning to driving after time away, our lessons are tailored around your ability.</p>
+
           <p>We cover Milton Keynes and surrounding areas with manual, automatic and refresher lessons available depending on instructor availability.</p>
         </div>
 
         <div class="about-stats-grid">
-          <div class="about-stat"><strong>500+</strong><span>learners passed</span></div>
-          <div class="about-stat"><strong>15+</strong><span>years experience</span></div>
-          <div class="about-stat"><strong>170+</strong><span>five-star reviews</span></div>
-          <div class="about-stat"><strong>DVSA</strong><span>approved instructors</span></div>
+          <div class="about-stat">
+            <strong>500+</strong>
+            <span>learners passed</span>
+          </div>
+
+          <div class="about-stat">
+            <strong>15+</strong>
+            <span>years experience</span>
+          </div>
+
+          <div class="about-stat">
+            <strong>170+</strong>
+            <span>five-star reviews</span>
+          </div>
+
+          <div class="about-stat">
+            <strong>DVSA</strong>
+            <span>approved instructors</span>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -282,6 +431,7 @@
       <div class="lessons-cta-inner">
         <h2>Ready to start learning?</h2>
         <p>Book your first lesson today and take the first step towards passing with confidence.</p>
+
         <div class="hero-buttons">
           <a href="book.html" class="btn-primary">Book a lesson</a>
           <a href="contact.html" class="btn-secondary">Contact us</a>
