@@ -132,34 +132,33 @@
     .hero {
       min-height: calc(100vh - 92px);
       background:
-        radial-gradient(circle at 12% 18%, rgba(237,28,36,0.12), transparent 32%),
-        linear-gradient(90deg, #050505 0%, #090909 55%, #130909 100%);
+        linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.66) 43%, rgba(0,0,0,0.22) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.78) 100%),
+        url("images/home-bg-fleet.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 70px 0;
+      padding: 80px 0;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 20% 78%, rgba(237,28,36,0.18), transparent 34%);
+      background:
+        radial-gradient(circle at 17% 65%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.35));
       pointer-events: none;
     }
 
     .hero-inner {
       position: relative;
       z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 58px;
-    }
-
-    .hero-content {
-      max-width: 680px;
+      max-width: 760px;
     }
 
     .hero-label {
@@ -170,7 +169,7 @@
       padding: 14px 22px;
       border-radius: 999px;
       border: 1px solid rgba(237,28,36,0.5);
-      background: rgba(95,0,0,0.38);
+      background: rgba(95,0,0,0.46);
       color: #ffffff;
       font-size: 0.82rem;
       font-weight: 900;
@@ -194,7 +193,7 @@
 
     .hero p {
       max-width: 720px;
-      color: #e0e0e0;
+      color: #e8e8e8;
       font-size: 1.28rem;
       line-height: 1.7;
       margin-bottom: 32px;
@@ -230,8 +229,8 @@
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.08);
       color: #ffffff;
       backdrop-filter: blur(8px);
     }
@@ -265,8 +264,8 @@
     }
 
     .stat-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 20px;
       padding: 22px;
       backdrop-filter: blur(10px);
@@ -280,26 +279,9 @@
     }
 
     .stat-card span {
-      color: #bbbbbb;
+      color: #d0d0d0;
       font-size: 0.92rem;
       line-height: 1.5;
-    }
-
-    .hero-image-wrap {
-      width: 100%;
-      border-radius: 28px;
-      overflow: hidden;
-      background: #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 24px 70px rgba(0,0,0,0.5);
-    }
-
-    .hero-image-wrap img {
-      width: 100%;
-      height: 465px;
-      object-fit: cover;
-      object-position: center;
-      filter: brightness(0.82);
     }
 
     /* BELOW SECTIONS */
@@ -406,6 +388,7 @@
         padding: 12px 24px 20px;
         border-top: 1px solid #eeeeee;
         box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 99;
       }
 
       .nav-links.open {
@@ -432,34 +415,21 @@
       }
 
       .hero {
-        min-height: auto;
-        padding: 32px 0 48px;
+        min-height: calc(100svh - 82px);
+        padding: 300px 0 44px;
+        align-items: flex-end;
         background:
-          radial-gradient(circle at 12% 18%, rgba(237,28,36,0.12), transparent 32%),
-          linear-gradient(180deg, #050505 0%, #090909 55%, #130909 100%);
+          linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.12) 26%, rgba(0,0,0,0.76) 58%, rgba(0,0,0,0.98) 100%),
+          linear-gradient(90deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.08) 100%),
+          url("images/home-bg-fleet.png");
+        background-size: auto 320px;
+        background-position: center top;
+        background-repeat: no-repeat;
       }
 
       .hero-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .hero-image-wrap {
-        order: 1;
-        border-radius: 24px;
-      }
-
-      .hero-image-wrap img {
-        height: 300px;
-        object-fit: cover;
-        object-position: center;
-        filter: brightness(0.88);
-      }
-
-      .hero-content {
-        order: 2;
         width: 100%;
+        max-width: 100%;
       }
 
       .hero-label {
@@ -471,7 +441,7 @@
       }
 
       .hero h1 {
-        font-size: 3.65rem;
+        font-size: 3.45rem;
         line-height: 0.95;
         letter-spacing: -2px;
         margin-bottom: 18px;
@@ -521,12 +491,13 @@
     }
 
     @media (max-width: 400px) {
-      .hero h1 {
-        font-size: 3.25rem;
+      .hero {
+        padding-top: 285px;
+        background-size: auto 300px;
       }
 
-      .hero-image-wrap img {
-        height: 270px;
+      .hero h1 {
+        font-size: 3.1rem;
       }
     }
   </style>
@@ -607,10 +578,6 @@
           </div>
         </div>
 
-        <div class="hero-image-wrap">
-          <img src="images/home-bg-yaris-gr.png" alt="SAR Driving School Toyota Yaris GR">
-        </div>
-
       </div>
     </section>
 
@@ -671,4 +638,4 @@
   </script>
 
 </body>
-</html> 
+</html>
