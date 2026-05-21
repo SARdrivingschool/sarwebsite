@@ -2,294 +2,745 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Book a Lesson | SAR Driving School</title>
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .booking-hero {
+    :root {
+      --red: #ed1c24;
+      --dark: #0b0b0b;
+      --dark2: #111111;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .page-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.78) 45%, rgba(0,0,0,0.35) 100%),
-        url("images/booking-bg.png") center/cover no-repeat;
-      color: #ffffff;
-      padding: 100px 2rem;
-      min-height: 520px;
+        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.68) 44%, rgba(0,0,0,0.26) 100%),
+        url("images/book-bg.png") center/cover no-repeat;
+      min-height: 500px;
       display: flex;
       align-items: center;
+      overflow: hidden;
     }
 
-    .booking-hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38));
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
       position: relative;
       z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem;
     }
 
-    .booking-hero h1 {
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 1.02;
       color: #ffffff;
-      font-size: 3.3rem;
-      line-height: 1.08;
-      margin: 1rem 0;
-      max-width: 950px;
+      margin: 0 0 1rem;
+      letter-spacing: -2px;
+      max-width: 880px;
     }
 
-    .booking-hero p {
-      max-width: 720px;
-      color: #d0d0d0;
-      font-size: 1.12rem;
+    .page-hero p {
+      color: #d6d6d6;
+      font-size: 1.15rem;
       line-height: 1.7;
+      max-width: 780px;
+      margin-bottom: 1.8rem;
     }
 
-    .booking-trust {
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      max-width: 920px;
+    }
+
+    .hero-badge {
+      background: rgba(0,0,0,0.52);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1rem;
+      font-weight: 900;
+      color: #ffffff;
+      backdrop-filter: blur(8px);
+    }
+
+    .booking-steps-section {
+      background: #101010;
+      padding: 70px 2rem 34px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .booking-steps-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .booking-steps-inner h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .booking-steps-inner > p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      max-width: 760px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-top: 2rem;
-      max-width: 950px;
     }
 
-    .booking-trust-item {
-      background: rgba(0,0,0,0.45);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 14px;
-      padding: 1rem;
-      font-weight: 800;
+    .step-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 20px;
+      padding: 1.4rem;
+      text-align: left;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      box-shadow: 0 12px 24px rgba(237,28,36,0.24);
+    }
+
+    .step-card h3 {
       color: #ffffff;
-      backdrop-filter: blur(6px);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
     }
 
-    .booking-main {
-      background: #1f1f1f;
-      padding: 70px 2rem;
+    .step-card p {
+      color: #bfbfbf;
+      line-height: 1.55;
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    .booking-main-section {
+      background: #0b0b0b;
+      padding: 56px 2rem 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-main-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 16% 30%, rgba(237,28,36,0.12), transparent 34%),
+        radial-gradient(circle at 86% 86%, rgba(237,28,36,0.08), transparent 30%);
+      pointer-events: none;
     }
 
     .booking-inner {
-      max-width: 1100px;
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
       margin: 0 auto;
     }
 
-    .booking-intro {
+    .lesson-options {
+      margin-bottom: 2rem;
+    }
+
+    .section-head {
       text-align: center;
-      margin-bottom: 2.2rem;
+      max-width: 780px;
+      margin: 0 auto 2rem;
     }
 
-    .booking-intro h2 {
-      font-size: 2.2rem;
+    .section-head h2 {
       color: #ffffff;
-      margin-bottom: 0.75rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 0.8rem;
     }
 
-    .booking-intro p {
-      color: #bdbdbd;
-      max-width: 760px;
-      margin: 0 auto;
+    .section-head p {
+      color: #cfcfcf;
       line-height: 1.7;
       font-size: 1.05rem;
     }
 
-    .booking-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin: 2.5rem 0 4rem;
-    }
-
-    .booking-step {
-      background: #111111;
-      border: 1px solid #3a3a3a;
-      border-radius: 16px;
-      padding: 1.3rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-
-    .booking-step strong {
-      display: block;
-      color: #e01e26;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.45rem;
-    }
-
-    .booking-step span {
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 1rem;
-    }
-
-    .lesson-intro {
-      margin-bottom: 2rem;
-    }
-
-    .lesson-choice-grid {
+    .lesson-card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
     }
 
-    .lesson-choice-card {
-      background: #111111;
-      border: 2px solid #3a3a3a;
-      border-radius: 18px;
+    .lesson-option-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
       padding: 1.7rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      transition: transform 0.2s, border-color 0.2s, background 0.2s;
       cursor: pointer;
-      min-height: 230px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
-    .lesson-choice-card:hover,
-    .lesson-choice-card.active {
-      border-color: #e01e26;
-      transform: translateY(-4px);
-      background: #151515;
+    .lesson-option-card:hover,
+    .lesson-option-card.active {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.8);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.13), rgba(255,255,255,0.02)),
+        #101010;
     }
 
-    .lesson-choice-card h3 {
-      font-size: 1.35rem;
+    .lesson-option-card h3 {
       color: #ffffff;
+      font-size: 1.35rem;
       margin-bottom: 0.7rem;
     }
 
-    .lesson-choice-card p {
-      color: #bdbdbd;
+    .lesson-option-card p {
+      color: #cfcfcf;
       line-height: 1.6;
+      min-height: 52px;
       margin-bottom: 1.2rem;
     }
 
     .lesson-price {
-      font-size: 1.9rem;
-      font-weight: 900;
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
       color: #ffffff;
-      margin-bottom: 0.35rem;
+      font-weight: 900;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
 
     .lesson-price span {
+      color: #bfbfbf;
       font-size: 0.95rem;
-      color: #999999;
-      font-weight: 700;
     }
 
-    .small-note {
-      color: #b0b0b0;
-      font-size: 0.9rem;
+    .lesson-note {
+      color: #bfbfbf;
+      font-size: 0.92rem;
       line-height: 1.5;
     }
 
-    .selected-lesson-box {
-      background: #111111;
-      border: 1px solid #3a3a3a;
-      border-left: 5px solid #e01e26;
-      border-radius: 14px;
+    .selected-strip {
+      background:
+        linear-gradient(90deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-left: 5px solid var(--red);
+      border-radius: 16px;
       padding: 1rem 1.2rem;
-      margin: 0 0 2.5rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+    }
+
+    .selected-strip span {
+      color: var(--red);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .booking-panel {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .booking-panel h2 {
       color: #ffffff;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.08;
+      margin-bottom: 0.8rem;
+    }
+
+    .booking-panel > p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .mini-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .mini-pill {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      padding: 0.75rem 1rem;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .calendar-shell {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #0c0c0c;
+    }
+
+    .calendar-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .calendar-top strong {
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+
+    .calendar-arrows {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .calendar-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #151515;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .calendar-body {
+      display: grid;
+      grid-template-columns: 1fr 0.74fr;
+      min-height: 480px;
+    }
+
+    .calendar-left {
+      padding: 1.2rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .weekdays,
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.55rem;
+    }
+
+    .weekdays {
+      margin-bottom: 0.7rem;
+    }
+
+    .weekdays div {
+      color: #bfbfbf;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .day-btn {
+      min-height: 54px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #1a1a1a;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: 900;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .day-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(237,28,36,0.55);
+    }
+
+    .day-btn.muted {
+      opacity: 0.28;
+      cursor: not-allowed;
+    }
+
+    .day-btn.selected {
+      background: #ffffff;
+      color: #111111;
+      border-color: #ffffff;
+    }
+
+    .calendar-right {
+      padding: 1.2rem;
+    }
+
+    .time-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .time-head strong {
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .duration-toggle {
+      display: flex;
+      background: #181818;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .duration-btn {
+      min-height: 38px;
+      padding: 0 0.8rem;
+      border: 0;
+      background: transparent;
+      color: #cfcfcf;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .duration-btn.active {
+      background: var(--red);
+      color: #ffffff;
+    }
+
+    .time-list {
+      display: grid;
+      gap: 0.55rem;
+      max-height: 390px;
+      overflow: auto;
+      padding-right: 0.2rem;
+    }
+
+    .time-btn {
+      min-height: 48px;
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #101010;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: 900;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .time-btn::before {
+      content: "●";
+      color: #25d366;
+      margin-right: 0.55rem;
+      font-size: 0.8rem;
+    }
+
+    .time-btn:hover,
+    .time-btn.selected {
+      transform: translateY(-2px);
+      border-color: rgba(237,28,36,0.7);
+      background: rgba(237,28,36,0.14);
+    }
+
+    .booking-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.94rem;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 56px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      color: #ffffff;
+      padding: 0 1rem;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      padding: 1rem;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #a8a8a8;
+    }
+
+    .field select {
+      appearance: none;
+      background:
+        linear-gradient(45deg, transparent 50%, #ffffff 50%),
+        linear-gradient(135deg, #ffffff 50%, transparent 50%),
+        rgba(255,255,255,0.10);
+      background-position:
+        calc(100% - 20px) 24px,
+        calc(100% - 15px) 24px,
+        0 0;
+      background-size:
+        5px 5px,
+        5px 5px,
+        100% 100%;
+      background-repeat: no-repeat;
+    }
+
+    .field select option {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(237,28,36,0.75);
+      background: rgba(255,255,255,0.13);
+      box-shadow: 0 0 0 4px rgba(237,28,36,0.12);
+    }
+
+    .booking-summary {
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.13), rgba(255,255,255,0.035)),
+        #151515;
+      border: 1px solid rgba(237,28,36,0.28);
+      border-radius: 18px;
+      padding: 1.2rem;
+      margin: 0.4rem 0;
+    }
+
+    .booking-summary h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #cfcfcf;
+      line-height: 1.45;
+    }
+
+    .summary-line:last-child {
+      border-bottom: 0;
+    }
+
+    .summary-line strong {
+      color: #ffffff;
+      text-align: right;
+    }
+
+    .form-note {
+      color: #bfbfbf;
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .booking-form button {
+      width: 100%;
+      border: none;
       font-size: 1rem;
     }
 
-    .selected-lesson-box span {
-      color: #e01e26;
-      font-weight: 900;
-    }
-
-    .payment-box {
-      background: #111111;
-      color: #ffffff;
-      border-radius: 20px;
-      padding: 1.8rem;
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 1.5rem;
-      align-items: center;
-      border: 1px solid #2d2d2d;
-    }
-
-    .payment-box h3 {
-      color: #ffffff;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .payment-box p {
-      color: #cccccc;
-      line-height: 1.6;
-    }
-
-    .payment-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: flex-end;
-    }
-
-    .payment-badge {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #ffffff;
-      padding: 0.65rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 800;
-    }
-
-    .calendar-wrap {
-      background: #ffffff;
-      border-radius: 22px;
-      padding: 1.5rem;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.18);
-      border: 1px solid #eeeeee;
-    }
-
-    .calendar-header {
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    .calendar-header h2 {
-      color: #111111;
-      font-size: 1.6rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .calendar-header p {
-      color: #666666;
-      line-height: 1.6;
-    }
-
-    #my-cal-inline-driving-lesson {
-      width: 100%;
-      min-height: 750px;
-      overflow: auto;
-    }
-
-    .booking-help {
-      margin-top: 2rem;
-      background: #111111;
-      border-radius: 18px;
-      padding: 1.5rem;
-      border: 1px solid #3a3a3a;
+    .help-section {
+      background: #202020;
+      padding: 80px 2rem;
       text-align: center;
     }
 
-    .booking-help h3 {
-      margin-bottom: 0.5rem;
+    .help-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .help-card h2 {
       color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.9rem;
+      letter-spacing: -1px;
     }
 
-    .booking-help p {
-      color: #bdbdbd;
-      margin-bottom: 1rem;
+    .help-card p {
+      color: #d0d0d0;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 1.7rem;
     }
 
-    .booking-help a {
-      color: #e01e26;
-      font-weight: 900;
-      text-decoration: none;
+    .help-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-badges,
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lesson-card-grid,
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-body {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-left {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
     }
 
     @media (max-width: 768px) {
@@ -350,56 +801,107 @@
         height: 70px;
       }
 
-      .booking-hero {
-        min-height: 560px;
-        padding: 70px 1.25rem;
+      .page-hero {
+        min-height: 470px;
+        padding: 64px 0;
         background:
           linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
-          url("images/booking-bg.png") center right/cover no-repeat;
+          url("images/book-bg.png") center right/cover no-repeat;
       }
 
-      .booking-hero h1 {
-        font-size: 2.2rem;
+      .page-hero-inner {
+        padding: 0 1.25rem;
       }
 
-      .booking-hero p {
+      .page-hero h1 {
+        font-size: 2.45rem;
+        line-height: 1.08;
+      }
+
+      .page-hero p {
         font-size: 1rem;
+        line-height: 1.6;
       }
 
-      .booking-trust,
-      .lesson-choice-grid,
-      .booking-steps,
-      .payment-box {
+      .hero-badges,
+      .steps-grid,
+      .form-row {
         grid-template-columns: 1fr;
       }
 
-      .booking-main {
-        padding: 45px 1rem;
+      .booking-steps-section,
+      .booking-main-section,
+      .help-section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
       }
 
-      .booking-intro h2 {
-        font-size: 1.8rem;
+      .booking-steps-section {
+        padding-top: 54px;
       }
 
-      .booking-steps {
-        margin: 2rem 0 3rem;
+      .booking-panel {
+        padding: 1.4rem;
+        border-radius: 20px;
       }
 
-      .lesson-choice-card {
-        min-height: unset;
+      .lesson-option-card {
+        padding: 1.35rem;
+        border-radius: 18px;
       }
 
-      .payment-badges {
-        justify-content: flex-start;
+      .calendar-top {
+        grid-template-columns: 1fr;
       }
 
-      .calendar-wrap {
-        padding: 1rem;
-        border-radius: 16px;
+      .weekdays,
+      .days-grid {
+        gap: 0.4rem;
       }
 
-      #my-cal-inline-driving-lesson {
-        min-height: 850px;
+      .day-btn {
+        min-height: 46px;
+        border-radius: 11px;
+        font-size: 0.92rem;
+      }
+
+      .time-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .duration-toggle,
+      .duration-btn {
+        width: 100%;
+      }
+
+      .duration-btn {
+        flex: 1;
+      }
+
+      .summary-line {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .summary-line strong {
+        text-align: left;
+      }
+
+      .help-card {
+        border-radius: 22px;
+        padding: 1.6rem;
+      }
+
+      .help-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-whatsapp {
+        width: 100%;
       }
 
       .whatsapp-float {
@@ -438,168 +940,265 @@
 
   <main>
 
-    <section class="booking-hero">
-      <div class="booking-hero-inner">
+    <section class="page-hero">
+      <div class="page-hero-inner">
         <div class="section-label">Get started</div>
         <h1>Book a driving lesson with SAR Driving School</h1>
-        <p>Choose your lesson type, pick a preferred date and time, and our team will confirm your booking shortly. Manual, automatic and refresher lessons available across Milton Keynes and surrounding areas.</p>
+        <p>
+          Choose your lesson type, pick a preferred date and time, then send your details.
+          We’ll confirm instructor availability, pickup location and payment details by WhatsApp or phone.
+        </p>
 
-        <div class="booking-trust">
-          <div class="booking-trust-item">DVSA approved</div>
-          <div class="booking-trust-item">Manual & automatic</div>
-          <div class="booking-trust-item">500+ learners passed</div>
-          <div class="booking-trust-item">Secure booking</div>
+        <div class="hero-badges">
+          <div class="hero-badge">DVSA approved</div>
+          <div class="hero-badge">Manual & automatic</div>
+          <div class="hero-badge">500+ learners passed</div>
+          <div class="hero-badge">Secure request</div>
         </div>
       </div>
     </section>
 
-    <section class="booking-main">
+    <section class="booking-steps-section">
+      <div class="booking-steps-inner">
+        <div class="section-label">How booking works</div>
+        <h2>Book your lesson in 4 simple steps</h2>
+        <p>
+          This is a lesson request system. Final availability, instructor allocation and payment details are confirmed by SAR Driving School.
+        </p>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Select lesson type</h3>
+            <p>Choose manual, automatic or refresher lessons.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Pick date and time</h3>
+            <p>Select your preferred slot from the calendar.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Enter your details</h3>
+            <p>Send your name, area, experience and availability.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>We confirm booking</h3>
+            <p>We confirm everything by WhatsApp or phone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking-main-section">
       <div class="booking-inner">
 
-        <div class="booking-intro">
-          <div class="section-label">How booking works</div>
-          <h2>Book your lesson in 4 simple steps</h2>
-          <p>Choose your lesson type, pick a preferred time, enter your learner details, and SAR Driving School will confirm your booking by WhatsApp or phone.</p>
-        </div>
-
-        <div class="booking-steps">
-          <div class="booking-step">
-            <strong>Step 1</strong>
-            <span>Choose lesson type</span>
+        <div class="lesson-options">
+          <div class="section-head">
+            <div class="section-label">Choose your lesson</div>
+            <h2>Start with the lesson that suits you</h2>
+            <p>Tap a lesson type below, then choose your preferred date and time.</p>
           </div>
 
-          <div class="booking-step">
-            <strong>Step 2</strong>
-            <span>Pick date and time</span>
+          <div class="lesson-card-grid">
+            <div class="lesson-option-card active" data-lesson="Manual lessons" data-price="£38 / hour">
+              <h3>Manual lessons</h3>
+              <p>Best for learners who want the full flexibility of a manual licence.</p>
+              <div class="lesson-price">£38 <span>/ hour</span></div>
+              <div class="lesson-note">Available in Milton Keynes and surrounding areas.</div>
+            </div>
+
+            <div class="lesson-option-card" data-lesson="Automatic lessons" data-price="£38 / hour">
+              <h3>Automatic lessons</h3>
+              <p>Easier to learn with no clutch or gears. Great for nervous learners.</p>
+              <div class="lesson-price">£38 <span>/ hour</span></div>
+              <div class="lesson-note">Automatic availability depends on area and instructor.</div>
+            </div>
+
+            <div class="lesson-option-card" data-lesson="Refresher lessons" data-price="From £38">
+              <h3>Refresher lessons</h3>
+              <p>Already passed but need confidence again? We’ll tailor the lesson to you.</p>
+              <div class="lesson-price">From £38</div>
+              <div class="lesson-note">Ideal for parking, roundabouts, motorway or confidence building.</div>
+            </div>
           </div>
 
-          <div class="booking-step">
-            <strong>Step 3</strong>
-            <span>Enter learner details</span>
-          </div>
-
-          <div class="booking-step">
-            <strong>Step 4</strong>
-            <span>We confirm availability</span>
-          </div>
-        </div>
-
-        <div class="booking-intro lesson-intro">
-          <div class="section-label">Choose your lesson</div>
-          <h2>Select the lesson that suits you</h2>
-          <p>Tap a lesson type below, then choose your preferred date and time in the calendar.</p>
-        </div>
-
-        <div class="lesson-choice-grid">
-          <div class="lesson-choice-card active" data-lesson="Manual lessons">
-            <h3>Manual lessons</h3>
-            <p>Best for learners who want the full flexibility of a manual licence.</p>
-            <div class="lesson-price">£38 <span>/ hour</span></div>
-            <div class="small-note">Available in Milton Keynes and surrounding areas.</div>
-          </div>
-
-          <div class="lesson-choice-card" data-lesson="Automatic lessons">
-            <h3>Automatic lessons</h3>
-            <p>Easier to learn with no clutch or gears. Great for nervous learners.</p>
-            <div class="lesson-price">£38 <span>/ hour</span></div>
-            <div class="small-note">Automatic availability depends on area and instructor.</div>
-          </div>
-
-          <div class="lesson-choice-card" data-lesson="Refresher lessons">
-            <h3>Refresher lessons</h3>
-            <p>Already passed but need confidence again? We’ll tailor the lesson to you.</p>
-            <div class="lesson-price">From £38</div>
-            <div class="small-note">Ideal for motorway, parking, roundabouts or confidence building.</div>
+          <div class="selected-strip">
+            Selected lesson: <span id="selected-lesson">Manual lessons</span>
           </div>
         </div>
 
-        <div class="selected-lesson-box">
-          <strong>Selected lesson:</strong>
-          <span id="selectedLesson">Manual lessons</span>
-        </div>
+        <div class="booking-grid">
 
-        <div class="payment-box">
-          <div>
-            <h3>Secure your lesson</h3>
-            <p>After you request a slot, SAR Driving School will confirm the lesson type, instructor, pickup location and payment details by WhatsApp or phone.</p>
-          </div>
-
-          <div class="payment-badges">
-            <span class="payment-badge">Bank transfer accepted</span>
-            <span class="payment-badge">WhatsApp confirmation</span>
-            <span class="payment-badge">Card payment coming soon</span>
-          </div>
-        </div>
-
-        <div class="calendar-wrap">
-          <div class="calendar-header">
+          <div class="booking-panel">
             <h2>Select your preferred time</h2>
-            <p>This calendar is for SAR Driving School lesson requests. If your chosen time is unavailable, we’ll offer the closest alternative.</p>
+            <p>
+              Pick a preferred date, duration and time. If your chosen slot is unavailable,
+              we’ll offer the closest alternative.
+            </p>
+
+            <div class="mini-info-row">
+              <div class="mini-pill">Bank transfer accepted</div>
+              <div class="mini-pill">WhatsApp confirmation</div>
+              <div class="mini-pill">Card payment coming soon</div>
+            </div>
+
+            <div class="calendar-shell">
+              <div class="calendar-top">
+                <strong id="calendar-month">May 2026</strong>
+
+                <div class="calendar-arrows">
+                  <button class="calendar-arrow" id="prev-month" type="button">‹</button>
+                  <button class="calendar-arrow" id="next-month" type="button">›</button>
+                </div>
+              </div>
+
+              <div class="calendar-body">
+                <div class="calendar-left">
+                  <div class="weekdays">
+                    <div>SUN</div>
+                    <div>MON</div>
+                    <div>TUE</div>
+                    <div>WED</div>
+                    <div>THU</div>
+                    <div>FRI</div>
+                    <div>SAT</div>
+                  </div>
+
+                  <div class="days-grid" id="days-grid"></div>
+                </div>
+
+                <div class="calendar-right">
+                  <div class="time-head">
+                    <strong id="selected-date-label">Select a date</strong>
+
+                    <div class="duration-toggle">
+                      <button class="duration-btn active" type="button" data-duration="1 hour">1h</button>
+                      <button class="duration-btn" type="button" data-duration="1 hour 30 mins">1h 30m</button>
+                      <button class="duration-btn" type="button" data-duration="2 hours">2h</button>
+                    </div>
+                  </div>
+
+                  <div class="time-list" id="time-list"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div id="my-cal-inline-driving-lesson"></div>
+          <div class="booking-panel">
+            <h2>Learner details</h2>
+            <p>Fill this in so we can confirm the most suitable instructor and pickup arrangement.</p>
 
-          <script type="text/javascript">
-            (function (C, A, L) {
-              let p = function (a, ar) { a.q.push(ar); };
-              let d = C.document;
-              C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
+            <form class="booking-form" id="booking-form" action="https://formsubmit.co/info@sardrivingschool.co.uk" method="POST">
+              <input type="hidden" name="_subject" value="New SAR Driving School lesson request">
+              <input type="hidden" name="_captcha" value="false">
 
-                if (!cal.loaded) {
-                  cal.ns = {};
-                  cal.q = cal.q || [];
-                  d.head.appendChild(d.createElement("script")).src = A;
-                  cal.loaded = true;
-                }
+              <input type="hidden" id="hidden-lesson" name="selected_lesson" value="Manual lessons">
+              <input type="hidden" id="hidden-price" name="selected_price" value="£38 / hour">
+              <input type="hidden" id="hidden-date" name="preferred_date" value="">
+              <input type="hidden" id="hidden-time" name="preferred_time" value="">
+              <input type="hidden" id="hidden-duration" name="lesson_duration" value="1 hour">
 
-                if (ar[0] === L) {
-                  const api = function () { p(api, arguments); };
-                  const namespace = ar[1];
-                  api.q = api.q || [];
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Your name</label>
+                  <input id="name" name="name" type="text" placeholder="John Smith" required>
+                </div>
 
-                  if (typeof namespace === "string") {
-                    cal.ns[namespace] = cal.ns[namespace] || api;
-                    p(cal.ns[namespace], ar);
-                    p(cal, ["initNamespace", namespace]);
-                  } else {
-                    p(cal, ar);
-                  }
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" name="phone" type="tel" placeholder="07700 000000" required>
+                </div>
+              </div>
 
-                  return;
-                }
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="john@example.com">
+              </div>
 
-                p(cal, ar);
-              };
-            })(window, "https://app.cal.com/embed/embed.js", "init");
+              <div class="form-row">
+                <div class="field">
+                  <label for="area">Pickup area</label>
+                  <input id="area" name="area" type="text" placeholder="Milton Keynes, Bletchley, Bedford..." required>
+                </div>
 
-            Cal("init", "driving-lesson-request", {
-              origin: "https://app.cal.com"
-            });
+                <div class="field">
+                  <label for="experience">Driving experience</label>
+                  <select id="experience" name="experience" required>
+                    <option value="">Select one</option>
+                    <option>Complete beginner</option>
+                    <option>Had a few lessons before</option>
+                    <option>Test booked</option>
+                    <option>Switching instructor</option>
+                    <option>Already passed / refresher</option>
+                  </select>
+                </div>
+              </div>
 
-            Cal.ns["driving-lesson-request"]("inline", {
-              elementOrSelector: "#my-cal-inline-driving-lesson",
-              config: {
-                layout: "month_view",
-                useSlotsViewOnSmallScreen: true
-              },
-              calLink: "sar-driving-school/driving-lesson-request"
-            });
+              <div class="field">
+                <label for="message">Extra message</label>
+                <textarea id="message" name="message" placeholder="Tell us your availability, test date if booked, or anything else we should know..."></textarea>
+              </div>
 
-            Cal.ns["driving-lesson-request"]("ui", {
-              hideEventTypeDetails: false,
-              layout: "month_view"
-            });
-          </script>
+              <div class="booking-summary">
+                <h3>Your lesson request</h3>
+
+                <div class="summary-line">
+                  <span>Lesson</span>
+                  <strong id="summary-lesson">Manual lessons</strong>
+                </div>
+
+                <div class="summary-line">
+                  <span>Price guide</span>
+                  <strong id="summary-price">£38 / hour</strong>
+                </div>
+
+                <div class="summary-line">
+                  <span>Date</span>
+                  <strong id="summary-date">Not selected</strong>
+                </div>
+
+                <div class="summary-line">
+                  <span>Time</span>
+                  <strong id="summary-time">Not selected</strong>
+                </div>
+
+                <div class="summary-line">
+                  <span>Duration</span>
+                  <strong id="summary-duration">1 hour</strong>
+                </div>
+              </div>
+
+              <p class="form-note">
+                This sends a lesson request. Your booking is only confirmed once SAR Driving School confirms availability and payment details.
+              </p>
+
+              <button type="submit" class="btn-primary">Send lesson request</button>
+              <a href="#" id="whatsapp-request" class="btn-whatsapp">Send request on WhatsApp</a>
+            </form>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <div class="booking-help">
-          <h3>Need help before booking?</h3>
-          <p>Message us directly and we’ll help you choose the right lesson type, duration and area.</p>
-          <a href="https://wa.me/447902023737" target="_blank">Message SAR Driving School on WhatsApp</a>
+    <section class="help-section">
+      <div class="help-card">
+        <div class="section-label">Need help before booking?</div>
+        <h2>Not sure what to choose?</h2>
+        <p>
+          Message us directly and we’ll help you choose the right lesson type, duration and area based on your current experience.
+        </p>
+
+        <div class="help-actions">
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          <a href="pricing.html" class="btn-secondary">View pricing</a>
+          <a href="contact.html" class="btn-primary">Contact us</a>
         </div>
-
       </div>
     </section>
 
@@ -625,39 +1224,230 @@
       });
     });
 
-    const lessonCards = document.querySelectorAll('.lesson-choice-card');
-    const selectedLessonText = document.getElementById('selectedLesson');
+    const lessonCards = document.querySelectorAll('.lesson-option-card');
+    const selectedLessonText = document.getElementById('selected-lesson');
+
+    const hiddenLesson = document.getElementById('hidden-lesson');
+    const hiddenPrice = document.getElementById('hidden-price');
+    const hiddenDate = document.getElementById('hidden-date');
+    const hiddenTime = document.getElementById('hidden-time');
+    const hiddenDuration = document.getElementById('hidden-duration');
+
+    const summaryLesson = document.getElementById('summary-lesson');
+    const summaryPrice = document.getElementById('summary-price');
+    const summaryDate = document.getElementById('summary-date');
+    const summaryTime = document.getElementById('summary-time');
+    const summaryDuration = document.getElementById('summary-duration');
 
     lessonCards.forEach(function(card) {
-      card.addEventListener('mouseenter', function() {
-        lessonCards.forEach(function(c) {
-          c.classList.remove('active');
-        });
-
-        card.classList.add('active');
-
-        if (selectedLessonText) {
-          selectedLessonText.textContent = card.dataset.lesson;
-        }
-      });
-
       card.addEventListener('click', function() {
-        lessonCards.forEach(function(c) {
-          c.classList.remove('active');
+        lessonCards.forEach(function(item) {
+          item.classList.remove('active');
         });
 
         card.classList.add('active');
 
-        if (selectedLessonText) {
-          selectedLessonText.textContent = card.dataset.lesson;
-        }
+        const lesson = card.dataset.lesson;
+        const price = card.dataset.price;
 
-        document.getElementById('my-cal-inline-driving-lesson').scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        selectedLessonText.textContent = lesson;
+        hiddenLesson.value = lesson;
+        hiddenPrice.value = price;
+        summaryLesson.textContent = lesson;
+        summaryPrice.textContent = price;
       });
     });
+
+    const daysGrid = document.getElementById('days-grid');
+    const calendarMonth = document.getElementById('calendar-month');
+    const selectedDateLabel = document.getElementById('selected-date-label');
+    const timeList = document.getElementById('time-list');
+    const prevMonth = document.getElementById('prev-month');
+    const nextMonth = document.getElementById('next-month');
+    const durationButtons = document.querySelectorAll('.duration-btn');
+    const whatsappRequest = document.getElementById('whatsapp-request');
+
+    const times = [
+      "06:00", "07:00", "08:00", "09:00", "10:00",
+      "11:00", "12:00", "13:00", "14:00", "15:00",
+      "16:00", "17:00", "18:00", "19:00"
+    ];
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    let viewDate = new Date();
+    let selectedDate = null;
+    let selectedTime = "";
+    let selectedDuration = "1 hour";
+
+    function renderCalendar() {
+      daysGrid.innerHTML = "";
+
+      const year = viewDate.getFullYear();
+      const month = viewDate.getMonth();
+
+      calendarMonth.textContent = monthNames[month] + " " + year;
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('button');
+        empty.className = 'day-btn muted';
+        empty.type = 'button';
+        empty.disabled = true;
+        empty.textContent = "";
+        daysGrid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const btn = document.createElement('button');
+        btn.className = 'day-btn';
+        btn.type = 'button';
+        btn.textContent = day;
+
+        const thisDate = new Date(year, month, day);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (thisDate < today) {
+          btn.classList.add('muted');
+          btn.disabled = true;
+        }
+
+        if (
+          selectedDate &&
+          thisDate.toDateString() === selectedDate.toDateString()
+        ) {
+          btn.classList.add('selected');
+        }
+
+        btn.addEventListener('click', function() {
+          selectedDate = thisDate;
+          selectedTime = "";
+          hiddenTime.value = "";
+          summaryTime.textContent = "Not selected";
+
+          renderCalendar();
+          renderTimes();
+          updateSummary();
+        });
+
+        daysGrid.appendChild(btn);
+      }
+    }
+
+    function formatDate(date) {
+      if (!date) return "";
+      return date.toLocaleDateString('en-GB', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      });
+    }
+
+    function renderTimes() {
+      timeList.innerHTML = "";
+
+      if (!selectedDate) {
+        selectedDateLabel.textContent = "Select a date";
+      } else {
+        selectedDateLabel.textContent = formatDate(selectedDate);
+      }
+
+      times.forEach(function(time) {
+        const btn = document.createElement('button');
+        btn.className = 'time-btn';
+        btn.type = 'button';
+        btn.textContent = time;
+
+        if (time === selectedTime) {
+          btn.classList.add('selected');
+        }
+
+        btn.addEventListener('click', function() {
+          selectedTime = time;
+          hiddenTime.value = time;
+          summaryTime.textContent = time;
+          renderTimes();
+          updateWhatsAppLink();
+        });
+
+        timeList.appendChild(btn);
+      });
+    }
+
+    function updateSummary() {
+      if (selectedDate) {
+        const formatted = formatDate(selectedDate);
+        hiddenDate.value = formatted;
+        summaryDate.textContent = formatted;
+      } else {
+        hiddenDate.value = "";
+        summaryDate.textContent = "Not selected";
+      }
+
+      hiddenDuration.value = selectedDuration;
+      summaryDuration.textContent = selectedDuration;
+      updateWhatsAppLink();
+    }
+
+    durationButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        durationButtons.forEach(function(item) {
+          item.classList.remove('active');
+        });
+
+        button.classList.add('active');
+        selectedDuration = button.dataset.duration;
+        updateSummary();
+      });
+    });
+
+    prevMonth.addEventListener('click', function() {
+      viewDate.setMonth(viewDate.getMonth() - 1);
+      renderCalendar();
+    });
+
+    nextMonth.addEventListener('click', function() {
+      viewDate.setMonth(viewDate.getMonth() + 1);
+      renderCalendar();
+    });
+
+    function updateWhatsAppLink() {
+      const name = document.getElementById('name').value || "";
+      const phone = document.getElementById('phone').value || "";
+      const area = document.getElementById('area').value || "";
+      const experience = document.getElementById('experience').value || "";
+
+      const message =
+        "Hi SAR Driving School, I would like to request a lesson.%0A%0A" +
+        "Lesson type: " + encodeURIComponent(hiddenLesson.value) + "%0A" +
+        "Price guide: " + encodeURIComponent(hiddenPrice.value) + "%0A" +
+        "Preferred date: " + encodeURIComponent(hiddenDate.value || "Not selected") + "%0A" +
+        "Preferred time: " + encodeURIComponent(hiddenTime.value || "Not selected") + "%0A" +
+        "Duration: " + encodeURIComponent(hiddenDuration.value) + "%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Area: " + encodeURIComponent(area) + "%0A" +
+        "Experience: " + encodeURIComponent(experience);
+
+      whatsappRequest.href = "https://wa.me/447902023737?text=" + message;
+      whatsappRequest.target = "_blank";
+    }
+
+    document.querySelectorAll('#booking-form input, #booking-form select, #booking-form textarea').forEach(function(field) {
+      field.addEventListener('input', updateWhatsAppLink);
+      field.addEventListener('change', updateWhatsAppLink);
+    });
+
+    renderCalendar();
+    renderTimes();
+    updateSummary();
   </script>
 
   <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
