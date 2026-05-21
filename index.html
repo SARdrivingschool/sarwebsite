@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* MOBILE NAV */
+    /* MOBILE NAV FIX */
     @media (max-width: 768px) {
       .hamburger {
         display: flex !important;
@@ -73,45 +73,262 @@
         position: relative;
         height: 70px;
       }
+    }
 
-      .hero-slideshow {
-        grid-template-columns: 1fr !important;
+    /* DYNAMIC HERO */
+    .dynamic-hero {
+      position: relative;
+      min-height: 78vh;
+      overflow: hidden;
+      background: #111111;
+    }
+
+    .dynamic-hero .hero-slideshow {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      z-index: 0;
+    }
+
+    .dynamic-hero .slide {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: slowZoom 8s ease-in-out forwards;
+    }
+
+    @keyframes slowZoom {
+      from {
+        transform: scale(1);
       }
 
-      .slide:nth-child(2),
-      .slide:nth-child(3) {
-        display: none !important;
+      to {
+        transform: scale(1.06);
       }
     }
 
-    /* MOBILE HERO */
+    .dynamic-hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.78));
+      z-index: 1;
+    }
+
+    .dynamic-hero .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5rem 2rem;
+      gap: 2rem;
+    }
+
+    .dynamic-hero .hero-text {
+      max-width: 720px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(224, 30, 38, 0.18);
+      border: 1px solid rgba(224, 30, 38, 0.45);
+      color: #ffffff;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.2rem;
+    }
+
+    .dynamic-hero h1 {
+      color: #ffffff;
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 1.4rem;
+      letter-spacing: -1.5px;
+    }
+
+    .dynamic-hero h1 span {
+      color: #e01e26;
+      display: inline-block;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dynamic-hero h1 span.fade-out {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .dynamic-hero p {
+      max-width: 640px;
+      color: #dddddd;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .dynamic-hero .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .dynamic-hero .btn-primary,
+    .dynamic-hero .btn-secondary {
+      min-width: 190px;
+      text-align: center;
+    }
+
+    .dynamic-hero .hero-stats {
+      display: flex;
+      gap: 1.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .dynamic-hero .stat {
+      min-width: 120px;
+    }
+
+    .dynamic-hero .stat strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    .dynamic-hero .stat span {
+      color: #cfcfcf;
+      font-size: 0.9rem;
+    }
+
+    .hero-floating-card {
+      width: 290px;
+      background: rgba(17,17,17,0.78);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 1.4rem;
+      color: #ffffff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating-stars {
+      color: #ffcc00;
+      letter-spacing: 2px;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+    }
+
+    .hero-floating-card strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-floating-card span {
+      color: #cccccc;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* MOBILE HERO FIX */
     @media (max-width: 768px) {
-      .hero {
-        padding: 60px 1.25rem 50px;
-        min-height: unset;
+      .dynamic-hero {
+        min-height: auto;
       }
 
-      .hero h1 {
-        font-size: 2rem;
-        letter-spacing: -0.5px;
+      .dynamic-hero .hero-slideshow {
+        display: block !important;
+        position: absolute;
+        inset: 0;
+        z-index: 0;
       }
 
-      .hero p {
+      .dynamic-hero .slide {
+        position: absolute;
+        inset: 0;
+        display: none !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      .dynamic-hero .slide:first-child {
+        display: block !important;
+      }
+
+      .dynamic-hero .hero-overlay {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0.70), rgba(0,0,0,0.86)),
+          linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45));
+      }
+
+      .dynamic-hero .hero-inner {
+        min-height: 650px;
+        padding: 4rem 1.25rem 3rem;
+        align-items: flex-end;
+      }
+
+      .dynamic-hero h1 {
+        font-size: 2.65rem;
+        line-height: 1.08;
+        letter-spacing: -0.8px;
+      }
+
+      .dynamic-hero p {
         font-size: 1rem;
-        margin-bottom: 2rem;
       }
 
-      .hero-buttons {
+      .dynamic-hero .hero-buttons {
         flex-direction: column;
         gap: 0.75rem;
-        margin-bottom: 2.5rem;
       }
 
-      .btn-primary,
-      .btn-secondary {
+      .dynamic-hero .btn-primary,
+      .dynamic-hero .btn-secondary {
         width: 100%;
-        text-align: center;
-        padding: 1rem;
+        min-width: unset;
+      }
+
+      .dynamic-hero .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.7rem;
+      }
+
+      .dynamic-hero .stat {
+        min-width: 0;
+      }
+
+      .dynamic-hero .stat strong {
+        font-size: 1.3rem;
+      }
+
+      .dynamic-hero .stat span {
+        font-size: 0.75rem;
+      }
+
+      .hero-floating-card {
+        display: none;
       }
 
       .tab-cards {
@@ -122,179 +339,22 @@
         min-width: unset !important;
         width: 100% !important;
       }
-    }
 
-    @media (max-width: 768px) {
-      .hero-slideshow {
-        display: block !important;
-        position: absolute;
-        inset: 0;
-        z-index: 0;
+      .hero-buttons {
+        flex-direction: column;
       }
 
-      .hero-slideshow .slide {
-        display: block !important;
+      .btn-primary,
+      .btn-secondary {
         width: 100%;
-        height: 100%;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
+        text-align: center;
       }
 
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-overlay {
-        z-index: 1;
-        background: rgba(0,0,0,0.65);
-      }
-    }
-
-    /* HOMEPAGE PRICING SECTION FIX */
-    .pricing {
-      background: #1f1f1f !important;
-      color: #ffffff !important;
-    }
-
-    .pricing-inner {
-      background: transparent !important;
-    }
-
-    .pricing h2,
-    .pricing h3,
-    .pricing .tab-price {
-      color: #ffffff !important;
-    }
-
-    .pricing-sub,
-    .price-desc,
-    .tab-note,
-    .pricing-note,
-    .pricing p {
-      color: #cfcfcf !important;
-    }
-
-    .pricing-tabs {
-      background: transparent !important;
-    }
-
-    .pricing .tab-btn {
-      background: #111111 !important;
-      color: #ffffff !important;
-      border: 1px solid #333333 !important;
-    }
-
-    .pricing .tab-btn.active,
-    .pricing .tab-btn:hover {
-      background: #e01e26 !important;
-      border-color: #e01e26 !important;
-      color: #ffffff !important;
-    }
-
-    .pricing .tab-content {
-      background: transparent !important;
-    }
-
-    .pricing .tab-card,
-    .pricing .tab-card.featured {
-      background: #111111 !important;
-      background-color: #111111 !important;
-      color: #ffffff !important;
-      border: 1.5px solid #333333 !important;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.22) !important;
-    }
-
-    .pricing .tab-card.featured {
-      border: 2px solid #e01e26 !important;
-      box-shadow: 0 0 0 1px rgba(224,30,38,0.25), 0 8px 28px rgba(0,0,0,0.22) !important;
-    }
-
-    .pricing .tab-card h3,
-    .pricing .tab-card .tab-price {
-      color: #ffffff !important;
-    }
-
-    .pricing .tab-card p,
-    .pricing .tab-card .price-desc {
-      color: #cfcfcf !important;
-    }
-
-    .pricing .saving,
-    .pricing .pricing-badge {
-      background: #e01e26 !important;
-      color: #ffffff !important;
-    }
-
-    .pricing .btn-primary {
-      background: #e01e26 !important;
-      color: #ffffff !important;
-    }
-
-    .pricing-note a {
-      color: #e01e26 !important;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    /* EXTRA MOBILE PRICING OVERRIDE */
-    @media (max-width: 768px) {
-      .pricing {
-        background: #1f1f1f !important;
-        padding: 45px 1rem !important;
-      }
-
-      .pricing-inner {
-        background: transparent !important;
-      }
-
-      .pricing .pricing-selector,
-      .pricing .tab-content,
-      .pricing .tab-cards {
-        background: transparent !important;
-      }
-
-      .pricing .tab-card,
-      .pricing .tab-card.featured {
-        background: #111111 !important;
-        background-color: #111111 !important;
-        color: #ffffff !important;
-        border-radius: 18px !important;
-        border: 1.5px solid #333333 !important;
-        padding: 1.6rem !important;
-      }
-
-      .pricing .tab-card.featured {
-        border: 2px solid #e01e26 !important;
-      }
-
-      .pricing .tab-card *,
-      .pricing .tab-card.featured * {
-        color: inherit;
-      }
-
-      .pricing .tab-card h3,
-      .pricing .tab-card.featured h3,
-      .pricing .tab-price {
-        color: #ffffff !important;
-      }
-
-      .pricing .price-desc,
-      .pricing .tab-card p,
-      .pricing .tab-note {
-        color: #cfcfcf !important;
-      }
-
-      .pricing .tab-btn {
-        width: 100%;
-        background: #111111 !important;
-        color: #ffffff !important;
-      }
-
-      .pricing .tab-btn.active {
-        background: #e01e26 !important;
-        color: #ffffff !important;
+      .whatsapp-float {
+        width: 56px !important;
+        height: 56px !important;
+        bottom: 18px !important;
+        right: 18px !important;
       }
     }
   </style>
@@ -326,14 +386,24 @@
 
   <main>
 
-    <section class="hero" id="hero">
+    <section class="hero dynamic-hero" id="hero">
       <div class="hero-slideshow" id="heroSlideshow"></div>
       <div class="hero-overlay"></div>
 
       <div class="hero-inner">
         <div class="hero-text">
-          <h1>Driving lessons in<br><span>Milton Keynes</span><br>& surrounding areas</h1>
-          <p>Trusted by 500+ passers across Milton Keynes. Patient instructors, tailored lessons, real results.</p>
+          <div class="hero-pill">DVSA approved driving instructors</div>
+
+          <h1>
+            Driving lessons in<br>
+            <span id="changingText">Milton Keynes</span><br>
+            & surrounding areas
+          </h1>
+
+          <p>
+            Learn with patient, experienced instructors trusted by 500+ learners across Milton Keynes.
+            Manual, automatic and refresher lessons available.
+          </p>
 
           <div class="hero-buttons">
             <a href="book.html" class="btn-primary">Book your first lesson</a>
@@ -341,10 +411,27 @@
           </div>
 
           <div class="hero-stats">
-            <div class="stat"><strong>500+</strong><span>learners passed</span></div>
-            <div class="stat"><strong>15+</strong><span>years experience</span></div>
-            <div class="stat"><strong>✅</strong><span>DVSA certified</span></div>
+            <div class="stat">
+              <strong>500+</strong>
+              <span>learners passed</span>
+            </div>
+
+            <div class="stat">
+              <strong>15+</strong>
+              <span>years experience</span>
+            </div>
+
+            <div class="stat">
+              <strong>170+</strong>
+              <span>Google reviews</span>
+            </div>
           </div>
+        </div>
+
+        <div class="hero-floating-card">
+          <div class="floating-stars">★★★★★</div>
+          <strong>Trusted by local learners</strong>
+          <span>Manual • Automatic • Refresher lessons</span>
         </div>
       </div>
     </section>
@@ -456,7 +543,6 @@
       <div class="reviews-inner">
         <div class="section-label">What students say</div>
         <h2>170+ five-star reviews on Google</h2>
-
         <script src="https://elfsightcdn.com/platform.js" async></script>
         <div class="elfsight-app-cc61d0bc-56d4-4164-a5b2-26f291dea5fe" data-elfsight-app-lazy></div>
       </div>
@@ -485,12 +571,12 @@
     });
 
     function showTab(tab, btn) {
-      document.querySelectorAll('.tab-content').forEach(function(t) {
-        t.classList.remove('active');
+      document.querySelectorAll('.tab-content').forEach(function(content) {
+        content.classList.remove('active');
       });
 
-      document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.remove('active');
+      document.querySelectorAll('.tab-btn').forEach(function(button) {
+        button.classList.remove('active');
       });
 
       document.getElementById(tab).classList.add('active');
@@ -498,14 +584,9 @@
     }
 
     const photos = [
-      "Screenshot 2026-05-18 at 19.15.57.png",
-      "Screenshot 2026-05-18 at 19.16.48.png",
-      "Screenshot 2026-05-18 at 19.23.02.png",
-      "Screenshot 2026-05-18 at 19.23.13.png",
-      "Screenshot 2026-05-18 at 19.24.00.png",
-      "Screenshot 2026-05-18 at 19.26.18.png",
-      "Screenshot 2026-05-18 at 19.26.36.png",
-      "Screenshot 2026-05-18 at 19.26.48.png"
+      "pass001.jpg",
+      "pass002.jpg",
+      "pass003.jpg"
     ];
 
     const slideshow = document.getElementById('heroSlideshow');
@@ -514,19 +595,14 @@
     function buildSlides() {
       slideshow.innerHTML = '';
 
-      for (let i = 0; i < 3; i++) {
+      const isMobile = window.innerWidth <= 768;
+      const numberOfSlides = isMobile ? 1 : 3;
+
+      for (let i = 0; i < numberOfSlides; i++) {
         const idx = (current + i) % photos.length;
         const div = document.createElement('div');
         div.className = 'slide';
-
-        const isMobile = window.innerWidth <= 768;
-
-        if (isMobile) {
-          div.style.backgroundImage = "url('images/toyotacorollasarpic.png')";
-        } else {
-          div.style.backgroundImage = `url('images/websitepictures/${photos[idx]}')`;
-        }
-
+        div.style.backgroundImage = `url('images/passes/${photos[idx]}')`;
         slideshow.appendChild(div);
       }
     }
@@ -536,10 +612,35 @@
     setInterval(function() {
       current = (current + 1) % photos.length;
       buildSlides();
-    }, 3000);
+    }, 4500);
+
+    window.addEventListener('resize', buildSlides);
+
+    const changingText = document.getElementById('changingText');
+
+    const textOptions = [
+      'Milton Keynes',
+      'Bletchley',
+      'Bedford',
+      'Leighton Buzzard',
+      'Kettering'
+    ];
+
+    let textIndex = 0;
+
+    setInterval(function() {
+      changingText.classList.add('fade-out');
+
+      setTimeout(function() {
+        textIndex = (textIndex + 1) % textOptions.length;
+        changingText.textContent = textOptions[textIndex];
+        changingText.classList.remove('fade-out');
+      }, 300);
+    }, 2500);
   </script>
 
-  <a href="https://wa.me/447902023737" target="_blank" style="
+  <!-- WhatsApp Button -->
+  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
     position: fixed;
     bottom: 24px;
     right: 24px;
