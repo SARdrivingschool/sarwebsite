@@ -31,10 +31,10 @@
     .find-hero {
       position: relative;
       background:
-        radial-gradient(circle at 18% 25%, rgba(237,28,36,0.18), transparent 34%),
-        radial-gradient(circle at 88% 70%, rgba(237,28,36,0.10), transparent 32%),
+        radial-gradient(circle at 50% 0%, rgba(237,28,36,0.20), transparent 36%),
+        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.12), transparent 32%),
         linear-gradient(180deg, #181818 0%, #0b0b0b 100%);
-      padding: 92px 2rem 72px;
+      padding: 88px 2rem 74px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       overflow: hidden;
     }
@@ -44,61 +44,36 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.03), transparent 35%),
-        radial-gradient(circle at 50% -10%, rgba(255,255,255,0.06), transparent 30%);
+        linear-gradient(120deg, rgba(255,255,255,0.035), transparent 36%),
+        radial-gradient(circle at 50% -12%, rgba(255,255,255,0.08), transparent 28%);
       pointer-events: none;
     }
 
     .find-hero-inner {
       position: relative;
       z-index: 2;
-      max-width: var(--max);
+      max-width: 980px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .brand-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 2.2rem;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
       text-align: center;
     }
 
-    .brand-card img {
-      width: 210px;
-      margin: 0 auto 1.6rem;
-      display: block;
-    }
-
-    .brand-rating {
-      display: inline-flex;
+    .hero-logo-wrap {
+      width: 180px;
+      height: 112px;
+      margin: 0 auto 1.8rem;
+      display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      background: rgba(237,28,36,0.12);
-      border: 1px solid rgba(237,28,36,0.28);
-      color: #ffffff;
-      font-weight: 900;
-      margin-bottom: 1.2rem;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
-    .brand-rating span {
-      color: #ffd84d;
-      letter-spacing: 2px;
-    }
-
-    .brand-card p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      margin: 0;
+    .hero-logo-wrap img {
+      width: 140px;
+      height: auto;
+      display: block;
     }
 
     .section-label {
@@ -110,24 +85,44 @@
       margin-bottom: 0.9rem;
     }
 
-    .hero-copy h1 {
+    .find-hero h1 {
       color: #ffffff;
-      font-size: clamp(2.7rem, 6vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -2px;
-      margin: 0 0 1rem;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin: 0 0 1.2rem;
     }
 
-    .hero-copy p {
+    .find-hero p {
       color: #d3d3d3;
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       line-height: 1.75;
       max-width: 760px;
+      margin: 0 auto 1.7rem;
+    }
+
+    .brand-rating {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(237,28,36,0.12);
+      border: 1px solid rgba(237,28,36,0.34);
+      color: #ffffff;
+      font-weight: 900;
       margin-bottom: 1.6rem;
+    }
+
+    .brand-rating span {
+      color: #ffd84d;
+      letter-spacing: 2px;
     }
 
     .hero-actions {
       display: flex;
+      justify-content: center;
       gap: 0.85rem;
       flex-wrap: wrap;
     }
@@ -174,7 +169,7 @@
 
     .links-section {
       background: #0b0b0b;
-      padding: 82px 2rem;
+      padding: 76px 2rem 82px;
       position: relative;
       overflow: hidden;
     }
@@ -479,17 +474,8 @@
     }
 
     @media (max-width: 1000px) {
-      .find-hero-inner,
       .featured-inner {
         grid-template-columns: 1fr;
-      }
-
-      .brand-card {
-        order: 2;
-      }
-
-      .hero-copy {
-        order: 1;
       }
     }
 
@@ -560,25 +546,27 @@
       }
 
       .find-hero {
-        padding-top: 62px;
+        padding-top: 58px;
         padding-bottom: 54px;
       }
 
-      .brand-card {
-        padding: 1.6rem;
-        border-radius: 22px;
+      .hero-logo-wrap {
+        width: 155px;
+        height: 96px;
+        border-radius: 20px;
       }
 
-      .brand-card img {
-        width: 170px;
+      .hero-logo-wrap img {
+        width: 125px;
       }
 
-      .hero-copy h1 {
-        font-size: 2.45rem;
-        line-height: 1.08;
+      .find-hero h1 {
+        font-size: 2.75rem;
+        line-height: 1.04;
+        letter-spacing: -1.6px;
       }
 
-      .hero-copy p {
+      .find-hero p {
         font-size: 1rem;
       }
 
@@ -658,35 +646,28 @@
 
     <section class="find-hero">
       <div class="find-hero-inner">
-
-        <div class="brand-card">
+        <div class="hero-logo-wrap">
           <img src="images/logo.png" alt="SAR Driving School logo">
-
-          <div class="brand-rating">
-            Rated 5.0 <span>★★★★★</span>
-          </div>
-
-          <p>
-            Follow SAR Driving School online, view learner passes, book lessons
-            or message us directly on WhatsApp.
-          </p>
         </div>
 
-        <div class="hero-copy">
-          <div class="section-label">Find us online</div>
-          <h1>SAR Driving School</h1>
-          <p>
-            Everything in one place. Book lessons, browse our pass gallery, follow us on social media,
-            leave a review or contact us directly.
-          </p>
+        <div class="section-label">Find us online</div>
 
-          <div class="hero-actions">
-            <a href="book.html" class="btn-primary">Book a lesson</a>
-            <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
-            <a href="gallery.html" class="btn-secondary">View pass gallery</a>
-          </div>
+        <h1>SAR Driving School</h1>
+
+        <div class="brand-rating">
+          Rated 5.0 <span>★★★★★</span>
         </div>
 
+        <p>
+          Everything in one place. Book lessons, browse our pass gallery, follow us on social media,
+          leave a review or contact us directly.
+        </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          <a href="gallery.html" class="btn-secondary">View pass gallery</a>
+        </div>
       </div>
     </section>
 
