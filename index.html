@@ -1,734 +1,899 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SAR Driving School | Milton Keynes</title>
-  <link rel="stylesheet" href="css/style.css">
 
   <style>
-    :root {
-      --red: #e01e26;
-      --black: #0d0d0d;
-      --dark: #151515;
-      --white: #ffffff;
-      --muted: #b8b8b8;
-      --border: rgba(255,255,255,0.12);
-      --max-width: 1180px;
+    :root{
+      --red:#ed1c24;
+      --red-dark:#c9151c;
+      --black:#0b0b0b;
+      --black-2:#111111;
+      --black-3:#171717;
+      --white:#ffffff;
+      --text:#d6d6d6;
+      --muted:#9f9f9f;
+      --border:rgba(255,255,255,0.10);
+      --max-width:1200px;
+      --radius:22px;
+      --shadow:0 20px 50px rgba(0,0,0,0.28);
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      margin: 0;
-      background: #111;
-      color: #fff;
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
       font-family: Arial, Helvetica, sans-serif;
+      background:var(--black);
+      color:var(--white);
+      overflow-x:hidden;
     }
 
-    a {
-      text-decoration: none;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    img{
+      display:block;
+      max-width:100%;
+    }
+
+    .container{
+      width:min(var(--max-width), calc(100% - 40px));
+      margin:0 auto;
     }
 
     /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      background: rgba(10,10,10,0.96);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(8,8,8,0.94);
       backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px 2rem;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
+    .navbar{
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .logo-img {
-      width: 125px;
-      height: auto;
+    .logo img{
+      width:135px;
+      height:auto;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      list-style:none;
     }
 
-    nav ul a {
-      color: #dddddd;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
+    .nav-links a{
+      color:#eaeaea;
+      font-size:0.98rem;
+      font-weight:700;
+      transition:0.2s ease;
     }
 
-    nav ul a:hover {
-      color: var(--red);
+    .nav-links a:hover{
+      color:var(--red);
     }
 
-    .btn-nav {
-      background: var(--red);
-      color: #ffffff !important;
-      padding: 0.85rem 1.35rem;
-      border-radius: 12px;
-      font-weight: 900;
+    .btn-nav{
+      background:var(--red);
+      color:#fff !important;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      z-index: 10001;
+    .menu-toggle{
+      display:none;
+      width:48px;
+      height:48px;
+      border:none;
+      background:transparent;
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:6px;
     }
 
-    .hamburger span {
-      display: block;
-      width: 26px;
-      height: 2px;
-      background: #ffffff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+    .menu-toggle span{
+      width:30px;
+      height:3px;
+      background:#fff;
+      border-radius:99px;
+      transition:0.25s ease;
     }
 
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+    .menu-toggle.active span:nth-child(1){
+      transform:translateY(9px) rotate(45deg);
     }
 
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
+    .menu-toggle.active span:nth-child(2){
+      opacity:0;
     }
 
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+    .menu-toggle.active span:nth-child(3){
+      transform:translateY(-9px) rotate(-45deg);
     }
 
     /* HERO */
-    .home-hero {
-      position: relative;
-      min-height: 760px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      background: #000;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
+    .hero{
+      position:relative;
+      overflow:hidden;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.93) 0%, rgba(0,0,0,0.76) 38%, rgba(0,0,0,0.35) 100%),
-        url("images/home-bg-yaris-gr.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+        radial-gradient(circle at 12% 20%, rgba(237,28,36,0.12), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(237,28,36,0.10), transparent 25%),
+        linear-gradient(180deg, #0b0b0b 0%, #101010 100%);
+      padding:60px 0 40px;
     }
 
-    .hero-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at 18% 40%, rgba(224,30,38,0.22), transparent 28%),
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.92));
+        linear-gradient(90deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.02) 100%);
+      pointer-events:none;
     }
 
-    .home-hero-inner {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 110px 2rem 70px;
+    .hero-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items:center;
+      gap:48px;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      border: 1px solid rgba(224,30,38,0.55);
-      background: rgba(224,30,38,0.12);
-      color: #fff;
-      padding: 0.85rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      margin-bottom: 1.6rem;
+    .hero-copy{
+      position:relative;
     }
 
-    .home-hero h1 {
-      max-width: 720px;
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: 0.98;
-      letter-spacing: -2px;
-      color: #ffffff;
-      margin: 0 0 1.4rem;
+    .hero-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:999px;
+      margin-bottom:24px;
+      border:1px solid rgba(237,28,36,0.55);
+      background:linear-gradient(90deg, rgba(237,28,36,0.17), rgba(237,28,36,0.07));
+      color:#fff;
+      font-size:0.84rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
     }
 
-    .home-hero h1 span {
-      color: var(--red);
+    .hero h1{
+      font-size:clamp(3rem, 7vw, 5.6rem);
+      line-height:0.96;
+      letter-spacing:-2.5px;
+      margin-bottom:22px;
+      max-width:640px;
     }
 
-    .home-hero p {
-      max-width: 650px;
-      color: #d2d2d2;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin: 0 0 2rem;
+    .hero h1 span{
+      color:var(--red);
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
+    .hero p{
+      max-width:640px;
+      color:var(--text);
+      font-size:1.18rem;
+      line-height:1.8;
+      margin-bottom:28px;
     }
 
-    .hero-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 1rem 1.4rem;
-      border-radius: 14px;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:28px;
     }
 
-    .hero-btn:hover {
-      transform: translateY(-2px);
+    .hero-btn{
+      min-width:195px;
+      padding:16px 24px;
+      border-radius:14px;
+      font-weight:800;
+      font-size:1rem;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:0.2s ease;
+      border:1px solid transparent;
     }
 
-    .hero-btn.primary {
-      background: var(--red);
-      color: #ffffff;
+    .hero-btn:hover{
+      transform:translateY(-2px);
     }
 
-    .hero-btn.secondary {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #ffffff;
+    .hero-btn.primary{
+      background:var(--red);
+      color:#fff;
+      box-shadow:0 12px 28px rgba(237,28,36,0.22);
     }
 
-    .hero-btn.whatsapp {
-      background: rgba(37,211,102,0.08);
-      border: 1px solid rgba(37,211,102,0.45);
-      color: #ffffff;
+    .hero-btn.secondary{
+      background:rgba(255,255,255,0.05);
+      color:#fff;
+      border-color:rgba(255,255,255,0.12);
     }
 
-    .rating-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-      color: #ffffff;
-      font-weight: 800;
-      margin-bottom: 2rem;
+    .hero-btn.whatsapp{
+      background:rgba(37,211,102,0.07);
+      color:#fff;
+      border-color:rgba(37,211,102,0.40);
     }
 
-    .stars {
-      color: #ffd84d;
-      letter-spacing: 3px;
+    .hero-rating{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+      font-weight:800;
+      margin-bottom:30px;
+      color:#fff;
     }
 
-    .hero-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      max-width: 960px;
+    .hero-rating .stars{
+      color:#ffd84d;
+      letter-spacing:3px;
+      font-size:1.08rem;
     }
 
-    .hero-stat-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
-      border-radius: 20px;
-      padding: 1.6rem;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.3);
-      backdrop-filter: blur(8px);
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+      max-width:820px;
     }
 
-    .hero-stat-card strong {
-      display: block;
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 0.35rem;
+    .stat-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:22px 20px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
     }
 
-    .hero-stat-card span {
-      color: #bdbdbd;
-      font-size: 0.95rem;
+    .stat-card strong{
+      display:block;
+      font-size:2rem;
+      margin-bottom:6px;
+      color:#fff;
     }
 
-    /* QUICK FEATURES */
-    .quick-features {
-      background: #111111;
-      padding: 1.4rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .stat-card span{
+      color:#bbbbbb;
+      line-height:1.5;
+      font-size:0.95rem;
     }
 
-    .quick-features-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+    .hero-visual{
+      position:relative;
     }
 
-    .quick-feature {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 1rem;
+    .hero-visual::before{
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      right:-20px;
+      top:-20px;
+      background:radial-gradient(circle, rgba(237,28,36,0.23) 0%, transparent 70%);
+      filter:blur(20px);
+      pointer-events:none;
     }
 
-    .quick-feature strong {
-      display: block;
-      color: #ffffff;
-      margin-bottom: 0.25rem;
+    .hero-image-card{
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 30px 60px rgba(0,0,0,0.35);
+      background:#111;
     }
 
-    .quick-feature span {
-      color: #aaa;
-      font-size: 0.9rem;
+    .hero-image-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.16) 100%);
+      pointer-events:none;
     }
 
-    /* PASS GALLERY PREVIEW */
-    .home-gallery-preview {
-      background: #151515;
-      padding: 80px 2rem;
+    .hero-image-card img{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+      object-position:center;
     }
 
-    .home-gallery-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.8fr 1.6fr;
-      gap: 2rem;
-      align-items: center;
+    /* FEATURE STRIP */
+    .feature-strip{
+      padding:20px 0 0;
     }
 
-    .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 900;
-      font-size: 0.85rem;
-      margin-bottom: 0.8rem;
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
     }
 
-    .gallery-copy h2,
-    .reviews-preview h2,
-    .why-section h2,
-    .cta-section h2 {
-      color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      margin: 0 0 1rem;
+    .feature-box{
+      background:#121212;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:20px;
     }
 
-    .gallery-copy p {
-      color: #bdbdbd;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
+    .feature-box h3{
+      font-size:1rem;
+      margin-bottom:8px;
+      color:#fff;
     }
 
-    .mini-gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
+    .feature-box p{
+      color:#a7a7a7;
+      font-size:0.95rem;
+      line-height:1.5;
     }
 
-    .mini-gallery img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.12);
+    /* GALLERY PREVIEW */
+    .gallery-preview{
+      padding:90px 0;
+      background:#101010;
+    }
+
+    .section-head{
+      margin-bottom:18px;
+    }
+
+    .section-tag{
+      color:var(--red);
+      font-size:0.86rem;
+      text-transform:uppercase;
+      font-weight:900;
+      letter-spacing:2px;
+      margin-bottom:12px;
+      display:block;
+    }
+
+    .section-head h2{
+      font-size:clamp(2.2rem, 4vw, 3.4rem);
+      line-height:1.08;
+      margin-bottom:14px;
+    }
+
+    .section-head p{
+      color:#b9b9b9;
+      line-height:1.7;
+      max-width:660px;
+    }
+
+    .gallery-layout{
+      display:grid;
+      grid-template-columns:0.82fr 1.4fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .gallery-copy .hero-btn{
+      margin-top:20px;
+    }
+
+    .preview-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+    }
+
+    .preview-grid img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:#1a1a1a;
     }
 
     /* REVIEWS */
-    .reviews-preview {
-      background: #101010;
-      padding: 80px 2rem;
+    .reviews{
+      padding:90px 0;
+      background:#151515;
     }
 
-    .reviews-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
+    .reviews-top{
+      text-align:center;
+      margin-bottom:34px;
     }
 
-    .review-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+    .reviews-top p{
+      color:#b5b5b5;
+      max-width:640px;
+      margin:0 auto;
+      line-height:1.7;
     }
 
-    .review-card {
-      background: #181818;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 1.5rem;
-      text-align: left;
+    .review-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
     }
 
-    .review-card .stars {
-      margin-bottom: 1rem;
-      display: block;
+    .review-card{
+      background:#101010;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
     }
 
-    .review-card p {
-      color: #d2d2d2;
-      line-height: 1.7;
-      margin-bottom: 1rem;
+    .review-card .stars{
+      color:#ffd84d;
+      letter-spacing:3px;
+      display:block;
+      margin-bottom:14px;
+      font-size:1.05rem;
     }
 
-    .review-card strong {
-      color: #ffffff;
+    .review-card p{
+      color:#d0d0d0;
+      line-height:1.75;
+      margin-bottom:14px;
     }
 
-    /* WHY SECTION */
-    .why-section {
-      background: #151515;
-      padding: 80px 2rem;
+    .review-card strong{
+      color:#fff;
+      font-size:0.98rem;
     }
 
-    .why-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
+    /* WHY US */
+    .why-us{
+      padding:90px 0;
+      background:#0f0f0f;
     }
 
-    .why-grid {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
+    .why-top{
+      text-align:center;
+      margin-bottom:34px;
     }
 
-    .why-card {
-      background: #101010;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 1.4rem 1rem;
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:16px;
     }
 
-    .why-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.3rem;
+    .why-card{
+      background:#141414;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:24px 18px;
+      text-align:center;
     }
 
-    .why-card h3 {
-      color: #ffffff;
-      font-size: 1rem;
-      margin: 0 0 0.45rem;
+    .why-icon{
+      width:52px;
+      height:52px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg, #ff3037, #d1161d);
+      font-size:1.3rem;
+      box-shadow:0 10px 22px rgba(237,28,36,0.20);
     }
 
-    .why-card p {
-      color: #aaa;
-      font-size: 0.88rem;
-      line-height: 1.5;
-      margin: 0;
+    .why-card h3{
+      margin-bottom:10px;
+      font-size:1rem;
+      color:#fff;
+    }
+
+    .why-card p{
+      font-size:0.92rem;
+      color:#aaaaaa;
+      line-height:1.6;
     }
 
     /* CTA */
-    .cta-section {
-      background: #101010;
-      padding: 80px 2rem;
+    .cta{
+      padding:0 0 90px;
+      background:#0f0f0f;
     }
 
-    .cta-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
+    .cta-panel{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:28px;
+      align-items:center;
       background:
-        linear-gradient(90deg, rgba(224,30,38,0.88), rgba(0,0,0,0.72)),
+        linear-gradient(90deg, rgba(237,28,36,0.90) 0%, rgba(0,0,0,0.55) 90%),
         url("images/home-bg-yaris-gr.png");
-      background-size: cover;
-      background-position: center;
-      border-radius: 28px;
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 1.2fr auto;
-      gap: 2rem;
-      align-items: center;
-      border: 1px solid rgba(255,255,255,0.14);
+      background-size:cover;
+      background-position:center;
+      border-radius:30px;
+      padding:40px;
+      border:1px solid rgba(255,255,255,0.08);
+      overflow:hidden;
     }
 
-    .cta-inner p {
-      color: #f0f0f0;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
+    .cta-copy h2{
+      font-size:clamp(2rem, 4vw, 3.4rem);
+      line-height:1.08;
+      margin-bottom:14px;
     }
 
-    /* WHATSAPP */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      z-index: 9999;
-      transition: transform 0.2s;
+    .cta-copy p{
+      color:#f4f4f4;
+      line-height:1.75;
+      margin-bottom:24px;
+      max-width:620px;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1);
+    .cta-box{
+      justify-self:end;
+      background:rgba(0,0,0,0.38);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:24px;
+      padding:28px;
+      min-width:280px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+    }
+
+    .cta-box strong{
+      display:block;
+      font-size:1.6rem;
+      margin-bottom:8px;
+    }
+
+    .cta-box span{
+      color:#ddd;
+      line-height:1.6;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:#0a0a0a;
+      padding:28px 0 34px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      color:#b0b0b0;
+      font-size:0.95rem;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 12px 25px rgba(0,0,0,0.32);
+      z-index:1000;
+      transition:0.2s ease;
+    }
+
+    .whatsapp-float:hover{
+      transform:scale(1.08);
+    }
+
+    /* TABLET */
+    @media (max-width: 1024px){
+      .hero-grid,
+      .gallery-layout,
+      .cta-panel{
+        grid-template-columns:1fr;
+      }
+
+      .hero-image-card img{
+        height:500px;
+      }
+
+      .hero-stats{
+        max-width:100%;
+      }
+
+      .feature-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .preview-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .review-grid{
+        grid-template-columns:1fr;
+      }
+
+      .why-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .cta-box{
+        justify-self:start;
+      }
     }
 
     /* MOBILE */
-    @media (max-width: 768px) {
-      .nav-inner {
-        height: 74px;
-        min-height: 74px;
-        padding: 0 1.25rem;
-        background: #ffffff;
+    @media (max-width: 768px){
+      .container{
+        width:min(100% - 28px, 100%);
       }
 
-      .logo-img {
-        width: 115px;
+      .site-header{
+        background:#0b0b0b;
       }
 
-      .hamburger {
-        display: flex !important;
+      .navbar{
+        min-height:78px;
       }
 
-      .hamburger span {
-        background: #111111;
-        width: 30px;
-        height: 3px;
+      .logo img{
+        width:120px;
       }
 
-      nav ul {
-        display: none !important;
+      .menu-toggle{
+        display:flex;
       }
 
-      nav ul.open {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: 74px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        border-top: 1px solid #eeeeee;
-        padding: 0.5rem 1.5rem 1.25rem;
-        gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        z-index: 200;
+      .nav-links{
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
+        background:#0b0b0b;
+        border-top:1px solid rgba(255,255,255,0.08);
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:10px 14px 16px;
       }
 
-      nav ul.open a {
-        display: block;
-        padding: 0.9rem 0;
-        font-size: 1rem;
-        color: #111111 !important;
-        border-bottom: 1px solid #eeeeee;
+      .nav-links.open{
+        display:flex;
       }
 
-      nav ul.open .btn-nav {
-        color: #ffffff !important;
-        margin-top: 0.8rem;
-        text-align: center;
+      .nav-links li{
+        width:100%;
       }
 
-      .home-hero {
-        min-height: auto;
-        display: block;
-        position: relative;
-        background: #000;
+      .nav-links a{
+        display:block;
+        width:100%;
+        padding:14px 4px;
+        border-bottom:1px solid rgba(255,255,255,0.06);
       }
 
-      .hero-bg {
-        background:
-          linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.26) 25%, rgba(0,0,0,0.72) 58%, rgba(0,0,0,1) 100%),
-          url("images/home-bg-yaris-gr.png") !important;
-        background-size: auto 430px !important;
-        background-position: 72% 0px !important;
-        background-repeat: no-repeat !important;
+      .btn-nav{
+        margin-top:10px;
+        width:100%;
+        text-align:center;
       }
 
-      .hero-bg::after {
-        background:
-          radial-gradient(circle at 76% 20%, rgba(224,30,38,0.14), transparent 35%),
-          linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,1) 100%);
+      .hero{
+        padding:22px 0 32px;
       }
 
-      .home-hero-inner {
-        padding: 360px 1.25rem 45px;
+      .hero-grid{
+        display:flex;
+        flex-direction:column;
+        gap:22px;
       }
 
-      .hero-tag {
-        font-size: 0.68rem;
-        padding: 0.72rem 0.85rem;
-        letter-spacing: 1px;
-        margin-bottom: 1.3rem;
-        max-width: 100%;
+      .hero-visual{
+        order:1;
+        width:100%;
       }
 
-      .home-hero h1 {
-        font-size: 3.15rem;
-        line-height: 1.02;
-        letter-spacing: -1.5px;
-        margin-bottom: 1.1rem;
+      .hero-copy{
+        order:2;
+        width:100%;
       }
 
-      .home-hero p {
-        font-size: 1.02rem;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
+      .hero-image-card{
+        border-radius:22px;
       }
 
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.9rem;
-        margin-bottom: 1.5rem;
+      .hero-image-card img{
+        height:320px;
+        object-fit:cover;
+        object-position:center;
       }
 
-      .hero-btn {
-        width: 100%;
-        padding: 1.05rem;
-        border-radius: 14px;
+      .hero-tag{
+        font-size:0.70rem;
+        letter-spacing:1px;
+        padding:12px 15px;
+        margin-bottom:18px;
+        width:100%;
+        justify-content:center;
+        text-align:center;
       }
 
-      .rating-row {
-        gap: 0.65rem;
-        font-size: 0.92rem;
-        line-height: 1.4;
-        margin-bottom: 1.5rem;
+      .hero h1{
+        font-size:3.1rem;
+        line-height:0.98;
+        letter-spacing:-1.8px;
+        margin-bottom:16px;
       }
 
-      .stars {
-        letter-spacing: 2px;
+      .hero p{
+        font-size:1.04rem;
+        line-height:1.75;
+        margin-bottom:20px;
       }
 
-      .hero-stat-grid {
-        grid-template-columns: 1fr;
-        gap: 0.85rem;
+      .hero-actions{
+        flex-direction:column;
+        gap:12px;
+        margin-bottom:20px;
       }
 
-      .hero-stat-card {
-        padding: 1.2rem;
+      .hero-btn{
+        width:100%;
+        min-width:unset;
       }
 
-      .quick-features {
-        padding: 2rem 1.25rem;
+      .hero-rating{
+        gap:8px;
+        font-size:0.96rem;
+        line-height:1.5;
+        margin-bottom:20px;
       }
 
-      .quick-features-inner {
-        grid-template-columns: 1fr;
+      .hero-stats{
+        grid-template-columns:1fr;
+        gap:12px;
       }
 
-      .home-gallery-preview,
-      .reviews-preview,
-      .why-section,
-      .cta-section {
-        padding: 55px 1.25rem;
+      .stat-card{
+        padding:18px;
       }
 
-      .home-gallery-inner {
-        grid-template-columns: 1fr;
+      .stat-card strong{
+        font-size:1.7rem;
       }
 
-      .mini-gallery {
-        grid-template-columns: repeat(2, 1fr);
+      .feature-strip{
+        padding-top:8px;
       }
 
-      .mini-gallery img {
-        height: 170px;
+      .feature-grid{
+        grid-template-columns:1fr;
       }
 
-      .review-grid {
-        grid-template-columns: 1fr;
+      .gallery-preview,
+      .reviews,
+      .why-us{
+        padding:62px 0;
       }
 
-      .why-grid {
-        grid-template-columns: 1fr;
+      .cta{
+        padding-bottom:62px;
       }
 
-      .cta-inner {
-        grid-template-columns: 1fr;
-        padding: 2rem 1.25rem;
-        border-radius: 22px;
+      .section-head h2,
+      .reviews-top h2,
+      .why-top h2,
+      .cta-copy h2{
+        font-size:2.2rem;
       }
 
-      .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        bottom: 18px;
-        right: 18px;
+      .preview-grid{
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+      }
+
+      .preview-grid img{
+        height:190px;
+      }
+
+      .why-grid{
+        grid-template-columns:1fr;
+      }
+
+      .cta-panel{
+        padding:26px 20px;
+        border-radius:22px;
+        background-position:center;
+      }
+
+      .cta-box{
+        min-width:unset;
+        width:100%;
+        padding:22px 18px;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .whatsapp-float{
+        width:58px;
+        height:58px;
+        right:16px;
+        bottom:16px;
       }
     }
 
-    @media (max-width: 390px) {
-      .hero-bg {
-        background-size: auto 400px !important;
-        background-position: 72% 0px !important;
+    @media (max-width: 480px){
+      .hero h1{
+        font-size:2.7rem;
       }
 
-      .home-hero-inner {
-        padding-top: 330px;
+      .hero-image-card img{
+        height:280px;
       }
 
-      .home-hero h1 {
-        font-size: 2.8rem;
+      .preview-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .preview-grid img{
+        height:160px;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <nav>
-    <div class="nav-inner">
+  <header class="site-header">
+    <div class="container navbar">
       <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+        <img src="images/logo.png" alt="SAR Driving School logo">
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <ul id="nav-menu">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -739,212 +904,242 @@
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
     </div>
-  </nav>
+  </header>
 
   <main>
+    <section class="hero">
+      <div class="container hero-grid">
 
-    <section class="home-hero">
-      <div class="hero-bg"></div>
+        <div class="hero-copy">
+          <div class="hero-tag">📍 Milton Keynes' trusted driving school</div>
 
-      <div class="home-hero-inner">
-        <div class="hero-tag">📍 Milton Keynes' trusted driving school</div>
+          <h1>Pass Faster<br>With <span>SAR</span></h1>
 
-        <h1>Pass Faster<br>With <span>SAR</span></h1>
-
-        <p>
-          Expert driving lessons with DVSA approved instructors and a proven system
-          to help you become a safe, confident driver.
-        </p>
-
-        <div class="hero-actions">
-          <a href="book.html" class="hero-btn primary">Book Lessons →</a>
-          <a href="pricing.html" class="hero-btn secondary">Check Availability</a>
-          <a href="https://wa.me/447902023737" target="_blank" class="hero-btn whatsapp">WhatsApp Us</a>
-        </div>
-
-        <div class="rating-row">
-          <span>Rated 5.0 on Google</span>
-          <span class="stars">★★★★★</span>
-          <span>170+ Reviews</span>
-        </div>
-
-        <div class="hero-stat-grid">
-          <div class="hero-stat-card">
-            <strong>500+</strong>
-            <span>Learners passed and counting</span>
-          </div>
-
-          <div class="hero-stat-card">
-            <strong>170+</strong>
-            <span>Five-star Google reviews</span>
-          </div>
-
-          <div class="hero-stat-card">
-            <strong>DVSA</strong>
-            <span>Approved instructors</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="quick-features">
-      <div class="quick-features-inner">
-        <div class="quick-feature">
-          <strong>DVSA Approved</strong>
-          <span>Qualified and trusted instructors</span>
-        </div>
-
-        <div class="quick-feature">
-          <strong>High Pass Rate</strong>
-          <span>Proven teaching methods</span>
-        </div>
-
-        <div class="quick-feature">
-          <strong>Local Experts</strong>
-          <span>Milton Keynes and nearby areas</span>
-        </div>
-
-        <div class="quick-feature">
-          <strong>Flexible Lessons</strong>
-          <span>Weekdays and weekends</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-gallery-preview">
-      <div class="home-gallery-inner">
-        <div class="gallery-copy">
-          <div class="section-label">Pass Gallery</div>
-          <h2>Our happy passers 🎉</h2>
           <p>
-            Real learners. Real passes. Browse some of our recent successful students
-            who passed with SAR Driving School.
+            Expert driving lessons with DVSA approved instructors and a proven system
+            to help you become a safe, confident driver.
           </p>
+
+          <div class="hero-actions">
+            <a href="book.html" class="hero-btn primary">Book Lessons →</a>
+            <a href="pricing.html" class="hero-btn secondary">Check Availability</a>
+            <a href="https://wa.me/447902023737" target="_blank" class="hero-btn whatsapp">WhatsApp Us</a>
+          </div>
+
+          <div class="hero-rating">
+            <span>Rated 5.0 on Google</span>
+            <span class="stars">★★★★★</span>
+            <span>170+ Reviews</span>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong>500+</strong>
+              <span>Learners passed and counting</span>
+            </div>
+            <div class="stat-card">
+              <strong>170+</strong>
+              <span>Five-star Google reviews</span>
+            </div>
+            <div class="stat-card">
+              <strong>DVSA</strong>
+              <span>Approved and trusted instructors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <img src="images/home-bg-yaris-gr.png" alt="SAR Driving School Toyota Yaris GR">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="feature-strip">
+      <div class="container feature-grid">
+        <div class="feature-box">
+          <h3>DVSA Approved</h3>
+          <p>Qualified and trusted instructors for safe, structured learning.</p>
+        </div>
+        <div class="feature-box">
+          <h3>High Pass Rate</h3>
+          <p>Clear teaching methods designed to help learners succeed.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Local Experts</h3>
+          <p>Milton Keynes and surrounding areas with strong local route knowledge.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Flexible Lessons</h3>
+          <p>Weekday and weekend availability to suit your schedule.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-preview">
+      <div class="container gallery-layout">
+        <div class="gallery-copy">
+          <span class="section-tag">Pass Gallery</span>
+          <div class="section-head">
+            <h2>Our happy passers 🎉</h2>
+            <p>
+              Real learners, real passes. Take a look at some of the successful
+              learners who passed with SAR Driving School.
+            </p>
+          </div>
           <a href="gallery.html" class="hero-btn primary">View Full Gallery →</a>
         </div>
 
-        <div class="mini-gallery">
-          <img src="images/passes/pass001.jpg" alt="SAR Driving School learner pass photo">
-          <img src="images/passes/pass002.jpg" alt="SAR Driving School learner pass photo">
-          <img src="images/passes/pass003.jpg" alt="SAR Driving School learner pass photo">
-          <img src="images/passes/pass004.jpg" alt="SAR Driving School learner pass photo">
+        <div class="preview-grid">
+          <img src="images/passes/pass001.jpg" alt="SAR learner pass photo">
+          <img src="images/passes/pass002.jpg" alt="SAR learner pass photo">
+          <img src="images/passes/pass003.jpg" alt="SAR learner pass photo">
+          <img src="images/passes/pass004.jpg" alt="SAR learner pass photo">
         </div>
       </div>
     </section>
 
-    <section class="reviews-preview">
-      <div class="reviews-inner">
-        <div class="section-label">What learners say</div>
-        <h2>Real reviews from real learners</h2>
+    <section class="reviews">
+      <div class="container">
+        <div class="reviews-top">
+          <span class="section-tag">What learners say</span>
+          <h2>Real reviews from real learners</h2>
+          <p>
+            Friendly instruction, calm teaching and real results.
+            Here are just a few of the comments from SAR learners.
+          </p>
+        </div>
 
         <div class="review-grid">
           <div class="review-card">
             <span class="stars">★★★★★</span>
-            <p>Great instructor. Very patient and explains everything clearly. Passed first time with confidence.</p>
+            <p>
+              Great instructor. Very patient and explains everything clearly.
+              Passed first time with confidence. Highly recommend SAR.
+            </p>
             <strong>Jessica M.</strong>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
-            <p>Professional, friendly and calm. Lessons were well structured and really helped me pass.</p>
+            <p>
+              Professional, friendly and calm. Lessons were well structured
+              and really helped me pass first time.
+            </p>
             <strong>Daniel T.</strong>
           </div>
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
-            <p>Best decision choosing SAR. Amazing support throughout and flexible lesson times.</p>
+            <p>
+              Best decision choosing SAR. Amazing support throughout
+              and very flexible lesson times.
+            </p>
             <strong>Ayesha R.</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="why-section">
-      <div class="why-inner">
-        <div class="section-label">Why choose SAR?</div>
-        <h2>More than just driving lessons</h2>
+    <section class="why-us">
+      <div class="container">
+        <div class="why-top">
+          <span class="section-tag">Why choose SAR?</span>
+          <h2>More than just driving lessons</h2>
+        </div>
 
         <div class="why-grid">
           <div class="why-card">
             <div class="why-icon">🎓</div>
             <h3>Expert Instructors</h3>
-            <p>DVSA approved, friendly and experienced.</p>
+            <p>DVSA approved, friendly and highly experienced.</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon">🛡️</div>
             <h3>Proven Results</h3>
-            <p>Hundreds of learners passed with SAR.</p>
+            <p>Hundreds of learners have passed with SAR.</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon">🚗</div>
             <h3>Modern Teaching</h3>
-            <p>Clear, structured lessons for today’s roads.</p>
+            <p>Structured and up-to-date coaching for today’s roads.</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon">⏰</div>
             <h3>Flexible Scheduling</h3>
-            <p>Lessons to suit your lifestyle.</p>
+            <p>Lesson times to suit work, study and daily life.</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon">📍</div>
             <h3>Local Knowledge</h3>
-            <p>Milton Keynes and nearby test routes.</p>
+            <p>Milton Keynes and nearby test routes covered confidently.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-section">
-      <div class="cta-inner">
-        <div>
-          <h2>Ready to pass your driving test?</h2>
-          <p>Join hundreds of happy learners who passed with SAR Driving School.</p>
-
-          <div class="hero-actions">
-            <a href="book.html" class="hero-btn primary">Book Lessons Now →</a>
-            <a href="https://wa.me/447902023737" target="_blank" class="hero-btn secondary">WhatsApp Us</a>
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <h2>Ready to pass your driving test?</h2>
+            <p>
+              Join hundreds of happy learners who have passed with SAR Driving School.
+              Book your first lesson today and start driving with confidence.
+            </p>
+            <div class="hero-actions">
+              <a href="book.html" class="hero-btn primary">Book Lessons Now →</a>
+              <a href="https://wa.me/447902023737" target="_blank" class="hero-btn secondary">WhatsApp Us</a>
+            </div>
           </div>
-        </div>
 
-        <div class="hero-stat-card">
-          <strong>Let’s get you test ready.</strong>
-          <span>Book your first lesson today.</span>
+          <div class="cta-box">
+            <strong>Let’s get you test ready.</strong>
+            <span>
+              Manual, automatic and refresher lessons available across Milton Keynes
+              and surrounding areas.
+            </span>
+          </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+    <div class="container footer-inner">
+      <p>© 2026 SAR Driving School. All rights reserved.</p>
+      <p>Milton Keynes & surrounding areas</p>
+    </div>
   </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-
-    navMenu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-      });
-    });
-  </script>
-
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" aria-label="Message SAR Driving School on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
+  <a href="https://wa.me/447902023737" target="_blank" class="whatsapp-float" aria-label="WhatsApp SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 24 24" fill="white">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("open");
+      });
+    });
+  </script>
 
 </body>
 </html>
