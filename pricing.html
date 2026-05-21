@@ -7,180 +7,446 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    :root {
+      --red: #ed1c24;
+      --dark: #0b0b0b;
+      --dark2: #111111;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
     .page-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.32) 100%),
         url("images/pricing-bg.png") center/cover no-repeat;
-      min-height: 430px;
+      min-height: 460px;
       display: flex;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      pointer-events: none;
     }
 
     .page-hero-inner {
       position: relative;
       z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem;
     }
 
-    .sar-pricing-page {
-      background: #1f1f1f;
-      padding: 70px 2rem;
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
     }
 
-    .sar-pricing-inner {
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      color: #ffffff;
+      margin: 0 0 1rem;
+      letter-spacing: -2px;
+    }
+
+    .page-hero p {
+      color: #d6d6d6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 860px;
+    }
+
+    .pricing-section {
+      background: #0b0b0b;
+      padding: 70px 2rem 40px;
+    }
+
+    .pricing-inner {
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .sar-pricing-tabs {
+    .pricing-tabs {
       display: flex;
       justify-content: center;
       gap: 0.8rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.4rem;
       flex-wrap: wrap;
     }
 
-    .sar-tab-btn {
-      background: #111111;
-      color: #ffffff;
-      border: 1px solid #333333;
-      padding: 0.9rem 1.3rem;
+    .pricing-tab {
+      min-height: 54px;
+      padding: 0 1.55rem;
       border-radius: 999px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .sar-tab-btn:hover,
-    .sar-tab-btn.active {
-      background: #e01e26;
-      border-color: #e01e26;
+      background: #101010;
+      border: 1px solid rgba(255,255,255,0.13);
       color: #ffffff;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
-    .sar-tab-content {
+    .pricing-tab:hover {
+      transform: translateY(-2px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .pricing-tab.active {
+      background: var(--red);
+      border-color: var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.25);
+    }
+
+    .pricing-panel {
       display: none;
+      animation: fadeUp 0.35s ease both;
     }
 
-    .sar-tab-content.active {
+    .pricing-panel.active {
       display: block;
     }
 
-    .sar-pricing-row {
-      display: flex;
-      flex-direction: column;
-      gap: 1.3rem;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .sar-price-card {
-      background: #111111 !important;
-      color: #ffffff !important;
-      border: 1.5px solid #3a3a3a;
-      border-radius: 20px;
+    .price-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
       padding: 2rem;
+      margin-bottom: 1.4rem;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 2rem;
       align-items: center;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.16);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .sar-price-card.popular {
-      background: #111111 !important;
-      border: 2px solid #e01e26 !important;
-      box-shadow: 0 0 0 1px rgba(224,30,38,0.25);
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.45);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
     }
 
-    .sar-price-left h3 {
-      color: #ffffff !important;
-      font-size: 1.55rem;
-      margin-bottom: 0.65rem;
+    .price-card.featured {
+      border-color: rgba(237,28,36,0.85);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.025)),
+        #101010;
     }
 
-    .sar-price-left p {
-      color: #bdbdbd !important;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      max-width: 680px;
+    .price-card h2,
+    .price-card h3 {
+      color: #ffffff;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
     }
 
-    .sar-features {
+    .price-card p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1rem;
+      max-width: 710px;
+      margin-bottom: 1.2rem;
+    }
+
+    .price-features {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem 1.2rem;
+      gap: 0.75rem 1.2rem;
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .sar-features li {
-      color: #cfcfcf !important;
-      font-weight: 700;
+    .price-features li {
+      color: #e0e0e0;
+      font-weight: 800;
+      line-height: 1.5;
     }
 
-    .sar-price-right {
+    .price-side {
       min-width: 180px;
       text-align: center;
     }
 
-    .sar-price {
-      font-size: 2.3rem;
-      color: #ffffff !important;
-      font-weight: 900;
-      margin-bottom: 0.4rem;
-    }
-
-    .sar-saving {
-      color: #e01e26 !important;
+    .price-amount {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 900;
       margin-bottom: 1rem;
+      letter-spacing: -1px;
     }
 
-    .sar-badge {
-      display: inline-block;
-      background: #e01e26 !important;
-      color: #ffffff !important;
-      font-size: 0.75rem;
-      padding: 0.3rem 0.6rem;
+    .price-note {
+      display: inline-flex;
+      align-items: center;
+      background: var(--red);
+      color: #ffffff;
+      padding: 0.45rem 0.75rem;
       border-radius: 999px;
-      margin-left: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-left: 0.55rem;
       vertical-align: middle;
     }
 
-    .sar-faq {
-      margin-top: 4rem;
-      background: #111111;
-      border: 1px solid #333333;
-      border-radius: 22px;
-      padding: 2rem;
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
-    .sar-faq h2 {
+    .btn-primary {
+      background: var(--red);
       color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .pricing-helper-section {
+      background: #0b0b0b;
+      padding: 40px 2rem 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-helper-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(237,28,36,0.16), transparent 34%),
+        radial-gradient(circle at 85% 80%, rgba(237,28,36,0.10), transparent 30%);
+      pointer-events: none;
+    }
+
+    .pricing-helper-card {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.14), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .pricing-helper-head {
       text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.2rem;
     }
 
-    .sar-faq-item {
-      border-top: 1px solid #333333;
-      padding: 1.2rem 0;
-    }
-
-    .sar-faq-item:first-of-type {
-      border-top: none;
-    }
-
-    .sar-faq-item h3 {
+    .pricing-helper-head h2 {
       color: #ffffff;
-      font-size: 1.15rem;
-      margin-bottom: 0.45rem;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      margin-bottom: 0.9rem;
     }
 
-    .sar-faq-item p {
-      color: #bdbdbd;
-      line-height: 1.6;
+    .pricing-helper-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      background: rgba(0,0,0,0.34);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 1.3rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .faq-item h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .faq-item p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      font-size: 0.96rem;
       margin: 0;
+    }
+
+    .pricing-help-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .pricing-steps-section {
+      background: #101010;
+      padding: 80px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pricing-steps-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pricing-steps-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 2.3rem;
+    }
+
+    .pricing-steps-head h2 {
+      color: #ffffff;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .pricing-steps-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .pricing-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .pricing-step-card {
+      background: #151515;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 1.4rem;
+      text-align: center;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .pricing-step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .pricing-step-card span {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.25rem;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
+    }
+
+    .pricing-step-card h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-step-card p {
+      color: #bdbdbd;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .price-card {
+        grid-template-columns: 1fr;
+      }
+
+      .price-side {
+        text-align: left;
+      }
+
+      .faq-grid,
+      .pricing-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -242,16 +508,20 @@
       }
 
       .page-hero {
-        min-height: 520px;
-        padding: 70px 1.25rem;
+        min-height: 460px;
+        padding: 70px 0;
         background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.8)),
+          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
           url("images/pricing-bg.png") center right/cover no-repeat;
       }
 
+      .page-hero-inner {
+        padding: 0 1.25rem;
+      }
+
       .page-hero h1 {
-        font-size: 2.1rem;
-        line-height: 1.15;
+        font-size: 2.35rem;
+        line-height: 1.12;
       }
 
       .page-hero p {
@@ -259,52 +529,64 @@
         line-height: 1.6;
       }
 
-      .sar-pricing-page {
-        padding: 45px 1rem;
-        background: #1f1f1f !important;
+      .pricing-section {
+        padding: 52px 1.25rem 25px;
       }
 
-      .sar-pricing-tabs {
-        flex-direction: column;
+      .pricing-tabs {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
-      .sar-tab-btn {
+      .pricing-tab {
         width: 100%;
       }
 
-      .sar-price-card,
-      .sar-price-card.popular {
-        background: #111111 !important;
-        color: #ffffff !important;
+      .price-card {
+        padding: 1.45rem;
+        border-radius: 20px;
+      }
+
+      .price-features {
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .price-side {
+        width: 100%;
+      }
+
+      .price-side .btn-primary {
+        width: 100%;
+      }
+
+      .pricing-helper-section {
+        padding: 35px 1.25rem 60px;
+      }
+
+      .pricing-helper-card {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .faq-grid,
+      .pricing-steps-grid {
         grid-template-columns: 1fr;
-        padding: 1.4rem;
       }
 
-      .sar-price-card.popular {
-        border: 2px solid #e01e26 !important;
+      .pricing-help-actions {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
-      .sar-price-left h3,
-      .sar-price {
-        color: #ffffff !important;
+      .pricing-help-actions .btn-primary,
+      .pricing-help-actions .btn-secondary,
+      .pricing-help-actions .btn-whatsapp {
+        width: 100%;
       }
 
-      .sar-price-left p,
-      .sar-features li {
-        color: #cfcfcf !important;
-      }
-
-      .sar-price-right {
-        text-align: left;
-      }
-
-      .sar-features {
-        flex-direction: column;
-        gap: 0.45rem;
-      }
-
-      .sar-faq {
-        padding: 1.4rem;
+      .pricing-steps-section {
+        padding: 55px 1.25rem;
       }
 
       .whatsapp-float {
@@ -347,155 +629,232 @@
       <div class="page-hero-inner">
         <div class="section-label">Transparent pricing</div>
         <h1>Simple, honest lesson prices</h1>
-        <p>No hidden fees. Choose from single lessons, block bookings or intensive lesson packages.</p>
+        <p>No hidden fees. Choose from single lessons, block bookings or intensive lesson packages. Prices may vary slightly by location, travel time and instructor availability.</p>
       </div>
     </section>
 
-    <section class="sar-pricing-page">
-      <div class="sar-pricing-inner">
+    <section class="pricing-section">
+      <div class="pricing-inner">
 
-        <div class="sar-pricing-tabs">
-          <button class="sar-tab-btn active" onclick="showTab('single', this)">Single lessons</button>
-          <button class="sar-tab-btn" onclick="showTab('block', this)">Block booking</button>
-          <button class="sar-tab-btn" onclick="showTab('intensive', this)">Intensive course</button>
+        <div class="pricing-tabs">
+          <button class="pricing-tab active" data-panel="single">Single lessons</button>
+          <button class="pricing-tab" data-panel="block">Block booking</button>
+          <button class="pricing-tab" data-panel="intensive">Intensive course</button>
         </div>
 
-        <div class="sar-tab-content active" id="single">
-          <div class="sar-pricing-row">
+        <div class="pricing-panel active" id="single">
+          <div class="price-card">
+            <div>
+              <h2>1 hour lesson</h2>
+              <p>A flexible lesson option for learners who want regular practice, confidence building or focused support on specific driving skills.</p>
 
-            <div class="sar-price-card">
-              <div class="sar-price-left">
-                <h3>1 hour lesson</h3>
-                <p>A flexible lesson option for learners who want regular practice, confidence building or focused support on specific driving skills.</p>
-                <ul class="sar-features">
-                  <li>✓ Manual or automatic</li>
-                  <li>✓ DVSA approved instructor</li>
-                  <li>✓ Pick-up from your area</li>
-                  <li>✓ Tailored to your level</li>
-                </ul>
-              </div>
-
-              <div class="sar-price-right">
-                <div class="sar-price">£38</div>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
+              <ul class="price-features">
+                <li>✓ Manual or automatic</li>
+                <li>✓ DVSA approved instructor</li>
+                <li>✓ Pick-up from your area</li>
+                <li>✓ Tailored to your level</li>
+              </ul>
             </div>
 
-            <div class="sar-price-card popular">
-              <div class="sar-price-left">
-                <h3>1.5 hour lesson <span class="sar-badge">Popular</span></h3>
-                <p>Our most popular single lesson length. Gives enough time to practise properly and make real progress without feeling rushed.</p>
-                <ul class="sar-features">
-                  <li>✓ Manual or automatic</li>
-                  <li>✓ DVSA approved instructor</li>
-                  <li>✓ Pick-up from your area</li>
-                  <li>✓ Great for weekly progress</li>
-                </ul>
-              </div>
+            <div class="price-side">
+              <span class="price-amount">£38</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
+          </div>
 
-              <div class="sar-price-right">
-                <div class="sar-price">£57</div>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
+          <div class="price-card featured">
+            <div>
+              <h2>1.5 hour lesson <span class="price-note">Popular</span></h2>
+              <p>Our most popular single lesson length. Gives enough time to practise properly and make real progress without feeling rushed.</p>
+
+              <ul class="price-features">
+                <li>✓ Manual or automatic</li>
+                <li>✓ DVSA approved instructor</li>
+                <li>✓ Pick-up from your area</li>
+                <li>✓ Great for weekly progress</li>
+              </ul>
             </div>
 
-            <div class="sar-price-card">
-              <div class="sar-price-left">
-                <h3>2 hour lesson</h3>
-                <p>Ideal for learners who want longer sessions, route practice, parking practice, roundabouts or more detailed driving development.</p>
-                <ul class="sar-features">
-                  <li>✓ Manual or automatic</li>
-                  <li>✓ DVSA approved instructor</li>
-                  <li>✓ Pick-up from your area</li>
-                  <li>✓ Best for longer practice</li>
-                </ul>
-              </div>
+            <div class="price-side">
+              <span class="price-amount">£57</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
+          </div>
 
-              <div class="sar-price-right">
-                <div class="sar-price">£76</div>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
+          <div class="price-card">
+            <div>
+              <h2>2 hour lesson</h2>
+              <p>Ideal for learners who want longer sessions, route practice, parking practice, roundabouts or more detailed driving development.</p>
+
+              <ul class="price-features">
+                <li>✓ Manual or automatic</li>
+                <li>✓ DVSA approved instructor</li>
+                <li>✓ Pick-up from your area</li>
+                <li>✓ Best for longer practice</li>
+              </ul>
             </div>
 
+            <div class="price-side">
+              <span class="price-amount">£76</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
           </div>
         </div>
 
-        <div class="sar-tab-content" id="block">
-          <div class="sar-pricing-row">
+        <div class="pricing-panel" id="block">
+          <div class="price-card featured">
+            <div>
+              <h2>10 hour block booking <span class="price-note">Best value</span></h2>
+              <p>Perfect for learners who want to commit to consistent progress. A block booking helps secure lesson time and build momentum.</p>
 
-            <div class="sar-price-card popular">
-              <div class="sar-price-left">
-                <h3>10 hour block <span class="sar-badge">Best value</span></h3>
-                <p>Save money by booking lessons in advance. A good option for learners who want consistent progress and structured support.</p>
-                <ul class="sar-features">
-                  <li>✓ 10 hours total</li>
-                  <li>✓ Manual or automatic</li>
-                  <li>✓ Progress tracked each lesson</li>
-                  <li>✓ Flexible lesson scheduling</li>
-                  <li>✓ Pick-up from your area</li>
-                </ul>
-              </div>
-
-              <div class="sar-price-right">
-                <div class="sar-price">£360</div>
-                <div class="sar-saving">save £20</div>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
+              <ul class="price-features">
+                <li>✓ 10 hours of lessons</li>
+                <li>✓ Manual or automatic</li>
+                <li>✓ Progress tracked clearly</li>
+                <li>✓ Suitable for weekly lessons</li>
+              </ul>
             </div>
 
+            <div class="price-side">
+              <span class="price-amount">£380</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
+          </div>
+
+          <div class="price-card">
+            <div>
+              <h2>5 hour starter block</h2>
+              <p>A good option if you are new to driving and want to get started with a few structured lessons before deciding your next step.</p>
+
+              <ul class="price-features">
+                <li>✓ 5 hours of lessons</li>
+                <li>✓ Beginner friendly</li>
+                <li>✓ Tailored lesson plan</li>
+                <li>✓ Confidence building</li>
+              </ul>
+            </div>
+
+            <div class="price-side">
+              <span class="price-amount">£190</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
           </div>
         </div>
 
-        <div class="sar-tab-content" id="intensive">
-          <div class="sar-pricing-row">
+        <div class="pricing-panel" id="intensive">
+          <div class="price-card">
+            <div>
+              <h2>Intensive lesson package</h2>
+              <p>For learners who want to make faster progress with more frequent lessons. We’ll discuss your current ability and suggest a suitable plan.</p>
 
-            <div class="sar-price-card popular">
-              <div class="sar-price-left">
-                <h3>20 hour intensive course</h3>
-                <p>A focused lesson package for learners who want to build skill and confidence quickly with more regular driving practice.</p>
-                <ul class="sar-features">
-                  <li>✓ 20 hours total</li>
-                  <li>✓ Manual or automatic</li>
-                  <li>✓ Structured learning plan</li>
-                  <li>✓ Progress tracked each lesson</li>
-                  <li>✓ Pick-up from your area</li>
-                </ul>
-              </div>
-
-              <div class="sar-price-right">
-                <div class="sar-price">£700</div>
-                <div class="sar-saving">save £60</div>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
+              <ul class="price-features">
+                <li>✓ Flexible lesson plan</li>
+                <li>✓ Subject to instructor availability</li>
+                <li>✓ Manual or automatic options</li>
+                <li>✓ Good for test preparation</li>
+              </ul>
             </div>
 
+            <div class="price-side">
+              <span class="price-amount">Ask first</span>
+              <a href="contact.html" class="btn-primary">Enquire now</a>
+            </div>
+          </div>
+
+          <div class="price-card featured">
+            <div>
+              <h2>Assessment lesson first <span class="price-note">Recommended</span></h2>
+              <p>Before arranging intensive training, we recommend an assessment lesson so your instructor can understand your current level and advise honestly.</p>
+
+              <ul class="price-features">
+                <li>✓ Honest feedback</li>
+                <li>✓ Helps plan lesson hours</li>
+                <li>✓ Suitable for partly trained learners</li>
+                <li>✓ Avoids wasting money</li>
+              </ul>
+            </div>
+
+            <div class="price-side">
+              <span class="price-amount">£38</span>
+              <a href="book.html" class="btn-primary">Book now</a>
+            </div>
           </div>
         </div>
 
-        <div class="sar-faq">
-          <h2>Need help choosing?</h2>
+      </div>
+    </section>
 
-          <div class="sar-faq-item">
+    <section class="pricing-helper-section">
+      <div class="pricing-helper-card">
+        <div class="pricing-helper-head">
+          <div class="section-label">Need help choosing?</div>
+          <h2>Not sure which option is best?</h2>
+          <p>Send us your driving experience, location and preferred availability. We’ll help you choose the most suitable lesson type.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
             <h3>Which lesson should I book?</h3>
             <p>If you are a new learner, start with a normal driving lesson. Your instructor can then advise whether manual, automatic, refresher or block booking is best for you.</p>
           </div>
 
-          <div class="sar-faq-item">
+          <div class="faq-item">
             <h3>Do you offer manual and automatic?</h3>
             <p>Yes — SAR Driving School offers both manual and automatic lessons, depending on instructor availability in your area.</p>
           </div>
 
-          <div class="sar-faq-item">
+          <div class="faq-item">
             <h3>Are prices fixed?</h3>
             <p>Standard lesson prices are shown above. Prices may vary slightly depending on location, travel time and instructor availability.</p>
           </div>
 
-          <div class="sar-faq-item">
+          <div class="faq-item">
             <h3>How do I book?</h3>
             <p>You can book through the booking page or message us on WhatsApp. We’ll confirm lesson type, area, availability and instructor.</p>
           </div>
         </div>
 
+        <div class="pricing-help-actions">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="contact.html" class="btn-secondary">Contact us</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-steps-section">
+      <div class="pricing-steps-inner">
+        <div class="pricing-steps-head">
+          <div class="section-label">How it works</div>
+          <h2>Simple booking process</h2>
+          <p>Choose the right lesson option, send your details and we’ll confirm availability quickly.</p>
+        </div>
+
+        <div class="pricing-steps-grid">
+          <div class="pricing-step-card">
+            <span>1</span>
+            <h3>Pick a price option</h3>
+            <p>Choose single lessons, block booking or ask about intensive lessons.</p>
+          </div>
+
+          <div class="pricing-step-card">
+            <span>2</span>
+            <h3>Send your details</h3>
+            <p>Tell us your area, lesson type, experience and availability.</p>
+          </div>
+
+          <div class="pricing-step-card">
+            <span>3</span>
+            <h3>We confirm availability</h3>
+            <p>We’ll check instructor availability and confirm your best option.</p>
+          </div>
+
+          <div class="pricing-step-card">
+            <span>4</span>
+            <h3>Start learning</h3>
+            <p>Begin lessons with a clear plan and patient guidance.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -521,18 +880,25 @@
       });
     });
 
-    function showTab(tab, btn) {
-      document.querySelectorAll('.sar-tab-content').forEach(function(content) {
-        content.classList.remove('active');
-      });
+    const tabs = document.querySelectorAll('.pricing-tab');
+    const panels = document.querySelectorAll('.pricing-panel');
 
-      document.querySelectorAll('.sar-tab-btn').forEach(function(button) {
-        button.classList.remove('active');
-      });
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        const panelId = tab.dataset.panel;
 
-      document.getElementById(tab).classList.add('active');
-      btn.classList.add('active');
-    }
+        tabs.forEach(function(item) {
+          item.classList.remove('active');
+        });
+
+        panels.forEach(function(panel) {
+          panel.classList.remove('active');
+        });
+
+        tab.classList.add('active');
+        document.getElementById(panelId).classList.add('active');
+      });
+    });
   </script>
 
   <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
