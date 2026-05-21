@@ -7,477 +7,627 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body {
-      background: #0f0f0f;
-      color: #ffffff;
+    :root {
+      --red: #e01e26;
+      --dark: #080808;
+      --dark2: #111111;
+      --card: #161616;
+      --border: rgba(255,255,255,0.12);
+      --text: #ffffff;
+      --muted: #b9b9b9;
+      --green: #25D366;
+      --max: 1180px;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* NAV */
     nav {
-      background: #0b0b0b;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 9999;
+      background: rgba(8,8,8,0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
     }
 
-    nav ul a {
-      color: #ffffff;
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      position: relative;
     }
 
-    nav ul a:hover {
-      color: #e01e26;
+    .logo-img {
+      width: 120px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #d8d8d8;
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--red);
     }
 
     .btn-nav {
-      background: #e01e26;
+      background: var(--red);
       color: #ffffff !important;
-      padding: 0.8rem 1.4rem;
-      border-radius: 10px;
+      padding: 13px 22px;
+      border-radius: 12px;
       font-weight: 800;
     }
 
-    .home-hero {
-      min-height: 88vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.68) 42%, rgba(0,0,0,0.22) 100%),
-        url("images/home-bg-yaris-gr.png") center right / cover no-repeat;
-      overflow: hidden;
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+      z-index: 10001;
     }
 
-    .home-hero::after {
-      content: "";
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 999px;
+      transition: 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* HERO */
+    .home-hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(224,30,38,0.22), transparent 34%);
-      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 44%, rgba(0,0,0,0.28) 100%),
+        url("images/passes/pass001.jpg");
+      background-size: cover;
+      background-position: center;
+      animation: heroChange 18s infinite;
     }
 
-    .home-hero-inner {
-      width: 100%;
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
+    @keyframes heroChange {
+      0%, 28% {
+        background-image:
+          linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 44%, rgba(0,0,0,0.28) 100%),
+          url("images/passes/pass001.jpg");
+      }
+      33%, 61% {
+        background-image:
+          linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 44%, rgba(0,0,0,0.28) 100%),
+          url("images/passes/pass002.jpg");
+      }
+      66%, 100% {
+        background-image:
+          linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 44%, rgba(0,0,0,0.28) 100%),
+          url("images/passes/pass003.jpg");
+      }
+    }
+
+    .hero-content {
       position: relative;
       z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 90px 24px 70px;
     }
 
-    .hero-pill {
+    .hero-label {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(224,30,38,0.16);
-      border: 1px solid rgba(224,30,38,0.45);
+      gap: 9px;
+      border: 1px solid rgba(224,30,38,0.5);
+      background: rgba(224,30,38,0.13);
       color: #ffffff;
+      padding: 11px 18px;
       border-radius: 999px;
-      padding: 0.65rem 1rem;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 900;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.4rem;
+      margin-bottom: 26px;
     }
 
-    .home-hero h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
+    .hero-content h1 {
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
       line-height: 0.95;
       letter-spacing: -3px;
-      max-width: 680px;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
+      margin: 0 0 24px;
+      max-width: 760px;
     }
 
-    .home-hero h1 span {
-      color: #ff2732;
+    .hero-content h1 span {
+      color: var(--red);
     }
 
-    .home-hero p {
+    .hero-content p {
       max-width: 610px;
-      color: #d6d6d6;
-      font-size: 1.2rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
+      color: #dedede;
+      font-size: 1.18rem;
+      line-height: 1.75;
+      margin: 0 0 30px;
+      font-weight: 500;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      gap: 14px;
+      margin-bottom: 32px;
     }
 
-    .hero-btn-red,
-    .hero-btn-dark,
-    .hero-btn-whatsapp {
+    .hero-actions a {
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-weight: 900;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem 1.6rem;
-      border-radius: 12px;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+      gap: 8px;
+      transition: 0.2s;
     }
 
-    .hero-btn-red {
-      background: #e01e26;
+    .hero-book {
+      background: var(--red);
       color: #ffffff;
-      border: 1px solid #e01e26;
+      box-shadow: 0 12px 35px rgba(224,30,38,0.35);
     }
 
-    .hero-btn-dark {
-      background: rgba(255,255,255,0.06);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .hero-btn-whatsapp {
-      background: rgba(37,211,102,0.10);
-      color: #ffffff;
-      border: 1px solid rgba(37,211,102,0.45);
-    }
-
-    .hero-btn-red:hover,
-    .hero-btn-dark:hover,
-    .hero-btn-whatsapp:hover {
+    .hero-book:hover {
       transform: translateY(-2px);
     }
 
-    .rating-line {
+    .hero-secondary {
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-whatsapp {
+      border: 1px solid rgba(37,211,102,0.45);
+      color: #ffffff;
+      background: rgba(37,211,102,0.08);
+    }
+
+    .rating-row {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 0.9rem;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+      font-size: 1rem;
       color: #ffffff;
       font-weight: 800;
-      margin-bottom: 2.4rem;
     }
 
     .stars {
-      color: #ffc400;
-      letter-spacing: 3px;
+      color: #ffca28;
+      letter-spacing: 2px;
     }
 
     .hero-stat-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      gap: 1rem;
-      max-width: 780px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 980px;
     }
 
-    .hero-stat-card {
-      background: rgba(255,255,255,0.065);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      padding: 1.5rem;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 14px 45px rgba(224,30,38,0.10);
+    .hero-stat {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     }
 
     .hero-stat-icon {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
+      border-radius: 999px;
       background: rgba(224,30,38,0.14);
-      border: 1px solid rgba(224,30,38,0.35);
+      color: var(--red);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
     }
 
-    .hero-stat-card strong {
+    .hero-stat strong {
       display: block;
-      font-size: 2rem;
+      font-size: 2.15rem;
+      line-height: 1;
+      margin-bottom: 8px;
       color: #ffffff;
-      margin-bottom: 0.25rem;
     }
 
-    .hero-stat-card span {
-      color: #bdbdbd;
+    .hero-stat span {
+      display: block;
+      color: #cccccc;
       font-size: 0.95rem;
+      line-height: 1.45;
     }
 
-    .quick-strip {
-      background: #111111;
-      padding: 1.2rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    /* TRUST STRIP */
+    .trust-strip {
+      background: #0d0d0d;
+      padding: 0 24px 60px;
     }
 
-    .quick-strip-inner {
-      max-width: 1150px;
+    .trust-strip-inner {
+      max-width: var(--max);
       margin: 0 auto;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      overflow: hidden;
     }
 
-    .quick-item {
+    .trust-item {
+      padding: 22px;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      color: #ffffff;
-      font-weight: 800;
-      border-right: 1px solid rgba(255,255,255,0.12);
-      padding-right: 1rem;
+      gap: 14px;
+      border-right: 1px solid rgba(255,255,255,0.08);
     }
 
-    .quick-item:last-child {
+    .trust-item:last-child {
       border-right: none;
     }
 
-    .quick-item span {
-      color: #e01e26;
-      font-size: 1.2rem;
+    .trust-icon {
+      color: var(--red);
+      font-size: 1.4rem;
     }
 
-    .dark-section {
-      background: #151515;
-      padding: 5rem 2rem;
+    .trust-item strong {
+      display: block;
+      color: #ffffff;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
     }
 
-    .section-inner {
-      max-width: 1150px;
+    .trust-item span {
+      color: #bdbdbd;
+      font-size: 0.84rem;
+    }
+
+    /* PASS PREVIEW */
+    .pass-preview {
+      background: #080808;
+      padding: 80px 24px;
+    }
+
+    .pass-preview-inner {
+      max-width: var(--max);
       margin: 0 auto;
-    }
-
-    .section-label {
-      color: #e01e26;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-heading {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #ffffff;
-      margin-bottom: 1rem;
-      letter-spacing: -1px;
-    }
-
-    .section-sub {
-      color: #bdbdbd;
-      max-width: 650px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-
-    .lesson-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-
-    .lesson-card {
-      background: #0f0f0f;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 20px;
-      padding: 2rem;
-      transition: transform 0.2s, border-color 0.2s;
-      min-height: 280px;
-    }
-
-    .lesson-card:hover {
-      transform: translateY(-5px);
-      border-color: #e01e26;
-    }
-
-    .lesson-card.featured {
-      border-color: #e01e26;
-      background: linear-gradient(145deg, rgba(224,30,38,0.12), #0f0f0f);
-    }
-
-    .lesson-card-icon {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .lesson-card h3 {
-      color: #ffffff;
-      font-size: 1.35rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .lesson-card p {
-      color: #bdbdbd;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
-    }
-
-    .lesson-card a {
-      color: #ff2732;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .gallery-preview {
-      background: #0f0f0f;
-      padding: 5rem 2rem;
-    }
-
-    .gallery-row {
-      display: grid;
-      grid-template-columns: 0.8fr 1.8fr;
-      gap: 2rem;
+      grid-template-columns: 0.8fr 1.4fr;
+      gap: 42px;
       align-items: center;
     }
 
-    .gallery-text h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #ffffff;
-      margin-bottom: 1rem;
+    .section-mini {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.82rem;
+      margin-bottom: 13px;
+    }
+
+    .pass-preview h2 {
+      font-size: 2.9rem;
       line-height: 1.05;
+      margin: 0 0 18px;
     }
 
-    .gallery-text p {
-      color: #bdbdbd;
+    .pass-preview p {
+      color: #cfcfcf;
       line-height: 1.7;
-      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+      margin-bottom: 24px;
     }
 
-    .gallery-mini {
+    .red-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: #ffffff;
+      padding: 15px 22px;
+      border-radius: 12px;
+      font-weight: 900;
+    }
+
+    .pass-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.8rem;
+      gap: 12px;
     }
 
-    .gallery-mini img {
+    .pass-grid img {
       width: 100%;
-      height: 240px;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .reviews-preview {
-      background: #181818;
-      padding: 5rem 2rem;
+    .weekly-badge {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-weight: 800;
     }
 
-    .review-cards {
+    /* REVIEWS */
+    .reviews-section {
+      background: #101010;
+      padding: 80px 24px;
+    }
+
+    .reviews-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: #171717;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 32px;
+      padding: 48px;
+    }
+
+    .reviews-title {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .reviews-title h2 {
+      font-size: 2.4rem;
+      margin: 0;
+    }
+
+    .review-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 18px;
     }
 
     .review-card {
-      background: #0f0f0f;
-      border: 1px solid rgba(255,255,255,0.14);
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 18px;
-      padding: 1.6rem;
+      padding: 22px;
     }
 
-    .review-card .stars {
-      margin-bottom: 1rem;
+    .google {
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
     }
 
     .review-card p {
-      color: #d0d0d0;
-      line-height: 1.7;
-      margin-bottom: 1rem;
+      color: #d7d7d7;
+      line-height: 1.65;
+      margin: 14px 0;
     }
 
     .review-card strong {
       color: #ffffff;
     }
 
-    .final-cta {
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.86), rgba(0,0,0,0.35)),
-        url("images/home-bg-yaris-gr.png") center right / cover no-repeat;
-      padding: 5rem 2rem;
+    /* WHY */
+    .why-section {
+      padding: 80px 24px;
+      background: #080808;
     }
 
-    .final-cta-box {
-      max-width: 1150px;
+    .why-inner {
+      max-width: var(--max);
       margin: 0 auto;
-      background: rgba(224,30,38,0.12);
-      border: 1px solid rgba(224,30,38,0.25);
-      border-radius: 24px;
-      padding: 3rem;
+      text-align: center;
     }
 
-    .final-cta h2 {
+    .why-inner h2 {
+      font-size: 2.7rem;
+      margin: 0 0 36px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .why-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 24px 16px;
+    }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--red);
+      color: white;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-size: 1.3rem;
+    }
+
+    .why-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .why-card p {
+      margin: 0;
+      color: #bdbdbd;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: #080808;
+      padding: 20px 24px 70px;
+    }
+
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      border-radius: 26px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(95,0,0,0.92), rgba(0,0,0,0.5)),
+        url("images/passes/pass006.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 46px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .cta-inner h2 {
+      font-size: 2.7rem;
+      line-height: 1.05;
+      margin: 0 0 12px;
+      max-width: 520px;
+    }
+
+    .cta-inner p {
+      color: #eeeeee;
+      margin: 0 0 24px;
+      font-size: 1.05rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .outline-btn {
+      border: 1px solid rgba(255,255,255,0.3);
       color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      max-width: 580px;
-      margin-bottom: 1rem;
-    }
-
-    .final-cta p {
-      color: #d0d0d0;
-      max-width: 600px;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      padding: 15px 22px;
+      border-radius: 12px;
+      font-weight: 900;
     }
 
     footer {
-      background: #080808;
-      color: #aaaaaa;
-      text-align: center;
-      padding: 2rem;
+      background: #050505;
       border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      text-align: center;
+      color: #a8a8a8;
     }
 
+    /* WHATSAPP */
     .whatsapp-float {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
+      width: 62px;
+      height: 62px;
+      background: var(--green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      z-index: 9999;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+      z-index: 99999;
       transition: transform 0.2s;
     }
 
     .whatsapp-float:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
+    /* MOBILE */
     @media (max-width: 768px) {
+      .nav-inner {
+        min-height: 72px;
+        padding: 10px 18px;
+      }
+
+      .logo-img {
+        width: 95px;
+      }
+
       .hamburger {
         display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        padding: 8px;
-        background: none;
-        border: none;
-        z-index: 201;
-      }
-
-      .hamburger span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: #ffffff;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.open span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-
-      .hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
       }
 
       nav ul {
@@ -486,113 +636,281 @@
 
       nav ul.open {
         display: flex !important;
-        flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 72px;
         left: 0;
         right: 0;
-        background: #0b0b0b;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding: 0.5rem 1.5rem 1.25rem;
-        gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        z-index: 200;
-      }
-
-      nav ul a {
-        display: block;
-        padding: 0.9rem 0;
-        font-size: 1rem;
-        color: #ffffff;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-      }
-
-      .nav-inner {
-        position: relative;
-        height: 70px;
-      }
-
-      .home-hero {
-        min-height: 82vh;
-        background:
-          linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.68) 58%, rgba(0,0,0,0.88) 100%),
-          url("images/home-bg-yaris-gr.png") center center / cover no-repeat;
-      }
-
-      .home-hero-inner {
-        padding: 4rem 1.25rem;
-      }
-
-      .home-hero h1 {
-        font-size: 3.2rem;
-        letter-spacing: -2px;
-      }
-
-      .home-hero p {
-        font-size: 1rem;
-      }
-
-      .hero-actions {
         flex-direction: column;
+        background: #101010;
+        padding: 12px 20px 20px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+        z-index: 99999;
       }
 
-      .hero-btn-red,
-      .hero-btn-dark,
-      .hero-btn-whatsapp {
+      nav ul.open li {
         width: 100%;
       }
 
-      .rating-line {
-        font-size: 0.9rem;
+      nav ul.open li a {
+        width: 100%;
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        color: #ffffff;
+      }
+
+      nav ul.open .btn-nav {
+        margin-top: 10px;
+        padding: 15px;
+        text-align: center;
+        border-radius: 12px;
+        border-bottom: none;
+      }
+
+      .home-hero {
+        min-height: auto;
+      }
+
+      .hero-bg {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.84) 52%, rgba(0,0,0,0.97) 100%),
+          url("images/passes/pass001.jpg") !important;
+        background-size: cover !important;
+        background-position: center top !important;
+        animation: none !important;
+      }
+
+      .hero-content {
+        padding: 38px 18px 32px;
+      }
+
+      .hero-label {
+        max-width: 100%;
+        font-size: 0.72rem;
+        letter-spacing: 1.2px;
+        padding: 10px 14px;
+        margin-bottom: 24px;
+      }
+
+      .hero-content h1 {
+        font-size: 3.25rem;
+        line-height: 0.98;
+        letter-spacing: -1.4px;
+        margin-bottom: 18px;
+      }
+
+      .hero-content p {
+        font-size: 1.02rem;
+        line-height: 1.65;
+        color: #dddddd;
+        margin-bottom: 24px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        padding: 16px 12px;
+        border-radius: 14px;
+        font-size: 0.95rem;
+      }
+
+      .hero-actions .hero-book {
+        grid-column: 1 / -1;
+        font-size: 1.05rem;
+        padding: 17px 16px;
+      }
+
+      .rating-row {
+        gap: 8px 12px;
+        font-size: 0.95rem;
+        margin-bottom: 22px;
+      }
+
+      .stars {
+        font-size: 1.05rem;
+      }
+
+      .hero-stat-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .hero-stat {
+        padding: 14px 8px;
+        text-align: center;
+        border-radius: 16px;
+      }
+
+      .hero-stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        margin: 0 auto 8px;
+      }
+
+      .hero-stat strong {
+        font-size: 1.15rem;
+        margin-bottom: 4px;
+      }
+
+      .hero-stat span {
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }
+
+      .trust-strip {
+        padding: 16px 18px 0;
+      }
+
+      .trust-strip-inner {
+        grid-template-columns: 1fr 1fr;
+        border-radius: 16px;
+      }
+
+      .trust-item {
+        padding: 14px 12px;
+        gap: 9px;
+        border-right: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .trust-item:nth-child(2),
+      .trust-item:nth-child(4) {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(3),
+      .trust-item:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .trust-item strong {
+        font-size: 0.78rem;
+      }
+
+      .trust-item span {
+        font-size: 0.7rem;
+      }
+
+      .pass-preview {
+        padding: 54px 18px;
+      }
+
+      .pass-preview-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .pass-preview h2,
+      .reviews-title h2,
+      .why-inner h2,
+      .cta-inner h2 {
+        font-size: 2.15rem;
+        line-height: 1.08;
+      }
+
+      .pass-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .pass-grid img {
+        aspect-ratio: 4 / 5;
+        border-radius: 14px;
+      }
+
+      .weekly-badge {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .reviews-section {
+        padding: 54px 18px;
+      }
+
+      .reviews-inner {
+        padding: 28px 18px;
+        border-radius: 22px;
+      }
+
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-section {
+        padding: 54px 18px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .why-card {
+        padding: 20px 12px;
+      }
+
+      .why-card p {
+        font-size: 0.8rem;
+      }
+
+      .cta-section {
+        padding: 8px 18px 50px;
+      }
+
+      .cta-inner {
+        padding: 32px 20px;
+        border-radius: 20px;
+      }
+
+      .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .cta-actions a {
+        text-align: center;
+      }
+
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        bottom: 20px;
+        right: 18px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-content h1 {
+        font-size: 2.85rem;
       }
 
       .hero-stat-grid {
         grid-template-columns: 1fr;
       }
 
-      .quick-strip-inner {
+      .hero-stat {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .hero-stat-icon {
+        margin: 0;
+        flex-shrink: 0;
+      }
+
+      .why-grid {
         grid-template-columns: 1fr;
-      }
-
-      .quick-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        padding-bottom: 0.8rem;
-      }
-
-      .quick-item:last-child {
-        border-bottom: none;
-      }
-
-      .lesson-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-row {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-mini {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-mini img {
-        height: 190px;
-      }
-
-      .review-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .final-cta-box {
-        padding: 2rem 1.4rem;
-      }
-
-      .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        bottom: 18px;
-        right: 18px;
       }
     }
   </style>
@@ -607,18 +925,20 @@
       </a>
 
       <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <ul id="nav-menu">
-        <li><a href="index.html" style="color:#e01e26;">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="gallery.html">Pass Gallery</a></li>
         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="socials.html">Find us</a></li>
-        <li><a href="book.html" class="btn-nav">Book Lessons</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
     </div>
   </nav>
@@ -626,8 +946,10 @@
   <main>
 
     <section class="home-hero">
-      <div class="home-hero-inner">
-        <div class="hero-pill">📍 Milton Keynes' trusted driving school</div>
+      <div class="hero-bg"></div>
+
+      <div class="hero-content">
+        <div class="hero-label">📍 Milton Keynes' trusted driving school</div>
 
         <h1>Pass Faster<br>With <span>SAR</span></h1>
 
@@ -636,124 +958,121 @@
         </p>
 
         <div class="hero-actions">
-          <a href="book.html" class="hero-btn-red">Book Lessons →</a>
-          <a href="pricing.html" class="hero-btn-dark">Check Availability</a>
-          <a href="https://wa.me/447902023737" target="_blank" class="hero-btn-whatsapp">WhatsApp Us</a>
+          <a href="book.html" class="hero-book">Book Lessons →</a>
+          <a href="book.html" class="hero-secondary">Check Availability</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="hero-whatsapp">WhatsApp Us</a>
         </div>
 
-        <div class="rating-line">
+        <div class="rating-row">
           <span>Rated 5.0 on Google</span>
           <span class="stars">★★★★★</span>
           <span>170+ Reviews</span>
         </div>
 
         <div class="hero-stat-grid">
-          <div class="hero-stat-card">
+          <div class="hero-stat">
             <div class="hero-stat-icon">👥</div>
             <strong>500+</strong>
             <span>Learners passed and counting</span>
           </div>
 
-          <div class="hero-stat-card">
+          <div class="hero-stat">
             <div class="hero-stat-icon">⭐</div>
             <strong>170+</strong>
             <span>Five-star reviews from real learners</span>
           </div>
 
-          <div class="hero-stat-card">
+          <div class="hero-stat">
             <div class="hero-stat-icon">🛡️</div>
             <strong>DVSA</strong>
-            <span>Approved instructors and trusted standards</span>
+            <span>Approved instructors and high standards</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="quick-strip">
-      <div class="quick-strip-inner">
-        <div class="quick-item"><span>✓</span> DVSA Approved</div>
-        <div class="quick-item"><span>✓</span> High Pass Rate</div>
-        <div class="quick-item"><span>✓</span> Local MK Experts</div>
-        <div class="quick-item"><span>✓</span> Flexible Lessons</div>
-      </div>
-    </section>
-
-    <section class="dark-section">
-      <div class="section-inner">
-        <div class="section-label">Choose your lesson</div>
-        <h2 class="section-heading">More than just driving lessons</h2>
-        <p class="section-sub">
-          Whether you're starting from scratch, switching to automatic, or rebuilding confidence, we’ll help you learn at your pace.
-        </p>
-
-        <div class="lesson-cards">
-          <div class="lesson-card">
-            <div class="lesson-card-icon">🚗</div>
-            <h3>Automatic lessons</h3>
-            <p>Easier to learn, no clutch or gears to worry about. Ideal for nervous learners or anyone wanting a simpler drive.</p>
-            <a href="lessons.html">Learn more →</a>
+    <section class="trust-strip">
+      <div class="trust-strip-inner">
+        <div class="trust-item">
+          <div class="trust-icon">✅</div>
+          <div>
+            <strong>DVSA Approved</strong>
+            <span>Qualified and trusted</span>
           </div>
+        </div>
 
-          <div class="lesson-card featured">
-            <div class="lesson-card-icon">🔧</div>
-            <h3>Manual lessons</h3>
-            <p>Full licence, full control. Our most popular option for learners who want maximum flexibility.</p>
-            <a href="lessons.html">Learn more →</a>
+        <div class="trust-item">
+          <div class="trust-icon">🎯</div>
+          <div>
+            <strong>High Pass Rate</strong>
+            <span>Proven teaching methods</span>
           </div>
+        </div>
 
-          <div class="lesson-card">
-            <div class="lesson-card-icon">🔄</div>
-            <h3>Refresher lessons</h3>
-            <p>Been off the road a while? Build your confidence back up with a calm, tailored refresher course.</p>
-            <a href="lessons.html">Learn more →</a>
+        <div class="trust-item">
+          <div class="trust-icon">📍</div>
+          <div>
+            <strong>Local Experts</strong>
+            <span>Milton Keynes test routes</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">📅</div>
+          <div>
+            <strong>Flexible Lessons</strong>
+            <span>Weekdays and weekends</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="gallery-preview">
-      <div class="section-inner">
-        <div class="gallery-row">
-          <div class="gallery-text">
-            <div class="section-label">Pass gallery</div>
-            <h2>Our happy passers 🎉</h2>
-            <p>
-              Real learners. Real passes. See some of the recent students who passed with SAR Driving School.
-            </p>
-            <a href="gallery.html" class="hero-btn-red">View full gallery →</a>
+    <section class="pass-preview">
+      <div class="pass-preview-inner">
+        <div>
+          <div class="section-mini">Pass Gallery</div>
+          <h2>Our Happy Passers 🎉</h2>
+          <p>
+            Real learners. Real passes. Here are just some of the recent learners who passed with SAR Driving School.
+          </p>
+          <a href="gallery.html" class="red-btn">View Full Gallery →</a>
+        </div>
+
+        <div>
+          <div class="pass-grid">
+            <img src="images/passes/pass001.jpg" alt="SAR Driving School learner pass photo">
+            <img src="images/passes/pass002.jpg" alt="SAR Driving School learner pass photo">
+            <img src="images/passes/pass003.jpg" alt="SAR Driving School learner pass photo">
+            <img src="images/passes/pass004.jpg" alt="SAR Driving School learner pass photo">
           </div>
 
-          <div class="gallery-mini">
-            <img src="images/passes/pass001.jpg" alt="SAR Driving School passer">
-            <img src="images/passes/pass002.jpg" alt="SAR Driving School passer">
-            <img src="images/passes/pass003.jpg" alt="SAR Driving School passer">
-            <img src="images/passes/pass004.jpg" alt="SAR Driving School passer">
-          </div>
+          <div class="weekly-badge">🔥 3 learners passed this week</div>
         </div>
       </div>
     </section>
 
-    <section class="reviews-preview">
-      <div class="section-inner">
-        <div class="section-label">What learners say</div>
-        <h2 class="section-heading">Real reviews from real learners</h2>
-        <p class="section-sub">Trusted across Milton Keynes and surrounding areas.</p>
+    <section class="reviews-section">
+      <div class="reviews-inner">
+        <div class="reviews-title">
+          <div class="section-mini">What learners say</div>
+          <h2>Real Reviews From Real Learners</h2>
+        </div>
 
-        <div class="review-cards">
+        <div class="review-grid">
           <div class="review-card">
-            <div class="stars">★★★★★</div>
+            <div class="google">Google ★★★★★</div>
             <p>Great instructor. Very patient and explains everything clearly. Passed first time with confidence.</p>
             <strong>Jessica M.</strong>
           </div>
 
           <div class="review-card">
-            <div class="stars">★★★★★</div>
+            <div class="google">Google ★★★★★</div>
             <p>Professional, friendly and calm. Lessons were well structured and really helped me pass.</p>
             <strong>Daniel T.</strong>
           </div>
 
           <div class="review-card">
-            <div class="stars">★★★★★</div>
+            <div class="google">Google ★★★★★</div>
             <p>Best decision choosing SAR. Amazing support throughout and flexible lesson times.</p>
             <strong>Ayesha R.</strong>
           </div>
@@ -761,14 +1080,53 @@
       </div>
     </section>
 
-    <section class="final-cta">
-      <div class="final-cta-box">
-        <h2>Ready to pass your driving test?</h2>
+    <section class="why-section">
+      <div class="why-inner">
+        <div class="section-mini">Why choose SAR?</div>
+        <h2>More Than Just Driving Lessons</h2>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">🎓</div>
+            <h3>Expert Instructors</h3>
+            <p>Friendly, experienced and DVSA approved.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🛡️</div>
+            <h3>Proven Results</h3>
+            <p>Hundreds of learners passed with SAR.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🚗</div>
+            <h3>Modern Teaching</h3>
+            <p>Clear, up-to-date driving methods.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">⏰</div>
+            <h3>Flexible Scheduling</h3>
+            <p>Lessons to suit your lifestyle.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">📍</div>
+            <h3>Local Knowledge</h3>
+            <p>Milton Keynes and nearby test routes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-inner">
+        <h2>Ready to Pass Your Driving Test?</h2>
         <p>Join hundreds of happy learners who passed with SAR Driving School.</p>
 
-        <div class="hero-actions">
-          <a href="book.html" class="hero-btn-red">Book lessons now →</a>
-          <a href="https://wa.me/447902023737" target="_blank" class="hero-btn-whatsapp">WhatsApp us</a>
+        <div class="cta-actions">
+          <a href="book.html" class="red-btn">Book Lessons Now →</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="outline-btn">WhatsApp Us</a>
         </div>
       </div>
     </section>
