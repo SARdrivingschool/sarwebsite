@@ -7,7 +7,49 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* MOBILE NAV FIX */
+    :root {
+      --red: #e01e26;
+      --black: #080808;
+      --dark: #111111;
+      --card: #171717;
+      --white: #ffffff;
+      --muted: #b8b8b8;
+      --line: rgba(255,255,255,0.12);
+      --max: 1200px;
+    }
+
+    body {
+      background: #080808;
+      color: #ffffff;
+    }
+
+    /* NAV FIX */
+    nav {
+      background: rgba(8,8,8,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav ul a {
+      color: #ffffff;
+    }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 0.8rem 1.3rem;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    /* MOBILE NAV */
+    .hamburger {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .hamburger {
         display: flex !important;
@@ -23,9 +65,9 @@
 
       .hamburger span {
         display: block;
-        width: 24px;
+        width: 25px;
         height: 2px;
-        background: #111111;
+        background: #ffffff;
         border-radius: 2px;
         transition: all 0.3s ease;
       }
@@ -53,11 +95,11 @@
         top: 70px;
         left: 0;
         right: 0;
-        background: #ffffff;
-        border-top: 1px solid #eeeeee;
+        background: #111111;
+        border-top: 1px solid rgba(255,255,255,0.12);
         padding: 0.5rem 1.5rem 1.25rem;
         gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
         z-index: 200;
       }
 
@@ -65,8 +107,8 @@
         display: block;
         padding: 0.9rem 0;
         font-size: 1rem;
-        color: #111111;
-        border-bottom: 1px solid #f0f0f0;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
       }
 
       .nav-inner {
@@ -75,279 +117,651 @@
       }
     }
 
-    /* DYNAMIC HERO */
-    .dynamic-hero {
+    /* HERO */
+    .home-hero {
       position: relative;
-      min-height: 78vh;
+      min-height: 760px;
       overflow: hidden;
-      background: #111111;
+      background: #080808;
     }
 
-    .dynamic-hero .hero-slideshow {
+    .hero-bg {
       position: absolute;
       inset: 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       z-index: 0;
     }
 
-    .dynamic-hero .slide {
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("images/passes/pass001.jpg");
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      animation: slowZoom 8s ease-in-out forwards;
+      background-position: center right;
+      opacity: 0.75;
+      animation: heroZoom 9s ease-in-out infinite alternate;
     }
 
-    @keyframes slowZoom {
-      from {
-        transform: scale(1);
-      }
-
-      to {
-        transform: scale(1.06);
-      }
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
     }
 
-    .dynamic-hero .hero-overlay {
+    .hero-bg::after {
+      content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.35) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.78));
-      z-index: 1;
+        linear-gradient(90deg, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.74) 43%, rgba(8,8,8,0.32) 100%),
+        linear-gradient(180deg, rgba(8,8,8,0.15) 0%, rgba(8,8,8,0.96) 100%);
     }
 
-    .dynamic-hero .hero-inner {
+    .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1200px;
+      max-width: var(--max);
       margin: 0 auto;
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5rem 2rem;
-      gap: 2rem;
+      padding: 110px 2rem 50px;
     }
 
-    .dynamic-hero .hero-text {
-      max-width: 720px;
-    }
-
-    .hero-pill {
+    .hero-label {
       display: inline-flex;
       align-items: center;
-      background: rgba(224, 30, 38, 0.18);
-      border: 1px solid rgba(224, 30, 38, 0.45);
-      color: #ffffff;
-      padding: 0.65rem 1rem;
+      gap: 0.45rem;
+      padding: 0.5rem 0.85rem;
       border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.2rem;
-    }
-
-    .dynamic-hero h1 {
+      background: rgba(224,30,38,0.16);
+      border: 1px solid rgba(224,30,38,0.45);
       color: #ffffff;
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: 1.05;
-      margin-bottom: 1.4rem;
-      letter-spacing: -1.5px;
-    }
-
-    .dynamic-hero h1 span {
-      color: #e01e26;
-      display: inline-block;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .dynamic-hero h1 span.fade-out {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .dynamic-hero p {
-      max-width: 640px;
-      color: #dddddd;
-      font-size: 1.15rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .dynamic-hero .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2.4rem;
-    }
-
-    .dynamic-hero .btn-primary,
-    .dynamic-hero .btn-secondary {
-      min-width: 190px;
-      text-align: center;
-    }
-
-    .dynamic-hero .hero-stats {
-      display: flex;
-      gap: 1.2rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .dynamic-hero .stat {
-      min-width: 120px;
-    }
-
-    .dynamic-hero .stat strong {
-      display: block;
-      color: #ffffff;
-      font-size: 1.8rem;
+      font-size: 0.82rem;
       font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 1.3rem;
     }
 
-    .dynamic-hero .stat span {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-    }
-
-    .hero-floating-card {
-      width: 290px;
-      background: rgba(17,17,17,0.78);
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 1.4rem;
-      color: #ffffff;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-      animation: floatCard 4s ease-in-out infinite;
-    }
-
-    @keyframes floatCard {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .floating-stars {
-      color: #ffcc00;
-      letter-spacing: 2px;
-      margin-bottom: 0.7rem;
+    .hero-label span {
+      color: var(--red);
       font-size: 1rem;
     }
 
-    .hero-floating-card strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
+    .hero-content h1 {
+      max-width: 720px;
+      color: #ffffff;
+      font-size: clamp(3rem, 6vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+      margin-bottom: 1.4rem;
     }
 
-    .hero-floating-card span {
+    .hero-content h1 strong {
+      color: var(--red);
+    }
+
+    .hero-content p {
+      max-width: 610px;
+      color: #d8d8d8;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-actions a {
+      text-decoration: none;
+      font-weight: 900;
+      border-radius: 14px;
+      padding: 1rem 1.35rem;
+      min-width: 170px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .hero-actions a:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-book {
+      background: var(--red);
+      color: #ffffff;
+      box-shadow: 0 12px 32px rgba(224,30,38,0.32);
+    }
+
+    .hero-pricing {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .hero-whatsapp {
+      background: rgba(37,211,102,0.08);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.65);
+    }
+
+    .rating-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      color: #d0d0d0;
+      font-weight: 700;
+      margin-bottom: 2.2rem;
+    }
+
+    .stars {
+      color: #ffcc00;
+      letter-spacing: 2px;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 1050px;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+    }
+
+    .hero-stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(224,30,38,0.16);
+      border: 1px solid rgba(224,30,38,0.42);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-stat span {
       color: #cccccc;
-      font-size: 0.9rem;
       line-height: 1.5;
     }
 
-    /* MOBILE HERO FIX */
+    .trust-strip {
+      max-width: var(--max);
+      margin: -30px auto 0;
+      position: relative;
+      z-index: 5;
+      padding: 0 2rem;
+    }
+
+    .trust-strip-inner {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+
+    .trust-item {
+      padding: 1.2rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-icon {
+      color: var(--red);
+      font-size: 1.25rem;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .trust-item span {
+      display: block;
+      color: #b8b8b8;
+      font-size: 0.82rem;
+      margin-top: 0.1rem;
+    }
+
+    /* PASS GALLERY PREVIEW */
+    .pass-preview {
+      padding: 90px 2rem;
+      background: #080808;
+    }
+
+    .pass-preview-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .section-mini {
+      color: var(--red);
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pass-preview h2,
+    .reviews-section h2,
+    .why-section h2,
+    .cta-section h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .pass-preview p,
+    .why-section p,
+    .cta-section p {
+      color: #c7c7c7;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .red-btn {
+      display: inline-block;
+      background: var(--red);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 900;
+      border-radius: 12px;
+      padding: 1rem 1.3rem;
+      box-shadow: 0 12px 30px rgba(224,30,38,0.25);
+    }
+
+    .pass-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    .pass-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+    }
+
+    .weekly-badge {
+      margin: 1rem auto 0;
+      width: fit-content;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      color: #ffffff;
+      padding: 0.7rem 1rem;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    /* REVIEWS */
+    .reviews-section {
+      padding: 85px 2rem;
+      background: #111111;
+    }
+
+    .reviews-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .review-card {
+      background: #171717;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1.4rem;
+      text-align: left;
+    }
+
+    .google {
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+
+    .review-card p {
+      color: #d5d5d5;
+      line-height: 1.6;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .review-card strong {
+      color: #ffffff;
+    }
+
+    /* WHY */
+    .why-section {
+      padding: 90px 2rem;
+      background: #080808;
+      text-align: center;
+    }
+
+    .why-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 2rem;
+    }
+
+    .why-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 1.6rem 1rem;
+      min-height: 180px;
+    }
+
+    .why-card:first-child {
+      border-radius: 16px 0 0 16px;
+    }
+
+    .why-card:last-child {
+      border-radius: 0 16px 16px 0;
+    }
+
+    .why-card-icon {
+      width: 55px;
+      height: 55px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.35rem;
+    }
+
+    .why-card h3 {
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 0 2rem 80px;
+      background: #080808;
+    }
+
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 260px;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      background: #151515;
+      display: flex;
+      align-items: center;
+      padding: 3rem;
+    }
+
+    .cta-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(80,0,0,0.92), rgba(8,8,8,0.62)),
+        url("images/toyotacorollasarpic.png");
+      background-size: cover;
+      background-position: center right;
+      opacity: 0.95;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .outline-btn {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 900;
+      border-radius: 12px;
+      padding: 1rem 1.3rem;
+      border: 1px solid rgba(255,255,255,0.32);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* FOOTER CONTACT STRIP */
+    .footer-contact-strip {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem 35px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .footer-contact-card {
+      color: #ffffff;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .footer-contact-card span {
+      color: var(--red);
+      font-size: 1.4rem;
+    }
+
+    .footer-contact-card strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-contact-card small {
+      color: #b8b8b8;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #080808;
+      color: #8f8f8f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .hero-stat-grid,
+      .review-grid,
+      .why-grid,
+      .footer-contact-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-strip-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pass-preview-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .pass-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-card,
+      .why-card:first-child,
+      .why-card:last-child {
+        border-radius: 16px;
+      }
+    }
+
     @media (max-width: 768px) {
-      .dynamic-hero {
-        min-height: auto;
+      .home-hero {
+        min-height: 720px;
       }
 
-      .dynamic-hero .hero-slideshow {
-        display: block !important;
-        position: absolute;
-        inset: 0;
-        z-index: 0;
+      .hero-bg::before {
+        background-position: center;
       }
 
-      .dynamic-hero .slide {
-        position: absolute;
-        inset: 0;
-        display: none !important;
-        background-size: cover !important;
-        background-position: center !important;
-      }
-
-      .dynamic-hero .slide:first-child {
-        display: block !important;
-      }
-
-      .dynamic-hero .hero-overlay {
+      .hero-bg::after {
         background:
-          linear-gradient(180deg, rgba(0,0,0,0.70), rgba(0,0,0,0.86)),
-          linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45));
+          linear-gradient(180deg, rgba(8,8,8,0.58) 0%, rgba(8,8,8,0.92) 62%, rgba(8,8,8,1) 100%);
       }
 
-      .dynamic-hero .hero-inner {
-        min-height: 650px;
-        padding: 4rem 1.25rem 3rem;
-        align-items: flex-end;
+      .hero-content {
+        padding: 70px 1.25rem 45px;
       }
 
-      .dynamic-hero h1 {
-        font-size: 2.65rem;
-        line-height: 1.08;
-        letter-spacing: -0.8px;
+      .hero-content h1 {
+        font-size: 3rem;
+        letter-spacing: -1.2px;
       }
 
-      .dynamic-hero p {
+      .hero-content p {
         font-size: 1rem;
       }
 
-      .dynamic-hero .hero-buttons {
+      .hero-actions {
         flex-direction: column;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+
+      .rating-row {
+        font-size: 0.9rem;
+      }
+
+      .hero-stat-grid {
         gap: 0.75rem;
       }
 
-      .dynamic-hero .btn-primary,
-      .dynamic-hero .btn-secondary {
-        width: 100%;
-        min-width: unset;
+      .hero-stat {
+        padding: 1rem;
       }
 
-      .dynamic-hero .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.7rem;
+      .hero-stat strong {
+        font-size: 1.45rem;
       }
 
-      .dynamic-hero .stat {
-        min-width: 0;
+      .hero-stat span {
+        font-size: 0.85rem;
       }
 
-      .dynamic-hero .stat strong {
-        font-size: 1.3rem;
+      .trust-strip {
+        margin-top: 0;
+        padding: 0 1.25rem;
       }
 
-      .dynamic-hero .stat span {
-        font-size: 0.75rem;
+      .trust-strip-inner {
+        grid-template-columns: 1fr;
       }
 
-      .hero-floating-card {
-        display: none;
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
       }
 
-      .tab-cards {
+      .pass-preview,
+      .reviews-section,
+      .why-section {
+        padding: 60px 1.25rem;
+      }
+
+      .pass-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.55rem;
+      }
+
+      .reviews-inner {
+        padding: 2rem 1rem;
+        border-radius: 20px;
+      }
+
+      .cta-section {
+        padding: 0 1.25rem 60px;
+      }
+
+      .cta-inner {
+        padding: 2rem 1.25rem;
+        min-height: 360px;
+        align-items: flex-end;
+      }
+
+      .cta-inner::before {
+        background-position: center;
+      }
+
+      .cta-actions {
         flex-direction: column;
       }
 
-      .tab-card {
-        min-width: unset !important;
-        width: 100% !important;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .btn-primary,
-      .btn-secondary {
+      .red-btn,
+      .outline-btn {
         width: 100%;
         text-align: center;
+      }
+
+      .footer-contact-strip {
+        padding: 0 1.25rem 30px;
       }
 
       .whatsapp-float {
@@ -373,178 +787,243 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html" style="color:#e01e26;">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
-        <li><a href="book.html" class="btn-nav">Book now</a></li>
+        <li><a href="book.html" class="btn-nav">Book Lessons</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
 
-    <section class="hero dynamic-hero" id="hero">
-      <div class="hero-slideshow" id="heroSlideshow"></div>
-      <div class="hero-overlay"></div>
+    <!-- HERO -->
+    <section class="home-hero">
+      <div class="hero-bg"></div>
 
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-pill">DVSA approved driving instructors</div>
+      <div class="hero-content">
+        <div class="hero-label"><span>●</span> Milton Keynes' trusted driving school</div>
 
-          <h1>
-            Driving lessons in<br>
-            <span id="changingText">Milton Keynes</span><br>
-            & surrounding areas
-          </h1>
+        <h1>Pass Faster<br>With <strong>SAR</strong></h1>
 
+        <p>
+          Expert driving lessons with DVSA approved instructors and a proven system to get you test ready.
+        </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="hero-book">Book Lessons →</a>
+          <a href="book.html" class="hero-pricing">Check Availability</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="hero-whatsapp">WhatsApp Us</a>
+        </div>
+
+        <div class="rating-row">
+          <span>Rated 5.0 on Google</span>
+          <span class="stars">★★★★★</span>
+          <span>170+ Reviews</span>
+        </div>
+
+        <div class="hero-stat-grid">
+          <div class="hero-stat">
+            <div class="hero-stat-icon">👥</div>
+            <strong>500+</strong>
+            <span>Learners passed<br>and counting</span>
+          </div>
+
+          <div class="hero-stat">
+            <div class="hero-stat-icon">★</div>
+            <strong>170+</strong>
+            <span>Five-star reviews<br>from real learners</span>
+          </div>
+
+          <div class="hero-stat">
+            <div class="hero-stat-icon">🛡️</div>
+            <strong>DVSA</strong>
+            <span>Approved instructors<br>high standards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip">
+      <div class="trust-strip-inner">
+        <div class="trust-item">
+          <div class="trust-icon">✅</div>
+          <div>
+            <strong>DVSA Approved</strong>
+            <span>Qualified & trusted</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">🎯</div>
+          <div>
+            <strong>High Pass Rate</strong>
+            <span>Proven teaching methods</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">📍</div>
+          <div>
+            <strong>Local Experts</strong>
+            <span>Milton Keynes & nearby</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">🗓️</div>
+          <div>
+            <strong>Flexible Lessons</strong>
+            <span>Weekdays & weekends</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASS GALLERY PREVIEW -->
+    <section class="pass-preview">
+      <div class="pass-preview-inner">
+        <div>
+          <div class="section-mini">Pass Gallery</div>
+          <h2>Our happy passers 🎉</h2>
           <p>
-            Learn with patient, experienced instructors trusted by 500+ learners across Milton Keynes.
-            Manual, automatic and refresher lessons available.
+            Real learners. Real passes. Here are just some of the recent learners who passed with SAR.
           </p>
-
-          <div class="hero-buttons">
-            <a href="book.html" class="btn-primary">Book your first lesson</a>
-            <a href="pricing.html" class="btn-secondary">View pricing</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>500+</strong>
-              <span>learners passed</span>
-            </div>
-
-            <div class="stat">
-              <strong>15+</strong>
-              <span>years experience</span>
-            </div>
-
-            <div class="stat">
-              <strong>170+</strong>
-              <span>Google reviews</span>
-            </div>
-          </div>
+          <a href="gallery.html" class="red-btn">View Full Gallery →</a>
         </div>
 
-        <div class="hero-floating-card">
-          <div class="floating-stars">★★★★★</div>
-          <strong>Trusted by local learners</strong>
-          <span>Manual • Automatic • Refresher lessons</span>
+        <div>
+          <div class="pass-grid">
+            <img src="images/passes/pass001.jpg" alt="SAR Driving School pass photo">
+            <img src="images/passes/pass002.jpg" alt="SAR Driving School pass photo">
+            <img src="images/passes/pass003.jpg" alt="SAR Driving School pass photo">
+            <img src="images/passes/pass004.jpg" alt="SAR Driving School pass photo">
+          </div>
+
+          <div class="weekly-badge">🔥 3 learners passed this week</div>
         </div>
       </div>
     </section>
 
-    <section class="services">
-      <div class="services-inner">
-        <div class="section-label">What we offer</div>
-        <h2>Choose your lesson type</h2>
-
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">🚗</div>
-            <h3>Automatic lessons</h3>
-            <p>Easier to learn, no clutch or gears to worry about. Perfect if you want to pass faster.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-
-          <div class="service-card featured">
-            <div class="service-badge">Most popular</div>
-            <div class="service-icon">🔧</div>
-            <h3>Manual lessons</h3>
-            <p>Full licence, full control. Our most popular option for learners who want maximum flexibility.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-
-          <div class="service-card">
-            <div class="service-icon">🔄</div>
-            <h3>Refresher lessons</h3>
-            <p>Been off the road a while? Build your confidence back up with a tailored refresher course.</p>
-            <a href="lessons.html">Learn more →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing">
-      <div class="pricing-inner">
-        <div class="section-label">Transparent pricing</div>
-        <h2>Simple, honest prices</h2>
-        <p class="pricing-sub">No hidden fees. Select your lesson type to see pricing.</p>
-
-        <div class="pricing-selector">
-          <div class="pricing-tabs">
-            <button class="tab-btn active" onclick="showTab('single', this)">Single lessons</button>
-            <button class="tab-btn" onclick="showTab('block', this)">Block booking</button>
-            <button class="tab-btn" onclick="showTab('intensive', this)">Intensive course</button>
-          </div>
-
-          <div class="tab-content active" id="single">
-            <div class="tab-cards">
-              <div class="tab-card">
-                <h3>1 hour</h3>
-                <div class="tab-price">£38</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-
-              <div class="tab-card featured">
-                <h3>1.5 hours</h3>
-                <div class="tab-price">£57</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-
-              <div class="tab-card">
-                <h3>2 hours</h3>
-                <div class="tab-price">£76</div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-
-            <p class="tab-note">✓ DVSA approved · ✓ Manual or automatic · ✓ Pick-up from your area · ✓ Tailored to your level</p>
-          </div>
-
-          <div class="tab-content" id="block">
-            <div class="tab-cards">
-              <div class="tab-card featured">
-                <div class="pricing-badge">Best value</div>
-                <h3>10 hours</h3>
-                <div class="tab-price">£360 <span class="saving">save £20</span></div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-
-            <p class="tab-note">✓ Split into sessions at times that suit you · ✓ Progress tracked every lesson · ✓ Pick-up from your area</p>
-          </div>
-
-          <div class="tab-content" id="intensive">
-            <div class="tab-cards">
-              <div class="tab-card featured">
-                <h3>20 hours</h3>
-                <div class="tab-price">£700 <span class="saving">save £60</span></div>
-                <p class="price-desc">Auto or manual</p>
-                <a href="book.html" class="btn-primary">Book now</a>
-              </div>
-            </div>
-
-            <p class="tab-note">✓ Intensive back-to-back sessions · ✓ Fastest route to passing · ✓ Progress tracked every lesson</p>
-          </div>
-        </div>
-
-        <p class="pricing-note">Not sure which to pick? <a href="contact.html">Get in touch</a> and we'll help you choose.</p>
-      </div>
-    </section>
-
-    <section class="reviews">
+    <!-- REVIEWS -->
+    <section class="reviews-section">
       <div class="reviews-inner">
-        <div class="section-label">What students say</div>
-        <h2>170+ five-star reviews on Google</h2>
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="elfsight-app-cc61d0bc-56d4-4164-a5b2-26f291dea5fe" data-elfsight-app-lazy></div>
+        <div class="section-mini">What learners say</div>
+        <h2>Real reviews from real learners</h2>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="google">Google <span class="stars">★★★★★</span></div>
+            <p>Great instructor. Very patient and explains everything clearly. Passed first time with confidence.</p>
+            <strong>Jessica M.</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="google">Google <span class="stars">★★★★★</span></div>
+            <p>Professional, friendly and calm. Lessons were well structured and really helped me pass.</p>
+            <strong>Daniel T.</strong>
+          </div>
+
+          <div class="review-card">
+            <div class="google">Google <span class="stars">★★★★★</span></div>
+            <p>Best decision choosing SAR. Amazing support and flexible lesson times.</p>
+            <strong>Ayesha R.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-section">
+      <div class="why-inner">
+        <div class="section-mini">Why choose SAR?</div>
+        <h2>More than just driving lessons</h2>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card-icon">🎓</div>
+            <h3>Expert Instructors</h3>
+            <p>DVSA approved, friendly and highly experienced.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon">🛡️</div>
+            <h3>Proven Results</h3>
+            <p>Hundreds of learners passed with SAR.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon">🚗</div>
+            <h3>Modern Teaching</h3>
+            <p>Up-to-date techniques for today’s roads.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon">⏰</div>
+            <h3>Flexible Scheduling</h3>
+            <p>Lessons to suit your lifestyle.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon">📍</div>
+            <h3>Local Knowledge</h3>
+            <p>Milton Keynes and nearby test routes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <h2>Ready to pass your driving test?</h2>
+          <p>Join hundreds of happy learners who passed with SAR.</p>
+
+          <div class="cta-actions">
+            <a href="book.html" class="red-btn">Book Lessons Now →</a>
+            <a href="https://wa.me/447902023737" target="_blank" class="outline-btn">WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CONTACT STRIP -->
+    <section class="footer-contact-strip">
+      <div class="footer-contact-card">
+        <span>🕒</span>
+        <div>
+          <strong>Opening Hours</strong>
+          <small>Mon - Sun: 8AM - 8PM</small>
+        </div>
+      </div>
+
+      <div class="footer-contact-card">
+        <span>📞</span>
+        <div>
+          <strong>Call Us</strong>
+          <small>07902 023737</small>
+        </div>
+      </div>
+
+      <div class="footer-contact-card">
+        <span>✉️</span>
+        <div>
+          <strong>Email Us</strong>
+          <small>info@sardrivingschool.co.uk</small>
+        </div>
+      </div>
+
+      <div class="footer-contact-card">
+        <span>📍</span>
+        <div>
+          <strong>Location</strong>
+          <small>Milton Keynes & nearby</small>
+        </div>
       </div>
     </section>
 
@@ -569,77 +1048,9 @@
         navMenu.classList.remove('open');
       });
     });
-
-    function showTab(tab, btn) {
-      document.querySelectorAll('.tab-content').forEach(function(content) {
-        content.classList.remove('active');
-      });
-
-      document.querySelectorAll('.tab-btn').forEach(function(button) {
-        button.classList.remove('active');
-      });
-
-      document.getElementById(tab).classList.add('active');
-      btn.classList.add('active');
-    }
-
-    const photos = [
-      "pass001.jpg",
-      "pass002.jpg",
-      "pass003.jpg"
-    ];
-
-    const slideshow = document.getElementById('heroSlideshow');
-    let current = 0;
-
-    function buildSlides() {
-      slideshow.innerHTML = '';
-
-      const isMobile = window.innerWidth <= 768;
-      const numberOfSlides = isMobile ? 1 : 3;
-
-      for (let i = 0; i < numberOfSlides; i++) {
-        const idx = (current + i) % photos.length;
-        const div = document.createElement('div');
-        div.className = 'slide';
-        div.style.backgroundImage = `url('images/passes/${photos[idx]}')`;
-        slideshow.appendChild(div);
-      }
-    }
-
-    buildSlides();
-
-    setInterval(function() {
-      current = (current + 1) % photos.length;
-      buildSlides();
-    }, 4500);
-
-    window.addEventListener('resize', buildSlides);
-
-    const changingText = document.getElementById('changingText');
-
-    const textOptions = [
-      'Milton Keynes',
-      'Bletchley',
-      'Bedford',
-      'Leighton Buzzard',
-      'Kettering'
-    ];
-
-    let textIndex = 0;
-
-    setInterval(function() {
-      changingText.classList.add('fade-out');
-
-      setTimeout(function() {
-        textIndex = (textIndex + 1) % textOptions.length;
-        changingText.textContent = textOptions[textIndex];
-        changingText.classList.remove('fade-out');
-      }, 300);
-    }, 2500);
   </script>
 
-  <!-- WhatsApp Button -->
+  <!-- WhatsApp Floating Button -->
   <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
     position: fixed;
     bottom: 24px;
@@ -656,7 +1067,7 @@
     transition: transform 0.2s;
   " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.390-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.298-.347.446-.520.149-.174.198-.298.298-.497.099-.198.050-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.500-.669-.510-.173-.008-.371-.010-.570-.010-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.870 9.870 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413z"/>
     </svg>
   </a>
 
