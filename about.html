@@ -7,146 +7,492 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    :root {
+      --red: #ed1c24;
+      --dark: #0b0b0b;
+      --dark2: #111111;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
     .page-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.30) 100%),
         url("images/about-bg.png") center/cover no-repeat;
-      min-height: 430px;
+      min-height: 460px;
       display: flex;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      pointer-events: none;
     }
 
     .page-hero-inner {
       position: relative;
       z-index: 2;
+      max-width: var(--max);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 2rem;
     }
 
-    .about-section {
-      background: #ffffff;
-      padding: 80px 2rem;
-      overflow-x: hidden;
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 0.9rem;
     }
 
-    .about-inner {
-      max-width: 1100px;
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.6rem);
+      line-height: 1.02;
+      color: #ffffff;
+      margin: 0 0 1rem;
+      letter-spacing: -2px;
+    }
+
+    .page-hero p {
+      color: #d6d6d6;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 880px;
+    }
+
+    .story-section {
+      background: #0b0b0b;
+      padding: 90px 2rem;
+    }
+
+    .story-inner {
+      max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .story-copy h2 {
+      color: #ffffff;
+      font-size: clamp(2.25rem, 4.5vw, 3.65rem);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-copy p {
+      color: #cfcfcf;
+      line-height: 1.85;
+      font-size: 1.06rem;
+      margin-bottom: 1.35rem;
+      max-width: 680px;
+    }
+
+    .story-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.15rem;
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 24px;
+      padding: 2rem;
+      min-height: 160px;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(237,28,36,0.15);
+      right: -50px;
+      bottom: -50px;
+      transition: transform 0.25s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(237,28,36,0.45);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.42);
+    }
+
+    .stat-card:hover::after {
+      transform: scale(1.25);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(2.25rem, 4vw, 3.1rem);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      letter-spacing: -1px;
+    }
+
+    .stat-card span {
+      color: #bbbbbb;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .difference-section {
+      background: #101010;
+      padding: 85px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .difference-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .difference-head {
+      max-width: 780px;
+      margin-bottom: 2.4rem;
+    }
+
+    .difference-head h2 {
+      color: #ffffff;
+      font-size: clamp(2.25rem, 4.5vw, 3.55rem);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 1rem;
+    }
+
+    .difference-head p {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.15rem;
+    }
+
+    .difference-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 22px;
+      padding: 1.7rem;
+      min-height: 255px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .difference-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(237,28,36,0.5);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        #151515;
+    }
+
+    .difference-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+    }
+
+    .difference-card h3 {
+      color: #ffffff;
+      font-size: 1.22rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .difference-card p {
+      color: #c7c7c7;
+      line-height: 1.65;
+      font-size: 0.96rem;
+      margin: 0;
+    }
+
+    .timeline-section {
+      background: #0b0b0b;
+      padding: 85px 2rem;
+    }
+
+    .timeline-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
       align-items: start;
     }
 
-    .about-story h2 {
-      font-size: 2.8rem;
-      line-height: 1.1;
-      margin: 1rem 0 1.5rem;
-      color: #111111;
-    }
-
-    .about-story p {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: #555555;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .about-stat {
-      background: #f5f5f5;
-      border-radius: 20px;
-      padding: 2rem;
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-stat strong {
-      font-size: 2.7rem;
-      color: #111111;
-      line-height: 1;
-      margin-bottom: 0.6rem;
-    }
-
-    .about-stat span {
-      color: #666666;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .about-values {
-      background: #111111;
-      padding: 80px 2rem;
-    }
-
-    .about-values-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .about-values h2 {
+    .timeline-copy h2 {
       color: #ffffff;
-      font-size: 2.5rem;
-      margin: 1rem 0 2rem;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-
-    .value-card {
-      background: #171717;
-      border: 1px solid #333333;
-      border-radius: 18px;
-      padding: 1.6rem;
-    }
-
-    .value-icon {
-      font-size: 1.8rem;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
       margin-bottom: 1rem;
     }
 
-    .value-card h3 {
+    .timeline-copy p {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 1.25rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .timeline-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
       color: #ffffff;
-      font-size: 1.15rem;
-      margin-bottom: 0.7rem;
+      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
     }
 
-    .value-card p {
-      color: #bdbdbd;
+    .timeline-item h3 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-item p {
+      color: #bfbfbf;
       line-height: 1.6;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
+      margin: 0;
     }
 
-    .lessons-cta {
-      background: #1f1f1f;
-      padding: 70px 2rem;
+    .areas-section {
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 40%, rgba(237,28,36,0.16), transparent 36%),
+        #101010;
+      padding: 85px 2rem;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .areas-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .areas-copy h2 {
+      color: #ffffff;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .areas-copy p {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .area-card {
+      background: rgba(0,0,0,0.34);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 1.2rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .area-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .area-card span {
+      color: #bfbfbf;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .cta-section {
+      background: #202020;
+      padding: 80px 2rem;
       text-align: center;
     }
 
-    .lessons-cta-inner {
-      max-width: 800px;
+    .cta-card {
+      max-width: 1000px;
       margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
     }
 
-    .lessons-cta h2 {
+    .cta-card h2 {
       color: #ffffff;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      margin-bottom: 0.9rem;
+      letter-spacing: -1px;
     }
 
-    .lessons-cta p {
-      color: #cfcfcf;
+    .cta-card p {
+      color: #d0d0d0;
+      line-height: 1.7;
       font-size: 1.05rem;
-      margin-bottom: 2rem;
+      max-width: 720px;
+      margin: 0 auto 1.7rem;
+    }
+
+    .cta-actions,
+    .story-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .story-actions {
+      justify-content: flex-start;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1000px) {
+      .story-inner,
+      .timeline-inner,
+      .areas-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .difference-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -208,16 +554,20 @@
       }
 
       .page-hero {
-        min-height: 420px;
-        padding: 60px 1.25rem;
+        min-height: 460px;
+        padding: 70px 0;
         background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.82)),
-          url("images/about-bg.png") center/cover no-repeat;
+          linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.78)),
+          url("images/about-bg.png") center right/cover no-repeat;
+      }
+
+      .page-hero-inner {
+        padding: 0 1.25rem;
       }
 
       .page-hero h1 {
-        font-size: 2.15rem;
-        line-height: 1.15;
+        font-size: 2.35rem;
+        line-height: 1.12;
       }
 
       .page-hero p {
@@ -225,90 +575,46 @@
         line-height: 1.6;
       }
 
-      .about-section {
-        padding: 50px 1.25rem;
+      .story-section,
+      .difference-section,
+      .timeline-section,
+      .areas-section,
+      .cta-section {
+        padding: 56px 1.25rem;
       }
 
-      .about-inner {
-        display: flex;
-        flex-direction: column;
+      .story-inner,
+      .timeline-inner,
+      .areas-inner {
         gap: 2rem;
-        max-width: 100%;
-        width: 100%;
       }
 
-      .about-story {
-        width: 100%;
-      }
-
-      .about-story h2 {
-        font-size: 2rem;
-        line-height: 1.15;
-        margin-bottom: 1.2rem;
-      }
-
-      .about-story p {
-        font-size: 1rem;
-        line-height: 1.7;
-        margin-bottom: 1rem;
-      }
-
-      .about-stats-grid {
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.9rem;
-      }
-
-      .about-stat {
-        min-height: 120px;
-        padding: 1.3rem;
-        border-radius: 16px;
-        text-align: center;
-        align-items: center;
-      }
-
-      .about-stat strong {
-        font-size: 2rem;
-      }
-
-      .about-stat span {
-        font-size: 0.9rem;
-      }
-
-      .about-values {
-        padding: 50px 1.25rem;
-      }
-
-      .about-values h2 {
-        font-size: 2rem;
-        line-height: 1.15;
-      }
-
-      .values-grid {
+      .stats-grid,
+      .difference-grid,
+      .areas-grid {
         grid-template-columns: 1fr;
       }
 
-      .value-card {
-        padding: 1.4rem;
+      .stat-card,
+      .difference-card,
+      .cta-card {
+        border-radius: 20px;
       }
 
-      .lessons-cta {
-        padding: 55px 1.25rem;
+      .difference-card {
+        min-height: auto;
       }
 
-      .lessons-cta h2 {
-        font-size: 2rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
+      .story-actions,
+      .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
       .btn-primary,
-      .btn-secondary {
+      .btn-secondary,
+      .btn-whatsapp {
         width: 100%;
-        text-align: center;
       }
 
       .whatsapp-float {
@@ -351,41 +657,56 @@
       <div class="page-hero-inner">
         <div class="section-label">Who we are</div>
         <h1>About SAR Driving School</h1>
-        <p>Local, trusted and experienced driving instructors helping learners across Milton Keynes and surrounding areas.</p>
+        <p>Local, trusted and experienced driving instructors helping learners across Milton Keynes and surrounding areas become safe, confident drivers.</p>
       </div>
     </section>
 
-    <section class="about-section">
-      <div class="about-inner">
+    <section class="story-section">
+      <div class="story-inner">
 
-        <div class="about-story">
+        <div class="story-copy">
           <div class="section-label">Our story</div>
           <h2>Helping Milton Keynes learners drive with confidence</h2>
 
-          <p>SAR Driving School is a local Milton Keynes driving school built around patient teaching, clear guidance and real progress.</p>
+          <p>
+            SAR Driving School is a local Milton Keynes driving school built around patient teaching,
+            clear guidance and real progress.
+          </p>
 
-          <p>We help learners build safe driving habits, understand local test routes and feel confident behind the wheel. Whether you are a complete beginner, switching instructors or returning to driving after time away, our lessons are tailored around your ability.</p>
+          <p>
+            We help learners build safe driving habits, understand local test routes and feel confident
+            behind the wheel. Whether you are a complete beginner, switching instructors or returning to
+            driving after time away, our lessons are tailored around your ability.
+          </p>
 
-          <p>We cover Milton Keynes and surrounding areas with manual, automatic and refresher lessons available depending on instructor availability.</p>
+          <p>
+            We cover Milton Keynes and surrounding areas with manual, automatic and refresher lessons
+            available depending on instructor availability.
+          </p>
+
+          <div class="story-actions">
+            <a href="book.html" class="btn-primary">Book a lesson</a>
+            <a href="gallery.html" class="btn-secondary">View pass gallery</a>
+          </div>
         </div>
 
-        <div class="about-stats-grid">
-          <div class="about-stat">
+        <div class="stats-grid">
+          <div class="stat-card">
             <strong>500+</strong>
             <span>learners passed</span>
           </div>
 
-          <div class="about-stat">
+          <div class="stat-card">
             <strong>15+</strong>
             <span>years experience</span>
           </div>
 
-          <div class="about-stat">
+          <div class="stat-card">
             <strong>170+</strong>
             <span>five-star reviews</span>
           </div>
 
-          <div class="about-stat">
+          <div class="stat-card">
             <strong>DVSA</strong>
             <span>approved instructors</span>
           </div>
@@ -394,32 +715,38 @@
       </div>
     </section>
 
-    <section class="about-values">
-      <div class="about-values-inner">
-        <div class="section-label">Why choose us</div>
-        <h2>What makes SAR different</h2>
+    <section class="difference-section">
+      <div class="difference-inner">
+        <div class="difference-head">
+          <div class="section-label">Why choose us</div>
+          <h2>What makes SAR different</h2>
+          <p>
+            We focus on calm teaching, honest feedback and helping you become a safe driver for life,
+            not just someone who can pass a test.
+          </p>
+        </div>
 
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🎯</div>
+        <div class="difference-grid">
+          <div class="difference-card">
+            <div class="difference-icon">🎯</div>
             <h3>Tailored lessons</h3>
             <p>Every lesson is planned around your current ability, confidence and driving goals.</p>
           </div>
 
-          <div class="value-card">
-            <div class="value-icon">😌</div>
+          <div class="difference-card">
+            <div class="difference-icon">😊</div>
             <h3>Patient instructors</h3>
             <p>Calm, clear teaching for nervous learners, beginners and anyone who needs extra confidence.</p>
           </div>
 
-          <div class="value-card">
-            <div class="value-icon">🚗</div>
+          <div class="difference-card">
+            <div class="difference-icon">🚗</div>
             <h3>Manual & automatic</h3>
             <p>Choose the lesson type that suits you best, depending on availability in your area.</p>
           </div>
 
-          <div class="value-card">
-            <div class="value-icon">✅</div>
+          <div class="difference-card">
+            <div class="difference-icon">✅</div>
             <h3>DVSA approved</h3>
             <p>Professional instruction focused on safe driving, test readiness and long-term confidence.</p>
           </div>
@@ -427,14 +754,105 @@
       </div>
     </section>
 
-    <section class="lessons-cta">
-      <div class="lessons-cta-inner">
-        <h2>Ready to start learning?</h2>
-        <p>Book your first lesson today and take the first step towards passing with confidence.</p>
+    <section class="timeline-section">
+      <div class="timeline-inner">
+        <div class="timeline-copy">
+          <div class="section-label">Our approach</div>
+          <h2>Clear lessons. Real progress.</h2>
+          <p>
+            Learning to drive should feel structured, calm and understandable.
+            We keep lessons focused, explain mistakes clearly and help you improve step by step.
+          </p>
+        </div>
 
-        <div class="hero-buttons">
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-number">1</div>
+            <div>
+              <h3>Understand your level</h3>
+              <p>We look at your current ability, confidence and previous driving experience.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">2</div>
+            <div>
+              <h3>Build strong foundations</h3>
+              <p>Control, observations, judgement, positioning and decision-making are developed properly.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">3</div>
+            <div>
+              <h3>Practise real test skills</h3>
+              <p>Roundabouts, parking, meeting traffic, independent driving and local test route areas.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-number">4</div>
+            <div>
+              <h3>Get test ready</h3>
+              <p>Your instructor will guide you towards safe, independent driving before test day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-section">
+      <div class="areas-inner">
+        <div class="areas-copy">
+          <div class="section-label">Where we teach</div>
+          <h2>Local knowledge that helps learners</h2>
+          <p>
+            Our instructors understand local roads, test routes and common learner challenges around
+            Milton Keynes and nearby areas.
+          </p>
+
+          <div class="story-actions">
+            <a href="contact.html" class="btn-primary">Check your area</a>
+            <a href="lessons.html" class="btn-secondary">View lessons</a>
+          </div>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-card">
+            <strong>Milton Keynes</strong>
+            <span>Manual, automatic and refresher lesson availability.</span>
+          </div>
+
+          <div class="area-card">
+            <strong>Bletchley</strong>
+            <span>Local test route knowledge and common tricky areas.</span>
+          </div>
+
+          <div class="area-card">
+            <strong>Bedford</strong>
+            <span>Subject to instructor availability and travel time.</span>
+          </div>
+
+          <div class="area-card">
+            <strong>Leighton Buzzard</strong>
+            <span>Availability depends on instructor area and schedule.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-card">
+        <div class="section-label">Ready to start?</div>
+        <h2>Ready to start learning?</h2>
+        <p>
+          Book your first lesson today and take the first step towards passing with confidence.
+        </p>
+
+        <div class="cta-actions">
           <a href="book.html" class="btn-primary">Book a lesson</a>
           <a href="contact.html" class="btn-secondary">Contact us</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
         </div>
       </div>
     </section>
