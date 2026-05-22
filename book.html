@@ -13,7 +13,6 @@
       --dark:#070707;
       --card:#121212;
       --border:rgba(255,255,255,0.1);
-      --muted:#cfcfcf;
       --green:#25D366;
       --max:1100px;
     }
@@ -113,7 +112,7 @@
 
     .book-hero{
       position:relative;
-      padding:90px 1.5rem 60px;
+      padding:34px 1.5rem 26px;
       overflow:hidden;
       background:
         radial-gradient(circle at left bottom, rgba(237,28,36,0.18), transparent 30%),
@@ -132,41 +131,26 @@
       font-weight:900;
       letter-spacing:3px;
       text-transform:uppercase;
-      margin-bottom:1rem;
+      margin-bottom:0.8rem;
     }
 
     .book-hero h1{
-      font-size:clamp(2.7rem, 7vw, 5rem);
+      font-size:clamp(2.3rem, 6vw, 4rem);
       line-height:1;
-      margin-bottom:1.2rem;
+      margin-bottom:0.8rem;
       max-width:760px;
       letter-spacing:-2px;
     }
 
     .book-hero p{
       color:#cfcfcf;
-      font-size:1.1rem;
-      line-height:1.7;
+      font-size:1.05rem;
+      line-height:1.6;
       max-width:720px;
     }
 
-    .simple-badges{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-      margin-top:2rem;
-    }
-
-    .simple-badge{
-      background:#111111;
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:1.2rem;
-      font-weight:800;
-    }
-
     .booking-section{
-      padding:70px 1.5rem 90px;
+      padding:38px 1.5rem 90px;
       background:
         radial-gradient(circle at right center, rgba(237,28,36,0.08), transparent 30%),
         #0a0a0a;
@@ -394,10 +378,6 @@
       .booking-grid{
         grid-template-columns:1fr;
       }
-
-      .simple-badges{
-        grid-template-columns:1fr;
-      }
     }
 
     @media (max-width:768px){
@@ -452,11 +432,11 @@
       }
 
       .book-hero{
-        padding:65px 1.25rem 45px;
+        padding:28px 1.25rem 20px;
       }
 
       .booking-section{
-        padding:45px 1.25rem 70px;
+        padding:28px 1.25rem 70px;
       }
 
       .panel{
@@ -469,7 +449,7 @@
       }
 
       .book-hero h1{
-        font-size:3rem;
+        font-size:2.55rem;
       }
 
       .book-hero p{
@@ -509,7 +489,6 @@
 
   <nav>
     <div class="nav-inner">
-
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
       </a>
@@ -529,7 +508,6 @@
         <li><a href="socials.html">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
-
     </div>
   </nav>
 
@@ -537,21 +515,9 @@
 
     <section class="book-hero">
       <div class="book-inner">
-
-        <div class="section-label">Get started</div>
-
-        <h1>Book a driving lesson with SAR Driving School</h1>
-
-        <p>
-          Quick and simple booking. Choose your lesson type, fill your details and we’ll contact you by WhatsApp or phone to arrange everything.
-        </p>
-
-        <div class="simple-badges">
-          <div class="simple-badge">DVSA approved instructors</div>
-          <div class="simple-badge">Manual & automatic lessons</div>
-          <div class="simple-badge">Fast WhatsApp confirmation</div>
-        </div>
-
+        <div class="section-label">Book a lesson</div>
+        <h1>Choose your lesson</h1>
+        <p>Select manual, automatic or refresher, then send your details.</p>
       </div>
     </section>
 
@@ -559,13 +525,10 @@
       <div class="booking-grid">
 
         <div class="panel">
-
           <h2>Choose your lesson</h2>
-
           <p>Select the lesson type that suits you best.</p>
 
           <div class="lesson-cards">
-
             <div class="lesson-card active" data-lesson="Manual lessons">
               <h3>Manual lessons</h3>
               <p>Best for learners wanting a full manual licence.</p>
@@ -580,21 +543,15 @@
 
             <div class="lesson-card" data-lesson="Refresher lessons">
               <h3>Refresher lessons</h3>
-              <p>For drivers wanting confidence building or motorway practice.</p>
+              <p>For confidence building, motorway driving, parking or roundabouts.</p>
               <div class="lesson-price">From £38</div>
             </div>
-
           </div>
-
         </div>
 
         <div class="panel">
-
           <h2>Send your request</h2>
-
-          <p>
-            Fill in your details below and we’ll contact you to confirm availability and lesson times.
-          </p>
+          <p>Fill in your details and we’ll contact you to confirm availability.</p>
 
           <div class="selected-box">
             Selected lesson:
@@ -606,13 +563,11 @@
             action="https://formsubmit.co/info@sardrivingschool.co.uk"
             method="POST"
           >
-
             <input type="hidden" name="_subject" value="New SAR Driving School Booking Request">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="lesson_type" id="lessonInput" value="Manual lessons">
 
             <div class="form-row">
-
               <div class="field">
                 <label>Your name</label>
                 <input type="text" name="name" placeholder="John Smith" required>
@@ -622,7 +577,6 @@
                 <label>Phone number</label>
                 <input type="tel" name="phone" placeholder="07700 000000" required>
               </div>
-
             </div>
 
             <div class="field">
@@ -632,7 +586,6 @@
 
             <div class="field">
               <label>Driving experience</label>
-
               <select name="experience" required>
                 <option value="">Select one</option>
                 <option>Complete beginner</option>
@@ -641,12 +594,10 @@
                 <option>Test booked</option>
                 <option>Already passed / refresher</option>
               </select>
-
             </div>
 
             <div class="field">
               <label>Extra message</label>
-
               <textarea
                 name="message"
                 placeholder="Preferred days, availability, test booked etc..."
@@ -668,9 +619,7 @@
             <p class="mini-note">
               We normally reply quickly by WhatsApp or phone to arrange your first lesson.
             </p>
-
           </form>
-
         </div>
 
       </div>
@@ -683,7 +632,6 @@
   </footer>
 
   <div class="floating-actions">
-
     <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ffffff">
         <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
@@ -695,7 +643,6 @@
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
       </svg>
     </a>
-
   </div>
 
   <script>
@@ -727,7 +674,6 @@
         card.classList.add('active');
 
         const lesson = card.dataset.lesson;
-
         selectedLesson.textContent = lesson;
         lessonInput.value = lesson;
       });
