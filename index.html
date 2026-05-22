@@ -266,17 +266,11 @@
       gap: 8px;
     }
 
-    .google-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.9rem;
-      color: #4285F4;
+    .google-logo {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      display: inline-block;
     }
 
     .stars {
@@ -752,10 +746,9 @@
         margin-bottom: 16px;
       }
 
-      .google-icon {
-        width: 19px;
-        height: 19px;
-        font-size: 0.78rem;
+      .google-logo {
+        width: 20px;
+        height: 20px;
       }
 
       .rating-row .stars {
@@ -1060,7 +1053,9 @@
 
           <div class="rating-row">
             <span class="google-rating">
-              Rated 5.0 on <span class="google-icon">G</span> Google
+              Rated 5.0 on
+              <img src="images/google-logo.png" alt="Google" class="google-logo">
+              Google
             </span>
             <span class="stars">★★★★★</span>
             <span>170+ Reviews</span>
