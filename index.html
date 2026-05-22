@@ -134,9 +134,9 @@
     .hero {
       min-height: calc(100vh - 92px);
       background:
-      linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.62) 42%, rgba(0,0,0,0.08) 100%),
-      linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.62) 100%),
-      url("images/female-driver-right-side.png");
+        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.62) 42%, rgba(0,0,0,0.08) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.62) 100%),
+        url("images/female-driver-right-side.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -152,8 +152,8 @@
       position: absolute;
       inset: 0;
       background:
-      radial-gradient(circle at 17% 65%, rgba(237,28,36,0.16), transparent 34%),
-      linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.24));
+        radial-gradient(circle at 17% 65%, rgba(237,28,36,0.16), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.24));
       pointer-events: none;
     }
 
@@ -258,12 +258,6 @@
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 30px;
-    }
-
-    .google-rating {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .google-logo {
@@ -696,54 +690,55 @@
 
       .hero-inner {
         max-width: 100%;
-        padding-top: 238px;
+        padding-top: 250px;
       }
 
       .hero-label {
-        width: 100%;
-        padding: 10px 12px;
-        font-size: 0.58rem;
-        letter-spacing: 1.2px;
-        margin-bottom: 18px;
+        width: auto;
+        max-width: 100%;
+        padding: 10px 14px;
+        font-size: 0.54rem;
+        letter-spacing: 1.4px;
+        margin-bottom: 16px;
         text-align: center;
         white-space: normal;
       }
 
       .hero h1 {
-        font-size: clamp(2.55rem, 11.5vw, 3.4rem);
+        font-size: clamp(2.25rem, 10vw, 3rem);
         line-height: 1.02;
-        letter-spacing: -1.5px;
-        margin-bottom: 14px;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
       }
 
       .hero p {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
         line-height: 1.55;
-        margin-bottom: 18px;
-        max-width: 100%;
+        margin-bottom: 20px;
+        max-width: 96%;
       }
 
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
         gap: 10px;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
       }
 
       .btn {
         width: 100%;
-        min-height: 52px;
+        min-height: 50px;
         border-radius: 14px;
-        font-size: 0.98rem;
+        font-size: 0.95rem;
       }
 
       .rating-row {
         display: flex;
         align-items: center;
         gap: 8px 10px;
-        font-size: 0.88rem;
-        line-height: 1.35;
-        margin-bottom: 16px;
+        font-size: 0.86rem;
+        line-height: 1.3;
+        margin-bottom: 20px;
       }
 
       .google-logo {
@@ -757,23 +752,23 @@
       }
 
       .stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .stat-card {
-        padding: 14px 10px;
+        padding: 16px;
         border-radius: 15px;
-        min-height: 94px;
+        min-height: auto;
       }
 
       .stat-card strong {
-        font-size: 1.35rem;
+        font-size: 1.7rem;
         margin-bottom: 4px;
       }
 
       .stat-card span {
-        font-size: 0.72rem;
+        font-size: 0.85rem;
         line-height: 1.35;
       }
 
@@ -966,36 +961,19 @@
 
     @media (max-width: 430px) {
       .hero {
-        background-size: auto 230px;
+        background-size: auto 235px;
       }
 
       .hero-inner {
-        padding-top: 224px;
+        padding-top: 246px;
       }
 
       .hero h1 {
-        font-size: 2.65rem;
+        font-size: 2.35rem;
       }
 
       .hero-label {
-        font-size: 0.55rem;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .stat-card {
-        min-height: auto;
-        padding: 16px;
-      }
-
-      .stat-card strong {
-        font-size: 1.7rem;
-      }
-
-      .stat-card span {
-        font-size: 0.85rem;
+        font-size: 0.52rem;
       }
     }
   </style>
