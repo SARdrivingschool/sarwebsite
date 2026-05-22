@@ -71,10 +71,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      filter:
-        brightness(1.35)
-        contrast(1.25)
-        drop-shadow(0 0 10px rgba(237, 28, 36, 0.45));
+      filter: brightness(1.35) contrast(1.25) drop-shadow(0 0 10px rgba(237, 28, 36, 0.45));
     }
 
     .nav-links {
@@ -620,88 +617,94 @@
       width: 32px;
       height: 32px;
     }
-      @media (max-width: 768px) {
-        header {
-          background: #ffffff;
-          border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
 
-        .container {
-          width: min(100% - 28px, var(--max));
-        }
+    @media (max-width: 768px) {
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
 
-        .nav {
-          min-height: 104px;
-        }
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
 
-        .logo-img {
-          width: 170px;
-          filter: none;
-        }
+      .nav {
+        min-height: 104px;
+      }
 
-        .hamburger {
-          display: flex;
-        }
+      .logo-img {
+        width: 170px;
+        filter: none;
+      }
 
-        .hamburger span {
-          background: #000000;
-        }
+      .hamburger {
+        display: flex;
+      }
 
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 104px;
-          left: 0;
-          right: 0;
-          background: #ffffff;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0;
-          padding: 12px 24px 20px;
-          border-top: 1px solid rgba(0,0,0,0.08);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-          z-index: 99;
-        }
+      .hamburger span {
+        background: #000000;
+      }
 
-        .nav-links.open {
-          display: flex;
-        }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 104px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 24px 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 99;
+      }
 
-        .nav-links li {
-          width: 100%;
-        }
+      .nav-links.open {
+        display: flex;
+      }
 
-        .nav-links a {
-          display: block;
-          width: 100%;
-          padding: 14px 0;
-          color: #000000;
-          border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
+      .nav-links li {
+        width: 100%;
+      }
 
-        .btn-nav {
-          margin-top: 12px;
-          width: 100%;
-          text-align: center;
-          color: #ffffff !important;
-        }
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        color: #000000;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
 
-        .hero {
-          min-height: auto;
-          display: block;
-          padding: 0 0 34px;
-          background:
-            linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.14) 38%, rgba(0,0,0,0.96) 72%, #050505 100%),
-            url("images/female-driver-right-side.png");
-          background-size: auto 310px;
-          background-position: center top;
-          background-repeat: no-repeat;
-        }
+      .btn-nav {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+        color: #ffffff !important;
+      }
 
-        .hero-inner {
-          max-width: 100%;
-          padding-top: 470px;
-        }
+      .hero {
+        min-height: auto;
+        display: block;
+        padding: 0 0 34px;
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.14) 38%, rgba(0,0,0,0.96) 72%, #050505 100%),
+          url("images/female-driver-right-side.png");
+        background-size: auto 310px;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.08) 35%, #050505 100%),
+          radial-gradient(circle at 16% 70%, rgba(237,28,36,0.16), transparent 28%);
+      }
+
+      .hero-inner {
+        max-width: 100%;
+        padding-top: 310px;
       }
 
       .hero-label {
@@ -972,11 +975,11 @@
 
     @media (max-width: 430px) {
       .hero {
-        background-size: auto 235px;
+        background-size: auto 300px;
       }
 
       .hero-inner {
-        padding-top: 246px;
+        padding-top: 300px;
       }
 
       .hero h1 {
