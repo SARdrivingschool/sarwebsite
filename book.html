@@ -31,6 +31,86 @@
       font-family:Arial, Helvetica, sans-serif;
     }
 
+    nav{
+      background:#ffffff;
+      border-bottom:1px solid #e5e5e5;
+      position:relative;
+      z-index:1000;
+    }
+
+    .nav-inner{
+      max-width:1180px;
+      margin:0 auto;
+      height:104px;
+      padding:0 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:relative;
+    }
+
+    .logo-img{
+      width:170px;
+      height:auto;
+      display:block;
+    }
+
+    nav ul{
+      display:flex;
+      align-items:center;
+      list-style:none;
+      gap:26px;
+    }
+
+    nav ul a{
+      color:#111111;
+      text-decoration:none;
+      font-weight:800;
+      font-size:0.96rem;
+    }
+
+    .btn-nav{
+      background:var(--red);
+      color:#ffffff !important;
+      padding:13px 22px;
+      border-radius:12px;
+      font-weight:900;
+    }
+
+    .hamburger{
+      display:none;
+      width:48px;
+      height:48px;
+      border:none;
+      background:transparent;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:6px;
+      cursor:pointer;
+      z-index:1001;
+    }
+
+    .hamburger span{
+      width:30px;
+      height:3px;
+      background:#111111;
+      border-radius:99px;
+      transition:0.25s;
+    }
+
+    .hamburger.open span:nth-child(1){
+      transform:translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .hamburger.open span:nth-child(3){
+      transform:translateY(-9px) rotate(-45deg);
+    }
+
     .book-hero{
       position:relative;
       padding:90px 1.5rem 60px;
@@ -269,8 +349,48 @@
       font-size:0.92rem;
     }
 
-    @media (max-width:950px){
+    footer{
+      padding:28px 1rem;
+      text-align:center;
+      color:#999;
+      background:#050505;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
 
+    .floating-actions{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      z-index:9999;
+    }
+
+    .float-btn{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 16px rgba(0,0,0,0.3);
+      transition:transform 0.2s ease;
+    }
+
+    .float-btn:hover{
+      transform:scale(1.08);
+    }
+
+    .float-call{
+      background:var(--red);
+    }
+
+    .float-whatsapp{
+      background:var(--green);
+    }
+
+    @media (max-width:950px){
       .booking-grid{
         grid-template-columns:1fr;
       }
@@ -278,10 +398,58 @@
       .simple-badges{
         grid-template-columns:1fr;
       }
-
     }
 
     @media (max-width:768px){
+      .nav-inner{
+        height:104px;
+        padding:0 28px;
+      }
+
+      .logo-img{
+        width:170px;
+      }
+
+      .hamburger{
+        display:flex !important;
+      }
+
+      nav ul{
+        display:none !important;
+        position:absolute;
+        top:104px;
+        left:0;
+        right:0;
+        background:#ffffff;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:12px 28px 20px;
+        box-shadow:0 12px 24px rgba(0,0,0,0.12);
+        z-index:999;
+      }
+
+      nav ul.open{
+        display:flex !important;
+      }
+
+      nav ul li{
+        width:100%;
+      }
+
+      nav ul a{
+        display:block;
+        width:100%;
+        padding:15px 0;
+        color:#111111;
+        border-bottom:1px solid #eeeeee;
+      }
+
+      .btn-nav{
+        margin-top:12px;
+        text-align:center;
+        color:#ffffff !important;
+      }
 
       .book-hero{
         padding:65px 1.25rem 45px;
@@ -324,256 +492,247 @@
         width:100%;
       }
 
-      .whatsapp-float{
-        width:56px !important;
-        height:56px !important;
-        right:18px !important;
-        bottom:18px !important;
+      .floating-actions{
+        right:18px;
+        bottom:18px;
       }
 
+      .float-btn{
+        width:56px;
+        height:56px;
+      }
     }
-
   </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav-inner">
+  <nav>
+    <div class="nav-inner">
 
-    <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
-    </a>
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
 
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <ul id="nav-menu">
-      <li><a href="lessons.html">Lessons</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="socials.html">Find us</a></li>
-      <li><a href="book.html" class="btn-nav">Book now</a></li>
-    </ul>
-
-  </div>
-</nav>
-
-<main>
-
-<section class="book-hero">
-
-  <div class="book-inner">
-
-    <div class="section-label">Get started</div>
-
-    <h1>Book a driving lesson with SAR Driving School</h1>
-
-    <p>
-      Quick and simple booking. Choose your lesson type, fill your details and we’ll contact you by WhatsApp or phone to arrange everything.
-    </p>
-
-    <div class="simple-badges">
-      <div class="simple-badge">DVSA approved instructors</div>
-      <div class="simple-badge">Manual & automatic lessons</div>
-      <div class="simple-badge">Fast WhatsApp confirmation</div>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="booking-section">
-
-  <div class="booking-grid">
-
-    <div class="panel">
-
-      <h2>Choose your lesson</h2>
-
-      <p>Select the lesson type that suits you best.</p>
-
-      <div class="lesson-cards">
-
-        <div class="lesson-card active" data-lesson="Manual lessons">
-          <h3>Manual lessons</h3>
-          <p>Best for learners wanting a full manual licence.</p>
-          <div class="lesson-price">£38 <span>/ hour</span></div>
-        </div>
-
-        <div class="lesson-card" data-lesson="Automatic lessons">
-          <h3>Automatic lessons</h3>
-          <p>Perfect for nervous learners or quicker learning.</p>
-          <div class="lesson-price">£38 <span>/ hour</span></div>
-        </div>
-
-        <div class="lesson-card" data-lesson="Refresher lessons">
-          <h3>Refresher lessons</h3>
-          <p>For drivers wanting confidence building or motorway practice.</p>
-          <div class="lesson-price">From £38</div>
-        </div>
-
-      </div>
+      <ul id="nav-menu">
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
 
     </div>
+  </nav>
 
-    <div class="panel">
+  <main>
 
-      <h2>Send your request</h2>
+    <section class="book-hero">
+      <div class="book-inner">
 
-      <p>
-        Fill in your details below and we’ll contact you to confirm availability and lesson times.
-      </p>
+        <div class="section-label">Get started</div>
 
-      <div class="selected-box">
-        Selected lesson:
-        <span id="selectedLesson">Manual lessons</span>
-      </div>
+        <h1>Book a driving lesson with SAR Driving School</h1>
 
-      <form
-        class="booking-form"
-        action="https://formsubmit.co/info@sardrivingschool.co.uk"
-        method="POST"
-      >
-
-        <input type="hidden" name="_subject" value="New SAR Driving School Booking Request">
-        <input type="hidden" name="_captcha" value="false">
-
-        <input type="hidden" name="lesson_type" id="lessonInput" value="Manual lessons">
-
-        <div class="form-row">
-
-          <div class="field">
-            <label>Your name</label>
-            <input type="text" name="name" placeholder="John Smith" required>
-          </div>
-
-          <div class="field">
-            <label>Phone number</label>
-            <input type="tel" name="phone" placeholder="07700 000000" required>
-          </div>
-
-        </div>
-
-        <div class="field">
-          <label>Pickup area</label>
-          <input type="text" name="area" placeholder="Milton Keynes, Bedford, Bletchley..." required>
-        </div>
-
-        <div class="field">
-          <label>Driving experience</label>
-
-          <select name="experience" required>
-            <option value="">Select one</option>
-            <option>Complete beginner</option>
-            <option>Had some lessons before</option>
-            <option>Switching instructor</option>
-            <option>Test booked</option>
-            <option>Already passed / refresher</option>
-          </select>
-
-        </div>
-
-        <div class="field">
-          <label>Extra message</label>
-
-          <textarea
-            name="message"
-            placeholder="Preferred days, availability, test booked etc..."
-          ></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-          Send booking request
-        </button>
-
-        <a
-          href="https://wa.me/447902023737"
-          target="_blank"
-          class="btn btn-whatsapp"
-        >
-          Message on WhatsApp
-        </a>
-
-        <p class="mini-note">
-          We normally reply quickly by WhatsApp or phone to arrange your first lesson.
+        <p>
+          Quick and simple booking. Choose your lesson type, fill your details and we’ll contact you by WhatsApp or phone to arrange everything.
         </p>
 
-      </form>
+        <div class="simple-badges">
+          <div class="simple-badge">DVSA approved instructors</div>
+          <div class="simple-badge">Manual & automatic lessons</div>
+          <div class="simple-badge">Fast WhatsApp confirmation</div>
+        </div>
 
-    </div>
+      </div>
+    </section>
+
+    <section class="booking-section">
+      <div class="booking-grid">
+
+        <div class="panel">
+
+          <h2>Choose your lesson</h2>
+
+          <p>Select the lesson type that suits you best.</p>
+
+          <div class="lesson-cards">
+
+            <div class="lesson-card active" data-lesson="Manual lessons">
+              <h3>Manual lessons</h3>
+              <p>Best for learners wanting a full manual licence.</p>
+              <div class="lesson-price">£38 <span>/ hour</span></div>
+            </div>
+
+            <div class="lesson-card" data-lesson="Automatic lessons">
+              <h3>Automatic lessons</h3>
+              <p>Perfect for nervous learners or quicker learning.</p>
+              <div class="lesson-price">£38 <span>/ hour</span></div>
+            </div>
+
+            <div class="lesson-card" data-lesson="Refresher lessons">
+              <h3>Refresher lessons</h3>
+              <p>For drivers wanting confidence building or motorway practice.</p>
+              <div class="lesson-price">From £38</div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="panel">
+
+          <h2>Send your request</h2>
+
+          <p>
+            Fill in your details below and we’ll contact you to confirm availability and lesson times.
+          </p>
+
+          <div class="selected-box">
+            Selected lesson:
+            <span id="selectedLesson">Manual lessons</span>
+          </div>
+
+          <form
+            class="booking-form"
+            action="https://formsubmit.co/info@sardrivingschool.co.uk"
+            method="POST"
+          >
+
+            <input type="hidden" name="_subject" value="New SAR Driving School Booking Request">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="lesson_type" id="lessonInput" value="Manual lessons">
+
+            <div class="form-row">
+
+              <div class="field">
+                <label>Your name</label>
+                <input type="text" name="name" placeholder="John Smith" required>
+              </div>
+
+              <div class="field">
+                <label>Phone number</label>
+                <input type="tel" name="phone" placeholder="07700 000000" required>
+              </div>
+
+            </div>
+
+            <div class="field">
+              <label>Pickup area</label>
+              <input type="text" name="area" placeholder="Milton Keynes, Bedford, Bletchley..." required>
+            </div>
+
+            <div class="field">
+              <label>Driving experience</label>
+
+              <select name="experience" required>
+                <option value="">Select one</option>
+                <option>Complete beginner</option>
+                <option>Had some lessons before</option>
+                <option>Switching instructor</option>
+                <option>Test booked</option>
+                <option>Already passed / refresher</option>
+              </select>
+
+            </div>
+
+            <div class="field">
+              <label>Extra message</label>
+
+              <textarea
+                name="message"
+                placeholder="Preferred days, availability, test booked etc..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Send booking request
+            </button>
+
+            <a
+              href="https://wa.me/447902023737"
+              target="_blank"
+              class="btn btn-whatsapp"
+            >
+              Message on WhatsApp
+            </a>
+
+            <p class="mini-note">
+              We normally reply quickly by WhatsApp or phone to arrange your first lesson.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
+
+  <div class="floating-actions">
+
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+      </svg>
+    </a>
 
   </div>
 
-</section>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
 
-</main>
-
-<footer>
-  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
-</footer>
-
-<script>
-
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click', function(){
-  hamburger.classList.toggle('open');
-  navMenu.classList.toggle('open');
-});
-
-const cards = document.querySelectorAll('.lesson-card');
-const selectedLesson = document.getElementById('selectedLesson');
-const lessonInput = document.getElementById('lessonInput');
-
-cards.forEach(function(card){
-
-  card.addEventListener('click', function(){
-
-    cards.forEach(function(c){
-      c.classList.remove('active');
+    hamburger.addEventListener('click', function(){
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
     });
 
-    card.classList.add('active');
+    navMenu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+      });
+    });
 
-    const lesson = card.dataset.lesson;
+    const cards = document.querySelectorAll('.lesson-card');
+    const selectedLesson = document.getElementById('selectedLesson');
+    const lessonInput = document.getElementById('lessonInput');
 
-    selectedLesson.textContent = lesson;
-    lessonInput.value = lesson;
+    cards.forEach(function(card){
+      card.addEventListener('click', function(){
+        cards.forEach(function(c){
+          c.classList.remove('active');
+        });
 
-  });
+        card.classList.add('active');
 
-});
+        const lesson = card.dataset.lesson;
 
-</script>
-
-<a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
-position:fixed;
-bottom:24px;
-right:24px;
-width:60px;
-height:60px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 4px 16px rgba(0,0,0,0.3);
-z-index:9999;
-transition:transform 0.2s;
-" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-</svg>
-
-</a>
+        selectedLesson.textContent = lesson;
+        lessonInput.value = lesson;
+      });
+    });
+  </script>
 
 </body>
 </html>
