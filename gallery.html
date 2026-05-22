@@ -10,7 +10,6 @@
     :root {
       --red: #ed1c24;
       --dark: #0b0b0b;
-      --dark2: #111111;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -31,22 +30,12 @@
     .gallery-hero {
       position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.68) 45%, rgba(0,0,0,0.35) 100%),
-        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.74) 55%, rgba(0,0,0,0.45) 100%),
+        radial-gradient(circle at 85% 25%, rgba(237,28,36,0.18), transparent 35%),
         #101010;
-      padding: 90px 2rem 70px;
+      padding: 72px 2rem 52px;
       overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .gallery-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 88% 20%, rgba(237,28,36,0.15), transparent 35%),
-        linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.25));
-      pointer-events: none;
     }
 
     .gallery-hero-inner {
@@ -54,10 +43,6 @@
       z-index: 2;
       max-width: var(--max);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
-      align-items: end;
     }
 
     .section-label {
@@ -75,46 +60,20 @@
       line-height: 1.02;
       letter-spacing: -2px;
       margin: 0 0 1rem;
+      max-width: 760px;
     }
 
     .gallery-hero p {
       color: #d0d0d0;
       font-size: 1.12rem;
       line-height: 1.7;
-      max-width: 720px;
+      max-width: 780px;
       margin: 0;
-    }
-
-    .gallery-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.85rem;
-    }
-
-    .gallery-stat {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 1.2rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .gallery-stat strong {
-      display: block;
-      color: #ffffff;
-      font-size: 1.85rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .gallery-stat span {
-      color: #bdbdbd;
-      font-size: 0.9rem;
-      line-height: 1.45;
     }
 
     .gallery-section {
       background: #0b0b0b;
-      padding: 62px 2rem 90px;
+      padding: 34px 2rem 90px;
     }
 
     .gallery-inner {
@@ -124,20 +83,11 @@
 
     .gallery-toolbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
-    }
-
-    .gallery-count {
-      color: #cfcfcf;
-      font-weight: 800;
-    }
-
-    .gallery-count span {
-      color: #ffffff;
     }
 
     .gallery-controls {
@@ -177,7 +127,7 @@
 
     .gallery-card {
       position: relative;
-      height: 260px;
+      height: 270px;
       border-radius: 20px;
       overflow: hidden;
       background: #111111;
@@ -278,7 +228,6 @@
     }
 
     .btn-primary,
-    .btn-secondary,
     .btn-whatsapp {
       min-height: 56px;
       padding: 0 1.55rem;
@@ -288,7 +237,7 @@
       justify-content: center;
       font-weight: 900;
       text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .btn-primary {
@@ -298,12 +247,6 @@
       box-shadow: 0 12px 28px rgba(237,28,36,0.24);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.22);
-    }
-
     .btn-whatsapp {
       background: rgba(37,211,102,0.09);
       color: #ffffff;
@@ -311,12 +254,10 @@
     }
 
     .btn-primary:hover,
-    .btn-secondary:hover,
     .btn-whatsapp:hover {
       transform: translateY(-2px);
     }
 
-    /* MODAL */
     .gallery-modal {
       position: fixed;
       inset: 0;
@@ -432,11 +373,40 @@
       padding: 0.85rem 1rem;
     }
 
-    @media (max-width: 1000px) {
-      .gallery-hero-inner {
-        grid-template-columns: 1fr;
-      }
+    .floating-actions {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
 
+    .float-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .float-call {
+      background: var(--red);
+    }
+
+    .float-whatsapp {
+      background: var(--green);
+    }
+
+    @media (max-width: 1000px) {
       .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -505,11 +475,7 @@
       }
 
       .gallery-hero {
-        padding: 65px 1.25rem 48px;
-      }
-
-      .gallery-hero-inner {
-        padding: 0;
+        padding: 54px 1.25rem 38px;
       }
 
       .gallery-hero h1 {
@@ -521,16 +487,12 @@
         font-size: 1rem;
       }
 
-      .gallery-stats {
-        grid-template-columns: 1fr;
-      }
-
       .gallery-section {
-        padding: 42px 1.25rem 65px;
+        padding: 30px 1.25rem 65px;
       }
 
       .gallery-toolbar {
-        align-items: stretch;
+        justify-content: stretch;
       }
 
       .gallery-controls {
@@ -568,7 +530,6 @@
       }
 
       .btn-primary,
-      .btn-secondary,
       .btn-whatsapp {
         width: 100%;
       }
@@ -594,11 +555,14 @@
         height: 54px;
       }
 
-      .whatsapp-float {
-        width: 56px !important;
-        height: 56px !important;
-        bottom: 18px !important;
-        right: 18px !important;
+      .floating-actions {
+        right: 18px;
+        bottom: 18px;
+      }
+
+      .float-btn {
+        width: 56px;
+        height: 56px;
       }
     }
 
@@ -642,28 +606,11 @@
 
     <section class="gallery-hero">
       <div class="gallery-hero-inner">
-        <div>
-          <div class="section-label">Pass Gallery</div>
-          <h1>Our happy passers</h1>
-          <p>Browse through real learner pass photos from SAR Driving School. Every pass is a proud moment and another confident driver on the road.</p>
-        </div>
-
-        <div class="gallery-stats">
-          <div class="gallery-stat">
-            <strong>500+</strong>
-            <span>Learners passed</span>
-          </div>
-
-          <div class="gallery-stat">
-            <strong>170+</strong>
-            <span>Five-star reviews</span>
-          </div>
-
-          <div class="gallery-stat">
-            <strong>5.0</strong>
-            <span>Rated on Google</span>
-          </div>
-        </div>
+        <div class="section-label">Pass Gallery</div>
+        <h1>Our happy passers</h1>
+        <p>
+          Browse real learner pass photos from SAR Driving School. Every pass is a proud moment and another confident driver on the road.
+        </p>
       </div>
     </section>
 
@@ -671,10 +618,6 @@
       <div class="gallery-inner">
 
         <div class="gallery-toolbar">
-          <div class="gallery-count">
-            Showing <span id="current-count">12</span> pass photos
-          </div>
-
           <div class="gallery-controls">
             <button class="filter-btn active" data-limit="12">Show 12</button>
             <button class="filter-btn" data-limit="24">Show 24</button>
@@ -688,7 +631,9 @@
           <div>
             <div class="section-label">Ready to pass?</div>
             <h2>Your pass photo could be next</h2>
-            <p>Start your driving journey with SAR Driving School and learn with patient, supportive instructors across Milton Keynes and surrounding areas.</p>
+            <p>
+              Start your driving journey with SAR Driving School and learn with patient, supportive instructors across Milton Keynes and surrounding areas.
+            </p>
           </div>
 
           <div class="cta-actions">
@@ -716,10 +661,24 @@
 
       <div class="modal-controls">
         <button class="modal-arrow" id="modal-prev" aria-label="Previous image">‹</button>
-        <div class="modal-counter" id="modal-counter">1 / 111</div>
+        <div class="modal-counter" id="modal-counter">1 / 12</div>
         <button class="modal-arrow" id="modal-next" aria-label="Next image">›</button>
       </div>
     </div>
+  </div>
+
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+      </svg>
+    </a>
   </div>
 
   <script>
@@ -742,7 +701,6 @@
     const imageFolder = "images/passes/";
     const imageExtension = ".jpg";
     const galleryGrid = document.getElementById("gallery-grid");
-    const currentCount = document.getElementById("current-count");
     const filterButtons = document.querySelectorAll(".filter-btn");
 
     const modal = document.getElementById("gallery-modal");
@@ -776,7 +734,6 @@
       currentLimit = limit;
       buildImages(limit);
       galleryGrid.innerHTML = "";
-      currentCount.textContent = limit === totalImages ? "all " + totalImages : limit;
 
       visibleImages.forEach(function(image, index) {
         const card = document.createElement("div");
@@ -856,41 +813,13 @@
     document.addEventListener("keydown", function(event) {
       if (!modal.classList.contains("open")) return;
 
-      if (event.key === "Escape") {
-        closeModal();
-      }
-
-      if (event.key === "ArrowLeft") {
-        showPrev();
-      }
-
-      if (event.key === "ArrowRight") {
-        showNext();
-      }
+      if (event.key === "Escape") closeModal();
+      if (event.key === "ArrowLeft") showPrev();
+      if (event.key === "ArrowRight") showNext();
     });
 
     renderGallery(currentLimit);
   </script>
-
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    z-index: 9999;
-    transition: transform 0.2s;
-  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-    </svg>
-  </a>
 
 </body>
 </html>
