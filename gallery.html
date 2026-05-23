@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pass Gallery | SAR Driving School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pass Gallery | SAR Driving School Milton Keynes</title>
+  <meta name="description" content="View recent pass photos from SAR Driving School. Manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and surrounding areas.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -13,6 +15,7 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --dark: #0b0b0b;
       --card: #151515;
       --muted: #cfcfcf;
@@ -29,6 +32,11 @@
       background: #0b0b0b;
       color: #ffffff;
       overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .gallery-hero {
@@ -64,25 +72,132 @@
       line-height: 1.02;
       letter-spacing: -2px;
       margin: 0 0 1rem;
-      max-width: 760px;
+      max-width: 850px;
     }
 
     .gallery-hero p {
       color: #d0d0d0;
       font-size: 1.12rem;
       line-height: 1.7;
-      max-width: 780px;
+      max-width: 820px;
       margin: 0;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.6rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .trust-strip {
+      background: #101010;
+      padding: 26px 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .trust-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .trust-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .trust-card span {
+      display: block;
+      color: #bfbfbf;
+      line-height: 1.45;
+      font-size: 0.9rem;
     }
 
     .gallery-section {
       background: #0b0b0b;
-      padding: 34px 2rem 90px;
+      padding: 48px 2rem 90px;
     }
 
     .gallery-inner {
       max-width: var(--max);
       margin: 0 auto;
+    }
+
+    .gallery-intro {
+      max-width: 850px;
+      margin-bottom: 28px;
+    }
+
+    .gallery-intro h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .gallery-intro p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
 
     .gallery-toolbar {
@@ -197,6 +312,107 @@
       }
     }
 
+    .service-section,
+    .areas-section {
+      background: #101010;
+      padding: 78px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .areas-section {
+      background:
+        radial-gradient(circle at 18% 40%, rgba(237,28,36,0.12), transparent 36%),
+        #0b0b0b;
+    }
+
+    .service-inner,
+    .areas-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .service-head,
+    .areas-head {
+      max-width: 820px;
+      margin-bottom: 30px;
+    }
+
+    .service-head h2,
+    .areas-head h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .service-head p,
+    .areas-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .service-card,
+    .area-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 20px;
+      padding: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .service-card:hover,
+    .area-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        #151515;
+    }
+
+    .service-card h3,
+    .area-card h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p,
+    .area-card p {
+      color: #bfbfbf;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card a,
+    .area-card a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+    }
+
     .gallery-cta {
       margin-top: 3rem;
       background:
@@ -223,43 +439,6 @@
       line-height: 1.7;
       margin: 0;
       max-width: 690px;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 1.55rem;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #ffffff;
-      border: 1px solid var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
-    }
-
-    .btn-whatsapp {
-      background: rgba(37,211,102,0.09);
-      color: #ffffff;
-      border: 1px solid rgba(37,211,102,0.45);
-    }
-
-    .btn-primary:hover,
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
     }
 
     .gallery-modal {
@@ -377,6 +556,42 @@
       padding: 0.85rem 1rem;
     }
 
+    footer {
+      padding: 34px 2rem;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
     .floating-actions {
       position: fixed;
       right: 24px;
@@ -416,6 +631,15 @@
       }
 
       .gallery-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-inner,
+      .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -491,8 +715,26 @@
         font-size: 1rem;
       }
 
-      .gallery-section {
-        padding: 30px 1.25rem 65px;
+      .hero-actions,
+      .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-section,
+      .service-section,
+      .areas-section {
+        padding: 46px 1.25rem 65px;
+      }
+
+      .trust-strip {
+        padding: 22px 1.25rem;
+      }
+
+      .trust-inner,
+      .areas-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
       }
 
       .gallery-toolbar {
@@ -528,13 +770,11 @@
         border-radius: 20px;
       }
 
-      .cta-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
       .btn-primary,
-      .btn-whatsapp {
+      .btn-secondary,
+      .btn-whatsapp,
+      .service-card a,
+      .area-card a {
         width: 100%;
       }
 
@@ -595,6 +835,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -611,15 +852,54 @@
     <section class="gallery-hero">
       <div class="gallery-hero-inner">
         <div class="section-label">Pass Gallery</div>
-        <h1>Our happy passers</h1>
+        <h1>Real learners. Real passes. Real confidence.</h1>
         <p>
-          Browse real learner pass photos from SAR Driving School. Every pass is a proud moment and another confident driver on the road.
+          Browse recent learner pass photos from SAR Driving School. Every pass is a proud moment and proof of the progress our pupils make with structured lessons and patient instruction.
         </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          <a href="pricing.html" class="btn-secondary">View pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="trust-inner">
+        <div class="trust-card">
+          <strong>170+ Reviews</strong>
+          <span>Trusted by local learners.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>5.0 Rated</strong>
+          <span>Strong Google feedback.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>DVSA Approved</strong>
+          <span>Professional instructors.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>Manual & Auto</strong>
+          <span>Lesson options available.</span>
+        </div>
       </div>
     </section>
 
     <section class="gallery-section">
       <div class="gallery-inner">
+
+        <div class="gallery-intro">
+          <div class="section-label">Recent success</div>
+          <h2>Our happy passers</h2>
+          <p>
+            These pass photos show real pupils who completed their driving journey with SAR Driving School.
+            Use this page to see the kind of results local learners are achieving.
+          </p>
+        </div>
 
         <div class="gallery-toolbar">
           <div class="gallery-controls">
@@ -649,9 +929,94 @@
       </div>
     </section>
 
+    <section class="service-section">
+      <div class="service-inner">
+        <div class="service-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Choose the lesson type that suits you</h2>
+          <p>
+            Whether you want a manual licence, a smoother automatic learning experience or refresher support,
+            we can help you choose the right option.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want full licence flexibility and strong car control.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who want no clutch or gear changes.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>Great for returning drivers, parking, roundabouts, motorway driving and confidence.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-section">
+      <div class="areas-inner">
+        <div class="areas-head">
+          <div class="section-label">Areas covered</div>
+          <h2>Local driving lessons near you</h2>
+          <p>
+            SAR Driving School covers Milton Keynes and nearby areas, subject to instructor availability and travel time.
+          </p>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-card">
+            <h3>Milton Keynes</h3>
+            <p>Manual, automatic and refresher lessons available.</p>
+            <a href="driving-lessons-milton-keynes.html">View MK Lessons</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bletchley</h3>
+            <p>Local route knowledge and test preparation support.</p>
+            <a href="driving-lessons-bletchley.html">View Bletchley</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bedford</h3>
+            <p>Lessons subject to instructor area and availability.</p>
+            <a href="driving-lessons-bedford.html">View Bedford</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Leighton Buzzard</h3>
+            <p>Driving lesson availability depends on schedule.</p>
+            <a href="driving-lessons-leighton-buzzard.html">View Leighton Buzzard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
