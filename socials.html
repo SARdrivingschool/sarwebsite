@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Us | SAR Driving School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Find Us | SAR Driving School Milton Keynes</title>
+  <meta name="description" content="Find SAR Driving School online. View Google reviews, Instagram, TikTok, Facebook, WhatsApp and book manual, automatic or refresher driving lessons across Milton Keynes and nearby areas.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -13,8 +15,8 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --dark: #0b0b0b;
-      --dark2: #111111;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -30,6 +32,11 @@
       background: #0b0b0b;
       color: #ffffff;
       overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .find-hero {
@@ -101,7 +108,7 @@
       color: #d3d3d3;
       font-size: 1.18rem;
       line-height: 1.75;
-      max-width: 760px;
+      max-width: 790px;
       margin: 0 auto 1.7rem;
     }
 
@@ -124,7 +131,8 @@
       letter-spacing: 2px;
     }
 
-    .hero-actions {
+    .hero-actions,
+    .cta-actions {
       display: flex;
       justify-content: center;
       gap: 0.85rem;
@@ -151,6 +159,11 @@
       color: #ffffff;
       border: 1px solid var(--red);
       box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
     }
 
     .btn-secondary {
@@ -195,13 +208,17 @@
       margin: 0 auto;
     }
 
-    .links-head {
+    .links-head,
+    .service-head,
+    .areas-head {
       text-align: center;
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto 2.4rem;
     }
 
-    .links-head h2 {
+    .links-head h2,
+    .service-head h2,
+    .areas-head h2 {
       color: #ffffff;
       font-size: clamp(2.1rem, 4vw, 3.2rem);
       line-height: 1.08;
@@ -209,7 +226,9 @@
       margin-bottom: 0.85rem;
     }
 
-    .links-head p {
+    .links-head p,
+    .service-head p,
+    .areas-head p {
       color: #cfcfcf;
       line-height: 1.7;
       font-size: 1.05rem;
@@ -350,16 +369,29 @@
       transform: translateX(5px);
     }
 
-    .featured-section {
+    .featured-section,
+    .service-section,
+    .areas-section {
       background: #101010;
       padding: 80px 2rem;
       border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .featured-inner {
+    .areas-section {
+      background:
+        radial-gradient(circle at 18% 40%, rgba(237,28,36,0.12), transparent 36%),
+        #0b0b0b;
+    }
+
+    .featured-inner,
+    .service-inner,
+    .areas-inner {
       max-width: var(--max);
       margin: 0 auto;
+    }
+
+    .featured-inner {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 2rem;
@@ -437,6 +469,66 @@
       font-size: 0.92rem;
     }
 
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .service-card,
+    .area-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 20px;
+      padding: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .service-card:hover,
+    .area-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        #151515;
+    }
+
+    .service-card h3,
+    .area-card h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p,
+    .area-card p {
+      color: #bfbfbf;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card a,
+    .area-card a {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+    }
+
     .cta-section {
       background: #202020;
       padding: 80px 2rem;
@@ -470,16 +562,53 @@
       margin: 0 auto 1.7rem;
     }
 
-    .cta-actions {
+    footer {
+      padding: 34px 2rem;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
       display: flex;
-      justify-content: center;
-      gap: 0.9rem;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
     }
 
     @media (max-width: 1000px) {
       .featured-inner {
         grid-template-columns: 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -544,6 +673,8 @@
       .find-hero,
       .links-section,
       .featured-section,
+      .service-section,
+      .areas-section,
       .cta-section {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
@@ -582,7 +713,9 @@
 
       .btn-primary,
       .btn-secondary,
-      .btn-whatsapp {
+      .btn-whatsapp,
+      .service-card a,
+      .area-card a {
         width: 100%;
       }
 
@@ -602,7 +735,8 @@
         border-radius: 14px;
       }
 
-      .featured-panel-grid {
+      .featured-panel-grid,
+      .areas-grid {
         grid-template-columns: 1fr;
       }
 
@@ -635,6 +769,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -663,8 +798,8 @@
         </div>
 
         <p>
-          Everything in one place. Book lessons, browse our pass gallery, follow us on social media,
-          leave a review or contact us directly.
+          Everything in one place. View our Google reviews, follow our driving tips on social media,
+          message us on WhatsApp or book your first lesson.
         </p>
 
         <div class="hero-actions">
@@ -686,11 +821,11 @@
 
         <div class="social-grid">
 
-          <a class="social-card" href="index.html">
-            <div class="social-icon icon-web">🌐</div>
+          <a class="social-card" href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews" target="_blank">
+            <div class="social-icon icon-review">★</div>
             <div class="social-text">
-              <strong>Website</strong>
-              <span>sardrivingschool.co.uk</span>
+              <strong>Google Reviews</strong>
+              <span>Read or leave a Google review for SAR Driving School</span>
             </div>
             <div class="social-arrow">→</div>
           </a>
@@ -699,7 +834,7 @@
             <div class="social-icon icon-book">📅</div>
             <div class="social-text">
               <strong>Book a lesson</strong>
-              <span>Choose your lesson type and preferred time</span>
+              <span>Choose manual, automatic or refresher lessons</span>
             </div>
             <div class="social-arrow">→</div>
           </a>
@@ -744,7 +879,7 @@
             <div class="social-icon icon-whatsapp">☎</div>
             <div class="social-text">
               <strong>WhatsApp</strong>
-              <span>Message us directly</span>
+              <span>Message us directly for lesson availability</span>
             </div>
             <div class="social-arrow">→</div>
           </a>
@@ -767,11 +902,11 @@
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews" target="_blank">
-            <div class="social-icon icon-review">★</div>
+          <a class="social-card" href="index.html">
+            <div class="social-icon icon-web">🌐</div>
             <div class="social-text">
-              <strong>Leave a Google review</strong>
-              <span>Share your experience with SAR</span>
+              <strong>Website</strong>
+              <span>sardrivingschool.co.uk</span>
             </div>
             <div class="social-arrow">→</div>
           </a>
@@ -804,27 +939,93 @@
 
           <div class="featured-panel-grid">
             <div class="mini-stat">
-              <strong>500+</strong>
-              <span>Learners passed</span>
-            </div>
-
-            <div class="mini-stat">
               <strong>170+</strong>
-              <span>Five-star Google reviews</span>
+              <span>Google reviews from local learners</span>
             </div>
 
             <div class="mini-stat">
               <strong>5.0</strong>
-              <span>Google rating</span>
+              <span>Rated by learners across the area</span>
             </div>
 
             <div class="mini-stat">
               <strong>DVSA</strong>
               <span>Approved instructors</span>
             </div>
+
+            <div class="mini-stat">
+              <strong>Manual & Auto</strong>
+              <span>Lesson options available</span>
+            </div>
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-inner">
+        <div class="service-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Looking for lessons?</h2>
+          <p>Choose the lesson type that suits your goals, experience and confidence level.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want a full manual licence and maximum flexibility.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who want a smoother learning experience.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>Great for confidence building, parking, roundabouts and returning drivers.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-section">
+      <div class="areas-inner">
+        <div class="areas-head">
+          <div class="section-label">Areas covered</div>
+          <h2>Local driving lessons near you</h2>
+          <p>SAR Driving School covers Milton Keynes and nearby areas, subject to instructor availability.</p>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-card">
+            <h3>Milton Keynes</h3>
+            <p>Manual, automatic and refresher lessons available.</p>
+            <a href="driving-lessons-milton-keynes.html">View MK Lessons</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bletchley</h3>
+            <p>Local route knowledge and test preparation support.</p>
+            <a href="driving-lessons-bletchley.html">View Bletchley</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bedford</h3>
+            <p>Lessons subject to instructor area and availability.</p>
+            <a href="driving-lessons-bedford.html">View Bedford</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Leighton Buzzard</h3>
+            <p>Driving lesson availability depends on schedule.</p>
+            <a href="driving-lessons-leighton-buzzard.html">View Leighton Buzzard</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -847,6 +1048,20 @@
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
@@ -883,7 +1098,7 @@
     transition: transform 0.2s;
   " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 
