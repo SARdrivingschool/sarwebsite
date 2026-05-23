@@ -363,7 +363,7 @@
     }
 
     .areas-head {
-      max-width: 850px;
+      max-width: 950px;
       margin-bottom: 32px;
     }
 
@@ -389,23 +389,32 @@
 
     .areas-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 1000px;
     }
 
     .area-card {
       background: #141414;
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 20px;
+      padding: 22px 18px;
+      min-height: 98px;
       font-weight: 900;
       color: #ffffff;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.25;
+      font-size: 1rem;
     }
 
     .area-card:hover {
       transform: translateY(-4px);
       border-color: rgba(237,28,36,0.5);
+      background: rgba(237,28,36,0.08);
     }
 
     .pass-preview {
@@ -916,7 +925,11 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .areas-grid,
+      .areas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+      }
+
       .steps-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1128,9 +1141,16 @@
       .faq-grid {
         grid-template-columns: 1fr;
         gap: 12px;
+        max-width: 100%;
       }
 
-      .area-card,
+      .area-card {
+        min-height: 72px;
+        padding: 18px;
+        font-size: 0.98rem;
+        border-radius: 18px;
+      }
+
       .step-card,
       .faq-item {
         padding: 18px;
@@ -1480,21 +1500,13 @@
         </div>
 
         <div class="areas-grid">
-          <div class="areas-grid">
-
-          <a class="area-card" href="driving-lessons-milton-keynes.html">
-            Driving Lessons in Milton Keynes
-          </a>
-
-          <a class="area-card" href="driving-lessons-bletchley.html">
-            Driving Lessons in Bletchley
-          </a>
-
+          <a class="area-card" href="driving-lessons-milton-keynes.html">Driving Lessons in Milton Keynes</a>
+          <a class="area-card" href="driving-lessons-bletchley.html">Driving Lessons in Bletchley</a>
+          <a class="area-card" href="driving-lessons-bedford.html">Driving Lessons in Bedford</a>
+          <a class="area-card" href="driving-lessons-leighton-buzzard.html">Driving Lessons in Leighton Buzzard</a>
           <div class="area-card">Wolverton</div>
           <div class="area-card">Newport Pagnell</div>
           <div class="area-card">Stony Stratford</div>
-          <div class="area-card">Bedford</div>
-          <div class="area-card">Leighton Buzzard</div>
           <div class="area-card">Kettering</div>
           <div class="area-card">Northampton</div>
         </div>
@@ -1786,19 +1798,19 @@
   </main>
 
   <footer>
-  <div class="footer-local">
-    <h3>Local Driving Lesson Areas</h3>
+    <div class="footer-local">
+      <h3>Local Driving Lesson Areas</h3>
 
-    <div class="footer-links">
-      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <div class="footer-links">
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
     </div>
-  </div>
 
-  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
-</footer>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
 
   <div class="floating-actions">
     <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
