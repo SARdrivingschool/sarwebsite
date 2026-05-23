@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | SAR Driving School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About SAR Driving School | Driving Lessons Milton Keynes</title>
+  <meta name="description" content="About SAR Driving School. DVSA-approved driving instructors offering manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and surrounding areas.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -13,8 +15,8 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --dark: #0b0b0b;
-      --dark2: #111111;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -29,6 +31,12 @@
     body {
       background: #0b0b0b;
       color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page-hero {
@@ -82,7 +90,69 @@
       color: #d6d6d6;
       font-size: 1.15rem;
       line-height: 1.7;
-      max-width: 880px;
+      max-width: 900px;
+    }
+
+    .hero-actions,
+    .story-actions,
+    .cta-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+
+    .story-actions {
+      justify-content: flex-start;
+    }
+
+    .cta-actions {
+      justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 1.55rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border: 1px solid var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border: 1px solid rgba(37,211,102,0.45);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
     }
 
     .story-section {
@@ -112,14 +182,7 @@
       line-height: 1.85;
       font-size: 1.06rem;
       margin-bottom: 1.35rem;
-      max-width: 680px;
-    }
-
-    .story-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-top: 1.8rem;
+      max-width: 700px;
     }
 
     .stats-grid {
@@ -171,32 +234,44 @@
       line-height: 1;
       margin-bottom: 0.8rem;
       letter-spacing: -1px;
+      position: relative;
+      z-index: 2;
     }
 
     .stat-card span {
       color: #bbbbbb;
       font-size: 1rem;
       line-height: 1.5;
+      position: relative;
+      z-index: 2;
     }
 
-    .difference-section {
+    .difference-section,
+    .service-section {
       background: #101010;
       padding: 85px 2rem;
       border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .difference-inner {
+    .difference-inner,
+    .service-inner,
+    .areas-inner,
+    .timeline-inner {
       max-width: var(--max);
       margin: 0 auto;
     }
 
-    .difference-head {
-      max-width: 780px;
+    .difference-head,
+    .service-head {
+      max-width: 800px;
       margin-bottom: 2.4rem;
     }
 
-    .difference-head h2 {
+    .difference-head h2,
+    .service-head h2,
+    .areas-copy h2,
+    .timeline-copy h2 {
       color: #ffffff;
       font-size: clamp(2.25rem, 4.5vw, 3.55rem);
       line-height: 1.08;
@@ -204,7 +279,10 @@
       margin-bottom: 1rem;
     }
 
-    .difference-head p {
+    .difference-head p,
+    .service-head p,
+    .areas-copy p,
+    .timeline-copy p {
       color: #cfcfcf;
       line-height: 1.75;
       font-size: 1.05rem;
@@ -216,18 +294,23 @@
       gap: 1.15rem;
     }
 
-    .difference-card {
+    .difference-card,
+    .service-card {
       background:
         linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
         #151515;
       border: 1px solid rgba(255,255,255,0.11);
       border-radius: 22px;
       padding: 1.7rem;
-      min-height: 255px;
       transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     }
 
-    .difference-card:hover {
+    .difference-card {
+      min-height: 255px;
+    }
+
+    .difference-card:hover,
+    .service-card:hover {
       transform: translateY(-6px);
       border-color: rgba(237,28,36,0.5);
       background:
@@ -248,17 +331,41 @@
       box-shadow: 0 12px 26px rgba(237,28,36,0.25);
     }
 
-    .difference-card h3 {
+    .difference-card h3,
+    .service-card h3 {
       color: #ffffff;
       font-size: 1.22rem;
       margin-bottom: 0.9rem;
     }
 
-    .difference-card p {
+    .difference-card p,
+    .service-card p {
       color: #c7c7c7;
       line-height: 1.65;
       font-size: 0.96rem;
       margin: 0;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+    }
+
+    .service-card p {
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card a {
+      display: inline-flex;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+      align-items: center;
+      justify-content: center;
     }
 
     .timeline-section {
@@ -267,26 +374,10 @@
     }
 
     .timeline-inner {
-      max-width: var(--max);
-      margin: 0 auto;
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
       gap: 4rem;
       align-items: start;
-    }
-
-    .timeline-copy h2 {
-      color: #ffffff;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-
-    .timeline-copy p {
-      color: #cfcfcf;
-      line-height: 1.75;
-      font-size: 1.05rem;
     }
 
     .timeline-list {
@@ -348,26 +439,13 @@
     }
 
     .areas-inner {
-      max-width: var(--max);
-      margin: 0 auto;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 3rem;
       align-items: center;
     }
 
-    .areas-copy h2 {
-      color: #ffffff;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-
     .areas-copy p {
-      color: #cfcfcf;
-      line-height: 1.75;
-      font-size: 1.05rem;
       margin-bottom: 1.5rem;
     }
 
@@ -403,6 +481,11 @@
       line-height: 1.5;
     }
 
+    .area-card a {
+      color: #ffffff;
+      font-weight: 900;
+    }
+
     .cta-section {
       background: #202020;
       padding: 80px 2rem;
@@ -436,55 +519,40 @@
       margin: 0 auto 1.7rem;
     }
 
-    .cta-actions,
-    .story-actions {
+    footer {
+      padding: 34px 2rem;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
       display: flex;
-      justify-content: center;
-      gap: 0.9rem;
       flex-wrap: wrap;
-    }
-
-    .story-actions {
-      justify-content: flex-start;
-    }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 1.55rem;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      gap: 10px 18px;
     }
 
-    .btn-primary {
-      background: var(--red);
-      color: #ffffff;
-      border: 1px solid var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.22);
-    }
-
-    .btn-whatsapp {
-      background: rgba(37,211,102,0.09);
-      color: #ffffff;
-      border: 1px solid rgba(37,211,102,0.45);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
+    .footer-links a:hover {
+      color: var(--red);
     }
 
     @media (max-width: 1000px) {
@@ -496,6 +564,10 @@
 
       .difference-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -583,6 +655,7 @@
       .difference-section,
       .timeline-section,
       .areas-section,
+      .service-section,
       .cta-section {
         padding: 56px 1.25rem;
       }
@@ -595,12 +668,14 @@
 
       .stats-grid,
       .difference-grid,
-      .areas-grid {
+      .areas-grid,
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
       .stat-card,
       .difference-card,
+      .service-card,
       .cta-card {
         border-radius: 20px;
       }
@@ -609,6 +684,7 @@
         min-height: auto;
       }
 
+      .hero-actions,
       .story-actions,
       .cta-actions {
         display: grid;
@@ -617,7 +693,8 @@
 
       .btn-primary,
       .btn-secondary,
-      .btn-whatsapp {
+      .btn-whatsapp,
+      .service-card a {
         width: 100%;
       }
 
@@ -644,6 +721,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -661,7 +739,16 @@
       <div class="page-hero-inner">
         <div class="section-label">Who we are</div>
         <h1>About SAR Driving School</h1>
-        <p>Local, trusted and experienced driving instructors helping learners across Milton Keynes and surrounding areas become safe, confident drivers.</p>
+        <p>
+          A local driving school helping learners across Milton Keynes and surrounding areas
+          become safe, confident and test-ready drivers.
+        </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="btn-primary">Book a lesson</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+          <a href="pricing.html" class="btn-secondary">View pricing</a>
+        </div>
       </div>
     </section>
 
@@ -670,49 +757,49 @@
 
         <div class="story-copy">
           <div class="section-label">Our story</div>
-          <h2>Helping Milton Keynes learners drive with confidence</h2>
+          <h2>Helping local learners drive with confidence</h2>
 
           <p>
-            SAR Driving School is a local Milton Keynes driving school built around patient teaching,
-            clear guidance and real progress.
+            SAR Driving School is built around patient teaching, clear guidance and real progress.
+            Our aim is to help learners feel confident behind the wheel while developing safe driving habits for life.
           </p>
 
           <p>
-            We help learners build safe driving habits, understand local test routes and feel confident
-            behind the wheel. Whether you are a complete beginner, switching instructors or returning to
-            driving after time away, our lessons are tailored around your ability.
+            We support complete beginners, nervous learners, pupils switching instructors and drivers returning after time away.
+            Lessons are tailored around your confidence, experience, lesson type and test goals.
           </p>
 
           <p>
-            We cover Milton Keynes and surrounding areas with manual, automatic and refresher lessons
-            available depending on instructor availability.
+            We offer manual, automatic and refresher driving lessons across Milton Keynes and nearby areas,
+            subject to instructor availability.
           </p>
 
           <div class="story-actions">
             <a href="book.html" class="btn-primary">Book a lesson</a>
             <a href="gallery.html" class="btn-secondary">View pass gallery</a>
+            <a href="contact.html" class="btn-whatsapp">Contact SAR</a>
           </div>
         </div>
 
         <div class="stats-grid">
           <div class="stat-card">
-            <strong>500+</strong>
-            <span>learners passed</span>
-          </div>
-
-          <div class="stat-card">
-            <strong>15+</strong>
-            <span>years experience</span>
-          </div>
-
-          <div class="stat-card">
             <strong>170+</strong>
-            <span>five-star reviews</span>
+            <span>Google reviews from local learners</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>5.0</strong>
+            <span>Rated by learners across the area</span>
           </div>
 
           <div class="stat-card">
             <strong>DVSA</strong>
-            <span>approved instructors</span>
+            <span>Approved instructors</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>Manual & Auto</strong>
+            <span>Lesson options available</span>
           </div>
         </div>
 
@@ -740,7 +827,7 @@
           <div class="difference-card">
             <div class="difference-icon">😊</div>
             <h3>Patient instructors</h3>
-            <p>Calm, clear teaching for nervous learners, beginners and anyone who needs extra confidence.</p>
+            <p>Calm, clear teaching for nervous learners, beginners and anyone who needs extra support.</p>
           </div>
 
           <div class="difference-card">
@@ -753,6 +840,39 @@
             <div class="difference-icon">✅</div>
             <h3>DVSA approved</h3>
             <p>Professional instruction focused on safe driving, test readiness and long-term confidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-inner">
+        <div class="service-head">
+          <div class="section-label">Lesson types</div>
+          <h2>Lessons built around your needs</h2>
+          <p>
+            Whether you are starting from the beginning, changing from manual to automatic,
+            or rebuilding confidence, we can help you choose the right lesson type.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want full licence flexibility and strong car control.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who prefer learning without clutch and gears.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>For returning drivers, confidence building, parking, roundabouts and motorway driving.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
           </div>
         </div>
       </div>
@@ -823,22 +943,22 @@
 
         <div class="areas-grid">
           <div class="area-card">
-            <strong>Milton Keynes</strong>
+            <strong><a href="driving-lessons-milton-keynes.html">Milton Keynes</a></strong>
             <span>Manual, automatic and refresher lesson availability.</span>
           </div>
 
           <div class="area-card">
-            <strong>Bletchley</strong>
+            <strong><a href="driving-lessons-bletchley.html">Bletchley</a></strong>
             <span>Local test route knowledge and common tricky areas.</span>
           </div>
 
           <div class="area-card">
-            <strong>Bedford</strong>
+            <strong><a href="driving-lessons-bedford.html">Bedford</a></strong>
             <span>Subject to instructor availability and travel time.</span>
           </div>
 
           <div class="area-card">
-            <strong>Leighton Buzzard</strong>
+            <strong><a href="driving-lessons-leighton-buzzard.html">Leighton Buzzard</a></strong>
             <span>Availability depends on instructor area and schedule.</span>
           </div>
         </div>
@@ -864,6 +984,20 @@
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
