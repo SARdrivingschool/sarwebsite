@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Pricing | SAR Driving School</title>
+  <title>Driving Lesson Prices | SAR Driving School</title>
+  <meta name="description" content="SAR Driving School prices. Manual driving lessons from £38 per hour, automatic driving lessons from £38 per hour and refresher lessons from £38 across Milton Keynes and nearby areas.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -13,6 +15,7 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --dark: #0b0b0b;
       --dark2: #111111;
       --card: #151515;
@@ -30,6 +33,11 @@
       background: #0b0b0b;
       color: #ffffff;
       overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page-hero {
@@ -276,6 +284,28 @@
       font-weight: 900;
     }
 
+    .service-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .service-links a {
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .service-links a:hover {
+      border-color: rgba(237,28,36,0.55);
+      color: #ffffff;
+    }
+
     .price-side {
       position: relative;
       z-index: 2;
@@ -335,6 +365,11 @@
       box-shadow: 0 12px 28px rgba(237,28,36,0.24);
     }
 
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+
     .btn-secondary {
       background: rgba(255,255,255,0.04);
       color: #ffffff;
@@ -353,8 +388,88 @@
       transform: translateY(-2px);
     }
 
-    .help-section {
+    .service-summary-section {
       background: #101010;
+      padding: 78px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-summary-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .service-summary-head {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .service-summary-head h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .service-summary-head p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .service-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-summary-card {
+      background: #151515;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-summary-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .service-summary-card h3 {
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .service-summary-card p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+    }
+
+    .service-summary-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .service-summary-card a {
+      display: inline-flex;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .help-section {
+      background: #0b0b0b;
       padding: 80px 2rem;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
@@ -454,6 +569,42 @@
       flex-wrap: wrap;
     }
 
+    footer {
+      padding: 34px 2rem;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
     @media (max-width: 1000px) {
       .price-card,
       .help-inner {
@@ -467,6 +618,10 @@
       .normal-price,
       .price {
         text-align: left;
+      }
+
+      .service-summary-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -552,7 +707,8 @@
 
       .pricing-section,
       .help-section,
-      .cta-section {
+      .cta-section,
+      .service-summary-section {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
       }
@@ -585,11 +741,25 @@
         gap: 0.65rem;
       }
 
+      .service-links {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .service-links a {
+        text-align: center;
+      }
+
       .price-side {
         width: 100%;
       }
 
-      .price-side .btn-primary {
+      .price-side .btn-primary,
+      .price-side .btn-secondary {
+        width: 100%;
+      }
+
+      .service-summary-card a {
         width: 100%;
       }
 
@@ -633,6 +803,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -649,10 +820,10 @@
     <section class="page-hero">
       <div class="page-hero-inner">
         <div class="section-label">Transparent pricing</div>
-        <h1>Simple, honest lesson prices</h1>
+        <h1>Simple, honest driving lesson prices</h1>
         <p>
-          No hidden fees. Choose from single lessons, block bookings or intensive lesson options.
-          Manual and automatic availability depends on your area and instructor schedule.
+          Manual lessons from £38 per hour, automatic lessons from £38 per hour and refresher lessons from £38.
+          Choose the option that suits your confidence, ability and availability.
         </p>
       </div>
     </section>
@@ -663,83 +834,96 @@
         <div class="pricing-tabs">
           <button class="tab-btn active" data-tab="single" type="button">Single lessons</button>
           <button class="tab-btn" data-tab="block" type="button">Block booking</button>
-          <button class="tab-btn" data-tab="intensive" type="button">Intensive course</button>
+          <button class="tab-btn" data-tab="intensive" type="button">Other options</button>
         </div>
 
         <div class="price-group active" id="single">
-          <div class="price-card">
+          <div class="price-card featured">
             <div>
               <div class="price-title">
-                <h2>1 hour lesson</h2>
+                <h2>Manual driving lessons</h2>
+                <span class="popular-badge">Popular</span>
               </div>
 
               <p class="price-copy">
-                A flexible lesson option for learners who want regular practice, confidence building
-                or focused support on specific driving skills.
+                Manual driving lessons are ideal if you want a full manual licence and the flexibility
+                to drive both manual and automatic cars after passing.
               </p>
 
               <ul class="features">
-                <li>Manual or automatic</li>
-                <li>DVSA approved instructor</li>
-                <li>Pick-up from your area</li>
-                <li>Tailored to your level</li>
+                <li>Manual lessons from £38 per hour</li>
+                <li>DVSA-approved instructors</li>
+                <li>Clutch, gears and car control</li>
+                <li>Local test route knowledge</li>
               </ul>
+
+              <div class="service-links">
+                <a href="manual-driving-lessons-milton-keynes.html">View manual lessons</a>
+              </div>
             </div>
 
             <div class="price-side">
               <div class="price">£38 <small>/ hour</small></div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <a href="book.html" class="btn-primary">Book manual</a>
             </div>
           </div>
 
           <div class="price-card featured">
             <div>
               <div class="price-title">
-                <h2>1.5 hour lesson</h2>
-                <span class="popular-badge">Popular</span>
+                <h2>Automatic driving lessons</h2>
+                <span class="popular-badge">Easy to learn</span>
               </div>
 
               <p class="price-copy">
-                Our most popular single lesson length. Gives enough time to practise properly and
-                make real progress without feeling rushed.
+                Automatic lessons are ideal for nervous learners, beginners and pupils who want a smoother
+                learning experience without clutch or gear changes.
               </p>
 
               <ul class="features">
-                <li>Manual or automatic</li>
-                <li>DVSA approved instructor</li>
-                <li>Pick-up from your area</li>
-                <li>Great for weekly progress</li>
+                <li>Automatic lessons from £38 per hour</li>
+                <li>No clutch or gear changes</li>
+                <li>Good for nervous learners</li>
+                <li>Structured test preparation</li>
               </ul>
+
+              <div class="service-links">
+                <a href="automatic-driving-lessons-milton-keynes.html">View automatic lessons</a>
+              </div>
             </div>
 
             <div class="price-side">
-              <div class="price">£57</div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <div class="price">£38 <small>/ hour</small></div>
+              <a href="book.html" class="btn-primary">Book automatic</a>
             </div>
           </div>
 
           <div class="price-card">
             <div>
               <div class="price-title">
-                <h2>2 hour lesson</h2>
+                <h2>Refresher driving lessons</h2>
               </div>
 
               <p class="price-copy">
-                Ideal for learners who want longer sessions, route practice, parking practice,
-                roundabouts or more detailed driving development.
+                Refresher lessons are useful for confidence building, parking, roundabouts, motorway driving,
+                returning drivers and pupils who want extra practice before test day.
               </p>
 
               <ul class="features">
-                <li>Manual or automatic</li>
-                <li>DVSA approved instructor</li>
-                <li>Pick-up from your area</li>
-                <li>Best for longer practice</li>
+                <li>Refresher lessons from £38</li>
+                <li>Parking, roundabouts and motorway support</li>
+                <li>Manual or automatic available</li>
+                <li>Tailored to your needs</li>
               </ul>
+
+              <div class="service-links">
+                <a href="refresher-driving-lessons-milton-keynes.html">View refresher lessons</a>
+              </div>
             </div>
 
             <div class="price-side">
-              <div class="price">£76</div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <div class="price">From £38</div>
+              <a href="book.html" class="btn-primary">Book refresher</a>
             </div>
           </div>
         </div>
@@ -754,8 +938,8 @@
               </div>
 
               <p class="price-copy">
-                Perfect for learners who want to commit to consistent progress.
-                A block booking helps secure lesson time and build momentum.
+                Perfect for learners who want to commit to consistent progress. A block booking helps
+                secure lesson time and build momentum with your instructor.
               </p>
 
               <ul class="features">
@@ -769,7 +953,7 @@
             <div class="price-side">
               <div class="normal-price"><s>£380</s> normally at £38/hr</div>
               <div class="price">£360</div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <a href="book.html" class="btn-primary">Book block</a>
             </div>
           </div>
 
@@ -781,8 +965,8 @@
               </div>
 
               <p class="price-copy">
-                A good option if you are new to driving and want to get started with a few
-                structured lessons before deciding your next step.
+                A good option if you are new to driving and want to get started with a few structured
+                lessons before deciding your next step.
               </p>
 
               <ul class="features">
@@ -796,7 +980,7 @@
             <div class="price-side">
               <div class="normal-price"><s>£190</s> normally at £38/hr</div>
               <div class="price">£185</div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <a href="book.html" class="btn-primary">Book starter block</a>
             </div>
           </div>
         </div>
@@ -805,7 +989,7 @@
           <div class="price-card">
             <div>
               <div class="price-title">
-                <h2>Intensive lesson course</h2>
+                <h2>Intensive driving lessons</h2>
               </div>
 
               <p class="price-copy">
@@ -830,29 +1014,64 @@
           <div class="price-card">
             <div>
               <div class="price-title">
-                <h2>Refresher lesson package</h2>
+                <h2>Driving test car hire</h2>
               </div>
 
               <p class="price-copy">
-                For licence holders who want to rebuild confidence, practise parking,
-                motorway driving, roundabouts or general road confidence.
+                Use of instructor car for your driving test may be available, subject to assessment
+                and DVSA test-standard driving.
               </p>
 
               <ul class="features">
-                <li>No minimum number of lessons</li>
-                <li>Confidence building</li>
-                <li>Manual or automatic</li>
-                <li>Tailored to your needs</li>
+                <li>Assessment required first</li>
+                <li>Instructor car for test day</li>
+                <li>Subject to availability</li>
+                <li>Only when driving is test-ready</li>
               </ul>
             </div>
 
             <div class="price-side">
-              <div class="price">From £38</div>
-              <a href="book.html" class="btn-primary">Book now</a>
+              <div class="price">Ask first</div>
+              <a href="contact.html" class="btn-primary">Contact us</a>
             </div>
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="service-summary-section">
+      <div class="service-summary-inner">
+        <div class="service-summary-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Choose the right lesson type</h2>
+          <p>
+            These pages explain each lesson type in more detail and help learners choose the best option before booking.
+          </p>
+        </div>
+
+        <div class="service-summary-grid">
+          <div class="service-summary-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best if you want maximum licence flexibility and full car control.</p>
+            <strong>From £38/hr</strong>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual</a>
+          </div>
+
+          <div class="service-summary-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Best if you want a simpler learning experience with no clutch or gears.</p>
+            <strong>From £38/hr</strong>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic</a>
+          </div>
+
+          <div class="service-summary-card">
+            <h3>Refresher Lessons</h3>
+            <p>Best for confidence building, parking, roundabouts and returning drivers.</p>
+            <strong>From £38</strong>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -875,18 +1094,23 @@
 
         <div class="faq-card">
           <div class="faq-item">
-            <h3>Do you offer manual and automatic?</h3>
-            <p>Yes, SAR Driving School offers both manual and automatic lessons depending on instructor availability in your area.</p>
+            <h3>How much are manual driving lessons?</h3>
+            <p>Manual driving lessons start from £38 per hour.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How much are automatic driving lessons?</h3>
+            <p>Automatic driving lessons start from £38 per hour.</p>
           </div>
 
           <div class="faq-item">
             <h3>Are block bookings cheaper?</h3>
-            <p>Yes. A 10 hour block saves £20 compared with paying £38 per hour, and a 5 hour block saves £5.</p>
+            <p>Yes. A 10 hour block saves £20 compared with paying £38 per hour.</p>
           </div>
 
           <div class="faq-item">
             <h3>Are prices fixed?</h3>
-            <p>Standard lesson prices are shown above. Prices may vary slightly depending on location, travel time and instructor availability.</p>
+            <p>Standard lesson prices are shown above. Prices may vary depending on location, travel time and instructor availability.</p>
           </div>
 
           <div class="faq-item">
@@ -916,6 +1140,20 @@
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
