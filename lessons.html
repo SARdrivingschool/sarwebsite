@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Driving Lessons | SAR Driving School</title>
+
+  <meta name="description" content="Driving lessons in Milton Keynes with SAR Driving School. Manual, automatic and refresher lessons with DVSA-approved instructors. Lessons from £38 per hour.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -13,6 +16,7 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --dark: #0b0b0b;
       --dark2: #111111;
       --card: #151515;
@@ -143,6 +147,12 @@
       line-height: 1.5;
     }
 
+    .lesson-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     .lesson-img {
       position: relative;
     }
@@ -192,6 +202,11 @@
       color: #ffffff;
       border: 1px solid var(--red);
       box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
     }
 
     .btn-secondary {
@@ -377,6 +392,7 @@
       justify-content: center;
       margin: 0 auto 1rem;
       font-size: 1.35rem;
+      font-weight: 900;
       box-shadow: 0 12px 24px rgba(237,28,36,0.22);
     }
 
@@ -393,6 +409,115 @@
       margin: 0;
     }
 
+    .service-links-section {
+      background: #0b0b0b;
+      padding: 70px 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-links-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-links-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .service-links-head h2 {
+      color: #ffffff;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .service-links-head p {
+      color: #cfcfcf;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .service-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-link-card {
+      background: #151515;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-link-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .service-link-card h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .service-link-card p {
+      color: #bdbdbd;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .service-link-card a {
+      color: #ffffff;
+      background: var(--red);
+      min-height: 46px;
+      border-radius: 12px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 34px 2rem;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: 1100px;
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
     @media (max-width: 900px) {
       .lesson-block {
         grid-template-columns: 1fr;
@@ -407,7 +532,8 @@
         grid-template-columns: 1fr;
       }
 
-      .lesson-extra-grid {
+      .lesson-extra-grid,
+      .service-links-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -517,6 +643,16 @@
         font-size: 1.9rem !important;
       }
 
+      .lesson-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-actions .btn-primary,
+      .lesson-actions .btn-secondary {
+        width: 100%;
+      }
+
       .lesson-help-section {
         padding: 52px 1.25rem 60px;
       }
@@ -547,11 +683,13 @@
         margin-bottom: 6px;
       }
 
-      .lesson-extra-section {
+      .lesson-extra-section,
+      .service-links-section {
         padding: 55px 1.25rem;
       }
 
-      .lesson-extra-grid {
+      .lesson-extra-grid,
+      .service-links-grid {
         grid-template-columns: 1fr;
       }
 
@@ -578,6 +716,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -616,7 +755,10 @@
               <li>✓ Confidence building and safe driving practice</li>
             </ul>
 
-            <a href="pricing.html" class="btn-primary">View pricing</a>
+            <div class="lesson-actions">
+              <a href="manual-driving-lessons-milton-keynes.html" class="btn-primary">View Manual Lessons</a>
+              <a href="book.html" class="btn-secondary">Book Manual</a>
+            </div>
           </div>
 
           <div class="lesson-img">
@@ -638,7 +780,10 @@
               <li>✓ Confidence building and safe driving practice</li>
             </ul>
 
-            <a href="pricing.html" class="btn-primary">View pricing</a>
+            <div class="lesson-actions">
+              <a href="automatic-driving-lessons-milton-keynes.html" class="btn-primary">View Automatic Lessons</a>
+              <a href="book.html" class="btn-secondary">Book Automatic</a>
+            </div>
           </div>
 
           <div class="lesson-img">
@@ -660,7 +805,10 @@
               <li>✓ Flexible scheduling</li>
             </ul>
 
-            <a href="pricing.html" class="btn-primary">View pricing</a>
+            <div class="lesson-actions">
+              <a href="refresher-driving-lessons-milton-keynes.html" class="btn-primary">View Refresher Lessons</a>
+              <a href="book.html" class="btn-secondary">Book Refresher</a>
+            </div>
           </div>
 
           <div class="lesson-img">
@@ -668,6 +816,36 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="service-links-section">
+      <div class="service-links-inner">
+        <div class="service-links-head">
+          <div class="section-label">Lesson types</div>
+          <h2>Driving lessons tailored to you</h2>
+          <p>Choose the lesson type that suits your confidence, experience and driving goals.</p>
+        </div>
+
+        <div class="service-links-grid">
+          <div class="service-link-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Build full clutch, gear and car control skills with structured manual lessons.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual</a>
+          </div>
+
+          <div class="service-link-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Learn with no clutch and no gears. Ideal for nervous learners and beginners.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic</a>
+          </div>
+
+          <div class="service-link-card">
+            <h3>Refresher Driving Lessons</h3>
+            <p>Rebuild confidence with parking, roundabouts, motorway driving and safe planning.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -751,6 +929,20 @@
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Local Driving Lesson Areas</h3>
+
+      <div class="footer-links">
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
