@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Book a Lesson | SAR Driving School</title>
+  <title>Book Driving Lessons | SAR Driving School</title>
+  <meta name="description" content="Book manual, automatic or refresher driving lessons with SAR Driving School. DVSA-approved instructors across Milton Keynes, Bletchley, Bedford and surrounding areas. Lessons from £38 per hour.">
+
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
@@ -12,10 +14,13 @@
   <style>
     :root {
       --red: #ed1c24;
+      --red-dark: #b80f16;
       --green: #25D366;
       --dark: #050505;
       --card: #111111;
+      --soft: #0a0a0a;
       --border: rgba(255,255,255,0.12);
+      --muted: #cfcfcf;
       --max: 1100px;
     }
 
@@ -25,11 +30,17 @@
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--dark);
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--dark);
       color: #ffffff;
-      overflow-x: hidden;
     }
 
     a {
@@ -116,12 +127,10 @@
     }
 
     .book-hero {
-      min-height: auto !important;
-      height: auto !important;
-      padding: 28px 1.5rem 22px !important;
+      padding: 42px 1.5rem 34px;
       background:
-        radial-gradient(circle at left bottom, rgba(237,28,36,0.18), transparent 30%),
-        #050505;
+        radial-gradient(circle at left bottom, rgba(237,28,36,0.2), transparent 30%),
+        linear-gradient(180deg, #080808, #050505);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -132,29 +141,36 @@
 
     .section-label {
       color: var(--red);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 0.75rem;
     }
 
     .book-hero h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-size: clamp(2.45rem, 6vw, 4.25rem);
       line-height: 1;
       letter-spacing: -1.5px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
     }
 
     .book-hero p {
-      color: #cfcfcf;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.65;
+      max-width: 780px;
+    }
+
+    .quick-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
     }
 
     .booking-section {
-      padding: 24px 1.5rem 90px !important;
+      padding: 34px 1.5rem 86px;
       background:
         radial-gradient(circle at right center, rgba(237,28,36,0.08), transparent 30%),
         #0a0a0a;
@@ -164,7 +180,7 @@
       max-width: var(--max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 1.4rem;
       align-items: start;
     }
@@ -181,10 +197,11 @@
     .panel h2 {
       font-size: 2rem;
       margin-bottom: 0.8rem;
+      letter-spacing: -0.5px;
     }
 
     .panel p {
-      color: #cfcfcf;
+      color: var(--muted);
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
@@ -203,31 +220,37 @@
       transition: 0.25s ease;
     }
 
+    .lesson-card:hover {
+      border-color: rgba(237,28,36,0.45);
+      transform: translateY(-2px);
+    }
+
     .lesson-card.active {
       border-color: var(--red);
       background:
-        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, rgba(237,28,36,0.14), rgba(255,255,255,0.02)),
         #111111;
     }
 
     .lesson-card h3 {
-      font-size: 1.45rem;
-      margin-bottom: 0.7rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.55rem;
     }
 
     .lesson-card p {
-      margin-bottom: 1rem;
-      color: #cfcfcf;
+      margin-bottom: 0.9rem;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .lesson-price {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 900;
     }
 
     .lesson-price span {
-      font-size: 1rem;
-      color: #cfcfcf;
+      font-size: 0.95rem;
+      color: var(--muted);
     }
 
     .booking-form {
@@ -262,6 +285,13 @@
       padding: 0 1rem;
       font-size: 1rem;
       outline: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(237,28,36,0.65);
     }
 
     .field textarea {
@@ -302,6 +332,11 @@
       cursor: pointer;
       font-size: 1rem;
       width: 100%;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -310,9 +345,19 @@
       box-shadow: 0 14px 30px rgba(237,28,36,0.25);
     }
 
+    .btn-primary:hover {
+      background: var(--red-dark);
+    }
+
     .btn-whatsapp {
-      background: rgba(37,211,102,0.08);
+      background: rgba(37,211,102,0.1);
       border: 1px solid rgba(37,211,102,0.45);
+      color: #ffffff;
+    }
+
+    .btn-call {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
       color: #ffffff;
     }
 
@@ -322,12 +367,67 @@
       font-size: 0.92rem;
     }
 
+    .info-strip {
+      max-width: var(--max);
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .info-card {
+      background: #111111;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
     footer {
-      padding: 28px 1rem;
+      padding: 34px 1rem;
       text-align: center;
       color: #999;
       background: #050505;
       border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
     }
 
     .floating-actions {
@@ -362,16 +462,20 @@
       .booking-grid {
         grid-template-columns: 1fr;
       }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
       .nav-inner {
-        height: 104px;
-        padding: 0 28px;
+        height: 96px;
+        padding: 0 24px;
       }
 
       .logo-img {
-        width: 170px;
+        width: 160px;
       }
 
       .hamburger {
@@ -381,7 +485,7 @@
       nav ul {
         display: none !important;
         position: absolute;
-        top: 104px;
+        top: 96px;
         left: 0;
         right: 0;
         background: #ffffff;
@@ -416,27 +520,34 @@
       }
 
       .book-hero {
-        min-height: auto !important;
-        height: auto !important;
-        padding: 22px 1.25rem 18px !important;
+        padding: 28px 1.25rem 22px;
       }
 
       .book-hero h1 {
-        font-size: 2.35rem !important;
-        margin-bottom: 0.6rem !important;
+        font-size: 2.35rem;
+        margin-bottom: 0.6rem;
       }
 
       .book-hero p {
-        font-size: 0.98rem !important;
+        font-size: 0.98rem;
+      }
+
+      .quick-contact {
+        display: grid;
+        grid-template-columns: 1fr;
       }
 
       .booking-section {
-        padding: 22px 1.25rem 70px !important;
+        padding: 22px 1.25rem 70px;
       }
 
       .panel {
         padding: 1.35rem;
         border-radius: 22px;
+      }
+
+      .panel h2 {
+        font-size: 1.65rem;
       }
 
       .form-row {
@@ -448,11 +559,11 @@
       }
 
       .lesson-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
       }
 
       .lesson-price {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
       }
 
       .floating-actions {
@@ -483,6 +594,7 @@
       </button>
 
       <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -498,9 +610,21 @@
 
     <section class="book-hero">
       <div class="book-inner">
-        <div class="section-label">Book a lesson</div>
-        <h1>Choose your lesson</h1>
-        <p>Select manual, automatic or refresher, then send your details.</p>
+        <div class="section-label">Book driving lessons</div>
+        <h1>Start your lessons with SAR</h1>
+        <p>
+          Choose manual, automatic or refresher lessons. Send your details and we’ll contact you to confirm availability.
+        </p>
+
+        <div class="quick-contact">
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20driving%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">
+            WhatsApp us now
+          </a>
+
+          <a href="tel:+447902023737" class="btn btn-call">
+            Call SAR Driving School
+          </a>
+        </div>
       </div>
     </section>
 
@@ -508,33 +632,33 @@
       <div class="booking-grid">
 
         <div class="panel">
-          <h2>Choose your lesson</h2>
-          <p>Select the lesson type that suits you best.</p>
+          <h2>1. Choose your lesson</h2>
+          <p>Select the lesson type you want. This will be included in your booking request.</p>
 
           <div class="lesson-cards">
             <div class="lesson-card active" data-lesson="Manual lessons">
               <h3>Manual lessons</h3>
-              <p>Best for learners wanting a full manual licence.</p>
+              <p>Best if you want a full manual licence and maximum flexibility.</p>
               <div class="lesson-price">£38 <span>/ hour</span></div>
             </div>
 
             <div class="lesson-card" data-lesson="Automatic lessons">
               <h3>Automatic lessons</h3>
-              <p>Perfect for nervous learners or quicker learning.</p>
+              <p>Ideal for nervous learners or pupils who prefer a smoother learning experience.</p>
               <div class="lesson-price">£38 <span>/ hour</span></div>
             </div>
 
             <div class="lesson-card" data-lesson="Refresher lessons">
               <h3>Refresher lessons</h3>
-              <p>For confidence building, motorway driving, parking or roundabouts.</p>
+              <p>For confidence building, motorway driving, parking, roundabouts or returning drivers.</p>
               <div class="lesson-price">From £38</div>
             </div>
           </div>
         </div>
 
         <div class="panel">
-          <h2>Send your request</h2>
-          <p>Fill in your details and we’ll contact you to confirm availability.</p>
+          <h2>2. Send your request</h2>
+          <p>Fill in your details and we’ll contact you to confirm what we can offer.</p>
 
           <div class="selected-box">
             Selected lesson:
@@ -553,7 +677,7 @@
             <div class="form-row">
               <div class="field">
                 <label>Your name</label>
-                <input type="text" name="name" placeholder="John Smith" required>
+                <input type="text" name="name" placeholder="Your full name" required>
               </div>
 
               <div class="field">
@@ -564,7 +688,7 @@
 
             <div class="field">
               <label>Pickup area</label>
-              <input type="text" name="area" placeholder="Milton Keynes, Bedford, Bletchley..." required>
+              <input type="text" name="area" placeholder="Milton Keynes, Bletchley, Bedford..." required>
             </div>
 
             <div class="field">
@@ -580,30 +704,61 @@
             </div>
 
             <div class="field">
-              <label>Extra message</label>
-              <textarea name="message" placeholder="Preferred days, availability, test booked etc..."></textarea>
+              <label>Availability / test date</label>
+              <textarea name="message" placeholder="Example: I’m available evenings/weekends. My test is booked for 12 July at Bletchley."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">
               Send booking request
             </button>
 
-            <a href="https://wa.me/447902023737" target="_blank" class="btn btn-whatsapp">
-              Message on WhatsApp
+            <a id="whatsappDynamic" href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20Manual%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">
+              Message on WhatsApp instead
             </a>
 
             <p class="mini-note">
-              We normally reply quickly by WhatsApp or phone to arrange your first lesson.
+              We normally reply by WhatsApp or phone. Lesson availability depends on your area, schedule and instructor availability.
             </p>
           </form>
         </div>
 
+      </div>
+
+      <div class="info-strip">
+        <div class="info-card">
+          <strong>Manual & automatic</strong>
+          <span>Both lesson types available from £38 per hour.</span>
+        </div>
+
+        <div class="info-card">
+          <strong>DVSA approved</strong>
+          <span>Patient instructors with structured lesson plans.</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Local areas</strong>
+          <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas.</span>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
@@ -640,6 +795,7 @@
     const cards = document.querySelectorAll('.lesson-card');
     const selectedLesson = document.getElementById('selectedLesson');
     const lessonInput = document.getElementById('lessonInput');
+    const whatsappDynamic = document.getElementById('whatsappDynamic');
 
     cards.forEach(function(card){
       card.addEventListener('click', function(){
@@ -652,6 +808,12 @@
         const lesson = card.dataset.lesson;
         selectedLesson.textContent = lesson;
         lessonInput.value = lesson;
+
+        const message = encodeURIComponent(
+          "Hi SAR Driving School, I would like to book " + lesson + ". My area is: "
+        );
+
+        whatsappDynamic.href = "https://wa.me/447902023737?text=" + message;
       });
     });
   </script>
