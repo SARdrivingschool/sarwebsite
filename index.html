@@ -354,6 +354,60 @@
       line-height: 1.5;
     }
 
+    .areas {
+      background:
+        radial-gradient(circle at 15% 25%, rgba(237,28,36,0.08), transparent 32%),
+        #0b0b0b;
+      padding: 68px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .areas-head {
+      max-width: 850px;
+      margin-bottom: 32px;
+    }
+
+    .areas h2,
+    .how-it-works h2,
+    .faq h2,
+    .local-seo h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .areas p,
+    .how-it-works p,
+    .faq p,
+    .local-seo p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+      max-width: 900px;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .area-card {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      font-weight: 900;
+      color: #ffffff;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
     .pass-preview {
       background:
         radial-gradient(circle at 18% 40%, rgba(237,28,36,0.08), transparent 32%),
@@ -619,6 +673,112 @@
       background: var(--red-dark);
     }
 
+    .how-it-works {
+      background: #101010;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .step-card {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+    }
+
+    .step-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .faq {
+      background: #0c0c0c;
+      padding: 68px 0;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .faq-item {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .faq-item h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .local-seo {
+      background: #101010;
+      padding: 58px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .local-seo-box {
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .local-seo-box p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      max-width: 980px;
+    }
+
     .cta {
       background: #0c0c0c;
       padding: 0 0 68px;
@@ -726,6 +886,11 @@
 
       .why-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .areas-grid,
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -919,11 +1084,29 @@
         font-size: 0.78rem;
       }
 
+      .areas,
       .pass-preview,
       .reviews,
       .why,
-      .section {
+      .section,
+      .how-it-works,
+      .faq,
+      .local-seo {
         padding: 46px 0;
+      }
+
+      .areas-grid,
+      .steps-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .area-card,
+      .step-card,
+      .faq-item {
+        padding: 18px;
+        border-radius: 18px;
       }
 
       .pass-inner {
@@ -941,7 +1124,11 @@
       .pass-preview h2,
       .reviews h2,
       .why h2,
-      .cta h2 {
+      .cta h2,
+      .areas h2,
+      .how-it-works h2,
+      .faq h2,
+      .local-seo h2 {
         font-size: clamp(1.9rem, 8.5vw, 2.55rem);
         line-height: 1.1;
         letter-spacing: -1px;
@@ -951,7 +1138,11 @@
       .reviews p,
       .why p,
       .cta p,
-      .section p {
+      .section p,
+      .areas p,
+      .how-it-works p,
+      .faq p,
+      .local-seo p {
         font-size: 0.96rem;
         line-height: 1.58;
       }
@@ -1052,6 +1243,16 @@
 
       .card-link {
         width: 100%;
+      }
+
+      .local-seo-box {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .local-seo-box p {
+        font-size: 0.95rem;
+        line-height: 1.65;
       }
 
       .cta {
@@ -1238,6 +1439,32 @@
       </div>
     </section>
 
+    <section class="areas">
+      <div class="container">
+        <div class="areas-head">
+          <div class="section-label">Areas Covered</div>
+          <h2>Driving lessons across Milton Keynes and nearby areas</h2>
+          <p>
+            We provide manual, automatic and refresher driving lessons across Milton Keynes,
+            Bletchley, Wolverton, Newport Pagnell, Stony Stratford, Bedford, Leighton Buzzard,
+            Kettering and Northampton.
+          </p>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-card">Milton Keynes</div>
+          <div class="area-card">Bletchley</div>
+          <div class="area-card">Wolverton</div>
+          <div class="area-card">Newport Pagnell</div>
+          <div class="area-card">Stony Stratford</div>
+          <div class="area-card">Bedford</div>
+          <div class="area-card">Leighton Buzzard</div>
+          <div class="area-card">Kettering</div>
+          <div class="area-card">Northampton</div>
+        </div>
+      </div>
+    </section>
+
     <section class="pass-preview">
       <div class="container pass-inner">
         <div class="pass-copy">
@@ -1402,6 +1629,95 @@
             <br>
             <a href="book.html" class="card-link">Book Refresher</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-label">How lessons work</div>
+        <h2>Start learning in three simple steps</h2>
+        <p>
+          We keep the process simple so you can quickly check availability and start lessons
+          with the right instructor.
+        </p>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Send us your details</h3>
+            <p>Tell us your area, lesson type, experience level and availability.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>We check availability</h3>
+            <p>We’ll let you know what instructors, lesson types and times are available.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Start your lessons</h3>
+            <p>Begin structured lessons designed around your confidence, ability and driving test goals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2>Common questions</h2>
+        <p>
+          Quick answers for learners looking for manual, automatic, refresher or test preparation lessons.
+        </p>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>How much are driving lessons?</h3>
+            <p>Manual and automatic driving lessons start from £38 per hour.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do you offer automatic driving lessons?</h3>
+            <p>Yes, automatic driving lessons are available across Milton Keynes and nearby areas.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do you offer manual driving lessons?</h3>
+            <p>Yes, manual driving lessons are available from £38 per hour.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I use your car for my driving test?</h3>
+            <p>Yes, subject to assessment and DVSA test-standard driving.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do you offer refresher lessons?</h3>
+            <p>Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do you cover Bletchley test centre?</h3>
+            <p>Yes, we cover Bletchley and common Milton Keynes test routes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="local-seo">
+      <div class="container">
+        <div class="local-seo-box">
+          <div class="section-label">Local Driving Lessons</div>
+          <h2>Manual and automatic driving lessons near you</h2>
+          <p>
+            SAR Driving School provides manual and automatic driving lessons across Milton Keynes,
+            Bletchley, Wolverton, Newport Pagnell, Stony Stratford, Bedford, Leighton Buzzard,
+            Kettering and Northampton. Our DVSA-approved instructors help learners build confidence
+            with structured lessons, local test route knowledge and clear guidance for beginners,
+            nervous learners and pupils preparing for their driving test.
+          </p>
         </div>
       </div>
     </section>
