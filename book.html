@@ -182,7 +182,7 @@
       letter-spacing: -0.5px;
     }
 
-    .panel p {
+    .panel > p {
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 1.5rem;
@@ -235,71 +235,54 @@
       color: var(--muted);
     }
 
-    .booking-form {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .field {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .field label {
-      font-weight: 800;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      min-height: 58px;
-      background: #202020;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 14px;
-      color: #ffffff;
-      padding: 0 1rem;
-      font-size: 1rem;
-      outline: none;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: rgba(237,28,36,0.65);
-    }
-
-    .field textarea {
-      min-height: 130px;
-      padding: 1rem;
-      resize: vertical;
-    }
-
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: #9e9e9e;
-    }
-
-    .selected-box {
+    .tally-panel {
       background:
-        linear-gradient(135deg, rgba(237,28,36,0.14), rgba(255,255,255,0.02)),
-        #111111;
-      border: 1px solid rgba(237,28,36,0.4);
-      border-radius: 18px;
-      padding: 1rem 1.2rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
+        linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        #101010;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 500px;
+      position: relative;
     }
 
-    .selected-box span {
-      color: var(--red);
+    .tally-panel iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    .tally-loader {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: #101010;
+      align-items: center;
+      justify-content: center;
+      border-radius: 26px;
+      z-index: 2;
+    }
+
+    .tally-loader.visible {
+      display: flex;
+    }
+
+    .tally-loader-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      margin: 0 5px;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .tally-loader-dot:nth-child(2) { animation-delay: 0.2s; }
+    .tally-loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      from { transform: translateY(0); opacity: 0.4; }
+      to   { transform: translateY(-10px); opacity: 1; }
     }
 
     .btn {
@@ -337,12 +320,6 @@
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.22);
       color: #ffffff;
-    }
-
-    .mini-note {
-      color: #a8a8a8;
-      line-height: 1.6;
-      font-size: 0.92rem;
     }
 
     .info-strip {
@@ -435,13 +412,8 @@
     }
 
     @media (max-width: 768px) {
-      .nav-inner {
-        height: 96px;
-        padding: 0 24px;
-      }
-
+      .nav-inner { height: 96px; padding: 0 24px; }
       .logo-img { width: 160px; }
-
       .hamburger { display: flex !important; }
 
       nav ul {
@@ -460,7 +432,6 @@
       }
 
       nav ul.open { display: flex !important; }
-
       nav ul li { width: 100%; }
 
       nav ul a {
@@ -478,45 +449,18 @@
       }
 
       .book-hero { padding: 28px 1.25rem 22px; }
-
-      .book-hero h1 {
-        font-size: 2.35rem;
-        margin-bottom: 0.6rem;
-      }
-
+      .book-hero h1 { font-size: 2.35rem; margin-bottom: 0.6rem; }
       .book-hero p { font-size: 0.98rem; }
-
-      .quick-contact {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
+      .quick-contact { display: grid; grid-template-columns: 1fr; }
       .booking-section { padding: 22px 1.25rem 70px; }
-
-      .panel {
-        padding: 1.35rem;
-        border-radius: 22px;
-      }
-
+      .panel { padding: 1.35rem; border-radius: 22px; }
+      .tally-panel { border-radius: 22px; }
       .panel h2 { font-size: 1.65rem; }
-
-      .form-row { grid-template-columns: 1fr; }
-
       .lesson-card { padding: 1.2rem; }
-
       .lesson-card h3 { font-size: 1.25rem; }
-
       .lesson-price { font-size: 1.65rem; }
-
-      .floating-actions {
-        right: 18px;
-        bottom: 18px;
-      }
-
-      .float-btn {
-        width: 56px;
-        height: 56px;
-      }
+      .floating-actions { right: 18px; bottom: 18px; }
+      .float-btn { width: 56px; height: 56px; }
     }
   </style>
 </head>
@@ -554,7 +498,7 @@
       <div class="book-inner">
         <div class="section-label">Book driving lessons</div>
         <h1>Start your lessons with SAR</h1>
-        <p>Choose manual, automatic or refresher lessons. Send your details and we’ll contact you to confirm availability.</p>
+        <p>Choose manual, automatic or refresher lessons. Send your details and we'll contact you to confirm availability.</p>
 
         <div class="quick-contact">
           <a href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20driving%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">WhatsApp us now</a>
@@ -568,7 +512,7 @@
 
         <div class="panel">
           <h2>1. Choose your lesson</h2>
-          <p>Select the lesson type you want. This will be included in your booking request.</p>
+          <p>Select the lesson type you want. It will be passed to the form automatically.</p>
 
           <div class="lesson-cards">
             <div class="lesson-card active" data-lesson="Manual lessons">
@@ -591,66 +535,23 @@
           </div>
         </div>
 
-        <div class="panel">
-          <h2>2. Send your request</h2>
-          <p>Fill in your details and we’ll contact you to confirm what we can offer.</p>
-
-          <div class="selected-box">
-            Selected lesson:
-            <span id="selectedLesson">Manual lessons</span>
+        <div class="tally-panel" id="tallyPanel">
+          <div class="tally-loader" id="tallyLoader">
+            <div class="tally-loader-dot"></div>
+            <div class="tally-loader-dot"></div>
+            <div class="tally-loader-dot"></div>
           </div>
-
-          <form class="booking-form" action="https://formsubmit.co/info@sardrivingschool.co.uk" method="POST">
-            <input type="hidden" name="_subject" value="New SAR Driving School Booking Request">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
-            <input type="hidden" name="lesson_type" id="lessonInput" value="Manual lessons">
-
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Your name</label>
-                <input id="name" type="text" name="name" placeholder="Your full name" required>
-              </div>
-
-              <div class="field">
-                <label for="phone">Phone number</label>
-                <input id="phone" type="tel" name="phone" placeholder="07700 000000" required>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="area">Pickup area</label>
-              <input id="area" type="text" name="area" placeholder="Milton Keynes, Bletchley, Bedford..." required>
-            </div>
-
-            <div class="field">
-              <label for="experience">Driving experience</label>
-              <select id="experience" name="experience" required>
-                <option value="">Select one</option>
-                <option>Complete beginner</option>
-                <option>Had some lessons before</option>
-                <option>Switching instructor</option>
-                <option>Test booked</option>
-                <option>Already passed / refresher</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="message">Availability / test date</label>
-              <textarea id="message" name="message" placeholder="Example: I’m available evenings/weekends. My test is booked for 12 July at Bletchley."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Send booking request</button>
-
-            <a id="whatsappDynamic" href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20Manual%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">
-              Message on WhatsApp instead
-            </a>
-
-            <p class="mini-note">
-              We normally reply by WhatsApp or phone. Lesson availability depends on your area, schedule and instructor availability.
-            </p>
-          </form>
+          <iframe
+            id="tallyFrame"
+            data-tally-src="https://tally.so/embed/QKO9oG?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1&lesson_type=Manual+lessons"
+            loading="lazy"
+            width="100%"
+            height="700"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Book Your Driving Lessons"
+          ></iframe>
         </div>
 
       </div>
@@ -660,12 +561,10 @@
           <strong>Manual & automatic</strong>
           <span>Both lesson types available from £38 per hour.</span>
         </div>
-
         <div class="info-card">
           <strong>DVSA approved</strong>
           <span>Patient instructors with structured lesson plans.</span>
         </div>
-
         <div class="info-card">
           <strong>Local areas</strong>
           <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas.</span>
@@ -678,7 +577,6 @@
   <footer>
     <div class="footer-local">
       <h3>Useful Driving Lesson Pages</h3>
-
       <div class="footer-links">
         <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
         <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
@@ -689,7 +587,6 @@
         <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
       </div>
     </div>
-
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
@@ -699,7 +596,6 @@
         <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
       </svg>
     </a>
-
     <a class="float-btn float-whatsapp" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#ffffff">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
@@ -707,7 +603,10 @@
     </a>
   </div>
 
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
   <script>
+    // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
@@ -723,28 +622,32 @@
       });
     });
 
+    // Lesson card → Tally pre-fill
+    var BASE_URL = 'https://tally.so/embed/QKO9oG?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1&lesson_type=';
+
     const cards = document.querySelectorAll('.lesson-card');
-    const selectedLesson = document.getElementById('selectedLesson');
-    const lessonInput = document.getElementById('lessonInput');
-    const whatsappDynamic = document.getElementById('whatsappDynamic');
+    const tallyFrame = document.getElementById('tallyFrame');
+    const tallyLoader = document.getElementById('tallyLoader');
+
+    function loadTallyWithLesson(lesson) {
+      tallyLoader.classList.add('visible');
+      tallyFrame.style.opacity = '0';
+      tallyFrame.src = BASE_URL + encodeURIComponent(lesson);
+      tallyFrame.onload = function () {
+        tallyLoader.classList.remove('visible');
+        tallyFrame.style.opacity = '1';
+        tallyFrame.style.transition = 'opacity 0.3s ease';
+      };
+    }
 
     cards.forEach(function (card) {
       card.addEventListener('click', function () {
-        cards.forEach(function (c) {
-          c.classList.remove('active');
-        });
-
+        cards.forEach(function (c) { c.classList.remove('active'); });
         card.classList.add('active');
-
-        const lesson = card.dataset.lesson;
-        selectedLesson.textContent = lesson;
-        lessonInput.value = lesson;
-
-        const message = encodeURIComponent(
-          "Hi SAR Driving School, I would like to book " + lesson + ". My area is: "
-        );
-
-        whatsappDynamic.href = "https://wa.me/447902023737?text=" + message;
+        loadTallyWithLesson(card.dataset.lesson);
+        if (window.innerWidth < 950) {
+          document.getElementById('tallyPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
   </script>
