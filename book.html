@@ -17,21 +17,14 @@
       --red-dark: #b80f16;
       --green: #25D366;
       --dark: #050505;
-      --card: #111111;
-      --soft: #0a0a0a;
       --border: rgba(255,255,255,0.12);
       --muted: #cfcfcf;
       --max: 1100px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html,
-    body {
+    html, body {
       width: 100%;
       overflow-x: hidden;
       background: var(--dark);
@@ -43,10 +36,7 @@
       color: #ffffff;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     nav {
       background: #ffffff;
@@ -114,17 +104,9 @@
       transition: 0.25s;
     }
 
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
-    }
+    .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
     .book-hero {
       padding: 42px 1.5rem 34px;
@@ -335,9 +317,7 @@
       text-align: center;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: var(--red);
@@ -345,9 +325,7 @@
       box-shadow: 0 14px 30px rgba(237,28,36,0.25);
     }
 
-    .btn-primary:hover {
-      background: var(--red-dark);
-    }
+    .btn-primary:hover { background: var(--red-dark); }
 
     .btn-whatsapp {
       background: rgba(37,211,102,0.1);
@@ -426,9 +404,7 @@
       font-weight: 700;
     }
 
-    .footer-links a:hover {
-      color: var(--red);
-    }
+    .footer-links a:hover { color: var(--red); }
 
     .floating-actions {
       position: fixed;
@@ -450,22 +426,12 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
 
-    .float-call {
-      background: var(--red);
-    }
-
-    .float-whatsapp {
-      background: var(--green);
-    }
+    .float-call { background: var(--red); }
+    .float-whatsapp { background: var(--green); }
 
     @media (max-width: 950px) {
-      .booking-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .info-strip {
-        grid-template-columns: 1fr;
-      }
+      .booking-grid { grid-template-columns: 1fr; }
+      .info-strip { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -474,13 +440,9 @@
         padding: 0 24px;
       }
 
-      .logo-img {
-        width: 160px;
-      }
+      .logo-img { width: 160px; }
 
-      .hamburger {
-        display: flex !important;
-      }
+      .hamburger { display: flex !important; }
 
       nav ul {
         display: none !important;
@@ -497,13 +459,9 @@
         z-index: 999;
       }
 
-      nav ul.open {
-        display: flex !important;
-      }
+      nav ul.open { display: flex !important; }
 
-      nav ul li {
-        width: 100%;
-      }
+      nav ul li { width: 100%; }
 
       nav ul a {
         display: block;
@@ -519,52 +477,36 @@
         color: #ffffff !important;
       }
 
-      .book-hero {
-        padding: 28px 1.25rem 22px;
-      }
+      .book-hero { padding: 28px 1.25rem 22px; }
 
       .book-hero h1 {
         font-size: 2.35rem;
         margin-bottom: 0.6rem;
       }
 
-      .book-hero p {
-        font-size: 0.98rem;
-      }
+      .book-hero p { font-size: 0.98rem; }
 
       .quick-contact {
         display: grid;
         grid-template-columns: 1fr;
       }
 
-      .booking-section {
-        padding: 22px 1.25rem 70px;
-      }
+      .booking-section { padding: 22px 1.25rem 70px; }
 
       .panel {
         padding: 1.35rem;
         border-radius: 22px;
       }
 
-      .panel h2 {
-        font-size: 1.65rem;
-      }
+      .panel h2 { font-size: 1.65rem; }
 
-      .form-row {
-        grid-template-columns: 1fr;
-      }
+      .form-row { grid-template-columns: 1fr; }
 
-      .lesson-card {
-        padding: 1.2rem;
-      }
+      .lesson-card { padding: 1.2rem; }
 
-      .lesson-card h3 {
-        font-size: 1.25rem;
-      }
+      .lesson-card h3 { font-size: 1.25rem; }
 
-      .lesson-price {
-        font-size: 1.65rem;
-      }
+      .lesson-price { font-size: 1.65rem; }
 
       .floating-actions {
         right: 18px;
@@ -612,18 +554,11 @@
       <div class="book-inner">
         <div class="section-label">Book driving lessons</div>
         <h1>Start your lessons with SAR</h1>
-        <p>
-          Choose manual, automatic or refresher lessons. Send your details and we’ll contact you to confirm availability.
-        </p>
+        <p>Choose manual, automatic or refresher lessons. Send your details and we’ll contact you to confirm availability.</p>
 
         <div class="quick-contact">
-          <a href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20driving%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">
-            WhatsApp us now
-          </a>
-
-          <a href="tel:+447902023737" class="btn btn-call">
-            Call SAR Driving School
-          </a>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20driving%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">WhatsApp us now</a>
+          <a href="tel:+447902023737" class="btn btn-call">Call SAR Driving School</a>
         </div>
       </div>
     </section>
@@ -665,35 +600,33 @@
             <span id="selectedLesson">Manual lessons</span>
           </div>
 
-          <form
-            class="booking-form"
-            action="https://formsubmit.co/info@sardrivingschool.co.uk"
-            method="POST"
-          >
+          <form class="booking-form" action="https://formsubmit.co/info@sardrivingschool.co.uk" method="POST">
             <input type="hidden" name="_subject" value="New SAR Driving School Booking Request">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
             <input type="hidden" name="lesson_type" id="lessonInput" value="Manual lessons">
 
             <div class="form-row">
               <div class="field">
-                <label>Your name</label>
-                <input type="text" name="name" placeholder="Your full name" required>
+                <label for="name">Your name</label>
+                <input id="name" type="text" name="name" placeholder="Your full name" required>
               </div>
 
               <div class="field">
-                <label>Phone number</label>
-                <input type="tel" name="phone" placeholder="07700 000000" required>
+                <label for="phone">Phone number</label>
+                <input id="phone" type="tel" name="phone" placeholder="07700 000000" required>
               </div>
             </div>
 
             <div class="field">
-              <label>Pickup area</label>
-              <input type="text" name="area" placeholder="Milton Keynes, Bletchley, Bedford..." required>
+              <label for="area">Pickup area</label>
+              <input id="area" type="text" name="area" placeholder="Milton Keynes, Bletchley, Bedford..." required>
             </div>
 
             <div class="field">
-              <label>Driving experience</label>
-              <select name="experience" required>
+              <label for="experience">Driving experience</label>
+              <select id="experience" name="experience" required>
                 <option value="">Select one</option>
                 <option>Complete beginner</option>
                 <option>Had some lessons before</option>
@@ -704,13 +637,11 @@
             </div>
 
             <div class="field">
-              <label>Availability / test date</label>
-              <textarea name="message" placeholder="Example: I’m available evenings/weekends. My test is booked for 12 July at Bletchley."></textarea>
+              <label for="message">Availability / test date</label>
+              <textarea id="message" name="message" placeholder="Example: I’m available evenings/weekends. My test is booked for 12 July at Bletchley."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">
-              Send booking request
-            </button>
+            <button type="submit" class="btn btn-primary">Send booking request</button>
 
             <a id="whatsappDynamic" href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%2C%20I%20would%20like%20to%20book%20Manual%20lessons.%20My%20area%20is%3A%20" target="_blank" class="btn btn-whatsapp">
               Message on WhatsApp instead
@@ -780,13 +711,13 @@
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
-    hamburger.addEventListener('click', function(){
+    hamburger.addEventListener('click', function () {
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
     });
 
-    navMenu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
+    navMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
         hamburger.classList.remove('open');
         navMenu.classList.remove('open');
       });
@@ -797,9 +728,9 @@
     const lessonInput = document.getElementById('lessonInput');
     const whatsappDynamic = document.getElementById('whatsappDynamic');
 
-    cards.forEach(function(card){
-      card.addEventListener('click', function(){
-        cards.forEach(function(c){
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        cards.forEach(function (c) {
           c.classList.remove('active');
         });
 
