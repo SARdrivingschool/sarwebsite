@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Driving Video Review | SAR Driving School</title>
+  <meta name="description" content="Upload your driving video and get personalised feedback from a qualified SAR instructor. Identify faults, mirror checks, head position and more. From £4.99.">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <style>
+    :root {
+      --red: #ed1c24;
+      --red-dark: #b80f16;
+      --dark: #050505;
+      --section: #0b0b0b;
+      --section-soft: #101010;
+      --card: #141414;
+      --text: #ffffff;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--dark);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      width: 100%;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .nav {
+      min-height: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-img {
+      width: 165px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 800;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--red); }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+    }
+
+    .hamburger {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: transparent;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background: #000000;
+      border-radius: 99px;
+      transition: 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* HERO */
+    .hero {
+      min-height: calc(100vh - 104px);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.93) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.3) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.55) 100%),
+        url("images/video-review-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 74px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 17% 65%, rgba(237,28,36,0.18), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.26));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(237,28,36,0.5);
+      background: rgba(95,0,0,0.46);
+      margin-bottom: 26px;
+      backdrop-filter: blur(8px);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--red);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+      font-weight: 900;
+    }
+
+    .hero h1 span { color: var(--red); }
+
+    .hero p {
+      max-width: 600px;
+      color: #e8e8e8;
+      font-size: 1.18rem;
+      line-height: 1.65;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      min-height: 60px;
+      padding: 0 28px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.04rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      box-shadow: 0 12px 28px rgba(237,28,36,0.28);
+    }
+
+    .btn-primary:hover { background: var(--red-dark); }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .stat-card {
+      background: rgba(0,0,0,0.44);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px;
+      padding: 21px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .stat-card span {
+      color: #d0d0d0;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    /* QUICK STRIP */
+    .quick-features {
+      background: #0b0b0b;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .quick-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .quick-card span {
+      color: #bdbdbd;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* PACKAGES */
+    .packages-section {
+      background:
+        radial-gradient(circle at 15% 25%, rgba(237,28,36,0.08), transparent 32%),
+        #0b0b0b;
+      padding: 68px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .packages-section h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .packages-section > .container > p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.05rem;
+      max-width: 660px;
+      margin-bottom: 36px;
+    }
+
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pkg-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pkg-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .pkg-card.featured {
+      border-color: var(--red);
+      border-width: 2px;
+    }
+
+    .pkg-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(237,28,36,0.3);
+    }
+
+    .pkg-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
+
+    .pkg-price {
+      display: inline-flex;
+      align-items: center;
+      margin: 10px 0 4px;
+      color: #ffffff;
+      background: rgba(237,28,36,0.12);
+      border: 1px solid rgba(237,28,36,0.24);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-weight: 900;
+      font-size: 1.18rem;
+    }
+
+    .pkg-duration {
+      color: #999;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pkg-card ul {
+      list-style: none;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .pkg-card ul li {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding: 6px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.45;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .pkg-card ul li:last-child { border-bottom: none; }
+
+    .pkg-card ul li::before {
+      content: '✓';
+      color: var(--red);
+      font-weight: 900;
+      font-size: 0.88rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 18px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card-link:hover {
+      transform: translateY(-2px);
+      background: var(--red-dark);
+    }
+
+    /* FAULTS COVERED */
+    .faults-section {
+      background: #101010;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .faults-section h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .faults-section > .container > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 660px;
+      margin-bottom: 36px;
+    }
+
+    .faults-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .fault-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .fault-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .fault-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(237,28,36,0.5);
+    }
+
+    /* HOW IT WORKS */
+    .how-it-works {
+      background: #0c0c0c;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .how-it-works h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .how-it-works > .container > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 660px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .step-card {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+    }
+
+    .step-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .step-card p { color: var(--muted); line-height: 1.6; font-size: 0.94rem; }
+
+    /* FILMING TIPS */
+    .filming-tips {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(237,28,36,0.07), transparent 34%),
+        #101010;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .filming-tips h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .filming-tips > .container > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 660px;
+      margin-bottom: 36px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .tip-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 0 18px 18px 0;
+      padding: 22px 20px;
+      transition: transform 0.25s ease;
+    }
+
+    .tip-card:hover { transform: translateY(-4px); }
+    .tip-card h3 { font-size: 1rem; margin-bottom: 9px; }
+    .tip-card p { color: #bcbcbc; font-size: 0.9rem; line-height: 1.55; }
+
+    /* FAQ */
+    .faq {
+      background: #0c0c0c;
+      padding: 68px 0;
+    }
+
+    .faq h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .faq > .container > p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 660px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .faq-item {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.45);
+    }
+
+    .faq-item h3 { font-size: 1.08rem; margin-bottom: 10px; }
+    .faq-item p { color: var(--muted); line-height: 1.6; font-size: 0.95rem; }
+
+    /* CTA */
+    .cta {
+      background: #0c0c0c;
+      padding: 0 0 68px;
+    }
+
+    .cta-panel {
+      background:
+        linear-gradient(90deg, rgba(237,28,36,0.88), rgba(0,0,0,0.62)),
+        url("images/video-review-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .cta h2 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .cta p {
+      max-width: 640px;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .cta-box {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .cta-box strong { display: block; font-size: 1.45rem; margin-bottom: 10px; }
+    .cta-box span { color: #dddddd; line-height: 1.6; font-size: 0.95rem; }
+
+    /* LOCAL SEO */
+    .local-seo {
+      background: #101010;
+      padding: 58px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .local-seo-box {
+      background: linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .local-seo-box h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .local-seo-box p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      max-width: 980px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 { color: #ffffff; font-size: 1.05rem; margin-bottom: 14px; }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a { color: #cfcfcf; font-size: 0.92rem; font-weight: 700; }
+    .footer-links a:hover { color: var(--red); }
+
+    /* FLOATING BUTTONS */
+    .floating-actions {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover { transform: translateY(-2px); }
+    .float-call { background: var(--red); }
+    .float-whatsapp { background: var(--green); }
+    .float-btn svg { width: 29px; height: 29px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1020px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .faults-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .tips-grid { grid-template-columns: repeat(2, 1fr); }
+      .pkg-grid { grid-template-columns: 1fr; max-width: 520px; }
+    }
+
+    @media (max-width: 768px) {
+      header { background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.08); }
+      .container { width: min(100% - 28px, var(--max)); }
+      .nav { min-height: 96px; }
+      .logo-img { width: 158px; }
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 96px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 24px 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 99;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        color: #000000;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
+
+      .btn-nav {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+        color: #ffffff !important;
+      }
+
+      .hero {
+        min-height: auto;
+        display: block;
+        padding: 0 0 40px;
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.96) 70%, #050505 100%),
+          url("images/video-review-hero.jpg");
+        background-size: auto 320px;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.08) 35%, #050505 100%),
+          radial-gradient(circle at 16% 70%, rgba(237,28,36,0.16), transparent 28%);
+      }
+
+      .hero-inner {
+        max-width: 100%;
+        padding-top: 320px;
+      }
+
+      .hero-label {
+        width: auto;
+        max-width: 100%;
+        padding: 10px 14px;
+        font-size: 0.54rem;
+        letter-spacing: 1.4px;
+        margin-bottom: 16px;
+        white-space: normal;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        line-height: 1.02;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 20px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .btn { width: 100%; min-height: 50px; font-size: 0.95rem; border-radius: 14px; }
+
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .stat-card { padding: 16px; border-radius: 15px; }
+      .stat-card strong { font-size: 1.3rem; }
+      .stat-card span { font-size: 0.78rem; }
+
+      .quick-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+      .packages-section,
+      .faults-section,
+      .how-it-works,
+      .filming-tips,
+      .faq,
+      .local-seo { padding: 46px 0; }
+
+      .packages-section h2,
+      .faults-section h2,
+      .how-it-works h2,
+      .filming-tips h2,
+      .faq h2,
+      .local-seo-box h2,
+      .cta h2 {
+        font-size: clamp(1.9rem, 8.5vw, 2.55rem);
+        letter-spacing: -1px;
+      }
+
+      .pkg-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .faults-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fault-card { padding: 14px; font-size: 0.86rem; border-radius: 14px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 12px; }
+      .tips-grid { grid-template-columns: 1fr; gap: 12px; }
+      .tip-card { padding: 18px; border-radius: 0 14px 14px 0; }
+      .faq-grid { grid-template-columns: 1fr; gap: 12px; }
+
+      .cta { padding-bottom: 46px; }
+
+      .cta-panel {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 22px 18px;
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(237,28,36,0.82), rgba(0,0,0,0.72)),
+          url("images/video-review-hero.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cta-box { padding: 18px; border-radius: 16px; }
+      .cta-box strong { font-size: 1.15rem; }
+      .local-seo-box { padding: 22px; border-radius: 20px; }
+
+      footer { padding: 22px 14px; font-size: 0.86rem; }
+      .floating-actions { right: 14px; bottom: 14px; gap: 10px; }
+      .float-btn { width: 54px; height: 54px; }
+      .float-btn svg { width: 28px; height: 28px; }
+    }
+
+    @media (max-width: 430px) {
+      .hero {
+        background-size: auto 300px;
+      }
+      .hero-inner { padding-top: 300px; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .faults-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Driving Video Review",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "SAR Driving School",
+      "url": "https://sardrivingschool.co.uk/"
+    },
+    "description": "Upload your driving video and receive personalised feedback from a qualified SAR instructor. Packages from £4.99.",
+    "offers": [
+      { "@type": "Offer", "name": "Quick Review", "price": "4.99", "priceCurrency": "GBP" },
+      { "@type": "Offer", "name": "Manoeuvre Review", "price": "9.99", "priceCurrency": "GBP" },
+      { "@type": "Offer", "name": "Mock Test Review", "price": "19.99", "priceCurrency": "GBP" }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="SAR Driving School">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
+        <li><a href="video-review.html">Video Review</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-label">🎥 New service — now live</div>
+        <h1>Get <span>Professional</span><br>Feedback on<br>Your Driving</h1>
+        <p>
+          Practising with family or friends? Upload your driving video and a qualified
+          SAR instructor will identify your faults — without booking a lesson.
+        </p>
+        <div class="hero-actions">
+          <a href="#packages" class="btn btn-primary">See packages from £4.99 →</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">Ask us a question</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <strong>£4.99</strong>
+            <span>Starting price for a quick review</span>
+          </div>
+          <div class="stat-card">
+            <strong>48hrs</strong>
+            <span>Feedback delivered by email</span>
+          </div>
+          <div class="stat-card">
+            <strong>DVSA</strong>
+            <span>Approved instructors reviewing your video</span>
+          </div>
+          <div class="stat-card">
+            <strong>5.0 ★</strong>
+            <span>180+ Google reviews from learners</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK STRIP -->
+    <section class="quick-features">
+      <div class="container quick-grid">
+        <div class="quick-card">
+          <strong>No lesson needed</strong>
+          <span>Upload any footage — dashcam, phone or passenger seat.</span>
+        </div>
+        <div class="quick-card">
+          <strong>Timestamped faults</strong>
+          <span>Jump straight to each mistake in your video.</span>
+        </div>
+        <div class="quick-card">
+          <strong>Mirror &amp; head checks</strong>
+          <span>We assess the observation habits examiners look for.</span>
+        </div>
+        <div class="quick-card">
+          <strong>Open to everyone</strong>
+          <span>Any learner — not just SAR students.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="section-label">Packages &amp; pricing</div>
+        <h2>Choose your review</h2>
+        <p>
+          Pay once, upload your video and receive written feedback with timestamped fault notes
+          emailed back to you within 48 hours.
+        </p>
+
+        <div class="pkg-grid">
+
+          <div class="pkg-card">
+            <h3>Quick Review</h3>
+            <div class="pkg-price">£4.99</div>
+            <div class="pkg-duration">Up to 5 minutes of footage</div>
+            <ul>
+              <li>Key faults identified</li>
+              <li>Head position &amp; mirror-checking habits</li>
+              <li>Road positioning</li>
+              <li>1 priority area to improve</li>
+              <li>Written feedback by email</li>
+            </ul>
+            <!-- REPLACE # with your Stripe £4.99 payment link -->
+            <a href="#" class="card-link">Get this review →</a>
+          </div>
+
+          <div class="pkg-card featured">
+            <div class="pkg-badge">Most popular</div>
+            <h3>Manoeuvre Review</h3>
+            <div class="pkg-price">£9.99</div>
+            <div class="pkg-duration">Up to 15 minutes of footage</div>
+            <ul>
+              <li>Bay parking &amp; parallel parking</li>
+              <li>Roundabouts &amp; pull up on the right</li>
+              <li>Mirror-signal-manoeuvre (MSM) routine</li>
+              <li>Blind spot &amp; shoulder checks (POM)</li>
+              <li>Head movement &amp; observation habits</li>
+              <li>Timestamped fault notes throughout</li>
+            </ul>
+            <!-- REPLACE # with your Stripe £9.99 payment link -->
+            <a href="#" class="card-link">Get this review →</a>
+          </div>
+
+          <div class="pkg-card">
+            <h3>Mock Test Review</h3>
+            <div class="pkg-price">£19.99</div>
+            <div class="pkg-duration">Up to 40 minutes of footage</div>
+            <ul>
+              <li>Full fault breakdown — serious, major, minor</li>
+              <li>Mirror checks at every junction &amp; hazard</li>
+              <li>Observation at roundabouts &amp; crossings</li>
+              <li>MSM routine assessed across the full drive</li>
+              <li>Test readiness rating</li>
+              <li>Pass / fail prediction</li>
+              <li>Priority areas to fix before your test</li>
+            </ul>
+            <!-- REPLACE # with your Stripe £19.99 payment link -->
+            <a href="#" class="card-link">Get this review →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAULTS COVERED -->
+    <section class="faults-section">
+      <div class="container">
+        <div class="section-label">What we assess</div>
+        <h2>Every fault category covered</h2>
+        <p>
+          We use the same fault categories your examiner uses — including the observation habits
+          most learners don't realise they're failing on.
+        </p>
+        <div class="faults-grid">
+          <div class="fault-card"><span class="fault-dot"></span>Head position &amp; movement</div>
+          <div class="fault-card"><span class="fault-dot"></span>Mirror checking routine</div>
+          <div class="fault-card"><span class="fault-dot"></span>Blind spot checks</div>
+          <div class="fault-card"><span class="fault-dot"></span>MSM — mirror, signal, manoeuvre</div>
+          <div class="fault-card"><span class="fault-dot"></span>POM — prepare, observe, move</div>
+          <div class="fault-card"><span class="fault-dot"></span>Road positioning</div>
+          <div class="fault-card"><span class="fault-dot"></span>Speed &amp; acceleration</div>
+          <div class="fault-card"><span class="fault-dot"></span>Steering control</div>
+          <div class="fault-card"><span class="fault-dot"></span>Junction observation</div>
+          <div class="fault-card"><span class="fault-dot"></span>Roundabout approach</div>
+          <div class="fault-card"><span class="fault-dot"></span>Signalling &amp; timing</div>
+          <div class="fault-card"><span class="fault-dot"></span>Pedestrian crossing awareness</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-label">How it works</div>
+        <h2>Four simple steps</h2>
+        <p>No app. No login. No hassle. Just upload and get feedback.</p>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Choose &amp; pay</h3>
+            <p>Pick your package and pay securely online. Confirmation arrives instantly by email.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Upload your video</h3>
+            <p>Use the upload link in your confirmation email. Any format — phone, dashcam or passenger seat.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Instructor reviews</h3>
+            <p>A qualified SAR instructor watches your footage and notes every fault with a timestamp.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Feedback by email</h3>
+            <p>Your full written report arrives within 48 hours. Read it, act on it, improve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILMING TIPS -->
+    <section class="filming-tips">
+      <div class="container">
+        <div class="section-label">Before you record</div>
+        <h2>Filming tips for better feedback</h2>
+        <p>
+          Better footage means more detailed feedback. For the best results on mirror checks
+          and head position, follow these tips before you hit record.
+        </p>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h3>Film from the passenger seat</h3>
+            <p>This angle clearly shows your head turning, shoulder checks and mirror glances — the same view your examiner gets.</p>
+          </div>
+          <div class="tip-card">
+            <h3>Wide-angle dashcam works too</h3>
+            <p>Great for road positioning and hazard awareness. Pair with a second angle for observation checks if possible.</p>
+          </div>
+          <div class="tip-card">
+            <h3>Keep audio on</h3>
+            <p>Audio lets us hear prompts from a parent or commentary gaps that suggest hesitation or uncertainty.</p>
+          </div>
+          <div class="tip-card">
+            <h3>No need for perfect quality</h3>
+            <p>A phone propped on the dash is absolutely fine. As long as the road ahead is visible we can give useful feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2>Common questions</h2>
+        <p>Quick answers about the video review service.</p>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Do I need to be a SAR learner?</h3>
+            <p>No. Anyone can upload — whether you're practising with a parent, preparing for a retest or learning with a different school.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why can't the examiner see my mirror checks?</h3>
+            <p>Examiners can only credit a check if they see your head and eyes move. Subtle movement gets marked as a fault. We catch this on video — it's one of the most common hidden reasons people fail.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What file formats do you accept?</h3>
+            <p>Any standard format — MP4, MOV, AVI or MKV. Files up to 2GB. If larger, trim it or compress with HandBrake first.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How will I receive my feedback?</h3>
+            <p>Written feedback by email within 48 hours, with timestamped fault notes so you can jump straight to each moment in your video.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if my video is slightly over the time limit?</h3>
+            <p>We'll review the most relevant section. If significantly over, we'll email you to upgrade or trim before we begin.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I use this instead of a driving lesson?</h3>
+            <p>It's a supplement, not a replacement. Video review helps you and your instructor know exactly what to focus on — so you get more from every lesson.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL SEO -->
+    <section class="local-seo">
+      <div class="container">
+        <div class="local-seo-box">
+          <div class="section-label">Driving Video Review — UK</div>
+          <h2>Professional driving feedback without booking a lesson</h2>
+          <p>
+            SAR Driving School's video review service is open to learners across the UK — including
+            Milton Keynes, Bletchley, Bedford, Leighton Buzzard, Kettering and Northampton.
+            Upload your driving footage and receive written feedback from a DVSA-approved instructor
+            covering mirror checks, head position, MSM routine, road positioning, manoeuvres and
+            test readiness. Packages start from £4.99 with feedback delivered within 48 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="section-label" style="color:#fff;">Ready to find out?</div>
+            <h2>Learn what you're doing wrong — without another lesson</h2>
+            <p>
+              Upload your footage today and get timestamped, written feedback from
+              a qualified SAR instructor within 48 hours.
+            </p>
+            <div class="hero-actions">
+              <a href="#packages" class="btn btn-primary">See packages from £4.99 →</a>
+              <a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+            </div>
+          </div>
+          <div class="cta-box">
+            <strong>Open to all learners.</strong>
+            <span>You don't need to be a SAR student. Upload your video from anywhere in the UK and get professional feedback fast.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-local">
+      <h3>Local Driving Lesson Areas</h3>
+      <div class="footer-links">
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <p>© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </footer>
+
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("open");
+      navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        hamburger.classList.remove("open");
+        navMenu.classList.remove("open");
+      });
+    });
+  </script>
+
+</body>
+</html>
