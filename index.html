@@ -378,16 +378,38 @@
 
 
     .areas {
+      position: relative;
       background:
-        radial-gradient(circle at 15% 25%, rgba(237,28,36,0.08), transparent 32%),
-        #0b0b0b;
-      padding: 58px 0 68px;
+        radial-gradient(circle at 12% 18%, rgba(237,28,36,0.16), transparent 28%),
+        radial-gradient(circle at 78% 12%, rgba(237,28,36,0.08), transparent 30%),
+        linear-gradient(180deg, #080808 0%, #0c0c0c 100%);
+      padding: 76px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .areas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .areas .container {
+      position: relative;
+      z-index: 1;
     }
 
     .areas-head {
-      max-width: 950px;
-      margin-bottom: 32px;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 34px;
     }
 
     .areas h2,
@@ -410,34 +432,129 @@
       max-width: 900px;
     }
 
+    .areas-head p {
+      margin: 0 auto;
+      max-width: 680px;
+    }
+
     .areas-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      max-width: 1000px;
+      gap: 18px;
+      max-width: 100%;
     }
 
     .area-card {
-      background: #141414;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px 18px;
-      min-height: 98px;
-      font-weight: 900;
+      min-height: 270px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025)),
+        radial-gradient(circle at 50% 0%, rgba(237,28,36,0.16), transparent 42%);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 24px;
+      padding: 28px 22px;
       color: #ffffff;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      line-height: 1.25;
-      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .area-card::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: 0.85;
     }
 
     .area-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(237,28,36,0.5);
-      background: rgba(237,28,36,0.08);
+      transform: translateY(-6px);
+      border-color: rgba(237,28,36,0.58);
+      background:
+        linear-gradient(145deg, rgba(237,28,36,0.13), rgba(255,255,255,0.035)),
+        radial-gradient(circle at 50% 0%, rgba(237,28,36,0.22), transparent 42%);
+    }
+
+    .area-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      border: 1px solid rgba(237,28,36,0.78);
+      background: radial-gradient(circle, rgba(237,28,36,0.24), rgba(237,28,36,0.06));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(237,28,36,0.18);
+    }
+
+    .area-card h3 {
+      font-size: 1.55rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .area-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: #cfcfcf;
+      margin-bottom: 20px;
+      max-width: 240px;
+    }
+
+    .area-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--red);
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .area-link span {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(237,28,36,0.72);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .areas-mini-cta {
+      margin-top: 26px;
+      padding: 20px 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .areas-mini-cta strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.08rem;
+      margin-bottom: 4px;
+    }
+
+    .areas-mini-cta span {
+      color: #cfcfcf;
+      font-size: 0.94rem;
+      line-height: 1.45;
     }
 
     .pass-preview {
@@ -1147,6 +1264,57 @@
       }
 
   
+
+      .areas {
+        padding: 50px 0;
+      }
+
+      .areas-head {
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      .areas-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .area-card {
+        min-height: auto;
+        align-items: flex-start;
+        text-align: left;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .area-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+        margin-bottom: 14px;
+      }
+
+      .area-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .area-card p {
+        max-width: 100%;
+        margin-bottom: 14px;
+        font-size: 0.9rem;
+      }
+
+      .areas-mini-cta {
+        margin-top: 18px;
+        align-items: stretch;
+        flex-direction: column;
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+    }
+
     @media (max-width: 430px) {
 
       .hero h1 {
@@ -1309,25 +1477,50 @@
     <section class="areas">
       <div class="container">
         <div class="areas-head">
-          <div class="section-label">Areas Covered</div>
-          <h2>Driving lessons across Milton Keynes and nearby areas</h2>
+          <div class="section-label">Areas We Cover</div>
+          <h2>Learn in your area</h2>
           <p>
-            We provide manual, automatic and refresher driving lessons across Milton Keynes,
-            Bletchley, Wolverton, Newport Pagnell, Stony Stratford, Bedford, Leighton Buzzard,
-            Kettering and Northampton.
+            Manual and automatic driving lessons across our main local areas.
+            Choose your nearest location and get started with SAR Driving School.
           </p>
         </div>
 
         <div class="areas-grid">
-          <a class="area-card" href="driving-lessons-milton-keynes.html">Driving Lessons in Milton Keynes</a>
-          <a class="area-card" href="driving-lessons-bletchley.html">Driving Lessons in Bletchley</a>
-          <a class="area-card" href="driving-lessons-bedford.html">Driving Lessons in Bedford</a>
-          <a class="area-card" href="driving-lessons-leighton-buzzard.html">Driving Lessons in Leighton Buzzard</a>
-          <div class="area-card">Wolverton</div>
-          <div class="area-card">Newport Pagnell</div>
-          <div class="area-card">Stony Stratford</div>
-          <div class="area-card">Kettering</div>
-          <div class="area-card">Northampton</div>
+          <a class="area-card" href="driving-lessons-milton-keynes.html" aria-label="Driving lessons in Milton Keynes">
+            <div class="area-icon">📍</div>
+            <h3>Milton Keynes</h3>
+            <p>Manual and automatic lessons across Milton Keynes.</p>
+            <div class="area-link">View lessons <span>›</span></div>
+          </a>
+
+          <a class="area-card" href="driving-lessons-bedford.html" aria-label="Driving lessons in Bedford">
+            <div class="area-icon">📍</div>
+            <h3>Bedford</h3>
+            <p>Patient local instructors covering Bedford and nearby areas.</p>
+            <div class="area-link">View lessons <span>›</span></div>
+          </a>
+
+          <a class="area-card" href="driving-lessons-leighton-buzzard.html" aria-label="Driving lessons in Leighton Buzzard">
+            <div class="area-icon">📍</div>
+            <h3>Leighton Buzzard</h3>
+            <p>Structured lessons for learners in Leighton Buzzard.</p>
+            <div class="area-link">View lessons <span>›</span></div>
+          </a>
+
+          <a class="area-card" href="contact.html" aria-label="Driving lessons in Northampton">
+            <div class="area-icon">📍</div>
+            <h3>Northampton</h3>
+            <p>Manual and automatic lesson availability in Northampton.</p>
+            <div class="area-link">Check availability <span>›</span></div>
+          </a>
+        </div>
+
+        <div class="areas-mini-cta">
+          <div>
+            <strong>Not sure if we cover your exact postcode?</strong>
+            <span>Send us your area and lesson type — we’ll confirm availability quickly.</span>
+          </div>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn btn-primary">WhatsApp Us →</a>
         </div>
       </div>
     </section>
