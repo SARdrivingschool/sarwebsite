@@ -862,7 +862,7 @@
         <div class="section-label">Pass Gallery</div>
         <h1>Real learners. Real passes. Real confidence.</h1>
         <p>
-          Browse recent learner pass photos from SAR Driving School. Every pass is a proud moment and proof of the progress our pupils make with structured lessons and patient instruction.
+          Browse 124 recent learner pass photos from SAR Driving School. Every pass is a proud moment and proof of the progress our pupils make with structured lessons and patient instruction.
         </p>
 
         <div class="hero-actions">
@@ -876,7 +876,7 @@
     <section class="trust-strip">
       <div class="trust-inner">
         <div class="trust-card">
-          <strong>170+ Reviews</strong>
+          <strong>190+ Reviews</strong>
           <span>Trusted by local learners.</span>
         </div>
 
@@ -905,7 +905,7 @@
           <h2>Our happy passers</h2>
           <p>
             These pass photos show real pupils who completed their driving journey with SAR Driving School.
-            Use this page to see the kind of results local learners are achieving.
+            Use this page to see the kind of results local learners are achieving across Milton Keynes and surrounding areas.
           </p>
         </div>
 
@@ -913,7 +913,7 @@
           <div class="gallery-controls">
             <button class="filter-btn active" data-limit="12">Show 12</button>
             <button class="filter-btn" data-limit="24">Show 24</button>
-            <button class="filter-btn" data-limit="111">Show all</button>
+            <button class="filter-btn" data-limit="124">Show all 124</button>
           </div>
         </div>
 
@@ -1074,8 +1074,8 @@
       });
     });
 
-    const totalImages = 111;
-    const imageFolder = "images/passes/";
+    const totalImages = 124;
+    const imageFolder = "images/pass-gallery/";
     const imageExtension = ".jpg";
     const galleryGrid = document.getElementById("gallery-grid");
     const filterButtons = document.querySelectorAll(".filter-btn");
@@ -1093,7 +1093,7 @@
 
     function getImagePath(number) {
       const padded = String(number).padStart(3, "0");
-      return imageFolder + "pass" + padded + imageExtension;
+      return imageFolder + "pass-" + padded + imageExtension;
     }
 
     function buildImages(limit) {
