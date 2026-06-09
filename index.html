@@ -559,19 +559,15 @@
 
     .pass-preview {
       background:
-        radial-gradient(circle at 12% 38%, rgba(237,28,36,0.16), transparent 32%),
-        radial-gradient(circle at 88% 20%, rgba(255,255,255,0.035), transparent 26%),
-        linear-gradient(180deg, #101010 0%, #070707 100%);
-      padding: 78px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
+        radial-gradient(circle at 18% 40%, rgba(237,28,36,0.08), transparent 32%),
+        #101010;
+      padding: 68px 0;
     }
 
-    .pass-inner-new {
+    .pass-inner {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 46px;
+      grid-template-columns: 0.78fr 1.55fr;
+      gap: 42px;
       align-items: center;
     }
 
@@ -595,72 +591,37 @@
       font-size: 1.05rem;
     }
 
-    .pass-copy-new h2 {
-      font-size: clamp(2.2rem, 4vw, 3.35rem);
-      line-height: 1.05;
-      margin-bottom: 18px;
-      letter-spacing: -1.5px;
+    .pass-copy p {
+      margin-bottom: 12px;
     }
 
-    .pass-copy-new p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.05rem;
-      max-width: 560px;
-      margin-bottom: 20px;
-    }
-
-    .pass-proof-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px 0 26px;
-    }
-
-    .pass-proof-row span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 13px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.11);
+    .pass-highlight {
+      display: block;
       color: #ffffff;
-      font-size: 0.84rem;
       font-weight: 900;
+      margin: 14px 0 24px;
+      font-size: 1.12rem;
     }
 
-    .pass-showcase {
+    .pass-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      transform: rotate(-1deg);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .pass-showcase img {
+    .pass-grid img {
       width: 100%;
-      height: 250px;
+      height: 300px;
       object-fit: cover;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.13);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.42);
-      transition: transform 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.38);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
-    .pass-showcase img:nth-child(2),
-    .pass-showcase img:nth-child(5) {
-      transform: translateY(28px);
-    }
-
-    .pass-showcase img:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: rgba(237,28,36,0.55);
-      filter: brightness(1.08);
-    }
-
-    .pass-showcase img:nth-child(2):hover,
-    .pass-showcase img:nth-child(5):hover {
-      transform: translateY(20px) scale(1.02);
+    .pass-grid img:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.4);
     }
 
     .reviews {
@@ -1352,36 +1313,10 @@
         border-radius: 18px;
       }
 
-    @media (max-width: 430px) {
-
-
-      .pass-inner-new {
-        grid-template-columns: 1fr;
-        gap: 34px;
-      }
-
-      .pass-showcase {
-        grid-template-columns: repeat(3, 1fr);
-        transform: none;
-      }
-
-      .pass-showcase img {
-        height: 210px;
-      }
-
-      .pass-showcase img:nth-child(2),
-      .pass-showcase img:nth-child(5) {
-        transform: none;
-      }
-
-      .pass-showcase img:nth-child(2):hover,
-      .pass-showcase img:nth-child(5):hover {
-        transform: translateY(-6px) scale(1.02);
-      }
-
     }
 
     @media (max-width: 430px) {
+
       .hero h1 {
         font-size: 2.24rem;
       }
@@ -1400,30 +1335,119 @@
     }
 
 
-    @media (max-width: 600px) {
-      .pass-preview {
-        padding: 52px 0;
+    /* Design 4 hero update */
+    .hero-content-clean {
+      max-width: 560px;
+      padding: 32px 32px 30px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.70), rgba(0,0,0,0.42));
+      border: 1px solid rgba(237,28,36,0.34);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-content-clean .hero-label {
+      margin-bottom: 24px;
+    }
+
+    .hero-content-clean h1 {
+      font-size: clamp(2.35rem, 4.25vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .hero-rating-row {
+      margin-bottom: 22px;
+      gap: 12px;
+    }
+
+    .hero-content-clean p {
+      max-width: 500px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions-clean {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions-clean .btn {
+      width: 100%;
+      min-height: 58px;
+    }
+
+    .hero-trust-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero-trust-stats .stat-card {
+      background: transparent;
+      border: 0;
+      border-right: 1px solid rgba(255,255,255,0.14);
+      border-radius: 0;
+      padding: 0 16px;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .hero-trust-stats .stat-card:first-child {
+      padding-left: 0;
+    }
+
+    .hero-trust-stats .stat-card:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .hero-trust-stats .stat-card strong {
+      font-size: 1rem;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .hero-trust-stats .stat-card span {
+      font-size: 0.85rem;
+      color: #d8d8d8;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content-clean {
+        padding: 22px 18px 22px;
       }
 
-      .pass-showcase {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+      .hero-content-clean h1 {
+        font-size: clamp(2rem, 8.4vw, 2.7rem);
+        letter-spacing: -1px;
       }
 
-      .pass-showcase img {
-        height: 175px;
-        border-radius: 15px;
-      }
-
-      .pass-proof-row {
-        display: grid;
+      .hero-actions-clean {
         grid-template-columns: 1fr;
       }
 
-      .pass-proof-row span {
-        justify-content: center;
+      .hero-trust-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .hero-trust-stats .stat-card {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.11);
+        padding: 0 0 12px;
+      }
+
+      .hero-trust-stats .stat-card:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
       }
     }
+
   </style>
 
 <script type="application/ld+json">
@@ -1513,51 +1537,43 @@
 
     <section class="hero">
       <div class="container hero-inner">
-        <div class="hero-content">
+        <div class="hero-content hero-content-clean">
           <div class="hero-label">📍 Milton Keynes' trusted driving school</div>
 
-          <div class="hero-pass-count">🏆 First Time Pass Specialists</div>
-
           <h1>
-            First Time Pass<br>
-            <span>Specialists</span>
+            Manual &amp; Automatic<br>
+            Driving Lessons<br>
+            <span>Across Milton Keynes</span>
           </h1>
 
-          <p>
-            Join local learners choosing SAR Driving School for calm, structured
-            manual and automatic lessons across Milton Keynes.
-          </p>
-
-          <div class="hero-actions">
-            <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
-            <a href="contact.html" class="btn btn-secondary">Check Availability</a>
-            <a href="https://wa.me/447902023737" target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
-          </div>
-
-          <div class="rating-row">
+          <div class="rating-row hero-rating-row">
             <img src="images/google-logo.png" alt="Google" class="google-logo">
             <span class="stars">★★★★★</span>
             <span>190+ Five-Star Reviews</span>
           </div>
 
-          <div class="stats">
+          <p>
+            Helping learners pass with confidence through calm, structured and expert driving tuition.
+          </p>
+
+          <div class="hero-actions hero-actions-clean">
+            <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
+            <a href="https://wa.me/447902023737" target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+          </div>
+
+          <div class="stats hero-trust-stats">
             <div class="stat-card">
-              <strong>190+</strong>
-              <span>Five-star reviews from local learners</span>
+              <strong>🏆 First Time</strong>
+              <span>Pass specialists</span>
             </div>
 
             <div class="stat-card">
-              <strong>DVSA</strong>
+              <strong>✅ DVSA</strong>
               <span>Approved instructors</span>
             </div>
 
             <div class="stat-card">
-              <strong>First Time</strong>
-              <span>Pass focused training</span>
-            </div>
-
-            <div class="stat-card">
-              <strong>Manual & Automatic</strong>
+              <strong>🚗 Manual &amp; Automatic</strong>
               <span>Lessons available</span>
             </div>
           </div>
@@ -1617,36 +1633,22 @@
     </section>
 
     <section class="pass-preview">
-      <div class="container pass-inner-new">
-        <div class="pass-copy-new">
-          <div class="section-label">Recent Passes</div>
-
-          <h2>
-            190+ Five-Star Reviews.<br>
-            Real Pupils. Real Passes.
-          </h2>
-
+      <div class="container pass-inner">
+        <div class="pass-copy">
+          <div class="section-label">Pass Gallery</div>
+          <h2>Our happy passers 🎉</h2>
           <p>
-            See some of our latest successful learners who passed with SAR Driving School.
-            Manual and automatic lessons available across Milton Keynes and surrounding areas.
+            Browse some of our recent successful students who passed with SAR Driving School.
           </p>
-
-          <div class="pass-proof-row">
-            <span>⭐ 190+ Reviews</span>
-            <span>🏆 First Time Pass Specialists</span>
-            <span>🚗 Manual & Automatic</span>
-          </div>
-
-          <a href="gallery.html" class="btn btn-primary">View Full Pass Gallery →</a>
+          <span class="pass-highlight">Real pupils. Real passes. Real confidence.</span>
+          <a href="gallery.html" class="btn btn-primary">See More Passes →</a>
         </div>
 
-        <div class="pass-showcase">
-          <img src="images/pass-gallery/pass-124.jpg" alt="SAR Driving School pass photo" loading="lazy">
-          <img src="images/pass-gallery/pass-123.jpg" alt="SAR Driving School pass photo" loading="lazy">
-          <img src="images/pass-gallery/pass-122.jpg" alt="SAR Driving School pass photo" loading="lazy">
-          <img src="images/pass-gallery/pass-121.jpg" alt="SAR Driving School pass photo" loading="lazy">
-          <img src="images/pass-gallery/pass-120.jpg" alt="SAR Driving School pass photo" loading="lazy">
-          <img src="images/pass-gallery/pass-119.jpg" alt="SAR Driving School pass photo" loading="lazy">
+        <div class="pass-grid">
+          <img src="images/passes/mainpage01.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/mainpage02.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/mainpage03.jpg" alt="SAR Driving School pass photo">
+          <img src="images/passes/mainpage04.jpg" alt="SAR Driving School pass photo">
         </div>
       </div>
     </section>
