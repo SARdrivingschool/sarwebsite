@@ -1894,6 +1894,52 @@
         height: 48px;
       }
     }
+
+
+
+
+          /* FIX MOBILE PASS PICTURE LAYOUT */
+      @media (max-width: 768px) {
+        .pass-inner-new {
+          display: block;
+        }
+
+        .pass-copy-new {
+          margin-bottom: 22px;
+        }
+
+        .pass-showcase {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          transform: none;
+        }
+
+        .pass-showcase img {
+          width: 100%;
+          height: 185px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 14px;
+        }
+
+        .pass-showcase img:nth-child(2),
+        .pass-showcase img:nth-child(5) {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .pass-showcase {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+
+        .pass-showcase img {
+          height: 165px;
+          border-radius: 12px;
+        }
+      }
   </style>
 
 <script type="application/ld+json">
