@@ -675,7 +675,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .review-card {
@@ -683,12 +683,9 @@
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 26px;
-      min-height: 260px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       transition: transform 0.25s ease, border-color 0.25s ease;
-      overflow: hidden;
     }
 
     .review-card:hover {
@@ -706,17 +703,20 @@
       color: var(--muted);
       line-height: 1.7;
       flex: 1;
+      font-size: 0.95rem;
     }
 
     .review-card strong {
       color: #ffffff;
       display: block;
       margin-bottom: 4px;
+      font-size: 0.95rem;
     }
 
     .review-card small {
       color: #999;
       font-weight: 700;
+      font-size: 0.8rem;
     }
 
     .reviews-cta {
@@ -1083,7 +1083,88 @@
       height: 28px;
     }
 
-    /* ========== MOBILE OPTIMIZATION ========== */
+    .hero-content-clean {
+      max-width: 560px;
+      padding: 32px 32px 30px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.70), rgba(0,0,0,0.42));
+      border: 1px solid rgba(237,28,36,0.34);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-content-clean .hero-label {
+      margin-bottom: 24px;
+    }
+
+    .hero-content-clean h1 {
+      font-size: clamp(2.35rem, 4.25vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .hero-rating-row {
+      margin-bottom: 22px;
+      gap: 12px;
+    }
+
+    .hero-content-clean p {
+      max-width: 500px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions-clean {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions-clean .btn {
+      width: 100%;
+      min-height: 56px;
+    }
+
+    .hero-trust-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero-trust-stats .stat-card {
+      background: transparent;
+      border: 0;
+      border-right: 1px solid rgba(255,255,255,0.14);
+      border-radius: 0;
+      padding: 0 16px;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .hero-trust-stats .stat-card:first-child {
+      padding-left: 0;
+    }
+
+    .hero-trust-stats .stat-card:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .hero-trust-stats .stat-card strong {
+      font-size: 1rem;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .hero-trust-stats .stat-card span {
+      font-size: 0.85rem;
+      color: #d8d8d8;
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS ========== */
 
     @media (max-width: 1020px) {
       .stats {
@@ -1416,13 +1497,13 @@
       }
 
       .pass-showcase {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
       .pass-showcase img {
-        height: 160px;
-        border-radius: 14px;
+        height: 280px;
+        border-radius: 16px;
       }
 
       .pass-proof-row {
@@ -1449,31 +1530,41 @@
         padding: 44px 0;
       }
 
+      .reviews-head {
+        margin-bottom: 24px;
+      }
+
+      .reviews-head h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
       .review-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
 
       .review-card {
         padding: 18px;
-        min-height: auto;
-        max-height: none;
+      }
+
+      .review-card .stars {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
       }
 
       .review-card p {
-        font-size: 0.9rem;
-        margin-bottom: 12px;
-        max-height: none;
-        display: block;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin-bottom: 10px;
       }
 
       .review-card strong {
-        font-size: 0.95rem;
-        margin-bottom: 4px;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
       }
 
       .review-card small {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
 
       .why {
@@ -1732,10 +1823,12 @@
     @media (max-width: 600px) {
       .pass-showcase {
         grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .pass-showcase img {
-        height: 200px;
+        height: 240px;
+        border-radius: 14px;
       }
 
       .why-grid {
@@ -1801,90 +1894,6 @@
         height: 48px;
       }
     }
-
-    /* ========== HERO CONTENT CLEAN MOBILE ========== */
-
-    .hero-content-clean {
-      max-width: 560px;
-      padding: 32px 32px 30px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.70), rgba(0,0,0,0.42));
-      border: 1px solid rgba(237,28,36,0.34);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
-      backdrop-filter: blur(5px);
-    }
-
-    .hero-content-clean .hero-label {
-      margin-bottom: 24px;
-    }
-
-    .hero-content-clean h1 {
-      font-size: clamp(2.35rem, 4.25vw, 4rem);
-      line-height: 1.04;
-      letter-spacing: -2px;
-      margin-bottom: 18px;
-    }
-
-    .hero-rating-row {
-      margin-bottom: 22px;
-      gap: 12px;
-    }
-
-    .hero-content-clean p {
-      max-width: 500px;
-      margin-bottom: 26px;
-    }
-
-    .hero-actions-clean {
-      display: grid;
-      grid-template-columns: 1fr 0.82fr;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions-clean .btn {
-      width: 100%;
-      min-height: 56px;
-    }
-
-    .hero-trust-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,0.14);
-    }
-
-    .hero-trust-stats .stat-card {
-      background: transparent;
-      border: 0;
-      border-right: 1px solid rgba(255,255,255,0.14);
-      border-radius: 0;
-      padding: 0 16px;
-      backdrop-filter: none;
-      box-shadow: none;
-    }
-
-    .hero-trust-stats .stat-card:first-child {
-      padding-left: 0;
-    }
-
-    .hero-trust-stats .stat-card:last-child {
-      border-right: 0;
-      padding-right: 0;
-    }
-
-    .hero-trust-stats .stat-card strong {
-      font-size: 1rem;
-      line-height: 1.25;
-      margin-bottom: 6px;
-    }
-
-    .hero-trust-stats .stat-card span {
-      font-size: 0.85rem;
-      color: #d8d8d8;
-    }
-
   </style>
 
 <script type="application/ld+json">
