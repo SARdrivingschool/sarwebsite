@@ -283,7 +283,7 @@
     }
 
     .btn {
-      min-height: 60px;
+      min-height: 56px;
       padding: 0 28px;
       border-radius: 16px;
       display: inline-flex;
@@ -372,10 +372,6 @@
       font-size: 0.9rem;
       line-height: 1.45;
     }
-
-
-
-
 
     .areas {
       position: relative;
@@ -845,7 +841,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 48px;
       padding: 0 18px;
       border-radius: 12px;
       background: var(--red);
@@ -1059,8 +1055,8 @@
     }
 
     .float-btn {
-      width: 58px;
-      height: 58px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1082,10 +1078,51 @@
     }
 
     .float-btn svg {
-      width: 29px;
-      height: 29px;
+      width: 28px;
+      height: 28px;
     }
 
+    /* ========== MOBILE OPTIMIZATION ========== */
+
+    @media (max-width: 1020px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pass-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .pass-grid img {
+        height: 260px;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .areas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-panel {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
 
     @media (max-width: 900px) {
       .pass-inner-new {
@@ -1113,58 +1150,6 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .pass-preview {
-        padding: 52px 0;
-      }
-
-      .pass-showcase {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-
-      .pass-showcase img {
-        height: 175px;
-        border-radius: 15px;
-      }
-
-      .pass-proof-row {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .pass-proof-row span {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 1020px) {
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .pass-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .pass-grid img {
-        height: 260px;
-      }
-
-      .why-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .areas-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 100%;
-      }
-
-      .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 768px) {
       header {
         background: #ffffff;
@@ -1176,11 +1161,12 @@
       }
 
       .nav {
-        min-height: 96px;
+        min-height: 88px;
+        gap: 16px;
       }
 
       .logo-img {
-        width: 158px;
+        width: 145px;
         filter: none;
       }
 
@@ -1195,7 +1181,7 @@
       .nav-links {
         display: none;
         position: absolute;
-        top: 96px;
+        top: 88px;
         left: 0;
         right: 0;
         background: #ffffff;
@@ -1222,6 +1208,7 @@
         padding: 14px 0;
         color: #000000;
         border-bottom: 1px solid rgba(0,0,0,0.08);
+        font-size: 0.9rem;
       }
 
       .btn-nav {
@@ -1229,12 +1216,13 @@
         width: 100%;
         text-align: center;
         color: #ffffff !important;
+        padding: 12px 16px;
       }
 
       .hero {
         min-height: auto;
         display: block;
-        padding: 315px 0 34px;
+        padding: 280px 0 28px;
         background: #050505;
       }
 
@@ -1242,7 +1230,7 @@
         background-image:
           linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 42%, #050505 100%),
           url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
-        background-size: auto 330px;
+        background-size: auto 300px;
         background-position: center top;
         background-repeat: no-repeat;
       }
@@ -1254,7 +1242,7 @@
       }
 
       .hero-inner {
-        width: min(100% - 28px, var(--max));
+        width: min(100% - 24px, var(--max));
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -1262,170 +1250,547 @@
       }
 
       .hero-content {
-        padding: 20px 18px 22px;
-        border-radius: 22px;
+        padding: 20px 16px 20px;
+        border-radius: 20px;
         background: linear-gradient(135deg, rgba(0,0,0,0.70), rgba(0,0,0,0.44));
       }
 
       .hero-label {
         width: auto;
         max-width: 100%;
-        padding: 10px 14px;
-        font-size: 0.54rem;
-        letter-spacing: 1.4px;
-        margin-bottom: 16px;
+        padding: 10px 12px;
+        font-size: 0.52rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 12px;
         text-align: center;
         white-space: normal;
       }
 
       .hero h1 {
-        font-size: clamp(2.05rem, 9vw, 2.75rem);
-        line-height: 1.02;
+        font-size: clamp(1.85rem, 9vw, 2.65rem);
+        line-height: 1.05;
         letter-spacing: -1px;
-        margin-bottom: 14px;
-        max-width: 360px;
+        margin-bottom: 12px;
+        max-width: 100%;
       }
 
       .hero p {
-        font-size: 0.95rem;
-        line-height: 1.55;
-        margin-bottom: 20px;
-        max-width: 96%;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        max-width: 100%;
       }
 
       .hero-pass-count {
-        padding: 9px 13px;
-        font-size: 0.82rem;
-        margin-bottom: 14px;
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        margin-bottom: 12px;
       }
 
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
         gap: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
       }
 
       .btn {
         width: 100%;
-        min-height: 50px;
+        min-height: 52px;
         border-radius: 14px;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        padding: 0 16px;
       }
 
       .rating-row {
         display: flex;
         align-items: center;
         gap: 8px 10px;
-        font-size: 0.86rem;
+        font-size: 0.8rem;
         line-height: 1.3;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
       }
 
       .google-logo {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
       }
 
       .rating-row .stars {
-        font-size: 0.88rem;
+        font-size: 0.8rem;
         letter-spacing: 1px;
       }
 
       .stats {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
       }
 
       .stat-card {
-        padding: 16px;
-        border-radius: 15px;
+        padding: 12px;
+        border-radius: 14px;
         min-height: auto;
       }
 
       .stat-card strong {
-        font-size: 1.45rem;
-        margin-bottom: 4px;
+        font-size: 1.1rem;
+        margin-bottom: 3px;
       }
 
       .stat-card span {
-        font-size: 0.8rem;
-        line-height: 1.35;
+        font-size: 0.75rem;
+        line-height: 1.3;
       }
 
-  
-
       .areas {
-        padding: 50px 0;
+        padding: 44px 0;
       }
 
       .areas-head {
-        text-align: left;
+        text-align: center;
         margin-bottom: 24px;
+      }
+
+      .areas-head h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
       }
 
       .areas-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
 
       .area-card {
         min-height: auto;
-        align-items: flex-start;
-        text-align: left;
-        padding: 20px;
-        border-radius: 20px;
-      }
-
-      .area-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 1.35rem;
-        margin-bottom: 14px;
-      }
-
-      .area-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
-      }
-
-      .area-card p {
-        max-width: 100%;
-        margin-bottom: 14px;
-        font-size: 0.9rem;
-      }
-
-      .areas-mini-cta {
-        margin-top: 18px;
-        align-items: stretch;
-        flex-direction: column;
         padding: 18px;
         border-radius: 18px;
       }
 
+      .area-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .area-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+      }
+
+      .area-card p {
+        max-width: 100%;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+
+      .area-link {
+        font-size: 0.9rem;
+      }
+
+      .areas-mini-cta {
+        margin-top: 14px;
+        padding: 16px;
+        gap: 12px;
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .areas-mini-cta strong {
+        font-size: 0.95rem;
+      }
+
+      .areas-mini-cta span {
+        font-size: 0.85rem;
+      }
+
+      .areas-mini-cta .btn {
+        width: 100%;
+      }
+
+      .pass-preview {
+        padding: 44px 0;
+      }
+
+      .pass-showcase {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .pass-showcase img {
+        height: 160px;
+        border-radius: 14px;
+      }
+
+      .pass-proof-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .pass-proof-row span {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        justify-content: center;
+      }
+
+      .pass-copy-new h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
+      .pass-copy-new p {
+        font-size: 0.9rem;
+      }
+
+      .reviews {
+        padding: 44px 0;
+      }
+
+      .review-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .review-card {
+        padding: 18px;
+        min-height: auto;
+      }
+
+      .review-card p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+
+      .why {
+        padding: 44px 0;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .why-card {
+        padding: 18px 14px;
+        border-radius: 16px;
+      }
+
+      .why-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+
+      .why-card h3 {
+        font-size: 0.95rem;
+      }
+
+      .why-card p {
+        font-size: 0.8rem;
+      }
+
+      .section {
+        padding: 44px 0;
+      }
+
+      .section h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
+      .section p {
+        font-size: 0.9rem;
+      }
+
+      .cards {
+        margin-top: 24px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+      }
+
+      .card-link {
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.9rem;
+      }
+
+      .how-it-works {
+        padding: 44px 0;
+      }
+
+      .steps-grid {
+        margin-top: 24px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .step-card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .step-number {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+
+      .step-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .step-card p {
+        font-size: 0.85rem;
+      }
+
+      .faq {
+        padding: 44px 0;
+      }
+
+      .faq h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
+      .faq-grid {
+        margin-top: 24px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .faq-item {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .faq-item h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .faq-item p {
+        font-size: 0.85rem;
+      }
+
+      .local-seo {
+        padding: 44px 0;
+      }
+
+      .local-seo-box {
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+      .local-seo-box h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
+      .local-seo-box p {
+        font-size: 0.9rem;
+      }
+
+      .cta {
+        padding: 0 0 44px;
+      }
+
+      .cta-panel {
+        padding: 28px;
+        border-radius: 20px;
+      }
+
+      .cta-panel h2 {
+        font-size: clamp(1.75rem, 5vw, 2.2rem);
+      }
+
+      .cta p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+      }
+
+      .cta-box {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .cta-box strong {
+        font-size: 1.1rem;
+      }
+
+      .cta-box span {
+        font-size: 0.85rem;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+
+      .footer-local {
+        margin-bottom: 16px;
+      }
+
+      .footer-local h3 {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+      }
+
+      .footer-links {
+        gap: 8px 12px;
+      }
+
+      .footer-links a {
+        font-size: 0.85rem;
+      }
+
+      .floating-actions {
+        right: 16px;
+        bottom: 16px;
+        gap: 10px;
+      }
+
+      .float-btn {
+        width: 52px;
+        height: 52px;
+      }
+
+      .float-btn svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .hero-content-clean {
+        padding: 18px 14px 18px;
+      }
+
+      .hero-content-clean h1 {
+        font-size: clamp(1.85rem, 8vw, 2.45rem);
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+      }
+
+      .hero-actions-clean {
+        grid-template-columns: 1fr;
+        margin-bottom: 16px;
+      }
+
+      .hero-trust-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-top: 14px;
+      }
+
+      .hero-trust-stats .stat-card {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.11);
+        padding: 0 0 10px;
+      }
+
+      .hero-trust-stats .stat-card:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .hero-trust-stats .stat-card strong {
+        font-size: 0.95rem;
+      }
+
+      .hero-trust-stats .stat-card span {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pass-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .pass-showcase img {
+        height: 200px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        font-size: 0.85rem;
+      }
+
+      .section-label {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+      }
     }
 
     @media (max-width: 430px) {
-
       .hero h1 {
-        font-size: 2.24rem;
+        font-size: clamp(1.75rem, 8vw, 2.2rem);
       }
 
       .hero-label {
-        font-size: 0.52rem;
+        font-size: 0.5rem;
+        padding: 8px 10px;
       }
 
       .stats {
         grid-template-columns: 1fr;
       }
 
-      .pass-grid img {
-        height: 155px;
+      .hero-trust-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .area-card {
+        min-height: auto;
+        padding: 14px;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .step-card {
+        padding: 14px;
+      }
+
+      .faq-item {
+        padding: 14px;
+      }
+
+      .floating-actions {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .float-btn {
+        width: 48px;
+        height: 48px;
       }
     }
 
+    /* ========== HERO CONTENT CLEAN MOBILE ========== */
 
-    /* Design 4 hero update */
     .hero-content-clean {
       max-width: 560px;
       padding: 32px 32px 30px;
@@ -1466,7 +1831,7 @@
 
     .hero-actions-clean .btn {
       width: 100%;
-      min-height: 58px;
+      min-height: 56px;
     }
 
     .hero-trust-stats {
@@ -1505,37 +1870,6 @@
     .hero-trust-stats .stat-card span {
       font-size: 0.85rem;
       color: #d8d8d8;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content-clean {
-        padding: 22px 18px 22px;
-      }
-
-      .hero-content-clean h1 {
-        font-size: clamp(2rem, 8.4vw, 2.7rem);
-        letter-spacing: -1px;
-      }
-
-      .hero-actions-clean {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-trust-stats {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .hero-trust-stats .stat-card {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.11);
-        padding: 0 0 12px;
-      }
-
-      .hero-trust-stats .stat-card:last-child {
-        border-bottom: 0;
-        padding-bottom: 0;
-      }
     }
 
   </style>
@@ -1715,7 +2049,7 @@
         <div class="areas-mini-cta">
           <div>
             <strong>Not sure if we cover your exact postcode?</strong>
-            <span>Send us your area and lesson type — we’ll confirm availability quickly.</span>
+            <span>Send us your area and lesson type — we'll confirm availability quickly.</span>
           </div>
           <a href="https://wa.me/447902023737" target="_blank" class="btn btn-primary">WhatsApp Us →</a>
         </div>
@@ -1768,7 +2102,7 @@
         <div class="review-grid">
           <div class="review-card">
             <span class="stars">★★★★★</span>
-            <p>I can’t recommend Riz enough. I was very nervous to start driving, but he put me at ease straight away. After my first lesson, I instantly felt more confident.</p>
+            <p>I can't recommend Riz enough. I was very nervous to start driving, but he put me at ease straight away. After my first lesson, I instantly felt more confident.</p>
             <strong>Sarah Owen</strong>
             <small>Google review</small>
           </div>
@@ -1796,7 +2130,7 @@
 
           <div class="review-card">
             <span class="stars">★★★★★</span>
-            <p>I couldn’t have asked for a better instructor. My lessons with Sikander were always clear and easy to follow, helping my confidence behind the wheel grow. I managed to pass first time through SAR Driving School and would highly recommend.</p>
+            <p>I couldn't have asked for a better instructor. My lessons with Sikander were always clear and easy to follow, helping my confidence behind the wheel grow. I managed to pass first time through SAR Driving School and would highly recommend.</p>
             <strong>Lena Brindle</strong>
             <small>Google review</small>
           </div>
@@ -1844,7 +2178,7 @@
             <div class="why-icon">🚗</div>
             <div>
               <h3>Modern Teaching</h3>
-              <p>Clear, structured lessons for today’s roads.</p>
+              <p>Clear, structured lessons for today's roads.</p>
             </div>
           </div>
 
@@ -1923,7 +2257,7 @@
           <div class="step-card">
             <div class="step-number">2</div>
             <h3>We check availability</h3>
-            <p>We’ll let you know what instructors, lesson types and times are available.</p>
+            <p>We'll let you know what instructors, lesson types and times are available.</p>
           </div>
 
           <div class="step-card">
@@ -2000,7 +2334,7 @@
             <div class="section-label" style="color:#fff;">Ready to start?</div>
             <h2>Need lessons before your test?</h2>
             <p>
-              Send us your test date, area and availability — we’ll let you know what we can offer.
+              Send us your test date, area and availability — we'll let you know what we can offer.
               Book your first lesson today and start driving with confidence.
             </p>
 
@@ -2011,7 +2345,7 @@
           </div>
 
           <div class="cta-box">
-            <strong>Let’s get you test ready.</strong>
+            <strong>Let's get you test ready.</strong>
             <span>Manual, automatic and refresher lessons available across Milton Keynes and surrounding areas.</span>
           </div>
         </div>
