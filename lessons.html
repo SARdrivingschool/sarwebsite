@@ -9,24 +9,22 @@
     gtag('js', new Date());
     gtag('config', 'AW-18198829338');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Driving Lessons | SAR Driving School</title>
-
   <meta name="description" content="Driving lessons in Milton Keynes with SAR Driving School. Manual, automatic and refresher lessons with DVSA-approved instructors. Lessons from £38 per hour.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
 
   <style>
     :root {
       --red: #ed1c24;
       --red-dark: #b80f16;
       --dark: #0b0b0b;
-      --dark2: #111111;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -36,21 +34,126 @@
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
       background: #0b0b0b;
       color: #ffffff;
     }
 
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* ========== NAVIGATION ========== */
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      position: relative;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 80px;
+    }
+
+    .logo-img {
+      width: 150px;
+      height: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 900;
+    }
+
+    .hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 201;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 3px;
+      background: #000000;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* ========== PAGE HERO ========== */
     .page-hero {
       position: relative;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.68) 45%, rgba(0,0,0,0.30) 100%),
-        url("images/lessons-bg.png") center/cover no-repeat;
+      background: linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.68) 45%, rgba(0,0,0,0.30) 100%),
+                  url("images/lessons-bg.png") center/cover no-repeat;
       min-height: 460px;
       display: flex;
       align-items: center;
+      padding: 60px 0;
       overflow: hidden;
     }
 
@@ -58,34 +161,30 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.18), transparent 34%),
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      background: radial-gradient(circle at 18% 70%, rgba(237,28,36,0.18), transparent 34%),
+                  linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
       pointer-events: none;
     }
 
     .page-hero-inner {
       position: relative;
       z-index: 2;
-      max-width: 1100px;
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      width: 100%;
-      padding: 0 2rem;
     }
 
     .page-hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.6rem);
-      line-height: 1.02;
-      color: #ffffff;
-      margin: 0 0 1rem;
-      letter-spacing: -2px;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
     }
 
     .page-hero p {
       color: #d6d6d6;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      max-width: 880px;
+      max-width: 800px;
     }
 
     .section-label {
@@ -93,26 +192,23 @@
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 2px;
-      font-size: 0.85rem;
-      margin-bottom: 0.9rem;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
     }
 
+    /* ========== LESSON SECTION ========== */
     .lesson-section {
       background: #0b0b0b;
-      padding: 78px 2rem 35px;
-    }
-
-    .lesson-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+      padding: 72px 0 36px;
     }
 
     .lesson-block {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
+      gap: 48px;
       align-items: center;
-      padding: 64px 0;
+      padding: 56px 0;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
@@ -122,37 +218,36 @@
 
     .lesson-block:last-child {
       border-bottom: none;
-      padding-bottom: 35px;
+      padding-bottom: 0;
     }
 
     .lesson-text h2 {
-      color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.08;
-      margin-bottom: 1.2rem;
-      letter-spacing: -1px;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.12;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
     .lesson-text p {
       color: #cfcfcf;
       line-height: 1.75;
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.04rem;
+      margin-bottom: 20px;
       max-width: 650px;
     }
 
     .lesson-features {
       list-style: none;
-      padding: 0;
-      margin: 0 0 1.8rem;
+      margin-bottom: 24px;
       display: grid;
-      gap: 0.85rem;
+      gap: 10px;
     }
 
     .lesson-features li {
       color: #e0e0e0;
       font-weight: 700;
       line-height: 1.5;
+      font-size: 0.98rem;
     }
 
     .lesson-actions {
@@ -183,105 +278,180 @@
       border-radius: 20px;
       box-shadow: 0 18px 42px rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease;
     }
 
     .lesson-img img:hover {
       transform: translateY(-5px);
-      box-shadow: 0 24px 55px rgba(0,0,0,0.48);
     }
 
+    /* ========== BUTTONS ========== */
     .btn-primary,
     .btn-secondary,
     .btn-whatsapp {
       min-height: 56px;
-      padding: 0 1.55rem;
-      border-radius: 12px;
+      padding: 0 24px;
+      border-radius: 14px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+      border: 1px solid;
     }
 
     .btn-primary {
       background: var(--red);
       color: #ffffff;
-      border: 1px solid var(--red);
+      border-color: var(--red);
       box-shadow: 0 12px 28px rgba(237,28,36,0.24);
     }
 
     .btn-primary:hover {
       background: var(--red-dark);
-      border-color: var(--red-dark);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
       background: rgba(255,255,255,0.04);
       color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
     }
 
     .btn-whatsapp {
       background: rgba(37,211,102,0.09);
       color: #ffffff;
-      border: 1px solid rgba(37,211,102,0.45);
+      border-color: rgba(37,211,102,0.45);
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover,
     .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      background: rgba(37,211,102,0.15);
+    }
+
+    /* ========== SERVICE LINKS ========== */
+    .service-links-section {
+      background: #0b0b0b;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-links-head {
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .service-links-head h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .service-links-head p {
+      color: #cfcfcf;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .service-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-link-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-link-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .service-link-card h3 {
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .service-link-card p {
+      color: #bdbdbd;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-size: 0.94rem;
+    }
+
+    .service-link-card a {
+      color: #ffffff;
+      background: var(--red);
+      min-height: 48px;
+      border-radius: 12px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .service-link-card a:hover {
+      background: var(--red-dark);
       transform: translateY(-2px);
     }
 
+    /* ========== HELP SECTION ========== */
     .lesson-help-section {
-      position: relative;
       background: #0b0b0b;
-      padding: 65px 2rem 90px;
+      padding: 68px 0;
       overflow: hidden;
+      position: relative;
     }
 
     .lesson-help-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
-        radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
+      background: radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
+                  radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
       pointer-events: none;
     }
 
     .lesson-help-card {
       position: relative;
       z-index: 2;
-      max-width: 1100px;
-      margin: 0 auto;
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)),
-        #101010;
+      background: linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)), #101010;
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 28px;
-      padding: 42px;
+      padding: 40px;
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
-      gap: 34px;
+      gap: 36px;
       align-items: center;
       box-shadow: 0 24px 60px rgba(0,0,0,0.35);
     }
 
     .lesson-help-content h2 {
-      color: #ffffff;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      line-height: 1.05;
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.08;
       margin-bottom: 16px;
     }
 
     .lesson-help-content p {
       color: #cfcfcf;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       line-height: 1.75;
       max-width: 620px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .lesson-help-actions {
@@ -300,13 +470,12 @@
       background: rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 20px;
-      padding: 22px;
+      padding: 20px;
       display: grid;
       grid-template-columns: auto 1fr;
-      column-gap: 16px;
-      row-gap: 4px;
+      column-gap: 14px;
       align-items: start;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .help-mini-card:hover {
@@ -316,52 +485,45 @@
     }
 
     .help-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: #ed1c24;
+      background: var(--red);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
-      grid-row: span 2;
+      font-size: 1.2rem;
       box-shadow: 0 12px 24px rgba(237,28,36,0.22);
     }
 
     .help-mini-card h3 {
       color: #ffffff;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       margin-bottom: 4px;
     }
 
     .help-mini-card p {
       color: #bfbfbf;
-      font-size: 0.96rem;
-      line-height: 1.6;
-      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
+    /* ========== EXTRA SECTION ========== */
     .lesson-extra-section {
       background: #101010;
-      padding: 80px 2rem;
+      padding: 68px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .lesson-extra-inner {
-      max-width: 1100px;
-      margin: 0 auto;
     }
 
     .lesson-extra-head {
       text-align: center;
       max-width: 760px;
-      margin: 0 auto 2.3rem;
+      margin: 0 auto 36px;
     }
 
     .lesson-extra-head h2 {
-      color: #ffffff;
-      font-size: clamp(2.1rem, 4vw, 3.1rem);
-      margin-bottom: 0.9rem;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
     }
 
     .lesson-extra-head p {
@@ -373,14 +535,14 @@
     .lesson-extra-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      gap: 18px;
     }
 
     .lesson-extra-card {
-      background: #151515;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 1.4rem;
+      padding: 24px;
       text-align: center;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
@@ -398,100 +560,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.35rem;
+      margin: 0 auto 14px;
+      font-size: 1.4rem;
       font-weight: 900;
       box-shadow: 0 12px 24px rgba(237,28,36,0.22);
     }
 
     .lesson-extra-card h3 {
-      color: #ffffff;
       font-size: 1.05rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
     }
 
     .lesson-extra-card p {
       color: #bdbdbd;
       font-size: 0.92rem;
       line-height: 1.55;
-      margin: 0;
     }
 
-    .service-links-section {
-      background: #0b0b0b;
-      padding: 70px 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .service-links-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .service-links-head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    .service-links-head h2 {
-      color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.08;
-      margin-bottom: 12px;
-    }
-
-    .service-links-head p {
-      color: #cfcfcf;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    .service-links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .service-link-card {
-      background: #151515;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 24px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .service-link-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
-    }
-
-    .service-link-card h3 {
-      color: #ffffff;
-      margin-bottom: 10px;
-      font-size: 1.25rem;
-    }
-
-    .service-link-card p {
-      color: #bdbdbd;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-
-    .service-link-card a {
-      color: #ffffff;
-      background: var(--red);
-      min-height: 46px;
-      border-radius: 12px;
-      padding: 0 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-    }
-
+    /* ========== FOOTER ========== */
     footer {
-      padding: 34px 2rem;
+      padding: 32px 0;
       text-align: center;
       color: #999;
       background: #050505;
@@ -499,26 +587,27 @@
     }
 
     .footer-local {
-      max-width: 1100px;
-      margin: 0 auto 24px;
+      max-width: var(--max);
+      margin: 0 auto 20px;
+      padding: 0 16px;
     }
 
     .footer-local h3 {
       color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
+      font-size: 1rem;
+      margin-bottom: 12px;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px 18px;
+      gap: 8px 14px;
     }
 
     .footer-links a {
       color: #cfcfcf;
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
@@ -526,10 +615,37 @@
       color: var(--red);
     }
 
-    @media (max-width: 900px) {
+    /* ========== WHATSAPP FLOAT ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1020px) {
       .lesson-block {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 30px;
       }
 
       .lesson-img img {
@@ -538,6 +654,7 @@
 
       .lesson-help-card {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .lesson-extra-grid,
@@ -548,107 +665,78 @@
 
     @media (max-width: 768px) {
       .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        padding: 8px;
-        background: none;
-        border: none;
-        z-index: 201;
+        display: flex;
       }
-
-      .hamburger span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: #111111;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
       nav ul {
-        display: none !important;
-      }
-
-      nav ul.open {
-        display: flex !important;
-        flex-direction: column;
+        display: none;
         position: absolute;
-        top: 70px;
+        top: 80px;
         left: 0;
         right: 0;
         background: #ffffff;
-        border-top: 1px solid #eeeeee;
-        padding: 0.5rem 1.5rem 1.25rem;
-        gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        flex-direction: column;
+        padding: 12px 16px 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         z-index: 200;
+        gap: 0;
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
       }
 
       nav ul a {
         display: block;
-        padding: 0.9rem 0;
-        font-size: 1rem;
-        color: #111111;
-        border-bottom: 1px solid #f0f0f0;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        font-size: 0.9rem;
       }
 
-      .nav-inner {
-        position: relative;
-        height: 70px;
+      .btn-nav {
+        margin-top: 8px;
+        width: 100%;
+        text-align: center;
       }
 
       .page-hero {
-        min-height: 500px;
-        padding: 70px 0;
-        background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
-          url("images/lessons-bg.png") center right/cover no-repeat;
-      }
-
-      .page-hero-inner {
-        padding: 0 1.25rem;
+        min-height: 400px;
+        padding: 40px 0;
       }
 
       .page-hero h1 {
-        font-size: 2.35rem;
-        line-height: 1.12;
+        font-size: clamp(2rem, 7vw, 2.8rem);
+        margin-bottom: 12px;
       }
 
       .page-hero p {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 0.95rem;
       }
 
       .lesson-section {
-        padding: 50px 1.25rem 10px;
+        padding: 48px 0 20px;
       }
 
       .lesson-block {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.5rem !important;
-        padding: 45px 0;
-      }
-
-      .lesson-img {
-        width: 100%;
-      }
-
-      .lesson-img img {
-        width: 100% !important;
-        height: 230px !important;
-        border-radius: 14px !important;
+        padding: 40px 0;
       }
 
       .lesson-text h2 {
-        font-size: 1.9rem !important;
+        font-size: clamp(1.65rem, 5vw, 2.2rem);
+      }
+
+      .lesson-text p {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+      }
+
+      .lesson-features li {
+        font-size: 0.9rem;
       }
 
       .lesson-actions {
@@ -661,13 +749,25 @@
         width: 100%;
       }
 
-      .lesson-help-section {
-        padding: 52px 1.25rem 60px;
+      .lesson-img img {
+        height: 220px;
+        border-radius: 16px;
+      }
+
+      .service-links-section,
+      .lesson-help-section,
+      .lesson-extra-section {
+        padding: 44px 0;
+      }
+
+      .service-links-grid,
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
       .lesson-help-card {
-        grid-template-columns: 1fr;
-        padding: 28px 20px;
+        padding: 24px 18px;
         border-radius: 22px;
       }
 
@@ -683,29 +783,99 @@
       }
 
       .help-mini-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto 1fr;
+        padding: 16px;
       }
 
       .help-icon {
-        grid-row: auto;
-        margin-bottom: 6px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
       }
 
-      .lesson-extra-section,
-      .service-links-section {
-        padding: 55px 1.25rem;
+      .help-mini-card h3 {
+        font-size: 0.95rem;
       }
 
-      .lesson-extra-grid,
-      .service-links-grid {
-        grid-template-columns: 1fr;
+      .lesson-extra-head h2 {
+        font-size: clamp(1.65rem, 5vw, 2.2rem);
       }
 
       .whatsapp-float {
-        width: 56px !important;
-        height: 56px !important;
-        bottom: 18px !important;
-        right: 18px !important;
+        width: 56px;
+        height: 56px;
+        bottom: 18px;
+        right: 18px;
+      }
+
+      .footer-local {
+        padding: 0 12px;
+      }
+
+      .footer-links {
+        gap: 6px 10px;
+      }
+
+      .footer-links a {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .lesson-extra-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .lesson-extra-card {
+        padding: 16px;
+      }
+
+      .lesson-extra-card span {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .lesson-extra-card h3 {
+        font-size: 0.95rem;
+      }
+
+      .service-link-card {
+        padding: 18px;
+      }
+
+      .service-link-card h3 {
+        font-size: 1.05rem;
+      }
+
+      .service-link-card a {
+        font-size: 0.85rem;
+        min-height: 44px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .page-hero h1 {
+        font-size: 1.85rem;
+      }
+
+      .lesson-text h2 {
+        font-size: 1.55rem;
+      }
+
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .help-mini-card {
+        padding: 14px;
+      }
+
+      .help-icon {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
@@ -747,7 +917,7 @@
     </section>
 
     <section class="lesson-section">
-      <div class="lesson-inner">
+      <div class="container">
 
         <div class="lesson-block">
           <div class="lesson-text">
@@ -803,7 +973,7 @@
           <div class="lesson-text">
             <div class="section-label">Back on the road</div>
             <h2>Refresher lessons</h2>
-            <p>Already have a licence but haven’t driven in a while? Our refresher lessons help you rebuild your confidence at your own pace — no judgement, just patient guidance.</p>
+            <p>Already have a licence but haven't driven in a while? Our refresher lessons help you rebuild your confidence at your own pace — no judgement, just patient guidance.</p>
 
             <ul class="lesson-features">
               <li>✓ Tailored to your specific needs</li>
@@ -828,7 +998,8 @@
     </section>
 
     <section class="service-links-section">
-      <div class="service-links-inner">
+      <div class="container">
+
         <div class="service-links-head">
           <div class="section-label">Lesson types</div>
           <h2>Driving lessons tailored to you</h2>
@@ -854,59 +1025,71 @@
             <a href="refresher-driving-lessons-milton-keynes.html">View Refresher</a>
           </div>
         </div>
+
       </div>
     </section>
 
     <section class="lesson-help-section">
       <div class="lesson-help-bg"></div>
 
-      <div class="lesson-help-card">
-        <div class="lesson-help-content">
-          <div class="section-label">Need help choosing?</div>
-          <h2>Not sure where to start?</h2>
-          <p>
-            Tell us your driving experience, location and preferred lesson type.
-            We’ll help you choose the right option and match you with a suitable instructor.
-          </p>
+      <div class="container">
+        <div class="lesson-help-card">
 
-          <div class="lesson-help-actions">
-            <a href="book.html" class="btn-primary">Book a lesson</a>
-            <a href="contact.html" class="btn-secondary">Contact us</a>
-            <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
-          </div>
-        </div>
+          <div class="lesson-help-content">
+            <div class="section-label">Need help choosing?</div>
+            <h2>Not sure where to start?</h2>
+            <p>Tell us your driving experience, location and preferred lesson type. We'll help you choose the right option and match you with a suitable instructor.</p>
 
-        <div class="lesson-help-grid">
-          <div class="help-mini-card">
-            <div class="help-icon">🚗</div>
-            <h3>First-time learner?</h3>
-            <p>Start with a normal manual or automatic lesson depending on your goal.</p>
+            <div class="lesson-help-actions">
+              <a href="book.html" class="btn-primary">Book a lesson</a>
+              <a href="contact.html" class="btn-secondary">Contact us</a>
+              <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+            </div>
           </div>
 
-          <div class="help-mini-card">
-            <div class="help-icon">🔄</div>
-            <h3>Already driven before?</h3>
-            <p>Book a refresher lesson to rebuild confidence and sharpen your skills.</p>
+          <div class="lesson-help-grid">
+
+            <div class="help-mini-card">
+              <div class="help-icon">🚗</div>
+              <div>
+                <h3>First-time learner?</h3>
+                <p>Start with a normal manual or automatic lesson depending on your goal.</p>
+              </div>
+            </div>
+
+            <div class="help-mini-card">
+              <div class="help-icon">🔄</div>
+              <div>
+                <h3>Already driven before?</h3>
+                <p>Book a refresher lesson to rebuild confidence and sharpen your skills.</p>
+              </div>
+            </div>
+
+            <div class="help-mini-card">
+              <div class="help-icon">📍</div>
+              <div>
+                <h3>Unsure about area?</h3>
+                <p>Message us your postcode and we'll confirm availability near you.</p>
+              </div>
+            </div>
+
           </div>
 
-          <div class="help-mini-card">
-            <div class="help-icon">📍</div>
-            <h3>Unsure about area?</h3>
-            <p>Message us your postcode and we’ll confirm availability near you.</p>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="lesson-extra-section">
-      <div class="lesson-extra-inner">
+      <div class="container">
+
         <div class="lesson-extra-head">
           <div class="section-label">How it works</div>
           <h2>Simple steps to get started</h2>
-          <p>Book your preferred lesson, send your details and we’ll confirm the best instructor and availability for you.</p>
+          <p>Book your preferred lesson, send your details and we'll confirm the best instructor and availability for you.</p>
         </div>
 
         <div class="lesson-extra-grid">
+
           <div class="lesson-extra-card">
             <span>1</span>
             <h3>Choose lesson type</h3>
@@ -922,7 +1105,7 @@
           <div class="lesson-extra-card">
             <span>3</span>
             <h3>We confirm options</h3>
-            <p>We’ll check instructor availability and suggest the best fit.</p>
+            <p>We'll check instructor availability and suggest the best fit.</p>
           </div>
 
           <div class="lesson-extra-card">
@@ -930,7 +1113,9 @@
             <h3>Start learning</h3>
             <p>Begin your lessons with a clear plan and patient guidance.</p>
           </div>
+
         </div>
+
       </div>
     </section>
 
@@ -939,20 +1124,25 @@
   <footer>
     <div class="footer-local">
       <h3>Local Driving Lesson Areas</h3>
-
       <div class="footer-links">
-        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Bletchley</a>
+        <a href="driving-lessons-bedford.html">Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Leighton Buzzard</a>
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Lessons</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Lessons</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Lessons</a>
       </div>
     </div>
-      <a href="terms.html">Terms & Conditions</a>
+    <a href="terms.html">Terms & Conditions</a>
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+    </svg>
+  </a>
 
   <script>
     const hamburger = document.getElementById('hamburger');
@@ -970,26 +1160,6 @@
       });
     });
   </script>
-
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    z-index: 9999;
-    transition: transform 0.2s;
-  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
 
 </body>
 </html>
