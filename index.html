@@ -1009,6 +1009,317 @@ margin-bottom: 6px;
 font-size: 0.85rem;
 color: #d8d8d8;
     }
+
+/* ========== MODAL POPUP ========== */
+.promo-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.7);
+z-index: 9999;
+align-items: center;
+justify-content: center;
+overflow-y: auto;
+padding: 20px 0;
+}
+
+.promo-modal.show {
+display: flex;
+animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+.promo-modal-content {
+background: #ffffff;
+border-radius: 28px;
+padding: 0;
+max-width: 900px;
+width: 100%;
+box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+position: relative;
+animation: slideUp 0.4s ease;
+overflow: hidden;
+}
+
+@keyframes slideUp {
+from { transform: translateY(40px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+.promo-modal-close {
+position: absolute;
+top: 20px;
+right: 20px;
+width: 48px;
+height: 48px;
+background: rgba(237,28,36,0.1);
+border: none;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+color: var(--red);
+transition: all 0.2s ease;
+z-index: 10000;
+}
+
+.promo-modal-close:hover {
+background: var(--red);
+color: #ffffff;
+transform: scale(1.1);
+}
+
+.promo-modal-inner {
+display: grid;
+grid-template-columns: 1.1fr 0.9fr;
+gap: 44px;
+align-items: center;
+background: linear-gradient(135deg, rgba(237,28,36,0.95), rgba(237,28,36,0.85)), url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+background-size: cover;
+background-position: center;
+padding: 52px;
+position: relative;
+overflow: hidden;
+}
+
+.promo-modal-inner::before {
+content: "";
+position: absolute;
+inset: 0;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(0,0,0,0.2), transparent 50%);
+pointer-events: none;
+}
+
+.promo-modal-content-text {
+position: relative;
+z-index: 2;
+}
+
+.promo-modal-content-text .section-label {
+color: #ffffff;
+border-color: rgba(255,255,255,0.45);
+background: rgba(255,255,255,0.15);
+margin-bottom: 16px;
+display: inline-flex;
+}
+
+.promo-modal-content-text h2 {
+font-size: clamp(2.2rem, 4vw, 3.2rem);
+line-height: 1.08;
+margin-bottom: 18px;
+letter-spacing: -1px;
+color: #ffffff;
+}
+
+.promo-modal-content-text p {
+color: #f4f4f4;
+line-height: 1.75;
+font-size: 1.05rem;
+max-width: 620px;
+margin-bottom: 24px;
+}
+
+.promo-modal-benefits {
+display: grid;
+grid-template-columns: 1fr;
+gap: 16px;
+margin-bottom: 28px;
+}
+
+.promo-benefit-item {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+background: rgba(255,255,255,0.12);
+border: 1px solid rgba(255,255,255,0.18);
+border-radius: 18px;
+padding: 18px;
+}
+
+.promo-benefit-icon {
+width: 48px;
+height: 48px;
+min-width: 48px;
+border-radius: 50%;
+background: rgba(255,255,255,0.25);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.6rem;
+}
+
+.promo-benefit-text h3 {
+color: #ffffff;
+font-size: 1.05rem;
+margin-bottom: 4px;
+}
+
+.promo-benefit-text p {
+margin: 0;
+font-size: 0.9rem;
+color: #f0f0f0;
+line-height: 1.5;
+}
+
+.promo-modal-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+
+.promo-modal-card {
+position: relative;
+z-index: 2;
+background: rgba(255,255,255,0.95);
+border-radius: 28px;
+padding: 36px 28px;
+text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.promo-modal-card .award-icon {
+font-size: 3.2rem;
+margin-bottom: 16px;
+}
+
+.promo-modal-card h3 {
+color: var(--red);
+font-size: clamp(1.8rem, 4vw, 2.6rem);
+line-height: 1.05;
+margin-bottom: 12px;
+letter-spacing: -1px;
+}
+
+.promo-modal-card p {
+color: #333;
+font-size: 0.95rem;
+line-height: 1.6;
+max-width: 280px;
+margin-bottom: 20px;
+}
+
+.promo-modal-card .subtext {
+display: block;
+color: #666;
+font-size: 0.85rem;
+font-weight: 700;
+margin-top: 12px;
+padding-top: 12px;
+border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1020px) {
+.promo-modal-inner {
+grid-template-columns: 1fr;
+gap: 32px;
+}
+}
+
+@media (max-width: 768px) {
+.promo-modal-inner {
+padding: 32px 20px;
+}
+
+.promo-modal-close {
+width: 44px;
+height: 44px;
+font-size: 24px;
+top: 16px;
+right: 16px;
+}
+
+.promo-modal-content-text h2 {
+font-size: clamp(1.75rem, 5vw, 2.2rem);
+}
+
+.promo-modal-content-text p {
+font-size: 0.9rem;
+}
+
+.promo-benefit-item {
+padding: 14px;
+gap: 12px;
+}
+
+.promo-benefit-icon {
+width: 42px;
+height: 42px;
+font-size: 1.4rem;
+}
+
+.promo-benefit-text h3 {
+font-size: 0.95rem;
+}
+
+.promo-benefit-text p {
+font-size: 0.8rem;
+}
+
+.promo-modal-card {
+padding: 24px 18px;
+}
+
+.promo-modal-card .award-icon {
+font-size: 2.4rem;
+margin-bottom: 12px;
+}
+
+.promo-modal-card h3 {
+font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.promo-modal-card p {
+font-size: 0.85rem;
+}
+
+.promo-modal-actions {
+justify-content: center;
+}
+}
+
+@media (max-width: 600px) {
+.promo-modal-inner {
+padding: 24px 16px;
+}
+
+.promo-modal-close {
+width: 40px;
+height: 40px;
+font-size: 20px;
+}
+
+.promo-benefit-item {
+padding: 12px;
+}
+
+.promo-modal-card {
+padding: 20px 14px;
+}
+
+.promo-modal-card h3 {
+font-size: 1.45rem;
+}
+
+.promo-modal-card p {
+font-size: 0.85rem;
+}
+}
+
 /* ========== RESPONSIVE BREAKPOINTS ========== */
 @media (max-width: 1020px) {
 .stats {
@@ -1690,6 +2001,63 @@ border-radius: 12px;
 </script>
 </head>
 <body>
+
+<!-- PROMO MODAL POPUP -->
+<div id="promoModal" class="promo-modal">
+<div class="promo-modal-content">
+<button class="promo-modal-close" id="closePromoBtn">✕</button>
+
+<div class="promo-modal-inner">
+<div class="promo-modal-content-text">
+<div class="section-label">🎯 Exclusive Offer</div>
+<h2>Pass with Zero Minors<br><span style="color: #ffffff;">Get £100 Amazon Voucher</span></h2>
+<p>
+Any learner from SAR Driving School who passes their driving test with ZERO driving faults (zero minors) will receive a £100 Amazon voucher from us. We're confident in our teaching.
+</p>
+
+<div class="promo-modal-benefits">
+<div class="promo-benefit-item">
+<div class="promo-benefit-icon">✓</div>
+<div class="promo-benefit-text">
+<h3>Pass with 0 Minors</h3>
+<p>A clean sheet drive is rewarded.</p>
+</div>
+</div>
+
+<div class="promo-benefit-item">
+<div class="promo-benefit-icon">🚗</div>
+<div class="promo-benefit-text">
+<h3>Drive to DVSA Standard</h3>
+<p>Safe, confident, DVSA standard driving.</p>
+</div>
+</div>
+
+<div class="promo-benefit-item">
+<div class="promo-benefit-icon">🎁</div>
+<div class="promo-benefit-text">
+<h3>£100 Amazon Voucher</h3>
+<p>Our way of saying well done!</p>
+</div>
+</div>
+</div>
+
+<div class="promo-modal-actions">
+<a href="book.html" class="btn btn-primary">Book Your Lessons Now →</a>
+<a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">Ask About This Offer</a>
+</div>
+</div>
+
+<div class="promo-modal-card">
+<div class="award-icon">🏆</div>
+<h3>Exclusive for<br>SAR Learners</h3>
+<p>This reward is only available to learners booking with SAR Driving School.</p>
+<span class="subtext">Terms apply</span>
+</div>
+</div>
+</div>
+</div>
+<!-- END PROMO MODAL -->
+
 <header>
 <div class="container nav">
 <a href="index.html" class="logo" aria-label="SAR Driving School">
@@ -1712,7 +2080,9 @@ border-radius: 12px;
 </ul>
 </div>
 </header>
+
 <main>
+
 <section class="hero">
 <div class="container hero-inner">
 <div class="hero-content hero-content-clean">
@@ -1751,6 +2121,7 @@ Helping learners pass with confidence through calm, structured and expert drivin
 </div>
 </div>
 </section>
+
 <section class="areas">
 <div class="container">
 <div class="areas-head">
@@ -1790,6 +2161,7 @@ Choose your nearest location and get started with SAR Driving School.
 </div>
 </div>
 </section>
+
 <section class="pass-preview">
 <div class="container pass-inner-new">
 <div class="pass-copy-new">
@@ -1819,6 +2191,7 @@ Manual and automatic lessons available across Milton Keynes and surrounding area
 </div>
 </div>
 </section>
+
 <section class="reviews">
 <div class="container">
 <div class="reviews-head">
@@ -1869,6 +2242,7 @@ Manual and automatic lessons available across Milton Keynes and surrounding area
 </div>
 </div>
 </section>
+
 <section class="why">
 <div class="container">
 <div class="why-head">
@@ -1915,6 +2289,7 @@ Manual and automatic lessons available across Milton Keynes and surrounding area
 </div>
 </div>
 </section>
+
 <section class="section">
 <div class="container">
 <div class="section-label">Lesson options</div>
@@ -1948,6 +2323,7 @@ clear guidance and a teaching style tailored to your confidence and ability.
 </div>
 </div>
 </section>
+
 <section class="how-it-works">
 <div class="container">
 <div class="section-label">How lessons work</div>
@@ -1975,6 +2351,7 @@ with the right instructor.
 </div>
 </div>
 </section>
+
 <section class="faq">
 <div class="container">
 <div class="section-label">FAQ</div>
@@ -2008,8 +2385,8 @@ Quick answers for learners looking for manual, automatic, refresher or test prep
 <p>Yes, we cover Bletchley and common Milton Keynes test routes.</p>
 </div>
 </div>
-</div>
 </section>
+
 <section class="local-seo">
 <div class="container">
 <div class="local-seo-box">
@@ -2025,6 +2402,7 @@ preparing for their driving test.
 </div>
 </div>
 </section>
+
 <section class="cta">
 <div class="container">
 <div class="cta-panel">
@@ -2047,7 +2425,9 @@ Book your first lesson today and start driving with confidence.
 </div>
 </div>
 </section>
+
 </main>
+
 <footer>
 <div class="footer-local">
 <h3>Local Driving Lesson Areas</h3>
@@ -2061,6 +2441,7 @@ Book your first lesson today and start driving with confidence.
 <a href="terms.html">Terms & Conditions</a>
 <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
 </footer>
+
 <div class="floating-actions">
 <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
@@ -2073,7 +2454,9 @@ Book your first lesson today and start driving with confidence.
 </svg>
 </a>
 </div>
+
 <script>
+// Navigation Menu
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 hamburger.addEventListener("click", function () {
@@ -2086,6 +2469,46 @@ hamburger.classList.remove("open");
 navMenu.classList.remove("open");
       });
     });
+
+// Promo Modal Management
+const promoModal = document.getElementById('promoModal');
+const closePromoBtn = document.getElementById('closePromoBtn');
+
+// Show modal on page load (if not dismissed today)
+function showPromoModal() {
+  const dismissed = localStorage.getItem('promoModalDismissed');
+  const dismissedTime = localStorage.getItem('promoModalDismissedTime');
+  const now = new Date().getTime();
+  
+  // Show if never dismissed OR if 24 hours have passed
+  if (!dismissed || (dismissedTime && (now - parseInt(dismissedTime)) > 86400000)) {
+    setTimeout(() => {
+      promoModal.classList.add('show');
+    }, 800); // Show after 800ms
+  }
+}
+
+// Close modal
+function closePromoModal() {
+  promoModal.classList.remove('show');
+  // Don't show again for 24 hours
+  localStorage.setItem('promoModalDismissed', 'true');
+  localStorage.setItem('promoModalDismissedTime', new Date().getTime());
+}
+
+// Event listeners
+closePromoBtn.addEventListener('click', closePromoModal);
+
+// Also close when clicking overlay
+promoModal.addEventListener('click', (e) => {
+  if (e.target === promoModal) {
+    closePromoModal();
+  }
+});
+
+// Show modal on page load
+window.addEventListener('load', showPromoModal);
 </script>
+
 </body>
 </html>
