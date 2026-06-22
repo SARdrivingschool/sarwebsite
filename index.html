@@ -154,6 +154,7 @@ linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 45%, rgba(0,0,0,0.
 url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
 background-size: cover;
 background-position: center 54%;
+background-attachment: fixed;
 background-repeat: no-repeat;
 filter: saturate(1.08) contrast(1.03);
 z-index: 0;
@@ -2645,6 +2646,16 @@ promoModal.addEventListener('click', (e) => {
 
 // Show modal on page load
 window.addEventListener('load', showPromoModal);
+
+// Parallax effect
+window.addEventListener('scroll', function() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const scrolled = window.pageYOffset;
+  if (scrolled < hero.offsetHeight) {
+    hero.style.backgroundPositionY = (scrolled * 0.4) + 'px';
+  }
+});
 </script>
 
 </body>
