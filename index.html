@@ -145,6 +145,10 @@ border-top: 1px solid rgba(255,255,255,0.08);
 background: #050505;
     }
 .hero::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: 0;
 background-image:
 linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.85) 100%),
 url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
@@ -1344,7 +1348,7 @@ padding: 10px;
 }
 
 .promo-modal-content {
-max-height: 65vh;
+max-height: 88vh;
 border-radius: 18px;
 }
 
@@ -1564,13 +1568,19 @@ padding: 280px 0 28px;
 background: #050505;
       }
 .hero::before {
+content: "";
+position: absolute;
+inset: 0;
+z-index: 0;
 background-image:
 linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.85) 100%),
 url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
 background-size: cover;
 background-position: center center;
+background-attachment: scroll;
 background-repeat: no-repeat;
-        }
+}
+
 .hero::after {
 background:
 radial-gradient(circle at 14% 70%, rgba(237,28,36,0.18), transparent 30%),
@@ -2617,7 +2627,7 @@ function showPromoModal() {
   if (!dismissed || (dismissedTime && (now - parseInt(dismissedTime)) > 86400000)) {
     setTimeout(() => {
       promoModal.classList.add('show');
-    }, 800); // Show after 800ms
+    }, 2500); // Show after 800ms
   }
 }
 
@@ -2642,15 +2652,6 @@ promoModal.addEventListener('click', (e) => {
 // Show modal on page load
 window.addEventListener('load', showPromoModal);
 
-// Parallax effect
-window.addEventListener('scroll', function() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  const scrolled = window.pageYOffset;
-  if (scrolled < hero.offsetHeight) {
-    hero.style.backgroundPositionY = (scrolled * 0.4) + 'px';
-  }
-});
 </script>
 
 </body>
