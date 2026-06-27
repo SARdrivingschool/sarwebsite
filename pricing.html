@@ -9,63 +9,240 @@
     gtag('js', new Date());
     gtag('config', 'AW-18198829338');
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Driving Lesson Prices | SAR Driving School</title>
-  <meta name="description" content="SAR Driving School prices. Manual driving lessons from £38 per hour, automatic driving lessons from £38 per hour and refresher lessons from £38 across Milton Keynes and nearby areas.">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Driving Lesson Prices Milton Keynes | From £38/hr | SAR Driving School</title>
+  <meta name="description" content="Driving lesson prices in Milton Keynes with SAR Driving School. Manual and automatic lessons from £38/hr, block bookings from £185, and test car hire subject to assessment.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
 
   <style>
     :root {
       --red: #ed1c24;
       --red-dark: #b80f16;
-      --dark: #0b0b0b;
-      --dark2: #111111;
+      --dark: #050505;
+      --section: #0b0b0b;
+      --soft: #101010;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
       --green: #25D366;
+      --gold: #ffcc4d;
       --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    body { background: #0b0b0b; color: #ffffff; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--dark);
+      color: #ffffff;
+    }
 
-    .page-hero {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    header {
       position: relative;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.28) 100%),
-        url("images/pricing-bg.png") center/cover no-repeat;
-      min-height: 460px;
+      width: 100%;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .nav {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-img {
+      width: 158px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 800;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+    }
+
+    .hamburger {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: transparent;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 3px;
+      background: #000000;
+      border-radius: 99px;
+      transition: 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* BUTTONS */
+    .btn {
+      min-height: 56px;
+      padding: 0 26px;
+      border-radius: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.98rem;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border-color: var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.12);
+      color: #ffffff;
+      border-color: rgba(37,211,102,0.48);
+    }
+
+    .btn-whatsapp:hover {
+      background: rgba(37,211,102,0.18);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 560px;
       display: flex;
       align-items: center;
       overflow: hidden;
+      padding: 76px 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 48%, rgba(0,0,0,0.32) 100%),
+        url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") center/cover no-repeat;
     }
 
-    .page-hero::after {
+    .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.18), transparent 34%),
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.34));
+        radial-gradient(circle at 18% 68%, rgba(237,28,36,0.24), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.44));
       pointer-events: none;
     }
 
-    .page-hero-inner {
+    .hero-inner {
       position: relative;
       z-index: 2;
-      max-width: var(--max);
-      margin: 0 auto;
-      width: 100%;
-      padding: 0 2rem;
+    }
+
+    .hero-card {
+      max-width: 750px;
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.40));
+      border: 1px solid rgba(237,28,36,0.32);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
+      backdrop-filter: blur(5px);
     }
 
     .section-label {
@@ -73,815 +250,1503 @@
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 2px;
-      font-size: 0.85rem;
-      margin-bottom: 0.9rem;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+      display: inline-block;
     }
 
-    .page-hero h1 {
-      font-size: clamp(2.8rem, 6vw, 4.8rem);
+    .hero h1 {
+      font-size: clamp(2.45rem, 5.7vw, 4.4rem);
       line-height: 1.02;
-      color: #ffffff;
-      margin: 0 0 1rem;
       letter-spacing: -2px;
-      max-width: 900px;
+      margin-bottom: 18px;
+      font-weight: 900;
     }
 
-    .page-hero p {
-      color: #d6d6d6;
-      font-size: 1.15rem;
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #e8e8e8;
+      font-size: 1.06rem;
       line-height: 1.7;
-      max-width: 850px;
+      margin-bottom: 24px;
     }
 
-    .pricing-section {
-      position: relative;
-      background: #0b0b0b;
-      padding: 80px 2rem 90px;
-      overflow: hidden;
-    }
-
-    .pricing-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 17% 28%, rgba(237,28,36,0.12), transparent 34%),
-        radial-gradient(circle at 85% 78%, rgba(237,28,36,0.08), transparent 30%);
-      pointer-events: none;
-    }
-
-    .pricing-inner {
-      position: relative;
-      z-index: 2;
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .pricing-tabs {
+    .hero-actions {
       display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      color: #e8e8e8;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .hero-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 24px;
+    }
+
+    .hero-price-pill {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.6rem;
-    }
-
-    .tab-btn {
-      min-height: 56px;
-      padding: 0 1.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #101010;
+      padding: 11px 15px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
       color: #ffffff;
       font-weight: 900;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      font-size: 0.9rem;
     }
 
-    .tab-btn:hover,
-    .tab-btn.active {
-      background: var(--red);
-      border-color: var(--red);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(237,28,36,0.22);
+    .hero-price-pill.red {
+      background: rgba(237,28,36,0.18);
+      border-color: rgba(237,28,36,0.45);
     }
 
-    .price-group { display: none; animation: fadeUp 0.35s ease both; }
-    .price-group.active { display: grid; gap: 1.2rem; }
+    /* TRUST STRIP */
+    .trust-strip {
+      background: #0c0c0c;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 0;
+    }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
+    .trust-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .trust-strip-grid div {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.94rem;
+    }
+
+    /* QUICK NAV */
+    .price-nav {
+      background: #050505;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .price-nav-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .price-nav-row a {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #141414;
+      color: #ffffff;
+      padding: 11px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .price-nav-row a:hover {
+      background: rgba(237,28,36,0.14);
+      border-color: rgba(237,28,36,0.55);
+      color: #ffffff;
+    }
+
+    /* SHARED */
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 34px;
+    }
+
+    .section-head.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    /* SINGLE LESSONS */
+    .single-section {
+      background: #0b0b0b;
+      padding: 74px 0;
+    }
+
+    .single-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .lesson-card {
+      background:
+        radial-gradient(circle at 25% 0%, rgba(237,28,36,0.10), transparent 40%),
+        #151515;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 430px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .lesson-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .lesson-card p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      width: fit-content;
+      background: rgba(237,28,36,0.13);
+      border: 1px solid rgba(237,28,36,0.38);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .lesson-card ul {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
+
+    .lesson-card li {
+      color: #dfdfdf;
+      font-weight: 700;
+      line-height: 1.45;
+      font-size: 0.9rem;
+    }
+
+    .card-price {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .card-price strong {
+      display: block;
+      font-size: 2.25rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .card-price span {
+      color: #bdbdbd;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .lesson-card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    /* BLOCK BOOKINGS */
+    .block-section {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(237,28,36,0.12), transparent 32%),
+        #101010;
+      padding: 74px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .block-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      align-items: stretch;
     }
 
     .price-card {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
+      background: #151515;
+      border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
-      box-shadow: 0 22px 55px rgba(0,0,0,0.32);
+      padding: 26px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 455px;
       transition: transform 0.25s ease, border-color 0.25s ease;
+      overflow: hidden;
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
     }
 
     .price-card.featured {
       border-color: rgba(237,28,36,0.75);
       background:
-        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.025)),
-        #101010;
+        linear-gradient(145deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #151515;
+      box-shadow: 0 20px 50px rgba(237,28,36,0.12);
     }
 
-    .price-card:hover { transform: translateY(-5px); border-color: rgba(237,28,36,0.55); }
-
-    .price-card::after {
-      content: "";
-      position: absolute;
-      width: 170px; height: 170px;
-      right: -80px; bottom: -80px;
-      border-radius: 50%;
-      background: rgba(237,28,36,0.12);
-      pointer-events: none;
+    .price-card.best {
+      border-color: rgba(255,204,77,0.58);
+      background:
+        linear-gradient(145deg, rgba(255,204,77,0.10), rgba(237,28,36,0.08)),
+        #151515;
     }
 
-    .price-title {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .price-title h2 {
-      color: #ffffff;
-      font-size: clamp(1.8rem, 3vw, 2.35rem);
-      line-height: 1.1;
-      letter-spacing: -0.6px;
-      margin: 0;
-    }
-
-    .popular-badge, .save-badge, .best-badge {
+    .top-badge {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.55rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 900;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .popular-badge, .best-badge {
+      width: fit-content;
       background: var(--red);
       color: #ffffff;
-      box-shadow: 0 12px 24px rgba(237,28,36,0.2);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 14px;
+    }
+
+    .top-badge.gold {
+      background: #1f1a06;
+      border: 1px solid rgba(255,204,77,0.6);
+      color: var(--gold);
     }
 
     .save-badge {
-      background: rgba(37,211,102,0.14);
-      border: 1px solid rgba(37,211,102,0.45);
-      color: #25D366;
+      display: inline-flex;
+      width: fit-content;
+      background: rgba(237,28,36,0.13);
+      border: 1px solid rgba(237,28,36,0.38);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-bottom: 14px;
     }
 
-    .price-copy {
+    .price-card h3 {
+      font-size: 1.35rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .price-card p {
       color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.05rem;
-      max-width: 720px;
-      margin-bottom: 1.25rem;
+      line-height: 1.6;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem 1.4rem;
+    .price-card ul {
       list-style: none;
-      padding: 0; margin: 0;
+      display: grid;
+      gap: 9px;
+      margin-bottom: 20px;
     }
 
-    .features li { color: #e0e0e0; font-weight: 900; line-height: 1.45; }
-    .features li::before { content: "✓ "; color: #ffffff; font-weight: 900; }
+    .price-card li {
+      color: #dfdfdf;
+      font-weight: 700;
+      line-height: 1.42;
+      font-size: 0.9rem;
+    }
 
-    .service-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .price-area {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .was-price {
+      color: #a8a8a8;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+
+    .was-price s {
+      color: #c2c2c2;
+    }
+
+    .main-price {
+      display: block;
+      font-size: 2.35rem;
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .per-hour {
+      color: #bdbdbd;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .price-card .btn {
+      width: 100%;
       margin-top: 18px;
     }
 
-    .service-links a {
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-weight: 900;
-      font-size: 0.9rem;
-      background: rgba(255,255,255,0.04);
+    /* OTHER OPTIONS */
+    .other-section {
+      background: #0b0b0b;
+      padding: 74px 0;
     }
 
-    .service-links a:hover { border-color: rgba(237,28,36,0.55); }
-
-    .price-side {
-      position: relative;
-      z-index: 2;
+    .other-grid {
       display: grid;
-      justify-items: center;
-      gap: 1rem;
-      min-width: 190px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .normal-price {
-      color: #bfbfbf;
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-align: center;
+    .other-card {
+      background:
+        radial-gradient(circle at 16% 0%, rgba(237,28,36,0.10), transparent 40%),
+        #151515;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
     }
 
-    .normal-price s { color: #888888; margin-right: 6px; }
-
-    .price {
-      color: #ffffff;
-      font-size: clamp(2.4rem, 5vw, 3.3rem);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -1px;
-      text-align: center;
+    .other-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
 
-    .price small { color: #bfbfbf; font-size: 1rem; letter-spacing: 0; margin-left: 0.2rem; }
+    .other-card p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+    }
 
-    .btn-primary, .btn-secondary, .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 1.55rem;
-      border-radius: 12px;
-      display: inline-flex;
+    .other-card ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .other-card li {
+      color: #dfdfdf;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .ask-price {
+      min-width: 120px;
+      min-height: 120px;
+      border-radius: 24px;
+      background: rgba(237,28,36,0.14);
+      border: 1px solid rgba(237,28,36,0.42);
+      display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      text-decoration: none;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
       text-align: center;
+      font-weight: 900;
+      color: #ffffff;
+      padding: 16px;
     }
 
-    .btn-primary { background: var(--red); color: #ffffff; border: 1px solid var(--red); box-shadow: 0 12px 28px rgba(237,28,36,0.24); }
-    .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
-    .btn-secondary { background: rgba(255,255,255,0.04); color: #ffffff; border: 1px solid rgba(255,255,255,0.22); }
-    .btn-whatsapp { background: rgba(37,211,102,0.09); color: #ffffff; border: 1px solid rgba(37,211,102,0.45); }
-    .btn-primary:hover, .btn-secondary:hover, .btn-whatsapp:hover { transform: translateY(-2px); }
-
-    .service-summary-section {
+    /* CHOOSE */
+    .choose-section {
       background: #101010;
-      padding: 78px 2rem;
+      padding: 74px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .choose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .choose-card {
+      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .choose-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+    }
+
+    .choose-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .choose-card p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .mini-price {
+      display: inline-flex;
+      background: rgba(237,28,36,0.12);
+      border: 1px solid rgba(237,28,36,0.34);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    /* QUICK MESSAGE */
+    .quick-message {
+      background: #0b0b0b;
+      padding: 74px 0;
+    }
+
+    .quick-message-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
+        #141414;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .quick-message h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .quick-message p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    .message-card {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .message-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .message-card p {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+      color: #e8e8e8;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ */
+    .faq-section {
+      background: #101010;
+      padding: 74px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .service-summary-inner { max-width: var(--max); margin: 0 auto; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
 
-    .service-summary-head { max-width: 760px; margin-bottom: 30px; }
-    .service-summary-head h2 { color: #ffffff; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; margin-bottom: 12px; }
-    .service-summary-head p { color: #cfcfcf; line-height: 1.7; font-size: 1.05rem; }
-
-    .service-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
-    .service-summary-card {
+    .faq-item {
       background: #151515;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 24px;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
-    .service-summary-card:hover { transform: translateY(-5px); border-color: rgba(237,28,36,0.5); }
-    .service-summary-card h3 { color: #ffffff; font-size: 1.3rem; margin-bottom: 10px; }
-    .service-summary-card p { color: #cfcfcf; line-height: 1.65; font-size: 0.96rem; margin-bottom: 16px; }
-    .service-summary-card strong { display: block; color: #ffffff; font-size: 1.35rem; margin-bottom: 16px; }
-
-    .service-summary-card a {
-      display: inline-flex;
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 12px;
-      background: var(--red);
-      color: #ffffff;
-      font-weight: 900;
-      align-items: center;
-      justify-content: center;
+    .faq-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(237,28,36,0.45);
     }
 
-    .help-section { background: #0b0b0b; padding: 80px 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
-
-    .help-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 2rem;
-      align-items: start;
+    .faq-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
     }
 
-    .help-copy h2 { color: #ffffff; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; margin-bottom: 1rem; letter-spacing: -1px; }
-    .help-copy p { color: #cfcfcf; line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.4rem; }
-
-    .faq-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)), #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 22px 55px rgba(0,0,0,0.32);
+    .faq-item p {
+      color: #cfcfcf;
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
-    .faq-item { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .faq-item:last-child { border-bottom: 0; }
-    .faq-item h3 { color: #ffffff; font-size: 1.08rem; margin-bottom: 0.5rem; }
-    .faq-item p { color: #cfcfcf; line-height: 1.65; margin: 0; }
+    /* FINAL CTA */
+    .final-cta {
+      background: #0b0b0b;
+      padding: 0 0 74px;
+    }
 
-    .cta-section { background: #202020; padding: 80px 2rem; text-align: center; }
-
-    .cta-card {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)), #101010;
+    .cta-panel {
+      background:
+        linear-gradient(90deg, rgba(237,28,36,0.88), rgba(0,0,0,0.62)),
+        url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") center/cover no-repeat;
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 28px;
-      padding: 3rem 2rem;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+      overflow: hidden;
     }
 
-    .cta-card h2 { color: #ffffff; font-size: clamp(2.1rem, 4vw, 3.2rem); margin-bottom: 0.9rem; letter-spacing: -1px; }
-    .cta-card p { color: #d0d0d0; line-height: 1.7; font-size: 1.05rem; max-width: 720px; margin: 0 auto 1.7rem; }
+    .cta-panel h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
 
-    .cta-actions { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; }
+    .cta-panel p {
+      color: #f0f0f0;
+      line-height: 1.7;
+      max-width: 650px;
+      margin-bottom: 24px;
+    }
 
-    footer { padding: 34px 2rem; text-align: center; color: #999; background: #050505; border-top: 1px solid rgba(255,255,255,0.08); }
-    .footer-local { max-width: var(--max); margin: 0 auto 24px; }
-    .footer-local h3 { color: #ffffff; font-size: 1.05rem; margin-bottom: 14px; }
-    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 18px; }
-    .footer-links a { color: #cfcfcf; font-size: 0.92rem; font-weight: 700; }
-    .footer-links a:hover { color: var(--red); }
+    .cta-box {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+    }
 
-    @media (max-width: 1000px) {
-      .price-card, .help-inner { grid-template-columns: 1fr; }
-      .price-side { justify-items: start; }
-      .normal-price, .price { text-align: left; }
-      .service-summary-grid { grid-template-columns: 1fr; }
+    .cta-box strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-box span {
+      color: #dddddd;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto 24px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    /* FLOAT */
+    .floating-actions {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .float-call {
+      background: var(--red);
+    }
+
+    .float-whatsapp {
+      background: var(--green);
+    }
+
+    .float-btn svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1120px) {
+      .block-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .single-grid,
+      .choose-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .other-grid,
+      .quick-message-panel,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .trust-strip-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav {
+        min-height: 82px;
+      }
+
+      .logo-img {
+        width: 140px;
+      }
+
       .hamburger {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        cursor: pointer;
-        padding: 8px;
-        background: none;
-        border: none;
-        z-index: 201;
+        display: flex;
       }
 
-      .hamburger span {
-        display: block;
-        width: 24px; height: 2px;
-        background: #111111;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-      nav ul { display: none !important; }
-
-      nav ul.open {
-        display: flex !important;
-        flex-direction: column;
+      .nav-links {
+        display: none;
         position: absolute;
-        top: 70px; left: 0; right: 0;
+        top: 82px;
+        left: 0;
+        right: 0;
         background: #ffffff;
-        border-top: 1px solid #eeeeee;
-        padding: 0.5rem 1.5rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        z-index: 200;
+        padding: 12px 24px 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 99;
       }
 
-      nav ul a { display: block; padding: 0.9rem 0; font-size: 1rem; color: #111111; border-bottom: 1px solid #f0f0f0; }
-      .nav-inner { position: relative; height: 70px; }
-
-      .page-hero {
-        min-height: 420px;
-        padding: 64px 0;
-        background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
-          url("images/pricing-bg.png") center right/cover no-repeat;
+      .nav-links.open {
+        display: flex;
       }
 
-      .page-hero-inner { padding: 0 1.25rem; }
-      .page-hero h1 { font-size: 2.45rem; line-height: 1.08; }
-      .page-hero p { font-size: 1rem; line-height: 1.6; }
-
-      .pricing-section, .help-section, .cta-section, .service-summary-section {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+      .nav-links li {
+        width: 100%;
       }
 
-      .pricing-section { padding-top: 56px; }
-      .pricing-tabs { display: grid; grid-template-columns: 1fr; }
-      .tab-btn { width: 100%; }
-      .price-card { padding: 1.35rem; border-radius: 20px; }
-      .price-copy { font-size: 0.98rem; }
-      .features { display: grid; grid-template-columns: 1fr; gap: 0.65rem; }
-      .service-links { display: grid; grid-template-columns: 1fr; }
-      .service-links a { text-align: center; }
-      .price-side { width: 100%; }
-      .price-side .btn-primary, .price-side .btn-secondary { width: 100%; }
-      .service-summary-card a { width: 100%; }
-      .faq-card, .cta-card { border-radius: 22px; padding: 1.6rem; }
-      .cta-actions { display: grid; grid-template-columns: 1fr; }
-      .btn-primary, .btn-secondary, .btn-whatsapp { width: 100%; }
-      .whatsapp-float { width: 56px !important; height: 56px !important; bottom: 18px !important; right: 18px !important; }
+      .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px 0;
+        color: #000000;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        font-size: 0.9rem;
+      }
+
+      .btn-nav {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 54px 0;
+      }
+
+      .hero-card {
+        padding: 22px 18px;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        letter-spacing: -1px;
+      }
+
+      .hero p {
+        font-size: 0.94rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 52px;
+        font-size: 0.9rem;
+      }
+
+      .hero-price-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .trust-strip-grid,
+      .single-grid,
+      .block-grid,
+      .other-grid,
+      .choose-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-nav {
+        position: static;
+      }
+
+      .price-nav-row {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+      }
+
+      .price-nav-row a {
+        flex: 0 0 auto;
+        font-size: 0.8rem;
+      }
+
+      .single-section,
+      .block-section,
+      .other-section,
+      .choose-section,
+      .quick-message,
+      .faq-section {
+        padding: 44px 0;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .section-head h2,
+      .quick-message h2,
+      .cta-panel h2 {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+      }
+
+      .section-head p,
+      .quick-message p,
+      .cta-panel p {
+        font-size: 0.9rem;
+      }
+
+      .lesson-card,
+      .price-card,
+      .choose-card,
+      .faq-item {
+        padding: 20px;
+        border-radius: 18px;
+        min-height: auto;
+      }
+
+      .other-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .ask-price {
+        min-width: 100%;
+        min-height: 80px;
+      }
+
+      .quick-message-panel {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .message-card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .message-card p {
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .final-cta {
+        padding: 0 0 44px;
+      }
+
+      .cta-panel {
+        padding: 28px;
+        border-radius: 20px;
+      }
+
+      .cta-box {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .footer-links {
+        gap: 8px 12px;
+      }
+
+      .floating-actions {
+        right: 14px;
+        bottom: 14px;
+        gap: 10px;
+      }
+
+      .float-btn {
+        width: 48px;
+        height: 48px;
+      }
+
+      .float-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .card-price strong,
+      .main-price {
+        font-size: 2rem;
+      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Driving Lessons in Milton Keynes",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "SAR Driving School",
+      "url": "https://sardrivingschool.co.uk/",
+      "telephone": "+447902023737",
+      "areaServed": ["Milton Keynes", "Bletchley", "Bedford", "Leighton Buzzard"]
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Manual Driving Lessons",
+        "price": "38",
+        "priceCurrency": "GBP",
+        "url": "https://sardrivingschool.co.uk/manual-driving-lessons-milton-keynes.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "Automatic Driving Lessons",
+        "price": "38",
+        "priceCurrency": "GBP",
+        "url": "https://sardrivingschool.co.uk/automatic-driving-lessons-milton-keynes.html"
+      },
+      {
+        "@type": "Offer",
+        "name": "10 Hour Driving Lesson Block",
+        "price": "360",
+        "priceCurrency": "GBP",
+        "url": "https://sardrivingschool.co.uk/book.html"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="SAR Driving School">
+      <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="book.html" class="btn-nav">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-card">
+      <div class="section-label">Transparent pricing</div>
+
+      <h1>
+        Simple, honest<br>
+        <span>driving lesson prices</span>
+      </h1>
+
+      <p>
+        Manual and automatic driving lessons from £38 per hour. Save more with block bookings and message us to confirm the best package for your area, experience level and availability.
+      </p>
+
+      <div class="hero-price-row">
+        <div class="hero-price-pill red">From £38/hr</div>
+        <div class="hero-price-pill">10 hours: £360</div>
+        <div class="hero-price-pill">Best value: 30 hours</div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#block-bookings" class="btn btn-primary">View Block Prices →</a>
+        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" class="btn btn-whatsapp">Ask on WhatsApp</a>
+      </div>
+
+      <p class="hero-note">
+        Usually replies quickly — send your area, lesson type, experience level and availability.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-strip-grid">
+    <div>⭐ <strong>200+ Five-Star Reviews</strong></div>
+    <div>🚗 <strong>Manual & Automatic</strong></div>
+    <div>✅ <strong>DVSA Approved</strong></div>
+    <div>📍 <strong>Milton Keynes & Nearby</strong></div>
+  </div>
+</section>
+
+<section class="price-nav">
+  <div class="container price-nav-row">
+    <a href="#single-lessons">Single Lessons</a>
+    <a href="#block-bookings">Block Bookings</a>
+    <a href="#other-options">Other Options</a>
+    <a href="#choose-package">Choose Package</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</section>
+
+<section class="single-section" id="single-lessons">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Single lessons</div>
+      <h2>Start with the lesson type that suits you</h2>
+      <p>
+        Manual, automatic and refresher lessons are available from £38 per hour. Prices may vary depending on area, travel time and instructor availability.
+      </p>
+    </div>
+
+    <div class="single-grid">
+      <div class="lesson-card">
+        <div class="card-tag">Manual</div>
+        <h3>Manual driving lessons</h3>
+        <p>Ideal if you want a full manual licence and the flexibility to drive both manual and automatic cars after passing.</p>
+
+        <ul>
+          <li>✓ Manual lessons from £38 per hour</li>
+          <li>✓ DVSA-approved instructors</li>
+          <li>✓ Clutch, gears and car control</li>
+          <li>✓ Local test route knowledge</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>per hour</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="manual-driving-lessons-milton-keynes.html" class="btn btn-primary">View Manual Lessons</a>
+          <a href="book.html" class="btn btn-secondary">Check Manual Availability</a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-tag">Automatic</div>
+        <h3>Automatic driving lessons</h3>
+        <p>Ideal for nervous learners, beginners and pupils who want a smoother learning experience without clutch or gear changes.</p>
+
+        <ul>
+          <li>✓ Automatic lessons from £38 per hour</li>
+          <li>✓ No clutch or gear changes</li>
+          <li>✓ Good for nervous learners</li>
+          <li>✓ Structured test preparation</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>per hour</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="automatic-driving-lessons-milton-keynes.html" class="btn btn-primary">View Automatic Lessons</a>
+          <a href="book.html" class="btn btn-secondary">Check Automatic Availability</a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-tag">Refresher</div>
+        <h3>Refresher driving lessons</h3>
+        <p>Useful for confidence building, parking, roundabouts, motorway driving, returning drivers and pre-test practice.</p>
+
+        <ul>
+          <li>✓ Refresher lessons from £38</li>
+          <li>✓ Parking and roundabouts support</li>
+          <li>✓ Manual or automatic available</li>
+          <li>✓ Tailored to your needs</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>from</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="refresher-driving-lessons-milton-keynes.html" class="btn btn-primary">View Refresher Lessons</a>
+          <a href="book.html" class="btn btn-secondary">Check Refresher Availability</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block-section" id="block-bookings">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Block bookings</div>
+      <h2>Save more when you book more hours</h2>
+      <p>
+        Block bookings help you build momentum and secure consistent lesson time. The 10-hour block is the most popular starting point for steady weekly progress.
+      </p>
+    </div>
+
+    <div class="block-grid">
+      <div class="price-card">
+        <div class="save-badge">Save £5</div>
+        <h3>5 hour starter block</h3>
+        <p>A good option if you are new to driving and want to get started before deciding your next step.</p>
+
+        <ul>
+          <li>✓ 5 hours of lessons</li>
+          <li>✓ Beginner friendly</li>
+          <li>✓ Tailored lesson plan</li>
+          <li>✓ Confidence building</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£190</s> normally at £38/hr</div>
+          <strong class="main-price">£185</strong>
+          <span class="per-hour">£37/hr equivalent</span>
+        </div>
+
+        <a href="book.html" class="btn btn-secondary">Book Starter Block</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="top-badge">Most Popular</div>
+        <h3>10 hour block</h3>
+        <p>Perfect for learners who want consistent progress and a clear routine with their instructor.</p>
+
+        <ul>
+          <li>✓ 10 hours of lessons</li>
+          <li>✓ Manual or automatic</li>
+          <li>✓ Progress tracked clearly</li>
+          <li>✓ Suitable for weekly lessons</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£380</s> normally at £38/hr</div>
+          <strong class="main-price">£360</strong>
+          <span class="per-hour">£36/hr equivalent</span>
+        </div>
+
+        <a href="book.html" class="btn btn-primary">Book 10 Hours</a>
+      </div>
+
+      <div class="price-card">
+        <div class="save-badge">Save £60</div>
+        <h3>20 hour block</h3>
+        <p>Great for learners who want a solid foundation and are committed to building consistent progress.</p>
+
+        <ul>
+          <li>✓ 20 hours of lessons</li>
+          <li>✓ Manual or automatic</li>
+          <li>✓ Structured progress plan</li>
+          <li>✓ Ideal for most learners</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£760</s> normally at £38/hr</div>
+          <strong class="main-price">£700</strong>
+          <span class="per-hour">£35/hr equivalent</span>
+        </div>
+
+        <a href="book.html" class="btn btn-secondary">Book 20 Hours</a>
+      </div>
+
+      <div class="price-card best">
+        <div class="top-badge gold">Best Value</div>
+        <h3>30 hour block</h3>
+        <p>Our biggest block for serious learners who want consistent, structured lessons and test preparation.</p>
+
+        <ul>
+          <li>✓ 30 hours of lessons</li>
+          <li>✓ Manual or automatic</li>
+          <li>✓ Full test preparation included</li>
+          <li>✓ Best saving per hour</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£1,140</s> normally at £38/hr</div>
+          <strong class="main-price">£1,020</strong>
+          <span class="per-hour">£34/hr equivalent · save £120</span>
+        </div>
+
+        <a href="book.html" class="btn btn-primary">Book 30 Hours</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="other-section" id="other-options">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Other options</div>
+      <h2>Intensive lessons and test car hire</h2>
+      <p>
+        Some options need to be checked first because they depend on your level, test date, instructor availability and whether you are test-ready.
+      </p>
+    </div>
+
+    <div class="other-grid">
+      <div class="other-card">
+        <div>
+          <h3>Intensive driving lessons</h3>
+          <p>Intensive lessons are arranged depending on your current level, test date and how many hours you realistically need.</p>
+          <ul>
+            <li>✓ Manual or automatic</li>
+            <li>✓ Plan built around your level</li>
+            <li>✓ Useful if your test is approaching</li>
+            <li>✓ Availability confirmed first</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Ask About Intensive</a>
+        </div>
+        <div class="ask-price">Ask first</div>
+      </div>
+
+      <div class="other-card">
+        <div>
+          <h3>Driving test car hire</h3>
+          <p>Use of instructor car for your driving test may be available, subject to assessment and DVSA test-standard driving.</p>
+          <ul>
+            <li>✓ Assessment required first</li>
+            <li>✓ Instructor car for test day</li>
+            <li>✓ Subject to availability</li>
+            <li>✓ Only when driving is test-ready</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Ask About Test Car Hire</a>
+        </div>
+        <div class="ask-price">Ask first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="choose-section" id="choose-package">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Choose the right package</div>
+      <h2>Not sure what to book?</h2>
+      <p>
+        Use this as a simple guide. We can confirm the best option once you send your area, lesson type, experience level and availability.
+      </p>
+    </div>
+
+    <div class="choose-grid">
+      <div class="choose-card">
+        <h3>First lesson / unsure</h3>
+        <p>Start with a normal single lesson so the instructor can assess your current level and learning style.</p>
+        <span class="mini-price">Start from £38/hr</span>
+      </div>
+
+      <div class="choose-card">
+        <h3>Weekly progress</h3>
+        <p>The 10-hour block is best if you want to secure consistent lesson time and build momentum.</p>
+        <span class="mini-price">Most popular: £360</span>
+      </div>
+
+      <div class="choose-card">
+        <h3>Serious learners</h3>
+        <p>The 20-hour or 30-hour block is better if you want a stronger plan and more consistent progress.</p>
+        <span class="mini-price">Best value: £1,020</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quick-message">
+  <div class="container quick-message-panel">
+    <div>
+      <div class="section-label">Quick price enquiry</div>
+      <h2>Message us in under 30 seconds</h2>
+      <p>
+        To check the best package faster, send your area, lesson type, experience level and availability on WhatsApp.
+      </p>
+    </div>
+
+    <div class="message-card">
+      <strong>Copy this message:</strong>
+      <p>
+        Hi SAR, I’m looking at lesson prices. My area is [your area]. I want [manual/automatic/refresher]. My experience level is [beginner/test-ready/refresher]. My availability is [days/times].
+      </p>
+      <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" class="btn btn-primary">
+        Send WhatsApp Message →
       </a>
-
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul id="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
-        <li><a href="book.html" class="btn-nav">Book now</a></li>
-      </ul>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main>
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Pricing FAQ</div>
+      <h2>Common questions about lesson prices</h2>
+      <p>
+        Quick answers before you book manual, automatic, refresher or block lessons.
+      </p>
+    </div>
 
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <div class="section-label">Transparent pricing</div>
-        <h1>Simple, honest driving lesson prices</h1>
-        <p>Manual lessons from £38 per hour. Save more with block bookings — the more hours you book, the more you save.</p>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How much are manual driving lessons?</h3>
+        <p>Manual driving lessons start from £38 per hour.</p>
       </div>
-    </section>
 
-    <section class="pricing-section">
-      <div class="pricing-inner">
-
-        <div class="pricing-tabs">
-          <button class="tab-btn active" data-tab="single" type="button">Single lessons</button>
-          <button class="tab-btn" data-tab="block" type="button">Block booking</button>
-          <button class="tab-btn" data-tab="intensive" type="button">Other options</button>
-        </div>
-
-        <!-- SINGLE LESSONS -->
-        <div class="price-group active" id="single">
-          <div class="price-card featured">
-            <div>
-              <div class="price-title">
-                <h2>Manual driving lessons</h2>
-                <span class="popular-badge">Popular</span>
-              </div>
-              <p class="price-copy">Manual driving lessons are ideal if you want a full manual licence and the flexibility to drive both manual and automatic cars after passing.</p>
-              <ul class="features">
-                <li>Manual lessons from £38 per hour</li>
-                <li>DVSA-approved instructors</li>
-                <li>Clutch, gears and car control</li>
-                <li>Local test route knowledge</li>
-              </ul>
-              <div class="service-links">
-                <a href="manual-driving-lessons-milton-keynes.html">View manual lessons</a>
-              </div>
-            </div>
-            <div class="price-side">
-              <div class="price">£38 <small>/ hour</small></div>
-              <a href="book.html" class="btn-primary">Book manual</a>
-            </div>
-          </div>
-
-          <div class="price-card featured">
-            <div>
-              <div class="price-title">
-                <h2>Automatic driving lessons</h2>
-                <span class="popular-badge">Easy to learn</span>
-              </div>
-              <p class="price-copy">Automatic lessons are ideal for nervous learners, beginners and pupils who want a smoother learning experience without clutch or gear changes.</p>
-              <ul class="features">
-                <li>Automatic lessons from £38 per hour</li>
-                <li>No clutch or gear changes</li>
-                <li>Good for nervous learners</li>
-                <li>Structured test preparation</li>
-              </ul>
-              <div class="service-links">
-                <a href="automatic-driving-lessons-milton-keynes.html">View automatic lessons</a>
-              </div>
-            </div>
-            <div class="price-side">
-              <div class="price">£38 <small>/ hour</small></div>
-              <a href="book.html" class="btn-primary">Book automatic</a>
-            </div>
-          </div>
-
-          <div class="price-card">
-            <div>
-              <div class="price-title">
-                <h2>Refresher driving lessons</h2>
-              </div>
-              <p class="price-copy">Refresher lessons are useful for confidence building, parking, roundabouts, motorway driving, returning drivers and pupils who want extra practice before test day.</p>
-              <ul class="features">
-                <li>Refresher lessons from £38</li>
-                <li>Parking, roundabouts and motorway support</li>
-                <li>Manual or automatic available</li>
-                <li>Tailored to your needs</li>
-              </ul>
-              <div class="service-links">
-                <a href="refresher-driving-lessons-milton-keynes.html">View refresher lessons</a>
-              </div>
-            </div>
-            <div class="price-side">
-              <div class="price">From £38</div>
-              <a href="book.html" class="btn-primary">Book refresher</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- BLOCK BOOKINGS — 5hr → 10hr → 20hr → 30hr -->
-        <div class="price-group" id="block">
-
-          <div class="price-card">
-            <div>
-              <div class="price-title">
-                <h2>5 hour starter block</h2>
-                <span class="save-badge">Save £5</span>
-              </div>
-              <p class="price-copy">A good option if you are new to driving and want to get started with a few structured lessons before deciding your next step.</p>
-              <ul class="features">
-                <li>5 hours of lessons</li>
-                <li>Beginner friendly</li>
-                <li>Tailored lesson plan</li>
-                <li>Confidence building</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="normal-price"><s>£190</s> normally at £38/hr</div>
-              <div class="price">£185</div>
-              <a href="book.html" class="btn-primary">Book starter block</a>
-            </div>
-          </div>
-
-          <div class="price-card featured">
-            <div>
-              <div class="price-title">
-                <h2>10 hour block</h2>
-                <span class="save-badge">Save £20</span>
-              </div>
-              <p class="price-copy">Perfect for learners who want to commit to consistent progress. A block booking helps secure lesson time and build momentum with your instructor.</p>
-              <ul class="features">
-                <li>10 hours of lessons</li>
-                <li>Manual or automatic</li>
-                <li>Progress tracked clearly</li>
-                <li>Suitable for weekly lessons</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="normal-price"><s>£380</s> normally at £38/hr</div>
-              <div class="price">£360</div>
-              <a href="book.html" class="btn-primary">Book 10 hours</a>
-            </div>
-          </div>
-
-          <div class="price-card featured">
-            <div>
-              <div class="price-title">
-                <h2>20 hour block</h2>
-                <span class="save-badge">Save £60</span>
-              </div>
-              <p class="price-copy">Great for learners who want a solid foundation of structured lessons and are committed to building consistent progress with their instructor.</p>
-              <ul class="features">
-                <li>20 hours of lessons</li>
-                <li>Manual or automatic</li>
-                <li>Structured progress plan</li>
-                <li>Ideal for most learners</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="normal-price"><s>£760</s> normally at £38/hr</div>
-              <div class="price">£700</div>
-              <a href="book.html" class="btn-primary">Book 20 hours</a>
-            </div>
-          </div>
-
-          <div class="price-card featured">
-            <div>
-              <div class="price-title">
-                <h2>30 hour block</h2>
-                <span class="best-badge">Best value</span>
-                <span class="save-badge">Save £120</span>
-              </div>
-              <p class="price-copy">Our biggest block for serious learners who want to progress fast and get test-ready with consistent, structured lessons.</p>
-              <ul class="features">
-                <li>30 hours of lessons</li>
-                <li>Manual or automatic</li>
-                <li>Full test preparation included</li>
-                <li>Best saving per hour</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="normal-price"><s>£1,140</s> normally at £38/hr</div>
-              <div class="price">£1,020</div>
-              <a href="book.html" class="btn-primary">Book 30 hours</a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- OTHER OPTIONS -->
-        <div class="price-group" id="intensive">
-          <div class="price-card">
-            <div>
-              <div class="price-title">
-                <h2>Intensive driving lessons</h2>
-              </div>
-              <p class="price-copy">Intensive lessons are arranged depending on your current level, test date, instructor availability and how many hours you realistically need.</p>
-              <ul class="features">
-                <li>Manual or automatic</li>
-                <li>Plan built around your level</li>
-                <li>Useful if your test is approaching</li>
-                <li>Availability confirmed first</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="price">Ask first</div>
-              <a href="contact.html" class="btn-primary">Contact us</a>
-            </div>
-          </div>
-
-          <div class="price-card">
-            <div>
-              <div class="price-title">
-                <h2>Driving test car hire</h2>
-              </div>
-              <p class="price-copy">Use of instructor car for your driving test may be available, subject to assessment and DVSA test-standard driving.</p>
-              <ul class="features">
-                <li>Assessment required first</li>
-                <li>Instructor car for test day</li>
-                <li>Subject to availability</li>
-                <li>Only when driving is test-ready</li>
-              </ul>
-            </div>
-            <div class="price-side">
-              <div class="price">Ask first</div>
-              <a href="contact.html" class="btn-primary">Contact us</a>
-            </div>
-          </div>
-        </div>
-
+      <div class="faq-item">
+        <h3>How much are automatic driving lessons?</h3>
+        <p>Automatic driving lessons start from £38 per hour.</p>
       </div>
-    </section>
 
-    <section class="service-summary-section">
-      <div class="service-summary-inner">
-        <div class="service-summary-head">
-          <div class="section-label">Lesson options</div>
-          <h2>Choose the right lesson type</h2>
-          <p>These pages explain each lesson type in more detail and help learners choose the best option before booking.</p>
-        </div>
-        <div class="service-summary-grid">
-          <div class="service-summary-card">
-            <h3>Manual Driving Lessons</h3>
-            <p>Best if you want maximum licence flexibility and full car control.</p>
-            <strong>From £38/hr</strong>
-            <a href="manual-driving-lessons-milton-keynes.html">View Manual</a>
-          </div>
-          <div class="service-summary-card">
-            <h3>Automatic Driving Lessons</h3>
-            <p>Best if you want a simpler learning experience with no clutch or gears.</p>
-            <strong>From £38/hr</strong>
-            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic</a>
-          </div>
-          <div class="service-summary-card">
-            <h3>Refresher Lessons</h3>
-            <p>Best for confidence building, parking, roundabouts and returning drivers.</p>
-            <strong>From £38</strong>
-            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher</a>
-          </div>
-        </div>
+      <div class="faq-item">
+        <h3>Are block bookings cheaper?</h3>
+        <p>Yes. A 5-hour block saves £5, 10 hours saves £20, 20 hours saves £60 and 30 hours saves £120.</p>
       </div>
-    </section>
 
-    <section class="help-section">
-      <div class="help-inner">
-        <div class="help-copy">
-          <div class="section-label">Need help choosing?</div>
-          <h2>Not sure which lesson to book?</h2>
-          <p>New learners usually start with a normal lesson so the instructor can assess your level, confidence and learning style. Block bookings are best once you know the right instructor and lesson type for you.</p>
-          <div class="cta-actions" style="justify-content:flex-start;">
-            <a href="book.html" class="btn-primary">Book a lesson</a>
-            <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
-          </div>
-        </div>
-
-        <div class="faq-card">
-          <div class="faq-item">
-            <h3>How much are manual driving lessons?</h3>
-            <p>Manual driving lessons start from £38 per hour.</p>
-          </div>
-          <div class="faq-item">
-            <h3>How much are automatic driving lessons?</h3>
-            <p>Automatic driving lessons start from £38 per hour.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Are block bookings cheaper?</h3>
-            <p>Yes. A 5 hour block saves £5, 10 hours saves £20, 20 hours saves £60 and 30 hours saves £120.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Are prices fixed?</h3>
-            <p>Standard lesson prices are shown above. Prices may vary depending on location, travel time and instructor availability.</p>
-          </div>
-          <div class="faq-item">
-            <h3>How do I book?</h3>
-            <p>You can book through the booking page or message us on WhatsApp. We'll confirm lesson type, area, availability and instructor.</p>
-          </div>
-        </div>
+      <div class="faq-item">
+        <h3>Are prices fixed?</h3>
+        <p>Standard lesson prices are shown above. Prices may vary depending on location, travel time and instructor availability.</p>
       </div>
-    </section>
 
-    <section class="cta-section">
-      <div class="cta-card">
-        <div class="section-label">Ready to start?</div>
+      <div class="faq-item">
+        <h3>Which block booking should I choose?</h3>
+        <p>The 10-hour block is a strong starting point for weekly progress. The 30-hour block gives the best saving.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I book?</h3>
+        <p>Book online or message us on WhatsApp. We’ll confirm lesson type, area, availability and instructor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <div class="section-label" style="color:#fff;">Ready to start?</div>
         <h2>Ready to book your first lesson?</h2>
-        <p>Choose your lesson type, send your preferred availability and we'll help arrange the right instructor.</p>
-        <div class="cta-actions">
-          <a href="book.html" class="btn-primary">Book now</a>
-          <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">Message on WhatsApp</a>
-          <a href="contact.html" class="btn-secondary">Contact us</a>
+        <p>
+          Choose your lesson type, send your preferred availability and we’ll help arrange the right instructor for your area.
+        </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="btn btn-primary">Book Now →</a>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" class="btn btn-secondary">Message on WhatsApp</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
         </div>
       </div>
-    </section>
 
-  </main>
-
-  <footer>
-    <div class="footer-local">
-      <h3>Useful Driving Lesson Pages</h3>
-      <div class="footer-links">
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <div class="cta-box">
+        <strong>Ask before you book.</strong>
+        <span>Send your area, lesson type and availability so we can confirm the best package and instructor availability.</span>
       </div>
     </div>
-    <a href="terms.html">Terms & Conditions</a>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+</main>
 
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
+<footer>
+  <div class="footer-local">
+    <h3>Useful Driving Lesson Pages</h3>
+    <div class="footer-links">
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+    </div>
+  </div>
 
-    navMenu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-      });
-    });
+  <a href="terms.html">Terms & Conditions</a>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+</footer>
 
-    const tabs = document.querySelectorAll('.tab-btn');
-    const groups = document.querySelectorAll('.price-group');
-
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        const target = tab.dataset.tab;
-        tabs.forEach(function(item) { item.classList.remove('active'); });
-        groups.forEach(function(group) { group.classList.remove('active'); });
-        tab.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-  </script>
-
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" style="
-    position: fixed; bottom: 24px; right: 24px;
-    width: 60px; height: 60px;
-    background: #25D366; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    z-index: 9999; transition: transform 0.2s;
-  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+<div class="floating-actions">
+  <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
     </svg>
   </a>
+
+  <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("open");
+    navMenu.classList.toggle("open");
+  });
+
+  navMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      hamburger.classList.remove("open");
+      navMenu.classList.remove("open");
+    });
+  });
+}
+</script>
 
 </body>
 </html>
