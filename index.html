@@ -336,6 +336,26 @@ header {
   width: 100%;
 }
 
+.hero-reply-note {
+  margin: -10px 0 14px;
+  color: #e8e8e8;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
 .hero-trust-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -407,6 +427,7 @@ header {
 .why,
 .how-it-works,
 .faq,
+.quick-message,
 .local-seo {
   position: relative;
 }
@@ -418,6 +439,7 @@ header {
 .why h2,
 .how-it-works h2,
 .faq h2,
+.quick-message h2,
 .local-seo h2,
 .cta h2 {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
@@ -433,6 +455,7 @@ header {
 .why p,
 .how-it-works p,
 .faq p,
+.quick-message p,
 .local-seo p,
 .cta p {
   color: var(--muted);
@@ -470,6 +493,28 @@ header {
 .card:hover {
   transform: translateY(-5px);
   border-color: rgba(237,28,36,0.5);
+}
+
+.featured-card {
+  border-color: rgba(237,28,36,0.58);
+  background:
+    linear-gradient(145deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)),
+    #141414;
+  position: relative;
+  box-shadow: 0 18px 42px rgba(237,28,36,0.12);
+}
+
+.card-badge {
+  display: inline-flex;
+  margin-bottom: 14px;
+  background: var(--red);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .card h3 {
@@ -959,6 +1004,49 @@ header {
   margin-bottom: 10px;
 }
 
+/* QUICK MESSAGE */
+.quick-message {
+  background: #101010;
+  padding: 72px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.quick-message-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
+    #141414;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 36px;
+}
+
+.message-card {
+  background: rgba(0,0,0,0.42);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.message-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.message-card p {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 18px;
+  color: #e8e8e8;
+}
+
 /* SEO */
 .local-seo {
   background: #101010;
@@ -1425,7 +1513,8 @@ footer {
   }
 
   .cta-panel,
-  .pass-inner-new {
+  .pass-inner-new,
+  .quick-message-panel {
     grid-template-columns: 1fr;
   }
 
@@ -1558,6 +1647,20 @@ footer {
     padding: 0 16px;
   }
 
+  .hero-reply-note {
+    margin: -4px 0 12px;
+    font-size: 0.8rem;
+  }
+
+  .availability-pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
+  }
+
   .rating-row {
     gap: 8px 10px;
     font-size: 0.8rem;
@@ -1612,7 +1715,8 @@ footer {
   .reviews,
   .why,
   .how-it-works,
-  .faq {
+  .faq,
+  .quick-message {
     padding: 44px 0;
   }
 
@@ -1623,6 +1727,7 @@ footer {
   .why h2,
   .how-it-works h2,
   .faq h2,
+  .quick-message h2,
   .local-seo h2,
   .cta h2 {
     font-size: clamp(1.75rem, 5vw, 2.2rem);
@@ -1635,6 +1740,7 @@ footer {
   .why p,
   .how-it-works p,
   .faq p,
+  .quick-message p,
   .local-seo p,
   .cta p {
     font-size: 0.9rem;
@@ -1682,6 +1788,22 @@ footer {
 
   .dual-cta .btn {
     width: 100%;
+  }
+
+  .quick-message-panel {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .message-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .message-card p {
+    padding: 14px;
+    border-radius: 14px;
   }
 
   .local-seo {
@@ -2056,7 +2178,15 @@ footer {
 
       <div class="hero-actions hero-actions-clean">
         <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
-        <a href="https://wa.me/447902023737" target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+      </div>
+
+      <p class="hero-reply-note">
+        Usually replies quickly on WhatsApp — send your area, lesson type and availability.
+      </p>
+
+      <div class="availability-pill">
+        Limited weekly slots available — message early to check availability
       </div>
 
       <div class="hero-trust-stats">
@@ -2104,7 +2234,8 @@ footer {
         <a href="manual-driving-lessons-milton-keynes.html" class="card-link">View Manual Lessons</a>
       </div>
 
-      <div class="card">
+      <div class="card featured-card">
+        <div class="card-badge">Most Popular</div>
         <h3>Automatic lessons</h3>
         <p>Easier to learn, perfect for nervous beginners and quicker progress.</p>
         <span class="price-line">From £38/hr</span>
@@ -2169,7 +2300,7 @@ footer {
         <strong>Not sure if we cover your exact postcode?</strong>
         <span>Send us your area and lesson type — we'll confirm availability quickly.</span>
       </div>
-      <a href="https://wa.me/447902023737" target="_blank" class="btn btn-primary">WhatsApp Us →</a>
+      <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-primary">WhatsApp Us →</a>
     </div>
   </div>
 </section>
@@ -2382,6 +2513,28 @@ footer {
   </div>
 </section>
 
+<section class="quick-message">
+  <div class="container quick-message-panel">
+    <div>
+      <div class="section-label">Quick Enquiry</div>
+      <h2>Message us in under 30 seconds</h2>
+      <p>
+        To check availability faster, send us your area, lesson type, experience level and best days or times.
+      </p>
+    </div>
+
+    <div class="message-card">
+      <strong>Copy this message:</strong>
+      <p>
+        Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
+      </p>
+      <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-primary">
+        Send WhatsApp Message →
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="local-seo">
   <div class="container">
     <div class="local-seo-box">
@@ -2403,20 +2556,19 @@ footer {
     <div class="cta-panel">
       <div>
         <div class="section-label" style="color:#fff;">Ready to start?</div>
-        <h2>Need lessons before your test?</h2>
+        <h2>Ready to start driving lessons?</h2>
         <p>
-          Send us your test date, area and availability — we'll let you know what we can offer.
-          Book your first lesson today and start driving with confidence.
+          Send us your area, lesson type and availability. We’ll confirm the best instructor and earliest lesson slot available.
         </p>
 
         <div class="hero-actions">
           <a href="book.html" class="btn btn-primary">Book Lessons Now →</a>
-          <a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-secondary">WhatsApp Us</a>
         </div>
       </div>
 
       <div class="cta-box">
-        <strong>Let's get you test ready.</strong>
+        <strong>Let's get you started.</strong>
         <span>Manual, automatic and refresher lessons available across Milton Keynes and surrounding areas.</span>
       </div>
     </div>
@@ -2447,7 +2599,7 @@ footer {
     </svg>
   </a>
 
-  <a class="float-btn float-whatsapp" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
+  <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
     </svg>
@@ -2486,7 +2638,7 @@ function showPromoModal() {
     setTimeout(() => {
       promoModal.classList.add("show");
       document.body.style.overflow = "hidden";
-    }, 6000);
+    }, 12000);
   }
 }
 
