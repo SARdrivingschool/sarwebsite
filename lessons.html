@@ -12,8 +12,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Driving Lessons | SAR Driving School</title>
-  <meta name="description" content="Driving lessons in Milton Keynes with SAR Driving School. Manual, automatic and refresher lessons with DVSA-approved instructors. Lessons from £38 per hour.">
+  <title>Driving Lessons Milton Keynes | Manual, Automatic & Refresher | SAR Driving School</title>
+  <meta name="description" content="Manual, automatic and refresher driving lessons in Milton Keynes with SAR Driving School. Patient DVSA-approved instructors, lessons from £38 per hour and 200+ five-star reviews.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -25,6 +25,7 @@
       --red: #ed1c24;
       --red-dark: #b80f16;
       --dark: #0b0b0b;
+      --black: #050505;
       --card: #151515;
       --muted: #cfcfcf;
       --border: rgba(255,255,255,0.12);
@@ -38,11 +39,16 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       overflow-x: hidden;
-      background: #0b0b0b;
+      background: var(--dark);
       color: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -64,7 +70,7 @@
       margin: 0 auto;
     }
 
-    /* ========== NAVIGATION ========== */
+    /* NAVIGATION */
     nav {
       background: #ffffff;
       border-bottom: 1px solid rgba(0,0,0,0.12);
@@ -79,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 80px;
+      min-height: 88px;
     }
 
     .logo-img {
@@ -96,9 +102,9 @@
 
     nav a {
       color: #000000;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.9rem;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
@@ -108,9 +114,10 @@
     .btn-nav {
       background: var(--red);
       color: #ffffff !important;
-      padding: 11px 20px;
-      border-radius: 10px;
+      padding: 12px 21px;
+      border-radius: 11px;
       font-weight: 900;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
     }
 
     .hamburger {
@@ -121,12 +128,14 @@
       background: transparent;
       cursor: pointer;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 5px;
       z-index: 201;
     }
 
     .hamburger span {
-      width: 24px;
+      width: 26px;
       height: 3px;
       background: #000000;
       border-radius: 2px;
@@ -145,15 +154,67 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* ========== PAGE HERO ========== */
+    /* BUTTONS */
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      border: 1px solid;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border-color: var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.09);
+      color: #ffffff;
+      border-color: rgba(37,211,102,0.45);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      background: rgba(37,211,102,0.15);
+    }
+
+    /* HERO */
     .page-hero {
       position: relative;
-      background: linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.68) 45%, rgba(0,0,0,0.30) 100%),
-                  url("images/lessons-bg.png") center/cover no-repeat;
-      min-height: 460px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 46%, rgba(0,0,0,0.30) 100%),
+        url("images/lessons-bg.png") center/cover no-repeat;
+      min-height: 520px;
       display: flex;
       align-items: center;
-      padding: 60px 0;
+      padding: 72px 0;
       overflow: hidden;
     }
 
@@ -161,8 +222,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 18% 70%, rgba(237,28,36,0.18), transparent 34%),
-                  linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.32));
+      background:
+        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.22), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.34));
       pointer-events: none;
     }
 
@@ -171,20 +233,17 @@
       z-index: 2;
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
+      max-width: var(--max);
     }
 
-    .page-hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-
-    .page-hero p {
-      color: #d6d6d6;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 800px;
+    .hero-card {
+      max-width: 760px;
+      padding: 32px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.68), rgba(0,0,0,0.34));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
     }
 
     .section-label {
@@ -197,10 +256,66 @@
       display: inline-block;
     }
 
-    /* ========== LESSON SECTION ========== */
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.35rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+      letter-spacing: -2px;
+    }
+
+    .page-hero h1 span {
+      color: var(--red);
+    }
+
+    .page-hero p {
+      color: #e0e0e0;
+      font-size: 1.06rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      color: #e8e8e8;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: #0c0c0c;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 0;
+    }
+
+    .trust-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .trust-strip-grid div {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.94rem;
+    }
+
+    /* LESSON SECTION */
     .lesson-section {
       background: #0b0b0b;
-      padding: 72px 0 36px;
+      padding: 76px 0 36px;
     }
 
     .lesson-block {
@@ -208,7 +323,7 @@
       grid-template-columns: 1.1fr 0.9fr;
       gap: 48px;
       align-items: center;
-      padding: 56px 0;
+      padding: 58px 0;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
@@ -222,18 +337,49 @@
     }
 
     .lesson-text h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.12;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
+      font-size: clamp(1.95rem, 4vw, 2.95rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
     }
 
     .lesson-text p {
       color: #cfcfcf;
       line-height: 1.75;
       font-size: 1.04rem;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       max-width: 650px;
+    }
+
+    .price-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #ffffff;
+      background: rgba(237,28,36,0.13);
+      border: 1px solid rgba(237,28,36,0.42);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+
+    .popular-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: #ffffff;
+      background: var(--red);
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.24);
     }
 
     .lesson-features {
@@ -285,57 +431,62 @@
       transform: translateY(-5px);
     }
 
-    /* ========== BUTTONS ========== */
-    .btn-primary,
-    .btn-secondary,
-    .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 14px;
-      display: inline-flex;
+    /* PROOF SECTION */
+    .proof-section {
+      background: #101010;
+      padding: 64px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
       align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease;
-      border: 1px solid;
     }
 
-    .btn-primary {
-      background: var(--red);
+    .proof-copy h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.12;
+      margin-bottom: 12px;
+    }
+
+    .proof-copy p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.04rem;
+      max-width: 560px;
+    }
+
+    .proof-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .proof-card {
+      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .proof-card strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-bottom: 7px;
       color: #ffffff;
-      border-color: var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
     }
 
-    .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
+    .proof-card span {
+      color: #cfcfcf;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .btn-whatsapp {
-      background: rgba(37,211,102,0.09);
-      color: #ffffff;
-      border-color: rgba(37,211,102,0.45);
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      background: rgba(37,211,102,0.15);
-    }
-
-    /* ========== SERVICE LINKS ========== */
+    /* SERVICE LINKS */
     .service-links-section {
       background: #0b0b0b;
       padding: 68px 0;
@@ -410,7 +561,7 @@
       transform: translateY(-2px);
     }
 
-    /* ========== HELP SECTION ========== */
+    /* HELP SECTION */
     .lesson-help-section {
       background: #0b0b0b;
       padding: 68px 0;
@@ -421,8 +572,9 @@
     .lesson-help-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
-                  radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
+      background:
+        radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
+        radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
       pointer-events: none;
     }
 
@@ -508,9 +660,64 @@
       line-height: 1.5;
     }
 
-    /* ========== EXTRA SECTION ========== */
-    .lesson-extra-section {
+    /* QUICK MESSAGE */
+    .quick-message {
       background: #101010;
+      padding: 68px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quick-message-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
+        #141414;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .quick-message h2 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .quick-message p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.03rem;
+    }
+
+    .message-card {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .message-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .message-card p {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+      color: #e8e8e8;
+    }
+
+    /* EXTRA SECTION */
+    .lesson-extra-section {
+      background: #0b0b0b;
       padding: 68px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
@@ -577,7 +784,7 @@
       line-height: 1.55;
     }
 
-    /* ========== FOOTER ========== */
+    /* FOOTER */
     footer {
       padding: 32px 0;
       text-align: center;
@@ -615,46 +822,62 @@
       color: var(--red);
     }
 
-    /* ========== WHATSAPP FLOAT ========== */
-    .whatsapp-float {
+    /* FLOATING ACTIONS */
+    .floating-actions {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background: var(--green);
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      z-index: 999;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
       transition: transform 0.2s ease;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1);
+    .float-btn:hover {
+      transform: translateY(-2px);
     }
 
-    .whatsapp-float svg {
-      width: 32px;
-      height: 32px;
+    .float-call {
+      background: var(--red);
     }
 
-    /* ========== RESPONSIVE ========== */
+    .float-whatsapp {
+      background: var(--green);
+    }
+
+    .float-btn svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 1020px) {
-      .lesson-block {
+      .trust-strip-grid,
+      .proof-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lesson-block,
+      .lesson-help-card,
+      .quick-message-panel,
+      .proof-grid {
         grid-template-columns: 1fr;
         gap: 30px;
       }
 
       .lesson-img img {
         width: 100%;
-      }
-
-      .lesson-help-card {
-        grid-template-columns: 1fr;
-        gap: 24px;
       }
 
       .lesson-extra-grid,
@@ -664,6 +887,18 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-inner {
+        min-height: 82px;
+      }
+
+      .logo-img {
+        width: 140px;
+      }
+
       .hamburger {
         display: flex;
       }
@@ -671,7 +906,7 @@
       nav ul {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 82px;
         left: 0;
         right: 0;
         background: #ffffff;
@@ -705,17 +940,47 @@
       }
 
       .page-hero {
-        min-height: 400px;
-        padding: 40px 0;
+        min-height: 430px;
+        padding: 44px 0;
+      }
+
+      .hero-card {
+        padding: 22px 18px;
+        border-radius: 22px;
       }
 
       .page-hero h1 {
-        font-size: clamp(2rem, 7vw, 2.8rem);
+        font-size: clamp(2rem, 8vw, 2.8rem);
         margin-bottom: 12px;
+        letter-spacing: -1px;
       }
 
       .page-hero p {
         font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-whatsapp {
+        width: 100%;
+        min-height: 52px;
+        font-size: 0.9rem;
+      }
+
+      .trust-strip-grid,
+      .proof-cards,
+      .service-links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-strip-grid div {
+        padding: 13px 10px;
+        font-size: 0.82rem;
       }
 
       .lesson-section {
@@ -723,16 +988,21 @@
       }
 
       .lesson-block {
-        padding: 40px 0;
+        padding: 42px 0;
       }
 
       .lesson-text h2 {
-        font-size: clamp(1.65rem, 5vw, 2.2rem);
+        font-size: clamp(1.65rem, 6vw, 2.2rem);
       }
 
       .lesson-text p {
         font-size: 0.95rem;
         margin-bottom: 16px;
+      }
+
+      .price-pill {
+        font-size: 0.84rem;
+        padding: 9px 12px;
       }
 
       .lesson-features li {
@@ -744,29 +1014,37 @@
         grid-template-columns: 1fr;
       }
 
-      .lesson-actions .btn-primary,
-      .lesson-actions .btn-secondary {
-        width: 100%;
-      }
-
       .lesson-img img {
         height: 220px;
         border-radius: 16px;
       }
 
+      .proof-section,
       .service-links-section,
       .lesson-help-section,
+      .quick-message,
       .lesson-extra-section {
         padding: 44px 0;
       }
 
-      .service-links-grid,
-      .lesson-extra-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+      .proof-copy h2,
+      .service-links-head h2,
+      .lesson-help-content h2,
+      .quick-message h2,
+      .lesson-extra-head h2 {
+        font-size: clamp(1.65rem, 6vw, 2.2rem);
       }
 
-      .lesson-help-card {
+      .proof-copy p,
+      .service-links-head p,
+      .lesson-help-content p,
+      .quick-message p,
+      .lesson-extra-head p {
+        font-size: 0.9rem;
+      }
+
+      .lesson-help-card,
+      .quick-message-panel {
         padding: 24px 18px;
         border-radius: 22px;
       }
@@ -776,14 +1054,7 @@
         grid-template-columns: 1fr;
       }
 
-      .lesson-help-actions .btn-primary,
-      .lesson-help-actions .btn-secondary,
-      .lesson-help-actions .btn-whatsapp {
-        width: 100%;
-      }
-
       .help-mini-card {
-        grid-template-columns: auto 1fr;
         padding: 16px;
       }
 
@@ -797,19 +1068,23 @@
         font-size: 0.95rem;
       }
 
-      .lesson-extra-head h2 {
-        font-size: clamp(1.65rem, 5vw, 2.2rem);
+      .message-card {
+        padding: 18px;
+        border-radius: 16px;
       }
 
-      .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        bottom: 18px;
-        right: 18px;
+      .message-card p {
+        padding: 14px;
+        border-radius: 14px;
       }
 
-      .footer-local {
-        padding: 0 12px;
+      .lesson-extra-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .service-link-card {
+        padding: 18px;
       }
 
       .footer-links {
@@ -819,40 +1094,21 @@
       .footer-links a {
         font-size: 0.8rem;
       }
-    }
 
-    @media (max-width: 600px) {
-      .lesson-extra-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .floating-actions {
+        right: 14px;
+        bottom: 14px;
         gap: 10px;
       }
 
-      .lesson-extra-card {
-        padding: 16px;
+      .float-btn {
+        width: 50px;
+        height: 50px;
       }
 
-      .lesson-extra-card span {
-        width: 44px;
-        height: 44px;
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-      }
-
-      .lesson-extra-card h3 {
-        font-size: 0.95rem;
-      }
-
-      .service-link-card {
-        padding: 18px;
-      }
-
-      .service-link-card h3 {
-        font-size: 1.05rem;
-      }
-
-      .service-link-card a {
-        font-size: 0.85rem;
-        min-height: 44px;
+      .float-btn svg {
+        width: 24px;
+        height: 24px;
       }
     }
 
@@ -865,17 +1121,14 @@
         font-size: 1.55rem;
       }
 
-      .lesson-extra-grid {
+      .help-mini-card {
         grid-template-columns: 1fr;
       }
 
-      .help-mini-card {
-        padding: 14px;
-      }
-
       .help-icon {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
+        margin-bottom: 8px;
       }
     }
   </style>
@@ -885,12 +1138,14 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="SAR Driving School">
         <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
       </a>
 
       <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <ul id="nav-menu">
@@ -898,7 +1153,7 @@
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="socials.html">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
@@ -910,9 +1165,32 @@
 
     <section class="page-hero">
       <div class="page-hero-inner">
-        <div class="section-label">Our lessons</div>
-        <h1>Find the right lesson for you</h1>
-        <p>DVSA approved instructors. Tailored to your ability. Manual, automatic and refresher lessons across Milton Keynes and surrounding areas.</p>
+        <div class="hero-card">
+          <div class="section-label">Our lessons</div>
+          <h1>Find the right <span>driving lesson</span> for you</h1>
+          <p>
+            Manual, automatic and refresher driving lessons across Milton Keynes and surrounding areas.
+            Patient DVSA-approved instructors, structured lessons and clear progress every session.
+          </p>
+
+          <div class="hero-actions">
+            <a href="book.html" class="btn-primary">Book Your First Lesson →</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
+          </div>
+
+          <p class="hero-note">
+            Usually replies quickly — send your area, lesson type and availability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-strip-grid">
+        <div>⭐ <strong>200+ Five-Star Reviews</strong></div>
+        <div>🚗 <strong>Manual & Automatic</strong></div>
+        <div>✅ <strong>DVSA Approved</strong></div>
+        <div>📍 <strong>Milton Keynes & Nearby Areas</strong></div>
       </div>
     </section>
 
@@ -921,12 +1199,16 @@
 
         <div class="lesson-block">
           <div class="lesson-text">
-            <div class="section-label">Most popular</div>
+            <div class="section-label">Full licence flexibility</div>
             <h2>Manual driving lessons</h2>
-            <p>Our most popular option. A manual licence gives you the most flexibility — you can drive both manual and automatic cars. Perfect for first-time learners who want a full licence.</p>
+            <div class="price-pill">From £38/hr · Manual tuition</div>
+            <p>
+              Manual lessons are ideal if you want the most flexibility after passing.
+              A manual licence allows you to drive both manual and automatic cars.
+            </p>
 
             <ul class="lesson-features">
-              <li>✓ DVSA approved instructor</li>
+              <li>✓ DVSA-approved instructor</li>
               <li>✓ Suitable for complete beginners</li>
               <li>✓ Pick-up from your home or agreed location</li>
               <li>✓ Progress tracked every lesson</li>
@@ -935,7 +1217,7 @@
 
             <div class="lesson-actions">
               <a href="manual-driving-lessons-milton-keynes.html" class="btn-primary">View Manual Lessons</a>
-              <a href="book.html" class="btn-secondary">Book Manual</a>
+              <a href="book.html" class="btn-secondary">Check Manual Availability</a>
             </div>
           </div>
 
@@ -946,12 +1228,16 @@
 
         <div class="lesson-block">
           <div class="lesson-text">
-            <div class="section-label">Easier to learn</div>
+            <div class="popular-pill">Most requested</div>
             <h2>Automatic driving lessons</h2>
-            <p>No clutch, no gears — just steer and go. Automatic lessons are ideal if you find manual too stressful, want to pass faster, or prefer a simpler driving experience.</p>
+            <div class="price-pill">From £38/hr · Automatic tuition</div>
+            <p>
+              No clutch, no gears — just focus on the road. Automatic lessons are ideal for nervous learners,
+              beginners and pupils who want a simpler driving experience.
+            </p>
 
             <ul class="lesson-features">
-              <li>✓ DVSA approved instructor</li>
+              <li>✓ DVSA-approved instructor</li>
               <li>✓ Less to think about — easier to learn</li>
               <li>✓ Great for nervous learners</li>
               <li>✓ Pick-up from your home or agreed location</li>
@@ -960,12 +1246,12 @@
 
             <div class="lesson-actions">
               <a href="automatic-driving-lessons-milton-keynes.html" class="btn-primary">View Automatic Lessons</a>
-              <a href="book.html" class="btn-secondary">Book Automatic</a>
+              <a href="book.html" class="btn-secondary">Check Automatic Availability</a>
             </div>
           </div>
 
           <div class="lesson-img">
-            <img src="images/automatic-gear-stick.png" alt="Automatic gear selector">
+            <img src="images/automatic-gear-stick.png" alt="Automatic gear selector for automatic driving lessons">
           </div>
         </div>
 
@@ -973,19 +1259,23 @@
           <div class="lesson-text">
             <div class="section-label">Back on the road</div>
             <h2>Refresher lessons</h2>
-            <p>Already have a licence but haven't driven in a while? Our refresher lessons help you rebuild your confidence at your own pace — no judgement, just patient guidance.</p>
+            <div class="price-pill">Available on request · Manual or automatic</div>
+            <p>
+              Already have a licence but haven’t driven in a while? Refresher lessons help you rebuild confidence
+              at your own pace — no judgement, just patient guidance.
+            </p>
 
             <ul class="lesson-features">
               <li>✓ Tailored to your specific needs</li>
               <li>✓ Build confidence at your own pace</li>
               <li>✓ Manual or automatic available</li>
-              <li>✓ No minimum number of lessons</li>
+              <li>✓ Parking, roundabouts and motorway confidence</li>
               <li>✓ Flexible scheduling</li>
             </ul>
 
             <div class="lesson-actions">
               <a href="refresher-driving-lessons-milton-keynes.html" class="btn-primary">View Refresher Lessons</a>
-              <a href="book.html" class="btn-secondary">Book Refresher</a>
+              <a href="book.html" class="btn-secondary">Check Refresher Availability</a>
             </div>
           </div>
 
@@ -994,6 +1284,34 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="proof-section">
+      <div class="container proof-grid">
+        <div class="proof-copy">
+          <div class="section-label">Trusted by learners</div>
+          <h2>Learn with a driving school pupils recommend</h2>
+          <p>
+            SAR Driving School helps learners build confidence with structured lessons,
+            patient teaching and local test route knowledge across Milton Keynes and surrounding areas.
+          </p>
+        </div>
+
+        <div class="proof-cards">
+          <div class="proof-card">
+            <strong>200+</strong>
+            <span>Five-star Google reviews</span>
+          </div>
+          <div class="proof-card">
+            <strong>£38/hr</strong>
+            <span>Manual and automatic lessons</span>
+          </div>
+          <div class="proof-card">
+            <strong>MK</strong>
+            <span>Local route knowledge</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1009,7 +1327,7 @@
         <div class="service-links-grid">
           <div class="service-link-card">
             <h3>Manual Driving Lessons</h3>
-            <p>Build full clutch, gear and car control skills with structured manual lessons.</p>
+            <p>Build clutch, gear and car control skills with structured manual lessons.</p>
             <a href="manual-driving-lessons-milton-keynes.html">View Manual</a>
           </div>
 
@@ -1038,12 +1356,15 @@
           <div class="lesson-help-content">
             <div class="section-label">Need help choosing?</div>
             <h2>Not sure where to start?</h2>
-            <p>Tell us your driving experience, location and preferred lesson type. We'll help you choose the right option and match you with a suitable instructor.</p>
+            <p>
+              Tell us your driving experience, location and preferred lesson type.
+              We’ll help you choose the right option and match you with a suitable instructor.
+            </p>
 
             <div class="lesson-help-actions">
-              <a href="book.html" class="btn-primary">Book a lesson</a>
-              <a href="contact.html" class="btn-secondary">Contact us</a>
-              <a href="https://wa.me/447902023737" target="_blank" class="btn-whatsapp">WhatsApp us</a>
+              <a href="book.html" class="btn-primary">Book a Lesson</a>
+              <a href="contact.html" class="btn-secondary">Contact Us</a>
+              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20not%20sure%20which%20lesson%20type%20I%20need.%20My%20area%20is%20%5Byour%20area%5D%20and%20my%20experience%20level%20is%20%5Bbeginner%2Fsome%20experience%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
             </div>
           </div>
 
@@ -1053,7 +1374,7 @@
               <div class="help-icon">🚗</div>
               <div>
                 <h3>First-time learner?</h3>
-                <p>Start with a normal manual or automatic lesson depending on your goal.</p>
+                <p>Start with manual or automatic depending on your goal and confidence.</p>
               </div>
             </div>
 
@@ -1069,12 +1390,34 @@
               <div class="help-icon">📍</div>
               <div>
                 <h3>Unsure about area?</h3>
-                <p>Message us your postcode and we'll confirm availability near you.</p>
+                <p>Message your postcode and we’ll confirm availability near you.</p>
               </div>
             </div>
 
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-message">
+      <div class="container quick-message-panel">
+        <div>
+          <div class="section-label">Quick Enquiry</div>
+          <h2>Message us in under 30 seconds</h2>
+          <p>
+            To check availability faster, send your area, lesson type, experience level and best days or times.
+          </p>
+        </div>
+
+        <div class="message-card">
+          <strong>Copy this message:</strong>
+          <p>
+            Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic/refresher]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
+          </p>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-primary">
+            Send WhatsApp Message →
+          </a>
         </div>
       </div>
     </section>
@@ -1085,7 +1428,7 @@
         <div class="lesson-extra-head">
           <div class="section-label">How it works</div>
           <h2>Simple steps to get started</h2>
-          <p>Book your preferred lesson, send your details and we'll confirm the best instructor and availability for you.</p>
+          <p>Choose your lesson type, send your details and we’ll confirm the best instructor and availability for you.</p>
         </div>
 
         <div class="lesson-extra-grid">
@@ -1105,7 +1448,7 @@
           <div class="lesson-extra-card">
             <span>3</span>
             <h3>We confirm options</h3>
-            <p>We'll check instructor availability and suggest the best fit.</p>
+            <p>We’ll check instructor availability and suggest the best fit.</p>
           </div>
 
           <div class="lesson-extra-card">
@@ -1134,31 +1477,42 @@
         <a href="refresher-driving-lessons-milton-keynes.html">Refresher Lessons</a>
       </div>
     </div>
+
     <a href="terms.html">Terms & Conditions</a>
     <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/447902023737" target="_blank" aria-label="WhatsApp SAR Driving School">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
-    </svg>
-  </a>
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+      </svg>
+    </a>
+  </div>
 
   <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-
-    navMenu.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
       });
-    });
+
+      navMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open');
+          navMenu.classList.remove('open');
+        });
+      });
+    }
   </script>
 
 </body>
