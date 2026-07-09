@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Driving Lesson Prices Milton Keynes | From £38/hr | SAR Driving School</title>
-  <meta name="description" content="Driving lesson prices in Milton Keynes with SAR Driving School. Manual and automatic lessons from £38/hr, block bookings from £185, and test car hire subject to assessment.">
+  <meta name="description" content="Driving lesson prices in Milton Keynes with SAR Driving School. Manual and automatic lessons from £38/hr, block bookings from £185, secure online payments available, and test car hire subject to assessment.">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -634,9 +634,96 @@
       font-weight: 700;
     }
 
+    .online-note {
+      display: block;
+      color: #e5e5e5;
+      font-size: 0.78rem;
+      margin-top: 9px;
+      line-height: 1.45;
+    }
+
     .price-card .btn {
       width: 100%;
       margin-top: 18px;
+    }
+
+    /* ONLINE PAYMENTS */
+    .payment-section {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(37,211,102,0.10), transparent 32%),
+        #0b0b0b;
+      padding: 74px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .payment-card {
+      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(37,211,102,0.45);
+    }
+
+    .payment-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .payment-card p {
+      color: #cfcfcf;
+      line-height: 1.55;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .payment-price {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .payment-price strong {
+      display: block;
+      font-size: 1.85rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .payment-price span {
+      color: #bdbdbd;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .payment-card .btn {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .payment-note-box {
+      margin-top: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      color: #dcdcdc;
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     /* OTHER OPTIONS */
@@ -909,6 +996,15 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
+    footer a {
+      color: #cfcfcf;
+      font-weight: 800;
+    }
+
+    footer a:hover {
+      color: var(--red);
+    }
+
     .footer-local {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto 24px;
@@ -978,7 +1074,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 1120px) {
-      .block-grid {
+      .block-grid,
+      .payment-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1095,6 +1192,7 @@
       .trust-strip-grid,
       .single-grid,
       .block-grid,
+      .payment-grid,
       .other-grid,
       .choose-grid,
       .faq-grid {
@@ -1119,6 +1217,7 @@
 
       .single-section,
       .block-section,
+      .payment-section,
       .other-section,
       .choose-section,
       .quick-message,
@@ -1144,6 +1243,7 @@
 
       .lesson-card,
       .price-card,
+      .payment-card,
       .choose-card,
       .faq-item {
         padding: 20px;
@@ -1257,10 +1357,38 @@
       },
       {
         "@type": "Offer",
-        "name": "10 Hour Driving Lesson Block",
-        "price": "360",
+        "name": "1 Hour Driving Lesson Online Payment",
+        "price": "39.90",
         "priceCurrency": "GBP",
-        "url": "https://sardrivingschool.co.uk/book.html"
+        "url": "https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03"
+      },
+      {
+        "@type": "Offer",
+        "name": "5 Hour Driving Lesson Block Online Payment",
+        "price": "194.25",
+        "priceCurrency": "GBP",
+        "url": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05"
+      },
+      {
+        "@type": "Offer",
+        "name": "10 Hour Driving Lesson Block Online Payment",
+        "price": "378",
+        "priceCurrency": "GBP",
+        "url": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04"
+      },
+      {
+        "@type": "Offer",
+        "name": "20 Hour Driving Lesson Block Online Payment",
+        "price": "735",
+        "priceCurrency": "GBP",
+        "url": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06"
+      },
+      {
+        "@type": "Offer",
+        "name": "30 Hour Driving Lesson Block Online Payment",
+        "price": "1071",
+        "priceCurrency": "GBP",
+        "url": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07"
       }
     ]
   }
@@ -1307,22 +1435,23 @@
       </h1>
 
       <p>
-        Manual and automatic driving lessons from £38 per hour. Save more with block bookings and message us to confirm the best package for your area, experience level and availability.
+        Manual and automatic driving lessons from £38 per hour. Save more with block bookings, or pay online securely by card using Stripe.
       </p>
 
       <div class="hero-price-row">
         <div class="hero-price-pill red">From £38/hr</div>
         <div class="hero-price-pill">10 hours: £360</div>
-        <div class="hero-price-pill">Best value: 30 hours</div>
+        <div class="hero-price-pill">Online payment available</div>
       </div>
 
       <div class="hero-actions">
         <a href="#block-bookings" class="btn btn-primary">View Block Prices →</a>
+        <a href="#pay-online" class="btn btn-secondary">Pay Online</a>
         <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" class="btn btn-whatsapp">Ask on WhatsApp</a>
       </div>
 
       <p class="hero-note">
-        Usually replies quickly — send your area, lesson type, experience level and availability.
+        Online payments include a 5% processing/admin charge. After payment, our team will contact you to arrange your lessons.
       </p>
     </div>
   </div>
@@ -1333,7 +1462,7 @@
     <div>⭐ <strong>200+ Five-Star Reviews</strong></div>
     <div>🚗 <strong>Manual & Automatic</strong></div>
     <div>✅ <strong>DVSA Approved</strong></div>
-    <div>📍 <strong>Milton Keynes & Nearby</strong></div>
+    <div>🔒 <strong>Secure Online Payment</strong></div>
   </div>
 </section>
 
@@ -1341,6 +1470,7 @@
   <div class="container price-nav-row">
     <a href="#single-lessons">Single Lessons</a>
     <a href="#block-bookings">Block Bookings</a>
+    <a href="#pay-online">Pay Online</a>
     <a href="#other-options">Other Options</a>
     <a href="#choose-package">Choose Package</a>
     <a href="#faq">FAQ</a>
@@ -1353,7 +1483,7 @@
       <div class="section-label">Single lessons</div>
       <h2>Start with the lesson type that suits you</h2>
       <p>
-        Manual, automatic and refresher lessons are available from £38 per hour. Prices may vary depending on area, travel time and instructor availability.
+        Manual, automatic and refresher lessons are available from £38 per hour. Online card payment is available at £39.90 including the 5% processing/admin charge.
       </p>
     </div>
 
@@ -1377,7 +1507,7 @@
 
         <div class="lesson-card-actions">
           <a href="manual-driving-lessons-milton-keynes.html" class="btn btn-primary">View Manual Lessons</a>
-          <a href="book.html" class="btn btn-secondary">Check Manual Availability</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
         </div>
       </div>
 
@@ -1400,7 +1530,7 @@
 
         <div class="lesson-card-actions">
           <a href="automatic-driving-lessons-milton-keynes.html" class="btn btn-primary">View Automatic Lessons</a>
-          <a href="book.html" class="btn btn-secondary">Check Automatic Availability</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
         </div>
       </div>
 
@@ -1423,7 +1553,7 @@
 
         <div class="lesson-card-actions">
           <a href="refresher-driving-lessons-milton-keynes.html" class="btn btn-primary">View Refresher Lessons</a>
-          <a href="book.html" class="btn btn-secondary">Check Refresher Availability</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
         </div>
       </div>
     </div>
@@ -1436,7 +1566,7 @@
       <div class="section-label">Block bookings</div>
       <h2>Save more when you book more hours</h2>
       <p>
-        Block bookings help you build momentum and secure consistent lesson time. The 10-hour block is the most popular starting point for steady weekly progress.
+        Block bookings help you build momentum and secure consistent lesson time. Online card payment is available and includes a 5% processing/admin charge.
       </p>
     </div>
 
@@ -1457,9 +1587,10 @@
           <div class="was-price"><s>£190</s> normally at £38/hr</div>
           <strong class="main-price">£185</strong>
           <span class="per-hour">£37/hr equivalent</span>
+          <span class="online-note">Online payment: £194.25 including 5%</span>
         </div>
 
-        <a href="book.html" class="btn btn-secondary">Book Starter Block</a>
+        <a href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05" target="_blank" class="btn btn-secondary">Book 5 Hours Online</a>
       </div>
 
       <div class="price-card featured">
@@ -1478,9 +1609,10 @@
           <div class="was-price"><s>£380</s> normally at £38/hr</div>
           <strong class="main-price">£360</strong>
           <span class="per-hour">£36/hr equivalent</span>
+          <span class="online-note">Online payment: £378 including 5%</span>
         </div>
 
-        <a href="book.html" class="btn btn-primary">Book 10 Hours</a>
+        <a href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04" target="_blank" class="btn btn-primary">Book 10 Hours Online</a>
       </div>
 
       <div class="price-card">
@@ -1499,9 +1631,10 @@
           <div class="was-price"><s>£760</s> normally at £38/hr</div>
           <strong class="main-price">£700</strong>
           <span class="per-hour">£35/hr equivalent</span>
+          <span class="online-note">Online payment: £735 including 5%</span>
         </div>
 
-        <a href="book.html" class="btn btn-secondary">Book 20 Hours</a>
+        <a href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06" target="_blank" class="btn btn-secondary">Book 20 Hours Online</a>
       </div>
 
       <div class="price-card best">
@@ -1520,10 +1653,89 @@
           <div class="was-price"><s>£1,140</s> normally at £38/hr</div>
           <strong class="main-price">£1,020</strong>
           <span class="per-hour">£34/hr equivalent · save £120</span>
+          <span class="online-note">Online payment: £1,071 including 5%</span>
         </div>
 
-        <a href="book.html" class="btn btn-primary">Book 30 Hours</a>
+        <a href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07" target="_blank" class="btn btn-primary">Book 30 Hours Online</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="payment-section" id="pay-online">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Secure online payments</div>
+      <h2>Pay online for lessons and block bookings</h2>
+      <p>
+        Book your driving lessons online with secure Stripe payment. Online payments include a 5% processing/admin charge.
+      </p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card">
+        <h3>1 Hour Lesson</h3>
+        <p>Single 1 hour driving lesson with SAR Driving School.</p>
+
+        <div class="payment-price">
+          <strong>£39.90</strong>
+          <span>Standard price £38 + 5%</span>
+        </div>
+
+        <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-primary">Book 1 Hour</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>5 Hour Block</h3>
+        <p>Starter block booking for beginners or learners wanting a short package.</p>
+
+        <div class="payment-price">
+          <strong>£194.25</strong>
+          <span>Standard price £185 + 5%</span>
+        </div>
+
+        <a href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05" target="_blank" class="btn btn-secondary">Book 5 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>10 Hour Block</h3>
+        <p>Most popular block booking for steady weekly progress.</p>
+
+        <div class="payment-price">
+          <strong>£378</strong>
+          <span>Standard price £360 + 5%</span>
+        </div>
+
+        <a href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04" target="_blank" class="btn btn-primary">Book 10 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>20 Hour Block</h3>
+        <p>Strong package for learners who want consistent structured progress.</p>
+
+        <div class="payment-price">
+          <strong>£735</strong>
+          <span>Standard price £700 + 5%</span>
+        </div>
+
+        <a href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06" target="_blank" class="btn btn-secondary">Book 20 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>30 Hour Block</h3>
+        <p>Best value block booking for serious learners and full test preparation.</p>
+
+        <div class="payment-price">
+          <strong>£1,071</strong>
+          <span>Standard price £1,020 + 5%</span>
+        </div>
+
+        <a href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07" target="_blank" class="btn btn-primary">Book 30 Hours</a>
+      </div>
+    </div>
+
+    <div class="payment-note-box">
+      Online payments include a 5% processing/admin charge. Once payment is made, our team will contact you to arrange your lesson date, time and instructor. If you prefer to message first, contact us on WhatsApp.
     </div>
   </div>
 </section>
@@ -1639,12 +1851,12 @@
     <div class="faq-grid">
       <div class="faq-item">
         <h3>How much are manual driving lessons?</h3>
-        <p>Manual driving lessons start from £38 per hour.</p>
+        <p>Manual driving lessons start from £38 per hour. Online card payment is £39.90 including the 5% processing/admin charge.</p>
       </div>
 
       <div class="faq-item">
         <h3>How much are automatic driving lessons?</h3>
-        <p>Automatic driving lessons start from £38 per hour.</p>
+        <p>Automatic driving lessons start from £38 per hour. Online card payment is £39.90 including the 5% processing/admin charge.</p>
       </div>
 
       <div class="faq-item">
@@ -1653,8 +1865,8 @@
       </div>
 
       <div class="faq-item">
-        <h3>Are prices fixed?</h3>
-        <p>Standard lesson prices are shown above. Prices may vary depending on location, travel time and instructor availability.</p>
+        <h3>Why is the online price higher?</h3>
+        <p>Online payments include a 5% processing/admin charge. Standard lesson and block booking prices are still shown on this page.</p>
       </div>
 
       <div class="faq-item">
@@ -1664,7 +1876,7 @@
 
       <div class="faq-item">
         <h3>How do I book?</h3>
-        <p>Book online or message us on WhatsApp. We’ll confirm lesson type, area, availability and instructor.</p>
+        <p>You can pay online securely by card, book through the website, or message us on WhatsApp. We’ll contact you to arrange lesson date, time and instructor.</p>
       </div>
     </div>
   </div>
@@ -1677,19 +1889,19 @@
         <div class="section-label" style="color:#fff;">Ready to start?</div>
         <h2>Ready to book your first lesson?</h2>
         <p>
-          Choose your lesson type, send your preferred availability and we’ll help arrange the right instructor for your area.
+          Choose your lesson type, pay online securely, or send your preferred availability and we’ll help arrange the right instructor for your area.
         </p>
 
         <div class="hero-actions">
-          <a href="book.html" class="btn btn-primary">Book Now →</a>
+          <a href="#pay-online" class="btn btn-primary">Pay Online →</a>
+          <a href="book.html" class="btn btn-secondary">Book Now</a>
           <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20at%20lesson%20prices.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D." target="_blank" class="btn btn-secondary">Message on WhatsApp</a>
-          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
         </div>
       </div>
 
       <div class="cta-box">
-        <strong>Ask before you book.</strong>
-        <span>Send your area, lesson type and availability so we can confirm the best package and instructor availability.</span>
+        <strong>Book online or message us.</strong>
+        <span>You can pay online securely by card, or message us on WhatsApp if you want help choosing the right package.</span>
       </div>
     </div>
   </div>
