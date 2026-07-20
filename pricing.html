@@ -2295,6 +2295,118 @@ footer a,
     padding: 10px 0 !important;
   }
 }
+/* ==================================================
+   FINAL DESKTOP SPLIT-HERO FIX
+   Mobile remains unchanged
+================================================== */
+
+@media (min-width: 769px) {
+  /* Increase photo slightly and move crop towards faces */
+
+  .hero {
+    min-height: auto !important;
+    padding: 0 0 240px !important;
+  }
+
+  .hero::before {
+    top: auto !important;
+    bottom: 0 !important;
+
+    height: 240px !important;
+
+    background-size: cover !important;
+    background-position: center 12% !important;
+  }
+
+  /* Compact white section */
+
+  .hero-card {
+    min-height: 0 !important;
+
+    grid-template-columns:
+      minmax(420px, 1.1fr)
+      minmax(330px, 0.9fr) !important;
+
+    grid-template-areas:
+      "label prices"
+      "title prices"
+      "description prices"
+      "actions prices" !important;
+
+    column-gap: 56px !important;
+    row-gap: 8px !important;
+
+    padding: 28px 24px 26px !important;
+  }
+
+  /* Smaller heading */
+
+  .hero h1 {
+    max-width: 520px !important;
+
+    font-size:
+      clamp(2.25rem, 3.35vw, 3.35rem) !important;
+
+    line-height: 1 !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  /* Compact description */
+
+  .hero .hero-card > p:not(.hero-note) {
+    max-width: 520px !important;
+
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Smaller price summary */
+
+  .hero-price-row {
+    padding: 18px 24px !important;
+    border-radius: 17px !important;
+  }
+
+  .hero-price-row::before {
+    font-size: 0.95rem !important;
+  }
+
+  .hero-price-pill,
+  .hero-price-pill.red {
+    padding: 10px 0 !important;
+    font-size: 0.88rem !important;
+  }
+
+  .hero-price-pill.red {
+    font-size: 1.15rem !important;
+  }
+
+  /* Put all three buttons on one row */
+
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    gap: 8px !important;
+    margin-top: 7px !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 46px !important;
+
+    padding: 0 10px !important;
+
+    border-radius: 11px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .hero-note {
+    display: none !important;
+  }
+}
+
 }
   </style>
 
