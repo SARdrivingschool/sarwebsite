@@ -2665,6 +2665,351 @@ footer {
     font-size: 0.64rem !important;
   }
 }
+
+/* ==================================================
+   MANUAL GOOGLE REVIEWS
+   No Elfsight or external widget
+================================================== */
+
+.reviews {
+  padding: 72px 0;
+  background: #fff7f7;
+}
+
+.reviews-head {
+  max-width: 780px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.reviews-head h2 {
+  margin-bottom: 14px;
+
+  color: #111111;
+
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -1.5px;
+}
+
+.reviews-head p {
+  color: #555555;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Google summary */
+
+.google-review-summary {
+  max-width: 900px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  gap: 18px;
+
+  margin: 0 auto 26px;
+  padding: 18px 22px;
+
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.google-summary-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.google-summary-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.google-summary-score strong {
+  color: #111111;
+  font-size: 1.75rem;
+}
+
+.google-summary-score span {
+  color: #fbbc04;
+
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.google-summary-content p {
+  margin-top: 2px;
+
+  color: #666666;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.google-summary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 0 17px;
+
+  color: #ed1c24;
+
+  border: 1px solid #ed1c24;
+  border-radius: 11px;
+
+  font-size: 0.86rem;
+  font-weight: 900;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.google-summary-link:hover {
+  color: #ffffff;
+  background: #ed1c24;
+
+  transform: translateY(-2px);
+}
+
+/* Review cards */
+
+.manual-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.manual-review-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 390px;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.manual-review-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(237, 28, 36, 0.42);
+
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.1);
+}
+
+/* Card heading */
+
+.review-card-top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.avatar-orange {
+  background: #f4511e;
+}
+
+.avatar-blue {
+  background: #4285f4;
+}
+
+.avatar-dark-blue {
+  background: #0b5ea8;
+}
+
+.review-person strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #111111;
+  font-size: 1rem;
+}
+
+.review-person span {
+  color: #777777;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.google-review-mark {
+  color: #4285f4;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.manual-review-stars {
+  margin: 18px 0 14px;
+
+  color: #fbbc04;
+
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.manual-review-card blockquote {
+  flex: 1;
+
+  color: #444444;
+
+  font-size: 0.93rem;
+  line-height: 1.7;
+
+  font-style: normal;
+}
+
+/* Card labels */
+
+.review-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 20px;
+  padding-top: 16px;
+
+  border-top:
+    1px solid rgba(0, 0, 0, 0.08);
+}
+
+.review-card-footer span {
+  display: inline-flex;
+
+  padding: 7px 10px;
+
+  color: #333333;
+  background: #fff5f5;
+
+  border:
+    1px solid rgba(237, 28, 36, 0.18);
+
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* Buttons */
+
+.reviews-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.reviews-actions .btn {
+  min-width: 230px;
+}
+
+/* Tablet */
+
+@media (max-width: 1020px) {
+  .manual-reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .manual-review-card:last-child {
+    grid-column: 1 / -1;
+
+    width: min(560px, 100%);
+    justify-self: center;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .reviews {
+    padding: 48px 0;
+  }
+
+  .google-review-summary {
+    grid-template-columns: auto 1fr;
+
+    padding: 16px;
+  }
+
+  .google-summary-link {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .manual-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manual-review-card,
+  .manual-review-card:last-child {
+    grid-column: auto;
+
+    width: 100%;
+    min-height: auto;
+  }
+
+  .reviews-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-actions .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
 </style>
 
 <script type="application/ld+json">
@@ -3030,26 +3375,174 @@ footer {
   </div>
 </section>
 
-<section class="reviews">
+<!-- GOOGLE REVIEWS — NO EXTERNAL WIDGET -->
+<section class="reviews" id="google-reviews">
   <div class="container">
+
     <div class="reviews-head">
       <div class="section-label">What learners say</div>
+
       <h2>Real reviews from real learners</h2>
-      <p>Rated 5.0 by learners across Milton Keynes and surrounding areas.</p>
+
+      <p>
+        Rated 5.0 by learners across Milton Keynes and surrounding areas.
+      </p>
     </div>
 
-     <div class="google-review-widget">
-  <!-- Elfsight Google Reviews | SAR Driving School Reviews -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-37f71622-eff5-4864-adb4-98456c7142c5" data-elfsight-app-lazy></div>
+    <div class="google-review-summary">
+      <div class="google-summary-logo">
+        <img
+          src="images/google-logo.png"
+          alt="Google"
+        >
+      </div>
+
+      <div class="google-summary-content">
+        <div class="google-summary-score">
+          <strong>5.0</strong>
+          <span>★★★★★</span>
+        </div>
+
+        <p>Based on 200+ Google reviews</p>
+      </div>
+
+      <a
+        href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="google-summary-link"
+      >
+        View on Google →
+      </a>
     </div>
-    
+
+    <div class="manual-reviews-grid">
+
+      <!-- REVIEW 1 -->
+      <article class="manual-review-card">
+        <div class="review-card-top">
+          <div class="review-avatar avatar-orange">
+            C
+          </div>
+
+          <div class="review-person">
+            <strong>Casey Gillings</strong>
+            <span>Google Review</span>
+          </div>
+
+          <div class="google-review-mark">
+            G
+          </div>
+        </div>
+
+        <div class="manual-review-stars">
+          ★★★★★
+        </div>
+
+        <blockquote>
+          “I was very nervous learning to drive and genuinely couldn't
+          have had a better experience. Rizwan went above and beyond to
+          help boost my confidence behind the wheel. I passed first time,
+          and that was absolutely down to having a first-class driving
+          instructor.”
+        </blockquote>
+
+        <div class="review-card-footer">
+          <span>✓ First-time pass</span>
+          <span>✓ Confidence built</span>
+        </div>
+      </article>
+
+      <!-- REVIEW 2 -->
+      <article class="manual-review-card">
+        <div class="review-card-top">
+          <div class="review-avatar avatar-blue">
+            F
+          </div>
+
+          <div class="review-person">
+            <strong>Faith Odhiambo</strong>
+            <span>Google Review</span>
+          </div>
+
+          <div class="google-review-mark">
+            G
+          </div>
+        </div>
+
+        <div class="manual-review-stars">
+          ★★★★★
+        </div>
+
+        <blockquote>
+          “My instructor was incredibly helpful, patient and encouraging
+          throughout every lesson. They always made me feel comfortable
+          and confident behind the wheel, taking the time to explain
+          everything clearly and helping me improve at my own pace.”
+        </blockquote>
+
+        <div class="review-card-footer">
+          <span>✓ Patient tuition</span>
+          <span>✓ Supportive lessons</span>
+        </div>
+      </article>
+
+      <!-- REVIEW 3 -->
+      <article class="manual-review-card">
+        <div class="review-card-top">
+          <div class="review-avatar avatar-dark-blue">
+            M
+          </div>
+
+          <div class="review-person">
+            <strong>Mai El Banna</strong>
+            <span>Google Review</span>
+          </div>
+
+          <div class="google-review-mark">
+            G
+          </div>
+        </div>
+
+        <div class="manual-review-stars">
+          ★★★★★
+        </div>
+
+        <blockquote>
+          “The instructors are calm, supportive and very knowledgeable,
+          which helped build my confidence on the road. If you want the
+          best chance of passing your practical driving test, I strongly
+          recommend choosing this school.”
+        </blockquote>
+
+        <div class="review-card-footer">
+          <span>✓ Calm instructors</span>
+          <span>✓ Highly recommended</span>
+        </div>
+      </article>
+
     </div>
-    <div class="reviews-cta dual-cta">
-      <a href="socials.html" class="btn btn-secondary">Read Google Reviews →</a>
-      <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
+
+    <div class="reviews-actions">
+      <a
+        href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-secondary"
+      >
+        Read All Google Reviews →
+      </a>
+
+      <a
+        href="book.html"
+        class="btn btn-primary"
+      >
+        Book Your First Lesson →
+      </a>
     </div>
+
   </div>
+</section>
 </section>
 
 <section class="why">
