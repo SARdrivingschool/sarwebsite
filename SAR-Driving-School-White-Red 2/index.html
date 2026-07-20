@@ -1,0 +1,2636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>SAR Driving School | Driving Lessons Milton Keynes</title>
+<meta name="description" content="SAR Driving School offers manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford and Leighton Buzzard. DVSA-approved instructors with lessons from £38 per hour.">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<style>
+:root {
+  --red: #ed1c24;
+  --red-dark: #b80f16;
+  --dark: #050505;
+  --section: #0b0b0b;
+  --card: #141414;
+  --text: #ffffff;
+  --muted: #cfcfcf;
+  --border: rgba(255,255,255,0.12);
+  --green: #25D366;
+  --max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--dark);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.nav {
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo-img {
+  width: 158px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.btn-nav {
+  background: var(--red);
+  color: #ffffff !important;
+  padding: 13px 22px;
+  border-radius: 12px;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+}
+
+.hamburger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: #000000;
+  border-radius: 99px;
+  transition: 0.25s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* BUTTONS */
+.btn {
+  min-height: 56px;
+  padding: 0 28px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.04rem;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--red);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(237,28,36,0.28);
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.btn-whatsapp {
+  border: 1px solid rgba(37,211,102,0.45);
+  background: rgba(37,211,102,0.14);
+  color: #ffffff;
+}
+
+/* HERO */
+.hero {
+  min-height: max(670px, calc(100vh - 96px));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 56px 0;
+  background: #050505;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.58) 42%, rgba(0,0,0,0.34) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.70) 100%),
+    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 17% 62%, rgba(237,28,36,0.22), transparent 30%),
+    linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.16));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(580px, calc(100% - 32px));
+  max-width: 580px;
+  margin-left: max(16px, calc((100vw - var(--max)) / 2));
+  margin-right: auto;
+}
+
+.hero-content {
+  max-width: 580px;
+  padding: 34px 34px 32px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.76), rgba(0,0,0,0.46));
+  border: 1px solid rgba(237,28,36,0.34);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.42);
+  backdrop-filter: blur(5px);
+}
+
+.hero-label,
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--red);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-label {
+  color: #ffffff;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(237,28,36,0.55);
+  background: rgba(95,0,0,0.45);
+  margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+}
+
+.hero h1 {
+  font-size: clamp(2.55rem, 4.45vw, 4.15rem);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+  font-weight: 900;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 22px;
+}
+
+.google-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.stars {
+  color: #ffd84d;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  max-width: 520px;
+  color: #f4f4f4;
+  font-size: 1.04rem;
+  line-height: 1.6;
+  margin-bottom: 26px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.42);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.hero-actions-clean {
+  display: grid;
+  grid-template-columns: 1fr 0.82fr;
+  gap: 14px;
+}
+
+.hero-actions-clean .btn {
+  width: 100%;
+}
+
+.hero-reply-note {
+  margin: -10px 0 14px;
+  color: #e8e8e8;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.hero-trust-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+
+.stat-card {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255,255,255,0.14);
+  border-radius: 0;
+  padding: 0 16px;
+}
+
+.stat-card:first-child {
+  padding-left: 0;
+}
+
+.stat-card:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.stat-card span {
+  color: #d8d8d8;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+/* TRUST STRIP */
+.trust-strip {
+  background: #0c0c0c;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 0;
+}
+
+.trust-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.trust-strip-grid div {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* SHARED SECTIONS */
+.section,
+.areas,
+.pass-preview,
+.reviews,
+.why,
+.how-it-works,
+.faq,
+.quick-message,
+.local-seo {
+  position: relative;
+}
+
+.section h2,
+.areas h2,
+.pass-preview h2,
+.reviews h2,
+.why h2,
+.how-it-works h2,
+.faq h2,
+.quick-message h2,
+.local-seo h2,
+.cta h2 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.section p,
+.areas p,
+.pass-preview p,
+.reviews p,
+.why p,
+.how-it-works p,
+.faq p,
+.quick-message p,
+.local-seo p,
+.cta p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* LESSON OPTIONS */
+.section {
+  padding: 72px 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(237,28,36,0.08), transparent 30%),
+    #0c0c0c;
+}
+
+.section p {
+  max-width: 760px;
+}
+
+.cards {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: #141414;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(237,28,36,0.5);
+}
+
+.featured-card {
+  border-color: rgba(237,28,36,0.58);
+  background:
+    linear-gradient(145deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)),
+    #141414;
+  position: relative;
+  box-shadow: 0 18px 42px rgba(237,28,36,0.12);
+}
+
+.card-badge {
+  display: inline-flex;
+  margin-bottom: 14px;
+  background: var(--red);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #bfbfbf;
+  font-size: 0.98rem;
+  margin-bottom: 16px;
+}
+
+.price-line {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 18px;
+  color: #ffffff;
+  background: rgba(237,28,36,0.12);
+  border: 1px solid rgba(237,28,36,0.24);
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-weight: 900;
+  font-size: 0.94rem;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  background: var(--red);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.94rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-2px);
+  background: var(--red-dark);
+}
+
+/* AREAS */
+.areas {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(237,28,36,0.16), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(237,28,36,0.08), transparent 30%),
+    linear-gradient(180deg, #080808 0%, #0c0c0c 100%);
+  padding: 76px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.areas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 58px 58px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.areas .container {
+  position: relative;
+  z-index: 1;
+}
+
+.areas-head {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 34px;
+}
+
+.areas-head p {
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.area-card {
+  min-height: 270px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025)),
+    radial-gradient(circle at 50% 0%, rgba(237,28,36,0.16), transparent 42%);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 24px;
+  padding: 28px 22px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.area-card::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  opacity: 0.85;
+}
+
+.area-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(237,28,36,0.58);
+}
+
+.area-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 1px solid rgba(237,28,36,0.78);
+  background: radial-gradient(circle, rgba(237,28,36,0.24), rgba(237,28,36,0.06));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px rgba(237,28,36,0.18);
+}
+
+.area-card h3 {
+  font-size: 1.55rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.area-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #cfcfcf;
+  margin-bottom: 20px;
+  max-width: 240px;
+}
+
+.area-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.area-link span {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(237,28,36,0.72);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.areas-mini-cta {
+  margin-top: 26px;
+  padding: 20px 24px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.areas-mini-cta strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1.08rem;
+  margin-bottom: 4px;
+}
+
+.areas-mini-cta span {
+  color: #cfcfcf;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+/* PASSES */
+.pass-preview {
+  background:
+    radial-gradient(circle at 12% 38%, rgba(237,28,36,0.16), transparent 32%),
+    linear-gradient(180deg, #101010 0%, #070707 100%);
+  padding: 78px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.pass-inner-new {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 46px;
+  align-items: center;
+}
+
+.pass-copy-new h2 {
+  font-size: clamp(2.2rem, 4vw, 3.35rem);
+  line-height: 1.05;
+  margin-bottom: 18px;
+  letter-spacing: -1.5px;
+}
+
+.pass-copy-new p {
+  max-width: 560px;
+  margin-bottom: 20px;
+}
+
+.pass-proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 26px;
+}
+
+.pass-proof-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.11);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.pass-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  transform: rotate(-1deg);
+}
+
+.pass-showcase img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.13);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.42);
+  transition: transform 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+
+.pass-showcase img:nth-child(2),
+.pass-showcase img:nth-child(5) {
+  transform: translateY(28px);
+}
+
+.pass-showcase img:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(237,28,36,0.55);
+  filter: brightness(1.08);
+}
+
+/* REVIEWS */
+.reviews {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(237,28,36,0.06), transparent 34%),
+    #151515;
+  padding: 72px 0;
+}
+
+.reviews-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 34px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.review-card {
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(237,28,36,0.45);
+}
+
+.review-card .stars {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.review-card p {
+  margin-bottom: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.review-card strong {
+  color: #ffffff;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.review-card small {
+  color: #999;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.reviews-cta {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.dual-cta {
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.dual-cta .btn {
+  min-width: 230px;
+}
+
+/* WHY */
+.why {
+  background: #0c0c0c;
+  padding: 72px 0;
+}
+
+.why-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 32px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.why-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px 18px;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(237,28,36,0.5);
+}
+
+.why-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 1.45rem;
+  box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+}
+
+.why-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  color: #bcbcbc;
+  line-height: 1.55;
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+  background: #101010;
+  padding: 72px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.step-card {
+  background: #141414;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(237,28,36,0.45);
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  margin-bottom: 18px;
+  box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+}
+
+.step-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+/* FAQ */
+.faq {
+  background: #0c0c0c;
+  padding: 72px 0;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.faq-item {
+  background: #141414;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(237,28,36,0.45);
+}
+
+.faq-item h3 {
+  font-size: 1.12rem;
+  margin-bottom: 10px;
+}
+
+/* QUICK MESSAGE */
+.quick-message {
+  background: #101010;
+  padding: 72px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.quick-message-panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
+    #141414;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 36px;
+}
+
+.message-card {
+  background: rgba(0,0,0,0.42);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.message-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.message-card p {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 18px;
+  color: #e8e8e8;
+}
+
+/* SEO */
+.local-seo {
+  background: #101010;
+  padding: 58px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.local-seo-box {
+  background:
+    linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.03));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.local-seo-box p {
+  max-width: 980px;
+}
+
+/* CTA */
+.cta {
+  background: #0c0c0c;
+  padding: 0 0 72px;
+}
+
+.cta-panel {
+  background:
+    linear-gradient(90deg, rgba(237,28,36,0.88), rgba(0,0,0,0.62)),
+    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 46px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cta p {
+  max-width: 640px;
+  color: #f0f0f0;
+  margin-bottom: 24px;
+}
+
+.cta-box {
+  background: rgba(0,0,0,0.42);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.cta-box strong {
+  display: block;
+  font-size: 1.55rem;
+  margin-bottom: 10px;
+}
+
+.cta-box span {
+  color: #dddddd;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  padding: 34px 0;
+  text-align: center;
+  color: #999;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-local {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto 24px;
+}
+
+.footer-local h3 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 18px;
+}
+
+.footer-links a {
+  color: #cfcfcf;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  color: var(--red);
+}
+
+/* FLOATING BUTTONS */
+.floating-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.float-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  transition: transform 0.2s ease;
+}
+
+.float-btn:hover {
+  transform: translateY(-2px);
+}
+
+.float-call {
+  background: var(--red);
+}
+
+.float-whatsapp {
+  background: var(--green);
+}
+
+.float-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* POPUP */
+.promo-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.76);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  overflow-y: auto;
+}
+
+.promo-modal.show {
+  display: flex;
+  animation: promoFade 0.3s ease;
+}
+
+@keyframes promoFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.promo-modal-content {
+  width: min(1080px, 96vw);
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 28px;
+  position: relative;
+  background: #070707;
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 36px 90px rgba(0,0,0,0.65);
+  animation: promoRise 0.38s ease;
+}
+
+@keyframes promoRise {
+  from { transform: translateY(28px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.promo-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.62);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-modal-close:hover {
+  background: var(--red);
+}
+
+.promo-modal-inner {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 0;
+  min-height: 640px;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(105deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.92) 48%, rgba(237,28,36,0.18) 63%, rgba(255,255,255,0.96) 63%, rgba(255,255,255,0.98) 100%),
+    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.promo-left {
+  padding: 44px 48px 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.promo-logo {
+  width: 180px;
+  margin-bottom: 24px;
+}
+
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+}
+
+.promo-left h2 {
+  font-size: clamp(2.25rem, 4.6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 950;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.promo-left h2 span {
+  color: var(--red);
+}
+
+.promo-left h2 strong {
+  color: #ffae22;
+}
+
+.promo-left > p {
+  color: #f2f2f2;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 560px;
+  margin-bottom: 22px;
+}
+
+.promo-benefits {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+  max-width: 540px;
+}
+
+.promo-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.13);
+}
+
+.promo-benefit-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.promo-benefit-item h3 {
+  font-size: 0.98rem;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.promo-benefit-item p {
+  font-size: 0.86rem;
+  color: #d8d8d8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.promo-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.promo-modal-actions .btn {
+  min-height: 54px;
+  border-radius: 13px;
+  font-size: 0.95rem;
+}
+
+.promo-terms {
+  font-size: 0.78rem !important;
+  line-height: 1.55 !important;
+  color: #bdbdbd !important;
+  max-width: 620px !important;
+}
+
+.promo-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+  position: relative;
+  z-index: 2;
+}
+
+.promo-reward-card {
+  width: min(370px, 100%);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 34px 28px 28px;
+  text-align: center;
+  color: #050505;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+}
+
+.promo-trophy {
+  font-size: 5.2rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.promo-stars {
+  color: #e11d24;
+  letter-spacing: 5px;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.promo-small-red {
+  color: var(--red);
+  font-weight: 950;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.promo-reward-card h3 {
+  font-size: 2rem;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.promo-voucher {
+  border: 2px dashed rgba(0,0,0,0.22);
+  border-radius: 18px;
+  padding: 22px 16px;
+  margin-bottom: 24px;
+  background: linear-gradient(180deg, #ffffff, #f7f7f7);
+}
+
+.promo-voucher span {
+  display: block;
+  font-size: 3.2rem;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.promo-voucher strong {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.promo-voucher em {
+  display: inline-flex;
+  margin-top: 8px;
+  background: #050505;
+  color: #ffffff;
+  font-style: normal;
+  font-size: 0.86rem;
+  font-weight: 950;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 7px;
+}
+
+.promo-card-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111111;
+}
+
+.promo-card-points div {
+  border-right: 1px solid rgba(0,0,0,0.12);
+  padding: 0 6px;
+}
+
+.promo-card-points div:last-child {
+  border-right: 0;
+}
+
+.promo-card-points span {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1020px) {
+  .areas-grid,
+  .trust-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps-grid,
+  .review-grid,
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-panel,
+  .pass-inner-new,
+  .quick-message-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .pass-showcase {
+    transform: none;
+  }
+
+  .pass-showcase img:nth-child(2),
+  .pass-showcase img:nth-child(5) {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 28px, var(--max));
+  }
+
+  .nav {
+    min-height: 82px;
+  }
+
+  .logo-img {
+    width: 140px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 12px 24px 20px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    color: #000000;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 0.9rem;
+  }
+
+  .btn-nav {
+    margin-top: 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    min-height: auto;
+    display: block;
+    padding: 270px 0 28px;
+  }
+
+  .hero::before {
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.55) 44%, rgba(0,0,0,0.88) 100%),
+      url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+    background-position: center top;
+  }
+
+  .hero-inner {
+    width: min(100% - 24px, var(--max));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content {
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .hero-label {
+    padding: 10px 12px;
+    font-size: 0.52rem;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 8.2vw, 2.55rem);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .hero-actions,
+  .hero-actions-clean {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 52px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    padding: 0 16px;
+  }
+
+  .hero-reply-note {
+    margin: -4px 0 12px;
+    font-size: 0.8rem;
+  }
+
+  .availability-pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    margin-bottom: 16px;
+  }
+
+  .rating-row {
+    gap: 8px 10px;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .google-logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .rating-row .stars {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-trust-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-top: 14px;
+  }
+
+  .stat-card {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.11);
+    padding: 0 0 10px;
+  }
+
+  .stat-card:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .trust-strip-grid,
+  .cards,
+  .areas-grid,
+  .review-grid,
+  .steps-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip-grid div {
+    padding: 13px 10px;
+    font-size: 0.82rem;
+  }
+
+  .section,
+  .areas,
+  .pass-preview,
+  .reviews,
+  .why,
+  .how-it-works,
+  .faq,
+  .quick-message {
+    padding: 44px 0;
+  }
+
+  .section h2,
+  .areas h2,
+  .pass-preview h2,
+  .reviews h2,
+  .why h2,
+  .how-it-works h2,
+  .faq h2,
+  .quick-message h2,
+  .local-seo h2,
+  .cta h2 {
+    font-size: clamp(1.75rem, 5vw, 2.2rem);
+  }
+
+  .section p,
+  .areas p,
+  .pass-preview p,
+  .reviews p,
+  .why p,
+  .how-it-works p,
+  .faq p,
+  .quick-message p,
+  .local-seo p,
+  .cta p {
+    font-size: 0.9rem;
+  }
+
+  .area-card,
+  .card,
+  .step-card,
+  .faq-item,
+  .review-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .areas-mini-cta {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .pass-showcase {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    transform: none;
+  }
+
+  .pass-showcase img {
+    height: 185px;
+    border-radius: 14px;
+  }
+
+  .pass-proof-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dual-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dual-cta .btn {
+    width: 100%;
+  }
+
+  .quick-message-panel {
+    grid-template-columns: 1fr;
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .message-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .message-card p {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .local-seo {
+    padding: 44px 0;
+  }
+
+  .local-seo-box {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .cta {
+    padding: 0 0 44px;
+  }
+
+  .cta-panel {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .cta-box {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .footer-links {
+    gap: 8px 12px;
+  }
+
+  .floating-actions {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .float-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .float-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .promo-modal {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .promo-modal-content {
+    width: 100%;
+    max-height: none;
+    border-radius: 22px;
+    margin: 10px 0;
+  }
+
+  .promo-modal-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.93) 62%, rgba(255,255,255,0.98) 62%, rgba(255,255,255,0.98) 100%),
+      url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .promo-left {
+    padding: 28px 18px 22px;
+  }
+
+  .promo-logo {
+    width: 140px;
+    margin-bottom: 16px;
+  }
+
+  .promo-badge {
+    font-size: 0.64rem;
+    padding: 8px 10px;
+    margin-bottom: 16px;
+  }
+
+  .promo-left h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .promo-left > p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .promo-benefit-item {
+    padding: 11px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .promo-benefit-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1rem;
+  }
+
+  .promo-modal-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .promo-modal-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.86rem;
+  }
+
+  .promo-right {
+    padding: 18px;
+  }
+
+  .promo-reward-card {
+    border-radius: 22px;
+    padding: 24px 18px 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: min(100% - 20px, var(--max));
+  }
+
+  .hero {
+    padding-top: 250px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+
+  .hero-label {
+    font-size: 0.5rem;
+    padding: 8px 10px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pass-showcase img {
+    height: 165px;
+    border-radius: 12px;
+  }
+
+  .promo-card-points {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .promo-card-points div {
+    border-right: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 8px;
+  }
+
+  .promo-card-points div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SAR Driving School",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.png",
+  "image": "https://sardrivingschool.co.uk/images/logo.png",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and surrounding areas.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "From £38 per hour",
+  "areaServed": [
+    "Milton Keynes",
+    "Bletchley",
+    "Bedford",
+    "Leighton Buzzard"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Driving Lessons",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Manual Driving Lessons",
+        "url": "https://sardrivingschool.co.uk/manual-driving-lessons-milton-keynes.html",
+        "price": "38",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "name": "Automatic Driving Lessons",
+        "url": "https://sardrivingschool.co.uk/automatic-driving-lessons-milton-keynes.html",
+        "price": "38",
+        "priceCurrency": "GBP"
+      },
+      {
+        "@type": "Offer",
+        "name": "Refresher Driving Lessons",
+        "url": "https://sardrivingschool.co.uk/refresher-driving-lessons-milton-keynes.html",
+        "price": "38",
+        "priceCurrency": "GBP"
+      }
+    ]
+  }
+}
+</script>
+<link rel="stylesheet" href="theme-white-red.css">
+</head>
+
+<body>
+
+<!-- PROMO MODAL POPUP -->
+<div id="promoModal" class="promo-modal">
+  <div class="promo-modal-content">
+    <button class="promo-modal-close" id="closePromoBtn" aria-label="Close offer popup">✕</button>
+
+    <div class="promo-modal-inner">
+      <div class="promo-left">
+        <img src="images/logo.png" alt="SAR Driving School" class="promo-logo">
+
+        <div class="promo-badge">🎁 Exclusive offer for SAR learners</div>
+
+        <h2>
+          Pass with<br>
+          <span>0 Driving Faults</span><br>
+          Get a £100<br>
+          <strong>Amazon Voucher</strong>
+        </h2>
+
+        <p>
+          Any learner who books with SAR Driving School and passes their practical driving test
+          with <b>zero driving faults</b> will receive a <b>£100 Amazon voucher</b> from us.
+        </p>
+
+        <div class="promo-benefits">
+          <div class="promo-benefit-item">
+            <div class="promo-benefit-icon">✓</div>
+            <div>
+              <h3>Pass with 0 Driving Faults</h3>
+              <p>A clean-sheet driving test is rewarded.</p>
+            </div>
+          </div>
+
+          <div class="promo-benefit-item">
+            <div class="promo-benefit-icon">🛡️</div>
+            <div>
+              <h3>Drive to DVSA Standard</h3>
+              <p>Safe, confident and test-ready driving.</p>
+            </div>
+          </div>
+
+          <div class="promo-benefit-item">
+            <div class="promo-benefit-icon">🎁</div>
+            <div>
+              <h3>£100 Amazon Voucher</h3>
+              <p>Our way of saying well done.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-modal-actions">
+          <a href="book.html" class="btn btn-primary">Book Lessons Now →</a>
+          <a href="https://wa.me/447902023737" target="_blank" class="btn btn-secondary">Message Us on WhatsApp</a>
+        </div>
+
+        <p class="promo-terms">
+          Terms apply. Offer only available to SAR Driving School learners. Voucher issued after verified practical test pass with 0 driving faults.
+        </p>
+      </div>
+
+      <div class="promo-right">
+        <div class="promo-reward-card">
+          <div class="promo-trophy">🏆</div>
+          <div class="promo-stars">★★★★★</div>
+          <p class="promo-small-red">Exclusive</p>
+
+          <h3>SAR Learner<br>Reward</h3>
+
+          <div class="promo-voucher">
+            <span>£100</span>
+            <strong>Amazon</strong>
+            <em>Voucher</em>
+          </div>
+
+          <div class="promo-card-points">
+            <div>
+              <span>👨‍🏫</span>
+              Trusted<br>Instructors
+            </div>
+            <div>
+              <span>🛡️</span>
+              Proven<br>Results
+            </div>
+            <div>
+              <span>🏅</span>
+              First-Time<br>Pass Specialists
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END PROMO MODAL -->
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="SAR Driving School">
+      <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="book.html" class="btn-nav">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">📍 Milton Keynes' trusted driving school</div>
+
+      <h1>
+        Driving Lessons<br>
+        <span>in Milton Keynes</span><br>
+        From £38/hr
+      </h1>
+
+      <div class="rating-row">
+        <img src="images/google-logo.png" alt="Google" class="google-logo">
+        <span class="stars">★★★★★</span>
+        <span>200+ Five-Star Reviews</span>
+      </div>
+
+      <p>
+        Manual and automatic driving lessons with DVSA-approved instructors.
+        Calm, structured tuition for beginners, nervous learners and test-ready pupils.
+      </p>
+
+      <div class="hero-actions hero-actions-clean">
+        <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
+        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+      </div>
+
+      <p class="hero-reply-note">
+        Usually replies quickly on WhatsApp — send your area, lesson type and availability.
+      </p>
+
+      <div class="availability-pill">
+        Limited weekly slots available — message early to check availability
+      </div>
+
+      <div class="hero-trust-stats">
+        <div class="stat-card">
+          <strong>🏆 First Time</strong>
+          <span>Pass specialists</span>
+        </div>
+        <div class="stat-card">
+          <strong>✅ DVSA</strong>
+          <span>Approved instructors</span>
+        </div>
+        <div class="stat-card">
+          <strong>🚗 Manual &amp; Automatic</strong>
+          <span>Lessons available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-strip-grid">
+    <div>⭐ <strong>200+ Five-Star Reviews</strong></div>
+    <div>🚗 <strong>Manual & Automatic</strong></div>
+    <div>✅ <strong>DVSA Approved</strong></div>
+    <div>🏆 <strong>First-Time Pass Specialists</strong></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Lesson options</div>
+    <h2>Choose the lesson that suits you</h2>
+    <p>
+      We offer manual, automatic and refresher lessons with patient instructors,
+      clear guidance and a teaching style tailored to your confidence and ability.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Manual lessons</h3>
+        <p>Ideal if you want full licence flexibility and confidence with clutch control.</p>
+        <span class="price-line">From £38/hr</span>
+        <br>
+        <a href="manual-driving-lessons-milton-keynes.html" class="card-link">View Manual Lessons</a>
+      </div>
+
+      <div class="card featured-card">
+        <div class="card-badge">Most Popular</div>
+        <h3>Automatic lessons</h3>
+        <p>Easier to learn, perfect for nervous beginners and quicker progress.</p>
+        <span class="price-line">From £38/hr</span>
+        <br>
+        <a href="automatic-driving-lessons-milton-keynes.html" class="card-link">View Automatic Lessons</a>
+      </div>
+
+      <div class="card">
+        <h3>Refresher lessons</h3>
+        <p>For parking, roundabouts, motorway driving or confidence building.</p>
+        <span class="price-line">Available on request</span>
+        <br>
+        <a href="refresher-driving-lessons-milton-keynes.html" class="card-link">View Refresher Lessons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="container">
+    <div class="areas-head">
+      <div class="section-label">Areas We Cover</div>
+      <h2>Learn in your area</h2>
+      <p>
+        Manual and automatic driving lessons across our main local areas.
+        Choose your nearest location and get started with SAR Driving School.
+      </p>
+    </div>
+
+    <div class="areas-grid">
+      <a class="area-card" href="driving-lessons-milton-keynes.html" aria-label="Driving lessons in Milton Keynes">
+        <div class="area-icon">📍</div>
+        <h3>Milton Keynes</h3>
+        <p>Manual and automatic lessons across Milton Keynes.</p>
+        <div class="area-link">View lessons <span>›</span></div>
+      </a>
+
+      <a class="area-card" href="driving-lessons-bletchley.html" aria-label="Driving lessons in Bletchley">
+        <div class="area-icon">📍</div>
+        <h3>Bletchley</h3>
+        <p>Manual and automatic lessons covering Bletchley and nearby MK areas.</p>
+        <div class="area-link">View lessons <span>›</span></div>
+      </a>
+
+      <a class="area-card" href="driving-lessons-bedford.html" aria-label="Driving lessons in Bedford">
+        <div class="area-icon">📍</div>
+        <h3>Bedford</h3>
+        <p>Patient local instructors covering Bedford and nearby areas.</p>
+        <div class="area-link">View lessons <span>›</span></div>
+      </a>
+
+      <a class="area-card" href="driving-lessons-leighton-buzzard.html" aria-label="Driving lessons in Leighton Buzzard">
+        <div class="area-icon">📍</div>
+        <h3>Leighton Buzzard</h3>
+        <p>Structured lessons for learners in Leighton Buzzard.</p>
+        <div class="area-link">View lessons <span>›</span></div>
+      </a>
+    </div>
+
+    <div class="areas-mini-cta">
+      <div>
+        <strong>Not sure if we cover your exact postcode?</strong>
+        <span>Send us your area and lesson type — we'll confirm availability quickly.</span>
+      </div>
+      <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-primary">WhatsApp Us →</a>
+    </div>
+  </div>
+</section>
+
+<section class="pass-preview">
+  <div class="container pass-inner-new">
+    <div class="pass-copy-new">
+      <div class="section-label">Recent Passes</div>
+      <h2>
+        Real Learners.<br>
+        Real Passes.<br>
+        Real Results.
+      </h2>
+      <p>
+        See some of our latest successful learners who passed with SAR Driving School.
+        Manual and automatic lessons available across Milton Keynes and surrounding areas.
+      </p>
+
+      <div class="pass-proof-row">
+        <span>⭐ 200+ Reviews</span>
+        <span>🏆 First-Time Pass Specialists</span>
+        <span>🚗 Manual & Automatic</span>
+      </div>
+
+      <a href="gallery.html" class="btn btn-primary">View Full Pass Gallery →</a>
+    </div>
+
+    <div class="pass-showcase">
+      <img src="images/pass-gallery/pass-002.jpg" alt="SAR Driving School pass photo">
+      <img src="images/pass-gallery/pass-018.jpg" alt="SAR Driving School pass photo">
+      <img src="images/pass-gallery/pass-109.jpg" alt="SAR Driving School pass photo">
+      <img src="images/pass-gallery/pass-093.jpg" alt="SAR Driving School pass photo">
+      <img src="images/pass-gallery/pass-050.jpg" alt="SAR Driving School pass photo">
+      <img src="images/pass-gallery/pass-056.jpg" alt="SAR Driving School pass photo">
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="reviews-head">
+      <div class="section-label">What learners say</div>
+      <h2>Real reviews from real learners</h2>
+      <p>Rated 5.0 by learners across Milton Keynes and surrounding areas.</p>
+    </div>
+
+     <div class="google-review-widget">
+  <!-- Elfsight Google Reviews | SAR Driving School Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-37f71622-eff5-4864-adb4-98456c7142c5" data-elfsight-app-lazy></div>
+    </div>
+    
+    </div>
+    <div class="reviews-cta dual-cta">
+      <a href="socials.html" class="btn btn-secondary">Read Google Reviews →</a>
+      <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="why-head">
+      <div class="section-label">Why choose SAR?</div>
+      <h2>More than just driving lessons</h2>
+      <p>Structured lessons, modern teaching, local route knowledge and patient instructors.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h3>Expert Instructors</h3>
+        <p>DVSA approved, friendly and experienced.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Proven Results</h3>
+        <p>Real pupils, real passes and strong Google feedback.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🚗</div>
+        <h3>Modern Teaching</h3>
+        <p>Clear, structured lessons for today's roads.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">⏰</div>
+        <h3>Flexible Scheduling</h3>
+        <p>Lessons to suit work, study and daily life.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">📍</div>
+        <h3>Local Knowledge</h3>
+        <p>Milton Keynes and nearby test routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <div class="container">
+    <div class="section-label">How lessons work</div>
+    <h2>Start learning in three simple steps</h2>
+    <p>
+      We keep the process simple so you can quickly check availability and start lessons
+      with the right instructor.
+    </p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Send us your details</h3>
+        <p>Tell us your area, lesson type, experience level and availability.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>We check availability</h3>
+        <p>We'll let you know what instructors, lesson types and times are available.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Start your lessons</h3>
+        <p>Begin structured lessons designed around your confidence, ability and driving test goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions</h2>
+    <p>
+      Quick answers for learners looking for manual, automatic, refresher or test preparation lessons.
+    </p>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How much are driving lessons?</h3>
+        <p>Manual and automatic driving lessons start from £38 per hour.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you offer automatic driving lessons?</h3>
+        <p>Yes, automatic driving lessons are available across Milton Keynes and nearby areas.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you offer manual driving lessons?</h3>
+        <p>Yes, manual driving lessons are available from £38 per hour.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use your car for my driving test?</h3>
+        <p>Yes, subject to assessment and DVSA test-standard driving.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you offer refresher lessons?</h3>
+        <p>Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do you cover Bletchley test centre?</h3>
+        <p>Yes, we cover Bletchley and common Milton Keynes test routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quick-message">
+  <div class="container quick-message-panel">
+    <div>
+      <div class="section-label">Quick Enquiry</div>
+      <h2>Message us in under 30 seconds</h2>
+      <p>
+        To check availability faster, send us your area, lesson type, experience level and best days or times.
+      </p>
+    </div>
+
+    <div class="message-card">
+      <strong>Copy this message:</strong>
+      <p>
+        Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
+      </p>
+      <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-primary">
+        Send WhatsApp Message →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="local-seo">
+  <div class="container">
+    <div class="local-seo-box">
+      <div class="section-label">Local Driving Lessons</div>
+      <h2>Manual and automatic driving lessons near you</h2>
+      <p>
+        SAR Driving School provides manual and automatic driving lessons across Milton Keynes,
+        Bletchley, Wolverton, Newport Pagnell, Stony Stratford, Bedford and Leighton Buzzard.
+        Our DVSA-approved instructors help learners build confidence with structured lessons,
+        local test route knowledge and clear guidance for beginners, nervous learners and pupils
+        preparing for their driving test.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <div class="section-label" style="color:#fff;">Ready to start?</div>
+        <h2>Ready to start driving lessons?</h2>
+        <p>
+          Send us your area, lesson type and availability. We’ll confirm the best instructor and earliest lesson slot available.
+        </p>
+
+        <div class="hero-actions">
+          <a href="book.html" class="btn btn-primary">Book Lessons Now →</a>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <strong>Let's get you started.</strong>
+        <span>Manual, automatic and refresher lessons available across Milton Keynes and surrounding areas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-local">
+    <h3>Local Driving Lesson Areas</h3>
+    <div class="footer-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+    </div>
+  </div>
+
+  <a href="terms.html">Terms & Conditions</a>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+</footer>
+
+<div class="floating-actions">
+  <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+    </svg>
+  </a>
+
+  <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+// Navigation Menu
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("open");
+    navMenu.classList.toggle("open");
+  });
+
+  navMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      hamburger.classList.remove("open");
+      navMenu.classList.remove("open");
+    });
+  });
+}
+
+// Promo Modal Management
+const promoModal = document.getElementById("promoModal");
+const closePromoBtn = document.getElementById("closePromoBtn");
+
+function showPromoModal() {
+  const dismissed = localStorage.getItem("promoModalDismissed");
+  const dismissedTime = localStorage.getItem("promoModalDismissedTime");
+  const now = Date.now();
+
+  if (!dismissed || (dismissedTime && now - parseInt(dismissedTime, 10) > 604800000)) {
+    setTimeout(() => {
+      promoModal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }, 12000);
+  }
+}
+
+function closePromoModal() {
+  promoModal.classList.remove("show");
+  document.body.style.overflow = "";
+  localStorage.setItem("promoModalDismissed", "true");
+  localStorage.setItem("promoModalDismissedTime", Date.now().toString());
+}
+
+if (closePromoBtn && promoModal) {
+  closePromoBtn.addEventListener("click", closePromoModal);
+
+  promoModal.addEventListener("click", function (e) {
+    if (e.target === promoModal) {
+      closePromoModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && promoModal.classList.contains("show")) {
+      closePromoModal();
+    }
+  });
+
+  window.addEventListener("load", showPromoModal);
+}
+</script>
+
+</body>
+</html>

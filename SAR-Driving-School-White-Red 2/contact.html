@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18198829338');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact SAR Driving School | Driving Lessons Milton Keynes</title>
+  <meta name="description" content="Contact SAR Driving School for manual, automatic and refresher driving lessons in Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas. Message on WhatsApp for availability.">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root {
+      --red: #ed1c24;
+      --red-dark: #b80f16;
+      --dark: #0b0b0b;
+      --black: #050505;
+      --soft: #101010;
+      --card: #151515;
+      --muted: #cfcfcf;
+      --border: rgba(255,255,255,0.12);
+      --green: #25D366;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      position: relative;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 16px;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-img {
+      width: 150px;
+      height: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #000000;
+      font-weight: 800;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 12px 21px;
+      border-radius: 11px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+    }
+
+    .hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      z-index: 201;
+    }
+
+    .hamburger span {
+      width: 26px;
+      height: 3px;
+      background: #000000;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* SHARED */
+    .section-label {
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp {
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      border: 1px solid;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+      border-color: var(--red);
+      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      border-color: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: rgba(37,211,102,0.10);
+      color: #ffffff;
+      border-color: rgba(37,211,102,0.48);
+    }
+
+    .btn-whatsapp:hover {
+      background: rgba(37,211,102,0.16);
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 46%, rgba(0,0,0,0.32) 100%),
+        url("images/contact-bg.png") center/cover no-repeat;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 72px 0;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.22), transparent 34%),
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38));
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-card {
+      max-width: 800px;
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.40));
+      border: 1px solid rgba(237,28,36,0.32);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
+      backdrop-filter: blur(5px);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.45rem, 6vw, 4.45rem);
+      line-height: 1.04;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -2px;
+    }
+
+    .page-hero h1 span {
+      color: var(--red);
+    }
+
+    .page-hero p {
+      color: #e0e0e0;
+      font-size: 1.06rem;
+      line-height: 1.7;
+      max-width: 730px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      color: #e8e8e8;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: #0c0c0c;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .trust-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .trust-card strong {
+      display: block;
+      color: #ffffff;
+      font-size: 0.98rem;
+      margin-bottom: 5px;
+    }
+
+    .trust-card span {
+      color: #bfbfbf;
+      line-height: 1.45;
+      font-size: 0.86rem;
+    }
+
+    /* CONTACT MAIN */
+    .contact-main-section {
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(237,28,36,0.12), transparent 34%),
+        radial-gradient(circle at 85% 85%, rgba(237,28,36,0.09), transparent 30%),
+        #0b0b0b;
+      padding: 76px 0;
+      overflow: hidden;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-card,
+    .tally-panel {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .contact-card {
+      padding: 34px;
+    }
+
+    .contact-card h2 {
+      color: #ffffff;
+      font-size: clamp(1.95rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .contact-card-intro {
+      color: #cfcfcf;
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-bottom: 22px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0;
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.11);
+      transition: transform 0.25s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(237,28,36,0.14);
+      border: 1px solid rgba(237,28,36,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.15rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #ffffff;
+      font-size: 1.04rem;
+      margin-bottom: 5px;
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: #cfcfcf;
+      line-height: 1.55;
+      font-size: 0.96rem;
+    }
+
+    .contact-item a:hover {
+      color: #ffffff;
+    }
+
+    .fast-reply-box {
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.035)),
+        rgba(0,0,0,0.32);
+      border: 1px solid rgba(237,28,36,0.28);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .fast-reply-box h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 9px;
+    }
+
+    .fast-reply-box p {
+      color: #cfcfcf;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .tally-panel {
+      overflow: hidden;
+      position: relative;
+      padding: 0;
+    }
+
+    .tally-panel iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    /* QUICK MESSAGE */
+    .quick-message {
+      background: #101010;
+      padding: 74px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quick-message-panel {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
+        #141414;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .quick-message h2 {
+      color: #ffffff;
+      font-size: clamp(1.95rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .quick-message p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    .message-card {
+      background: rgba(0,0,0,0.42);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .message-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .message-card p {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 18px;
+      color: #e8e8e8;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* OPTIONS / SERVICES */
+    .contact-options-section,
+    .service-links-section,
+    .faq-section {
+      background: #0b0b0b;
+      padding: 74px 0;
+    }
+
+    .service-links-section {
+      background: #101010;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .options-head {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 34px;
+    }
+
+    .options-head h2,
+    .faq-copy h2 {
+      color: #ffffff;
+      font-size: clamp(1.95rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .options-head p,
+    .faq-copy p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      font-size: 1.04rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .option-card,
+    .service-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 20px;
+      padding: 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .option-card {
+      text-align: center;
+    }
+
+    .option-card:hover,
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(237,28,36,0.5);
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
+        #151515;
+    }
+
+    .option-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 1.25rem;
+      box-shadow: 0 12px 26px rgba(237,28,36,0.24);
+    }
+
+    .option-card h3,
+    .service-card h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 9px;
+    }
+
+    .service-card h3 {
+      font-size: 1.22rem;
+    }
+
+    .option-card p,
+    .service-card p {
+      color: #bfbfbf;
+      line-height: 1.6;
+      font-size: 0.94rem;
+      margin-bottom: 16px;
+    }
+
+    .service-card a {
+      display: inline-flex;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #ffffff;
+      font-weight: 900;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .service-card a:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    /* FAQ */
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .faq-copy p {
+      margin-bottom: 20px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 64px;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      font: inherit;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .faq-question span {
+      color: var(--red);
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+
+    .faq-answer p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      padding: 0 20px 20px;
+      font-size: 0.96rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 180px;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    /* FINAL CTA */
+    .final-cta-section {
+      background: #202020;
+      padding: 76px 0;
+      text-align: center;
+    }
+
+    .final-cta-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 46px 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .final-cta-card h2 {
+      color: #ffffff;
+      font-size: clamp(1.95rem, 4vw, 3.1rem);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .final-cta-card p {
+      color: #d0d0d0;
+      line-height: 1.7;
+      font-size: 1.04rem;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .final-cta-card .cta-actions {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: #999;
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-local {
+      max-width: var(--max);
+      margin: 0 auto 24px;
+      padding: 0 16px;
+    }
+
+    .footer-local h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+    }
+
+    .footer-links a {
+      color: #cfcfcf;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    .terms-link {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #cfcfcf;
+      font-weight: 800;
+    }
+
+    .terms-link:hover {
+      color: var(--red);
+    }
+
+    /* FLOATING ACTIONS */
+    .floating-actions {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .float-call {
+      background: var(--red);
+    }
+
+    .float-whatsapp {
+      background: var(--green);
+    }
+
+    .float-btn svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1020px) {
+      .contact-inner,
+      .quick-message-panel,
+      .faq-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .options-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-inner {
+        min-height: 82px;
+      }
+
+      .logo-img {
+        width: 140px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 12px 16px 20px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        z-index: 200;
+        gap: 0;
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+      }
+
+      nav ul a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        font-size: 0.9rem;
+      }
+
+      .btn-nav {
+        margin-top: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .page-hero {
+        min-height: auto;
+        padding: 54px 0;
+        background:
+          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
+          url("images/contact-bg.png") center right/cover no-repeat;
+      }
+
+      .hero-card {
+        padding: 22px 18px;
+        border-radius: 22px;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(2rem, 8vw, 2.75rem);
+        line-height: 1.08;
+        letter-spacing: -1px;
+      }
+
+      .page-hero p {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .btn-whatsapp,
+      .service-card a {
+        width: 100%;
+        min-height: 52px;
+        font-size: 0.9rem;
+      }
+
+      .contact-main-section,
+      .quick-message,
+      .contact-options-section,
+      .service-links-section,
+      .faq-section,
+      .final-cta-section {
+        padding: 46px 0;
+      }
+
+      .contact-card,
+      .tally-panel,
+      .quick-message-panel,
+      .final-cta-card {
+        border-radius: 20px;
+      }
+
+      .contact-card {
+        padding: 22px;
+      }
+
+      .contact-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .contact-icon {
+        margin-bottom: 2px;
+      }
+
+      .options-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-card {
+        padding: 13px 10px;
+      }
+
+      .quick-message-panel {
+        padding: 22px;
+      }
+
+      .message-card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .message-card p {
+        padding: 14px;
+        border-radius: 14px;
+      }
+
+      .floating-actions {
+        right: 14px;
+        bottom: 14px;
+        gap: 10px;
+      }
+
+      .float-btn {
+        width: 50px;
+        height: 50px;
+      }
+
+      .float-btn svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        width: min(100% - 22px, var(--max));
+      }
+
+      .page-hero h1,
+      .contact-card h2,
+      .quick-message h2,
+      .options-head h2,
+      .faq-copy h2,
+      .final-cta-card h2 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DrivingSchool",
+    "name": "SAR Driving School",
+    "url": "https://sardrivingschool.co.uk/",
+    "telephone": "+447902023737",
+    "email": "info@sardrivingschool.co.uk",
+    "areaServed": [
+      "Milton Keynes",
+      "Bletchley",
+      "Bedford",
+      "Leighton Buzzard"
+    ],
+    "priceRange": "£38 per hour",
+    "description": "SAR Driving School offers manual, automatic and refresher driving lessons across Milton Keynes and nearby areas."
+  }
+  </script>
+<link rel="stylesheet" href="theme-white-red.css">
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo" aria-label="SAR Driving School">
+        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <div class="hero-card">
+          <div class="section-label">Get in touch</div>
+          <h1>Contact <span>SAR Driving School</span></h1>
+          <p>
+            Message us about manual, automatic or refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas.
+          </p>
+
+          <div class="hero-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson →</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
+            <a href="tel:+447902023737" class="btn-secondary">Call SAR</a>
+          </div>
+
+          <p class="hero-note">
+            Usually replies quickly — send your area, lesson type, experience level and availability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-card">
+          <strong>200+ Five-Star Reviews</strong>
+          <span>Trusted by local learners.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>Manual & Automatic</strong>
+          <span>Choose the lesson type that suits you.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>DVSA Approved</strong>
+          <span>Professional driving instructors.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>From £38/hr</strong>
+          <span>Clear lesson prices.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main-section">
+      <div class="container contact-inner">
+
+        <div class="contact-card">
+          <div class="section-label">Fastest contact</div>
+          <h2>Talk to us</h2>
+          <p class="contact-card-intro">
+            WhatsApp is usually the quickest way to reach us. Include your area, lesson type, experience level and availability so we can check the right instructor faster.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+447902023737">07902 023737</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank">Message us on WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Areas covered</strong>
+                <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas, subject to instructor availability.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fast-reply-box">
+            <h3>Need a fast reply?</h3>
+            <p>Send your name, area, preferred lesson type and days/times you are available.</p>
+
+            <div class="quick-actions">
+              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Now</a>
+              <a href="book.html" class="btn-primary">Book a Lesson</a>
+              <a href="pricing.html" class="btn-secondary">View Pricing</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tally-panel">
+          <iframe
+            data-tally-src="https://tally.so/embed/pbkYAq?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="900"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Send SAR Driving School a message"
+          ></iframe>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="quick-message">
+      <div class="container quick-message-panel">
+        <div>
+          <div class="section-label">Quick Enquiry</div>
+          <h2>Message us in under 30 seconds</h2>
+          <p>
+            To check availability faster, send the details below. This helps us reply with the right instructor and lesson option.
+          </p>
+        </div>
+
+        <div class="message-card">
+          <strong>Copy this message:</strong>
+          <p>
+            Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic/refresher]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
+          </p>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-primary">
+            Send WhatsApp Message →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-options-section">
+      <div class="container">
+        <div class="options-head">
+          <div class="section-label">Before you message</div>
+          <h2>Help us reply faster</h2>
+          <p>
+            Include these details in your message so we can quickly check the right instructor and availability.
+          </p>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card">
+            <div class="option-icon">📍</div>
+            <h3>Your area</h3>
+            <p>Tell us your postcode or town so we can check local availability.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🚗</div>
+            <h3>Lesson type</h3>
+            <p>Manual, automatic, refresher, intensive course or unsure.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🕒</div>
+            <h3>Availability</h3>
+            <p>Let us know which days and times normally work for you.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🎯</div>
+            <h3>Your experience</h3>
+            <p>Beginner, partly trained, test booked or returning to driving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-links-section">
+      <div class="container">
+        <div class="options-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Choose the right lesson type</h2>
+          <p>View more information about each lesson type before booking.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want a full manual licence and maximum flexibility.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who want a smoother learning experience.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>Great for confidence building, parking, roundabouts and returning drivers.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container faq-inner">
+        <div class="faq-copy">
+          <div class="section-label">Common questions</div>
+          <h2>Quick answers before booking</h2>
+          <p>
+            These are the usual details learners ask before starting lessons with SAR Driving School.
+          </p>
+          <a href="pricing.html" class="btn-primary">View Pricing</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">How quickly can I start lessons? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Availability depends on your area, lesson type and instructor schedule. Message your postcode and availability so we can check properly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Do you offer manual and automatic? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Yes, SAR Driving School offers manual and automatic lessons depending on instructor availability in your area.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Can I book if I am nervous? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Yes. Lessons are calm, patient and tailored to your confidence level. Nervous learners are welcome.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Do you cover outside Milton Keynes? <span>+</span></button>
+            <div class="faq-answer">
+              <p>We may cover nearby areas such as Bletchley, Bedford and Leighton Buzzard, depending on instructor availability and travel time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-card">
+          <div class="section-label">Ready to start?</div>
+          <h2>Let’s get your first lesson arranged</h2>
+          <p>
+            Send your details and we’ll help you choose the right lesson type, check availability and confirm the next step.
+          </p>
+
+          <div class="cta-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+            <a href="pricing.html" class="btn-secondary">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-local">
+      <h3>Useful Driving Lesson Pages</h3>
+      <div class="footer-links">
+        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      </div>
+    </div>
+
+    <a href="terms.html" class="terms-link">Terms & Conditions</a>
+    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
+
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+      </svg>
+    </a>
+  </div>
+
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+      });
+
+      navMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open');
+          navMenu.classList.remove('open');
+        });
+      });
+    }
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', function() {
+        faqItems.forEach(function(other) {
+          if (other !== item) {
+            other.classList.remove('active');
+          }
+        });
+
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
