@@ -2240,6 +2240,431 @@ footer {
   }
 }
 
+/* FINAL HERO FIX */
+.hero::before {
+  background-image: url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.hero::after {
+  background: transparent !important;
+}
+
+.hero-content {
+  background: #ffffff !important;
+  border: 1px solid rgba(237, 28, 36, 0.35) !important;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: none !important;
+}
+
+.hero h1,
+.hero h1 span,
+.hero p,
+.hero-content p,
+.hero-reply-note,
+.rating-row,
+.stat-card strong,
+.stat-card span {
+  color: #111111 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.hero h1 span {
+  color: #ed1c24 !important;
+}
+
+.hero-label {
+  color: #111111 !important;
+  background: #ffffff !important;
+  border-color: rgba(237, 28, 36, 0.35) !important;
+}
+
+.availability-pill {
+  color: #111111 !important;
+  background: #ffffff !important;
+  border-color: rgba(237, 28, 36, 0.3) !important;
+}
+
+.hero-trust-stats {
+  border-top-color: rgba(237, 28, 36, 0.25) !important;
+}
+
+.stat-card {
+  border-right-color: rgba(237, 28, 36, 0.25) !important;
+}
+
+@media (max-width: 820px) {
+  .hero::before {
+    background-image: url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") !important;
+    background-position: center center !important;
+  }
+
+  .hero-content {
+    background: rgba(255, 255, 255, 0.97) !important;
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE BOTTOM-PANEL HERO
+======================================== */
+
+/* Remove the faded overlay */
+.hero::before {
+  background-image:
+    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.hero::after {
+  display: none !important;
+}
+
+/* Make all hero text clear */
+.hero h1,
+.hero p,
+.hero-reply-note,
+.rating-row,
+.stat-card strong,
+.stat-card span {
+  color: #111111 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.hero h1 span {
+  color: #ed1c24 !important;
+}
+
+.hero-label {
+  color: #111111 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(237, 28, 36, 0.32) !important;
+}
+
+.availability-pill {
+  color: #111111 !important;
+  background: #ffffff !important;
+  border-color: rgba(237, 28, 36, 0.3) !important;
+}
+
+/* ========================================
+   DESKTOP BOTTOM PANEL
+======================================== */
+
+@media (min-width: 769px) {
+  .hero {
+    min-height: 760px !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    padding: 0 0 28px !important;
+    background: #ffffff !important;
+  }
+
+  .hero::before {
+    background-position: center 34% !important;
+  }
+
+  .hero-inner {
+    width: min(1180px, calc(100% - 32px)) !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(280px, 1.35fr)
+      minmax(190px, 0.8fr)
+      minmax(250px, 1.15fr) !important;
+
+    grid-template-areas:
+      "label rating actions"
+      "title rating actions"
+      "stats stats stats" !important;
+
+    align-items: center !important;
+    gap: 12px 28px !important;
+
+    padding: 24px 30px 20px !important;
+    border-radius: 24px !important;
+
+    background: #ffffff !important;
+    border: 1px solid rgba(237, 28, 36, 0.32) !important;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: none !important;
+  }
+
+  .hero-label {
+    grid-area: label !important;
+    width: max-content !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 1.3px !important;
+  }
+
+  .hero h1 {
+    grid-area: title !important;
+    margin: 0 !important;
+
+    font-size: clamp(2rem, 3vw, 3rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .rating-row {
+    grid-area: rating !important;
+    margin: 0 !important;
+    align-content: center !important;
+  }
+
+  .hero-actions,
+  .hero-actions-clean {
+    grid-area: actions !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 0 18px !important;
+    border-radius: 13px !important;
+    font-size: 0.93rem !important;
+  }
+
+  /* Hide less important text on desktop to keep panel short */
+  .hero-content > p,
+  .hero-reply-note,
+  .availability-pill {
+    display: none !important;
+  }
+
+  .hero-trust-stats {
+    grid-area: stats !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    padding-top: 16px !important;
+    margin-top: 4px !important;
+
+    border-top: 1px solid rgba(237, 28, 36, 0.22) !important;
+  }
+
+  .stat-card {
+    padding: 0 18px !important;
+    border-right: 1px solid rgba(237, 28, 36, 0.22) !important;
+  }
+
+  .stat-card:first-child {
+    padding-left: 0 !important;
+  }
+
+  .stat-card:last-child {
+    padding-right: 0 !important;
+    border-right: 0 !important;
+  }
+}
+
+/* ========================================
+   TABLET AND MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+
+    /* Space reserved for the photograph */
+    padding: 300px 0 0 !important;
+
+    background: #ffffff !important;
+  }
+
+  .hero::before {
+    top: 0 !important;
+    bottom: auto !important;
+
+    width: 100% !important;
+    height: 300px !important;
+
+    background-size: cover !important;
+    background-position: center 25% !important;
+  }
+
+  .hero-inner {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: none !important;
+
+    display: block !important;
+    padding: 28px 20px 26px !important;
+
+    background: #ffffff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    text-align: center !important;
+  }
+
+  .hero-label {
+    width: fit-content !important;
+    margin: 0 auto 14px !important;
+
+    padding: 9px 12px !important;
+    font-size: 0.57rem !important;
+    letter-spacing: 1.1px !important;
+  }
+
+  .hero h1 {
+    max-width: 520px !important;
+    margin: 0 auto 16px !important;
+
+    font-size: clamp(2rem, 8.5vw, 2.8rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .rating-row {
+    justify-content: center !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-content > p {
+    max-width: 520px !important;
+    margin: 0 auto 20px !important;
+
+    color: #555555 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-actions,
+  .hero-actions-clean {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+
+    max-width: 520px !important;
+    margin: 0 auto 16px !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    min-height: 52px !important;
+  }
+
+  .hero-reply-note {
+    display: block !important;
+    margin: 0 auto 16px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .availability-pill {
+    display: inline-flex !important;
+    justify-content: center !important;
+
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto 20px !important;
+
+    border-radius: 14px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .hero-trust-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+
+    padding-top: 18px !important;
+    margin-top: 0 !important;
+
+    border-top: 1px solid rgba(237, 28, 36, 0.22) !important;
+  }
+
+  .stat-card {
+    padding: 0 8px !important;
+
+    border-right:
+      1px solid rgba(237, 28, 36, 0.22) !important;
+
+    border-bottom: 0 !important;
+  }
+
+  .stat-card:last-child {
+    border-right: 0 !important;
+  }
+
+  .stat-card strong {
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .stat-card span {
+    font-size: 0.7rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 430px) {
+  .hero {
+    padding-top: 250px !important;
+  }
+
+  .hero::before {
+    height: 250px !important;
+    background-position: center 25% !important;
+  }
+
+  .hero-content {
+    padding: 24px 16px !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.85rem, 8.5vw, 2.3rem) !important;
+  }
+
+  .hero-label {
+    font-size: 0.52rem !important;
+  }
+
+  .stat-card {
+    padding: 0 5px !important;
+  }
+
+  .stat-card strong {
+    font-size: 0.74rem !important;
+  }
+
+  .stat-card span {
+    font-size: 0.64rem !important;
+  }
+}
 </style>
 
 <script type="application/ld+json">
