@@ -2131,6 +2131,340 @@ footer {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* ==================================================
+   COMPACT LESSONS PAGE
+   Shorter hero + three lesson options immediately visible
+================================================== */
+
+/* Shorter hero image */
+
+@media (min-width: 769px) {
+  .page-hero {
+    padding-top: 360px !important;
+  }
+
+  .page-hero::before {
+    height: 360px !important;
+    background-position: center 42% !important;
+  }
+
+  .hero-card {
+    padding: 28px 30px 26px !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .page-hero .hero-card > p:not(.hero-note) {
+    margin-bottom: 18px !important;
+  }
+
+  .hero-note {
+    display: none !important;
+  }
+}
+
+/* Remove trust strip to reduce scrolling */
+
+.trust-strip {
+  display: none !important;
+}
+
+/* ==================================================
+   THREE LESSON OPTIONS GRID
+================================================== */
+
+.lesson-section {
+  padding: 55px 0 !important;
+  background: #fff7f7 !important;
+}
+
+.lesson-section .container {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+/* Convert each lesson block into a card */
+
+.lesson-block {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 0 !important;
+  padding: 0 0 24px !important;
+
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.11) !important;
+  border-radius: 22px !important;
+
+  overflow: hidden !important;
+
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.08) !important;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+.lesson-block:first-child,
+.lesson-block:last-child {
+  padding-top: 0 !important;
+  padding-bottom: 24px !important;
+}
+
+.lesson-block:hover {
+  transform: translateY(-6px) !important;
+
+  border-color:
+    rgba(237, 28, 36, 0.42) !important;
+
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Put each lesson image at the top */
+
+.lesson-img {
+  order: 1 !important;
+  width: 100% !important;
+}
+
+.lesson-img::before {
+  display: none !important;
+}
+
+.lesson-img img {
+  width: 100% !important;
+  height: 205px !important;
+
+  object-fit: cover !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+}
+
+.lesson-img img:hover {
+  transform: none !important;
+}
+
+/* Text underneath the image */
+
+.lesson-text {
+  order: 2 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+
+  padding: 24px 22px 0 !important;
+}
+
+.lesson-text .section-label {
+  margin-bottom: 10px !important;
+  font-size: 0.7rem !important;
+}
+
+.lesson-text h2 {
+  color: #111111 !important;
+
+  font-size: 1.65rem !important;
+  line-height: 1.12 !important;
+
+  margin-bottom: 12px !important;
+}
+
+.price-pill {
+  width: fit-content !important;
+
+  margin-bottom: 14px !important;
+  padding: 8px 12px !important;
+
+  font-size: 0.82rem !important;
+}
+
+.popular-pill {
+  width: fit-content !important;
+
+  margin-bottom: 10px !important;
+  padding: 7px 11px !important;
+
+  font-size: 0.68rem !important;
+}
+
+/* Shorter descriptions */
+
+.lesson-text p {
+  color: #555555 !important;
+
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+
+  margin-bottom: 16px !important;
+}
+
+/* Compact feature list */
+
+.lesson-features {
+  gap: 7px !important;
+  margin-bottom: 20px !important;
+}
+
+.lesson-features li {
+  color: #222222 !important;
+
+  font-size: 0.84rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Only show first three features */
+
+.lesson-features li:nth-child(n + 4) {
+  display: none !important;
+}
+
+/* Keep buttons aligned at bottom of cards */
+
+.lesson-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+
+  gap: 9px !important;
+  margin-top: auto !important;
+}
+
+.lesson-actions a {
+  width: 100% !important;
+  min-height: 48px !important;
+
+  padding: 0 14px !important;
+
+  font-size: 0.85rem !important;
+  border-radius: 12px !important;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1020px) and (min-width: 769px) {
+  .page-hero {
+    padding-top: 320px !important;
+  }
+
+  .page-hero::before {
+    height: 320px !important;
+  }
+
+  .lesson-section .container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .lesson-block:last-child {
+    grid-column: 1 / -1 !important;
+    max-width: 560px !important;
+    width: 100% !important;
+    justify-self: center !important;
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding-top: 230px !important;
+  }
+
+  .page-hero::before {
+    height: 230px !important;
+  }
+
+  .hero-card {
+    padding: 24px 18px !important;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .page-hero .hero-card > p:not(.hero-note) {
+    margin-bottom: 18px !important;
+  }
+
+  .hero-note {
+    display: none !important;
+  }
+
+  .lesson-section {
+    padding: 34px 0 !important;
+  }
+
+  .lesson-section .container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .lesson-block {
+    width: 100% !important;
+    padding-bottom: 20px !important;
+    border-radius: 18px !important;
+  }
+
+  .lesson-block:first-child,
+  .lesson-block:last-child {
+    padding-bottom: 20px !important;
+  }
+
+  .lesson-img img {
+    height: 190px !important;
+  }
+
+  .lesson-text {
+    padding: 20px 18px 0 !important;
+  }
+
+  .lesson-text h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .lesson-features li:nth-child(n + 3) {
+    display: none !important;
+  }
+}
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 430px) {
+  .page-hero {
+    padding-top: 200px !important;
+  }
+
+  .page-hero::before {
+    height: 200px !important;
+  }
+
+  .page-hero h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .lesson-img img {
+    height: 175px !important;
+  }
+}
   </style>
 </head>
 
