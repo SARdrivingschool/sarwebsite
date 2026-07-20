@@ -1302,6 +1302,550 @@
         font-size: 2rem;
       }
     }
+
+
+    /* ==================================================
+   COMPACT WHITE, RED AND BLACK PRICING PAGE
+================================================== */
+
+:root {
+  --dark: #ffffff;
+  --section: #ffffff;
+  --soft: #fff7f7;
+  --card: #ffffff;
+  --muted: #555555;
+  --border: rgba(0, 0, 0, 0.12);
+}
+
+html,
+body {
+  background: #ffffff;
+  color: #111111;
+}
+
+header {
+  border-bottom-color: rgba(237, 28, 36, 0.2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* BUTTONS */
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.btn-secondary:hover {
+  background: #fff1f1;
+}
+
+.btn-whatsapp {
+  background: #ffffff;
+  color: #137a3b;
+  border-color: #20a954;
+}
+
+.btn-whatsapp:hover {
+  background: #effff4;
+}
+
+/* Remove duplicate information to reduce scrolling */
+
+.trust-strip {
+  display: none;
+}
+
+/* ==================================================
+   SHORT HERO: IMAGE ABOVE, DETAILS BELOW
+================================================== */
+
+.hero {
+  position: relative;
+  display: block;
+
+  min-height: auto;
+  padding: 330px 0 0;
+
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 330px;
+
+  background-image:
+    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png");
+
+  background-size: cover;
+  background-position: center 34%;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  display: none;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-card {
+  width: min(1080px, calc(100% - 40px));
+  max-width: 1080px;
+
+  margin: 0 auto;
+  padding: 28px 24px 30px;
+
+  background: #ffffff;
+  color: #111111;
+
+  border: 0;
+  border-radius: 0;
+
+  box-shadow: none;
+  backdrop-filter: none;
+
+  text-align: center;
+}
+
+.hero .section-label {
+  display: inline-flex;
+
+  padding: 8px 13px;
+  margin-bottom: 12px;
+
+  background: #fff5f5;
+  border: 1px solid rgba(237, 28, 36, 0.25);
+  border-radius: 999px;
+
+  color: var(--red);
+}
+
+.hero h1 {
+  max-width: 850px;
+
+  margin: 0 auto 14px;
+
+  color: #111111;
+
+  font-size: clamp(2.25rem, 4.5vw, 3.6rem);
+  line-height: 1.04;
+
+  text-shadow: none;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p,
+.hero-note {
+  max-width: 760px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: #555555;
+
+  opacity: 1;
+  text-shadow: none;
+}
+
+.hero-price-row {
+  justify-content: center;
+  margin: 18px 0 20px;
+}
+
+.hero-price-pill {
+  background: #fff7f7;
+  color: #111111;
+
+  border-color: rgba(237, 28, 36, 0.2);
+}
+
+.hero-price-pill.red {
+  background: #fff1f1;
+  color: #111111;
+
+  border-color: rgba(237, 28, 36, 0.4);
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+/* ==================================================
+   PRICE NAVIGATION
+================================================== */
+
+.price-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  padding: 12px 0;
+
+  background: #ffffff;
+
+  border-bottom:
+    1px solid rgba(237, 28, 36, 0.15);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.price-nav-row a {
+  background: #fff7f7;
+  color: #111111;
+
+  border-color:
+    rgba(237, 28, 36, 0.2);
+}
+
+.price-nav-row a:hover {
+  background: #fff1f1;
+  color: var(--red);
+
+  border-color:
+    rgba(237, 28, 36, 0.5);
+}
+
+/* ==================================================
+   SECTION BACKGROUNDS
+================================================== */
+
+.single-section,
+.payment-section,
+.other-section,
+.quick-message,
+.final-cta {
+  background: #ffffff;
+}
+
+.block-section,
+.choose-section,
+.faq-section {
+  background: #fff7f7;
+
+  border-color:
+    rgba(237, 28, 36, 0.14);
+}
+
+/* Less vertical padding */
+
+.single-section {
+  padding: 42px 0 52px;
+}
+
+.block-section,
+.payment-section,
+.other-section,
+.choose-section,
+.quick-message,
+.faq-section {
+  padding: 54px 0;
+}
+
+.single-section .section-head {
+  margin-bottom: 24px;
+}
+
+/* ==================================================
+   ALL CARDS
+================================================== */
+
+.lesson-card,
+.price-card,
+.payment-card,
+.other-card,
+.choose-card,
+.quick-message-panel,
+.message-card,
+.message-card p,
+.faq-item,
+.cta-panel,
+.cta-box {
+  background: #ffffff;
+  color: #111111;
+
+  border-color:
+    rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+/* Main lesson cards */
+
+.lesson-card {
+  min-height: auto;
+  padding: 24px;
+}
+
+.lesson-card p {
+  margin-bottom: 14px;
+  color: #555555;
+}
+
+.lesson-card ul {
+  margin-bottom: 16px;
+}
+
+/* Show only the most useful three features */
+
+.lesson-card li:nth-child(n + 4) {
+  display: none;
+}
+
+/* Featured price cards */
+
+.price-card.featured {
+  background:
+    linear-gradient(
+      145deg,
+      #fff1f1,
+      #ffffff 68%
+    );
+
+  border-color:
+    rgba(237, 28, 36, 0.55);
+}
+
+.price-card.best {
+  background:
+    linear-gradient(
+      145deg,
+      #fff9df,
+      #ffffff 68%
+    );
+
+  border-color:
+    rgba(205, 155, 0, 0.45);
+}
+
+/* Gold badge */
+
+.top-badge.gold {
+  background: #fff7d6;
+  color: #7b5900;
+
+  border-color:
+    rgba(205, 155, 0, 0.45);
+}
+
+/* ==================================================
+   TEXT COLOURS
+================================================== */
+
+.lesson-card p,
+.price-card p,
+.payment-card p,
+.other-card p,
+.choose-card p,
+.quick-message p,
+.message-card p,
+.faq-item p,
+.section-head p,
+.cta-panel p,
+.cta-box span {
+  color: #555555;
+}
+
+.lesson-card li,
+.price-card li,
+.other-card li {
+  color: #222222;
+}
+
+.card-tag,
+.save-badge,
+.mini-price,
+.ask-price {
+  background: #fff1f1;
+  color: #111111;
+}
+
+.card-price,
+.price-area,
+.payment-price {
+  border-top-color:
+    rgba(0, 0, 0, 0.1);
+}
+
+.card-price span,
+.per-hour,
+.payment-price span,
+.was-price,
+.was-price s,
+.online-note {
+  color: #666666;
+}
+
+/* ==================================================
+   PAYMENT SECTION
+================================================== */
+
+.payment-card {
+  min-height: 245px;
+}
+
+.payment-note-box {
+  background: #fff7f7;
+  color: #444444;
+
+  border-color:
+    rgba(237, 28, 36, 0.18);
+}
+
+/* ==================================================
+   QUICK MESSAGE
+================================================== */
+
+.quick-message-panel {
+  background: #ffffff;
+}
+
+.message-card {
+  background: #fff7f7;
+
+  border-color:
+    rgba(237, 28, 36, 0.18);
+}
+
+.message-card strong {
+  color: #111111;
+}
+
+.message-card p {
+  background: #ffffff;
+  color: #333333;
+
+  border-color:
+    rgba(0, 0, 0, 0.1);
+}
+
+/* ==================================================
+   FINAL CTA
+================================================== */
+
+.cta-panel {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff
+    );
+
+  color: #111111;
+
+  border-color:
+    rgba(237, 28, 36, 0.25);
+}
+
+.cta-panel h2,
+.cta-box strong {
+  color: #111111;
+}
+
+.cta-panel p,
+.cta-box span {
+  color: #555555;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+  background: #ffffff;
+  color: #666666;
+
+  border-top:
+    1px solid rgba(237, 28, 36, 0.2);
+}
+
+footer a,
+.footer-local h3,
+.footer-links a {
+  color: #111111;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 220px;
+  }
+
+  .hero::before {
+    height: 220px;
+    background-position: center 30%;
+  }
+
+  .hero-card {
+    width: 100%;
+    padding: 24px 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
+  .hero-note {
+    display: none;
+  }
+
+  .hero-price-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-price-pill:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .single-section {
+    padding: 32px 0 40px;
+  }
+
+  .price-nav {
+    position: static;
+  }
+}
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 430px) {
+  .hero {
+    padding-top: 190px;
+  }
+
+  .hero::before {
+    height: 190px;
+  }
+
+  .hero-price-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-price-pill:last-child {
+    grid-column: auto;
+  }
+}
   </style>
 
   <script type="application/ld+json">
