@@ -1846,6 +1846,199 @@ footer a,
     grid-column: auto;
   }
 }
+
+/* ==================================================
+   DESKTOP PRICING PAGE FIX
+   Mobile remains unchanged
+================================================== */
+
+@media (min-width: 769px) {
+  /* Better image height and crop */
+
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+    padding: 390px 0 0 !important;
+    background: #ffffff !important;
+  }
+
+  .hero::before {
+    height: 390px !important;
+
+    background-image:
+      url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") !important;
+
+    background-size: cover !important;
+
+    /* Moves the photograph upwards to show faces */
+    background-position: center 18% !important;
+
+    background-repeat: no-repeat !important;
+  }
+
+  .hero::after {
+    display: none !important;
+  }
+
+  /* Compact horizontal information panel */
+
+  .hero-inner {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .hero-card {
+    width: min(1180px, calc(100% - 32px)) !important;
+    max-width: 1180px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(300px, 1.15fr)
+      minmax(280px, 1fr)
+      minmax(230px, 0.9fr) !important;
+
+    grid-template-areas:
+      "label prices actions"
+      "title description actions" !important;
+
+    align-items: center !important;
+    gap: 10px 28px !important;
+
+    margin: 0 auto !important;
+    padding: 24px 28px 22px !important;
+
+    background: #ffffff !important;
+
+    border: 0 !important;
+    border-bottom:
+      1px solid rgba(237, 28, 36, 0.14) !important;
+
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    text-align: left !important;
+  }
+
+  /* Label */
+
+  .hero .section-label {
+    grid-area: label !important;
+
+    width: max-content !important;
+    margin: 0 !important;
+
+    padding: 7px 11px !important;
+
+    font-size: 0.67rem !important;
+    letter-spacing: 1.4px !important;
+  }
+
+  /* Heading */
+
+  .hero h1 {
+    grid-area: title !important;
+
+    max-width: none !important;
+    margin: 0 !important;
+
+    color: #111111 !important;
+
+    font-size: clamp(2rem, 3vw, 3rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -1.4px !important;
+
+    text-align: left !important;
+  }
+
+  /* Description */
+
+  .hero .hero-card > p:not(.hero-note) {
+    grid-area: description !important;
+
+    margin: 0 !important;
+
+    color: #555555 !important;
+
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+
+    text-align: left !important;
+  }
+
+  /* Pricing pills */
+
+  .hero-price-row {
+    grid-area: prices !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .hero-price-pill {
+    padding: 8px 11px !important;
+
+    background: #fff7f7 !important;
+    color: #111111 !important;
+
+    border-color:
+      rgba(237, 28, 36, 0.22) !important;
+
+    font-size: 0.79rem !important;
+  }
+
+  .hero-price-pill.red {
+    background: #fff1f1 !important;
+
+    border-color:
+      rgba(237, 28, 36, 0.4) !important;
+  }
+
+  /* Buttons */
+
+  .hero-actions {
+    grid-area: actions !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 9px !important;
+    margin: 0 !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+
+    font-size: 0.88rem !important;
+  }
+
+  /* Hide duplicate payment note */
+
+  .hero-note {
+    display: none !important;
+  }
+
+  /* Compact section navigation */
+
+  .price-nav {
+    padding: 10px 0 !important;
+  }
+
+  .price-nav-row a {
+    padding: 9px 12px !important;
+    font-size: 0.8rem !important;
+  }
+}
   </style>
 
   <script type="application/ld+json">
