@@ -2048,6 +2048,253 @@ footer a,
 .price-nav-row a[href="#pay-online"] {
   display: none !important;
 }
+
+/* ==================================================
+   DESIGN B — SPLIT HERO PRICING
+   Desktop only
+================================================== */
+
+@media (min-width: 769px) {
+  .hero {
+    position: relative !important;
+    display: block !important;
+
+    min-height: auto !important;
+
+    /* Space for photograph at bottom */
+    padding: 0 0 190px !important;
+
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  /* Thin photograph banner underneath */
+
+  .hero::before {
+    content: "" !important;
+
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    height: 190px !important;
+
+    background-image:
+      url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.png") !important;
+
+    background-size: cover !important;
+    background-position: center 35% !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .hero::after {
+    display: none !important;
+  }
+
+  .hero-inner {
+    width: min(1180px, calc(100% - 32px)) !important;
+    max-width: 1180px !important;
+
+    margin: 0 auto !important;
+  }
+
+  /* Split hero */
+
+  .hero-card {
+    width: 100% !important;
+    max-width: none !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(400px, 1.08fr)
+      minmax(330px, 0.92fr) !important;
+
+    grid-template-areas:
+      "label prices"
+      "title prices"
+      "description prices"
+      "actions prices" !important;
+
+    column-gap: 70px !important;
+    row-gap: 12px !important;
+
+    align-items: center !important;
+
+    padding: 48px 24px 44px !important;
+
+    background: #ffffff !important;
+    color: #111111 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    text-align: left !important;
+  }
+
+  /* Label */
+
+  .hero .section-label {
+    grid-area: label !important;
+
+    width: max-content !important;
+    margin: 0 !important;
+
+    padding: 8px 13px !important;
+
+    color: var(--red) !important;
+    background: #fff5f5 !important;
+
+    border:
+      1px solid rgba(237, 28, 36, 0.25) !important;
+
+    border-radius: 999px !important;
+  }
+
+  /* Heading */
+
+  .hero h1 {
+    grid-area: title !important;
+
+    max-width: 560px !important;
+    margin: 0 !important;
+
+    color: #111111 !important;
+
+    font-size: clamp(2.5rem, 4vw, 4rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -2px !important;
+
+    text-align: left !important;
+    text-shadow: none !important;
+  }
+
+  .hero h1 span {
+    color: var(--red) !important;
+  }
+
+  /* Description */
+
+  .hero .hero-card > p:not(.hero-note) {
+    grid-area: description !important;
+
+    max-width: 540px !important;
+    margin: 0 !important;
+
+    color: #555555 !important;
+
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+
+    text-align: left !important;
+    text-shadow: none !important;
+  }
+
+  /* Price summary card */
+
+  .hero-price-row {
+    grid-area: prices !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+
+    justify-content: flex-start !important;
+
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 24px 28px !important;
+
+    background: #ffffff !important;
+
+    border:
+      1px solid rgba(0, 0, 0, 0.11) !important;
+
+    border-radius: 20px !important;
+
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.09) !important;
+  }
+
+  .hero-price-row::before {
+    content: "Price summary";
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #111111;
+
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+
+  .hero-price-pill,
+  .hero-price-pill.red {
+    width: 100% !important;
+
+    justify-content: space-between !important;
+
+    padding: 14px 0 !important;
+
+    background: transparent !important;
+    color: #111111 !important;
+
+    border: 0 !important;
+    border-bottom:
+      1px solid rgba(0, 0, 0, 0.1) !important;
+
+    border-radius: 0 !important;
+
+    font-size: 0.95rem !important;
+  }
+
+  .hero-price-pill.red {
+    color: var(--red) !important;
+    font-size: 1.35rem !important;
+  }
+
+  .hero-price-pill:last-child {
+    border-bottom: 0 !important;
+  }
+
+  /* Buttons */
+
+  .hero-actions {
+    grid-area: actions !important;
+
+    display: flex !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+
+    gap: 10px !important;
+    margin: 8px 0 0 !important;
+  }
+
+  .hero-actions .btn {
+    width: auto !important;
+    min-width: 190px !important;
+    min-height: 50px !important;
+  }
+
+  /* Remove repeated note */
+
+  .hero-note {
+    display: none !important;
+  }
+
+  /* Compact navigation */
+
+  .price-nav {
+    padding: 10px 0 !important;
+  }
+}
 }
   </style>
 
