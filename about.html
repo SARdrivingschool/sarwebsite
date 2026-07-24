@@ -1061,6 +1061,609 @@
         font-size: 1.65rem;
       }
     }
+
+
+
+
+    /* ==================================================
+   ABOUT PAGE — WHITE, RED AND BLACK REDESIGN
+================================================== */
+
+:root {
+  --red: #ed1c24;
+  --red-dark: #b80f16;
+  --dark: #ffffff;
+  --black: #111111;
+  --soft: #fff7f7;
+  --card: #ffffff;
+  --muted: #555555;
+  --border: rgba(0, 0, 0, 0.11);
+}
+
+/* GENERAL */
+
+html,
+body {
+  background: #ffffff;
+  color: #111111;
+}
+
+nav {
+  background: #ffffff;
+  border-bottom-color: rgba(237, 28, 36, 0.2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* BUTTONS */
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.btn-secondary:hover {
+  background: #fff1f1;
+}
+
+.btn-whatsapp {
+  background: #ffffff;
+  color: #137a3b;
+  border-color: #20a954;
+}
+
+.btn-whatsapp:hover {
+  background: #effff4;
+}
+
+/* ==================================================
+   ABOUT HERO — DESKTOP
+   Photograph above, information underneath
+================================================== */
+
+.page-hero {
+  position: relative;
+  display: block;
+
+  min-height: auto;
+  padding: 420px 0 0;
+
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 420px;
+
+  background-image: url("images/about-bg.png");
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+.page-hero::after {
+  display: none;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-card {
+  width: min(1080px, calc(100% - 40px));
+  max-width: 1080px;
+
+  margin: 0 auto;
+  padding: 34px 24px 36px;
+
+  background: #ffffff;
+  color: #111111;
+
+  border: 0;
+  border-radius: 0;
+
+  box-shadow: none;
+  backdrop-filter: none;
+
+  text-align: center;
+}
+
+.hero-card .section-label {
+  display: inline-flex;
+
+  padding: 8px 14px;
+  margin-bottom: 14px;
+
+  color: var(--red);
+  background: #fff5f5;
+
+  border: 1px solid rgba(237, 28, 36, 0.25);
+  border-radius: 999px;
+}
+
+.page-hero h1 {
+  max-width: 850px;
+  margin: 0 auto 16px;
+
+  color: #111111;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -2px;
+
+  text-shadow: none;
+}
+
+.page-hero h1 span {
+  color: var(--red);
+}
+
+.page-hero p {
+  max-width: 750px;
+  margin: 0 auto 22px;
+
+  color: #555555;
+
+  font-size: 1.02rem;
+  line-height: 1.65;
+
+  text-shadow: none;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+.hero-note {
+  display: none;
+}
+
+/* ==================================================
+   TRUST STRIP
+================================================== */
+
+.trust-strip {
+  padding: 16px 0;
+
+  background: #fff7f7;
+
+  border-top: 1px solid rgba(237, 28, 36, 0.14);
+  border-bottom: 1px solid rgba(237, 28, 36, 0.14);
+}
+
+.trust-strip-grid div {
+  padding: 15px;
+
+  background: #ffffff;
+  color: #111111;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* ==================================================
+   SECTION BACKGROUNDS
+================================================== */
+
+.story-section,
+.difference-section,
+.timeline-section,
+.quick-message {
+  background: #ffffff;
+}
+
+.promise-section,
+.service-section,
+.areas-section,
+.cta-section {
+  background: #fff7f7;
+
+  border-top-color: rgba(237, 28, 36, 0.14);
+  border-bottom-color: rgba(237, 28, 36, 0.14);
+}
+
+/* Reduce excessive scrolling */
+
+.story-section {
+  padding: 68px 0;
+}
+
+.promise-section,
+.difference-section,
+.service-section,
+.timeline-section,
+.areas-section,
+.quick-message,
+.cta-section {
+  padding: 62px 0;
+}
+
+/* ==================================================
+   ALL SECTION HEADINGS
+================================================== */
+
+.story-copy h2,
+.difference-head h2,
+.service-head h2,
+.timeline-copy h2,
+.areas-copy h2,
+.promise-head h2,
+.quick-message h2,
+.cta-card h2 {
+  color: #111111;
+}
+
+.story-copy p,
+.difference-head p,
+.service-head p,
+.timeline-copy p,
+.areas-copy p,
+.promise-head p,
+.quick-message p,
+.cta-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   STORY STATISTICS
+================================================== */
+
+.stat-card {
+  min-height: 150px;
+  padding: 26px;
+
+  background:
+    linear-gradient(135deg, #ffffff, #fff7f7);
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.stat-card strong {
+  color: var(--red);
+}
+
+.stat-card span {
+  color: #555555;
+}
+
+.stat-card::after {
+  background: rgba(237, 28, 36, 0.08);
+}
+
+/* ==================================================
+   PROMISE CARDS
+================================================== */
+
+.promise-card {
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.promise-card h3 {
+  color: #111111;
+}
+
+.promise-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   DIFFERENCE CARDS
+================================================== */
+
+.difference-card {
+  min-height: 230px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.difference-card:hover {
+  background:
+    linear-gradient(135deg, #fff1f1, #ffffff);
+}
+
+.difference-card h3 {
+  color: #111111;
+}
+
+.difference-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   SERVICE CARDS
+================================================== */
+
+.service-card {
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.service-card:hover {
+  background:
+    linear-gradient(135deg, #fff1f1, #ffffff);
+}
+
+.service-card h3 {
+  color: #111111;
+}
+
+.service-card p {
+  color: #555555;
+}
+
+.service-card a {
+  background: var(--red);
+  color: #ffffff;
+}
+
+/* ==================================================
+   TIMELINE
+================================================== */
+
+.timeline-item {
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.timeline-item h3 {
+  color: #111111;
+}
+
+.timeline-item p {
+  color: #555555;
+}
+
+/* ==================================================
+   AREAS
+================================================== */
+
+.areas-section {
+  background:
+    radial-gradient(
+      circle at 18% 40%,
+      rgba(237, 28, 36, 0.09),
+      transparent 36%
+    ),
+    #fff7f7;
+}
+
+.area-card {
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.area-card strong,
+.area-card a {
+  color: #111111;
+}
+
+.area-card span {
+  color: #555555;
+}
+
+/* ==================================================
+   QUICK MESSAGE
+================================================== */
+
+.quick-message-panel {
+  background:
+    linear-gradient(135deg, #fff1f1, #ffffff 65%);
+
+  border: 1px solid rgba(237, 28, 36, 0.22);
+
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+.message-card {
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.message-card strong {
+  color: #111111;
+}
+
+.message-card p {
+  background: #fff7f7;
+  color: #333333;
+
+  border: 1px solid rgba(237, 28, 36, 0.16);
+}
+
+/* ==================================================
+   FINAL CTA
+================================================== */
+
+.cta-card {
+  background:
+    linear-gradient(135deg, #fff1f1, #ffffff);
+
+  border: 1px solid rgba(237, 28, 36, 0.25);
+
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
+}
+
+.cta-card h2 {
+  color: #111111;
+}
+
+.cta-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+  background: #ffffff;
+  color: #666666;
+
+  border-top: 1px solid rgba(237, 28, 36, 0.2);
+}
+
+.footer-local h3,
+.footer-links a,
+footer > a {
+  color: #111111;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1020px) and (min-width: 769px) {
+  .page-hero {
+    padding-top: 350px;
+  }
+
+  .page-hero::before {
+    height: 350px;
+  }
+
+  .difference-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+  .page-hero {
+    display: block;
+
+    min-height: auto;
+    padding: 240px 0 0;
+
+    background: #ffffff;
+  }
+
+  .page-hero::before {
+    display: block;
+
+    height: 240px;
+
+    background-image: url("images/about-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .page-hero::after {
+    display: none;
+  }
+
+  .page-hero-inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: none;
+
+    padding: 26px 18px;
+
+    background: #ffffff;
+
+    border: 0;
+    border-radius: 0;
+
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .page-hero p {
+    color: #555555;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .story-section,
+  .promise-section,
+  .difference-section,
+  .service-section,
+  .timeline-section,
+  .areas-section,
+  .quick-message,
+  .cta-section {
+    padding: 44px 0;
+  }
+
+  .trust-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 430px) {
+  .page-hero {
+    padding-top: 205px;
+  }
+
+  .page-hero::before {
+    height: 205px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .trust-strip-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 
   <script type="application/ld+json">
