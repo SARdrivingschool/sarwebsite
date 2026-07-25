@@ -5,15 +5,24 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18198829338');
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "AW-18198829338");
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
   <title>Find Us | SAR Driving School Milton Keynes</title>
-  <meta name="description" content="Find SAR Driving School online. View Google reviews, Instagram, TikTok, YouTube, Facebook, WhatsApp and book manual, automatic or refresher driving lessons across Milton Keynes.">
+
+  <meta
+    name="description"
+    content="Find SAR Driving School online. View Google reviews, Instagram, TikTok, YouTube, Facebook and book manual, automatic or refresher driving lessons across Milton Keynes."
+  >
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -25,13 +34,14 @@
     :root {
       --red: #ed1c24;
       --red-dark: #b80f16;
-      --dark: #0b0b0b;
-      --black: #050505;
-      --soft: #101010;
-      --card: #151515;
-      --muted: #cfcfcf;
-      --border: rgba(255,255,255,0.12);
-      --green: #25D366;
+      --green: #25d366;
+      --green-dark: #14883f;
+      --black: #101010;
+      --text: #4d4d4d;
+      --grey: #737373;
+      --line: #e4e4e4;
+      --pale-red: #fff7f7;
+      --white: #ffffff;
       --max: 1180px;
     }
 
@@ -41,20 +51,24 @@
       padding: 0;
     }
 
-    html,
-    body {
-      width: 100%;
-      overflow-x: hidden;
-      background: var(--dark);
-      color: #ffffff;
-    }
-
     html {
       scroll-behavior: smooth;
     }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--white);
+      color: var(--black);
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body.menu-open {
+      overflow: hidden;
     }
 
     a {
@@ -63,8 +77,12 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
@@ -72,21 +90,47 @@
       margin: 0 auto;
     }
 
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      margin-bottom: 12px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .section-description {
+      color: var(--text);
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
+    /* NAVIGATION */
+
     nav {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
       position: relative;
-      z-index: 50;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid #ececec;
     }
 
     .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 16px;
+      width: min(var(--max), calc(100% - 32px));
       min-height: 88px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 30px;
     }
 
     .logo-img {
@@ -94,53 +138,57 @@
       height: auto;
     }
 
-    nav ul {
+    .nav-menu {
       display: flex;
-      list-style: none;
-      gap: 24px;
       align-items: center;
+      gap: 24px;
+      list-style: none;
     }
 
-    nav a {
-      color: #000000;
-      font-weight: 800;
+    .nav-menu a {
+      color: var(--black);
       font-size: 0.9rem;
+      font-weight: 800;
       transition: color 0.2s ease;
     }
 
-    nav a:hover {
+    .nav-menu a:hover,
+    .nav-menu a[aria-current="page"] {
       color: var(--red);
     }
 
-    .btn-nav {
+    .nav-menu .btn-nav {
+      padding: 13px 22px;
+      border-radius: 12px;
       background: var(--red);
-      color: #ffffff !important;
-      padding: 12px 21px;
-      border-radius: 11px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(237, 28, 36, 0.22);
+    }
+
+    .nav-menu .btn-nav:hover {
+      background: var(--red-dark);
+      color: var(--white);
     }
 
     .hamburger {
       display: none;
-      width: 44px;
-      height: 44px;
-      border: none;
+      width: 46px;
+      height: 46px;
+      border: 0;
       background: transparent;
       cursor: pointer;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 5px;
-      z-index: 201;
     }
 
     .hamburger span {
       width: 26px;
       height: 3px;
-      background: #000000;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+      border-radius: 3px;
+      background: var(--black);
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .hamburger.open span:nth-child(1) {
@@ -155,160 +203,141 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
+    /* BUTTONS */
 
     .btn-primary,
     .btn-secondary,
     .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 14px;
+      min-height: 54px;
+      padding: 0 23px;
+      border: 1px solid;
+      border-radius: 13px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      color: var(--black);
+      font-size: 0.94rem;
       font-weight: 900;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      border: 1px solid;
       text-align: center;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--red);
-      color: #ffffff;
       border-color: var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 12px 27px rgba(237, 28, 36, 0.2);
     }
 
     .btn-primary:hover {
-      background: var(--red-dark);
-      border-color: var(--red-dark);
       transform: translateY(-2px);
+      border-color: var(--red-dark);
+      background: var(--red-dark);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.22);
+      border-color: #cfcfcf;
+      background: var(--white);
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
       transform: translateY(-2px);
+      border-color: var(--black);
+      background: #f7f7f7;
     }
 
     .btn-whatsapp {
-      background: rgba(37,211,102,0.10);
-      color: #ffffff;
-      border-color: rgba(37,211,102,0.48);
+      border-color: var(--green);
+      background: var(--white);
+      color: var(--green-dark);
     }
 
     .btn-whatsapp:hover {
-      background: rgba(37,211,102,0.16);
       transform: translateY(-2px);
+      background: #effff4;
     }
+
+    /* HERO */
 
     .find-hero {
-      position: relative;
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      padding: 72px 0;
+      padding: 64px 0;
       background:
-        radial-gradient(circle at 50% 0%, rgba(237,28,36,0.22), transparent 36%),
-        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.14), transparent 32%),
-        linear-gradient(180deg, #181818 0%, #0b0b0b 100%);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-
-    .find-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,0.035), transparent 36%),
-        radial-gradient(circle at 50% -12%, rgba(255,255,255,0.08), transparent 28%);
-      pointer-events: none;
+        radial-gradient(circle at 12% 18%, rgba(237, 28, 36, 0.1), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(237, 28, 36, 0.08), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .hero-card {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
+      max-width: 980px;
       margin: 0 auto;
+      padding: 44px;
+      border: 1px solid #ffc7ca;
+      border-radius: 28px;
+      background: var(--white);
       text-align: center;
-      padding: 36px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.38));
-      border: 1px solid rgba(237,28,36,0.32);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
-      backdrop-filter: blur(5px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.09);
     }
 
     .hero-logo-wrap {
-      width: 180px;
-      height: 112px;
-      margin: 0 auto 24px;
+      width: 190px;
+      height: 116px;
+      margin: 0 auto 22px;
+      padding: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--white);
+      box-shadow: 0 13px 32px rgba(0, 0, 0, 0.07);
     }
 
     .hero-logo-wrap img {
-      width: 140px;
+      width: 145px;
       height: auto;
     }
 
     .find-hero h1 {
-      color: #ffffff;
-      font-size: clamp(2.6rem, 7vw, 5.25rem);
-      line-height: 0.98;
-      letter-spacing: -3px;
       margin-bottom: 16px;
+      color: var(--black);
+      font-size: clamp(2.7rem, 6vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -3px;
     }
 
     .find-hero h1 span {
       color: var(--red);
     }
 
-    .find-hero p {
-      color: #dcdcdc;
-      font-size: 1.08rem;
-      line-height: 1.75;
-      max-width: 790px;
-      margin: 0 auto 22px;
-    }
-
     .brand-rating {
+      margin-bottom: 20px;
+      padding: 11px 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 12px 18px;
+      border: 1px solid #ffd96a;
       border-radius: 999px;
-      background: rgba(237,28,36,0.12);
-      border: 1px solid rgba(237,28,36,0.34);
-      color: #ffffff;
+      background: #fff9e7;
+      color: var(--black);
       font-weight: 900;
-      margin-bottom: 22px;
     }
 
     .brand-rating span {
-      color: #ffd84d;
+      color: #f4b400;
       letter-spacing: 2px;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: var(--text);
+      font-size: 1.06rem;
+      line-height: 1.7;
     }
 
     .hero-actions,
@@ -321,15 +350,17 @@
 
     .hero-note {
       margin-top: 16px;
-      color: #e8e8e8;
-      font-size: 0.92rem;
-      line-height: 1.45;
+      color: #606060;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
+    /* TRUST STRIP */
+
     .trust-strip {
-      background: #0c0c0c;
       padding: 18px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: var(--pale-red);
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .trust-grid {
@@ -339,157 +370,161 @@
     }
 
     .trust-card {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
       padding: 16px;
+      border: 1px solid #f0c9cb;
+      border-radius: 15px;
+      background: var(--white);
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     }
 
     .trust-card strong {
       display: block;
-      color: #ffffff;
-      font-size: 0.98rem;
       margin-bottom: 5px;
+      color: var(--black);
+      font-size: 0.96rem;
     }
 
     .trust-card span {
-      color: #bfbfbf;
+      color: #666666;
+      font-size: 0.84rem;
       line-height: 1.45;
-      font-size: 0.86rem;
     }
+
+    /* SOCIAL LINKS */
 
     .links-section {
-      background:
-        radial-gradient(circle at 16% 30%, rgba(237,28,36,0.12), transparent 34%),
-        radial-gradient(circle at 86% 82%, rgba(237,28,36,0.08), transparent 30%),
-        #0b0b0b;
-      padding: 74px 0 82px;
-      position: relative;
-      overflow: hidden;
+      padding: 70px 0 80px;
+      background: var(--white);
     }
 
-    .links-head,
-    .service-head,
-    .areas-head {
-      text-align: center;
-      max-width: 780px;
+    .section-intro {
+      max-width: 800px;
       margin: 0 auto 34px;
-    }
-
-    .links-head h2,
-    .service-head h2,
-    .areas-head h2,
-    .quick-message h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .links-head p,
-    .service-head p,
-    .areas-head p,
-    .quick-message p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
+      text-align: center;
     }
 
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .social-card {
       position: relative;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 22px;
+      min-height: 116px;
       padding: 22px;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 18px;
       align-items: center;
       overflow: hidden;
-      min-height: 112px;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      border: 1px solid #dfdfdf;
+      border-radius: 21px;
+      background: var(--white);
+      box-shadow: 0 12px 29px rgba(0, 0, 0, 0.055);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .social-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(237,28,36,0.10), transparent 45%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
       pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(90deg, rgba(237, 28, 36, 0.07), transparent 60%);
+      transition: opacity 0.25s ease;
     }
 
     .social-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.52);
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.10), rgba(255,255,255,0.02)),
-        #101010;
+      border-color: var(--red);
+      box-shadow: 0 18px 38px rgba(237, 28, 36, 0.11);
     }
 
     .social-card:hover::after {
       opacity: 1;
     }
 
-    .social-icon {
+    .social-icon,
+    .social-text,
+    .social-arrow {
       position: relative;
       z-index: 2;
+    }
+
+    .social-icon {
       width: 58px;
       height: 58px;
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.55rem;
+      color: var(--white);
+      font-size: 1.5rem;
       font-weight: 900;
-      color: #ffffff;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
     }
 
-    .icon-web { background: linear-gradient(135deg, #2f80ed, #00c2ff); }
-    .icon-book { background: linear-gradient(135deg, #7551ff, #ed1c24); }
-    .icon-instagram { background: linear-gradient(135deg, #feda75, #d62976, #962fbf, #4f5bd5); }
-    .icon-tiktok { background: #000000; border: 1px solid rgba(255,255,255,0.18); }
-    .icon-youtube { background: #ff0000; }
-    .icon-facebook { background: #1877f2; }
-    .icon-whatsapp { background: #25D366; }
-    .icon-phone { background: #303030; }
-    .icon-email { background: #6b5200; }
-    .icon-review { background: #f4b400; color: #111111; }
+    .icon-review {
+      background: #f4b400;
+      color: var(--black);
+    }
 
-    .social-text {
-      position: relative;
-      z-index: 2;
+    .icon-book {
+      background: linear-gradient(135deg, #7551ff, var(--red));
+    }
+
+    .icon-instagram {
+      background: linear-gradient(135deg, #feda75, #d62976, #962fbf, #4f5bd5);
+    }
+
+    .icon-tiktok {
+      background: #000000;
+    }
+
+    .icon-youtube {
+      background: #ff0000;
+    }
+
+    .icon-facebook {
+      background: #1877f2;
+    }
+
+    .icon-whatsapp {
+      background: var(--green);
+    }
+
+    .icon-phone {
+      background: #303030;
+    }
+
+    .icon-email {
+      background: #ae7c00;
+    }
+
+    .icon-web {
+      background: linear-gradient(135deg, #2f80ed, #00b8e8);
     }
 
     .social-text strong {
       display: block;
-      color: #ffffff;
-      font-size: 1.18rem;
       margin-bottom: 6px;
+      color: var(--black);
+      font-size: 1.15rem;
     }
 
     .social-text span {
       display: block;
-      color: #bfbfbf;
+      color: #606060;
+      font-size: 0.93rem;
       line-height: 1.5;
-      font-size: 0.95rem;
     }
 
     .social-arrow {
-      position: relative;
-      z-index: 2;
       color: var(--red);
       font-size: 1.6rem;
       font-weight: 900;
@@ -500,43 +535,24 @@
       transform: translateX(5px);
     }
 
-    .featured-section,
-    .service-section,
-    .quick-message {
-      background: #101010;
-      padding: 74px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    /* FEATURED */
 
-    .areas-section {
-      background:
-        radial-gradient(circle at 18% 40%, rgba(237,28,36,0.12), transparent 36%),
-        #0b0b0b;
-      padding: 74px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+    .featured-section {
+      padding: 72px 0;
+      background: var(--pale-red);
+      border-top: 1px solid #ffd5d7;
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .featured-inner {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
+      gap: 52px;
       align-items: center;
     }
 
-    .featured-copy h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
-    }
-
     .featured-copy p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .featured-list {
@@ -546,25 +562,27 @@
     }
 
     .featured-list li {
-      color: #e0e0e0;
+      color: var(--black);
       font-weight: 800;
       line-height: 1.5;
     }
 
+    .featured-list li span {
+      color: var(--red);
+    }
+
     .featured-panel {
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
-        #151515;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 26px;
-      padding: 30px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      padding: 28px;
+      border: 1px solid #efc8ca;
+      border-radius: 25px;
+      background: var(--white);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
     }
 
     .featured-panel h3 {
-      color: #ffffff;
-      font-size: 1.55rem;
       margin-bottom: 18px;
+      color: var(--black);
+      font-size: 1.5rem;
     }
 
     .featured-panel-grid {
@@ -574,23 +592,30 @@
     }
 
     .mini-stat {
-      background: rgba(0,0,0,0.32);
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 18px;
       padding: 18px;
+      border: 1px solid #efd7d8;
+      border-radius: 17px;
+      background: #fffafa;
     }
 
     .mini-stat strong {
       display: block;
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+      color: var(--red);
+      font-size: 1.9rem;
     }
 
     .mini-stat span {
-      color: #bfbfbf;
+      color: #5b5b5b;
+      font-size: 0.9rem;
       line-height: 1.5;
-      font-size: 0.92rem;
+    }
+
+    /* LESSON OPTIONS */
+
+    .service-section {
+      padding: 72px 0;
+      background: var(--white);
     }
 
     .service-grid {
@@ -599,156 +624,194 @@
       gap: 18px;
     }
 
+    .service-card {
+      padding: 24px;
+      border: 1px solid #dddddd;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 29px rgba(0, 0, 0, 0.055);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--red);
+      box-shadow: 0 18px 38px rgba(237, 28, 36, 0.1);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: var(--black);
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      min-height: 72px;
+      margin-bottom: 18px;
+      color: var(--text);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    .card-link {
+      min-height: 45px;
+      padding: 0 16px;
+      border-radius: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.89rem;
+      font-weight: 900;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-2px);
+      background: var(--red-dark);
+    }
+
+    /* AREAS */
+
+    .areas-section {
+      padding: 72px 0;
+      background: var(--pale-red);
+      border-top: 1px solid #ffd5d7;
+      border-bottom: 1px solid #ffd5d7;
+    }
+
     .areas-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
-    .service-card,
     .area-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #151515;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 20px;
       padding: 22px;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      border: 1px solid #efc8ca;
+      border-radius: 19px;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .service-card:hover,
     .area-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
-        #151515;
+      border-color: var(--red);
+      box-shadow: 0 16px 34px rgba(237, 28, 36, 0.1);
     }
 
-    .service-card h3,
     .area-card h3 {
-      color: #ffffff;
-      font-size: 1.18rem;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
+      color: var(--black);
+      font-size: 1.13rem;
     }
 
-    .service-card p,
     .area-card p {
-      color: #bfbfbf;
-      line-height: 1.6;
-      font-size: 0.95rem;
+      min-height: 70px;
       margin-bottom: 16px;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.55;
     }
 
-    .service-card a,
-    .area-card a {
-      display: inline-flex;
-      min-height: 44px;
-      align-items: center;
-      justify-content: center;
-      padding: 0 15px;
-      border-radius: 12px;
-      background: var(--red);
-      color: #ffffff;
-      font-weight: 900;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
+    /* QUICK MESSAGE */
 
-    .service-card a:hover,
-    .area-card a:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
+    .quick-message {
+      padding: 72px 0;
+      background: var(--white);
     }
 
     .quick-message-panel {
+      padding: 34px;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
+      gap: 30px;
       align-items: center;
+      border: 1px solid #f0c8ca;
+      border-radius: 27px;
       background:
-        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
-        #141414;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 36px;
+        radial-gradient(circle at 8% 20%, rgba(237, 28, 36, 0.08), transparent 32%),
+        #fffafa;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.06);
     }
 
     .message-card {
-      background: rgba(0,0,0,0.42);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 24px;
+      padding: 23px;
+      border: 1px solid #dedede;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 27px rgba(0, 0, 0, 0.06);
     }
 
     .message-card strong {
       display: block;
       margin-bottom: 10px;
-      color: #ffffff;
-      font-size: 1.05rem;
+      color: var(--black);
+      font-size: 1rem;
     }
 
     .message-card p {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 18px;
-      color: #e8e8e8;
-      font-size: 0.95rem;
-      line-height: 1.65;
+      margin-bottom: 17px;
+      padding: 15px;
+      border: 1px solid #dedede;
+      border-radius: 14px;
+      background: #f7f7f7;
+      color: #404040;
+      font-size: 0.92rem;
+      line-height: 1.6;
     }
 
+    /* CTA */
+
     .cta-section {
-      background: #202020;
-      padding: 76px 0;
-      text-align: center;
+      padding: 72px 0;
+      background: var(--pale-red);
+      border-top: 1px solid #ffd5d7;
     }
 
     .cta-card {
-      max-width: 1000px;
+      max-width: 980px;
       margin: 0 auto;
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 46px 28px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
-
-    .cta-card h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3.1rem);
-      margin-bottom: 12px;
-      letter-spacing: -1px;
+      padding: 43px 28px;
+      border: 1px solid #efc8ca;
+      border-radius: 27px;
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.085);
     }
 
     .cta-card p {
-      color: #d0d0d0;
-      line-height: 1.7;
-      font-size: 1.04rem;
-      max-width: 720px;
-      margin: 0 auto 24px;
+      max-width: 700px;
+      margin: 0 auto 23px;
     }
+
+    /* FOOTER */
 
     footer {
       padding: 34px 0;
+      border-top: 1px solid #e2e2e2;
+      background: var(--white);
+      color: #686868;
       text-align: center;
-      color: #999;
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .footer-local {
-      max-width: var(--max);
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto 24px;
-      padding: 0 16px;
     }
 
     .footer-local h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
       margin-bottom: 14px;
+      color: var(--black);
+      font-size: 1.04rem;
     }
 
     .footer-links {
@@ -758,9 +821,10 @@
       gap: 10px 18px;
     }
 
-    .footer-links a {
-      color: #cfcfcf;
-      font-size: 0.92rem;
+    .footer-links a,
+    .terms-link {
+      color: #4c4c4c;
+      font-size: 0.9rem;
       font-weight: 700;
     }
 
@@ -772,18 +836,22 @@
     .terms-link {
       display: inline-block;
       margin-bottom: 10px;
-      color: #cfcfcf;
-      font-weight: 800;
     }
+
+    footer p {
+      font-size: 0.88rem;
+    }
+
+    /* FLOATING BUTTONS */
 
     .floating-actions {
       position: fixed;
       right: 20px;
       bottom: 20px;
+      z-index: 999;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      z-index: 9999;
+      gap: 11px;
     }
 
     .float-btn {
@@ -793,12 +861,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      box-shadow: 0 12px 27px rgba(0, 0, 0, 0.25);
       transition: transform 0.2s ease;
     }
 
     .float-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     .float-call {
@@ -810,9 +878,11 @@
     }
 
     .float-btn svg {
-      width: 27px;
-      height: 27px;
+      width: 26px;
+      height: 26px;
     }
+
+    /* TABLET */
 
     @media (max-width: 1020px) {
       .featured-inner,
@@ -828,10 +898,19 @@
       .service-grid {
         grid-template-columns: 1fr;
       }
+
+      .service-card p,
+      .area-card p {
+        min-height: auto;
+      }
     }
 
+    /* MOBILE */
+
     @media (max-width: 768px) {
-      .container {
+      .container,
+      .nav-inner,
+      .footer-local {
         width: min(100% - 28px, var(--max));
       }
 
@@ -847,56 +926,54 @@
         display: flex;
       }
 
-      nav ul {
-        display: none;
+      .nav-menu {
         position: absolute;
         top: 82px;
         left: 0;
         right: 0;
-        background: #ffffff;
+        display: none;
+        padding: 10px 16px 20px;
         flex-direction: column;
-        padding: 12px 16px 20px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        z-index: 200;
+        align-items: stretch;
         gap: 0;
+        border-top: 1px solid #eeeeee;
+        background: var(--white);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
       }
 
-      nav ul.open {
+      .nav-menu.open {
         display: flex;
       }
 
-      nav ul li {
+      .nav-menu li {
         width: 100%;
       }
 
-      nav ul a {
+      .nav-menu a {
         display: block;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.08);
-        font-size: 0.9rem;
+        padding: 13px 0;
+        border-bottom: 1px solid #eeeeee;
       }
 
-      .btn-nav {
-        margin-top: 8px;
-        width: 100%;
+      .nav-menu .btn-nav {
+        margin-top: 10px;
+        padding: 14px;
         text-align: center;
       }
 
       .find-hero {
-        min-height: auto;
-        padding: 54px 0;
+        padding: 32px 0;
       }
 
       .hero-card {
-        padding: 22px 18px;
-        border-radius: 22px;
+        padding: 27px 18px;
+        border-radius: 21px;
       }
 
       .hero-logo-wrap {
         width: 155px;
-        height: 96px;
-        border-radius: 20px;
+        height: 95px;
+        margin-bottom: 18px;
       }
 
       .hero-logo-wrap img {
@@ -904,13 +981,17 @@
       }
 
       .find-hero h1 {
-        font-size: clamp(2rem, 8vw, 2.75rem);
-        line-height: 1.04;
-        letter-spacing: -1.4px;
+        font-size: 2.35rem;
+        letter-spacing: -1.7px;
       }
 
-      .find-hero p {
-        font-size: 0.95rem;
+      .hero-description {
+        font-size: 0.94rem;
+      }
+
+      .brand-rating {
+        width: 100%;
+        flex-wrap: wrap;
       }
 
       .hero-actions,
@@ -922,21 +1003,25 @@
       .btn-primary,
       .btn-secondary,
       .btn-whatsapp,
-      .service-card a,
-      .area-card a {
+      .card-link {
         width: 100%;
-        min-height: 52px;
-        font-size: 0.9rem;
       }
 
-      .trust-grid,
-      .areas-grid,
-      .featured-panel-grid {
-        grid-template-columns: 1fr;
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
       .trust-card {
-        padding: 13px 10px;
+        padding: 13px 8px;
+      }
+
+      .trust-card strong {
+        font-size: 0.84rem;
+      }
+
+      .trust-card span {
+        font-size: 0.77rem;
       }
 
       .links-section,
@@ -945,7 +1030,7 @@
       .areas-section,
       .quick-message,
       .cta-section {
-        padding: 46px 0;
+        padding: 44px 0;
       }
 
       .social-grid {
@@ -953,43 +1038,64 @@
       }
 
       .social-card {
-        min-height: 104px;
-        border-radius: 18px;
-        padding: 18px;
-        grid-template-columns: auto 1fr auto;
+        min-height: 98px;
+        padding: 16px;
+        gap: 14px;
+        border-radius: 17px;
       }
 
       .social-icon {
-        width: 52px;
-        height: 52px;
+        width: 50px;
+        height: 50px;
         border-radius: 14px;
       }
 
-      .quick-message-panel {
-        padding: 22px;
+      .social-text strong {
+        font-size: 1.04rem;
+      }
+
+      .social-text span {
+        font-size: 0.85rem;
+      }
+
+      .featured-inner {
+        gap: 28px;
+      }
+
+      .featured-panel {
+        padding: 20px;
+      }
+
+      .featured-panel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .mini-stat {
+        padding: 15px;
+      }
+
+      .mini-stat strong {
+        font-size: 1.45rem;
+      }
+
+      .areas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-message-panel,
+      .cta-card {
+        padding: 22px 18px;
         border-radius: 20px;
       }
 
       .message-card {
-        padding: 18px;
+        padding: 17px;
         border-radius: 16px;
-      }
-
-      .message-card p {
-        padding: 14px;
-        border-radius: 14px;
-      }
-
-      .cta-card,
-      .featured-panel {
-        border-radius: 22px;
-        padding: 24px;
       }
 
       .floating-actions {
         right: 14px;
         bottom: 14px;
-        gap: 10px;
       }
 
       .float-btn {
@@ -998,513 +1104,33 @@
       }
 
       .float-btn svg {
-        width: 24px;
-        height: 24px;
+        width: 23px;
+        height: 23px;
       }
     }
 
-
-/* =========================================================
-   WHITE / RED SOCIALS PAGE OVERRIDE
-   Paste immediately before the final </style>
-   ========================================================= */
-
-:root {
-  --red: #ed1c24;
-  --red-dark: #b80f16;
-  --green: #25D366;
-  --ink: #101010;
-  --text: #3f3f3f;
-  --line: #e5e5e5;
-  --pale-red: #fff7f7;
-  --white: #ffffff;
-}
-
-/* GLOBAL */
-html,
-body {
-  background: #ffffff;
-  color: var(--ink);
-}
-
-.section-label {
-  color: var(--red);
-}
-
-.links-head h2,
-.service-head h2,
-.areas-head h2,
-.quick-message h2,
-.featured-copy h2,
-.cta-card h2 {
-  color: var(--ink);
-}
-
-.links-head p,
-.service-head p,
-.areas-head p,
-.quick-message p,
-.featured-copy p,
-.cta-card p {
-  color: var(--text);
-}
-
-/* BUTTONS */
-.btn-secondary {
-  background: #ffffff;
-  color: var(--ink);
-  border-color: #cfcfcf;
-}
-
-.btn-secondary:hover {
-  background: #f5f5f5;
-  border-color: var(--ink);
-}
-
-.btn-whatsapp {
-  background: #ffffff;
-  color: #15883d;
-  border-color: var(--green);
-}
-
-.btn-whatsapp:hover {
-  background: #effff4;
-  color: #107432;
-}
-
-/* HERO */
-.find-hero {
-  min-height: auto;
-  padding: 64px 0;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.10), transparent 30%),
-    radial-gradient(circle at 85% 80%, rgba(237,28,36,0.08), transparent 30%),
-    linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
-  border-bottom: 1px solid #ffd4d6;
-}
-
-.find-hero::after {
-  display: none;
-}
-
-.hero-card {
-  max-width: 980px;
-  padding: 46px;
-  background: #ffffff;
-  border: 1px solid #ffc8ca;
-  border-radius: 28px;
-  box-shadow: 0 24px 65px rgba(25,25,25,0.10);
-  backdrop-filter: none;
-}
-
-.hero-logo-wrap {
-  width: 190px;
-  height: 118px;
-  margin-bottom: 22px;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
-}
-
-.find-hero h1 {
-  color: var(--ink);
-  font-size: clamp(2.7rem, 6vw, 4.7rem);
-  line-height: 1;
-  letter-spacing: -2.5px;
-}
-
-.find-hero p {
-  color: var(--text);
-  max-width: 720px;
-}
-
-.brand-rating {
-  color: var(--ink);
-  background: #fff8e4;
-  border-color: #ffd96a;
-}
-
-.hero-note {
-  color: #595959;
-}
-
-/* TRUST STRIP */
-.trust-strip {
-  background: #fff7f7;
-  border-top: 1px solid #ffd6d8;
-  border-bottom: 1px solid #ffd6d8;
-}
-
-.trust-card {
-  background: #ffffff;
-  border: 1px solid #f0cacc;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-}
-
-.trust-card strong {
-  color: var(--ink);
-}
-
-.trust-card span {
-  color: #666666;
-}
-
-/* QUICK SOCIAL LINKS */
-.links-section {
-  background: #ffffff;
-  padding: 70px 0 80px;
-}
-
-.social-card {
-  background: #ffffff;
-  border: 1px solid #dfdfdf;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-
-.social-card::after {
-  background: linear-gradient(
-    90deg,
-    rgba(237,28,36,0.07),
-    transparent 55%
-  );
-}
-
-.social-card:hover {
-  background: #fffafa;
-  border-color: var(--red);
-  box-shadow: 0 18px 38px rgba(237,28,36,0.12);
-}
-
-.social-text strong {
-  color: var(--ink);
-}
-
-.social-text span {
-  color: #606060;
-}
-
-.icon-tiktok {
-  border-color: #222222;
-}
-
-/* FEATURED SECTION */
-.featured-section {
-  background: #fff7f7;
-  border-top: 1px solid #ffd6d8;
-  border-bottom: 1px solid #ffd6d8;
-}
-
-.featured-list li {
-  color: var(--ink);
-}
-
-.featured-list li::first-letter {
-  color: var(--red);
-}
-
-.featured-panel {
-  background: #ffffff;
-  border: 1px solid #efc8ca;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-}
-
-.featured-panel h3 {
-  color: var(--ink);
-}
-
-.mini-stat {
-  background: #fffafa;
-  border: 1px solid #efd7d8;
-}
-
-.mini-stat strong {
-  color: var(--red);
-}
-
-.mini-stat span {
-  color: #5b5b5b;
-}
-
-/* LESSON OPTIONS */
-.service-section {
-  background: #ffffff;
-  border-top: none;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.service-card {
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-
-.service-card:hover {
-  background: #fffafa;
-  border-color: var(--red);
-  box-shadow: 0 18px 38px rgba(237,28,36,0.11);
-}
-
-.service-card h3 {
-  color: var(--ink);
-}
-
-.service-card p {
-  color: #595959;
-}
-
-/* AREAS */
-.areas-section {
-  background: #fff7f7;
-  border-top: 1px solid #ffd6d8;
-  border-bottom: 1px solid #ffd6d8;
-}
-
-.area-card {
-  background: #ffffff;
-  border: 1px solid #efc8ca;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-.area-card:hover {
-  background: #ffffff;
-  border-color: var(--red);
-  box-shadow: 0 16px 35px rgba(237,28,36,0.10);
-}
-
-.area-card h3 {
-  color: var(--ink);
-}
-
-.area-card p {
-  color: #595959;
-}
-
-/* QUICK MESSAGE */
-.quick-message {
-  background: #ffffff;
-  border-top: none;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.quick-message-panel {
-  background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(237,28,36,0.08),
-      transparent 32%
-    ),
-    #fffafa;
-  border: 1px solid #f0c8ca;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
-}
-
-.message-card {
-  background: #ffffff;
-  border: 1px solid #dedede;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-}
-
-.message-card strong {
-  color: var(--ink);
-}
-
-.message-card p {
-  background: #f7f7f7;
-  color: #404040;
-  border: 1px solid #dedede;
-}
-
-/* FINAL CTA */
-.cta-section {
-  background: #fff7f7;
-  border-top: 1px solid #ffd6d8;
-}
-
-.cta-card {
-  background: #ffffff;
-  border: 1px solid #efc8ca;
-  box-shadow: 0 22px 55px rgba(0,0,0,0.09);
-}
-
-/* FOOTER */
-footer {
-  background: #ffffff;
-  color: #666666;
-  border-top: 1px solid #e2e2e2;
-}
-
-.footer-local h3 {
-  color: var(--ink);
-}
-
-.footer-links a,
-.terms-link {
-  color: #4c4c4c;
-}
-
-.footer-links a:hover,
-.terms-link:hover {
-  color: var(--red);
-}
-
-/* DESKTOP SOCIAL CARD IMPROVEMENT */
-@media (min-width: 1021px) {
-  .social-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-  }
-
-  .social-card {
-    min-height: 118px;
-    padding: 24px;
-  }
-
-  .featured-inner {
-    gap: 54px;
-  }
-}
-
-/* TABLET */
-@media (max-width: 1020px) {
-  .find-hero {
-    padding: 52px 0;
-  }
-
-  .hero-card {
-    max-width: 760px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .find-hero {
-    padding: 32px 0;
-    background: linear-gradient(180deg, #fff7f7 0%, #ffffff 100%);
-  }
-
-  .hero-card {
-    padding: 28px 18px;
-    border-radius: 22px;
-  }
-
-  .hero-logo-wrap {
-    width: 155px;
-    height: 96px;
-    margin-bottom: 18px;
-  }
-
-  .find-hero h1 {
-    font-size: 2.35rem;
-    letter-spacing: -1.5px;
-  }
-
-  .brand-rating {
-    width: 100%;
-    flex-wrap: wrap;
-    padding: 11px 14px;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .trust-card {
-    padding: 14px 8px;
-  }
-
-  .trust-card strong {
-    font-size: 0.86rem;
-  }
-
-  .trust-card span {
-    font-size: 0.78rem;
-  }
-
-  .links-section,
-  .featured-section,
-  .service-section,
-  .areas-section,
-  .quick-message,
-  .cta-section {
-    padding: 44px 0;
-  }
-
-  .social-card {
-    min-height: 98px;
-    padding: 16px;
-    gap: 14px;
-  }
-
-  .social-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .social-text strong {
-    font-size: 1.05rem;
-  }
-
-  .social-text span {
-    font-size: 0.86rem;
-  }
-
-  .featured-panel {
-    padding: 20px;
-  }
-
-  .featured-panel-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .mini-stat {
-    padding: 15px;
-  }
-
-  .mini-stat strong {
-    font-size: 1.45rem;
-  }
-
-  .quick-message-panel,
-  .cta-card {
-    padding: 22px 18px;
-  }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 430px) {
-  .trust-grid,
-  .featured-panel-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .find-hero h1 {
-    font-size: 2rem;
-  }
-
-  .links-head h2,
-  .service-head h2,
-  .areas-head h2,
-  .quick-message h2,
-  .featured-copy h2,
-  .cta-card h2 {
-    font-size: 1.75rem;
-  }
-
-  .social-card {
-    grid-template-columns: auto 1fr;
-  }
-
-  .social-arrow {
-    display: none;
-  }
-}
-
+    @media (max-width: 430px) {
+      .trust-grid,
+      .featured-panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .find-hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-heading {
+        font-size: 1.75rem;
+      }
+
+      .social-card {
+        grid-template-columns: auto 1fr;
+      }
+
+      .social-arrow {
+        display: none;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -1514,10 +1140,12 @@ footer {
     "name": "SAR Driving School",
     "url": "https://sardrivingschool.co.uk/",
     "telephone": "+447902023737",
+    "email": "info@sardrivingschool.co.uk",
     "sameAs": [
       "https://www.instagram.com/sardrivingschool",
       "https://www.tiktok.com/@sardrivingschool",
-      "https://www.youtube.com/@SARdrivingschool"
+      "https://www.youtube.com/@SARdrivingschool",
+      "https://www.facebook.com/profile.php?id=61588644880861"
     ],
     "areaServed": [
       "Milton Keynes",
@@ -1534,24 +1162,35 @@ footer {
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo" aria-label="SAR Driving School">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+      <a href="index.html" aria-label="SAR Driving School home">
+        <img
+          src="images/logo.png"
+          alt="SAR Driving School"
+          class="logo-img"
+        >
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <ul id="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Pass Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
+        <li><a href="socials.html" aria-current="page">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
     </div>
@@ -1559,11 +1198,17 @@ footer {
 
   <main>
 
+    <!-- HERO -->
+
     <section class="find-hero">
       <div class="container">
         <div class="hero-card">
+
           <div class="hero-logo-wrap">
-            <img src="images/logo.png" alt="SAR Driving School logo">
+            <img
+              src="images/logo.png"
+              alt="SAR Driving School logo"
+            >
           </div>
 
           <div class="section-label">Find us online</div>
@@ -1574,63 +1219,93 @@ footer {
             Rated 5.0 <span>★★★★★</span>
           </div>
 
-          <p>
-            Everything in one place. View our Google reviews, follow our driving tips, message us on WhatsApp or book your first lesson.
+          <p class="hero-description">
+            Everything in one place. View our Google reviews, follow our
+            driving tips, message us on WhatsApp or book your first lesson.
           </p>
 
           <div class="hero-actions">
-            <a href="book.html" class="btn-primary">Book a Lesson →</a>
-            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
-            <a href="gallery.html" class="btn-secondary">View Pass Gallery</a>
+            <a href="book.html" class="btn-primary">
+              Book a Lesson →
+            </a>
+
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              WhatsApp Availability
+            </a>
+
+            <a href="gallery.html" class="btn-secondary">
+              View Pass Gallery
+            </a>
           </div>
 
           <p class="hero-note">
-            Usually replies quickly — send your area, lesson type, experience level and availability.
+            Usually replies quickly — send your area, lesson type,
+            experience level and availability.
           </p>
+
         </div>
       </div>
     </section>
 
+    <!-- TRUST -->
+
     <section class="trust-strip">
       <div class="container trust-grid">
+
         <div class="trust-card">
-          <strong>200+ Five-Star Reviews</strong>
+          <strong>220+ Five-Star Reviews</strong>
           <span>Trusted by local learners.</span>
         </div>
 
         <div class="trust-card">
           <strong>Manual & Automatic</strong>
-          <span>Choose the lesson type that suits you.</span>
+          <span>Choose the option that suits you.</span>
         </div>
 
         <div class="trust-card">
           <strong>DVSA Approved</strong>
-          <span>Professional driving instructors.</span>
+          <span>Professional instructors.</span>
         </div>
 
         <div class="trust-card">
           <strong>From £38/hr</strong>
           <span>Clear lesson prices.</span>
         </div>
+
       </div>
     </section>
+
+    <!-- SOCIAL LINKS -->
 
     <section class="links-section">
       <div class="container">
 
-        <div class="links-head">
+        <div class="section-intro">
           <div class="section-label">Quick links</div>
-          <h2>Choose where you want to go</h2>
-          <p>Book, follow, message, call or review SAR Driving School from one simple page.</p>
+          <h2 class="section-heading">Choose where you want to go</h2>
+          <p class="section-description">
+            Book, follow, message, call or review SAR Driving School
+            from one simple page.
+          </p>
         </div>
 
         <div class="social-grid">
 
-          <a class="social-card" href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews" target="_blank">
+          <a
+            class="social-card"
+            href="https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="social-icon icon-review">★</div>
             <div class="social-text">
               <strong>Google Reviews</strong>
-              <span>Read or leave a Google review for SAR Driving School.</span>
+              <span>Read or leave a review for SAR Driving School.</span>
             </div>
             <div class="social-arrow">→</div>
           </a>
@@ -1644,7 +1319,12 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.instagram.com/sardrivingschool" target="_blank">
+          <a
+            class="social-card"
+            href="https://www.instagram.com/sardrivingschool"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="social-icon icon-instagram">◎</div>
             <div class="social-text">
               <strong>Instagram</strong>
@@ -1653,7 +1333,12 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.tiktok.com/@sardrivingschool" target="_blank">
+          <a
+            class="social-card"
+            href="https://www.tiktok.com/@sardrivingschool"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="social-icon icon-tiktok">♪</div>
             <div class="social-text">
               <strong>TikTok</strong>
@@ -1662,7 +1347,12 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.youtube.com/@SARdrivingschool" target="_blank">
+          <a
+            class="social-card"
+            href="https://www.youtube.com/@SARdrivingschool"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="social-icon icon-youtube">▶</div>
             <div class="social-text">
               <strong>YouTube</strong>
@@ -1671,7 +1361,12 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.facebook.com/profile.php?id=61588644880861" target="_blank" rel="noopener noreferrer">
+          <a
+            class="social-card"
+            href="https://www.facebook.com/profile.php?id=61588644880861"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="social-icon icon-facebook">f</div>
             <div class="social-text">
               <strong>Facebook</strong>
@@ -1680,8 +1375,13 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank">
-            <div class="social-icon icon-whatsapp">☎</div>
+          <a
+            class="social-card"
+            href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="social-icon icon-whatsapp">💬</div>
             <div class="social-text">
               <strong>WhatsApp</strong>
               <span>Message us directly for lesson availability.</span>
@@ -1698,7 +1398,10 @@ footer {
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="mailto:info@sardrivingschool.co.uk">
+          <a
+            class="social-card"
+            href="mailto:info@sardrivingschool.co.uk"
+          >
             <div class="social-icon icon-email">✉</div>
             <div class="social-text">
               <strong>Email</strong>
@@ -1720,21 +1423,29 @@ footer {
       </div>
     </section>
 
+    <!-- FEATURED -->
+
     <section class="featured-section">
       <div class="container featured-inner">
 
         <div class="featured-copy">
           <div class="section-label">Stay connected</div>
-          <h2>Follow our learners’ progress</h2>
-          <p>
-            We post learner pass photos, driving tips, tricky test route areas and useful reminders for learners across Milton Keynes and surrounding areas.
+
+          <h2 class="section-heading">
+            Follow our learners’ progress
+          </h2>
+
+          <p class="section-description">
+            We post learner pass photos, driving tips, tricky test route
+            areas and useful reminders for learners across Milton Keynes
+            and surrounding areas.
           </p>
 
           <ul class="featured-list">
-            <li>✓ Pass photos and learner success stories</li>
-            <li>✓ TikTok and Instagram driving tips</li>
-            <li>✓ Local Milton Keynes test route guidance</li>
-            <li>✓ Easy ways to contact and book lessons</li>
+            <li><span>✓</span> Pass photos and learner success stories</li>
+            <li><span>✓</span> TikTok and Instagram driving tips</li>
+            <li><span>✓</span> Local test route guidance</li>
+            <li><span>✓</span> Easy ways to contact and book lessons</li>
           </ul>
         </div>
 
@@ -1742,8 +1453,9 @@ footer {
           <h3>SAR Driving School online</h3>
 
           <div class="featured-panel-grid">
+
             <div class="mini-stat">
-              <strong>200+</strong>
+              <strong>220+</strong>
               <span>Five-star Google reviews from local learners</span>
             </div>
 
@@ -1754,175 +1466,359 @@ footer {
 
             <div class="mini-stat">
               <strong>DVSA</strong>
-              <span>Approved instructors</span>
+              <span>Approved driving instructors</span>
             </div>
 
             <div class="mini-stat">
               <strong>Manual & Auto</strong>
               <span>Lesson options available</span>
             </div>
+
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- LESSON OPTIONS -->
+
     <section class="service-section">
       <div class="container">
-        <div class="service-head">
+
+        <div class="section-intro">
           <div class="section-label">Lesson options</div>
-          <h2>Looking for lessons?</h2>
-          <p>Choose the lesson type that suits your goals, experience and confidence level.</p>
+
+          <h2 class="section-heading">
+            Looking for driving lessons?
+          </h2>
+
+          <p class="section-description">
+            Choose the lesson type that suits your goals,
+            experience and confidence level.
+          </p>
         </div>
 
         <div class="service-grid">
+
           <div class="service-card">
             <h3>Manual Driving Lessons</h3>
-            <p>Best for learners who want a full manual licence and maximum flexibility.</p>
-            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+            <p>
+              Best for learners who want a full manual licence
+              and maximum flexibility.
+            </p>
+            <a
+              href="manual-driving-lessons-milton-keynes.html"
+              class="card-link"
+            >
+              View Manual Lessons
+            </a>
           </div>
 
           <div class="service-card">
             <h3>Automatic Driving Lessons</h3>
-            <p>Ideal for nervous learners or pupils who want a smoother learning experience.</p>
-            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+            <p>
+              Ideal for nervous learners or pupils who want a
+              smoother learning experience.
+            </p>
+            <a
+              href="automatic-driving-lessons-milton-keynes.html"
+              class="card-link"
+            >
+              View Automatic Lessons
+            </a>
           </div>
 
           <div class="service-card">
             <h3>Refresher Lessons</h3>
-            <p>Great for confidence building, parking, roundabouts and returning drivers.</p>
-            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+            <p>
+              Great for confidence building, parking, roundabouts
+              and returning drivers.
+            </p>
+            <a
+              href="refresher-driving-lessons-milton-keynes.html"
+              class="card-link"
+            >
+              View Refresher Lessons
+            </a>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- AREAS -->
+
     <section class="areas-section">
       <div class="container">
-        <div class="areas-head">
+
+        <div class="section-intro">
           <div class="section-label">Areas covered</div>
-          <h2>Local driving lessons near you</h2>
-          <p>SAR Driving School covers Milton Keynes and nearby areas, subject to instructor availability.</p>
+
+          <h2 class="section-heading">
+            Local driving lessons near you
+          </h2>
+
+          <p class="section-description">
+            SAR Driving School covers Milton Keynes and nearby areas,
+            subject to instructor availability.
+          </p>
         </div>
 
         <div class="areas-grid">
+
           <div class="area-card">
             <h3>Milton Keynes</h3>
             <p>Manual, automatic and refresher lessons available.</p>
-            <a href="driving-lessons-milton-keynes.html">View MK Lessons</a>
+            <a
+              href="driving-lessons-milton-keynes.html"
+              class="card-link"
+            >
+              View MK Lessons
+            </a>
           </div>
 
           <div class="area-card">
             <h3>Bletchley</h3>
             <p>Local route knowledge and test preparation support.</p>
-            <a href="driving-lessons-bletchley.html">View Bletchley</a>
+            <a
+              href="driving-lessons-bletchley.html"
+              class="card-link"
+            >
+              View Bletchley
+            </a>
           </div>
 
           <div class="area-card">
             <h3>Bedford</h3>
             <p>Lessons subject to instructor area and availability.</p>
-            <a href="driving-lessons-bedford.html">View Bedford</a>
+            <a
+              href="driving-lessons-bedford.html"
+              class="card-link"
+            >
+              View Bedford
+            </a>
           </div>
 
           <div class="area-card">
             <h3>Leighton Buzzard</h3>
             <p>Driving lesson availability depends on schedule.</p>
-            <a href="driving-lessons-leighton-buzzard.html">View Leighton Buzzard</a>
+            <a
+              href="driving-lessons-leighton-buzzard.html"
+              class="card-link"
+            >
+              View Leighton Buzzard
+            </a>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- QUICK MESSAGE -->
+
     <section class="quick-message">
       <div class="container quick-message-panel">
+
         <div>
-          <div class="section-label">Quick Enquiry</div>
-          <h2>Message us in under 30 seconds</h2>
-          <p>
-            Send your area, lesson type, experience level and availability so we can check the right instructor faster.
+          <div class="section-label">Quick enquiry</div>
+
+          <h2 class="section-heading">
+            Message us in under 30 seconds
+          </h2>
+
+          <p class="section-description">
+            Send your area, lesson type, experience level and
+            availability so we can check the right instructor faster.
           </p>
         </div>
 
         <div class="message-card">
-          <strong>Copy this message:</strong>
+          <strong>Include these details:</strong>
+
           <p>
-            Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic/refresher]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
+            Hi SAR, I’m looking for driving lessons. My area is
+            [your area]. I want [manual/automatic/refresher].
+            My availability is [days/times]. My experience level is
+            [beginner/test-ready/refresher].
           </p>
-          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-primary">
+
+          <a
+            href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
             Send WhatsApp Message →
           </a>
         </div>
+
       </div>
     </section>
 
+    <!-- FINAL CTA -->
+
     <section class="cta-section">
       <div class="container">
+
         <div class="cta-card">
           <div class="section-label">Ready to start?</div>
-          <h2>Ready to start driving?</h2>
-          <p>
-            Book your first lesson or message us on WhatsApp and we’ll help you choose the right option.
+
+          <h2 class="section-heading">
+            Ready to start driving?
+          </h2>
+
+          <p class="section-description">
+            Book your first lesson or message us on WhatsApp and
+            we’ll help you choose the right option.
           </p>
 
           <div class="cta-actions">
-            <a href="book.html" class="btn-primary">Book a Lesson</a>
-            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">Message on WhatsApp</a>
-            <a href="contact.html" class="btn-secondary">Contact Us</a>
+            <a href="book.html" class="btn-primary">
+              Book a Lesson
+            </a>
+
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              Message on WhatsApp
+            </a>
+
+            <a href="contact.html" class="btn-secondary">
+              Contact Us
+            </a>
           </div>
         </div>
+
       </div>
     </section>
 
   </main>
+
+  <!-- FOOTER -->
 
   <footer>
     <div class="footer-local">
       <h3>Useful Driving Lesson Pages</h3>
 
       <div class="footer-links">
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+        <a href="manual-driving-lessons-milton-keynes.html">
+          Manual Driving Lessons Milton Keynes
+        </a>
+
+        <a href="automatic-driving-lessons-milton-keynes.html">
+          Automatic Driving Lessons Milton Keynes
+        </a>
+
+        <a href="refresher-driving-lessons-milton-keynes.html">
+          Refresher Driving Lessons Milton Keynes
+        </a>
+
+        <a href="driving-lessons-milton-keynes.html">
+          Driving Lessons Milton Keynes
+        </a>
+
+        <a href="driving-lessons-bletchley.html">
+          Driving Lessons Bletchley
+        </a>
+
+        <a href="driving-lessons-bedford.html">
+          Driving Lessons Bedford
+        </a>
+
+        <a href="driving-lessons-leighton-buzzard.html">
+          Driving Lessons Leighton Buzzard
+        </a>
       </div>
     </div>
 
-    <a href="terms.html" class="terms-link">Terms & Conditions</a>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+    <a href="terms.html" class="terms-link">
+      Terms &amp; Conditions
+    </a>
+
+    <p>
+      © 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.
+    </p>
   </footer>
 
+  <!-- FLOATING BUTTONS -->
+
   <div class="floating-actions">
-    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+
+    <a
+      class="float-btn float-call"
+      href="tel:+447902023737"
+      aria-label="Call SAR Driving School"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#ffffff"
+        aria-hidden="true"
+      >
         <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
       </svg>
     </a>
 
-    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347"/>
+    <a
+      class="float-btn float-whatsapp"
+      href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp SAR Driving School"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#ffffff"
+        aria-hidden="true"
+      >
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
       </svg>
     </a>
+
   </div>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
 
     if (hamburger && navMenu) {
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('open');
-        navMenu.classList.toggle('open');
+      hamburger.addEventListener("click", function () {
+        const isOpen = hamburger.classList.toggle("open");
+
+        navMenu.classList.toggle("open", isOpen);
+        document.body.classList.toggle("menu-open", isOpen);
+
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+        hamburger.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
       });
 
-      navMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('open');
-          navMenu.classList.remove('open');
+      navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("open");
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.setAttribute("aria-label", "Open menu");
         });
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove("open");
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.setAttribute("aria-label", "Open menu");
+        }
       });
     }
   </script>
