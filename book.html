@@ -5,15 +5,24 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18198829338');
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "AW-18198829338");
   </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
   <title>Book Driving Lessons Milton Keynes | SAR Driving School</title>
-  <meta name="description" content="Book manual, automatic or refresher driving lessons with SAR Driving School. Lessons from £38/hr across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas. Secure online payments available.">
+
+  <meta
+    name="description"
+    content="Book manual, automatic or refresher driving lessons with SAR Driving School. Lessons from £38 per hour across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas."
+  >
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,42 +33,55 @@
     :root {
       --red: #ed1c24;
       --red-dark: #b80f16;
-      --green: #25D366;
-      --dark: #050505;
-      --soft: #101010;
-      --card: #151515;
-      --border: rgba(255,255,255,0.12);
-      --muted: #cfcfcf;
+      --green: #25d366;
+      --green-dark: #14883f;
+      --black: #101010;
+      --text: #4d4d4d;
+      --grey: #686868;
+      --line: #dfdfdf;
+      --pale-red: #fff7f7;
+      --white: #ffffff;
       --max: 1180px;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     html,
     body {
       width: 100%;
       overflow-x: hidden;
-      background: var(--dark);
-      scroll-behavior: smooth;
-      color: #ffffff;
+      background: var(--white);
+      color: var(--black);
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    body.menu-open {
+      overflow: hidden;
+    }
+
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
@@ -67,22 +89,47 @@
       margin: 0 auto;
     }
 
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      margin-bottom: 12px;
+      color: var(--black);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -1.4px;
+    }
+
+    .section-description {
+      color: var(--text);
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
+    /* NAVIGATION */
+
     nav {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
       position: relative;
       z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid #ececec;
     }
 
     .nav-inner {
-      max-width: var(--max);
+      width: min(var(--max), calc(100% - 32px));
       min-height: 88px;
       margin: 0 auto;
-      padding: 0 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
+      gap: 30px;
     }
 
     .logo-img {
@@ -90,53 +137,56 @@
       height: auto;
     }
 
-    nav ul {
+    .nav-menu {
       display: flex;
       align-items: center;
       gap: 24px;
       list-style: none;
     }
 
-    nav ul a {
-      color: #111111;
-      font-weight: 800;
+    .nav-menu a {
+      color: var(--black);
       font-size: 0.9rem;
+      font-weight: 800;
       transition: color 0.2s ease;
     }
 
-    nav ul a:hover {
+    .nav-menu a:hover {
       color: var(--red);
     }
 
-    .btn-nav {
+    .nav-menu .btn-nav {
+      padding: 13px 22px;
+      border-radius: 12px;
       background: var(--red);
-      color: #ffffff !important;
-      padding: 12px 21px;
-      border-radius: 11px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(237, 28, 36, 0.22);
+    }
+
+    .nav-menu .btn-nav:hover {
+      background: var(--red-dark);
+      color: var(--white);
     }
 
     .hamburger {
       display: none;
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border: none;
       background: transparent;
+      cursor: pointer;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       gap: 5px;
-      cursor: pointer;
-      z-index: 201;
     }
 
     .hamburger span {
       width: 26px;
       height: 3px;
-      background: #111111;
-      border-radius: 99px;
-      transition: 0.25s;
+      border-radius: 3px;
+      background: var(--black);
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .hamburger.open span:nth-child(1) {
@@ -151,143 +201,130 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    .section-label {
-      color: var(--red);
-      font-size: 0.8rem;
-      font-weight: 900;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
+    /* BUTTONS */
 
     .btn-primary,
     .btn-secondary,
     .btn-whatsapp,
     .btn-call {
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 14px;
+      min-height: 54px;
+      padding: 0 23px;
+      border: 1px solid;
+      border-radius: 13px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      font-size: 0.94rem;
       font-weight: 900;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      border: 1px solid;
       text-align: center;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--red);
-      color: #ffffff;
       border-color: var(--red);
-      box-shadow: 0 14px 30px rgba(237,28,36,0.25);
+      background: var(--red);
+      color: var(--white);
+      box-shadow: 0 12px 27px rgba(237, 28, 36, 0.2);
     }
 
     .btn-primary:hover {
-      background: var(--red-dark);
+      transform: translateY(-2px);
       border-color: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: rgba(37,211,102,0.10);
-      border-color: rgba(37,211,102,0.48);
-      color: #ffffff;
-    }
-
-    .btn-whatsapp:hover {
-      background: rgba(37,211,102,0.16);
-      transform: translateY(-2px);
+      background: var(--red-dark);
     }
 
     .btn-secondary,
     .btn-call {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.22);
-      color: #ffffff;
+      border-color: #cfcfcf;
+      background: var(--white);
+      color: var(--black);
     }
 
     .btn-secondary:hover,
     .btn-call:hover {
-      background: rgba(255,255,255,0.10);
       transform: translateY(-2px);
+      border-color: var(--black);
+      background: #f7f7f7;
     }
+
+    .btn-whatsapp {
+      border-color: var(--green);
+      background: var(--white);
+      color: var(--green-dark);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      background: #effff4;
+    }
+
+    /* HERO */
 
     .book-hero {
-      position: relative;
-      min-height: 540px;
-      display: flex;
-      align-items: center;
-      padding: 72px 0;
+      padding: 62px 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 48%, rgba(0,0,0,0.36) 100%),
-        radial-gradient(circle at left bottom, rgba(237,28,36,0.24), transparent 35%),
-        linear-gradient(180deg, #080808, #050505);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
-
-    .book-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 72%, rgba(237,28,36,0.22), transparent 34%),
-        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38));
-      pointer-events: none;
+        radial-gradient(circle at 12% 18%, rgba(237,28,36,0.1), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(237,28,36,0.08), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .hero-card {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-      padding: 34px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 44px;
+      border: 1px solid #ffc7ca;
       border-radius: 28px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.40));
-      border: 1px solid rgba(237,28,36,0.32);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
-      backdrop-filter: blur(5px);
+      background: var(--white);
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.09);
     }
 
     .book-hero h1 {
-      font-size: clamp(2.45rem, 6vw, 4.45rem);
-      line-height: 1.04;
-      letter-spacing: -2px;
       margin-bottom: 16px;
+      color: var(--black);
+      font-size: clamp(2.7rem, 6vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -2.5px;
     }
 
     .book-hero h1 span {
       color: var(--red);
     }
 
-    .book-hero p {
-      color: #e0e0e0;
-      font-size: 1.06rem;
+    .hero-description {
+      max-width: 750px;
+      margin: 0 auto 24px;
+      color: var(--text);
+      font-size: 1.05rem;
       line-height: 1.7;
-      max-width: 730px;
-      margin-bottom: 24px;
     }
 
-    .quick-contact {
+    .quick-contact,
+    .cta-actions {
       display: flex;
-      flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .hero-note {
-      margin-top: 16px;
-      color: #e8e8e8;
-      font-size: 0.92rem;
-      line-height: 1.45;
+      max-width: 760px;
+      margin: 16px auto 0;
+      color: #626262;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
+    /* TRUST STRIP */
+
     .trust-strip {
-      background: #0c0c0c;
       padding: 18px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: var(--pale-red);
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .trust-grid {
@@ -297,164 +334,164 @@
     }
 
     .trust-card {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
       padding: 16px;
+      border: 1px solid #efc9cb;
+      border-radius: 15px;
+      background: var(--white);
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
     }
 
     .trust-card strong {
       display: block;
-      color: #ffffff;
-      font-size: 0.98rem;
       margin-bottom: 5px;
+      color: var(--black);
+      font-size: 0.95rem;
     }
 
     .trust-card span {
-      color: #bfbfbf;
+      color: #646464;
+      font-size: 0.84rem;
       line-height: 1.45;
-      font-size: 0.86rem;
     }
+
+    /* PAYMENT SECTION */
 
     .payment-section {
-      padding: 76px 0;
-      background:
-        radial-gradient(circle at 12% 20%, rgba(37,211,102,0.12), transparent 34%),
-        radial-gradient(circle at right center, rgba(237,28,36,0.09), transparent 32%),
-        #0b0b0b;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 70px 0 78px;
+      background: var(--white);
+      border-bottom: 1px solid #eeeeee;
     }
 
-    .payment-head {
-      max-width: 820px;
-      margin: 0 auto 30px;
+    .section-intro {
+      max-width: 830px;
+      margin: 0 auto 34px;
       text-align: center;
-    }
-
-    .payment-head h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .payment-head p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
     }
 
     .payment-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .payment-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #151515;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 22px;
-      padding: 22px;
+      position: relative;
+      min-height: 320px;
+      padding: 25px;
       display: flex;
       flex-direction: column;
-      min-height: 270px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .payment-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(37,211,102,0.5);
+      border-color: var(--red);
+      box-shadow: 0 18px 38px rgba(237,28,36,0.11);
+    }
+
+    .payment-card.popular {
+      border-color: var(--red);
+      background:
+        linear-gradient(180deg, rgba(237,28,36,0.04), transparent 50%),
+        var(--white);
+      box-shadow: 0 18px 42px rgba(237,28,36,0.12);
+    }
+
+    .popular-label {
+      width: fit-content;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .payment-card h3 {
-      font-size: 1.12rem;
       margin-bottom: 10px;
-      color: #ffffff;
+      color: var(--black);
+      font-size: 1.2rem;
     }
 
-    .payment-card p {
-      color: #cfcfcf;
-      line-height: 1.55;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
+    .payment-card > p {
+      margin-bottom: 18px;
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.6;
     }
 
     .payment-price {
       margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.09);
+      padding-top: 17px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .normal-price-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .payment-price strong {
       display: block;
-      font-size: 1.85rem;
+      margin-bottom: 10px;
+      color: var(--black);
+      font-size: 2.15rem;
       line-height: 1;
-      margin-bottom: 6px;
+      letter-spacing: -0.5px;
     }
 
-    .payment-price span {
-      color: #bdbdbd;
+    .online-price {
+      display: block;
+      min-height: 38px;
+      color: #666666;
       font-size: 0.82rem;
       font-weight: 700;
-      line-height: 1.4;
-      display: block;
+      line-height: 1.45;
     }
 
     .payment-card a {
-      margin-top: 16px;
       width: 100%;
+      margin-top: 17px;
     }
 
     .payment-note-box {
-      margin-top: 22px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
+      margin-top: 23px;
       padding: 18px;
-      color: #dcdcdc;
+      border: 1px solid #efc8ca;
+      border-radius: 17px;
+      background: var(--pale-red);
+      color: var(--text);
+      font-size: 0.94rem;
       line-height: 1.6;
-      font-size: 0.95rem;
       text-align: center;
     }
+
+    .payment-note-box strong {
+      color: var(--black);
+    }
+
+    /* BOOKING FORM */
 
     .booking-section {
-      padding: 76px 0;
-      background:
-        radial-gradient(circle at right center, rgba(237,28,36,0.09), transparent 32%),
-        radial-gradient(circle at 12% 22%, rgba(237,28,36,0.12), transparent 34%),
-        #0a0a0a;
-    }
-
-    .booking-head {
-      max-width: 820px;
-      margin: 0 auto 28px;
-      text-align: center;
-    }
-
-    .booking-head h2,
-    .steps-head h2,
-    .quick-message h2,
-    .faq-head h2,
-    .cta-card h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .booking-head p,
-    .steps-head p,
-    .quick-message p,
-    .faq-head p,
-    .cta-card p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
+      padding: 72px 0;
+      background: var(--pale-red);
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .booking-wrap {
@@ -463,70 +500,55 @@
     }
 
     .tally-panel {
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
-        #101010;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      overflow: hidden;
       min-height: 500px;
-      position: relative;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+      border: 1px solid #e0c6c7;
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.08);
     }
 
     .tally-panel iframe {
       display: block;
       width: 100%;
       border: none;
-      background: transparent;
+      background: var(--white);
     }
 
     .info-strip {
-      max-width: 920px;
-      margin: 24px auto 0;
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
     .info-card {
-      background: #111111;
-      border: 1px solid var(--border);
-      border-radius: 18px;
       padding: 18px;
+      border: 1px solid #efc8ca;
+      border-radius: 17px;
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
     }
 
     .info-card strong {
       display: block;
       margin-bottom: 6px;
-      color: #ffffff;
-      font-size: 0.95rem;
+      color: var(--black);
+      font-size: 0.93rem;
     }
 
     .info-card span {
-      color: var(--muted);
-      font-size: 0.88rem;
+      color: #616161;
+      font-size: 0.85rem;
       line-height: 1.5;
     }
 
-    .steps-section,
-    .quick-message,
-    .faq-section {
-      padding: 74px 0;
-      background: #101010;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+    /* STEPS */
 
-    .quick-message {
-      background: #0b0b0b;
-    }
-
-    .steps-head,
-    .faq-head {
-      max-width: 820px;
-      margin: 0 auto 34px;
-      text-align: center;
+    .steps-section {
+      padding: 72px 0;
+      background: var(--white);
+      border-bottom: 1px solid #eeeeee;
     }
 
     .steps-grid {
@@ -535,90 +557,57 @@
       gap: 16px;
     }
 
-    .step-card,
-    .faq-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #151515;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 20px;
+    .step-card {
       padding: 22px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: var(--white);
+      box-shadow: 0 11px 27px rgba(0,0,0,0.05);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
-    .step-card:hover,
-    .faq-card:hover {
+    .step-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
+      border-color: var(--red);
+      box-shadow: 0 17px 35px rgba(237,28,36,0.1);
     }
 
     .step-number {
       width: 46px;
       height: 46px;
+      margin-bottom: 16px;
       border-radius: 50%;
-      background: var(--red);
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--red);
+      color: var(--white);
       font-weight: 900;
-      margin-bottom: 16px;
-      box-shadow: 0 12px 26px rgba(237,28,36,0.25);
+      box-shadow: 0 11px 24px rgba(237,28,36,0.22);
     }
 
-    .step-card h3,
-    .faq-card h3 {
-      color: #ffffff;
-      font-size: 1.14rem;
+    .step-card h3 {
       margin-bottom: 9px;
+      color: var(--black);
+      font-size: 1.12rem;
     }
 
-    .step-card p,
-    .faq-card p {
-      color: #bfbfbf;
+    .step-card p {
+      color: var(--text);
+      font-size: 0.91rem;
       line-height: 1.6;
-      font-size: 0.94rem;
     }
 
-    .quick-message-panel {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
-        #141414;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .message-card {
-      background: rgba(0,0,0,0.42);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 24px;
-    }
-
-    .message-card strong {
-      display: block;
-      margin-bottom: 10px;
-      color: #ffffff;
-      font-size: 1.05rem;
-    }
-
-    .message-card p {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 18px;
-      color: #e8e8e8;
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
+    /* FAQ */
 
     .faq-section {
-      background: #101010;
+      padding: 72px 0;
+      background: var(--pale-red);
+      border-top: 1px solid #ffd5d7;
+      border-bottom: 1px solid #ffd5d7;
     }
 
     .faq-grid {
@@ -627,54 +616,78 @@
       gap: 16px;
     }
 
+    .faq-card {
+      padding: 22px;
+      border: 1px solid #efc8ca;
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .faq-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--red);
+    }
+
+    .faq-card h3 {
+      margin-bottom: 9px;
+      color: var(--black);
+      font-size: 1.08rem;
+    }
+
+    .faq-card p {
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+
     .cta-section {
-      background: #202020;
-      padding: 76px 0;
-      text-align: center;
+      padding: 72px 0;
+      background: var(--white);
     }
 
     .cta-card {
-      max-width: 1000px;
+      max-width: 980px;
       margin: 0 auto;
+      padding: 43px 28px;
+      border: 1px solid #efc8ca;
+      border-radius: 27px;
       background:
-        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 46px 28px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+        radial-gradient(circle at 10% 20%, rgba(237,28,36,0.08), transparent 32%),
+        #fffafa;
+      text-align: center;
+      box-shadow: 0 22px 54px rgba(0,0,0,0.08);
     }
 
     .cta-card p {
       max-width: 720px;
-      margin: 0 auto 24px;
+      margin: 0 auto 23px;
     }
 
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    /* FOOTER */
 
     footer {
       padding: 34px 0;
+      border-top: 1px solid #e2e2e2;
+      background: var(--white);
+      color: var(--grey);
       text-align: center;
-      color: #999;
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .footer-local {
-      max-width: var(--max);
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto 24px;
-      padding: 0 16px;
     }
 
     .footer-local h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
       margin-bottom: 14px;
+      color: var(--black);
+      font-size: 1.03rem;
     }
 
     .footer-links {
@@ -684,9 +697,10 @@
       gap: 10px 18px;
     }
 
-    .footer-links a {
-      color: #cfcfcf;
-      font-size: 0.92rem;
+    .footer-links a,
+    .terms-link {
+      color: #4c4c4c;
+      font-size: 0.89rem;
       font-weight: 700;
     }
 
@@ -698,68 +712,30 @@
     .terms-link {
       display: inline-block;
       margin-bottom: 10px;
-      color: #cfcfcf;
-      font-weight: 800;
     }
 
-    .floating-actions {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 9999;
+    footer p {
+      font-size: 0.87rem;
     }
 
-    .float-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease;
-    }
-
-    .float-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .float-call {
-      background: var(--red);
-    }
-
-    .float-whatsapp {
-      background: var(--green);
-    }
-
-    .float-btn svg {
-      width: 27px;
-      height: 27px;
-    }
-
-    @media (max-width: 1120px) {
-      .payment-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+    /* RESPONSIVE */
 
     @media (max-width: 1020px) {
+      .payment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .trust-grid,
       .info-strip,
       .steps-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .quick-message-panel {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 768px) {
-      .container {
+      .container,
+      .nav-inner,
+      .footer-local {
         width: min(100% - 28px, var(--max));
       }
 
@@ -775,63 +751,57 @@
         display: flex;
       }
 
-      nav ul {
-        display: none;
+      .nav-menu {
         position: absolute;
         top: 82px;
         left: 0;
         right: 0;
-        background: #ffffff;
+        display: none;
+        padding: 10px 16px 20px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 0;
-        padding: 12px 16px 20px;
-        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        z-index: 999;
+        border-top: 1px solid #eeeeee;
+        background: var(--white);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.12);
       }
 
-      nav ul.open {
+      .nav-menu.open {
         display: flex;
       }
 
-      nav ul li {
+      .nav-menu li {
         width: 100%;
       }
 
-      nav ul a {
+      .nav-menu a {
         display: block;
-        width: 100%;
-        padding: 12px 0;
-        color: #111111;
+        padding: 13px 0;
         border-bottom: 1px solid #eeeeee;
-        font-size: 0.9rem;
       }
 
-      .btn-nav {
-        margin-top: 8px;
-        width: 100%;
+      .nav-menu .btn-nav {
+        margin-top: 10px;
+        padding: 14px;
         text-align: center;
-        color: #ffffff !important;
       }
 
       .book-hero {
-        min-height: auto;
-        padding: 54px 0;
+        padding: 32px 0;
       }
 
       .hero-card {
-        padding: 22px 18px;
-        border-radius: 22px;
+        padding: 28px 18px;
+        border-radius: 21px;
       }
 
       .book-hero h1 {
-        font-size: clamp(2rem, 8vw, 2.75rem);
-        line-height: 1.08;
-        letter-spacing: -1px;
+        font-size: 2.25rem;
+        letter-spacing: -1.5px;
       }
 
-      .book-hero p {
-        font-size: 0.95rem;
+      .hero-description {
+        font-size: 0.94rem;
       }
 
       .quick-contact,
@@ -845,11 +815,33 @@
       .btn-whatsapp,
       .btn-call {
         width: 100%;
-        min-height: 52px;
-        font-size: 0.9rem;
       }
 
-      .trust-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .trust-card {
+        padding: 13px 8px;
+      }
+
+      .trust-card strong {
+        font-size: 0.84rem;
+      }
+
+      .trust-card span {
+        font-size: 0.77rem;
+      }
+
+      .payment-section,
+      .booking-section,
+      .steps-section,
+      .faq-section,
+      .cta-section {
+        padding: 44px 0;
+      }
+
       .payment-grid,
       .info-strip,
       .steps-grid,
@@ -857,619 +849,38 @@
         grid-template-columns: 1fr;
       }
 
-      .booking-section,
-      .payment-section,
-      .steps-section,
-      .quick-message,
-      .faq-section,
-      .cta-section {
-        padding: 46px 0;
-      }
-
-      .tally-panel,
-      .quick-message-panel,
-      .cta-card {
-        border-radius: 20px;
-      }
-
       .payment-card {
         min-height: auto;
-      }
-
-      .quick-message-panel {
         padding: 22px;
       }
 
-      .message-card {
-        padding: 18px;
-        border-radius: 16px;
+      .online-price {
+        min-height: auto;
       }
 
-      .message-card p {
-        padding: 14px;
-        border-radius: 14px;
+      .tally-panel {
+        border-radius: 20px;
       }
 
-      .floating-actions {
-        right: 14px;
-        bottom: 14px;
-        gap: 10px;
-      }
-
-      .float-btn {
-        width: 50px;
-        height: 50px;
-      }
-
-      .float-btn svg {
-        width: 24px;
-        height: 24px;
+      .cta-card {
+        padding: 25px 18px;
+        border-radius: 20px;
       }
     }
 
-/* =========================================================
-   WHITE / RED BOOKING PAGE OVERRIDE
-   Paste immediately before the final </style>
-   ========================================================= */
-
-:root {
-  --red: #ed1c24;
-  --red-dark: #b80f16;
-  --green: #25d366;
-  --green-dark: #14883f;
-  --ink: #101010;
-  --text: #4d4d4d;
-  --line: #e2e2e2;
-  --pale-red: #fff7f7;
-  --white: #ffffff;
-}
-
-/* GLOBAL */
-
-html,
-body {
-  background: var(--white);
-  color: var(--ink);
-}
-
-.section-label {
-  color: var(--red);
-}
-
-/* BUTTONS */
-
-.btn-secondary,
-.btn-call {
-  background: var(--white);
-  color: var(--ink);
-  border-color: #cfcfcf;
-}
-
-.btn-secondary:hover,
-.btn-call:hover {
-  background: #f5f5f5;
-  border-color: var(--ink);
-  color: var(--ink);
-}
-
-.btn-whatsapp {
-  background: var(--white);
-  color: var(--green-dark);
-  border-color: var(--green);
-}
-
-.btn-whatsapp:hover {
-  background: #effff4;
-  color: #107432;
-}
-
-/* HERO */
-
-.book-hero {
-  min-height: auto;
-  padding: 64px 0;
-  background:
-    radial-gradient(
-      circle at 12% 18%,
-      rgba(237,28,36,0.10),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 88% 82%,
-      rgba(237,28,36,0.08),
-      transparent 32%
-    ),
-    linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
-  border-bottom: 1px solid #ffd5d7;
-}
-
-.book-hero::after {
-  display: none;
-}
-
-.hero-card {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 44px;
-  background: var(--white);
-  border: 1px solid #ffc7ca;
-  border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.09);
-  backdrop-filter: none;
-  text-align: center;
-}
-
-.book-hero h1 {
-  color: var(--ink);
-  font-size: clamp(2.7rem, 6vw, 4.7rem);
-  line-height: 1;
-  letter-spacing: -2.5px;
-}
-
-.book-hero p {
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--text);
-}
-
-.quick-contact {
-  justify-content: center;
-}
-
-.hero-note {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #626262;
-}
-
-/* TRUST STRIP */
-
-.trust-strip {
-  background: var(--pale-red);
-  border-top: none;
-  border-bottom: 1px solid #ffd5d7;
-}
-
-.trust-card {
-  background: var(--white);
-  border: 1px solid #efc9cb;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-}
-
-.trust-card strong {
-  color: var(--ink);
-}
-
-.trust-card span {
-  color: #646464;
-}
-
-/* PAYMENT SECTION */
-
-.payment-section {
-  padding: 70px 0 78px;
-  background: var(--white);
-  border-bottom: 1px solid #eeeeee;
-}
-
-.payment-head h2 {
-  color: var(--ink);
-}
-
-.payment-head p {
-  color: var(--text);
-}
-
-/* Three useful columns instead of six narrow cards */
-
-.payment-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.payment-card {
-  min-height: 315px;
-  padding: 25px;
-  background: var(--white);
-  border: 1px solid #dddddd;
-  border-radius: 21px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-
-.payment-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--red);
-  box-shadow: 0 18px 38px rgba(237,28,36,0.11);
-}
-
-.payment-card h3 {
-  color: var(--ink);
-  font-size: 1.2rem;
-}
-
-.payment-card p {
-  color: var(--text);
-}
-
-.payment-price {
-  border-top-color: #e0e0e0;
-}
-
-.payment-price strong {
-  color: var(--ink);
-  font-size: 2rem;
-}
-
-.payment-price span {
-  color: #656565;
-}
-
-.payment-card:nth-child(3) {
-  border-color: var(--red);
-  background:
-    linear-gradient(
-      180deg,
-      rgba(237,28,36,0.035),
-      transparent 48%
-    ),
-    #ffffff;
-  box-shadow: 0 18px 42px rgba(237,28,36,0.12);
-}
-
-.payment-card:nth-child(3)::before {
-  content: "Most Popular";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  margin-bottom: 14px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.75rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.payment-note-box {
-  background: var(--pale-red);
-  color: var(--text);
-  border: 1px solid #efc8ca;
-}
-
-/* BOOKING FORM */
-
-.booking-section {
-  padding: 72px 0;
-  background: var(--pale-red);
-  border-bottom: 1px solid #ffd5d7;
-}
-
-.booking-head h2 {
-  color: var(--ink);
-}
-
-.booking-head p {
-  color: var(--text);
-}
-
-.tally-panel {
-  min-height: 500px;
-  background: var(--white);
-  border: 1px solid #e0c6c7;
-  border-radius: 26px;
-  box-shadow: 0 22px 55px rgba(0,0,0,0.08);
-}
-
-.tally-panel iframe {
-  background: var(--white);
-}
-
-.info-card {
-  background: var(--white);
-  border: 1px solid #efc8ca;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-}
-
-.info-card strong {
-  color: var(--ink);
-}
-
-.info-card span {
-  color: #616161;
-}
-
-/* BOOKING STEPS */
-
-.steps-section {
-  padding: 72px 0;
-  background: var(--white);
-  border-top: none;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.steps-head h2 {
-  color: var(--ink);
-}
-
-.steps-head p {
-  color: var(--text);
-}
-
-.step-card {
-  background: var(--white);
-  border: 1px solid #dddddd;
-  box-shadow: 0 11px 27px rgba(0,0,0,0.05);
-}
-
-.step-card:hover {
-  border-color: var(--red);
-  box-shadow: 0 17px 35px rgba(237,28,36,0.10);
-}
-
-.step-card h3 {
-  color: var(--ink);
-}
-
-.step-card p {
-  color: var(--text);
-}
-
-.step-number {
-  color: var(--white);
-}
-
-/* QUICK WHATSAPP SECTION */
-
-.quick-message {
-  padding: 72px 0;
-  background: var(--pale-red);
-  border-top: 1px solid #ffd5d7;
-  border-bottom: 1px solid #ffd5d7;
-}
-
-.quick-message h2 {
-  color: var(--ink);
-}
-
-.quick-message > .container > div:first-child p,
-.quick-message-panel > div:first-child p {
-  color: var(--text);
-}
-
-.quick-message-panel {
-  background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(237,28,36,0.08),
-      transparent 32%
-    ),
-    #fffafa;
-  border: 1px solid #efc8ca;
-  box-shadow: 0 18px 44px rgba(0,0,0,0.06);
-}
-
-.message-card {
-  background: var(--white);
-  border: 1px solid #dddddd;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-}
-
-.message-card strong {
-  color: var(--ink);
-}
-
-.message-card p {
-  background: #f7f7f7;
-  color: #404040;
-  border: 1px solid #dddddd;
-}
-
-/* FAQ */
-
-.faq-section {
-  padding: 72px 0;
-  background: var(--white);
-  border-top: none;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.faq-head h2 {
-  color: var(--ink);
-}
-
-.faq-head p {
-  color: var(--text);
-}
-
-.faq-card {
-  background: var(--white);
-  border: 1px solid #dddddd;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-.faq-card:hover {
-  border-color: var(--red);
-  box-shadow: 0 16px 34px rgba(237,28,36,0.09);
-}
-
-.faq-card h3 {
-  color: var(--ink);
-}
-
-.faq-card p {
-  color: var(--text);
-}
-
-/* FINAL CTA */
-
-.cta-section {
-  padding: 72px 0;
-  background: var(--pale-red);
-  border-top: 1px solid #ffd5d7;
-}
-
-.cta-card {
-  background: var(--white);
-  border: 1px solid #efc8ca;
-  box-shadow: 0 22px 54px rgba(0,0,0,0.085);
-}
-
-.cta-card h2 {
-  color: var(--ink);
-}
-
-.cta-card p {
-  color: var(--text);
-}
-
-/* FOOTER */
-
-footer {
-  background: var(--white);
-  color: #686868;
-  border-top: 1px solid #e2e2e2;
-}
-
-.footer-local h3 {
-  color: var(--ink);
-}
-
-.footer-links a,
-.terms-link {
-  color: #4c4c4c;
-}
-
-.footer-links a:hover,
-.terms-link:hover {
-  color: var(--red);
-}
-
-/* DESKTOP */
-
-@media (min-width: 1121px) {
-  .payment-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .payment-card {
-    min-height: 315px;
-  }
-}
-
-/* TABLET */
-
-@media (max-width: 1120px) {
-  .payment-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-  .book-hero {
-    padding: 32px 0;
-    background: linear-gradient(
-      180deg,
-      var(--pale-red) 0%,
-      var(--white) 100%
-    );
-  }
-
-  .hero-card {
-    padding: 28px 18px;
-    border-radius: 21px;
-  }
-
-  .book-hero h1 {
-    font-size: 2.25rem;
-    letter-spacing: -1.5px;
-  }
-
-  .quick-contact {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .trust-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .trust-card {
-    padding: 13px 8px;
-  }
-
-  .trust-card strong {
-    font-size: 0.84rem;
-  }
-
-  .trust-card span {
-    font-size: 0.77rem;
-  }
-
-  .payment-grid,
-  .info-strip,
-  .steps-grid,
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .payment-card {
-    min-height: auto;
-    padding: 22px;
-  }
-
-  .payment-section,
-  .booking-section,
-  .steps-section,
-  .quick-message,
-  .faq-section,
-  .cta-section {
-    padding: 44px 0;
-  }
-
-  .quick-message-panel {
-    padding: 22px 18px;
-    border-radius: 20px;
-  }
-
-  .message-card {
-    padding: 17px;
-    border-radius: 16px;
-  }
-
-  .cta-card {
-    padding: 25px 18px;
-    border-radius: 20px;
-  }
-}
-
-@media (max-width: 430px) {
-  .trust-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .book-hero h1 {
-    font-size: 2rem;
-  }
-
-  .payment-head h2,
-  .booking-head h2,
-  .steps-head h2,
-  .quick-message h2,
-  .faq-head h2,
-  .cta-card h2 {
-    font-size: 1.75rem;
-  }
-}
-
-
+    @media (max-width: 430px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-heading {
+        font-size: 1.75rem;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -1497,37 +908,31 @@ footer {
       },
       {
         "@type": "Offer",
-        "name": "5 Hour Block Booking Online Payment",
+        "name": "5 Hour Block Online Payment",
         "price": "194.25",
         "priceCurrency": "GBP",
         "url": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05"
       },
       {
         "@type": "Offer",
-        "name": "10 Hour Block Booking Online Payment",
+        "name": "10 Hour Block Online Payment",
         "price": "378",
         "priceCurrency": "GBP",
         "url": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04"
       },
       {
         "@type": "Offer",
-        "name": "20 Hour Block Booking Online Payment",
+        "name": "20 Hour Block Online Payment",
         "price": "735",
         "priceCurrency": "GBP",
         "url": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06"
       },
       {
         "@type": "Offer",
-        "name": "30 Hour Block Booking Online Payment",
+        "name": "30 Hour Block Online Payment",
         "price": "1071",
         "priceCurrency": "GBP",
         "url": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07"
-      },
-      {
-        "@type": "Offer",
-        "name": "Custom Driving Lesson Payment",
-        "priceCurrency": "GBP",
-        "url": "https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09"
       }
     ]
   }
@@ -1538,17 +943,29 @@ footer {
 
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="logo" aria-label="SAR Driving School">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+
+      <a href="index.html" aria-label="SAR Driving School home">
+        <img
+          src="images/logo.png"
+          alt="SAR Driving School"
+          class="logo-img"
+        >
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <ul id="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="lessons.html">Lessons</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -1558,36 +975,67 @@ footer {
         <li><a href="socials.html">Find us</a></li>
         <li><a href="book.html" class="btn-nav">Book now</a></li>
       </ul>
+
     </div>
   </nav>
 
   <main>
 
+    <!-- HERO -->
+
     <section class="book-hero">
       <div class="container">
         <div class="hero-card">
+
           <div class="section-label">Book driving lessons</div>
-          <h1>Start your lessons with <span>SAR</span></h1>
-          <p>
-            Book online, enquire first, or message us on WhatsApp. Manual, automatic and refresher lessons are available from £38 per hour.
+
+          <h1>
+            Start your lessons with <span>SAR</span>
+          </h1>
+
+          <p class="hero-description">
+            Choose a lesson package and pay securely online, or send
+            an enquiry first. Manual, automatic and refresher lessons
+            are available from £38 per hour.
           </p>
 
           <div class="quick-contact">
-            <a href="#pay-online" class="btn-primary">Pay Online →</a>
-            <a href="#booking-form" class="btn-secondary">Enquire First</a>
-            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20to%20book%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
-            <a href="tel:+447902023737" class="btn-call">Call SAR</a>
+            <a href="#pay-online" class="btn-primary">
+              View Packages →
+            </a>
+
+            <a href="#booking-form" class="btn-secondary">
+              Enquire First
+            </a>
+
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20to%20book%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              WhatsApp Us
+            </a>
+
+            <a href="tel:+447902023737" class="btn-call">
+              Call SAR
+            </a>
           </div>
 
           <p class="hero-note">
-            Online payments include a 5% processing/admin charge. After payment, our team will contact you to arrange your lesson date, time and instructor.
+            Standard lesson prices are shown clearly. Online card
+            payments include a 5% processing/admin charge.
           </p>
+
         </div>
       </div>
     </section>
 
+    <!-- TRUST -->
+
     <section class="trust-strip">
       <div class="container trust-grid">
+
         <div class="trust-card">
           <strong>220+ Five-Star Reviews</strong>
           <span>Trusted by local learners.</span>
@@ -1595,126 +1043,253 @@ footer {
 
         <div class="trust-card">
           <strong>Manual & Automatic</strong>
-          <span>Choose the lesson type that suits you.</span>
+          <span>Choose the option that suits you.</span>
         </div>
 
         <div class="trust-card">
           <strong>DVSA Approved</strong>
-          <span>Professional driving instructors.</span>
+          <span>Professional instructors.</span>
         </div>
 
         <div class="trust-card">
-          <strong>Secure Online Payment</strong>
-          <span>Pay by card through Stripe.</span>
+          <strong>Secure Card Payment</strong>
+          <span>Online payments through Stripe.</span>
         </div>
+
       </div>
     </section>
 
+    <!-- PAYMENT PACKAGES -->
+
     <section class="payment-section" id="pay-online">
       <div class="container">
-        <div class="payment-head">
-          <div class="section-label">Secure online payments</div>
-          <h2>Pay online for lessons and block bookings</h2>
-          <p>
-            Choose a lesson package below and pay securely by card. Online payments include a 5% processing/admin charge.
+
+        <div class="section-intro">
+          <div class="section-label">Lesson packages</div>
+
+          <h2 class="section-heading">
+            Choose your lesson package
+          </h2>
+
+          <p class="section-description">
+            The large price is the normal lesson price. The smaller
+            price underneath is the online card-payment total,
+            including the 5% processing/admin charge.
           </p>
         </div>
 
         <div class="payment-grid">
+
+          <!-- 1 HOUR -->
+
           <div class="payment-card">
             <h3>1 Hour Lesson</h3>
-            <p>Single 1 hour driving lesson with SAR Driving School.</p>
+
+            <p>
+              A single one-hour manual or automatic driving lesson
+              with SAR Driving School.
+            </p>
 
             <div class="payment-price">
-              <strong>£39.90</strong>
-              <span>Standard price £38 + 5%</span>
+              <span class="normal-price-label">Normal price</span>
+              <strong>£38</strong>
+
+              <span class="online-price">
+                Online payment: £39.90 including 5% charge
+              </span>
             </div>
 
-            <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn-primary">Book 1 Hour</a>
+            <a
+              href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              Pay £39.90 Online
+            </a>
           </div>
+
+          <!-- 5 HOURS -->
 
           <div class="payment-card">
             <h3>5 Hour Block</h3>
-            <p>Starter block booking for beginners or learners wanting a short package.</p>
+
+            <p>
+              A starter block booking for beginners or learners
+              who want a shorter lesson package.
+            </p>
 
             <div class="payment-price">
-              <strong>£194.25</strong>
-              <span>Standard price £185 + 5%</span>
+              <span class="normal-price-label">Normal price</span>
+              <strong>£185</strong>
+
+              <span class="online-price">
+                Online payment: £194.25 including 5% charge
+              </span>
             </div>
 
-            <a href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05" target="_blank" class="btn-secondary">Book 5 Hours</a>
+            <a
+              href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              Pay £194.25 Online
+            </a>
           </div>
 
-          <div class="payment-card">
+          <!-- 10 HOURS -->
+
+          <div class="payment-card popular">
+            <div class="popular-label">Most popular</div>
+
             <h3>10 Hour Block</h3>
-            <p>Most popular block booking for steady weekly progress.</p>
+
+            <p>
+              Our most popular block booking for regular lessons
+              and steady weekly progress.
+            </p>
 
             <div class="payment-price">
-              <strong>£378</strong>
-              <span>Standard price £360 + 5%</span>
+              <span class="normal-price-label">Normal price</span>
+              <strong>£360</strong>
+
+              <span class="online-price">
+                Online payment: £378 including 5% charge
+              </span>
             </div>
 
-            <a href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04" target="_blank" class="btn-primary">Book 10 Hours</a>
+            <a
+              href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              Pay £378 Online
+            </a>
           </div>
+
+          <!-- 20 HOURS -->
 
           <div class="payment-card">
             <h3>20 Hour Block</h3>
-            <p>Strong package for learners who want consistent structured progress.</p>
+
+            <p>
+              A strong package for learners who want consistent,
+              structured progress.
+            </p>
 
             <div class="payment-price">
-              <strong>£735</strong>
-              <span>Standard price £700 + 5%</span>
+              <span class="normal-price-label">Normal price</span>
+              <strong>£700</strong>
+
+              <span class="online-price">
+                Online payment: £735 including 5% charge
+              </span>
             </div>
 
-            <a href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06" target="_blank" class="btn-secondary">Book 20 Hours</a>
+            <a
+              href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              Pay £735 Online
+            </a>
           </div>
+
+          <!-- 30 HOURS -->
 
           <div class="payment-card">
             <h3>30 Hour Block</h3>
-            <p>Best value block booking for serious learners and full test preparation.</p>
+
+            <p>
+              Our best-value package for serious learners who
+              need complete test preparation.
+            </p>
 
             <div class="payment-price">
-              <strong>£1,071</strong>
-              <span>Standard price £1,020 + 5%</span>
+              <span class="normal-price-label">Normal price</span>
+              <strong>£1,020</strong>
+
+              <span class="online-price">
+                Online payment: £1,071 including 5% charge
+              </span>
             </div>
 
-            <a href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07" target="_blank" class="btn-primary">Book 30 Hours</a>
+            <a
+              href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+            >
+              Pay £1,071 Online
+            </a>
           </div>
+
+          <!-- CUSTOM PAYMENT -->
 
           <div class="payment-card">
             <h3>Custom Payment</h3>
-            <p>Use this option only if SAR Driving School has confirmed a custom amount with you.</p>
+
+            <p>
+              Only use this option when SAR Driving School has
+              confirmed a custom payment amount with you.
+            </p>
 
             <div class="payment-price">
+              <span class="normal-price-label">Agreed amount</span>
               <strong>Custom</strong>
-              <span>Enter the agreed amount at checkout</span>
+
+              <span class="online-price">
+                Enter your agreed payment amount at checkout
+              </span>
             </div>
 
-            <a href="https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09" target="_blank" class="btn-secondary">Pay Custom Amount</a>
+            <a
+              href="https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+            >
+              Pay Custom Amount
+            </a>
           </div>
+
         </div>
 
         <div class="payment-note-box">
-          Once payment is made, our team will contact you to arrange your lesson date, time and instructor. You can also send the enquiry form below if you prefer to give us your details first.
+          <strong>Prefer to arrange your lessons before paying?</strong>
+          Complete the enquiry form below or message us on WhatsApp.
+          After an online payment, our team will contact you to arrange
+          your lesson date, time and instructor.
         </div>
+
       </div>
     </section>
+
+    <!-- ENQUIRY FORM -->
 
     <section class="booking-section" id="booking-form">
       <div class="container">
 
-        <div class="booking-head">
+        <div class="section-intro">
           <div class="section-label">Enquiry form</div>
-          <h2>Send your lesson request</h2>
-          <p>
-            Add your details below so we can arrange the best lesson time, instructor and collection area.
+
+          <h2 class="section-heading">
+            Send your lesson request
+          </h2>
+
+          <p class="section-description">
+            Add your details below so we can check the right instructor,
+            lesson type, collection area and availability.
           </p>
         </div>
 
         <div class="booking-wrap">
-          <div class="tally-panel" id="tallyPanel">
+
+          <div class="tally-panel">
             <iframe
-              id="tallyFrame"
               data-tally-src="https://tally.so/embed/QKO9oG?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
               loading="lazy"
               width="100%"
@@ -1727,6 +1302,7 @@ footer {
           </div>
 
           <div class="info-strip">
+
             <div class="info-card">
               <strong>Manual & automatic</strong>
               <span>Both lesson types available from £38 per hour.</span>
@@ -1738,140 +1314,194 @@ footer {
             </div>
 
             <div class="info-card">
-              <strong>Online payment</strong>
-              <span>Pay securely by card using Stripe.</span>
+              <strong>Secure payment</strong>
+              <span>Online card payments are handled by Stripe.</span>
             </div>
 
             <div class="info-card">
-              <strong>Fast reply</strong>
-              <span>Send your area and availability for a quicker response.</span>
+              <strong>Faster reply</strong>
+              <span>Include your area, lesson type and availability.</span>
             </div>
+
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- STEPS -->
+
     <section class="steps-section">
       <div class="container">
-        <div class="steps-head">
+
+        <div class="section-intro">
           <div class="section-label">What happens next?</div>
-          <h2>Simple booking process</h2>
-          <p>
-            Once you pay or send your request, we arrange the best lesson time, instructor and collection area.
+
+          <h2 class="section-heading">
+            Simple booking process
+          </h2>
+
+          <p class="section-description">
+            Once you pay or send your request, we arrange the best
+            available lesson time and instructor.
           </p>
         </div>
 
         <div class="steps-grid">
+
           <div class="step-card">
             <div class="step-number">1</div>
-            <h3>Choose your option</h3>
-            <p>Pay online, complete the enquiry form or message us on WhatsApp.</p>
+            <h3>Choose an option</h3>
+            <p>
+              Pay online, complete the enquiry form or message
+              us on WhatsApp.
+            </p>
           </div>
 
           <div class="step-card">
             <div class="step-number">2</div>
             <h3>We contact you</h3>
-            <p>Our team will contact you to arrange lesson date, time and instructor.</p>
+            <p>
+              Our team checks your area, lesson type and
+              instructor availability.
+            </p>
           </div>
 
           <div class="step-card">
             <div class="step-number">3</div>
-            <h3>Confirm the lesson</h3>
-            <p>We confirm the lesson type, package, collection area and next step.</p>
+            <h3>Confirm your lesson</h3>
+            <p>
+              We confirm the lesson time, instructor and
+              collection arrangements.
+            </p>
           </div>
 
           <div class="step-card">
             <div class="step-number">4</div>
             <h3>Start driving</h3>
-            <p>Begin structured lessons and work towards safe, confident driving.</p>
+            <p>
+              Begin structured lessons and work towards safe,
+              confident driving.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <section class="quick-message">
-      <div class="container quick-message-panel">
-        <div>
-          <div class="section-label">Quick Enquiry</div>
-          <h2>Prefer WhatsApp?</h2>
-          <p>
-            Send this message instead and we can arrange your lesson request faster.
-          </p>
-        </div>
-
-        <div class="message-card">
-          <strong>Copy this message:</strong>
-          <p>
-            Hi SAR, I’m looking to book driving lessons. My area is [your area]. I want [manual/automatic/refresher]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
-          </p>
-          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20to%20book%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-primary">
-            Send WhatsApp Message →
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- FAQ -->
 
     <section class="faq-section">
       <div class="container">
-        <div class="faq-head">
+
+        <div class="section-intro">
           <div class="section-label">Booking FAQ</div>
-          <h2>Before you book</h2>
-          <p>
-            Quick answers for learners booking manual, automatic or refresher driving lessons.
+
+          <h2 class="section-heading">
+            Before you book
+          </h2>
+
+          <p class="section-description">
+            Quick answers about booking and paying for lessons
+            with SAR Driving School.
           </p>
         </div>
 
         <div class="faq-grid">
+
           <div class="faq-card">
             <h3>How quickly can I start?</h3>
-            <p>We will contact you to arrange the best lesson time, instructor and collection area. Send your availability so we can arrange this faster.</p>
+            <p>
+              Availability depends on your area, lesson type and
+              instructor schedule. Send your available days and times.
+            </p>
           </div>
 
           <div class="faq-card">
             <h3>Do you offer manual and automatic?</h3>
-            <p>Yes. SAR Driving School offers manual and automatic lessons, plus refresher lessons for returning drivers.</p>
+            <p>
+              Yes. Manual, automatic and refresher lessons are
+              available subject to local instructor availability.
+            </p>
           </div>
 
           <div class="faq-card">
             <h3>How much are lessons?</h3>
-            <p>Manual and automatic lessons start from £38 per hour. Online card payments include a 5% processing/admin charge.</p>
+            <p>
+              Lessons start from £38 per hour. Our block-booking
+              prices offer better value for regular learners.
+            </p>
           </div>
 
           <div class="faq-card">
-            <h3>What happens after I pay online?</h3>
-            <p>Once paid, our team will contact you to arrange your lesson date, time and instructor.</p>
+            <h3>Why is the online price higher?</h3>
+            <p>
+              Online card payments include a 5% processing/admin
+              charge. Both prices are shown clearly above.
+            </p>
           </div>
 
           <div class="faq-card">
-            <h3>Can nervous learners book?</h3>
-            <p>Yes. Lessons are calm, patient and tailored around your confidence and current driving level.</p>
+            <h3>What happens after online payment?</h3>
+            <p>
+              Our team will contact you to arrange the lesson date,
+              time, instructor and collection area.
+            </p>
           </div>
 
           <div class="faq-card">
-            <h3>Can I book without paying online?</h3>
-            <p>Yes. You can complete the enquiry form or message us on WhatsApp if you prefer to arrange your lesson first.</p>
+            <h3>Can I enquire before paying?</h3>
+            <p>
+              Yes. Complete the enquiry form or message us on
+              WhatsApp before making a payment.
+            </p>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- FINAL CTA -->
+
     <section class="cta-section">
       <div class="container">
+
         <div class="cta-card">
           <div class="section-label">Ready to start?</div>
-          <h2>Let’s get your lessons arranged</h2>
-          <p>
-            Pay online securely, fill in the enquiry form or send us a WhatsApp message with your area, lesson type and availability.
+
+          <h2 class="section-heading">
+            Let’s get your lessons arranged
+          </h2>
+
+          <p class="section-description">
+            Choose a lesson package, send an enquiry or message
+            us with your area, lesson type and availability.
           </p>
 
           <div class="cta-actions">
-            <a href="#pay-online" class="btn-primary">Pay Online</a>
-            <a href="#booking-form" class="btn-secondary">Enquire First</a>
-            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20to%20book%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
-            <a href="pricing.html" class="btn-secondary">View Pricing</a>
+            <a href="#pay-online" class="btn-primary">
+              View Packages
+            </a>
+
+            <a href="#booking-form" class="btn-secondary">
+              Enquire First
+            </a>
+
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20to%20book%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp"
+            >
+              WhatsApp Us
+            </a>
+
+            <a href="pricing.html" class="btn-secondary">
+              View Pricing
+            </a>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -1879,39 +1509,90 @@ footer {
 
   <footer>
     <div class="footer-local">
+
       <h3>Useful Driving Lesson Pages</h3>
+
       <div class="footer-links">
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+        <a href="manual-driving-lessons-milton-keynes.html">
+          Manual Driving Lessons Milton Keynes
+        </a>
+
+        <a href="automatic-driving-lessons-milton-keynes.html">
+          Automatic Driving Lessons Milton Keynes
+        </a>
+
+        <a href="refresher-driving-lessons-milton-keynes.html">
+          Refresher Driving Lessons Milton Keynes
+        </a>
+
+        <a href="driving-lessons-milton-keynes.html">
+          Driving Lessons Milton Keynes
+        </a>
+
+        <a href="driving-lessons-bletchley.html">
+          Driving Lessons Bletchley
+        </a>
+
+        <a href="driving-lessons-bedford.html">
+          Driving Lessons Bedford
+        </a>
+
+        <a href="driving-lessons-leighton-buzzard.html">
+          Driving Lessons Leighton Buzzard
+        </a>
       </div>
+
     </div>
 
-    <a href="terms.html" class="terms-link">Terms & Conditions</a>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+    <a href="terms.html" class="terms-link">
+      Terms &amp; Conditions
+    </a>
+
+    <p>
+      © 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.
+    </p>
   </footer>
 
   <script async src="https://tally.so/widgets/embed.js"></script>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
 
     if (hamburger && navMenu) {
-      hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('open');
-        navMenu.classList.toggle('open');
+      hamburger.addEventListener("click", function () {
+        const isOpen = hamburger.classList.toggle("open");
+
+        navMenu.classList.toggle("open", isOpen);
+        document.body.classList.toggle("menu-open", isOpen);
+
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+        hamburger.setAttribute(
+          "aria-label",
+          isOpen ? "Close menu" : "Open menu"
+        );
       });
 
-      navMenu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          hamburger.classList.remove('open');
-          navMenu.classList.remove('open');
+      navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("open");
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.setAttribute("aria-label", "Open menu");
         });
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove("open");
+          navMenu.classList.remove("open");
+          document.body.classList.remove("menu-open");
+
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.setAttribute("aria-label", "Open menu");
+        }
       });
     }
   </script>
