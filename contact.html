@@ -1031,6 +1031,736 @@
         font-size: 1.75rem;
       }
     }
+
+
+/* ==================================================
+   CONTACT PAGE — WHITE, RED AND BLACK REDESIGN
+================================================== */
+
+:root {
+  --red: #ed1c24;
+  --red-dark: #b80f16;
+  --dark: #ffffff;
+  --black: #111111;
+  --soft: #fff7f7;
+  --card: #ffffff;
+  --muted: #555555;
+  --border: rgba(0, 0, 0, 0.11);
+}
+
+/* GENERAL */
+
+html,
+body {
+  background: #ffffff;
+  color: #111111;
+}
+
+nav {
+  background: #ffffff;
+
+  border-bottom:
+    1px solid rgba(237, 28, 36, 0.2);
+
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* BUTTONS */
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.btn-secondary:hover {
+  background: #fff1f1;
+}
+
+.btn-whatsapp {
+  background: #ffffff;
+  color: #137a3b;
+  border-color: #20a954;
+}
+
+.btn-whatsapp:hover {
+  background: #effff4;
+}
+
+/* ==================================================
+   DESKTOP SPLIT HERO
+================================================== */
+
+@media (min-width: 769px) {
+  .page-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    min-height: 470px;
+    padding: 52px 0;
+
+    background: #ffffff;
+
+    border-bottom:
+      1px solid rgba(237, 28, 36, 0.14);
+
+    overflow: hidden;
+  }
+
+  /* Contact photograph on right */
+
+  .page-hero::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 50%;
+
+    background-image:
+      url("images/contact-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Blend text section into image */
+
+  .page-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    background:
+      linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 47%,
+        rgba(255, 255, 255, 0.9) 52%,
+        rgba(255, 255, 255, 0) 66%
+      );
+
+    pointer-events: none;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 32px));
+    max-width: 1180px;
+
+    margin: 0 auto;
+  }
+
+  .hero-card {
+    width: 49%;
+    max-width: 580px;
+
+    padding: 0 30px 0 0;
+
+    background: transparent;
+
+    border: 0;
+    border-radius: 0;
+
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .hero-card .section-label {
+    display: inline-flex;
+
+    padding: 8px 13px;
+    margin-bottom: 14px;
+
+    color: var(--red);
+    background: #fff5f5;
+
+    border:
+      1px solid rgba(237, 28, 36, 0.25);
+
+    border-radius: 999px;
+  }
+
+  .page-hero h1 {
+    color: #111111;
+
+    font-size:
+      clamp(2.5rem, 4.3vw, 4rem);
+
+    line-height: 1.02;
+    letter-spacing: -2px;
+  }
+
+  .page-hero h1 span {
+    color: var(--red);
+  }
+
+  .page-hero p {
+    color: #555555;
+
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    gap: 9px;
+  }
+
+  .hero-actions a {
+    min-height: 48px;
+    padding: 0 16px;
+
+    font-size: 0.82rem;
+  }
+
+  .hero-note {
+    display: none;
+  }
+}
+
+/* ==================================================
+   TRUST STRIP
+================================================== */
+
+.trust-strip {
+  padding: 16px 0;
+
+  background: #fff7f7;
+
+  border-top: 0;
+
+  border-bottom:
+    1px solid rgba(237, 28, 36, 0.14);
+}
+
+.trust-card {
+  padding: 15px;
+
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.1);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.trust-card strong {
+  color: #111111;
+}
+
+.trust-card span {
+  color: #555555;
+}
+
+/* ==================================================
+   MAIN CONTACT SECTION
+================================================== */
+
+.contact-main-section {
+  padding: 64px 0;
+
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(237, 28, 36, 0.08),
+      transparent 34%
+    ),
+    #ffffff;
+}
+
+.contact-card,
+.tally-panel {
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card {
+  padding: 30px;
+}
+
+.contact-card h2 {
+  color: #111111;
+}
+
+.contact-card-intro {
+  color: #555555;
+}
+
+/* Contact information */
+
+.contact-item {
+  border-bottom-color:
+    rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  color: var(--red);
+  background: #fff1f1;
+
+  border-color:
+    rgba(237, 28, 36, 0.25);
+}
+
+.contact-item strong {
+  color: #111111;
+}
+
+.contact-item a,
+.contact-item span {
+  color: #555555;
+}
+
+.contact-item a:hover {
+  color: var(--red);
+}
+
+/* Fast reply card */
+
+.fast-reply-box {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff
+    );
+
+  border:
+    1px solid rgba(237, 28, 36, 0.22);
+}
+
+.fast-reply-box h3 {
+  color: #111111;
+}
+
+.fast-reply-box p {
+  color: #555555;
+}
+
+/* Tally form frame */
+
+.tally-panel {
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/*
+  The content inside the iframe is controlled by Tally.
+  Select a white/light theme in the Tally form settings.
+*/
+
+.tally-panel iframe {
+  background: #ffffff;
+}
+
+/* ==================================================
+   QUICK MESSAGE
+================================================== */
+
+.quick-message {
+  padding: 62px 0;
+
+  background: #fff7f7;
+
+  border-top:
+    1px solid rgba(237, 28, 36, 0.14);
+
+  border-bottom:
+    1px solid rgba(237, 28, 36, 0.14);
+}
+
+.quick-message h2 {
+  color: #111111;
+}
+
+.quick-message p {
+  color: #555555;
+}
+
+.quick-message-panel {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff 65%
+    );
+
+  border:
+    1px solid rgba(237, 28, 36, 0.22);
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.07);
+}
+
+.message-card {
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.message-card strong {
+  color: #111111;
+}
+
+.message-card p {
+  color: #333333;
+  background: #fff7f7;
+
+  border:
+    1px solid rgba(237, 28, 36, 0.16);
+}
+
+/* ==================================================
+   BEFORE YOU MESSAGE
+================================================== */
+
+.contact-options-section {
+  padding: 62px 0;
+
+  background: #ffffff;
+}
+
+.options-head h2 {
+  color: #111111;
+}
+
+.options-head p {
+  color: #555555;
+}
+
+.option-card {
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.option-card:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff
+    );
+}
+
+.option-card h3 {
+  color: #111111;
+}
+
+.option-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   LESSON OPTIONS
+================================================== */
+
+.service-links-section {
+  padding: 62px 0;
+
+  background: #fff7f7;
+
+  border-top:
+    1px solid rgba(237, 28, 36, 0.14);
+
+  border-bottom:
+    1px solid rgba(237, 28, 36, 0.14);
+}
+
+.service-card {
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.service-card:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff
+    );
+}
+
+.service-card h3 {
+  color: #111111;
+}
+
+.service-card p {
+  color: #555555;
+}
+
+.service-card a {
+  background: var(--red);
+  color: #ffffff;
+}
+
+/* ==================================================
+   FAQ
+================================================== */
+
+.faq-section {
+  padding: 62px 0;
+
+  background: #ffffff;
+}
+
+.faq-copy h2 {
+  color: #111111;
+}
+
+.faq-copy p {
+  color: #555555;
+}
+
+.faq-item {
+  background: #ffffff;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.11);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question {
+  color: #111111;
+}
+
+.faq-answer p {
+  color: #555555;
+}
+
+/* ==================================================
+   FINAL CTA
+================================================== */
+
+.final-cta-section {
+  padding: 62px 0;
+
+  background: #fff7f7;
+}
+
+.final-cta-card {
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffffff
+    );
+
+  border:
+    1px solid rgba(237, 28, 36, 0.25);
+
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.08);
+}
+
+.final-cta-card h2 {
+  color: #111111;
+}
+
+.final-cta-card p {
+  color: #555555;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+  background: #ffffff;
+  color: #666666;
+
+  border-top:
+    1px solid rgba(237, 28, 36, 0.2);
+}
+
+.footer-local h3,
+.footer-links a,
+.terms-link {
+  color: #111111;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1020px) and (min-width: 769px) {
+  .page-hero::before {
+    width: 46%;
+  }
+
+  .hero-card {
+    width: 54%;
+  }
+
+  .contact-inner {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================================================
+   MOBILE HERO
+================================================== */
+
+@media (max-width: 768px) {
+  .page-hero {
+    position: relative;
+    display: block;
+
+    min-height: auto;
+    padding: 250px 0 0;
+
+    background: #ffffff;
+
+    border-bottom:
+      1px solid rgba(237, 28, 36, 0.14);
+  }
+
+  .page-hero::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    background-image:
+      url("images/contact-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .page-hero::after {
+    display: none;
+  }
+
+  .page-hero-inner {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: none;
+
+    padding: 26px 18px;
+
+    background: #ffffff;
+
+    border: 0;
+    border-radius: 0;
+
+    box-shadow: none;
+    backdrop-filter: none;
+
+    text-align: center;
+  }
+
+  .hero-card .section-label {
+    display: inline-flex;
+
+    padding: 8px 13px;
+
+    color: var(--red);
+    background: #fff5f5;
+
+    border:
+      1px solid rgba(237, 28, 36, 0.25);
+
+    border-radius: 999px;
+  }
+
+  .page-hero h1 {
+    color: #111111;
+  }
+
+  .page-hero p {
+    color: #555555;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-main-section,
+  .quick-message,
+  .contact-options-section,
+  .service-links-section,
+  .faq-section,
+  .final-cta-section {
+    padding: 44px 0;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================================================
+   SMALL PHONES
+================================================== */
+
+@media (max-width: 430px) {
+  .page-hero {
+    padding-top: 215px;
+  }
+
+  .page-hero::before {
+    height: 215px;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
   </style>
 
   <script type="application/ld+json">
