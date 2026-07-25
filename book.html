@@ -906,6 +906,570 @@
         height: 24px;
       }
     }
+
+/* =========================================================
+   WHITE / RED BOOKING PAGE OVERRIDE
+   Paste immediately before the final </style>
+   ========================================================= */
+
+:root {
+  --red: #ed1c24;
+  --red-dark: #b80f16;
+  --green: #25d366;
+  --green-dark: #14883f;
+  --ink: #101010;
+  --text: #4d4d4d;
+  --line: #e2e2e2;
+  --pale-red: #fff7f7;
+  --white: #ffffff;
+}
+
+/* GLOBAL */
+
+html,
+body {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.section-label {
+  color: var(--red);
+}
+
+/* BUTTONS */
+
+.btn-secondary,
+.btn-call {
+  background: var(--white);
+  color: var(--ink);
+  border-color: #cfcfcf;
+}
+
+.btn-secondary:hover,
+.btn-call:hover {
+  background: #f5f5f5;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-whatsapp {
+  background: var(--white);
+  color: var(--green-dark);
+  border-color: var(--green);
+}
+
+.btn-whatsapp:hover {
+  background: #effff4;
+  color: #107432;
+}
+
+/* HERO */
+
+.book-hero {
+  min-height: auto;
+  padding: 64px 0;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(237,28,36,0.10),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(237,28,36,0.08),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
+  border-bottom: 1px solid #ffd5d7;
+}
+
+.book-hero::after {
+  display: none;
+}
+
+.hero-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px;
+  background: var(--white);
+  border: 1px solid #ffc7ca;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.09);
+  backdrop-filter: none;
+  text-align: center;
+}
+
+.book-hero h1 {
+  color: var(--ink);
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
+  line-height: 1;
+  letter-spacing: -2.5px;
+}
+
+.book-hero p {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text);
+}
+
+.quick-contact {
+  justify-content: center;
+}
+
+.hero-note {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #626262;
+}
+
+/* TRUST STRIP */
+
+.trust-strip {
+  background: var(--pale-red);
+  border-top: none;
+  border-bottom: 1px solid #ffd5d7;
+}
+
+.trust-card {
+  background: var(--white);
+  border: 1px solid #efc9cb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.trust-card strong {
+  color: var(--ink);
+}
+
+.trust-card span {
+  color: #646464;
+}
+
+/* PAYMENT SECTION */
+
+.payment-section {
+  padding: 70px 0 78px;
+  background: var(--white);
+  border-bottom: 1px solid #eeeeee;
+}
+
+.payment-head h2 {
+  color: var(--ink);
+}
+
+.payment-head p {
+  color: var(--text);
+}
+
+/* Three useful columns instead of six narrow cards */
+
+.payment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.payment-card {
+  min-height: 315px;
+  padding: 25px;
+  background: var(--white);
+  border: 1px solid #dddddd;
+  border-radius: 21px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--red);
+  box-shadow: 0 18px 38px rgba(237,28,36,0.11);
+}
+
+.payment-card h3 {
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+.payment-card p {
+  color: var(--text);
+}
+
+.payment-price {
+  border-top-color: #e0e0e0;
+}
+
+.payment-price strong {
+  color: var(--ink);
+  font-size: 2rem;
+}
+
+.payment-price span {
+  color: #656565;
+}
+
+.payment-card:nth-child(3) {
+  border-color: var(--red);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(237,28,36,0.035),
+      transparent 48%
+    ),
+    #ffffff;
+  box-shadow: 0 18px 42px rgba(237,28,36,0.12);
+}
+
+.payment-card:nth-child(3)::before {
+  content: "Most Popular";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.payment-note-box {
+  background: var(--pale-red);
+  color: var(--text);
+  border: 1px solid #efc8ca;
+}
+
+/* BOOKING FORM */
+
+.booking-section {
+  padding: 72px 0;
+  background: var(--pale-red);
+  border-bottom: 1px solid #ffd5d7;
+}
+
+.booking-head h2 {
+  color: var(--ink);
+}
+
+.booking-head p {
+  color: var(--text);
+}
+
+.tally-panel {
+  min-height: 500px;
+  background: var(--white);
+  border: 1px solid #e0c6c7;
+  border-radius: 26px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.08);
+}
+
+.tally-panel iframe {
+  background: var(--white);
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid #efc8ca;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.info-card strong {
+  color: var(--ink);
+}
+
+.info-card span {
+  color: #616161;
+}
+
+/* BOOKING STEPS */
+
+.steps-section {
+  padding: 72px 0;
+  background: var(--white);
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.steps-head h2 {
+  color: var(--ink);
+}
+
+.steps-head p {
+  color: var(--text);
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid #dddddd;
+  box-shadow: 0 11px 27px rgba(0,0,0,0.05);
+}
+
+.step-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 17px 35px rgba(237,28,36,0.10);
+}
+
+.step-card h3 {
+  color: var(--ink);
+}
+
+.step-card p {
+  color: var(--text);
+}
+
+.step-number {
+  color: var(--white);
+}
+
+/* QUICK WHATSAPP SECTION */
+
+.quick-message {
+  padding: 72px 0;
+  background: var(--pale-red);
+  border-top: 1px solid #ffd5d7;
+  border-bottom: 1px solid #ffd5d7;
+}
+
+.quick-message h2 {
+  color: var(--ink);
+}
+
+.quick-message > .container > div:first-child p,
+.quick-message-panel > div:first-child p {
+  color: var(--text);
+}
+
+.quick-message-panel {
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(237,28,36,0.08),
+      transparent 32%
+    ),
+    #fffafa;
+  border: 1px solid #efc8ca;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.06);
+}
+
+.message-card {
+  background: var(--white);
+  border: 1px solid #dddddd;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+
+.message-card strong {
+  color: var(--ink);
+}
+
+.message-card p {
+  background: #f7f7f7;
+  color: #404040;
+  border: 1px solid #dddddd;
+}
+
+/* FAQ */
+
+.faq-section {
+  padding: 72px 0;
+  background: var(--white);
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.faq-head h2 {
+  color: var(--ink);
+}
+
+.faq-head p {
+  color: var(--text);
+}
+
+.faq-card {
+  background: var(--white);
+  border: 1px solid #dddddd;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.faq-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 16px 34px rgba(237,28,36,0.09);
+}
+
+.faq-card h3 {
+  color: var(--ink);
+}
+
+.faq-card p {
+  color: var(--text);
+}
+
+/* FINAL CTA */
+
+.cta-section {
+  padding: 72px 0;
+  background: var(--pale-red);
+  border-top: 1px solid #ffd5d7;
+}
+
+.cta-card {
+  background: var(--white);
+  border: 1px solid #efc8ca;
+  box-shadow: 0 22px 54px rgba(0,0,0,0.085);
+}
+
+.cta-card h2 {
+  color: var(--ink);
+}
+
+.cta-card p {
+  color: var(--text);
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--white);
+  color: #686868;
+  border-top: 1px solid #e2e2e2;
+}
+
+.footer-local h3 {
+  color: var(--ink);
+}
+
+.footer-links a,
+.terms-link {
+  color: #4c4c4c;
+}
+
+.footer-links a:hover,
+.terms-link:hover {
+  color: var(--red);
+}
+
+/* DESKTOP */
+
+@media (min-width: 1121px) {
+  .payment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .payment-card {
+    min-height: 315px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1120px) {
+  .payment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .book-hero {
+    padding: 32px 0;
+    background: linear-gradient(
+      180deg,
+      var(--pale-red) 0%,
+      var(--white) 100%
+    );
+  }
+
+  .hero-card {
+    padding: 28px 18px;
+    border-radius: 21px;
+  }
+
+  .book-hero h1 {
+    font-size: 2.25rem;
+    letter-spacing: -1.5px;
+  }
+
+  .quick-contact {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .trust-card {
+    padding: 13px 8px;
+  }
+
+  .trust-card strong {
+    font-size: 0.84rem;
+  }
+
+  .trust-card span {
+    font-size: 0.77rem;
+  }
+
+  .payment-grid,
+  .info-strip,
+  .steps-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .payment-section,
+  .booking-section,
+  .steps-section,
+  .quick-message,
+  .faq-section,
+  .cta-section {
+    padding: 44px 0;
+  }
+
+  .quick-message-panel {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .message-card {
+    padding: 17px;
+    border-radius: 16px;
+  }
+
+  .cta-card {
+    padding: 25px 18px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-hero h1 {
+    font-size: 2rem;
+  }
+
+  .payment-head h2,
+  .booking-head h2,
+  .steps-head h2,
+  .quick-message h2,
+  .faq-head h2,
+  .cta-card h2 {
+    font-size: 1.75rem;
+  }
+}
+
+
   </style>
 
   <script type="application/ld+json">
@@ -1025,7 +1589,7 @@
     <section class="trust-strip">
       <div class="container trust-grid">
         <div class="trust-card">
-          <strong>200+ Five-Star Reviews</strong>
+          <strong>220+ Five-Star Reviews</strong>
           <span>Trusted by local learners.</span>
         </div>
 
