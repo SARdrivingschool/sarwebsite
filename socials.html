@@ -1002,6 +1002,509 @@
         height: 24px;
       }
     }
+
+
+/* =========================================================
+   WHITE / RED SOCIALS PAGE OVERRIDE
+   Paste immediately before the final </style>
+   ========================================================= */
+
+:root {
+  --red: #ed1c24;
+  --red-dark: #b80f16;
+  --green: #25D366;
+  --ink: #101010;
+  --text: #3f3f3f;
+  --line: #e5e5e5;
+  --pale-red: #fff7f7;
+  --white: #ffffff;
+}
+
+/* GLOBAL */
+html,
+body {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.section-label {
+  color: var(--red);
+}
+
+.links-head h2,
+.service-head h2,
+.areas-head h2,
+.quick-message h2,
+.featured-copy h2,
+.cta-card h2 {
+  color: var(--ink);
+}
+
+.links-head p,
+.service-head p,
+.areas-head p,
+.quick-message p,
+.featured-copy p,
+.cta-card p {
+  color: var(--text);
+}
+
+/* BUTTONS */
+.btn-secondary {
+  background: #ffffff;
+  color: var(--ink);
+  border-color: #cfcfcf;
+}
+
+.btn-secondary:hover {
+  background: #f5f5f5;
+  border-color: var(--ink);
+}
+
+.btn-whatsapp {
+  background: #ffffff;
+  color: #15883d;
+  border-color: var(--green);
+}
+
+.btn-whatsapp:hover {
+  background: #effff4;
+  color: #107432;
+}
+
+/* HERO */
+.find-hero {
+  min-height: auto;
+  padding: 64px 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.10), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(237,28,36,0.08), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #fff7f7 100%);
+  border-bottom: 1px solid #ffd4d6;
+}
+
+.find-hero::after {
+  display: none;
+}
+
+.hero-card {
+  max-width: 980px;
+  padding: 46px;
+  background: #ffffff;
+  border: 1px solid #ffc8ca;
+  border-radius: 28px;
+  box-shadow: 0 24px 65px rgba(25,25,25,0.10);
+  backdrop-filter: none;
+}
+
+.hero-logo-wrap {
+  width: 190px;
+  height: 118px;
+  margin-bottom: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.find-hero h1 {
+  color: var(--ink);
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
+  line-height: 1;
+  letter-spacing: -2.5px;
+}
+
+.find-hero p {
+  color: var(--text);
+  max-width: 720px;
+}
+
+.brand-rating {
+  color: var(--ink);
+  background: #fff8e4;
+  border-color: #ffd96a;
+}
+
+.hero-note {
+  color: #595959;
+}
+
+/* TRUST STRIP */
+.trust-strip {
+  background: #fff7f7;
+  border-top: 1px solid #ffd6d8;
+  border-bottom: 1px solid #ffd6d8;
+}
+
+.trust-card {
+  background: #ffffff;
+  border: 1px solid #f0cacc;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.trust-card strong {
+  color: var(--ink);
+}
+
+.trust-card span {
+  color: #666666;
+}
+
+/* QUICK SOCIAL LINKS */
+.links-section {
+  background: #ffffff;
+  padding: 70px 0 80px;
+}
+
+.social-card {
+  background: #ffffff;
+  border: 1px solid #dfdfdf;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.social-card::after {
+  background: linear-gradient(
+    90deg,
+    rgba(237,28,36,0.07),
+    transparent 55%
+  );
+}
+
+.social-card:hover {
+  background: #fffafa;
+  border-color: var(--red);
+  box-shadow: 0 18px 38px rgba(237,28,36,0.12);
+}
+
+.social-text strong {
+  color: var(--ink);
+}
+
+.social-text span {
+  color: #606060;
+}
+
+.icon-tiktok {
+  border-color: #222222;
+}
+
+/* FEATURED SECTION */
+.featured-section {
+  background: #fff7f7;
+  border-top: 1px solid #ffd6d8;
+  border-bottom: 1px solid #ffd6d8;
+}
+
+.featured-list li {
+  color: var(--ink);
+}
+
+.featured-list li::first-letter {
+  color: var(--red);
+}
+
+.featured-panel {
+  background: #ffffff;
+  border: 1px solid #efc8ca;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.featured-panel h3 {
+  color: var(--ink);
+}
+
+.mini-stat {
+  background: #fffafa;
+  border: 1px solid #efd7d8;
+}
+
+.mini-stat strong {
+  color: var(--red);
+}
+
+.mini-stat span {
+  color: #5b5b5b;
+}
+
+/* LESSON OPTIONS */
+.service-section {
+  background: #ffffff;
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.service-card:hover {
+  background: #fffafa;
+  border-color: var(--red);
+  box-shadow: 0 18px 38px rgba(237,28,36,0.11);
+}
+
+.service-card h3 {
+  color: var(--ink);
+}
+
+.service-card p {
+  color: #595959;
+}
+
+/* AREAS */
+.areas-section {
+  background: #fff7f7;
+  border-top: 1px solid #ffd6d8;
+  border-bottom: 1px solid #ffd6d8;
+}
+
+.area-card {
+  background: #ffffff;
+  border: 1px solid #efc8ca;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.area-card:hover {
+  background: #ffffff;
+  border-color: var(--red);
+  box-shadow: 0 16px 35px rgba(237,28,36,0.10);
+}
+
+.area-card h3 {
+  color: var(--ink);
+}
+
+.area-card p {
+  color: #595959;
+}
+
+/* QUICK MESSAGE */
+.quick-message {
+  background: #ffffff;
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.quick-message-panel {
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(237,28,36,0.08),
+      transparent 32%
+    ),
+    #fffafa;
+  border: 1px solid #f0c8ca;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+}
+
+.message-card {
+  background: #ffffff;
+  border: 1px solid #dedede;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+
+.message-card strong {
+  color: var(--ink);
+}
+
+.message-card p {
+  background: #f7f7f7;
+  color: #404040;
+  border: 1px solid #dedede;
+}
+
+/* FINAL CTA */
+.cta-section {
+  background: #fff7f7;
+  border-top: 1px solid #ffd6d8;
+}
+
+.cta-card {
+  background: #ffffff;
+  border: 1px solid #efc8ca;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.09);
+}
+
+/* FOOTER */
+footer {
+  background: #ffffff;
+  color: #666666;
+  border-top: 1px solid #e2e2e2;
+}
+
+.footer-local h3 {
+  color: var(--ink);
+}
+
+.footer-links a,
+.terms-link {
+  color: #4c4c4c;
+}
+
+.footer-links a:hover,
+.terms-link:hover {
+  color: var(--red);
+}
+
+/* DESKTOP SOCIAL CARD IMPROVEMENT */
+@media (min-width: 1021px) {
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .social-card {
+    min-height: 118px;
+    padding: 24px;
+  }
+
+  .featured-inner {
+    gap: 54px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1020px) {
+  .find-hero {
+    padding: 52px 0;
+  }
+
+  .hero-card {
+    max-width: 760px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .find-hero {
+    padding: 32px 0;
+    background: linear-gradient(180deg, #fff7f7 0%, #ffffff 100%);
+  }
+
+  .hero-card {
+    padding: 28px 18px;
+    border-radius: 22px;
+  }
+
+  .hero-logo-wrap {
+    width: 155px;
+    height: 96px;
+    margin-bottom: 18px;
+  }
+
+  .find-hero h1 {
+    font-size: 2.35rem;
+    letter-spacing: -1.5px;
+  }
+
+  .brand-rating {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 11px 14px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .trust-card {
+    padding: 14px 8px;
+  }
+
+  .trust-card strong {
+    font-size: 0.86rem;
+  }
+
+  .trust-card span {
+    font-size: 0.78rem;
+  }
+
+  .links-section,
+  .featured-section,
+  .service-section,
+  .areas-section,
+  .quick-message,
+  .cta-section {
+    padding: 44px 0;
+  }
+
+  .social-card {
+    min-height: 98px;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-text strong {
+    font-size: 1.05rem;
+  }
+
+  .social-text span {
+    font-size: 0.86rem;
+  }
+
+  .featured-panel {
+    padding: 20px;
+  }
+
+  .featured-panel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mini-stat {
+    padding: 15px;
+  }
+
+  .mini-stat strong {
+    font-size: 1.45rem;
+  }
+
+  .quick-message-panel,
+  .cta-card {
+    padding: 22px 18px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 430px) {
+  .trust-grid,
+  .featured-panel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .find-hero h1 {
+    font-size: 2rem;
+  }
+
+  .links-head h2,
+  .service-head h2,
+  .areas-head h2,
+  .quick-message h2,
+  .featured-copy h2,
+  .cta-card h2 {
+    font-size: 1.75rem;
+  }
+
+  .social-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .social-arrow {
+    display: none;
+  }
+}
+
   </style>
 
   <script type="application/ld+json">
@@ -1168,7 +1671,7 @@
             <div class="social-arrow">→</div>
           </a>
 
-          <a class="social-card" href="https://www.facebook.com/" target="_blank">
+          <a class="social-card" href="https://www.facebook.com/profile.php?id=61588644880861" target="_blank" rel="noopener noreferrer">
             <div class="social-icon icon-facebook">f</div>
             <div class="social-text">
               <strong>Facebook</strong>
