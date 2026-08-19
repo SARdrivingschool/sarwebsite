@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
   <script>
@@ -11,9 +12,20 @@
   </script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Driving Lessons Milton Keynes | Manual, Automatic & Refresher | SAR Driving School</title>
-  <meta name="description" content="Manual, automatic and refresher driving lessons in Milton Keynes with SAR Driving School. Patient DVSA-approved instructors, lessons from £38 per hour and 200+ five-star reviews.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>
+    Driving Lessons Milton Keynes | Manual & Automatic | SAR Driving School
+  </title>
+
+  <meta
+    name="description"
+    content="Manual, automatic and refresher driving lessons in Milton Keynes with SAR Driving School. DVSA-approved instructors, local test-route expertise and lessons from £38 per hour."
+  >
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -21,17 +33,45 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
     :root {
       --red: #ed1c24;
-      --red-dark: #b80f16;
-      --dark: #0b0b0b;
-      --black: #050505;
-      --card: #151515;
-      --muted: #cfcfcf;
-      --border: rgba(255,255,255,0.12);
-      --green: #25D366;
+      --red-dark: #c8131a;
+      --red-soft: #fff4f4;
+
+      --green: #25d366;
+      --green-dark: #139c46;
+
+      --black: #090909;
+      --text: #111111;
+      --muted: #5c5c5c;
+
+      --white: #ffffff;
+      --off-white: #fafafa;
+      --soft-bg: #fff8f8;
+
+      --border: rgba(0,0,0,0.10);
+
+      --shadow-sm:
+        0 8px 24px rgba(0,0,0,0.07);
+
+      --shadow-md:
+        0 18px 45px rgba(0,0,0,0.11);
+
+      --shadow-lg:
+        0 24px 65px rgba(0,0,0,0.16);
+
       --max: 1180px;
     }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -39,111 +79,171 @@
       padding: 0;
     }
 
-    html,
-    body {
-      width: 100%;
-      overflow-x: hidden;
-      background: var(--dark);
-      color: #ffffff;
-    }
-
     html {
       scroll-behavior: smooth;
     }
 
+    html,
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--white);
+
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 36px));
       margin: 0 auto;
     }
 
-    /* NAVIGATION */
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
     nav {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
       position: relative;
-      z-index: 50;
+      z-index: 1000;
+
+      background: #ffffff;
+
+      border-bottom:
+        1px solid rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 4px 18px rgba(0,0,0,0.05);
     }
 
     .nav-inner {
-      max-width: var(--max);
+      width: min(var(--max), calc(100% - 32px));
+
+      min-height: 88px;
+
       margin: 0 auto;
-      padding: 0 16px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 88px;
+
+      gap: 28px;
     }
 
     .logo-img {
-      width: 150px;
+      width: 145px;
       height: auto;
     }
 
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 24px;
+
+      display: flex;
       align-items: center;
+
+      gap: 24px;
     }
 
-    nav a {
-      color: #000000;
+    nav ul a {
+      color: #111111;
+
+      font-size: 0.87rem;
       font-weight: 800;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
+
+      transition:
+        color 0.2s ease;
     }
 
-    nav a:hover {
+    nav ul a:hover {
       color: var(--red);
     }
 
     .btn-nav {
-      background: var(--red);
       color: #ffffff !important;
-      padding: 12px 21px;
-      border-radius: 11px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+
+      background: var(--red);
+
+      padding: 13px 22px;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 10px 25px rgba(237,28,36,0.22);
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
+
+    .btn-nav:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+
+    /* Hamburger */
 
     .hamburger {
       display: none;
+
       width: 44px;
       height: 44px;
-      border: none;
+
+      border: 0;
+
       background: transparent;
+
       cursor: pointer;
+
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+
       gap: 5px;
-      z-index: 201;
+
+      position: relative;
+      z-index: 1002;
     }
 
     .hamburger span {
       width: 26px;
       height: 3px;
-      background: #000000;
-      border-radius: 2px;
-      transition: all 0.3s ease;
+
+      border-radius: 99px;
+
+      background: #111111;
+
+      transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
     }
 
     .hamburger.open span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
+      transform:
+        translateY(8px)
+        rotate(45deg);
     }
 
     .hamburger.open span:nth-child(2) {
@@ -151,2703 +251,3375 @@
     }
 
     .hamburger.open span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
+      transform:
+        translateY(-8px)
+        rotate(-45deg);
     }
 
-    /* BUTTONS */
+
+    /* =========================================================
+       GLOBAL BUTTONS
+    ========================================================= */
+
     .btn-primary,
-    .btn-secondary,
+    .btn-outline,
     .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      border: 1px solid;
-      text-align: center;
+
+      min-height: 52px;
+
+      padding:
+        0 22px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        11px;
+
+      border:
+        1px solid;
+
+      text-align:
+        center;
+
+      font-size:
+        0.9rem;
+
+      font-weight:
+        900;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--red);
-      color: #ffffff;
-      border-color: var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
+      color:
+        #ffffff;
+
+      background:
+        var(--red);
+
+      border-color:
+        var(--red);
+
+      box-shadow:
+        0 11px 28px rgba(237,28,36,0.22);
     }
 
     .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
+      background:
+        var(--red-dark);
+
+      border-color:
+        var(--red-dark);
+
+      transform:
+        translateY(-2px);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.22);
+    .btn-outline {
+      color:
+        var(--red);
+
+      background:
+        #ffffff;
+
+      border-color:
+        var(--red);
     }
 
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.08);
+    .btn-outline:hover {
+      background:
+        #fff2f2;
+
+      transform:
+        translateY(-2px);
     }
 
     .btn-whatsapp {
-      background: rgba(37,211,102,0.09);
-      color: #ffffff;
-      border-color: rgba(37,211,102,0.45);
+      color:
+        #166d36;
+
+      background:
+        #ffffff;
+
+      border-color:
+        #31b864;
     }
 
     .btn-whatsapp:hover {
-      transform: translateY(-2px);
-      background: rgba(37,211,102,0.15);
-    }
+      color:
+        #ffffff;
 
-    /* HERO */
-    .page-hero {
-      position: relative;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 46%, rgba(0,0,0,0.30) 100%),
-        url("images/lessons-bg.png") center/cover no-repeat;
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-      padding: 72px 0;
-      overflow: hidden;
+        var(--green-dark);
+
+      border-color:
+        var(--green-dark);
+
+      transform:
+        translateY(-2px);
     }
 
-    .page-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 70%, rgba(237,28,36,0.22), transparent 34%),
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.34));
-      pointer-events: none;
-    }
 
-    .page-hero-inner {
-      position: relative;
-      z-index: 2;
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      max-width: var(--max);
-    }
-
-    .hero-card {
-      max-width: 760px;
-      padding: 32px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.68), rgba(0,0,0,0.34));
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
-      backdrop-filter: blur(4px);
-    }
+    /* =========================================================
+       SECTION LABEL
+    ========================================================= */
 
     .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-      display: inline-block;
+      display:
+        inline-block;
+
+      color:
+        var(--red);
+
+      font-size:
+        0.72rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        1.8px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        10px;
     }
 
-    .page-hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.35rem);
-      line-height: 1.05;
-      margin-bottom: 16px;
-      letter-spacing: -2px;
+
+    /* =========================================================
+       HERO — DESIGN 1
+    ========================================================= */
+
+    .hero {
+
+      position:
+        relative;
+
+      min-height:
+        560px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      overflow:
+        hidden;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.88) 0%,
+          rgba(0,0,0,0.72) 35%,
+          rgba(0,0,0,0.32) 72%,
+          rgba(0,0,0,0.08) 100%
+        ),
+
+        url("images/lessons-bg.png")
+        center 42% / cover
+        no-repeat;
     }
 
-    .page-hero h1 span {
-      color: var(--red);
+    .hero::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      background:
+
+        radial-gradient(
+          circle at 18% 78%,
+          rgba(237,28,36,0.22),
+          transparent 34%
+        );
     }
 
-    .page-hero p {
-      color: #e0e0e0;
-      font-size: 1.06rem;
-      line-height: 1.7;
-      max-width: 700px;
-      margin-bottom: 24px;
+    .hero-inner {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      width:
+        min(var(--max), calc(100% - 36px));
+
+      margin:
+        0 auto;
+
+      padding:
+        70px 0 110px;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
+    .hero-content {
+
+      max-width:
+        640px;
     }
 
-    .hero-note {
-      color: #e8e8e8;
-      font-size: 0.92rem;
-      line-height: 1.45;
+    .hero .section-label {
+
+      color:
+        #ff4b51;
+
+      margin-bottom:
+        13px;
     }
 
-    /* TRUST STRIP */
-    .trust-strip {
-      background: #0c0c0c;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 18px 0;
+    .hero h1 {
+
+      color:
+        #ffffff;
+
+      font-size:
+        clamp(2.8rem, 5.8vw, 4.8rem);
+
+      line-height:
+        0.99;
+
+      letter-spacing:
+        -3px;
+
+      margin-bottom:
+        19px;
     }
 
-    .trust-strip-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    .hero h1 span {
+
+      color:
+        var(--red);
     }
 
-    .trust-strip-grid div {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      color: #ffffff;
-      font-size: 0.94rem;
+    .hero-description {
+
+      max-width:
+        590px;
+
+      color:
+        #ededed;
+
+      font-size:
+        1.04rem;
+
+      line-height:
+        1.65;
+
+      margin-bottom:
+        25px;
     }
 
-    /* LESSON SECTION */
-    .lesson-section {
-      background: #0b0b0b;
-      padding: 76px 0 36px;
+    .hero-buttons {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        11px;
+
+      margin-bottom:
+        22px;
     }
 
-    .lesson-block {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
-      padding: 58px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+    .hero-buttons .btn-whatsapp {
+
+      color:
+        #1b6d38;
+
+      background:
+        #ffffff;
     }
 
-    .lesson-block:first-child {
-      padding-top: 0;
+
+    /* =========================================================
+       GOOGLE REVIEW LINE
+    ========================================================= */
+
+    .google-proof {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        9px;
+
+      color:
+        #ffffff;
+
+      font-size:
+        0.88rem;
+
+      font-weight:
+        800;
     }
 
-    .lesson-block:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .google-g {
+
+      font-size:
+        1.28rem;
+
+      font-weight:
+        900;
     }
 
-    .lesson-text h2 {
-      font-size: clamp(1.95rem, 4vw, 2.95rem);
-      line-height: 1.1;
-      margin-bottom: 14px;
-      letter-spacing: -0.8px;
+    .review-stars {
+
+      color:
+        #ff4248;
+
+      letter-spacing:
+        1px;
     }
 
-    .lesson-text p {
-      color: #cfcfcf;
-      line-height: 1.75;
-      font-size: 1.04rem;
-      margin-bottom: 18px;
-      max-width: 650px;
+    .review-location {
+
+      display:
+        block;
+
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size:
+        0.76rem;
+
+      margin-top:
+        5px;
+
+      font-weight:
+        600;
     }
 
-    .price-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
-      color: #ffffff;
-      background: rgba(237,28,36,0.13);
-      border: 1px solid rgba(237,28,36,0.42);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 0.92rem;
-      font-weight: 900;
+
+    /* =========================================================
+       HERO TRUST CARDS
+    ========================================================= */
+
+    .hero-trust {
+
+      position:
+        relative;
+
+      z-index:
+        5;
+
+      margin-top:
+        -64px;
     }
 
-    .popular-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      color: #ffffff;
-      background: var(--red);
-      border: 1px solid var(--red);
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 0.76rem;
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.24);
+    .hero-trust-inner {
+
+      width:
+        min(900px, calc(100% - 36px));
+
+      margin:
+        0 auto;
+
+      margin-right:
+        max(
+          calc((100vw - var(--max)) / 2),
+          18px
+        );
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      background:
+        #ffffff;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        18px;
+
+      overflow:
+        hidden;
+
+      box-shadow:
+        var(--shadow-lg);
     }
 
-    .lesson-features {
-      list-style: none;
-      margin-bottom: 24px;
-      display: grid;
-      gap: 10px;
+    .trust-item {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        48px 1fr;
+
+      gap:
+        13px;
+
+      align-items:
+        center;
+
+      padding:
+        21px 20px;
+
+      border-right:
+        1px solid rgba(0,0,0,0.08);
     }
 
-    .lesson-features li {
-      color: #e0e0e0;
-      font-weight: 700;
-      line-height: 1.5;
-      font-size: 0.98rem;
+    .trust-item:last-child {
+
+      border-right:
+        0;
     }
 
-    .lesson-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .trust-icon {
+
+      width:
+        46px;
+
+      height:
+        46px;
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--red);
+
+      font-size:
+        1.22rem;
+
+      font-weight:
+        900;
+
+      box-shadow:
+        0 10px 24px rgba(237,28,36,0.20);
     }
 
-    .lesson-img {
-      position: relative;
+    .trust-item strong {
+
+      display:
+        block;
+
+      color:
+        #111111;
+
+      font-size:
+        0.91rem;
+
+      margin-bottom:
+        4px;
     }
 
-    .lesson-img::before {
-      content: "";
-      position: absolute;
-      inset: -14px;
-      background: radial-gradient(circle at 50% 50%, rgba(237,28,36,0.16), transparent 62%);
-      z-index: 0;
-      pointer-events: none;
+    .trust-item p {
+
+      color:
+        #777777;
+
+      font-size:
+        0.76rem;
+
+      line-height:
+        1.4;
     }
 
-    .lesson-img img {
-      position: relative;
-      z-index: 1;
-      width: 430px;
-      height: 270px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 18px 42px rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.25s ease;
+
+    /* =========================================================
+       LESSON CHOOSER
+    ========================================================= */
+
+    .lesson-chooser {
+
+      padding:
+        82px 0 76px;
+
+      background:
+        #ffffff;
     }
 
-    .lesson-img img:hover {
-      transform: translateY(-5px);
+    .lesson-header {
+
+      display:
+        flex;
+
+      align-items:
+        end;
+
+      justify-content:
+        space-between;
+
+      gap:
+        30px;
+
+      margin-bottom:
+        30px;
     }
 
-    /* PROOF SECTION */
+    .lesson-header h2 {
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -1.5px;
+    }
+
+    .lesson-header h2 span {
+
+      color:
+        var(--red);
+    }
+
+    .all-lessons-link {
+
+      color:
+        var(--red);
+
+      font-size:
+        0.86rem;
+
+      font-weight:
+        900;
+
+      white-space:
+        nowrap;
+    }
+
+
+    /* =========================================================
+       LESSON + ENQUIRY GRID
+    ========================================================= */
+
+    .lesson-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr) 0.82fr;
+
+      gap:
+        16px;
+
+      align-items:
+        stretch;
+    }
+
+    .lesson-card {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      overflow:
+        hidden;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        17px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        0 10px 28px rgba(0,0,0,0.055);
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .lesson-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        var(--shadow-md);
+
+      border-color:
+        rgba(237,28,36,0.30);
+    }
+
+    .lesson-image-wrap {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+    }
+
+    .lesson-card img {
+
+      width:
+        100%;
+
+      height:
+        185px;
+
+      object-fit:
+        cover;
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .lesson-card:hover img {
+
+      transform:
+        scale(1.03);
+    }
+
+    .most-requested {
+
+      position:
+        absolute;
+
+      left:
+        14px;
+
+      bottom:
+        13px;
+
+      padding:
+        6px 10px;
+
+      border-radius:
+        999px;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--red);
+
+      font-size:
+        0.65rem;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        0.6px;
+    }
+
+    .lesson-card-content {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      flex:
+        1;
+
+      padding:
+        19px;
+    }
+
+    .lesson-card-type {
+
+      color:
+        var(--red);
+
+      font-size:
+        0.69rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        1.2px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        8px;
+    }
+
+    .lesson-card h3 {
+
+      color:
+        #111111;
+
+      font-size:
+        1.18rem;
+
+      line-height:
+        1.18;
+
+      margin-bottom:
+        9px;
+    }
+
+    .lesson-price {
+
+      color:
+        var(--red);
+
+      font-size:
+        0.8rem;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        11px;
+    }
+
+    .lesson-card p {
+
+      color:
+        #686868;
+
+      font-size:
+        0.84rem;
+
+      line-height:
+        1.55;
+
+      margin-bottom:
+        17px;
+    }
+
+    .lesson-card-link {
+
+      margin-top:
+        auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      color:
+        #111111;
+
+      font-size:
+        0.81rem;
+
+      font-weight:
+        900;
+    }
+
+    .lesson-card-link span:last-child {
+
+      color:
+        var(--red);
+
+      font-size:
+        1.1rem;
+    }
+
+
+    /* =========================================================
+       QUICK ENQUIRY CARD
+    ========================================================= */
+
+    .quick-enquiry-card {
+
+      padding:
+        24px;
+
+      border:
+        1px solid rgba(237,28,36,0.12);
+
+      border-radius:
+        18px;
+
+      background:
+
+        linear-gradient(
+          160deg,
+          #fff8f8,
+          #fff0f0
+        );
+
+      box-shadow:
+        0 10px 28px rgba(237,28,36,0.07);
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        center;
+    }
+
+    .quick-enquiry-card .section-label {
+
+      font-size:
+        0.67rem;
+    }
+
+    .quick-enquiry-card h3 {
+
+      color:
+        #111111;
+
+      font-size:
+        1.55rem;
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -0.7px;
+
+      margin-bottom:
+        15px;
+    }
+
+    .quick-enquiry-list {
+
+      list-style:
+        none;
+
+      display:
+        grid;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        20px;
+    }
+
+    .quick-enquiry-list li {
+
+      color:
+        #333333;
+
+      font-size:
+        0.82rem;
+
+      line-height:
+        1.4;
+
+      font-weight:
+        700;
+    }
+
+    .quick-enquiry-list li::before {
+
+      content:
+        "✓";
+
+      color:
+        var(--red);
+
+      margin-right:
+        7px;
+
+      font-weight:
+        900;
+    }
+
+    .quick-enquiry-card .btn-primary {
+
+      width:
+        100%;
+
+      min-height:
+        49px;
+
+      font-size:
+        0.81rem;
+    }
+
+
+    /* =========================================================
+       WHY SAR
+    ========================================================= */
+
+    .why-sar {
+
+      padding:
+        75px 0;
+
+      background:
+        var(--soft-bg);
+
+      border-top:
+        1px solid rgba(237,28,36,0.10);
+
+      border-bottom:
+        1px solid rgba(237,28,36,0.10);
+    }
+
+    .why-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        0.85fr 1.15fr;
+
+      gap:
+        55px;
+
+      align-items:
+        center;
+    }
+
+    .why-copy h2 {
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(2.1rem, 4vw, 3.15rem);
+
+      line-height:
+        1.04;
+
+      letter-spacing:
+        -1.5px;
+
+      margin-bottom:
+        16px;
+    }
+
+    .why-copy p {
+
+      color:
+        #606060;
+
+      font-size:
+        1rem;
+
+      line-height:
+        1.7;
+
+      max-width:
+        530px;
+    }
+
+    .why-cards {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        14px;
+    }
+
+    .why-card {
+
+      padding:
+        21px;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        16px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        var(--shadow-sm);
+    }
+
+    .why-icon {
+
+      width:
+        38px;
+
+      height:
+        38px;
+
+      margin-bottom:
+        12px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--red);
+
+      font-weight:
+        900;
+    }
+
+    .why-card h3 {
+
+      color:
+        #111111;
+
+      font-size:
+        0.95rem;
+
+      margin-bottom:
+        6px;
+    }
+
+    .why-card p {
+
+      color:
+        #6d6d6d;
+
+      font-size:
+        0.82rem;
+
+      line-height:
+        1.5;
+    }
+
+
+    /* =========================================================
+       SOCIAL PROOF / STATS
+    ========================================================= */
+
     .proof-section {
-      background: #101010;
-      padding: 64px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+
+      padding:
+        75px 0;
+
+      background:
+        #ffffff;
     }
 
     .proof-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 28px;
-      align-items: center;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        0.85fr 1.15fr;
+
+      gap:
+        50px;
+
+      align-items:
+        center;
     }
 
     .proof-copy h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.12;
-      margin-bottom: 12px;
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.08;
+
+      letter-spacing:
+        -1.3px;
+
+      margin-bottom:
+        14px;
     }
 
     .proof-copy p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
-      max-width: 560px;
+
+      color:
+        #626262;
+
+      line-height:
+        1.7;
+
+      font-size:
+        0.98rem;
     }
 
     .proof-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        14px;
     }
 
     .proof-card {
-      background: #151515;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
+
+      padding:
+        27px 18px;
+
+      text-align:
+        center;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        17px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        var(--shadow-sm);
     }
 
     .proof-card strong {
-      display: block;
-      font-size: 1.55rem;
-      margin-bottom: 7px;
-      color: #ffffff;
+
+      display:
+        block;
+
+      color:
+        #111111;
+
+      font-size:
+        1.65rem;
+
+      line-height:
+        1;
+
+      margin-bottom:
+        9px;
     }
 
     .proof-card span {
-      color: #cfcfcf;
-      font-size: 0.9rem;
-      line-height: 1.4;
+
+      color:
+        #686868;
+
+      font-size:
+        0.81rem;
+
+      line-height:
+        1.4;
     }
 
-    /* SERVICE LINKS */
-    .service-links-section {
-      background: #0b0b0b;
-      padding: 68px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
 
-    .service-links-head {
-      max-width: 760px;
-      margin-bottom: 32px;
-    }
+    /* =========================================================
+       WHATSAPP CTA
+    ========================================================= */
 
-    .service-links-head h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.12;
-      margin-bottom: 12px;
-    }
+    .message-section {
 
-    .service-links-head p {
-      color: #cfcfcf;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
+      padding:
+        75px 0;
 
-    .service-links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .service-link-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 26px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .service-link-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
-    }
-
-    .service-link-card h3 {
-      color: #ffffff;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-
-    .service-link-card p {
-      color: #bdbdbd;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      font-size: 0.94rem;
-    }
-
-    .service-link-card a {
-      color: #ffffff;
-      background: var(--red);
-      min-height: 48px;
-      border-radius: 12px;
-      padding: 0 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .service-link-card a:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    /* HELP SECTION */
-    .lesson-help-section {
-      background: #0b0b0b;
-      padding: 68px 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .lesson-help-bg {
-      position: absolute;
-      inset: 0;
       background:
-        radial-gradient(circle at 18% 30%, rgba(237,28,36,0.18), transparent 34%),
-        radial-gradient(circle at 85% 80%, rgba(237,28,36,0.11), transparent 30%);
-      pointer-events: none;
+        #fff7f7;
+
+      border-top:
+        1px solid rgba(237,28,36,0.11);
     }
 
-    .lesson-help-card {
-      position: relative;
-      z-index: 2;
-      background: linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)), #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 36px;
-      align-items: center;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
+    .message-panel {
 
-    .lesson-help-content h2 {
-      font-size: clamp(1.9rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      margin-bottom: 16px;
-    }
+      display:
+        grid;
 
-    .lesson-help-content p {
-      color: #cfcfcf;
-      font-size: 1.04rem;
-      line-height: 1.75;
-      max-width: 620px;
-      margin-bottom: 24px;
-    }
+      grid-template-columns:
+        0.9fr 1.1fr;
 
-    .lesson-help-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+      gap:
+        30px;
 
-    .lesson-help-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
+      align-items:
+        center;
 
-    .help-mini-card {
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 20px;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: 14px;
-      align-items: start;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
+      padding:
+        38px;
 
-    .help-mini-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(237,28,36,0.55);
-      background: rgba(237,28,36,0.08);
-    }
+      border:
+        1px solid rgba(0,0,0,0.09);
 
-    .help-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
-    }
+      border-radius:
+        24px;
 
-    .help-mini-card h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 4px;
-    }
-
-    .help-mini-card p {
-      color: #bfbfbf;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* QUICK MESSAGE */
-    .quick-message {
-      background: #101010;
-      padding: 68px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .quick-message-panel {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
       background:
-        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
-        #141414;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 36px;
+        #ffffff;
+
+      box-shadow:
+        var(--shadow-md);
     }
 
-    .quick-message h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      line-height: 1.1;
-      margin-bottom: 12px;
+    .message-copy h2 {
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.06;
+
+      letter-spacing:
+        -1px;
+
+      margin-bottom:
+        13px;
     }
 
-    .quick-message p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.03rem;
+    .message-copy p {
+
+      color:
+        #666666;
+
+      font-size:
+        0.96rem;
+
+      line-height:
+        1.65;
     }
 
-    .message-card {
-      background: rgba(0,0,0,0.42);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 24px;
+    .message-box {
+
+      padding:
+        24px;
+
+      border:
+        1px solid rgba(237,28,36,0.16);
+
+      border-radius:
+        18px;
+
+      background:
+        var(--red-soft);
     }
 
-    .message-card strong {
-      display: block;
-      margin-bottom: 10px;
-      color: #ffffff;
-      font-size: 1.05rem;
+    .message-box strong {
+
+      display:
+        block;
+
+      color:
+        #111111;
+
+      font-size:
+        0.94rem;
+
+      margin-bottom:
+        10px;
     }
 
-    .message-card p {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 18px;
-      color: #e8e8e8;
+    .message-template {
+
+      padding:
+        15px;
+
+      margin-bottom:
+        16px;
+
+      border:
+        1px solid rgba(0,0,0,0.08);
+
+      border-radius:
+        13px;
+
+      background:
+        #ffffff;
+
+      color:
+        #4f4f4f;
+
+      font-size:
+        0.86rem;
+
+      line-height:
+        1.6;
     }
 
-    /* EXTRA SECTION */
-    .lesson-extra-section {
-      background: #0b0b0b;
-      padding: 68px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+
+    /* =========================================================
+       HOW IT WORKS
+    ========================================================= */
+
+    .how-section {
+
+      padding:
+        75px 0;
+
+      background:
+        #ffffff;
     }
 
-    .lesson-extra-head {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 36px;
+    .how-header {
+
+      max-width:
+        760px;
+
+      margin:
+        0 auto 34px;
+
+      text-align:
+        center;
     }
 
-    .lesson-extra-head h2 {
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
-      margin-bottom: 12px;
+    .how-header h2 {
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.08;
+
+      letter-spacing:
+        -1px;
+
+      margin-bottom:
+        12px;
     }
 
-    .lesson-extra-head p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.05rem;
+    .how-header p {
+
+      color:
+        #666666;
+
+      font-size:
+        0.97rem;
+
+      line-height:
+        1.65;
     }
 
-    .lesson-extra-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .steps-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap:
+        15px;
     }
 
-    .lesson-extra-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+    .step-card {
+
+      padding:
+        25px 20px;
+
+      text-align:
+        center;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        17px;
+
+      background:
+        #ffffff;
+
+      box-shadow:
+        0 8px 26px rgba(0,0,0,0.05);
     }
 
-    .lesson-extra-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
+    .step-number {
+
+      width:
+        46px;
+
+      height:
+        46px;
+
+      margin:
+        0 auto 14px;
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--red);
+
+      font-size:
+        1.1rem;
+
+      font-weight:
+        900;
+
+      box-shadow:
+        0 10px 23px rgba(237,28,36,0.18);
     }
 
-    .lesson-extra-card span {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 14px;
-      font-size: 1.4rem;
-      font-weight: 900;
-      box-shadow: 0 12px 24px rgba(237,28,36,0.22);
+    .step-card h3 {
+
+      color:
+        #111111;
+
+      font-size:
+        0.98rem;
+
+      margin-bottom:
+        7px;
     }
 
-    .lesson-extra-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
+    .step-card p {
+
+      color:
+        #6b6b6b;
+
+      font-size:
+        0.81rem;
+
+      line-height:
+        1.5;
     }
 
-    .lesson-extra-card p {
-      color: #bdbdbd;
-      font-size: 0.92rem;
-      line-height: 1.55;
+
+    /* =========================================================
+       LOCAL LINKS
+    ========================================================= */
+
+    .local-section {
+
+      padding:
+        62px 0;
+
+      background:
+        #fafafa;
+
+      border-top:
+        1px solid rgba(0,0,0,0.07);
     }
 
-    /* FOOTER */
+    .local-header {
+
+      text-align:
+        center;
+
+      max-width:
+        720px;
+
+      margin:
+        0 auto 26px;
+    }
+
+    .local-header h2 {
+
+      color:
+        #111111;
+
+      font-size:
+        clamp(1.8rem, 3vw, 2.5rem);
+
+      margin-bottom:
+        10px;
+    }
+
+    .local-header p {
+
+      color:
+        #686868;
+
+      line-height:
+        1.6;
+
+      font-size:
+        0.92rem;
+    }
+
+    .local-links {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      justify-content:
+        center;
+
+      gap:
+        10px;
+    }
+
+    .local-links a {
+
+      padding:
+        11px 14px;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      border-radius:
+        10px;
+
+      color:
+        #333333;
+
+      background:
+        #ffffff;
+
+      font-size:
+        0.82rem;
+
+      font-weight:
+        800;
+
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .local-links a:hover {
+
+      color:
+        var(--red);
+
+      border-color:
+        rgba(237,28,36,0.35);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
     footer {
-      padding: 32px 0;
-      text-align: center;
-      color: #999;
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,0.08);
+
+      padding:
+        30px 16px;
+
+      text-align:
+        center;
+
+      color:
+        #737373;
+
+      background:
+        #ffffff;
+
+      border-top:
+        1px solid rgba(0,0,0,0.08);
     }
 
-    .footer-local {
-      max-width: var(--max);
-      margin: 0 auto 20px;
-      padding: 0 16px;
+    footer a {
+
+      color:
+        #333333;
+
+      font-size:
+        0.83rem;
+
+      font-weight:
+        700;
     }
 
-    .footer-local h3 {
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 12px;
+    footer a:hover {
+
+      color:
+        var(--red);
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px 14px;
+    footer p {
+
+      margin-top:
+        9px;
+
+      font-size:
+        0.81rem;
     }
 
-    .footer-links a {
-      color: #cfcfcf;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
 
-    .footer-links a:hover {
-      color: var(--red);
-    }
+    /* =========================================================
+       FLOATING BUTTONS
+    ========================================================= */
 
-    /* FLOATING ACTIONS */
     .floating-actions {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 999;
+
+      position:
+        fixed;
+
+      right:
+        18px;
+
+      bottom:
+        18px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        10px;
+
+      z-index:
+        2000;
     }
 
     .float-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease;
+
+      width:
+        54px;
+
+      height:
+        54px;
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.20);
+
+      transition:
+        transform 0.2s ease;
     }
 
     .float-btn:hover {
-      transform: translateY(-2px);
+
+      transform:
+        translateY(-3px);
     }
 
     .float-call {
-      background: var(--red);
+
+      background:
+        var(--red);
     }
 
     .float-whatsapp {
-      background: var(--green);
+
+      background:
+        var(--green);
     }
 
     .float-btn svg {
-      width: 27px;
-      height: 27px;
+
+      width:
+        25px;
+
+      height:
+        25px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1020px) {
-      .trust-strip-grid,
-      .proof-cards {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .hero-trust-inner {
+
+        width:
+          min(760px, calc(100% - 36px));
+
+        margin:
+          0 auto;
       }
 
-      .lesson-block,
-      .lesson-help-card,
-      .quick-message-panel,
+      .lesson-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .quick-enquiry-card {
+
+        grid-column:
+          span 2;
+      }
+
+      .why-grid,
       .proof-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          35px;
       }
 
-      .lesson-img img {
-        width: 100%;
+      .proof-cards {
+
+        max-width:
+          760px;
       }
 
-      .lesson-extra-grid,
-      .service-links-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .message-panel {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .steps-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
       }
     }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
 
     @media (max-width: 768px) {
+
       .container {
-        width: min(100% - 28px, var(--max));
+
+        width:
+          min(var(--max), calc(100% - 28px));
       }
 
+
+      /* Navigation */
+
       .nav-inner {
-        min-height: 82px;
+
+        min-height:
+          78px;
       }
 
       .logo-img {
-        width: 140px;
+
+        width:
+          132px;
       }
 
       .hamburger {
-        display: flex;
+
+        display:
+          flex;
       }
 
       nav ul {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        flex-direction: column;
-        padding: 12px 16px 20px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        z-index: 200;
-        gap: 0;
+
+        display:
+          none;
+
+        position:
+          absolute;
+
+        top:
+          78px;
+
+        left:
+          0;
+
+        right:
+          0;
+
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+
+        gap:
+          0;
+
+        padding:
+          10px 18px 18px;
+
+        background:
+          #ffffff;
+
+        border-top:
+          1px solid rgba(0,0,0,0.07);
+
+        box-shadow:
+          0 15px 30px rgba(0,0,0,0.12);
+
+        z-index:
+          1001;
       }
 
       nav ul.open {
-        display: flex;
+
+        display:
+          flex;
       }
 
       nav ul li {
-        width: 100%;
+
+        width:
+          100%;
       }
 
       nav ul a {
-        display: block;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.08);
-        font-size: 0.9rem;
+
+        display:
+          block;
+
+        padding:
+          13px 2px;
+
+        border-bottom:
+          1px solid rgba(0,0,0,0.07);
       }
 
       .btn-nav {
-        margin-top: 8px;
-        width: 100%;
-        text-align: center;
+
+        width:
+          100%;
+
+        margin-top:
+          9px;
+
+        text-align:
+          center;
+
+        border-bottom:
+          0 !important;
       }
 
-      .page-hero {
-        min-height: 430px;
-        padding: 44px 0;
+
+      /* Hero */
+
+      .hero {
+
+        min-height:
+          570px;
+
+        align-items:
+          end;
+
+        background:
+
+          linear-gradient(
+            180deg,
+            rgba(0,0,0,0.05) 0%,
+            rgba(0,0,0,0.15) 38%,
+            rgba(0,0,0,0.92) 84%,
+            rgba(0,0,0,0.98) 100%
+          ),
+
+          url("images/lessons-bg.png")
+          center 30% / cover
+          no-repeat;
       }
 
-      .hero-card {
-        padding: 22px 18px;
-        border-radius: 22px;
+      .hero-inner {
+
+        padding:
+          260px 0 52px;
       }
 
-      .page-hero h1 {
-        font-size: clamp(2rem, 8vw, 2.8rem);
-        margin-bottom: 12px;
-        letter-spacing: -1px;
+      .hero-content {
+
+        max-width:
+          none;
       }
 
-      .page-hero p {
-        font-size: 0.95rem;
+      .hero h1 {
+
+        font-size:
+          clamp(2.35rem, 10vw, 3.2rem);
+
+        letter-spacing:
+          -2px;
+
+        margin-bottom:
+          14px;
       }
 
-      .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
+      .hero-description {
+
+        font-size:
+          0.92rem;
+
+        line-height:
+          1.55;
       }
 
-      .btn-primary,
-      .btn-secondary,
-      .btn-whatsapp {
-        width: 100%;
-        min-height: 52px;
-        font-size: 0.9rem;
+      .hero-buttons {
+
+        display:
+          grid;
+
+        grid-template-columns:
+          1fr;
+
+        width:
+          100%;
       }
 
-      .trust-strip-grid,
-      .proof-cards,
-      .service-links-grid {
-        grid-template-columns: 1fr;
+      .hero-buttons a {
+
+        width:
+          100%;
       }
 
-      .trust-strip-grid div {
-        padding: 13px 10px;
-        font-size: 0.82rem;
+      .google-proof {
+
+        font-size:
+          0.8rem;
       }
 
-      .lesson-section {
-        padding: 48px 0 20px;
+
+      /* Trust cards */
+
+      .hero-trust {
+
+        margin-top:
+          0;
+
+        padding:
+          0;
+
+        background:
+          #ffffff;
       }
 
-      .lesson-block {
-        padding: 42px 0;
+      .hero-trust-inner {
+
+        width:
+          100%;
+
+        border:
+          0;
+
+        border-radius:
+          0;
+
+        box-shadow:
+          none;
+
+        grid-template-columns:
+          1fr;
+
+        margin:
+          0;
       }
 
-      .lesson-text h2 {
-        font-size: clamp(1.65rem, 6vw, 2.2rem);
+      .trust-item {
+
+        padding:
+          17px 18px;
+
+        border-right:
+          0;
+
+        border-bottom:
+          1px solid rgba(0,0,0,0.07);
       }
 
-      .lesson-text p {
-        font-size: 0.95rem;
-        margin-bottom: 16px;
+      .trust-item:last-child {
+
+        border-bottom:
+          0;
       }
 
-      .price-pill {
-        font-size: 0.84rem;
-        padding: 9px 12px;
+
+      /* Lesson chooser */
+
+      .lesson-chooser {
+
+        padding:
+          48px 0;
       }
 
-      .lesson-features li {
-        font-size: 0.9rem;
+      .lesson-header {
+
+        display:
+          block;
+
+        margin-bottom:
+          23px;
       }
 
-      .lesson-actions {
-        display: grid;
-        grid-template-columns: 1fr;
+      .lesson-header h2 {
+
+        font-size:
+          2rem;
+
+        margin-bottom:
+          12px;
       }
 
-      .lesson-img img {
-        height: 220px;
-        border-radius: 16px;
+      .lesson-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          14px;
       }
 
-      .proof-section,
-      .service-links-section,
-      .lesson-help-section,
-      .quick-message,
-      .lesson-extra-section {
-        padding: 44px 0;
+      .quick-enquiry-card {
+
+        grid-column:
+          auto;
       }
 
-      .proof-copy h2,
-      .service-links-head h2,
-      .lesson-help-content h2,
-      .quick-message h2,
-      .lesson-extra-head h2 {
-        font-size: clamp(1.65rem, 6vw, 2.2rem);
+      .lesson-card img {
+
+        height:
+          200px;
       }
 
-      .proof-copy p,
-      .service-links-head p,
-      .lesson-help-content p,
-      .quick-message p,
-      .lesson-extra-head p {
-        font-size: 0.9rem;
+
+      /* Why */
+
+      .why-sar {
+
+        padding:
+          52px 0;
       }
 
-      .lesson-help-card,
-      .quick-message-panel {
-        padding: 24px 18px;
-        border-radius: 22px;
+      .why-copy h2 {
+
+        font-size:
+          2rem;
       }
 
-      .lesson-help-actions {
-        display: grid;
-        grid-template-columns: 1fr;
+      .why-cards {
+
+        grid-template-columns:
+          1fr;
       }
 
-      .help-mini-card {
-        padding: 16px;
+
+      /* Proof */
+
+      .proof-section {
+
+        padding:
+          52px 0;
       }
 
-      .help-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+      .proof-copy h2 {
+
+        font-size:
+          2rem;
       }
 
-      .help-mini-card h3 {
-        font-size: 0.95rem;
+      .proof-cards {
+
+        grid-template-columns:
+          1fr;
       }
 
-      .message-card {
-        padding: 18px;
-        border-radius: 16px;
+
+      /* Message */
+
+      .message-section {
+
+        padding:
+          50px 0;
       }
 
-      .message-card p {
-        padding: 14px;
-        border-radius: 14px;
+      .message-panel {
+
+        padding:
+          23px 18px;
+
+        border-radius:
+          19px;
       }
 
-      .lesson-extra-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+      .message-copy h2 {
+
+        font-size:
+          2rem;
       }
 
-      .service-link-card {
-        padding: 18px;
+      .message-box {
+
+        padding:
+          17px;
       }
 
-      .footer-links {
-        gap: 6px 10px;
+      .message-box .btn-primary {
+
+        width:
+          100%;
       }
 
-      .footer-links a {
-        font-size: 0.8rem;
+
+      /* Steps */
+
+      .how-section {
+
+        padding:
+          52px 0;
       }
+
+      .steps-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .step-card {
+
+        padding:
+          21px 18px;
+      }
+
+
+      /* Local */
+
+      .local-section {
+
+        padding:
+          48px 0;
+      }
+
+
+      /* Floating */
 
       .floating-actions {
-        right: 14px;
-        bottom: 14px;
-        gap: 10px;
+
+        right:
+          13px;
+
+        bottom:
+          13px;
       }
 
       .float-btn {
-        width: 50px;
-        height: 50px;
-      }
 
-      .float-btn svg {
-        width: 24px;
-        height: 24px;
+        width:
+          50px;
+
+        height:
+          50px;
       }
     }
+
+
+    /* =========================================================
+       SMALL PHONE
+    ========================================================= */
 
     @media (max-width: 430px) {
-      .page-hero h1 {
-        font-size: 1.85rem;
+
+      .hero {
+
+        min-height:
+          540px;
       }
 
-      .lesson-text h2 {
-        font-size: 1.55rem;
+      .hero-inner {
+
+        padding-top:
+          230px;
       }
 
-      .help-mini-card {
-        grid-template-columns: 1fr;
+      .hero h1 {
+
+        font-size:
+          2.15rem;
       }
 
-      .help-icon {
-        width: 38px;
-        height: 38px;
-        margin-bottom: 8px;
+      .hero-description {
+
+        font-size:
+          0.87rem;
+      }
+
+      .trust-icon {
+
+        width:
+          42px;
+
+        height:
+          42px;
+      }
+
+      .lesson-card img {
+
+        height:
+          180px;
       }
     }
 
-
-    /* ========================================
-   WHITE, RED AND BLACK LESSONS PAGE
-======================================== */
-
-:root {
-  --dark: #ffffff;
-  --black: #ffffff;
-  --card: #ffffff;
-  --muted: #555555;
-  --border: rgba(0, 0, 0, 0.12);
-}
-
-html,
-body {
-  background: #ffffff;
-  color: #111111;
-}
-
-nav {
-  border-bottom-color: rgba(237, 28, 36, 0.2);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-}
-
-/* Buttons */
-
-.btn-secondary {
-  background: #ffffff;
-  color: #ed1c24;
-  border-color: #ed1c24;
-}
-
-.btn-secondary:hover {
-  background: #fff1f1;
-}
-
-.btn-whatsapp {
-  background: #ffffff;
-  color: #137a3b;
-  border-color: #20a954;
-}
-
-.btn-whatsapp:hover {
-  background: #effff4;
-}
-
-/* Main section backgrounds */
-
-.lesson-section,
-.service-links-section,
-.lesson-help-section,
-.lesson-extra-section {
-  background: #ffffff;
-  color: #111111;
-  border-color: rgba(237, 28, 36, 0.12);
-}
-
-.trust-strip,
-.proof-section,
-.quick-message {
-  background: #fff7f7;
-  color: #111111;
-  border-color: rgba(237, 28, 36, 0.14);
-}
-
-/* Cards */
-
-.trust-strip-grid div,
-.proof-card,
-.service-link-card,
-.lesson-help-card,
-.help-mini-card,
-.quick-message-panel,
-.message-card,
-.message-card p,
-.lesson-extra-card {
-  background: #ffffff;
-  color: #111111;
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
-}
-
-.lesson-help-card {
-  background: linear-gradient(
-    135deg,
-    #fff1f1,
-    #ffffff 68%
-  );
-
-  border-color: rgba(237, 28, 36, 0.25);
-}
-
-.lesson-block {
-  border-bottom-color: rgba(237, 28, 36, 0.14);
-}
-
-/* Paragraphs */
-
-.lesson-text p,
-.proof-copy p,
-.proof-card span,
-.service-links-head p,
-.service-link-card p,
-.lesson-help-content p,
-.help-mini-card p,
-.quick-message p,
-.message-card p,
-.lesson-extra-head p,
-.lesson-extra-card p {
-  color: #555555;
-}
-
-/* Headings and important text */
-
-.lesson-features li,
-.proof-card strong,
-.service-link-card h3,
-.help-mini-card h3,
-.message-card strong,
-.price-pill {
-  color: #111111;
-}
-
-.price-pill {
-  background: #fff1f1;
-}
-
-/* Lesson images */
-
-.lesson-img img {
-  border-color: rgba(237, 28, 36, 0.18);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.14);
-}
-
-/* Footer */
-
-footer {
-  background: #ffffff;
-  color: #666666;
-  border-top-color: rgba(237, 28, 36, 0.2);
-}
-
-.footer-local h3,
-.footer-links a {
-  color: #111111;
-}
-
-/* ========================================
-   DESKTOP BOTTOM-PANEL HERO
-======================================== */
-
-@media (min-width: 769px) {
-  .page-hero {
-    min-height: 720px;
-    display: flex;
-    align-items: flex-end;
-    padding: 0 0 28px;
-
-    background:
-      url("images/lessons-bg.png")
-      center 42% / cover
-      no-repeat;
-  }
-
-  .page-hero::after {
-    display: none;
-  }
-
-  .page-hero-inner {
-    width: min(1180px, calc(100% - 32px));
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-
-  .hero-card {
-    width: 100%;
-    max-width: none;
-
-    display: grid;
-
-    grid-template-columns:
-      minmax(260px, 1.15fr)
-      minmax(280px, 1.25fr)
-      minmax(230px, 0.9fr);
-
-    grid-template-areas:
-      "label description actions"
-      "title description actions";
-
-    gap: 10px 30px;
-    align-items: center;
-
-    padding: 26px 30px;
-    border-radius: 24px;
-
-    background: #ffffff;
-    border: 1px solid rgba(237, 28, 36, 0.3);
-
-    box-shadow:
-      0 20px 55px rgba(0, 0, 0, 0.2);
-
-    backdrop-filter: none;
-  }
-
-  .hero-card .section-label {
-    grid-area: label;
-    margin: 0;
-  }
-
-  .page-hero h1 {
-    grid-area: title;
-
-    margin: 0;
-    color: #111111;
-
-    font-size: clamp(2rem, 3.2vw, 3.15rem);
-    line-height: 1.03;
-    letter-spacing: -1.5px;
-  }
-
-  .page-hero .hero-card > p:not(.hero-note) {
-    grid-area: description;
-
-    margin: 0;
-    color: #555555;
-
-    font-size: 0.96rem;
-    line-height: 1.6;
-    text-shadow: none;
-  }
-
-  .hero-actions {
-    grid-area: actions;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-
-    margin: 0;
-  }
-
-  .hero-actions a {
-    width: 100%;
-    min-height: 50px;
-  }
-
-  .hero-note {
-    display: none;
-  }
-}
-
-/* ========================================
-   MOBILE: IMAGE ABOVE, PANEL BELOW
-======================================== */
-
-@media (max-width: 768px) {
-  .page-hero {
-    display: block;
-    min-height: auto;
-
-    /* Photograph height */
-    padding: 300px 0 0;
-
-    background:
-      url("images/lessons-bg.png")
-      center 34% / auto 300px
-      no-repeat,
-      #ffffff;
-  }
-
-  .page-hero::after {
-    display: none;
-  }
-
-  .page-hero-inner {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-  }
-
-  .hero-card {
-    width: 100%;
-    max-width: none;
-
-    padding: 28px 20px 26px;
-
-    background: #ffffff;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-
-    text-align: center;
-  }
-
-  .page-hero h1 {
-    color: #111111;
-    font-size: clamp(2rem, 8vw, 2.8rem);
-    line-height: 1.04;
-  }
-
-  .page-hero p,
-  .hero-note {
-    color: #555555;
-    text-shadow: none;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions a {
-    width: 100%;
-  }
-}
-
-/* ========================================
-   SMALL PHONES
-======================================== */
-
-@media (max-width: 430px) {
-  .page-hero {
-    padding-top: 250px;
-    background-size: auto 250px;
-  }
-
-  .hero-card {
-    padding: 24px 16px;
-  }
-
-  .page-hero h1 {
-    font-size: 1.85rem;
-  }
-}
-
-
-/* ==================================================
-   LAYOUT C — FULL IMAGE WITH INFORMATION UNDERNEATH
-   WHITE BACKGROUND, BLACK TEXT, RED ACCENTS
-================================================== */
-
-:root {
-  --red: #ed1c24;
-  --red-dark: #b80f16;
-  --green: #25d366;
-  --text: #111111;
-  --muted: #555555;
-  --light-red: #fff7f7;
-  --border-light: rgba(0, 0, 0, 0.12);
-}
-
-/* GENERAL COLOURS */
-
-html,
-body {
-  background: #ffffff !important;
-  color: var(--text) !important;
-}
-
-nav {
-  background: #ffffff !important;
-  border-bottom: 1px solid rgba(237, 28, 36, 0.2) !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
-}
-
-nav a {
-  color: #111111 !important;
-}
-
-nav a:hover {
-  color: var(--red) !important;
-}
-
-nav .btn-nav {
-  background: var(--red) !important;
-  color: #ffffff !important;
-}
-
-/* BUTTONS */
-
-.btn-primary {
-  background: var(--red) !important;
-  color: #ffffff !important;
-  border-color: var(--red) !important;
-}
-
-.btn-primary:hover {
-  background: var(--red-dark) !important;
-}
-
-.btn-secondary {
-  background: #ffffff !important;
-  color: var(--red) !important;
-  border-color: var(--red) !important;
-}
-
-.btn-secondary:hover {
-  background: #fff1f1 !important;
-}
-
-.btn-whatsapp {
-  background: #ffffff !important;
-  color: #137a3b !important;
-  border-color: #20a954 !important;
-}
-
-.btn-whatsapp:hover {
-  background: #effff4 !important;
-}
-
-/* ==================================================
-   HERO — DESKTOP
-================================================== */
-
-.page-hero {
-  position: relative !important;
-  display: block !important;
-  min-height: auto !important;
-
-  /* Space occupied by the hero image */
-  padding: 560px 0 0 !important;
-
-  background: #ffffff !important;
-  overflow: hidden !important;
-}
-
-/* Hero image occupies only the upper section */
-
-.page-hero::before {
-  content: "" !important;
-  position: absolute !important;
-
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-
-  width: 100% !important;
-  height: 560px !important;
-
-  background-image:
-    url("images/lessons-bg.png") !important;
-
-  background-size: cover !important;
-  background-position: center 42% !important;
-  background-repeat: no-repeat !important;
-
-  opacity: 1 !important;
-  filter: none !important;
-
-  z-index: 0 !important;
-}
-
-/* Remove dark overlays */
-
-.page-hero::after {
-  display: none !important;
-  background: transparent !important;
-}
-
-/* Information section underneath image */
-
-.page-hero-inner {
-  position: relative !important;
-  z-index: 2 !important;
-
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-
-  background: #ffffff !important;
-}
-
-.hero-card {
-  width: min(1100px, calc(100% - 40px)) !important;
-  max-width: 1100px !important;
-
-  margin: 0 auto !important;
-  padding: 42px 30px 38px !important;
-
-  background: #ffffff !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-
-  text-align: center !important;
-}
-
-/* Hero label */
-
-.hero-card .section-label {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  margin: 0 auto 14px !important;
-  padding: 9px 15px !important;
-
-  color: var(--red) !important;
-  background: #fff5f5 !important;
-  border: 1px solid rgba(237, 28, 36, 0.28) !important;
-  border-radius: 999px !important;
-
-  font-size: 0.72rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 1.7px !important;
-}
-
-/* Hero heading */
-
-.page-hero h1 {
-  max-width: 850px !important;
-  margin: 0 auto 18px !important;
-
-  color: #111111 !important;
-
-  font-size: clamp(2.5rem, 5vw, 4rem) !important;
-  line-height: 1.05 !important;
-  letter-spacing: -2px !important;
-
-  text-shadow: none !important;
-}
-
-.page-hero h1 span {
-  color: var(--red) !important;
-}
-
-/* Hero description */
-
-.page-hero .hero-card > p:not(.hero-note) {
-  max-width: 760px !important;
-  margin: 0 auto 24px !important;
-
-  color: #555555 !important;
-
-  font-size: 1.04rem !important;
-  line-height: 1.7 !important;
-
-  opacity: 1 !important;
-  text-shadow: none !important;
-}
-
-/* Hero buttons */
-
-.hero-actions {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-wrap: wrap !important;
-
-  gap: 12px !important;
-  margin: 0 auto 18px !important;
-}
-
-.hero-actions a {
-  min-width: 230px !important;
-  min-height: 54px !important;
-}
-
-/* Reply note */
-
-.hero-note {
-  display: block !important;
-  margin: 0 auto !important;
-
-  color: #555555 !important;
-
-  font-size: 0.9rem !important;
-  line-height: 1.5 !important;
-
-  opacity: 1 !important;
-  text-shadow: none !important;
-}
-
-/* ==================================================
-   TRUST STRIP
-================================================== */
-
-.trust-strip {
-  background: #fff7f7 !important;
-
-  border-top: 1px solid rgba(237, 28, 36, 0.14) !important;
-  border-bottom: 1px solid rgba(237, 28, 36, 0.14) !important;
-}
-
-.trust-strip-grid div {
-  background: #ffffff !important;
-  color: #111111 !important;
-
-  border: 1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* ==================================================
-   LESSON SECTIONS
-================================================== */
-
-.lesson-section {
-  background: #ffffff !important;
-  color: #111111 !important;
-}
-
-.lesson-block {
-  border-bottom:
-    1px solid rgba(237, 28, 36, 0.14) !important;
-}
-
-.lesson-text h2 {
-  color: #111111 !important;
-}
-
-.lesson-text p {
-  color: #555555 !important;
-}
-
-.lesson-features li {
-  color: #222222 !important;
-}
-
-.price-pill {
-  color: #111111 !important;
-  background: #fff1f1 !important;
-
-  border-color:
-    rgba(237, 28, 36, 0.35) !important;
-}
-
-.popular-pill {
-  color: #ffffff !important;
-  background: var(--red) !important;
-}
-
-.lesson-img img {
-  border:
-    1px solid rgba(237, 28, 36, 0.18) !important;
-
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.14) !important;
-}
-
-/* ==================================================
-   PROOF SECTION
-================================================== */
-
-.proof-section {
-  background: #fff7f7 !important;
-  color: #111111 !important;
-
-  border-color:
-    rgba(237, 28, 36, 0.14) !important;
-}
-
-.proof-copy h2 {
-  color: #111111 !important;
-}
-
-.proof-copy p {
-  color: #555555 !important;
-}
-
-.proof-card {
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.07) !important;
-}
-
-.proof-card strong {
-  color: #111111 !important;
-}
-
-.proof-card span {
-  color: #555555 !important;
-}
-
-/* ==================================================
-   SERVICE CARDS
-================================================== */
-
-.service-links-section {
-  background: #ffffff !important;
-  color: #111111 !important;
-}
-
-.service-links-head h2 {
-  color: #111111 !important;
-}
-
-.service-links-head p {
-  color: #555555 !important;
-}
-
-.service-link-card {
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.07) !important;
-}
-
-.service-link-card:hover {
-  border-color:
-    rgba(237, 28, 36, 0.5) !important;
-}
-
-.service-link-card h3 {
-  color: #111111 !important;
-}
-
-.service-link-card p {
-  color: #555555 !important;
-}
-
-.service-link-card a {
-  color: #ffffff !important;
-  background: var(--red) !important;
-}
-
-/* ==================================================
-   HELP SECTION
-================================================== */
-
-.lesson-help-section {
-  background: #ffffff !important;
-  color: #111111 !important;
-}
-
-.lesson-help-card {
-  background:
-    linear-gradient(
-      135deg,
-      #fff1f1,
-      #ffffff 68%
-    ) !important;
-
-  border:
-    1px solid rgba(237, 28, 36, 0.25) !important;
-
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.08) !important;
-}
-
-.lesson-help-content h2 {
-  color: #111111 !important;
-}
-
-.lesson-help-content p {
-  color: #555555 !important;
-}
-
-.help-mini-card {
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.06) !important;
-}
-
-.help-mini-card h3 {
-  color: #111111 !important;
-}
-
-.help-mini-card p {
-  color: #555555 !important;
-}
-
-/* ==================================================
-   QUICK MESSAGE SECTION
-================================================== */
-
-.quick-message {
-  background: #fff7f7 !important;
-  color: #111111 !important;
-
-  border-color:
-    rgba(237, 28, 36, 0.14) !important;
-}
-
-.quick-message-panel {
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.07) !important;
-}
-
-.quick-message h2 {
-  color: #111111 !important;
-}
-
-.quick-message p {
-  color: #555555 !important;
-}
-
-.message-card {
-  background: #fff7f7 !important;
-
-  border:
-    1px solid rgba(237, 28, 36, 0.18) !important;
-}
-
-.message-card strong {
-  color: #111111 !important;
-}
-
-.message-card p {
-  color: #333333 !important;
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-/* ==================================================
-   EXTRA LESSON CARDS
-================================================== */
-
-.lesson-extra-section {
-  background: #ffffff !important;
-  color: #111111 !important;
-}
-
-.lesson-extra-head h2 {
-  color: #111111 !important;
-}
-
-.lesson-extra-head p {
-  color: #555555 !important;
-}
-
-.lesson-extra-card {
-  background: #ffffff !important;
-
-  border:
-    1px solid rgba(0, 0, 0, 0.11) !important;
-
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.07) !important;
-}
-
-.lesson-extra-card h3 {
-  color: #111111 !important;
-}
-
-.lesson-extra-card p {
-  color: #555555 !important;
-}
-
-/* ==================================================
-   FOOTER
-================================================== */
-
-footer {
-  background: #ffffff !important;
-  color: #666666 !important;
-
-  border-top:
-    1px solid rgba(237, 28, 36, 0.2) !important;
-}
-
-.footer-local h3,
-.footer-links a {
-  color: #111111 !important;
-}
-
-.footer-links a:hover {
-  color: var(--red) !important;
-}
-
-/* ==================================================
-   TABLET
-================================================== */
-
-@media (max-width: 1020px) and (min-width: 769px) {
-  .page-hero {
-    padding-top: 480px !important;
-  }
-
-  .page-hero::before {
-    height: 480px !important;
-  }
-}
-
-/* ==================================================
-   MOBILE LAYOUT
-================================================== */
-
-@media (max-width: 768px) {
-  .page-hero {
-    display: block !important;
-    min-height: auto !important;
-
-    padding: 300px 0 0 !important;
-
-    background: #ffffff !important;
-  }
-
-  .page-hero::before {
-    height: 300px !important;
-
-    background-size: cover !important;
-    background-position: center 36% !important;
-  }
-
-  .page-hero-inner {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-  }
-
-  .hero-card {
-    width: 100% !important;
-    max-width: none !important;
-
-    padding: 30px 20px 28px !important;
-
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-
-    text-align: center !important;
-  }
-
-  .page-hero h1 {
-    max-width: 580px !important;
-
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    font-size:
-      clamp(2rem, 8vw, 2.8rem) !important;
-  }
-
-  .page-hero .hero-card > p:not(.hero-note) {
-    font-size: 0.94rem !important;
-  }
-
-  .hero-actions {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-
-    max-width: 520px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-actions a {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  .trust-strip-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-}
-
-/* ==================================================
-   SMALL PHONES
-================================================== */
-
-@media (max-width: 430px) {
-  .page-hero {
-    padding-top: 250px !important;
-  }
-
-  .page-hero::before {
-    height: 250px !important;
-    background-position: center 36% !important;
-  }
-
-  .hero-card {
-    padding: 26px 16px !important;
-  }
-
-  .page-hero h1 {
-    font-size: 1.85rem !important;
-  }
-
-  .trust-strip-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-
-/* ==================================================
-   COMPACT LESSONS PAGE
-   Shorter hero + three lesson options immediately visible
-================================================== */
-
-/* Shorter hero image */
-
-@media (min-width: 769px) {
-  .page-hero {
-    padding-top: 360px !important;
-  }
-
-  .page-hero::before {
-    height: 360px !important;
-    background-position: center 42% !important;
-  }
-
-  .hero-card {
-    padding: 28px 30px 26px !important;
-  }
-
-  .page-hero h1 {
-    font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
-    margin-bottom: 12px !important;
-  }
-
-  .page-hero .hero-card > p:not(.hero-note) {
-    margin-bottom: 18px !important;
-  }
-
-  .hero-note {
-    display: none !important;
-  }
-}
-
-/* Remove trust strip to reduce scrolling */
-
-.trust-strip {
-  display: none !important;
-}
-
-/* ==================================================
-   THREE LESSON OPTIONS GRID
-================================================== */
-
-.lesson-section {
-  padding: 55px 0 !important;
-  background: #fff7f7 !important;
-}
-
-.lesson-section .container {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 20px !important;
-  align-items: stretch !important;
-}
-
-/* Convert each lesson block into a card */
-
-.lesson-block {
-  display: flex !important;
-  flex-direction: column !important;
-
-  gap: 0 !important;
-  padding: 0 0 24px !important;
-
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.11) !important;
-  border-radius: 22px !important;
-
-  overflow: hidden !important;
-
-  box-shadow:
-    0 14px 38px rgba(0, 0, 0, 0.08) !important;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease !important;
-}
-
-.lesson-block:first-child,
-.lesson-block:last-child {
-  padding-top: 0 !important;
-  padding-bottom: 24px !important;
-}
-
-.lesson-block:hover {
-  transform: translateY(-6px) !important;
-
-  border-color:
-    rgba(237, 28, 36, 0.42) !important;
-
-  box-shadow:
-    0 20px 46px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Put each lesson image at the top */
-
-.lesson-img {
-  order: 1 !important;
-  width: 100% !important;
-}
-
-.lesson-img::before {
-  display: none !important;
-}
-
-.lesson-img img {
-  width: 100% !important;
-  height: 205px !important;
-
-  object-fit: cover !important;
-
-  border: 0 !important;
-  border-radius: 0 !important;
-
-  box-shadow: none !important;
-}
-
-.lesson-img img:hover {
-  transform: none !important;
-}
-
-/* Text underneath the image */
-
-.lesson-text {
-  order: 2 !important;
-
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-
-  padding: 24px 22px 0 !important;
-}
-
-.lesson-text .section-label {
-  margin-bottom: 10px !important;
-  font-size: 0.7rem !important;
-}
-
-.lesson-text h2 {
-  color: #111111 !important;
-
-  font-size: 1.65rem !important;
-  line-height: 1.12 !important;
-
-  margin-bottom: 12px !important;
-}
-
-.price-pill {
-  width: fit-content !important;
-
-  margin-bottom: 14px !important;
-  padding: 8px 12px !important;
-
-  font-size: 0.82rem !important;
-}
-
-.popular-pill {
-  width: fit-content !important;
-
-  margin-bottom: 10px !important;
-  padding: 7px 11px !important;
-
-  font-size: 0.68rem !important;
-}
-
-/* Shorter descriptions */
-
-.lesson-text p {
-  color: #555555 !important;
-
-  font-size: 0.9rem !important;
-  line-height: 1.55 !important;
-
-  margin-bottom: 16px !important;
-}
-
-/* Compact feature list */
-
-.lesson-features {
-  gap: 7px !important;
-  margin-bottom: 20px !important;
-}
-
-.lesson-features li {
-  color: #222222 !important;
-
-  font-size: 0.84rem !important;
-  line-height: 1.4 !important;
-}
-
-/* Only show first three features */
-
-.lesson-features li:nth-child(n + 4) {
-  display: none !important;
-}
-
-/* Keep buttons aligned at bottom of cards */
-
-.lesson-actions {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-
-  gap: 9px !important;
-  margin-top: auto !important;
-}
-
-.lesson-actions a {
-  width: 100% !important;
-  min-height: 48px !important;
-
-  padding: 0 14px !important;
-
-  font-size: 0.85rem !important;
-  border-radius: 12px !important;
-}
-
-/* ==================================================
-   TABLET
-================================================== */
-
-@media (max-width: 1020px) and (min-width: 769px) {
-  .page-hero {
-    padding-top: 320px !important;
-  }
-
-  .page-hero::before {
-    height: 320px !important;
-  }
-
-  .lesson-section .container {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .lesson-block:last-child {
-    grid-column: 1 / -1 !important;
-    max-width: 560px !important;
-    width: 100% !important;
-    justify-self: center !important;
-  }
-}
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media (max-width: 768px) {
-  .page-hero {
-    padding-top: 230px !important;
-  }
-
-  .page-hero::before {
-    height: 230px !important;
-  }
-
-  .hero-card {
-    padding: 24px 18px !important;
-  }
-
-  .page-hero h1 {
-    font-size: 2rem !important;
-  }
-
-  .page-hero .hero-card > p:not(.hero-note) {
-    margin-bottom: 18px !important;
-  }
-
-  .hero-note {
-    display: none !important;
-  }
-
-  .lesson-section {
-    padding: 34px 0 !important;
-  }
-
-  .lesson-section .container {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .lesson-block {
-    width: 100% !important;
-    padding-bottom: 20px !important;
-    border-radius: 18px !important;
-  }
-
-  .lesson-block:first-child,
-  .lesson-block:last-child {
-    padding-bottom: 20px !important;
-  }
-
-  .lesson-img img {
-    height: 190px !important;
-  }
-
-  .lesson-text {
-    padding: 20px 18px 0 !important;
-  }
-
-  .lesson-text h2 {
-    font-size: 1.5rem !important;
-  }
-
-  .lesson-features li:nth-child(n + 3) {
-    display: none !important;
-  }
-}
-
-/* ==================================================
-   SMALL PHONES
-================================================== */
-
-@media (max-width: 430px) {
-  .page-hero {
-    padding-top: 200px !important;
-  }
-
-  .page-hero::before {
-    height: 200px !important;
-  }
-
-  .page-hero h1 {
-    font-size: 1.75rem !important;
-  }
-
-  .lesson-img img {
-    height: 175px !important;
-  }
-}
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
   <nav>
+
     <div class="nav-inner">
-      <a href="index.html" class="logo" aria-label="SAR Driving School">
-        <img src="images/logo.png" alt="SAR Driving School" class="logo-img">
+
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="SAR Driving School home"
+      >
+        <img
+          src="images/logo.png"
+          alt="SAR Driving School"
+          class="logo-img"
+        >
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
+
       <ul id="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Pass Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
-        <li><a href="book.html" class="btn-nav">Book now</a></li>
+
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="lessons.html">
+            Lessons
+          </a>
+        </li>
+
+        <li>
+          <a href="pricing.html">
+            Pricing
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="gallery.html">
+            Pass Gallery
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            Contact
+          </a>
+        </li>
+
+        <li>
+          <a href="socials.html">
+            Find us
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="book.html"
+            class="btn-nav"
+          >
+            Book now
+          </a>
+        </li>
+
       </ul>
+
     </div>
+
   </nav>
+
+
 
   <main>
 
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <div class="hero-card">
-          <div class="section-label">Our lessons</div>
-          <h1>Find the right <span>driving lesson</span> for you</h1>
-          <p>
-            Manual, automatic and refresher driving lessons across Milton Keynes and surrounding areas.
-            Patient DVSA-approved instructors, structured lessons and clear progress every session.
-          </p>
 
-          <div class="hero-actions">
-            <a href="book.html" class="btn-primary">Book Your First Lesson →</a>
-            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-inner">
+
+        <div class="hero-content">
+
+          <div class="section-label">
+            First-Time Pass Specialists
           </div>
 
-          <p class="hero-note">
-            Usually replies quickly — send your area, lesson type and availability.
+          <h1>
+            Driving lessons that get you
+            <span>test ready.</span>
+          </h1>
+
+          <p class="hero-description">
+            Patient DVSA-approved instructors, structured lessons and
+            expert knowledge of Milton Keynes test routes. Learn with
+            confidence and make clear progress every lesson.
           </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="book.html"
+              class="btn-primary"
+            >
+              Book Your First Lesson →
+            </a>
+
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener"
+              class="btn-whatsapp"
+            >
+              Check Availability
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <div class="google-proof">
+
+              <span class="google-g">
+                G
+              </span>
+
+              <span class="review-stars">
+                ★★★★★
+              </span>
+
+              <span>
+                235+ 5-Star Google Reviews
+              </span>
+
+            </div>
+
+            <span class="review-location">
+              Trusted by learners across Milton Keynes and surrounding areas
+            </span>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="trust-strip">
-      <div class="container trust-strip-grid">
-        <div>⭐ <strong>200+ Five-Star Reviews</strong></div>
-        <div>🚗 <strong>Manual & Automatic</strong></div>
-        <div>✅ <strong>DVSA Approved</strong></div>
-        <div>📍 <strong>Milton Keynes & Nearby Areas</strong></div>
+
+
+    <!-- =======================================================
+         HERO TRUST
+    ======================================================== -->
+
+    <section class="hero-trust">
+
+      <div class="hero-trust-inner">
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            ✓
+          </div>
+
+          <div>
+
+            <strong>
+              DVSA-Approved
+            </strong>
+
+            <p>
+              Professional and fully qualified instructors
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            ⌖
+          </div>
+
+          <div>
+
+            <strong>
+              Local Test Route Expertise
+            </strong>
+
+            <p>
+              In-depth knowledge of Milton Keynes test areas
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="trust-item">
+
+          <div class="trust-icon">
+            ★
+          </div>
+
+          <div>
+
+            <strong>
+              First-Time Pass Specialists
+            </strong>
+
+            <p>
+              Structured training focused on test readiness
+            </p>
+
+          </div>
+
+        </div>
+
+
       </div>
+
     </section>
 
-    <section class="lesson-section">
+
+
+    <!-- =======================================================
+         LESSON OPTIONS
+    ======================================================== -->
+
+    <section class="lesson-chooser">
+
       <div class="container">
 
-        <div class="lesson-block">
-          <div class="lesson-text">
-            <div class="section-label">Full licence flexibility</div>
-            <h2>Manual driving lessons</h2>
-            <div class="price-pill">From £38/hr · Manual tuition</div>
-            <p>
-              Manual lessons are ideal if you want the most flexibility after passing.
-              A manual licence allows you to drive both manual and automatic cars.
-            </p>
 
-            <ul class="lesson-features">
-              <li>✓ DVSA-approved instructor</li>
-              <li>✓ Suitable for complete beginners</li>
-              <li>✓ Pick-up from your home or agreed location</li>
-              <li>✓ Progress tracked every lesson</li>
-              <li>✓ Confidence building and safe driving practice</li>
-            </ul>
+        <div class="lesson-header">
 
-            <div class="lesson-actions">
-              <a href="manual-driving-lessons-milton-keynes.html" class="btn-primary">View Manual Lessons</a>
-              <a href="book.html" class="btn-secondary">Check Manual Availability</a>
+          <div>
+
+            <div class="section-label">
+              Our Lessons
             </div>
+
+            <h2>
+              Find the
+              <span>right lesson</span>
+              for you
+            </h2>
+
           </div>
 
-          <div class="lesson-img">
-            <img src="images/manual-gear-stick.png" alt="Manual gear stick for manual driving lessons">
-          </div>
+
+          <a
+            href="pricing.html"
+            class="all-lessons-link"
+          >
+            View pricing →
+          </a>
+
         </div>
 
-        <div class="lesson-block">
-          <div class="lesson-text">
-            <div class="popular-pill">Most requested</div>
-            <h2>Automatic driving lessons</h2>
-            <div class="price-pill">From £38/hr · Automatic tuition</div>
-            <p>
-              No clutch, no gears — just focus on the road. Automatic lessons are ideal for nervous learners,
-              beginners and pupils who want a simpler driving experience.
-            </p>
 
-            <ul class="lesson-features">
-              <li>✓ DVSA-approved instructor</li>
-              <li>✓ Less to think about — easier to learn</li>
-              <li>✓ Great for nervous learners</li>
-              <li>✓ Pick-up from your home or agreed location</li>
-              <li>✓ Confidence building and safe driving practice</li>
+
+        <div class="lesson-grid">
+
+
+          <!-- MANUAL -->
+
+          <article class="lesson-card">
+
+            <div class="lesson-image-wrap">
+
+              <img
+                src="images/manual-gear-stick.png"
+                alt="Manual driving lessons Milton Keynes"
+              >
+
+            </div>
+
+
+            <div class="lesson-card-content">
+
+              <div class="lesson-card-type">
+                Full licence flexibility
+              </div>
+
+              <h3>
+                Manual Driving Lessons
+              </h3>
+
+              <div class="lesson-price">
+                From £38/hr
+              </div>
+
+              <p>
+                Learn clutch control, gears, road positioning and
+                confident independent driving with structured manual lessons.
+              </p>
+
+
+              <a
+                href="manual-driving-lessons-milton-keynes.html"
+                class="lesson-card-link"
+              >
+
+                <span>
+                  View Manual Lessons
+                </span>
+
+                <span>
+                  →
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- AUTOMATIC -->
+
+          <article class="lesson-card">
+
+            <div class="lesson-image-wrap">
+
+              <img
+                src="images/automatic-gear-stick.png"
+                alt="Automatic driving lessons Milton Keynes"
+              >
+
+              <div class="most-requested">
+                Most Requested
+              </div>
+
+            </div>
+
+
+            <div class="lesson-card-content">
+
+              <div class="lesson-card-type">
+                Simple & focused
+              </div>
+
+              <h3>
+                Automatic Driving Lessons
+              </h3>
+
+              <div class="lesson-price">
+                From £38/hr
+              </div>
+
+              <p>
+                No clutch and no manual gears. Ideal for beginners,
+                nervous learners and pupils who prefer automatic tuition.
+              </p>
+
+
+              <a
+                href="automatic-driving-lessons-milton-keynes.html"
+                class="lesson-card-link"
+              >
+
+                <span>
+                  View Automatic Lessons
+                </span>
+
+                <span>
+                  →
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- REFRESHER -->
+
+          <article class="lesson-card">
+
+            <div class="lesson-image-wrap">
+
+              <img
+                src="images/refresher.png"
+                alt="Refresher driving lessons Milton Keynes"
+              >
+
+            </div>
+
+
+            <div class="lesson-card-content">
+
+              <div class="lesson-card-type">
+                Back on the road
+              </div>
+
+              <h3>
+                Refresher Driving Lessons
+              </h3>
+
+              <div class="lesson-price">
+                Manual or Automatic
+              </div>
+
+              <p>
+                Rebuild your confidence with parking, roundabouts,
+                motorway driving and personalised refresher training.
+              </p>
+
+
+              <a
+                href="refresher-driving-lessons-milton-keynes.html"
+                class="lesson-card-link"
+              >
+
+                <span>
+                  View Refresher Lessons
+                </span>
+
+                <span>
+                  →
+                </span>
+
+              </a>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- QUICK ENQUIRY -->
+
+          <aside class="quick-enquiry-card">
+
+            <div class="section-label">
+              Quick Enquiry
+            </div>
+
+            <h3>
+              Get a reply in under 30 seconds
+            </h3>
+
+
+            <ul class="quick-enquiry-list">
+
+              <li>
+                Check instructor availability
+              </li>
+
+              <li>
+                Ask us a question
+              </li>
+
+              <li>
+                Tell us your postcode
+              </li>
+
+              <li>
+                Arrange your first lesson
+              </li>
+
             </ul>
 
-            <div class="lesson-actions">
-              <a href="automatic-driving-lessons-milton-keynes.html" class="btn-primary">View Automatic Lessons</a>
-              <a href="book.html" class="btn-secondary">Check Automatic Availability</a>
-            </div>
-          </div>
 
-          <div class="lesson-img">
-            <img src="images/automatic-gear-stick.png" alt="Automatic gear selector for automatic driving lessons">
-          </div>
-        </div>
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+            >
+              Message us on WhatsApp
+            </a>
 
-        <div class="lesson-block">
-          <div class="lesson-text">
-            <div class="section-label">Back on the road</div>
-            <h2>Refresher lessons</h2>
-            <div class="price-pill">Available on request · Manual or automatic</div>
-            <p>
-              Already have a licence but haven’t driven in a while? Refresher lessons help you rebuild confidence
-              at your own pace — no judgement, just patient guidance.
-            </p>
+          </aside>
 
-            <ul class="lesson-features">
-              <li>✓ Tailored to your specific needs</li>
-              <li>✓ Build confidence at your own pace</li>
-              <li>✓ Manual or automatic available</li>
-              <li>✓ Parking, roundabouts and motorway confidence</li>
-              <li>✓ Flexible scheduling</li>
-            </ul>
 
-            <div class="lesson-actions">
-              <a href="refresher-driving-lessons-milton-keynes.html" class="btn-primary">View Refresher Lessons</a>
-              <a href="book.html" class="btn-secondary">Check Refresher Availability</a>
-            </div>
-          </div>
-
-          <div class="lesson-img">
-            <img src="images/refresher.png" alt="Refresher driving lesson">
-          </div>
         </div>
 
       </div>
+
     </section>
+
+
+
+    <!-- =======================================================
+         WHY LEARNERS CHOOSE SAR
+    ======================================================== -->
+
+    <section class="why-sar">
+
+      <div class="container why-grid">
+
+
+        <div class="why-copy">
+
+          <div class="section-label">
+            Why Learners Choose SAR
+          </div>
+
+          <h2>
+            More than just driving lessons
+          </h2>
+
+          <p>
+            Learn with patient instructors, structured tuition and
+            detailed knowledge of local Milton Keynes roads, roundabouts
+            and test areas.
+          </p>
+
+        </div>
+
+
+
+        <div class="why-cards">
+
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              ★
+            </div>
+
+            <h3>
+              235+ Five-Star Reviews
+            </h3>
+
+            <p>
+              Recommended by learners who have trained and passed with SAR.
+            </p>
+
+          </div>
+
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              ✓
+            </div>
+
+            <h3>
+              DVSA-Approved Instructors
+            </h3>
+
+            <p>
+              Professional driving instruction with patient, structured teaching.
+            </p>
+
+          </div>
+
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              ⌖
+            </div>
+
+            <h3>
+              Local Route Knowledge
+            </h3>
+
+            <p>
+              Familiarity with local roundabouts, junctions and test areas.
+            </p>
+
+          </div>
+
+
+          <div class="why-card">
+
+            <div class="why-icon">
+              🚗
+            </div>
+
+            <h3>
+              Manual & Automatic
+            </h3>
+
+            <p>
+              Choose the type of tuition that best suits your goals and confidence.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         PROOF
+    ======================================================== -->
 
     <section class="proof-section">
+
       <div class="container proof-grid">
+
+
         <div class="proof-copy">
-          <div class="section-label">Trusted by learners</div>
-          <h2>Learn with a driving school pupils recommend</h2>
+
+          <div class="section-label">
+            Trusted By Learners
+          </div>
+
+          <h2>
+            Learn with a driving school pupils recommend
+          </h2>
+
           <p>
-            SAR Driving School helps learners build confidence with structured lessons,
-            patient teaching and local test route knowledge across Milton Keynes and surrounding areas.
+            SAR Driving School helps learners build confidence with
+            structured lessons, patient teaching and local test-route
+            knowledge across Milton Keynes and surrounding areas.
           </p>
+
         </div>
+
+
 
         <div class="proof-cards">
+
+
           <div class="proof-card">
-            <strong>200+</strong>
-            <span>Five-star Google reviews</span>
+
+            <strong>
+              235+
+            </strong>
+
+            <span>
+              Five-star Google reviews
+            </span>
+
           </div>
+
+
           <div class="proof-card">
-            <strong>£38/hr</strong>
-            <span>Manual and automatic lessons</span>
+
+            <strong>
+              £38/hr
+            </strong>
+
+            <span>
+              Manual and automatic lessons
+            </span>
+
           </div>
+
+
           <div class="proof-card">
-            <strong>MK</strong>
-            <span>Local route knowledge</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="service-links-section">
-      <div class="container">
+            <strong>
+              MK
+            </strong>
 
-        <div class="service-links-head">
-          <div class="section-label">Lesson types</div>
-          <h2>Driving lessons tailored to you</h2>
-          <p>Choose the lesson type that suits your confidence, experience and driving goals.</p>
-        </div>
+            <span>
+              Local test-route expertise
+            </span>
 
-        <div class="service-links-grid">
-          <div class="service-link-card">
-            <h3>Manual Driving Lessons</h3>
-            <p>Build clutch, gear and car control skills with structured manual lessons.</p>
-            <a href="manual-driving-lessons-milton-keynes.html">View Manual</a>
           </div>
 
-          <div class="service-link-card">
-            <h3>Automatic Driving Lessons</h3>
-            <p>Learn with no clutch and no gears. Ideal for nervous learners and beginners.</p>
-            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic</a>
-          </div>
 
-          <div class="service-link-card">
-            <h3>Refresher Driving Lessons</h3>
-            <p>Rebuild confidence with parking, roundabouts, motorway driving and safe planning.</p>
-            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher</a>
-          </div>
         </div>
 
       </div>
+
     </section>
 
-    <section class="lesson-help-section">
-      <div class="lesson-help-bg"></div>
+
+
+    <!-- =======================================================
+         QUICK WHATSAPP MESSAGE
+    ======================================================== -->
+
+    <section class="message-section">
 
       <div class="container">
-        <div class="lesson-help-card">
 
-          <div class="lesson-help-content">
-            <div class="section-label">Need help choosing?</div>
-            <h2>Not sure where to start?</h2>
+        <div class="message-panel">
+
+
+          <div class="message-copy">
+
+            <div class="section-label">
+              Quick Enquiry
+            </div>
+
+            <h2>
+              Message us in under 30 seconds
+            </h2>
+
             <p>
-              Tell us your driving experience, location and preferred lesson type.
-              We’ll help you choose the right option and match you with a suitable instructor.
+              Send your area, preferred lesson type, experience level
+              and availability so we can check the most suitable instructor.
             </p>
 
-            <div class="lesson-help-actions">
-              <a href="book.html" class="btn-primary">Book a Lesson</a>
-              <a href="contact.html" class="btn-secondary">Contact Us</a>
-              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20not%20sure%20which%20lesson%20type%20I%20need.%20My%20area%20is%20%5Byour%20area%5D%20and%20my%20experience%20level%20is%20%5Bbeginner%2Fsome%20experience%2Frefresher%5D." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
-            </div>
           </div>
 
-          <div class="lesson-help-grid">
 
-            <div class="help-mini-card">
-              <div class="help-icon">🚗</div>
-              <div>
-                <h3>First-time learner?</h3>
-                <p>Start with manual or automatic depending on your goal and confidence.</p>
-              </div>
+
+          <div class="message-box">
+
+            <strong>
+              Your message can say:
+            </strong>
+
+            <div class="message-template">
+              Hi SAR, I’m looking for driving lessons.
+              My area is [your area].
+              I want [manual/automatic/refresher].
+              My availability is [days/times].
+              My experience level is [beginner/test-ready/refresher].
             </div>
 
-            <div class="help-mini-card">
-              <div class="help-icon">🔄</div>
-              <div>
-                <h3>Already driven before?</h3>
-                <p>Book a refresher lesson to rebuild confidence and sharpen your skills.</p>
-              </div>
-            </div>
-
-            <div class="help-mini-card">
-              <div class="help-icon">📍</div>
-              <div>
-                <h3>Unsure about area?</h3>
-                <p>Message your postcode and we’ll confirm availability near you.</p>
-              </div>
-            </div>
+            <a
+              href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+            >
+              Send WhatsApp Message →
+            </a>
 
           </div>
 
         </div>
+
       </div>
+
     </section>
 
-    <section class="quick-message">
-      <div class="container quick-message-panel">
-        <div>
-          <div class="section-label">Quick Enquiry</div>
-          <h2>Message us in under 30 seconds</h2>
-          <p>
-            To check availability faster, send your area, lesson type, experience level and best days or times.
-          </p>
-        </div>
 
-        <div class="message-card">
-          <strong>Copy this message:</strong>
-          <p>
-            Hi SAR, I’m looking for driving lessons. My area is [your area]. I want [manual/automatic/refresher]. My availability is [days/times]. My experience level is [beginner/test-ready/refresher].
-          </p>
-          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" class="btn-primary">
-            Send WhatsApp Message →
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <section class="lesson-extra-section">
+    <!-- =======================================================
+         HOW IT WORKS
+    ======================================================== -->
+
+    <section class="how-section">
+
       <div class="container">
 
-        <div class="lesson-extra-head">
-          <div class="section-label">How it works</div>
-          <h2>Simple steps to get started</h2>
-          <p>Choose your lesson type, send your details and we’ll confirm the best instructor and availability for you.</p>
+
+        <div class="how-header">
+
+          <div class="section-label">
+            How It Works
+          </div>
+
+          <h2>
+            Simple steps to get started
+          </h2>
+
+          <p>
+            Tell us what you need and we’ll help match you with
+            the right lesson type and instructor availability.
+          </p>
+
         </div>
 
-        <div class="lesson-extra-grid">
 
-          <div class="lesson-extra-card">
-            <span>1</span>
-            <h3>Choose lesson type</h3>
-            <p>Pick manual, automatic or refresher depending on your needs.</p>
+
+        <div class="steps-grid">
+
+
+          <div class="step-card">
+
+            <div class="step-number">
+              1
+            </div>
+
+            <h3>
+              Choose Lesson Type
+            </h3>
+
+            <p>
+              Pick manual, automatic or refresher tuition.
+            </p>
+
           </div>
 
-          <div class="lesson-extra-card">
-            <span>2</span>
-            <h3>Send your details</h3>
-            <p>Tell us your area, experience level and availability.</p>
+
+          <div class="step-card">
+
+            <div class="step-number">
+              2
+            </div>
+
+            <h3>
+              Send Your Details
+            </h3>
+
+            <p>
+              Tell us your area, experience and availability.
+            </p>
+
           </div>
 
-          <div class="lesson-extra-card">
-            <span>3</span>
-            <h3>We confirm options</h3>
-            <p>We’ll check instructor availability and suggest the best fit.</p>
+
+          <div class="step-card">
+
+            <div class="step-number">
+              3
+            </div>
+
+            <h3>
+              We Confirm Options
+            </h3>
+
+            <p>
+              We check the most suitable instructor availability.
+            </p>
+
           </div>
 
-          <div class="lesson-extra-card">
-            <span>4</span>
-            <h3>Start learning</h3>
-            <p>Begin your lessons with a clear plan and patient guidance.</p>
+
+          <div class="step-card">
+
+            <div class="step-number">
+              4
+            </div>
+
+            <h3>
+              Start Learning
+            </h3>
+
+            <p>
+              Begin your lessons and work towards test readiness.
+            </p>
+
           </div>
+
 
         </div>
 
       </div>
+
     </section>
+
+
+
+    <!-- =======================================================
+         LOCAL SEO LINKS
+    ======================================================== -->
+
+    <section class="local-section">
+
+      <div class="container">
+
+
+        <div class="local-header">
+
+          <div class="section-label">
+            Local Driving Lessons
+          </div>
+
+          <h2>
+            Areas and lesson types
+          </h2>
+
+          <p>
+            Find driving lessons in Milton Keynes and surrounding areas.
+          </p>
+
+        </div>
+
+
+        <div class="local-links">
+
+          <a href="driving-lessons-milton-keynes.html">
+            Milton Keynes
+          </a>
+
+          <a href="driving-lessons-bletchley.html">
+            Bletchley
+          </a>
+
+          <a href="driving-lessons-bedford.html">
+            Bedford
+          </a>
+
+          <a href="driving-lessons-leighton-buzzard.html">
+            Leighton Buzzard
+          </a>
+
+          <a href="manual-driving-lessons-milton-keynes.html">
+            Manual Lessons
+          </a>
+
+          <a href="automatic-driving-lessons-milton-keynes.html">
+            Automatic Lessons
+          </a>
+
+          <a href="refresher-driving-lessons-milton-keynes.html">
+            Refresher Lessons
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
   </main>
 
-  <footer>
-    <div class="footer-local">
-      <h3>Local Driving Lesson Areas</h3>
-      <div class="footer-links">
-        <a href="driving-lessons-milton-keynes.html">Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Bletchley</a>
-        <a href="driving-lessons-bedford.html">Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Leighton Buzzard</a>
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Lessons</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Lessons</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Lessons</a>
-      </div>
-    </div>
 
-    <a href="terms.html">Terms & Conditions</a>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <a href="terms.html">
+      Terms & Conditions
+    </a>
+
+    <p>
+      © 2026 SAR Driving School. Milton Keynes & surrounding areas.
+    </p>
+
   </footer>
 
+
+
+  <!-- =======================================================
+       FLOATING ACTIONS
+  ======================================================== -->
+
   <div class="floating-actions">
-    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+
+
+    <!-- CALL -->
+
+    <a
+      class="float-btn float-call"
+      href="tel:+447902023737"
+      aria-label="Call SAR Driving School"
+    >
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#ffffff"
+      >
+
         <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+
       </svg>
+
     </a>
 
-    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+
+
+    <!-- WHATSAPP -->
+
+    <a
+      class="float-btn float-whatsapp"
+      href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%2Frefresher%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D."
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp SAR Driving School"
+    >
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#ffffff"
+      >
+
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+
       </svg>
+
     </a>
+
+
   </div>
 
+
+
+  <!-- =======================================================
+       MOBILE MENU SCRIPT
+  ======================================================== -->
+
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+
+    const hamburger =
+      document.getElementById('hamburger');
+
+    const navMenu =
+      document.getElementById('nav-menu');
+
 
     if (hamburger && navMenu) {
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('open');
-        navMenu.classList.toggle('open');
-      });
 
-      navMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          hamburger.classList.remove('open');
-          navMenu.classList.remove('open');
+      hamburger.addEventListener(
+        'click',
+        function () {
+
+          const isOpen =
+            hamburger.classList.toggle('open');
+
+          navMenu.classList.toggle(
+            'open',
+            isOpen
+          );
+
+          hamburger.setAttribute(
+            'aria-expanded',
+            String(isOpen)
+          );
+
+        }
+      );
+
+
+      navMenu
+        .querySelectorAll('a')
+        .forEach(function (link) {
+
+          link.addEventListener(
+            'click',
+            function () {
+
+              hamburger
+                .classList
+                .remove('open');
+
+              navMenu
+                .classList
+                .remove('open');
+
+              hamburger
+                .setAttribute(
+                  'aria-expanded',
+                  'false'
+                );
+
+            }
+          );
+
         });
-      });
+
     }
+
   </script>
+
 
 </body>
 </html>
