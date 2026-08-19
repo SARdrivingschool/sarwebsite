@@ -3009,6 +3009,343 @@ footer {
   }
 }
 
+/* ==================================================
+   PREMIUM WHATSAPP ENQUIRY BANNER
+================================================== */
+
+.whatsapp-enquiry {
+  padding: 28px 0 34px;
+  background: #ffffff;
+}
+
+.whatsapp-enquiry-panel {
+  min-height: 220px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.7fr 0.9fr;
+  align-items: center;
+  gap: 28px;
+
+  padding: 28px 34px;
+
+  background:
+    radial-gradient(
+      circle at 72% 50%,
+      rgba(37, 211, 102, 0.13),
+      transparent 26%
+    ),
+    linear-gradient(110deg, #101010, #050505);
+
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.14);
+}
+
+.whatsapp-enquiry-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* COPY */
+
+.whatsapp-enquiry-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.whatsapp-kicker {
+  margin-bottom: 7px;
+
+  color: #25D366;
+
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+
+.whatsapp-enquiry-copy h2 {
+  max-width: 430px;
+
+  margin: 0 0 10px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+.whatsapp-enquiry-copy p {
+  max-width: 430px;
+
+  margin: 0 0 18px;
+
+  color: #c9c9c9;
+
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.whatsapp-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.whatsapp-points span {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.whatsapp-points span::first-letter {
+  color: #25D366;
+}
+
+/* PHONE */
+
+.whatsapp-phone {
+  height: 175px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  position: relative;
+}
+
+.phone-shell {
+  width: 125px;
+  height: 190px;
+
+  padding: 7px;
+
+  background: #111111;
+
+  border: 3px solid #e8e8e8;
+  border-radius: 25px 25px 0 0;
+
+  box-shadow:
+    0 18px 30px rgba(0,0,0,0.4);
+
+  transform: rotate(-2deg);
+}
+
+.phone-top {
+  width: 46px;
+  height: 5px;
+
+  margin: 0 auto 8px;
+
+  background: #333333;
+  border-radius: 20px;
+}
+
+.phone-screen {
+  height: calc(100% - 13px);
+
+  padding: 14px 8px;
+
+  background: #f3f0e9;
+  border-radius: 16px 16px 0 0;
+
+  overflow: hidden;
+}
+
+.whatsapp-chat-label {
+  margin-bottom: 12px;
+
+  color: #555555;
+
+  font-size: 0.52rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.chat-bubble {
+  width: 92%;
+
+  margin-bottom: 9px;
+  padding: 7px;
+
+  color: #333333;
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  font-size: 0.48rem;
+  line-height: 1.35;
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+.chat-bubble.reply {
+  margin-left: auto;
+
+  background: #d9fdd3;
+}
+
+/* WhatsApp circle */
+
+.whatsapp-logo-circle {
+  position: absolute;
+  right: 14%;
+  bottom: 8px;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #25D366;
+
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+
+  z-index: 4;
+}
+
+.whatsapp-logo-circle svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* CTA */
+
+.whatsapp-enquiry-action {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+}
+
+.whatsapp-main-btn {
+  width: 100%;
+  min-height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 0 20px;
+
+  color: #ffffff;
+  background: #25D366;
+
+  border-radius: 13px;
+
+  font-size: 0.92rem;
+  font-weight: 900;
+
+  box-shadow:
+    0 12px 28px rgba(37,211,102,0.20);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.whatsapp-main-btn:hover {
+  transform: translateY(-2px);
+  background: #1ebe5d;
+}
+
+.wa-btn-icon {
+  color: #ffffff;
+  font-size: 0.75rem;
+}
+
+.whatsapp-enquiry-action small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #999999;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .whatsapp-enquiry-panel {
+    grid-template-columns: 1fr auto;
+  }
+
+  .whatsapp-enquiry-action {
+    grid-column: 1 / -1;
+  }
+
+  .whatsapp-main-btn {
+    max-width: 500px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .whatsapp-enquiry {
+    padding: 20px 0 28px;
+  }
+
+  .whatsapp-enquiry-panel {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 28px 20px;
+
+    text-align: center;
+
+    border-radius: 20px;
+  }
+
+  .whatsapp-enquiry-copy h2,
+  .whatsapp-enquiry-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .whatsapp-points {
+    justify-content: center;
+  }
+
+  .whatsapp-phone {
+    height: 150px;
+  }
+
+  .phone-shell {
+    width: 112px;
+    height: 165px;
+  }
+
+  .whatsapp-logo-circle {
+    right: calc(50% - 82px);
+  }
+
+  .whatsapp-main-btn {
+    width: 100%;
+  }
+}
+
+
+
 
 </style>
 
@@ -3251,6 +3588,79 @@ footer {
     <div>🏆 <strong>First-Time Pass Specialists</strong></div>
   </div>
 </section>
+
+<!-- QUICK WHATSAPP ENQUIRY -->
+<section class="whatsapp-enquiry">
+  <div class="container">
+    <div class="whatsapp-enquiry-panel">
+
+      <div class="whatsapp-enquiry-copy">
+        <div class="whatsapp-kicker">QUICK & EASY</div>
+
+        <h2>Check lesson availability on WhatsApp</h2>
+
+        <p>
+          Send us your details and we'll confirm the best available
+          instructor and lesson times.
+        </p>
+
+        <div class="whatsapp-points">
+          <span>✓ Fast replies</span>
+          <span>✓ No obligation</span>
+          <span>✓ Friendly support</span>
+        </div>
+      </div>
+
+      <div class="whatsapp-phone">
+        <div class="phone-shell">
+          <div class="phone-top"></div>
+
+          <div class="phone-screen">
+            <div class="whatsapp-chat-label">
+              SAR Driving School
+            </div>
+
+            <div class="chat-bubble">
+              Hi SAR, I'm looking for driving lessons.
+            </div>
+
+            <div class="chat-bubble reply">
+              Hi! Send us your area, lesson type and availability 👋
+            </div>
+          </div>
+        </div>
+
+        <div class="whatsapp-logo-circle">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="#ffffff">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="whatsapp-enquiry-action">
+
+        <a
+          href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%20%F0%9F%91%8B%0A%0AI%20would%20like%20to%20book%20driving%20lessons%20with%20you.%20Here%20are%20my%20details%3A%0A%0A%F0%9F%93%8D%20Area%3A%20%0A%F0%9F%9A%97%20Lesson%20type%20%28manual%2Fautomatic%2Frefresher%29%3A%20%0A%F0%9F%97%93%EF%B8%8F%20Availability%20%28days%2Ftimes%29%3A%20%0A%F0%9F%8E%AF%20Experience%20level%3A%20"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whatsapp-main-btn"
+        >
+          <span class="wa-btn-icon">●</span>
+          Message Us on WhatsApp →
+        </a>
+
+        <small>
+          Send your area, lesson type & availability
+        </small>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container">
@@ -3543,7 +3953,6 @@ footer {
 
   </div>
 </section>
-</section>
 
 <section class="why">
   <div class="container">
@@ -3660,33 +4069,6 @@ footer {
   </div>
 </section>
 
-<section class="quick-message">
-  <div class="container quick-message-panel">
-    <div>
-      <div class="section-label">Quick Enquiry</div>
-      <h2>Message us in under 30 seconds</h2>
-      <p>
-        To check availability faster, send us your area, lesson type, experience level and best days or times.
-      </p>
-    </div>
-
-    <div class="message-card">
-      <strong>Copy this message:</strong>
-      <p>
-        Hi SAR Driving School 👋<br><br>
-        I would like to book driving lessons with you. Here are my details:<br><br>
-        📍 Area: <br>
-        🚗 Lesson type (manual/automatic/refresher): <br>
-        🗓️ Availability (days/times): <br>
-        🎯 Experience level (beginner/test-ready/refresher): <br><br>
-        Looking forward to hearing from you!
-      </p>
-      <a href="https://wa.me/447902023737?text=Hi%20SAR%20Driving%20School%20%F0%9F%91%8B%0A%0AI%20would%20like%20to%20book%20driving%20lessons%20with%20you.%20Here%20are%20my%20details%3A%0A%0A%F0%9F%93%8D%20Area%3A%20%0A%F0%9F%9A%97%20Lesson%20type%20%28manual%2Fautomatic%2Frefresher%29%3A%20%0A%F0%9F%97%93%EF%B8%8F%20Availability%20%28days%2Ftimes%29%3A%20%0A%F0%9F%8E%AF%20Experience%20level%20%28beginner%2Ftest-ready%2Frefresher%29%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you%21" target="_blank" class="btn btn-primary">
-        Send WhatsApp Message →
-      </a>
-    </div>
-  </div>
-</section>
 
 <section class="local-seo">
   <div class="container">
