@@ -24,12 +24,13 @@ gtag('config', 'AW-18198829338');
 :root {
   --red: #ed1c24;
   --red-dark: #b80f16;
-  --dark: #050505;
-  --section: #0b0b0b;
-  --card: #141414;
-  --text: #ffffff;
-  --muted: #cfcfcf;
-  --border: rgba(255,255,255,0.12);
+  --dark: #ffffff;
+  --section: #f6f7f9;
+  --card: #ffffff;
+  --text: #151515;
+  --muted: #5b6068;
+  --border: rgba(17,24,39,0.12);
+  --shadow: 0 14px 40px rgba(17,24,39,0.07);
   --green: #25D366;
   --max: 1180px;
 }
@@ -184,16 +185,24 @@ header {
 }
 
 .btn-secondary {
-  border: 1px solid rgba(255,255,255,0.24);
-  background: rgba(255,255,255,0.08);
-  color: #ffffff;
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(17,24,39,0.18);
+  background: #ffffff;
+  color: #171717;
+}
+
+.btn-secondary:hover {
+  border-color: var(--red);
+  color: var(--red);
 }
 
 .btn-whatsapp {
-  border: 1px solid rgba(37,211,102,0.45);
-  background: rgba(37,211,102,0.14);
-  color: #ffffff;
+  border: 1px solid rgba(37,211,102,0.55);
+  background: #ffffff;
+  color: #0f7a3d;
+}
+
+.btn-whatsapp:hover {
+  background: #f2fbf5;
 }
 
 /* HERO */
@@ -397,9 +406,9 @@ header {
 
 /* TRUST STRIP */
 .trust-strip {
-  background: #0c0c0c;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: #f6f7f9;
+  border-top: 1px solid rgba(17,24,39,0.08);
+  border-bottom: 1px solid rgba(17,24,39,0.08);
   padding: 18px 0;
 }
 
@@ -410,13 +419,14 @@ header {
 }
 
 .trust-strip-grid div {
-  background: #141414;
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #ffffff;
+  border: 1px solid rgba(17,24,39,0.10);
   border-radius: 16px;
   padding: 16px;
   text-align: center;
-  color: #ffffff;
+  color: #151515;
   font-size: 0.95rem;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.05);
 }
 
 /* SHARED SECTIONS */
@@ -467,8 +477,8 @@ header {
 .section {
   padding: 72px 0;
   background:
-    radial-gradient(circle at 15% 15%, rgba(237,28,36,0.08), transparent 30%),
-    #0c0c0c;
+    radial-gradient(circle at 15% 15%, rgba(237,28,36,0.05), transparent 30%),
+    #ffffff;
 }
 
 .section p {
@@ -483,8 +493,9 @@ header {
 }
 
 .card {
-  background: #141414;
+  background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: 22px;
   padding: 28px;
   transition: transform 0.25s ease, border-color 0.25s ease;
@@ -498,10 +509,10 @@ header {
 .featured-card {
   border-color: rgba(237,28,36,0.58);
   background:
-    linear-gradient(145deg, rgba(237,28,36,0.16), rgba(255,255,255,0.04)),
-    #141414;
+    linear-gradient(145deg, rgba(237,28,36,0.07), rgba(255,255,255,0)),
+    #ffffff;
   position: relative;
-  box-shadow: 0 18px 42px rgba(237,28,36,0.12);
+  box-shadow: 0 18px 42px rgba(237,28,36,0.10);
 }
 
 .card-badge {
@@ -523,7 +534,7 @@ header {
 }
 
 .card p {
-  color: #bfbfbf;
+  color: #5b6068;
   font-size: 0.98rem;
   margin-bottom: 16px;
 }
@@ -532,9 +543,9 @@ header {
   display: inline-flex;
   align-items: center;
   margin-bottom: 18px;
-  color: #ffffff;
-  background: rgba(237,28,36,0.12);
-  border: 1px solid rgba(237,28,36,0.24);
+  color: #b80f16;
+  background: rgba(237,28,36,0.09);
+  border: 1px solid rgba(237,28,36,0.22);
   border-radius: 999px;
   padding: 9px 13px;
   font-weight: 900;
@@ -542,6 +553,7 @@ header {
 }
 
 .card-link {
+  color: #ffffff !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -563,12 +575,12 @@ header {
 /* AREAS */
 .areas {
   background:
-    radial-gradient(circle at 12% 18%, rgba(237,28,36,0.16), transparent 28%),
-    radial-gradient(circle at 78% 12%, rgba(237,28,36,0.08), transparent 30%),
-    linear-gradient(180deg, #080808 0%, #0c0c0c 100%);
+    radial-gradient(circle at 12% 18%, rgba(237,28,36,0.07), transparent 28%),
+    radial-gradient(circle at 78% 12%, rgba(237,28,36,0.05), transparent 30%),
+    linear-gradient(180deg, #f6f7f9 0%, #ffffff 100%);
   padding: 76px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,24,39,0.08);
+  border-bottom: 1px solid rgba(17,24,39,0.08);
   overflow: hidden;
 }
 
@@ -577,10 +589,10 @@ header {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(17,24,39,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,24,39,0.035) 1px, transparent 1px);
   background-size: 58px 58px;
-  opacity: 0.25;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -609,12 +621,12 @@ header {
 .area-card {
   min-height: 270px;
   background:
-    linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025)),
-    radial-gradient(circle at 50% 0%, rgba(237,28,36,0.16), transparent 42%);
-  border: 1px solid rgba(255,255,255,0.13);
+    radial-gradient(circle at 50% 0%, rgba(237,28,36,0.06), transparent 42%),
+    #ffffff;
+  border: 1px solid rgba(17,24,39,0.11);
   border-radius: 24px;
   padding: 28px 22px;
-  color: #ffffff;
+  color: #151515;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -622,7 +634,7 @@ header {
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+  box-shadow: 0 14px 40px rgba(17,24,39,0.08);
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
@@ -646,8 +658,8 @@ header {
   width: 74px;
   height: 74px;
   border-radius: 50%;
-  border: 1px solid rgba(237,28,36,0.78);
-  background: radial-gradient(circle, rgba(237,28,36,0.24), rgba(237,28,36,0.06));
+  border: 1px solid rgba(237,28,36,0.55);
+  background: radial-gradient(circle, rgba(237,28,36,0.16), rgba(237,28,36,0.04));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -666,7 +678,7 @@ header {
 .area-card p {
   font-size: 0.95rem;
   line-height: 1.55;
-  color: #cfcfcf;
+  color: #5b6068;
   margin-bottom: 20px;
   max-width: 240px;
 }
@@ -695,8 +707,9 @@ header {
   margin-top: 26px;
   padding: 20px 24px;
   border-radius: 22px;
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #ffffff;
+  border: 1px solid rgba(17,24,39,0.11);
+  box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -705,13 +718,13 @@ header {
 
 .areas-mini-cta strong {
   display: block;
-  color: #ffffff;
+  color: #151515;
   font-size: 1.08rem;
   margin-bottom: 4px;
 }
 
 .areas-mini-cta span {
-  color: #cfcfcf;
+  color: #5b6068;
   font-size: 0.94rem;
   line-height: 1.45;
 }
@@ -719,11 +732,11 @@ header {
 /* PASSES */
 .pass-preview {
   background:
-    radial-gradient(circle at 12% 38%, rgba(237,28,36,0.16), transparent 32%),
-    linear-gradient(180deg, #101010 0%, #070707 100%);
+    radial-gradient(circle at 12% 38%, rgba(237,28,36,0.06), transparent 32%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7f9 100%);
   padding: 78px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,24,39,0.08);
+  border-bottom: 1px solid rgba(17,24,39,0.08);
   overflow: hidden;
 }
 
@@ -759,11 +772,12 @@ header {
   min-height: 38px;
   padding: 0 13px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.11);
-  color: #ffffff;
+  background: #ffffff;
+  border: 1px solid rgba(17,24,39,0.11);
+  color: #151515;
   font-size: 0.84rem;
   font-weight: 900;
+  box-shadow: 0 4px 14px rgba(17,24,39,0.05);
 }
 
 .pass-showcase {
@@ -778,8 +792,8 @@ header {
   height: 250px;
   object-fit: cover;
   border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.13);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.42);
+  border: 1px solid rgba(17,24,39,0.10);
+  box-shadow: 0 18px 40px rgba(17,24,39,0.14);
   transition: transform 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
 }
 
@@ -797,8 +811,8 @@ header {
 /* REVIEWS */
 .reviews {
   background:
-    radial-gradient(circle at 70% 20%, rgba(237,28,36,0.06), transparent 34%),
-    #151515;
+    radial-gradient(circle at 70% 20%, rgba(237,28,36,0.05), transparent 34%),
+    #ffffff;
   padding: 72px 0;
 }
 
@@ -816,7 +830,8 @@ header {
 }
 
 .review-card {
-  background: #0f0f0f;
+  background: #ffffff;
+  box-shadow: var(--shadow);
   border: 1px solid var(--border);
   border-radius: 22px;
   padding: 26px;
@@ -844,14 +859,14 @@ header {
 }
 
 .review-card strong {
-  color: #ffffff;
+  color: #151515;
   display: block;
   margin-bottom: 4px;
   font-size: 0.95rem;
 }
 
 .review-card small {
-  color: #999;
+  color: #6b7078;
   font-weight: 700;
   font-size: 0.8rem;
 }
@@ -871,9 +886,60 @@ header {
   min-width: 230px;
 }
 
+/* Google rating summary above the review grid */
+.review-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0 auto 28px;
+  padding: 18px 26px;
+  width: fit-content;
+  max-width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.review-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-score strong {
+  font-size: 2.1rem;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.review-score .stars {
+  font-size: 1.15rem;
+}
+
+.review-score-meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 800;
+  font-size: 0.96rem;
+}
+
+.review-google-logo {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.review-card .stars {
+  font-size: 1.05rem;
+}
+
 /* WHY */
 .why {
-  background: #0c0c0c;
+  background: #f6f7f9;
   padding: 72px 0;
 }
 
@@ -892,6 +958,7 @@ header {
 .why-card {
   background: var(--card);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: 20px;
   padding: 24px 18px;
   text-align: center;
@@ -923,15 +990,15 @@ header {
 
 .why-card p {
   font-size: 0.9rem;
-  color: #bcbcbc;
+  color: #5b6068;
   line-height: 1.55;
 }
 
 /* HOW IT WORKS */
 .how-it-works {
-  background: #101010;
+  background: #ffffff;
   padding: 72px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,24,39,0.08);
 }
 
 .steps-grid {
@@ -942,8 +1009,9 @@ header {
 }
 
 .step-card {
-  background: #141414;
+  background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: 20px;
   padding: 26px;
   transition: transform 0.25s ease, border-color 0.25s ease;
@@ -975,7 +1043,7 @@ header {
 
 /* FAQ */
 .faq {
-  background: #0c0c0c;
+  background: #f6f7f9;
   padding: 72px 0;
 }
 
@@ -987,8 +1055,9 @@ header {
 }
 
 .faq-item {
-  background: #141414;
+  background: #ffffff;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow);
   border-radius: 20px;
   padding: 24px;
   transition: transform 0.25s ease, border-color 0.25s ease;
@@ -1006,9 +1075,9 @@ header {
 
 /* QUICK MESSAGE */
 .quick-message {
-  background: #101010;
+  background: #ffffff;
   padding: 72px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,24,39,0.08);
 }
 
 .quick-message-panel {
@@ -1017,16 +1086,17 @@ header {
   gap: 28px;
   align-items: center;
   background:
-    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
-    #141414;
-  border: 1px solid rgba(255,255,255,0.12);
+    radial-gradient(circle at 15% 20%, rgba(237,28,36,0.07), transparent 32%),
+    #f6f7f9;
+  border: 1px solid rgba(17,24,39,0.11);
   border-radius: 28px;
   padding: 36px;
 }
 
 .message-card {
-  background: rgba(0,0,0,0.42);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: #ffffff;
+  border: 1px solid rgba(17,24,39,0.11);
+  box-shadow: var(--shadow);
   border-radius: 22px;
   padding: 24px;
 }
@@ -1034,32 +1104,33 @@ header {
 .message-card strong {
   display: block;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: #151515;
   font-size: 1.05rem;
 }
 
 .message-card p {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #f6f7f9;
+  border: 1px solid rgba(17,24,39,0.10);
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 18px;
-  color: #e8e8e8;
+  color: #3b4048;
 }
 
 /* SEO */
 .local-seo {
-  background: #101010;
+  background: #f6f7f9;
   padding: 58px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,24,39,0.08);
 }
 
 .local-seo-box {
   background:
-    linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.03));
+    linear-gradient(135deg, rgba(237,28,36,0.05), rgba(255,255,255,0)), #ffffff;
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 32px;
+  box-shadow: var(--shadow);
 }
 
 .local-seo-box p {
@@ -1068,8 +1139,22 @@ header {
 
 /* CTA */
 .cta {
-  background: #0c0c0c;
+  background: #ffffff;
   padding: 0 0 72px;
+}
+
+/* Ghost button on the red CTA band must stay readable */
+.cta .btn-secondary,
+.cta-panel .btn-secondary {
+  background: rgba(0,0,0,0.28) !important;
+  border: 2px solid rgba(255,255,255,0.85) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(6px);
+}
+.cta .btn-secondary:hover,
+.cta-panel .btn-secondary:hover {
+  background: rgba(0,0,0,0.42) !important;
+  color: #ffffff !important;
 }
 
 .cta-panel {
@@ -1160,6 +1245,8 @@ footer {
   gap: 12px;
   z-index: 100;
 }
+
+.float-label { display: none; }
 
 .float-btn {
   width: 54px;
@@ -1833,19 +1920,44 @@ footer {
     gap: 8px 12px;
   }
 
+  /* Mobile: dock the actions into a bottom bar so they never sit on top of copy */
   .floating-actions {
-    right: 14px;
-    bottom: 14px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,0.95);
+    border-top: 1px solid rgba(17,24,39,0.10);
+    box-shadow: 0 -8px 24px rgba(17,24,39,0.10);
+    backdrop-filter: blur(10px);
   }
 
   .float-btn {
-    width: 48px;
-    height: 48px;
+    flex: 1;
+    width: auto;
+    height: 52px;
+    border-radius: 14px;
+    gap: 9px;
+    box-shadow: none;
   }
 
   .float-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .float-label {
+    display: inline;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+  }
+
+  body {
+    padding-bottom: 74px;
   }
 
   .promo-modal {
@@ -2348,13 +2460,61 @@ footer {
       <p>Rated 5.0 by learners across Milton Keynes and surrounding areas.</p>
     </div>
 
-     <div class="google-review-widget">
-  <!-- Elfsight Google Reviews | SAR Driving School Reviews -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-37f71622-eff5-4864-adb4-98456c7142c5" data-elfsight-app-lazy></div>
+    <div class="review-summary">
+      <div class="review-score">
+        <strong>5.0</strong>
+        <span class="stars">★★★★★</span>
+      </div>
+      <div class="review-score-meta">
+        <img src="images/google-logo.png" alt="" width="20" height="20" class="review-google-logo">
+        <span>245+ five-star reviews on Google</span>
+      </div>
     </div>
-    
+
+    <div class="review-grid">
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;I can&rsquo;t thank Sir Rizwan at SAR Driving School enough for helping me pass my UK driving test. From day one, Sir&hellip;&rdquo;</p>
+        <strong>Ayesha Abbasi</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
+
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;My husband and I took driving lessons at SAR Driving School with Rizwan Sir. Although we have been driving for&hellip;&rdquo;</p>
+        <strong>Indu Priya Elangovan</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
+
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;I honestly couldn&rsquo;t think of anyone else to teach my son to drive after the wonderful experience my daughter&hellip;&rdquo;</p>
+        <strong>Google reviewer</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
+
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;I honestly couldn&rsquo;t have asked for a better driving instructor than Noman Ashraf at SAR Driving School. From&hellip;&rdquo;</p>
+        <strong>Jasvir Singh</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
+
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;SAR driving school is simply the best. I couldn&rsquo;t have asked for a better driving instructor! From my very first lesson,&hellip;&rdquo;</p>
+        <strong>Othniel A.</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
+
+      <div class="review-card">
+        <span class="stars">★★★★★</span>
+        <p>&ldquo;Sikandar is a great driving instructor who is patient, knowledgeable, and always makes you feel comfortable&hellip;&rdquo;</p>
+        <strong>Laiba Sheraz</strong>
+        <small>Google review &middot; July 2026</small>
+      </div>
     </div>
+
     <div class="reviews-cta dual-cta">
       <a href="socials.html" class="btn btn-secondary">Read Google Reviews →</a>
       <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
@@ -2561,12 +2721,14 @@ footer {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
       <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
     </svg>
+    <span class="float-label">Call</span>
   </a>
 
   <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%E2%80%99m%20looking%20for%20driving%20lessons.%20My%20area%20is%20%5Byour%20area%5D.%20I%20want%20%5Bmanual%2Fautomatic%5D.%20My%20availability%20is%20%5Bdays%2Ftimes%5D.%20My%20experience%20level%20is%20%5Bbeginner%2Ftest-ready%2Frefresher%5D." target="_blank" aria-label="WhatsApp SAR Driving School">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
     </svg>
+    <span class="float-label">WhatsApp</span>
   </a>
 </div>
 

@@ -125,13 +125,19 @@ p, li, label, .title, .subtitle, .section-title,
 }
 
 /* Red CTA bands remain branded */
-.cta, .dual-cta, .final-cta, .gallery-cta,
+.cta, .final-cta, .gallery-cta,
 .areas-mini-cta.red, .cta-box.red, .cta-panel.red {
   background: linear-gradient(135deg, #ed1c24, #c51118) !important;
   color: #ffffff !important;
 }
-.cta *, .dual-cta *, .final-cta *, .gallery-cta *,
+.cta *, .final-cta *, .gallery-cta *,
 .areas-mini-cta.red *, .cta-box.red *, .cta-panel.red * { color: #ffffff !important; }
+/* Ghost button on a red band: white outline, white label */
+.cta .btn-secondary, .final-cta .btn-secondary, .cta-panel .btn-secondary {
+  background: rgba(0,0,0,.28) !important;
+  border: 2px solid rgba(255,255,255,.85) !important;
+  color: #ffffff !important;
+}
 
 /* Inputs and forms */
 input, select, textarea {
@@ -168,12 +174,24 @@ footer a:hover { color: #ff5960 !important; }
 
 /* --- Contrast safety net: force dark text on light surfaces --- */
 main h1, main h2, main h3, main h4, main h5, main h6,
-main p, main li, main span, main div, main strong, main small, main a:not(.btn):not(.btn-nav):not(.btn-primary):not(.btn-secondary):not(.btn-whatsapp) {
+main p, main li, main span, main div, main strong, main small,
+main a:not(.btn):not(.btn-nav):not(.btn-primary):not(.btn-secondary):not(.btn-whatsapp):not(.card-link):not(.area-link):not(.filter-btn) {
   color: #1a1a1a !important;
 }
+/* Solid-red inline links keep white labels */
+main .card-link, main .card-link * { color: #ffffff !important; }
+main .area-link, main .area-link * { color: var(--red) !important; }
+/* Anything sitting on a solid red chip/circle keeps white text */
+main .card-badge, main .step-number, main .why-icon,
+main .badge-red, main .number-circle, main .step-num { color: #ffffff !important; }
+/* Star ratings must stay gold, not repainted near-black */
+main .stars, main .stars * { color: #f5b301 !important; }
+/* Eyebrow label on a red CTA band must be white, not red-on-red */
+.cta .section-label, .final-cta .section-label,
+.cta-panel .section-label, .gallery-cta .section-label { color: #ffffff !important; }
 /* Re-exempt the surfaces that are meant to stay light text */
 footer, footer *,
-.cta, .cta *, .dual-cta, .dual-cta *, .final-cta, .final-cta *,
+.cta, .cta *, .final-cta, .final-cta *,
 .gallery-cta, .gallery-cta *,
 .cta-panel, .cta-panel *, .cta-box.red, .cta-box.red *,
 .gallery-modal, .gallery-modal *, .modal-box, .modal-box *,
