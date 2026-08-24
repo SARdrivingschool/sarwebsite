@@ -17,7 +17,7 @@ html, body {
 body {
   background-image: radial-gradient(circle at 12% 12%, rgba(237,28,36,.045), transparent 25%),
                     radial-gradient(circle at 90% 45%, rgba(237,28,36,.035), transparent 24%) !important;
-  background-attachment: scroll !important;
+  background-attachment: fixed !important;
 }
 
 header, .site-header, .navbar, nav {
@@ -45,7 +45,7 @@ section:nth-of-type(even):not(.hero):not(.page-hero):not(.gallery-hero):not(.boo
 h1, h2, h3, h4, h5, h6,
 p, li, label, .title, .subtitle, .section-title,
 .section-copy, .section-intro, .faq-answer, .faq-question {
-  color: #151515 !important;
+  color: #151515;
 }
 .section-label, .label, .eyebrow { color: var(--red) !important; }
 .muted, .subtitle, .section-copy, .section-intro, .card p, .choose-card p,
@@ -61,7 +61,7 @@ p, li, label, .title, .subtitle, .section-title,
 .block-grid > *, .pricing-card, .package-card, .review-card, .social-card,
 .gallery-toolbar, .gallery-intro, .local-seo-box, .highlight-box,
 .next-steps, .fast-reply-box, .areas-mini-cta, .lesson-help-card,
-.final-cta-card, .contact-item, .area-pill,
+.final-cta-card, .cta-box, .cta-panel, .contact-item, .area-pill,
 .mini-stat, .hero-stat, .trust-item {
   background: #ffffff !important;
   color: #151515 !important;
@@ -164,26 +164,6 @@ footer a:hover { color: #ff5960 !important; }
 .gallery-modal { background: rgba(0,0,0,.88) !important; }
 .modal-box { background: #111111 !important; }
 .modal-box * { color: #ffffff !important; }
-
-
-/* --- Contrast safety net: force dark text on light surfaces --- */
-main h1, main h2, main h3, main h4, main h5, main h6,
-main p, main li, main span, main div, main strong, main small, main a:not(.btn):not(.btn-nav):not(.btn-primary):not(.btn-secondary):not(.btn-whatsapp) {
-  color: #1a1a1a !important;
-}
-/* Re-exempt the surfaces that are meant to stay light text */
-footer, footer *,
-.cta, .cta *, .dual-cta, .dual-cta *, .final-cta, .final-cta *,
-.gallery-cta, .gallery-cta *,
-.cta-panel, .cta-panel *, .cta-box.red, .cta-box.red *,
-.gallery-modal, .gallery-modal *, .modal-box, .modal-box *,
-.btn-primary, .btn-nav, .float-call, .float-whatsapp {
-  color: #ffffff !important;
-}
-/* Red labels/eyebrows stay red, muted stays muted grey (still readable on white) */
-.section-label, .label, .eyebrow { color: var(--red) !important; }
-.muted, .subtitle, .section-copy, .section-intro,
-.card p, .area-card p, .step-card p, .faq-answer { color: #555b63 !important; }
 
 @media (max-width: 820px) {
   .nav-links { background: #ffffff !important; box-shadow: 0 20px 40px rgba(17,24,39,.12) !important; }
