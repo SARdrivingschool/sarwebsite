@@ -678,6 +678,88 @@
         height: 54px;
       }
     }
+  
+    /* REQUEST A CALLBACK */
+    .callback {
+      background: #f6f7f9;
+      padding: 66px 0;
+      border-top: 1px solid rgba(17,24,39,0.08);
+      border-bottom: 1px solid rgba(17,24,39,0.08);
+    }
+
+    .callback-inner {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .callback h2 {
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .callback-points {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .callback-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.97rem;
+      line-height: 1.5;
+    }
+
+    .callback-points li::before {
+      content: "\2713";
+      flex: 0 0 22px;
+      height: 22px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .callback-card {
+      background: #ffffff;
+      border: 1px solid rgba(17,24,39,0.11);
+      border-radius: 26px;
+      box-shadow: 0 14px 40px rgba(17,24,39,0.07);
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .callback-card iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+    }
+
+    .callback-alt {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .callback-alt a { color: var(--red); font-weight: 800; }
+
+    @media (max-width: 900px) {
+      .callback-inner { grid-template-columns: 1fr; gap: 22px; }
+      .callback { padding: 52px 0; }
+    }
   </style>
 <link rel="stylesheet" href="theme-white-red.css">
 </head>
@@ -931,6 +1013,43 @@
       </div>
     </section>
 
+    
+<section class="callback" id="callback">
+  <div class="container callback-inner">
+    <div>
+      <div class="label">Prefer a phone call?</div>
+      <h2>We&rsquo;ll call you back</h2>
+      <p>
+        Not everyone wants to message. Leave your number and tell us when suits &mdash;
+        we&rsquo;ll ring you back and sort your lessons over the phone.
+      </p>
+
+      <ul class="callback-points">
+        <li>Pick a time that works, including evenings</li>
+        <li>We&rsquo;ll confirm instructor availability in your area</li>
+        <li>No obligation &mdash; ask us anything about lessons or prices</li>
+      </ul>
+
+      <p class="callback-alt">
+        In a hurry? Call us now on <a href="tel:+447902023737">079 02 02 37 37</a>.
+      </p>
+    </div>
+
+    <div class="callback-card">
+      <iframe
+        data-tally-src="https://tally.so/embed/CALLBACK_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="620"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Request a callback from SAR Driving School"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
     <section class="dark">
       <div class="container">
         <div class="cta-panel">
@@ -1003,5 +1122,6 @@
     });
   </script>
 
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>

@@ -346,3 +346,25 @@ main .btn-nav *, main .btn-primary *, main .card-link * {
 .area-card a, main .area-card a { color: #ffffff !important; }
 /* about.html: there the area list is plain links inside a white card */
 .area-card strong a, main .area-card strong a { color: var(--red) !important; }
+
+/* Embedded form panels (Tally). The contrast audit can't see inside an
+   iframe, so these kept their old dark shell around a white form. */
+.tally-panel, .form-panel, .embed-panel {
+  background: #ffffff !important;
+  border: 1px solid rgba(17,24,39,.11) !important;
+  box-shadow: 0 14px 40px rgba(17,24,39,.07) !important;
+}
+
+/* ---- Request a callback ---- */
+.callback {
+  background: #f6f7f9 !important;
+  border-top: 1px solid rgba(17,24,39,.08) !important;
+  border-bottom: 1px solid rgba(17,24,39,.08) !important;
+}
+.callback-alt a, main .callback-alt a { color: var(--red) !important; }
+.callback-points li::before, main .callback-points li::before { color: #ffffff !important; }
+.callback-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(17,24,39,.11) !important;
+  box-shadow: 0 14px 40px rgba(17,24,39,.07) !important;
+}
