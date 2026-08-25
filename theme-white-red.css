@@ -25,7 +25,7 @@ header, .site-header, .navbar, nav {
   border-color: rgba(17,24,39,.10) !important;
   box-shadow: 0 8px 30px rgba(17,24,39,.06) !important;
 }
-.nav-links a, header a:not(.btn):not(.btn-nav), nav a:not(.btn):not(.btn-nav) { color: #171717 !important; }
+.nav-links a:not(.btn):not(.btn-nav), header a:not(.btn):not(.btn-nav), nav a:not(.btn):not(.btn-nav) { color: #171717 !important; }
 .hamburger span { background: #171717 !important; }
 
 /* General sections */
@@ -112,6 +112,7 @@ p, li, label, .title, .subtitle, .section-title,
   border-color: var(--red) !important;
 }
 .btn-primary:hover, .btn-nav:hover, .btn-call:hover { background: var(--red-dark) !important; }
+.nav-links .btn-nav, nav .btn-nav, header .btn-nav { color: #ffffff !important; }
 .btn-secondary {
   background: #ffffff !important;
   color: #171717 !important;
@@ -174,10 +175,12 @@ footer a:hover { color: #ff5960 !important; }
 
 /* --- Contrast safety net: force dark text on light surfaces --- */
 main h1, main h2, main h3, main h4, main h5, main h6,
-main p, main li, main span, main div, main strong, main small,
-main a:not(.btn):not(.btn-nav):not(.btn-primary):not(.btn-secondary):not(.btn-whatsapp):not(.card-link):not(.area-link):not(.filter-btn) {
+main p, main li, main span, main div, main strong, main small, main a {
   color: #1a1a1a !important;
 }
+/* NOTE: this rule is deliberately LOW specificity (no :not() chain).
+   Every button, chip and red surface below overrides it on class
+   specificity alone, which is what keeps their labels white. */
 /* Solid-red inline links keep white labels */
 main .card-link, main .card-link * { color: #ffffff !important; }
 main .area-link, main .area-link * { color: var(--red) !important; }
@@ -210,3 +213,136 @@ footer, footer *,
     background: rgba(255,255,255,.96) !important;
   }
 }
+
+/* ================================================================
+   SITE-WIDE LIGHT-THEME COMPLETION
+   The inner pages were built on the original dark design. These
+   rules finish the white/red conversion for the surfaces that were
+   still painting themselves dark while the theme forced dark text
+   on top of them.
+   ================================================================ */
+
+/* Trust strip (about, book, contact, gallery, lessons, pricing, socials) */
+.trust-strip {
+  background: #f6f7f9 !important;
+  border-top: 1px solid rgba(17,24,39,.08) !important;
+  border-bottom: 1px solid rgba(17,24,39,.08) !important;
+}
+.trust-strip-grid > div {
+  background: #ffffff !important;
+  color: #151515 !important;
+  border: 1px solid rgba(17,24,39,.10) !important;
+  box-shadow: 0 6px 18px rgba(17,24,39,.05) !important;
+}
+
+/* Quick-enquiry panel */
+.quick-message { background: #ffffff !important; border-top: 1px solid rgba(17,24,39,.08) !important; }
+.quick-message-panel {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(237,28,36,.07), transparent 32%),
+    #f6f7f9 !important;
+  border: 1px solid rgba(17,24,39,.11) !important;
+}
+.message-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(17,24,39,.11) !important;
+  box-shadow: 0 14px 40px rgba(17,24,39,.07) !important;
+}
+.message-card p {
+  background: #f6f7f9 !important;
+  border: 1px solid rgba(17,24,39,.10) !important;
+  color: #3b4048 !important;
+}
+
+/* Card surfaces still carrying dark backgrounds from the old build */
+.trust-card, .service-card, .stat-card, .timeline-item, .promise-card,
+.proof-card, .payment-card, .terms-block, .price-card, .value-card,
+.detail-card, .info-box, .step-box {
+  background: #ffffff !important;
+  color: #151515 !important;
+  border: 1px solid rgba(17,24,39,.11) !important;
+  box-shadow: 0 14px 40px rgba(17,24,39,.07) !important;
+}
+.trust-card strong, .service-card strong, .stat-card strong,
+.timeline-item strong, .promise-card strong, .proof-card strong,
+.payment-card strong, .terms-block h2, .terms-block h3 { color: #151515 !important; }
+.trust-card span, .service-card p, .stat-card span, .timeline-item p,
+.promise-card p, .proof-card p, .payment-card p, .payment-card li,
+.terms-block p, .terms-block li { color: #5b6068 !important; }
+.terms-block h2 { border-bottom-color: rgba(17,24,39,.10) !important; }
+
+/* Pricing page: jump-link pills and struck-through "was" prices */
+.price-nav-row a {
+  background: #ffffff !important;
+  color: #171717 !important;
+  border: 1px solid rgba(17,24,39,.14) !important;
+}
+.price-nav-row a:hover {
+  background: #fff5f5 !important;
+  border-color: rgba(237,28,36,.55) !important;
+  color: var(--red) !important;
+}
+.was-price, .was-price s, s { color: #767b82 !important; }
+.top-badge.gold {
+  background: #fff8e6 !important;
+  border: 1px solid rgba(191,143,0,.55) !important;
+  color: #8a6600 !important;
+}
+
+/* Socials page: brand-coloured tiles keep white glyphs.
+   The gold review tile is the exception - it was designed with dark text. */
+.social-icon, .social-icon * { color: #ffffff !important; }
+.social-icon.icon-review, .social-icon.icon-review * { color: #111111 !important; }
+/* WhatsApp brand green is too light for a white glyph; use their darker green */
+.social-icon.icon-whatsapp { background: #128C7E !important; }
+
+/* Ghost buttons sitting on a red band must not go white-on-white */
+.cta .btn-whatsapp, .final-cta .btn-whatsapp,
+.gallery-cta .btn-whatsapp, .cta-panel .btn-whatsapp,
+.gallery-cta .btn-secondary {
+  background: rgba(0,0,0,.28) !important;
+  border: 2px solid rgba(255,255,255,.85) !important;
+  color: #ffffff !important;
+}
+.cta .btn-whatsapp:hover, .final-cta .btn-whatsapp:hover,
+.gallery-cta .btn-whatsapp:hover, .cta-panel .btn-whatsapp:hover,
+.gallery-cta .btn-secondary:hover {
+  background: rgba(0,0,0,.42) !important;
+  color: #ffffff !important;
+}
+
+/* ----------------------------------------------------------------
+   Anything painted with the brand red keeps a white label.
+   The contrast safety net above repaints text near-black, which
+   turned every red chip, pill, icon circle and inline red button
+   into black-on-red. This restores them site-wide.
+   ---------------------------------------------------------------- */
+.btn-nav, .btn-primary, .btn-call, .float-call,
+.card-link, .service-card a, .service-link-card a,
+.card-badge, .top-badge, .pkg-badge, .promo-badge, .popular-pill,
+.step-number, .timeline-number, .check-circle, .fault-dot,
+.why-icon, .promise-icon, .difference-icon, .option-icon, .help-icon,
+.icon-book, .promo-benefit-icon, .modal-arrow, .filter-btn.active,
+.lesson-extra-card span, .terms-block h2 .num, .num {
+  color: #ffffff !important;
+}
+main .btn-nav, main .btn-primary, main .btn-call, main .card-link,
+main .service-card a, main .service-link-card a,
+main .card-badge, main .top-badge, main .pkg-badge, main .promo-badge,
+main .popular-pill, main .step-number, main .timeline-number,
+main .check-circle, main .fault-dot, main .why-icon, main .promise-icon,
+main .difference-icon, main .option-icon, main .help-icon, main .icon-book,
+main .promo-benefit-icon, main .lesson-extra-card span,
+main .terms-block h2 .num, main .num,
+main .btn-nav *, main .btn-primary *, main .card-link * {
+  color: #ffffff !important;
+}
+/* ...but the gold "Best Value" pill was designed with dark text */
+.top-badge.gold, .top-badge.gold *, main .top-badge.gold, main .top-badge.gold * {
+  color: #8a6600 !important;
+}
+
+/* gallery + socials: .area-card a is a solid red button */
+.area-card a, main .area-card a { color: #ffffff !important; }
+/* about.html: there the area list is plain links inside a white card */
+.area-card strong a, main .area-card strong a { color: var(--red) !important; }

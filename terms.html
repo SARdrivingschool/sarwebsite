@@ -204,6 +204,59 @@
     .footer-links a { color: #cfcfcf; font-size: 0.92rem; font-weight: 700; }
     .footer-links a:hover { color: var(--red); }
 
+    /* Desktop header nav (was missing - the list rendered unstyled) */
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-img { width: 150px; height: auto; }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav ul li { list-style: none; }
+
+    nav a {
+      color: #000000;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover { color: var(--red); }
+
+    .btn-nav {
+      background: var(--red);
+      color: #ffffff !important;
+      padding: 12px 21px;
+      border-radius: 11px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
+    }
+
+    .hamburger {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .hamburger {
         display: flex !important;
