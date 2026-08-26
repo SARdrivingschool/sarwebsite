@@ -368,3 +368,76 @@ main .btn-nav *, main .btn-primary *, main .card-link * {
   border: 1px solid rgba(17,24,39,.11) !important;
   box-shadow: 0 14px 40px rgba(17,24,39,.07) !important;
 }
+
+/* ---- Cookie consent banner (PECR) ---- */
+#cookie-banner {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9998;
+  background: #ffffff;
+  border-top: 3px solid var(--red);
+  box-shadow: 0 -12px 40px rgba(17,24,39,.16);
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+}
+#cookie-banner .cookie-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+#cookie-banner .cookie-copy { flex: 1 1 420px; min-width: 0; }
+#cookie-banner .cookie-copy strong {
+  display: block;
+  color: #151515 !important;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+#cookie-banner .cookie-copy p {
+  color: #4b5058 !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+#cookie-banner .cookie-copy a { color: var(--red) !important; font-weight: 800; }
+#cookie-banner .cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+/* Accept and Reject are given equal visual weight - the ICO treats a design
+   that emphasises "accept" over "reject" as non-compliant. */
+#cookie-banner .cookie-btn {
+  min-height: 46px;
+  padding: 0 26px;
+  border-radius: 12px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  border: 2px solid var(--red);
+  transition: background .2s ease, color .2s ease;
+}
+#cookie-banner .cookie-accept { background: var(--red); color: #ffffff !important; }
+#cookie-banner .cookie-accept:hover { background: var(--red-dark); }
+#cookie-banner .cookie-reject { background: #ffffff; color: var(--red) !important; }
+#cookie-banner .cookie-reject:hover { background: #fff5f5; }
+
+@media (max-width: 720px) {
+  #cookie-banner .cookie-inner { gap: 14px; }
+  #cookie-banner .cookie-actions { width: 100%; }
+  #cookie-banner .cookie-btn { flex: 1; padding: 0 12px; }
+  /* sit above the mobile call/WhatsApp bar */
+  #cookie-banner { bottom: 0; }
+  body.has-cookie-banner { padding-bottom: 0; }
+}
+
+/* Trader identity line required by the E-Commerce Regulations */
+.trader-identity {
+  font-size: 0.82rem !important;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+footer .trader-identity a { color: #ffffff !important; text-decoration: underline; }

@@ -2,13 +2,36 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18198829338');
-  </script>
+  <!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -1395,8 +1418,11 @@
       </div>
     </div>
 
-    <a href="terms.html" class="terms-link">Terms & Conditions</a>
-    <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+    <a href="terms.html" class="terms-link">Terms &amp; Conditions</a>
+    <a href="privacy.html" class="terms-link">Privacy &amp; Cookies</a>
+    <a href="#" class="terms-link" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">Cookie settings</a>
+    <p class="trader-identity">[BUSINESS LEGAL NAME], trading as SAR Driving School &middot; [BUSINESS ADDRESS] &middot; <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot; <a href="tel:+447902023737">079 02 02 37 37</a></p>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
   </footer>
 
   <div class="floating-actions">
@@ -1432,5 +1458,6 @@
     }
   </script>
 
+  <script src="cookie-consent.js" defer></script>
 </body>
 </html>
