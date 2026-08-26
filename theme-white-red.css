@@ -481,3 +481,61 @@ main .callback-preview strong { color: #151515 !important; }
 main .callback-preview p { color: #4b5058 !important; }
 .callback-hours { margin-top: 14px; font-size: .84rem; line-height: 1.5; }
 main .callback-hours { color: #6b7078 !important; }
+
+/* ------------------------------------------------------------------
+   Nine nav items no longer fit between the desktop layout and the
+   768px mobile menu. This band covers 769-1100px only: the pages'
+   own <=768px rules are untouched and still take over below it.
+   ------------------------------------------------------------------ */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hamburger { display: flex !important; }
+
+  .nav-links,
+  header nav ul,
+  nav .nav-inner ul {
+    display: none !important;
+  }
+
+  .nav-links.open,
+  header nav ul.open,
+  nav .nav-inner ul.open {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    gap: 0;
+    margin: 0;
+    padding: 8px 20px 18px;
+    background: #ffffff !important;
+    border-top: 1px solid rgba(17,24,39,.10);
+    box-shadow: 0 20px 40px rgba(17,24,39,.12) !important;
+    z-index: 200;
+  }
+
+  .nav-links.open li,
+  header nav ul.open li,
+  nav .nav-inner ul.open li { list-style: none; width: 100%; }
+
+  .nav-links.open a,
+  header nav ul.open a,
+  nav .nav-inner ul.open a {
+    display: block;
+    padding: 14px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-links.open .btn-nav,
+  header nav ul.open .btn-nav,
+  nav .nav-inner ul.open .btn-nav {
+    margin-top: 12px;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 12px;
+  }
+
+  header, .nav, .nav-inner { position: relative; }
+}
