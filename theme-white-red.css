@@ -441,3 +441,43 @@ main .btn-nav *, main .btn-primary *, main .card-link * {
   margin-bottom: 6px;
 }
 footer .trader-identity a { color: #ffffff !important; text-decoration: underline; }
+
+/* ---- Callback card: direct actions, no third-party form ---- */
+.callback-card { padding: 26px !important; border-radius: 26px !important; }
+.callback-choose { display: grid; gap: 12px; }
+.callback-action {
+  display: block;
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-decoration: none;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.callback-action:hover { transform: translateY(-2px); }
+.callback-action-label { display: block; font-weight: 900; font-size: 1.06rem; margin-bottom: 3px; }
+.callback-action-sub { display: block; font-size: .86rem; line-height: 1.45; }
+.callback-action-call { background: var(--red) !important; }
+.callback-action-call:hover { background: var(--red-dark) !important; }
+.callback-action-call .callback-action-label,
+.callback-action-call .callback-action-sub,
+main .callback-action-call, main .callback-action-call * { color: #ffffff !important; }
+.callback-action-call .callback-action-sub { opacity: .92; }
+.callback-action-text {
+  background: #ffffff !important;
+  border: 2px solid var(--red);
+}
+.callback-action-text:hover { background: #fff5f5 !important; }
+main .callback-action-text .callback-action-label { color: var(--red) !important; }
+main .callback-action-text .callback-action-sub { color: #5b6068 !important; }
+.callback-preview {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: #f6f7f9;
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 16px;
+}
+.callback-preview strong { display: block; font-size: .88rem; margin-bottom: 8px; }
+main .callback-preview strong { color: #151515 !important; }
+.callback-preview p { font-size: .9rem; line-height: 1.6; margin: 0; }
+main .callback-preview p { color: #4b5058 !important; }
+.callback-hours { margin-top: 14px; font-size: .84rem; line-height: 1.5; }
+main .callback-hours { color: #6b7078 !important; }
