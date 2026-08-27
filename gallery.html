@@ -1293,12 +1293,11 @@ gtag('config', 'AW-18198829338');
         </div>
 
         <div class="gallery-toolbar">
-          <div class="gallery-count" id="gallery-count">Showing 12 pass photos</div>
 
           <div class="gallery-controls">
             <button class="filter-btn active" data-limit="12" type="button">Show 12</button>
             <button class="filter-btn" data-limit="24" type="button">Show 24</button>
-            <button class="filter-btn" data-limit="124" type="button">Show all</button>
+            <button class="filter-btn" id="show-all-btn" type="button">Show all</button>
           </div>
         </div>
 
@@ -1502,7 +1501,8 @@ gtag('config', 'AW-18198829338');
 
     const galleryGrid = document.getElementById("gallery-grid");
     const filterButtons = document.querySelectorAll(".filter-btn");
-    const galleryCount = document.getElementById("gallery-count");
+    const showAllBtn = document.getElementById("show-all-btn");
+    if (showAllBtn) { showAllBtn.dataset.limit = String(totalImages); }
 
     const modal = document.getElementById("gallery-modal");
     const modalImg = document.getElementById("modal-img");
@@ -1544,7 +1544,6 @@ gtag('config', 'AW-18198829338');
       currentLimit = limit;
       buildImages(limit);
       galleryGrid.innerHTML = "";
-      galleryCount.textContent = "Showing " + limit + " pass photos";
 
       visibleImages.forEach(function(image, index) {
         const card = document.createElement("button");
