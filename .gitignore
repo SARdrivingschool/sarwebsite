@@ -6,3 +6,10 @@
 # scratch folder - safe to delete
 _qa/
 _ads/
+
+# Old duplicate site copies - removed from the deploy, kept on disk
+whitered/
+whitered 2/
+SAR-Driving-School-White-Red/
+SAR-Driving-School-White-Red 2/
+SAR-Driving-School-White-Red 3/
