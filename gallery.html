@@ -1496,9 +1496,9 @@ gtag('config', 'AW-18198829338');
       });
     }
 
-    const totalImages = 124;
+    const totalImages = 159;
     const imageFolder = "images/pass-gallery/";
-    const imageExtension = ".jpg";
+    const imageExtension = ".webp";
 
     const galleryGrid = document.getElementById("gallery-grid");
     const filterButtons = document.querySelectorAll(".filter-btn");
@@ -1517,8 +1517,15 @@ gtag('config', 'AW-18198829338');
     let touchStartX = 0;
 
     function getImagePath(number) {
+      // full-size image, used by the lightbox
       const padded = String(number).padStart(3, "0");
       return imageFolder + "pass-" + padded + imageExtension;
+    }
+
+    function getThumbPath(number) {
+      // small image, used by the grid - roughly a tenth the weight
+      const padded = String(number).padStart(3, "0");
+      return imageFolder + "pass-" + padded + "-thumb" + imageExtension;
     }
 
     function buildImages(limit) {
@@ -1527,6 +1534,7 @@ gtag('config', 'AW-18198829338');
       for (let i = 1; i <= limit; i++) {
         visibleImages.push({
           src: getImagePath(i),
+          thumb: getThumbPath(i),
           number: i
         });
       }
@@ -1546,7 +1554,7 @@ gtag('config', 'AW-18198829338');
         card.setAttribute("aria-label", "View SAR Driving School pass photo " + image.number);
 
         const img = document.createElement("img");
-        img.src = image.src;
+        img.src = image.thumb;
         img.alt = "SAR Driving School learner pass photo " + image.number;
         img.loading = index < 4 ? "eager" : "lazy";
         img.decoding = "async";

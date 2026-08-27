@@ -2,3 +2,6 @@
 *.mp4
 *.mov
 *.pdf
+
+# scratch folder - safe to delete
+_qa/
