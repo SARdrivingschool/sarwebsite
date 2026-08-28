@@ -539,3 +539,30 @@ main .callback-hours { color: #6b7078 !important; }
 
   header, .nav, .nav-inner { position: relative; }
 }
+
+/* ---- Homepage hero: choice row + CTA hierarchy (light card) ---- */
+.hero-choice-label, main .hero-choice-label { color: #4b5563 !important; }
+.hero-choice-btn, main .hero-choice-btn {
+  color: #b3121a !important;
+  background: #fff7f7 !important;
+  border-color: rgba(237,28,36,.34) !important;
+}
+.hero-choice-btn:hover, main .hero-choice-btn:hover {
+  color: #ffffff !important;
+  background: var(--red) !important;
+  border-color: var(--red) !important;
+}
+.btn-hero-alt, main .btn-hero-alt {
+  color: #1f2937 !important;
+  background: #ffffff !important;
+  border-color: rgba(17,24,39,.16) !important;
+}
+.btn-hero-alt:hover, main .btn-hero-alt:hover {
+  color: var(--red) !important;
+  border-color: var(--red) !important;
+}
+
+/* Homepage hero: photo band on mobile sits on white, not the grey wash */
+@media (max-width: 768px) {
+  .hero { background: #ffffff !important; }
+}

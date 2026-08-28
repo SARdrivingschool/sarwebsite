@@ -127,7 +127,7 @@ header {
 }
 
 .logo-img {
-  width: 158px;
+  width: 104px;
   height: auto;
   object-fit: contain;
 }
@@ -259,9 +259,9 @@ header {
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.58) 42%, rgba(0,0,0,0.34) 100%),
-    linear-gradient(180deg, rgba(0,0,0,0.36) 0%, rgba(0,0,0,0.70) 100%),
-    url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.webp");
+    linear-gradient(90deg, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.58) 34%, rgba(0,0,0,0.16) 58%, rgba(0,0,0,0.06) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.34) 100%),
+    url("images/hero-passes.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1652,6 +1652,54 @@ footer {
   }
 }
 
+
+/* ---- hero conversion block ---- */
+.hero-choice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+.hero-choice-label {
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-right: 2px;
+}
+.hero-choice-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(237,28,36,0.34);
+  background: #fff7f7;
+  font-weight: 800;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.hero-choice-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  transform: translateY(-1px);
+}
+.hero-actions-clean .btn-hero-main {
+  flex: 1 1 auto;
+  min-width: 232px;
+  white-space: nowrap;
+}
+.btn-hero-alt {
+  border: 1.5px solid rgba(17,24,39,0.16);
+  background: #ffffff;
+  font-weight: 700;
+  font-size: 0.96rem;
+  min-height: 56px;
+}
+.btn-hero-alt:hover {
+  border-color: var(--red);
+}
+
 @media (max-width: 768px) {
   .container {
     width: min(100% - 28px, var(--max));
@@ -1662,7 +1710,7 @@ footer {
   }
 
   .logo-img {
-    width: 140px;
+    width: 96px;
   }
 
   .hamburger {
@@ -1711,15 +1759,20 @@ footer {
   .hero {
     min-height: auto;
     display: block;
-    padding: 270px 0 28px;
+    padding: 158px 0 28px;
+    background: #ffffff;
   }
 
   .hero::before {
+    inset: 0 0 auto 0;
+    height: 176px;
     background-image:
-      linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.55) 44%, rgba(0,0,0,0.88) 100%),
-      url("images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.webp");
+      linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0.30) 100%),
+      url("images/hero-passes-mobile.webp");
     background-position: center top;
   }
+
+  .hero::after { display: none; }
 
   .hero-inner {
     width: min(100% - 24px, var(--max));
@@ -1753,6 +1806,22 @@ footer {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 16px;
+  }
+
+  .hero-choice {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .hero-choice-label {
+    width: 100%;
+    font-size: 0.82rem;
+    margin-bottom: 2px;
+  }
+  .hero-choice-btn {
+    flex: 1 1 0;
+    min-height: 46px;
+    padding: 0 10px;
+    font-size: 0.92rem;
   }
 
   .hero-actions,
@@ -2087,16 +2156,15 @@ footer {
   }
 
   .hero {
-    padding-top: 250px;
+    padding-top: 152px;
+  }
+
+  .hero::before {
+    height: 168px;
   }
 
   .hero h1 {
     font-size: clamp(1.75rem, 8vw, 2.2rem);
-  }
-
-  .hero-label {
-    font-size: 0.5rem;
-    padding: 8px 10px;
   }
 
   .why-grid {
@@ -2430,8 +2498,6 @@ footer {
 <section class="hero">
   <div class="container hero-inner">
     <div class="hero-content">
-      <div class="hero-label">📍 Milton Keynes' trusted driving school</div>
-
       <h1>
         Driving Lessons<br>
         <span>in Milton Keynes</span><br>
@@ -2449,9 +2515,15 @@ footer {
         Calm, structured tuition for beginners, nervous learners and test-ready pupils.
       </p>
 
+      <div class="hero-choice">
+        <span class="hero-choice-label">I want to learn in:</span>
+        <a href="manual-driving-lessons-milton-keynes.html" class="hero-choice-btn">Manual</a>
+        <a href="automatic-driving-lessons-milton-keynes.html" class="hero-choice-btn">Automatic</a>
+      </div>
+
       <div class="hero-actions hero-actions-clean">
-        <a href="book.html" class="btn btn-primary">Book Your First Lesson →</a>
-        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-primary btn-hero-main">WhatsApp us now →</a>
+        <a href="book.html" class="btn btn-hero-alt">Or book online</a>
       </div>
 
       <p class="hero-reply-note">

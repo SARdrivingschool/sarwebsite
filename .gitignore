@@ -13,3 +13,11 @@ whitered 2/
 SAR-Driving-School-White-Red/
 SAR-Driving-School-White-Red 2/
 SAR-Driving-School-White-Red 3/
+
+# Photo-picking sheets - scratch, safe to delete
+_picks/
+
+# Original full-size pass photos. The site only serves the .webp versions,
+# so these stay on disk but out of the repo (~65MB saved per 56 photos).
+images/pass-gallery/*.jpg
+images/pass-gallery/Screenshot*.png
