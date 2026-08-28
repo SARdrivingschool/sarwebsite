@@ -21,3 +21,15 @@ _picks/
 # so these stay on disk but out of the repo (~65MB saved per 56 photos).
 images/pass-gallery/*.jpg
 images/pass-gallery/Screenshot*.png
+
+# Source/archive material the live site never serves. Kept on disk,
+# out of the repo - these were ~313MB of every Vercel deploy.
+images/pass-gallery-original/
+images/passes/
+images/websitepictures/
+images/hero_pictures/
+random /
+*.zip
+hihihji.png
+ef48f685-e1b8-469a-9500-ed88a697450e.png
+32bc3927-0d0a-487f-ab39-3015530486f5.JPG

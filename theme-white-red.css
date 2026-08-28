@@ -566,3 +566,34 @@ main .callback-hours { color: #6b7078 !important; }
 @media (max-width: 768px) {
   .hero { background: #ffffff !important; }
 }
+
+/* ----------------------------------------------------------------
+   QA fix: red CTA bands were painting their eyebrow label and their
+   PRIMARY button in brand red ON brand red - both were invisible.
+   The eyebrow goes white; the primary button inverts to white-on-red
+   so it outranks the ghost button beside it again.
+   ---------------------------------------------------------------- */
+.cta .label, .final-cta .label, .cta-panel .label,
+.gallery-cta .label, .cta-box.red .label, .areas-mini-cta.red .label,
+.cta .eyebrow, .final-cta .eyebrow, .cta-panel .eyebrow,
+.gallery-cta .eyebrow, .cta-box.red .eyebrow, .areas-mini-cta.red .eyebrow,
+.cta-panel .section-label, .gallery-cta .section-label {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.cta .btn-primary, .final-cta .btn-primary, .cta-panel .btn-primary,
+.gallery-cta .btn-primary, .cta-box.red .btn-primary,
+.areas-mini-cta.red .btn-primary {
+  background: #ffffff !important;
+  color: #b3121a !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.24) !important;
+}
+.cta .btn-primary:hover, .final-cta .btn-primary:hover,
+.cta-panel .btn-primary:hover, .gallery-cta .btn-primary:hover,
+.cta-box.red .btn-primary:hover, .areas-mini-cta.red .btn-primary:hover {
+  background: #fff1f1 !important;
+  color: #8f0e15 !important;
+  border-color: #fff1f1 !important;
+}
