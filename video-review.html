@@ -841,16 +841,22 @@
         color: #ffffff !important;
       }
 
-      .hero {
+      section.hero {
         min-height: auto;
         display: block;
         padding: 0 0 40px;
+        /* section.hero, not .hero: the shared light theme loads after this
+           block and sets .hero background with
+           !important, which was wiping this image out and leaving 320px of
+           blank space at the top of the page on phones. Fades to white now
+           rather than black, because the copy below it is dark. */
         background:
-          linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.96) 70%, #050505 100%),
-          url("images/video-review-hero.webp");
-        background-size: auto 320px;
-        background-position: center top;
-        background-repeat: no-repeat;
+          linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.10) 42%, rgba(255,255,255,0.72) 86%, #ffffff 100%),
+          url("images/video-review-hero.webp") !important;
+        background-size: auto 320px, auto 320px !important;
+        background-position: center top, center top !important;
+        background-repeat: no-repeat, no-repeat !important;
+        background-color: #ffffff !important;
       }
 
       .hero::after {
@@ -954,8 +960,8 @@
     }
 
     @media (max-width: 430px) {
-      .hero {
-        background-size: auto 300px;
+      section.hero {
+        background-size: auto 300px, auto 300px !important;
       }
       .hero-inner { padding-top: 300px; }
       .hero h1 { font-size: 2.35rem; }

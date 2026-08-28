@@ -613,3 +613,51 @@ main .card p a, main .section-head p a {
 .terms-block p a:hover, main .card p a:hover {
   color: #8f0e15 !important;
 }
+
+/* ----------------------------------------------------------------
+   QA round 2, measured against rendered pixels rather than computed
+   backgroundColor. Two real failures the earlier check could not see.
+   ---------------------------------------------------------------- */
+
+/* 1. The location pill on every area page. The page CSS set it white, but the
+      global `.label` rule repainted it brand red on a translucent red pill
+      sitting on a photo - 1.44:1, effectively invisible. Solid dark backing,
+      white text, red edge: reads on any photograph. */
+.hero-label, .label.hero-label, main .hero-label {
+  color: #ffffff !important;
+  background: rgba(18,10,10,.72) !important;
+  border: 1px solid rgba(237,28,36,.75) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* 2. video-review.html puts its hero copy straight onto the photo with no
+      white card. On DESKTOP that photo sits behind the text under a dark
+      gradient, so the global dark-text rules made it near-black on near-black
+      (1.66:1 on the h1). On MOBILE the same page drops to a white background
+      with the image above, so there the text must stay dark - hence the
+      breakpoint. Only direct children of .hero-inner match, so the white hero
+      cards on every other page are untouched. */
+@media (min-width: 769px) {
+  .hero > .hero-inner > h1,
+  .hero > .hero-inner > h1 span,
+  .hero > .hero-inner > p,
+  main .hero > .hero-inner > h1,
+  main .hero > .hero-inner > h1 span,
+  main .hero > .hero-inner > p {
+    color: #ffffff !important;
+    text-shadow: 0 2px 18px rgba(0,0,0,.55);
+  }
+  .hero > .hero-inner > h1 span,
+  main .hero > .hero-inner > h1 span { color: #ffa3a8 !important; }
+}
+@media (max-width: 768px) {
+  .hero > .hero-inner > h1,
+  .hero > .hero-inner > p,
+  main .hero > .hero-inner > h1,
+  main .hero > .hero-inner > p {
+    color: #151515 !important;
+    text-shadow: none !important;
+  }
+  .hero > .hero-inner > h1 span,
+  main .hero > .hero-inner > h1 span { color: #b3121a !important; }
+}
