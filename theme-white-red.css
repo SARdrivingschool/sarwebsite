@@ -597,3 +597,19 @@ main .callback-hours { color: #6b7078 !important; }
   color: #8f0e15 !important;
   border-color: #fff1f1 !important;
 }
+
+/* Inline prose links inside cards and section intros were being repainted
+   near-black by the global main-text rule, so they read as bold text rather
+   than links. Give them the brand red and an underline. */
+.card p a, .card li a,
+.section-head p a,
+.terms-block p a, .terms-block li a,
+main .card p a, main .section-head p a {
+  color: #b3121a !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+.card p a:hover, .section-head p a:hover,
+.terms-block p a:hover, main .card p a:hover {
+  color: #8f0e15 !important;
+}
