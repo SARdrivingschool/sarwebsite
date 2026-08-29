@@ -656,5 +656,23 @@ gtag('config', 'AW-18198829338');
   </a>
 
   <script src="cookie-consent.js" defer></script>
+<!-- SAR — WhatsApp click conversion (Google Ads) -->
+<script>
+(function () {
+  var SEND_TO = 'AW-18198829338/gvxFCNnnkeocEJqy8OVD';
+  var fired = false;
+  document.addEventListener('click', function (e) {
+    if (fired) return;
+    var t = e.target;
+    if (!t || typeof t.closest !== 'function') return;
+    var link = t.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]');
+    if (!link) return;
+    fired = true;
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: SEND_TO });
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
