@@ -565,3 +565,19 @@ footer a:hover { color: var(--ink); }
 .whatsapp-float:hover { opacity: .85; text-decoration: none; }
 .whatsapp-float svg, .whatsapp-float img { width: 22px; height: 22px; fill: currentColor; }
 @media (min-width: 901px) { .whatsapp-float { display: none; } }
+
+/* --------------------------------------------------------- hero imagery --
+   The photography sits BELOW the hero copy rather than behind it: no scrim,
+   no white-on-photo contrast risk, and the image is shown at full strength
+   instead of being darkened to make text readable over it. */
+.hero-media { margin: 0; padding: 0 var(--gutter) var(--s7); background: var(--surface); }
+@media (max-width: 768px) { .hero-media { padding-bottom: var(--s6); } }
+.hero-media picture, .hero-media img {
+  display: block; width: 100%; max-width: var(--maxw); margin: 0 auto;
+}
+.hero-media img {
+  aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: var(--r-panel); background: var(--surface-2);
+}
+@media (max-width: 640px) { .hero-media img { aspect-ratio: 4 / 3; } }
+section.hero:has(+ .hero-media), main .hero:has(+ .hero-media) { padding-bottom: var(--s5); }
