@@ -502,13 +502,16 @@ header .nav, header .nav-inner { display: flex; align-items: center; gap: var(--
 }
 
 /* footer */
-footer {
+/* direct child only — a bare `footer` selector also catches the <footer>
+   inside each review blockquote and boxes the attribution */
+body > footer {
   border-top: 1px solid var(--hairline); padding: var(--s6) var(--gutter) var(--s5);
   font-size: 14px; color: var(--ink-2); background: var(--surface);
   max-width: var(--maxw); margin: 0 auto; text-align: left;
 }
-footer a { color: var(--ink-2); }
-footer a:hover { color: var(--ink); }
+body > footer a { color: var(--ink-2); }
+body > footer a:hover { color: var(--ink); }
+.review footer { display: block; margin-top: var(--s1); }
 .footer-local h3 { font-size: 14px; font-weight: 600; color: var(--ink); letter-spacing: 0; margin-bottom: var(--s3); }
 .footer-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); margin-bottom: var(--s5); }
 .trader-identity { margin-top: var(--s3); line-height: 1.6; }
