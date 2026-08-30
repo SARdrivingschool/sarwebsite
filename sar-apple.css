@@ -596,3 +596,35 @@ section.hero:has(+ .hero-media), main .hero:has(+ .hero-media) { padding-bottom:
 @media (max-width: 900px) {
   body > footer { padding-bottom: calc(var(--s5) + 56px); }
 }
+
+/* ------------------------------------------------------------- features --
+   A photograph paired with its copy. Alternates side on desktop so a run of
+   them doesn't read as a list of identical rows; stacks on mobile. */
+.feature { display: grid; gap: var(--s5); align-items: center; }
+.feature + .feature { margin-top: var(--s7); }
+@media (min-width: 901px) {
+  .feature { grid-template-columns: 1fr 1fr; gap: var(--s6); }
+  .feature:nth-child(even) .feature-media { order: 2; }
+}
+.feature-media img {
+  width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--r-panel); background: var(--surface-2);
+}
+.feature h2 + .meta { margin-top: var(--s1); }
+.feature .meta { color: var(--ink-2); font-weight: 600; }
+.feature > div > p { margin-top: var(--s2); color: var(--ink-2); max-width: var(--measure); }
+
+/* tick lists — the marker is the only decoration, so keep it quiet */
+.checks { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.checks li { position: relative; padding-left: 26px; margin-bottom: var(--s1); color: var(--ink-2); }
+.checks li::before {
+  content: "✓"; position: absolute; left: 0; top: 0;
+  color: var(--ink-2); font-weight: 600;
+}
+
+/* a short row of figures used as proof */
+.stat-row { display: grid; gap: var(--s5); margin-top: var(--s5); }
+@media (min-width: 641px) { .stat-row { grid-template-columns: repeat(3, 1fr); } }
+.stat-row div { display: flex; flex-direction: column; gap: 4px; }
+.stat-row dt, .stat-row .figure { font-size: var(--f-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+.stat-row dd, .stat-row .label-sm { margin: 0; color: var(--ink-2); }
