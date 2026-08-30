@@ -117,13 +117,13 @@ section { padding: var(--s7) 0; }
 .site-head .wrap { display: flex; align-items: center; gap: var(--s3); min-height: 56px; }
 .brand { display: flex; align-items: center; margin-right: auto; }
 .brand img { height: 30px; width: auto; }
-.nav { display: flex; align-items: center; gap: var(--s3); list-style: none; margin: 0; padding: 0; }
-.nav a {
+.site-head .nav { display: flex; align-items: center; gap: var(--s3); list-style: none; margin: 0; padding: 0; }
+.site-head .nav a {
   font-size: 14px; font-weight: 400; color: var(--ink);
   display: inline-flex; align-items: center; min-height: 44px;
 }
-.nav a:hover { color: var(--ink-2); text-decoration: none; }
-.nav .nav-cta { color: var(--accent); font-weight: 600; }
+.site-head .nav a:hover { color: var(--ink-2); text-decoration: none; }
+.site-head .nav .nav-cta { color: var(--accent); font-weight: 600; }
 .menu-btn {
   display: none; width: 44px; height: 44px; margin-right: -10px;
   background: none; border: 0; cursor: pointer; color: var(--ink);
@@ -135,7 +135,7 @@ section { padding: var(--s7) 0; }
 
 @media (max-width: 900px) {
   .menu-btn { display: block; }
-  .nav {
+  .site-head .nav {
     position: fixed; inset: 56px 0 auto 0;
     flex-direction: column; align-items: stretch; gap: 0;
     padding: var(--s2) var(--gutter) var(--s4);
@@ -144,8 +144,8 @@ section { padding: var(--s7) 0; }
     transition: opacity .3s var(--ease), transform .3s var(--ease);
     max-height: calc(100vh - 56px); overflow-y: auto;
   }
-  .nav.open { transform: none; opacity: 1; pointer-events: auto; }
-  .nav a { font-size: var(--f-body); min-height: 48px; }
+  .site-head .nav.open { transform: none; opacity: 1; pointer-events: auto; }
+  .site-head .nav a { font-size: var(--f-body); min-height: 48px; }
 }
 
 /* ----------------------------------------------------------------- hero -- */
@@ -450,7 +450,11 @@ header {
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--hairline);
 }
-header .nav, header .nav-inner { display: flex; align-items: center; gap: var(--s3); min-height: 56px; }
+/* the legacy header wraps its contents in <div class="container nav"> — the
+   element selector keeps it a row and stops it matching the new .nav menu */
+header > .container.nav, header > .nav-inner, header .nav-inner {
+  display: flex; align-items: center; gap: var(--s3); min-height: 56px;
+}
 .logo { display: flex; align-items: center; margin-right: auto; }
 .logo-img { height: 30px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: var(--s3); list-style: none; margin: 0; padding: 0; }
@@ -936,3 +940,64 @@ section.block-section .card-tag.best, .top-badge.best, .top-badge.gold {
   background: transparent !important; color: var(--accent) !important;
   padding-left: 0 !important; padding-right: 0 !important; width: auto;
 }
+
+/* ================================== FORMS ================================
+   The enquiry form. Native HTML controls styled to the system — no library,
+   works with the keyboard, and submits even if JavaScript fails. */
+.form { display: grid; gap: var(--s4); max-width: 640px; }
+.field { display: grid; gap: var(--s1); }
+.field > label, .fieldset > legend {
+  font-size: 14px; font-weight: 600; color: var(--ink); padding: 0;
+}
+.field .hint { font-size: 14px; color: var(--ink-2); }
+.field .req { color: var(--accent); }
+
+.input, input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+  width: 100%; min-height: 48px; padding: 12px 16px;
+  font: inherit; font-size: var(--f-body); color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: 12px; appearance: none;
+  transition: border-color .3s var(--ease);
+}
+textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-2) 50%),
+                    linear-gradient(135deg, var(--ink-2) 50%, transparent 50%);
+  background-position: calc(100% - 21px) 21px, calc(100% - 15px) 21px;
+  background-size: 6px 6px, 6px 6px; background-repeat: no-repeat;
+  padding-right: 44px;
+}
+.input:focus, input:focus, textarea:focus, select:focus { border-color: var(--ink-2); outline: none; }
+.input:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px;
+}
+::placeholder { color: var(--ink-2); opacity: 1; }
+
+/* radio groups rendered as selectable chips */
+.fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s1); }
+.chips label {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 10px 20px;
+  background: var(--surface); color: var(--ink-2);
+  border: 1px solid var(--hairline); border-radius: 999px;
+  font-size: var(--f-body); cursor: pointer;
+  transition: border-color .3s var(--ease), color .3s var(--ease);
+}
+.chips input { position: absolute; opacity: 0; width: 0; height: 0; }
+.chips input:checked + span { color: var(--accent-ink); }
+.chips label:has(input:checked) { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chips label:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.form .btn-primary { justify-self: start; }
+.form-note { font-size: 14px; color: var(--ink-2); max-width: var(--measure); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-status { display: none; padding: var(--s3) var(--s4); border-radius: 12px; font-weight: 600; }
+.form-status.show { display: block; }
+.form-status.ok { background: var(--surface-2); color: var(--ink); }
+.form-status.err { background: var(--surface-2); color: var(--accent); }
+
+/* the form sits beside the reassurance cards on a wide screen */
+.booking-wrap { display: grid; gap: var(--s6); align-items: start; }
+@media (min-width: 1000px) { .booking-wrap { grid-template-columns: 1.4fr 1fr; } }
+.info-strip { display: grid; gap: var(--s3); background: none; padding: 0; border-radius: 0; }
