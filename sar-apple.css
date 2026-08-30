@@ -200,7 +200,7 @@ a.card:hover .go { text-decoration: underline; }
 }
 
 /* ------------------------------------------------------------------ faq -- */
-.faq { display: grid; gap: 0; margin-top: var(--s5); }
+.faq { display: grid; gap: 0; margin-top: 0; }
 .faq details { border-top: 1px solid var(--hairline); }
 .faq details:last-of-type { border-bottom: 1px solid var(--hairline); }
 .faq summary {
@@ -273,11 +273,11 @@ a.card:hover .go { text-decoration: underline; }
 /* ------------------------------------------------------------ floating -- */
 .float {
   position: fixed; right: var(--s3); bottom: var(--s3); z-index: 60;
-  display: flex; flex-direction: column; gap: var(--s1);
+  display: flex; flex-direction: row; gap: var(--s1);
 }
 .float a {
   display: flex; align-items: center; justify-content: center;
-  width: 52px; height: 52px; border-radius: 999px;
+  width: 48px; height: 48px; border-radius: 999px;
   background: var(--accent); color: var(--accent-ink);
   box-shadow: 0 4px 24px rgba(0,0,0,.06);
 }
@@ -339,16 +339,21 @@ a.card:hover .go { text-decoration: underline; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
 
 /* alternating section grounds (were #0c0c0c / #101010) */
-.dark, .soft, .callback, .cta, .faq, .areas, .reviews, .why,
-.how-it-works, .local-seo, .quick-message, .pass-preview, .trust-strip { padding: var(--s7) 0; }
+section.dark, section.soft, section.callback, section.cta, section.faq,
+section.areas, section.reviews, section.why, section.how-it-works,
+section.local-seo, section.quick-message, section.pass-preview,
+section.trust-strip { padding: var(--s7) 0; }
 @media (max-width: 768px) {
-  .dark, .soft, .callback, .cta, .faq, .areas, .reviews, .why,
-  .how-it-works, .local-seo, .quick-message, .pass-preview, .trust-strip { padding: var(--s6) 0; }
+  section.dark, section.soft, section.callback, section.cta, section.faq,
+  section.areas, section.reviews, section.why, section.how-it-works,
+  section.local-seo, section.quick-message, section.pass-preview,
+  section.trust-strip { padding: var(--s6) 0; }
 }
-.dark  { background: var(--surface); color: var(--ink); }
-.soft  { background: var(--surface-2); color: var(--ink); }
-.callback, .areas, .reviews, .how-it-works { background: var(--surface-2); }
-.faq, .why, .local-seo, .pass-preview, .quick-message, .cta { background: var(--surface); }
+section.dark  { background: var(--surface); color: var(--ink); }
+section.soft  { background: var(--surface-2); color: var(--ink); }
+section.callback, section.areas, section.reviews, section.how-it-works { background: var(--surface-2); }
+section.faq, section.why, section.local-seo, section.pass-preview,
+section.quick-message, section.cta { background: var(--surface); }
 
 /* hero — was a photo with a dark scrim; now plain, like the homepage */
 section.hero, main .hero {
@@ -520,11 +525,11 @@ body > footer a:hover { color: var(--ink); }
 /* floating actions */
 .floating-actions {
   position: fixed; right: var(--s3); bottom: var(--s3); z-index: 60;
-  display: flex; flex-direction: column; gap: var(--s1);
+  display: flex; flex-direction: row; gap: var(--s1);
 }
 .float-btn {
   display: flex; align-items: center; justify-content: center;
-  width: 52px; height: 52px; border-radius: 999px;
+  width: 48px; height: 48px; border-radius: 999px;
   background: var(--accent); color: var(--accent-ink);
   box-shadow: 0 4px 24px rgba(0,0,0,.06);
 }
@@ -584,3 +589,10 @@ body > footer a:hover { color: var(--ink); }
   height: auto; border-radius: var(--r-panel); background: var(--surface-2);
 }
 section.hero:has(+ .hero-media), main .hero:has(+ .hero-media) { padding-bottom: var(--s5); }
+
+
+/* the floating buttons overlay the page, so the footer's final lines need
+   room underneath to stay readable on a phone */
+@media (max-width: 900px) {
+  body > footer { padding-bottom: calc(var(--s5) + 56px); }
+}

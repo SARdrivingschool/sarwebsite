@@ -11,8 +11,200 @@
     content="Help and support for the SAR Driving School staff app, and how pupils can reach us."
   />
 
-  
-<link rel="stylesheet" href="sar-apple.css">
+  <style>
+    :root {
+      --red: #d71920;
+      --dark: #111111;
+      --text: #2b2b2b;
+      --muted: #6b7280;
+      --background: #f7f7f8;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --green: #16803a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 44px 20px;
+      border-bottom: 4px solid var(--red);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      max-width: 700px;
+      color: #d1d5db;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 35px auto;
+      padding: 0 20px 60px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--dark);
+      font-size: 24px;
+    }
+
+    h3 {
+      color: var(--dark);
+      margin-bottom: 7px;
+    }
+
+    p,
+    li {
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 13px 20px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--red);
+      color: white;
+    }
+
+    .button-secondary {
+      background: var(--dark);
+      color: white;
+    }
+
+    .button:hover {
+      opacity: 0.88;
+    }
+
+    .support-option {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .support-option:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .support-option:first-child {
+      padding-top: 0;
+    }
+
+    .contact-box {
+      border-left: 4px solid var(--red);
+      padding: 16px 18px;
+      background: #fafafa;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .note {
+      border-left: 4px solid var(--dark);
+      padding: 16px 18px;
+      background: #f3f4f6;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .status {
+      display: inline-block;
+      color: var(--green);
+      background: #effaf2;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 34px 18px;
+      }
+
+      main {
+        margin-top: 22px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .card {
+        padding: 22px;
+        border-radius: 12px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
