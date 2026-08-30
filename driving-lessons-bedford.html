@@ -57,733 +57,8 @@ gtag('config', 'AW-18198829338');
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <style>
-    :root {
-      --red: #ed1c24;
-      --red-dark: #b80f16;
-      --dark: #050505;
-      --card: #141414;
-      --text: #ffffff;
-      --muted: #cfcfcf;
-      --border: rgba(255,255,255,0.12);
-      --green: #25D366;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      width: 100%;
-      overflow-x: hidden;
-      background: var(--dark);
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    header {
-      position: relative;
-      width: 100%;
-      z-index: 50;
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
-    }
-
-    .nav {
-      min-height: 104px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo-img {
-      width: 165px;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: #000000;
-      font-size: 0.95rem;
-      font-weight: 800;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--red);
-    }
-
-    .btn-nav {
-      background: var(--red);
-      color: #ffffff !important;
-      padding: 13px 22px;
-      border-radius: 12px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
-    }
-
-    .hamburger {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: transparent;
-      border: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      width: 30px;
-      height: 3px;
-      background: #000000;
-      border-radius: 99px;
-      transition: 0.25s;
-    }
-
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
-    }
-
-    .hero {
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.68) 48%, rgba(0,0,0,0.28) 100%),
-        radial-gradient(circle at 18% 68%, rgba(237,28,36,0.22), transparent 35%),
-        url("images/female-driver-right-side.webp");
-      background-size: cover;
-      background-position: center;
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      padding: 84px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .label {
-      display: inline-flex;
-      color: var(--red);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .hero-label {
-      color: #ffffff;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(237,28,36,0.5);
-      background: rgba(95,0,0,0.46);
-      margin-bottom: 26px;
-      backdrop-filter: blur(8px);
-    }
-
-    h1 {
-      font-size: clamp(3.2rem, 7vw, 6rem);
-      line-height: 0.96;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-      font-weight: 900;
-    }
-
-    h1 span {
-      color: var(--red);
-    }
-
-    .hero p {
-      color: #e8e8e8;
-      font-size: 1.24rem;
-      line-height: 1.65;
-      max-width: 780px;
-      margin-bottom: 30px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .btn {
-      min-height: 58px;
-      padding: 0 28px;
-      border-radius: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 1rem;
-      transition: transform 0.2s ease, background 0.2s ease;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #ffffff;
-      box-shadow: 0 12px 28px rgba(237,28,36,0.28);
-    }
-
-    .btn-primary:hover {
-      background: var(--red-dark);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.24);
-      background: rgba(255,255,255,0.08);
-      color: #ffffff;
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-whatsapp {
-      border: 1px solid rgba(37,211,102,0.45);
-      background: rgba(37,211,102,0.14);
-      color: #ffffff;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      max-width: 900px;
-    }
-
-    .stat-card {
-      background: rgba(0,0,0,0.44);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 20px;
-      padding: 21px;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: 1.65rem;
-      color: #ffffff;
-      margin-bottom: 6px;
-      line-height: 1;
-    }
-
-    .stat-card span {
-      color: #d0d0d0;
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    section {
-      padding: 68px 0;
-    }
-
-    .dark {
-      background: #0c0c0c;
-    }
-
-    .soft {
-      background: #101010;
-    }
-
-    .section-head {
-      max-width: 860px;
-      margin-bottom: 34px;
-    }
-
-    .section-head.center {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    h2 {
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      line-height: 1.08;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-
-    .section-head p,
-    .text p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 26px;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
-    }
-
-    .card h3 {
-      font-size: 1.32rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 0.98rem;
-    }
-
-    .price {
-      display: inline-flex;
-      align-items: center;
-      margin: 16px 0 0;
-      color: #ffffff;
-      background: rgba(237,28,36,0.12);
-      border: 1px solid rgba(237,28,36,0.24);
-      border-radius: 999px;
-      padding: 9px 13px;
-      font-weight: 900;
-      font-size: 0.94rem;
-    }
-
-    .area-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .area-pill {
-      background: #141414;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 13px 18px;
-      font-weight: 900;
-      color: #ffffff;
-    }
-
-    .cta-panel {
-      background:
-        linear-gradient(90deg, rgba(237,28,36,0.88), rgba(0,0,0,0.66)),
-        url("images/female-driver-right-side.webp");
-      background-size: cover;
-      background-position: center;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 46px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .cta-panel p {
-      color: #f0f0f0;
-      line-height: 1.7;
-      font-size: 1.05rem;
-      margin-bottom: 24px;
-    }
-
-    .cta-box {
-      background: rgba(0,0,0,0.42);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 22px;
-      padding: 28px;
-      backdrop-filter: blur(8px);
-    }
-
-    .cta-box strong {
-      display: block;
-      font-size: 1.55rem;
-      margin-bottom: 10px;
-    }
-
-    .cta-box span {
-      color: #dddddd;
-      line-height: 1.6;
-    }
-
-    footer {
-    padding: 34px 0;
-    text-align: center;
-    color: #999;
-    background: #050505;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-local {
-    width: min(var(--max), calc(100% - 32px));
-    margin: 0 auto 24px;
-    }
-
-    .footer-local h3 {
-    color: #ffffff;
-    font-size: 1.05rem;
-    margin-bottom: 14px;
-    }
-
-    .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 18px;
-    }
-
-    .footer-links a {
-    color: #cfcfcf;
-    font-size: 0.92rem;
-    font-weight: 700;
-    }
-
-    .footer-links a:hover {
-    color: var(--red);
-    }
-
-    .floating-actions {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 100;
-    }
-
-    .float-btn {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease;
-    }
-
-    .float-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .float-call {
-      background: var(--red);
-    }
-
-    .float-whatsapp {
-      background: var(--green);
-    }
-
-    .float-btn svg {
-      width: 29px;
-      height: 29px;
-    }
-
-    @media (max-width: 1020px) {
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cta-panel {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        width: min(100% - 28px, var(--max));
-      }
-
-      .nav {
-        min-height: 96px;
-      }
-
-      .logo-img {
-        width: 158px;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 96px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 12px 24px 20px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        z-index: 99;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li {
-        width: 100%;
-      }
-
-      .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.08);
-      }
-
-      .btn-nav {
-        margin-top: 12px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 44px 0;
-        background:
-          linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.92)),
-          url("images/female-driver-right-side.webp");
-        background-size: cover;
-        background-position: center;
-      }
-
-      h1 {
-        font-size: clamp(2.35rem, 10vw, 3.2rem);
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 0.98rem;
-        line-height: 1.58;
-      }
-
-      .actions {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .btn {
-        width: 100%;
-        min-height: 50px;
-        border-radius: 14px;
-        font-size: 0.95rem;
-      }
-
-      .stats,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .stat-card,
-      .card {
-        padding: 18px;
-        border-radius: 18px;
-      }
-
-      section {
-        padding: 46px 0;
-      }
-
-      h2 {
-        font-size: clamp(1.9rem, 8.5vw, 2.55rem);
-      }
-
-      .section-head p,
-      .text p {
-        font-size: 0.96rem;
-        line-height: 1.6;
-      }
-
-      .cta-panel {
-        padding: 22px 18px;
-        border-radius: 20px;
-      }
-
-      .cta-box {
-        padding: 18px;
-        border-radius: 16px;
-      }
-
-      .floating-actions {
-        right: 14px;
-        bottom: 14px;
-        gap: 10px;
-      }
-
-      .float-btn {
-        width: 54px;
-        height: 54px;
-      }
-    }
   
-    .area-rate-note {
-      background: #fff5f5;
-      border: 1px solid rgba(237,28,36,0.24);
-      border-left: 4px solid var(--red);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin: 0 0 18px;
-      font-size: 0.95rem;
-      line-height: 1.55;
-      max-width: 560px;
-    }
-  
-    /* REQUEST A CALLBACK */
-    .callback {
-      background: #f6f7f9;
-      padding: 66px 0;
-      border-top: 1px solid rgba(17,24,39,0.08);
-      border-bottom: 1px solid rgba(17,24,39,0.08);
-    }
-
-    .callback-inner {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .callback h2 {
-      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
-    }
-
-    .callback-points {
-      list-style: none;
-      margin: 18px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .callback-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.97rem;
-      line-height: 1.5;
-    }
-
-    .callback-points li::before {
-      content: "\2713";
-      flex: 0 0 22px;
-      height: 22px;
-      margin-top: 1px;
-      border-radius: 50%;
-      background: var(--red);
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .callback-card {
-      background: #ffffff;
-      border: 1px solid rgba(17,24,39,0.11);
-      border-radius: 26px;
-      box-shadow: 0 14px 40px rgba(17,24,39,0.07);
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .callback-card iframe {
-      display: block;
-      width: 100%;
-      border: none;
-      background: transparent;
-    }
-
-    .callback-alt {
-      margin-top: 16px;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .callback-alt a { color: var(--red); font-weight: 800; }
-
-    @media (max-width: 900px) {
-      .callback-inner { grid-template-columns: 1fr; gap: 22px; }
-      .callback { padding: 52px 0; }
-    }
-  </style>
-<link rel="stylesheet" href="theme-white-red.css">
+<link rel="stylesheet" href="sar-apple.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -876,62 +151,6 @@ gtag('config', 'AW-18198829338');
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much are driving lessons in Bedford?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "£43 an hour with a 2 hour minimum booking, because your instructor travels out from Milton Keynes. If you can start your lesson in Milton Keynes instead it is £38 an hour with no minimum."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is Bedford more expensive than Milton Keynes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It is a travel charge, not a different standard of lesson. Your instructor spends roughly an hour on the road either side of a Bedford lesson. The £5 difference covers that rather than being absorbed into everyone else's price."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which test centre would I use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bedford Heights on Manton Lane, MK41 7NY. Some Bedford learners also choose Bletchley, which we know extremely well - ask us and we will tell you honestly which suits you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you pick me up from a Bedford address?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, within Bedford and the surrounding villages, subject to instructor availability. Send us your postcode and we will confirm before you commit to anything."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you have a female instructor available in Bedford?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our female instructors all teach automatic. Availability for Bedford travel varies week to week, so ask and we will check rather than guess."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use your car for my test at Manton Lane?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, subject to an assessment and you driving at DVSA test standard. We will tell you plainly if we do not think you are ready."
-      }
-    }
-  ]
-}
-</script>
 </head>
 
 <body>
@@ -967,7 +186,7 @@ gtag('config', 'AW-18198829338');
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="label hero-label">📍 Driving Lessons in Bedford</div>
+          <div class="label hero-label">Driving Lessons in Bedford</div>
 
           <h1>
             Driving Lessons<br>
@@ -1051,46 +270,43 @@ gtag('config', 'AW-18198829338');
       </div>
     </section>
 
-        <section class="soft">
+    <section class="soft">
       <div class="container">
         <div class="section-head">
-          <div class="label">Bedford Test Centre</div>
-          <h2>Where your Bedford test actually happens</h2>
+          <div class="label">Bedford Test Preparation</div>
+          <h2>Build confidence on Bedford roads</h2>
           <p>
-            Bedford practical tests run from <strong>Bedford Heights, Manton Lane, Bedford MK41 7NY</strong>.
-            It is a relatively new site &mdash; the DVSA moved testing here in May 2021 after Cardington closed &mdash;
-            so a lot of older route advice you will find online is for a centre that no longer exists.
+            Bedford driving can include busy junctions, town driving, rural roads, roundabouts and changing speed limits.
+            Our lessons focus on safe planning, observations, lane discipline, parking and confidence in real driving situations.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <h3>North of the river</h3>
-            <p>Manton Lane sits on the north side of Bedford, which means candidates spend most of the test on that side of the Great Ouse rather than crossing into the town centre repeatedly.</p>
+            <h3>Town Driving</h3>
+            <p>Practise safe positioning, planning, meeting traffic, pedestrian crossings and busy Bedford roads.</p>
           </div>
 
           <div class="card">
-            <h3>Mixed speed limits</h3>
-            <p>Routes typically string together 30mph residential streets, 40mph link roads and faster dual carriageway stretches. Reading the limit changes early is where a lot of faults get picked up.</p>
+            <h3>Roundabouts & Junctions</h3>
+            <p>Build confidence with lane choice, observations, signalling, timing and safe decision-making.</p>
           </div>
 
           <div class="card">
-            <h3>We practise on the real thing</h3>
-            <p>Because your lesson is a 2 hour block, there is time to actually drive the roads around Manton Lane rather than just talk about them.</p>
+            <h3>Mock Driving Tests</h3>
+            <p>Mock tests help you understand DVSA test standard and identify what to improve before your real test.</p>
           </div>
         </div>
       </div>
     </section>
 
-
-        <section class="dark">
+    <section class="dark">
       <div class="container">
         <div class="section-head">
-          <div class="label">Areas We Cover</div>
-          <h2>Driving lessons across Bedford and the surrounding villages</h2>
+          <div class="label">Common Local Areas</div>
+          <h2>Driving lessons across Bedford and nearby areas</h2>
           <p>
-            Manual, automatic and refresher lessons. If your address is not listed, send us your
-            postcode anyway &mdash; we will tell you straight whether we can cover it.
+            We cover Bedford and surrounding areas for manual, automatic and refresher driving lessons.
           </p>
         </div>
 
@@ -1102,13 +318,11 @@ gtag('config', 'AW-18198829338');
           <div class="area-pill">Elstow</div>
           <div class="area-pill">Clapham</div>
           <div class="area-pill">Biddenham</div>
-          <div class="area-pill">Wootton</div>
-          <div class="area-pill">Wixams</div>
-          <div class="area-pill">Shortstown</div>
+          <div class="area-pill">Milton Keynes</div>
+          <div class="area-pill">Bletchley</div>
         </div>
       </div>
     </section>
-
 
     <section class="soft">
       <div class="container">
@@ -1139,78 +353,47 @@ gtag('config', 'AW-18198829338');
       </div>
     </section>
 
-        <section class="dark">
-      <div class="container">
-        <div class="section-head">
-          <div class="label">Read this first</div>
-          <h2>How lessons in Bedford really work</h2>
-          <p>
-            We would rather be straight with you than take a booking we cannot deliver well.
-            SAR Driving School is a Milton Keynes school. Here is exactly what that means for a Bedford learner.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>Your instructor travels out to you</h3>
-            <p>We do not currently have an instructor based in Bedford. Yours drives out from Milton Keynes, which is why Bedford lessons are <strong>£43 an hour</strong> rather than our standard £38, and why we ask for a <strong>2 hour minimum</strong>. Anything shorter and most of the lesson is travel.</p>
-          </div>
-
-          <div class="card">
-            <h3>Why 2 hours is better anyway</h3>
-            <p>Two hours is long enough to leave the estate roads, cover a full test route, do manoeuvres properly and still debrief. Most learners progress faster on fewer, longer lessons than on a weekly hour.</p>
-          </div>
-
-          <div class="card">
-            <h3>Cheaper if you can start in Milton Keynes</h3>
-            <p>If you work, study or have family in Milton Keynes, starting your lesson there is <strong>£38 an hour with no minimum</strong>. Plenty of Bedford learners do exactly this and still take their test at Manton Lane.</p>
-          </div>
-
-          <div class="card">
-            <h3>We are hiring in Bedford</h3>
-            <p>We are training new instructors who live locally, so Bedford eventually has its own. If that sounds like you, have a look at <a href="instructor-training.html">becoming a driving instructor with SAR</a>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="dark">
       <div class="container">
         <div class="section-head">
           <div class="label">FAQ</div>
           <h2>Bedford driving lesson questions</h2>
-          <p>Straight answers for learners looking for driving lessons in Bedford.</p>
+          <p>Quick answers for learners looking for driving lessons in Bedford.</p>
         </div>
 
         <div class="grid-2">
           <div class="card">
             <h3>How much are driving lessons in Bedford?</h3>
-            <p>£43 an hour with a 2 hour minimum booking, because your instructor travels out from Milton Keynes. If you can start your lesson in Milton Keynes instead it is £38 an hour with no minimum.</p>
+            <p>Lessons in Bedford are £43 per hour with a 2 hour minimum booking, as your instructor travels out from Milton Keynes. Lessons that start in Milton Keynes are £38 per hour.</p>
           </div>
+
           <div class="card">
-            <h3>Why is Bedford more expensive than Milton Keynes?</h3>
-            <p>It is a travel charge, not a different standard of lesson. Your instructor spends roughly an hour on the road either side of a Bedford lesson. The £5 difference covers that rather than being absorbed into everyone else's price.</p>
+            <h3>Do you offer automatic driving lessons in Bedford?</h3>
+            <p>Yes, automatic lessons are available in Bedford and nearby areas.</p>
           </div>
+
           <div class="card">
-            <h3>Which test centre would I use?</h3>
-            <p>Bedford Heights on Manton Lane, MK41 7NY. Some Bedford learners also choose Bletchley, which we know extremely well &mdash; ask us and we will tell you honestly which suits you.</p>
+            <h3>Do you offer manual driving lessons in Bedford?</h3>
+            <p>Yes, manual lessons are available in Bedford at £43 per hour with a 2 hour minimum booking.</p>
           </div>
+
           <div class="card">
-            <h3>Can you pick me up from a Bedford address?</h3>
-            <p>Yes, within Bedford and the surrounding villages, subject to instructor availability. Send us your postcode and we will confirm before you commit to anything.</p>
+            <h3>Do you help nervous learners?</h3>
+            <p>Yes, our instructors provide calm, patient lessons for nervous learners and beginners.</p>
           </div>
+
           <div class="card">
-            <h3>Do you have a female instructor available in Bedford?</h3>
-            <p>Our female instructors all teach automatic. Availability for Bedford travel varies week to week, so ask and we will check rather than guess.</p>
+            <h3>Do you offer refresher lessons?</h3>
+            <p>Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building.</p>
           </div>
+
           <div class="card">
-            <h3>Can I use your car for my test at Manton Lane?</h3>
-            <p>Yes, subject to an assessment and you driving at DVSA test standard. We will tell you plainly if we do not think you are ready.</p>
+            <h3>Can I use your car for my driving test?</h3>
+            <p>Yes, subject to assessment and DVSA test-standard driving.</p>
           </div>
         </div>
       </div>
     </section>
-
 
     <section class="soft">
       <div class="container text">
@@ -1277,7 +460,7 @@ gtag('config', 'AW-18198829338');
       <div class="container">
         <div class="cta-panel">
           <div>
-            <div class="label" style="color:#fff;">Ready to start?</div>
+            <div class="label">Ready to start?</div>
             <h2>Book driving lessons in Bedford</h2>
             <p>
               Send us your area, availability and lesson type. We’ll let you know what we can offer.
@@ -1353,23 +536,5 @@ gtag('config', 'AW-18198829338');
 
   <script async src="https://tally.so/widgets/embed.js"></script>
   <script src="cookie-consent.js" defer></script>
-<!-- SAR — WhatsApp click conversion (Google Ads) -->
-<script>
-(function () {
-  var SEND_TO = 'AW-18198829338/gvxFCNnnkeocEJqy8OVD';
-  var fired = false;
-  document.addEventListener('click', function (e) {
-    if (fired) return;
-    var t = e.target;
-    if (!t || typeof t.closest !== 'function') return;
-    var link = t.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href^="whatsapp:"]');
-    if (!link) return;
-    fired = true;
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', { send_to: SEND_TO });
-    }
-  }, true);
-})();
-</script>
 </body>
 </html>
