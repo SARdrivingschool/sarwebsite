@@ -813,3 +813,126 @@ section.steps-section, section.timeline-section { background: var(--surface-2); 
 }
 .modal-arrow:hover, .modal-close:hover { background: rgba(255,255,255,.26); }
 .modal-close { position: fixed; top: var(--s3); right: var(--s3); }
+
+/* ================================ PRICING PAGE ===========================
+   Prices, badges and package cards. Figures use tabular numerals so columns
+   of money line up, and the accent marks only the recommended option. */
+
+.hero-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.hero-inner h1 + p, .hero-inner > p { margin-top: var(--s3); }
+.hero-price-row { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s4); }
+.hero-price-pill {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 6px 16px;
+  background: var(--surface-2); color: var(--ink-2);
+  border-radius: 999px; font-size: 14px; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* in-page jump links */
+section.price-nav { padding: var(--s4) 0; background: var(--surface-2); }
+.price-nav-row { display: flex; flex-wrap: wrap; gap: var(--s1); }
+.price-nav-row a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 8px 18px;
+  background: var(--surface); color: var(--ink-2);
+  border-radius: 999px; font-size: 14px; font-weight: 600;
+}
+.price-nav-row a:hover { color: var(--accent); text-decoration: none; }
+
+/* the two payment routes */
+section.pay-routes { padding: var(--s7) 0; }
+@media (max-width: 768px) { section.pay-routes { padding: var(--s6) 0; } }
+.pay-grid, .other-grid { display: grid; gap: var(--s5); margin-top: var(--s5); grid-template-columns: repeat(2, 1fr); }
+.single-grid, .choose-grid { display: grid; gap: var(--s5); margin-top: var(--s5); grid-template-columns: repeat(3, 1fr); }
+.block-grid { display: grid; gap: var(--s5); margin-top: var(--s5); grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) { .block-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px)  { .single-grid, .choose-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .pay-grid, .other-grid, .single-grid, .choose-grid, .block-grid { grid-template-columns: 1fr; } }
+
+.pay-card, .lesson-card, .price-card, .other-card, .choose-card {
+  position: relative;
+  background: var(--surface-2); color: var(--ink);
+  border: 0; border-radius: var(--r-panel); padding: var(--s4);
+  display: flex; flex-direction: column; gap: var(--s1);
+}
+.section-alt .pay-card, .section-alt .lesson-card, .section-alt .price-card,
+.section-alt .other-card, .section-alt .choose-card,
+section.block-section .price-card, section.choose-section .choose-card { background: var(--surface); }
+.pay-card p, .lesson-card p, .price-card p, .other-card p, .choose-card p { color: var(--ink-2); }
+
+/* badges — one idea each, so they stay quiet unless they mark the pick */
+.card-tag, .pay-tag, .save-badge, .top-badge {
+  align-self: flex-start; display: inline-flex; align-items: center;
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  background: var(--surface); color: var(--ink-2);
+}
+.section-alt .card-tag, .section-alt .save-badge, .section-alt .top-badge,
+section.block-section .save-badge, section.block-section .top-badge { background: var(--surface-2); }
+.top-badge.best, .top-badge.gold, .card-tag.best { background: var(--accent); color: var(--accent-ink); }
+
+/* figures */
+.main-price, .card-price, .pay-rate, .mini-price, .ask-price, .price-area {
+  font-variant-numeric: tabular-nums; color: var(--ink);
+}
+.main-price, .card-price, .pay-rate { font-size: var(--f-lead); font-weight: 700; letter-spacing: -.01em; }
+.was-price { color: var(--ink-2); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+.per-hour, .online-note, .pay-note, .pay-foot, .mini-price, .ask-price, .price-area {
+  font-size: 14px; color: var(--ink-2);
+}
+.online-note { display: block; margin-top: 4px; }
+.pay-foot { margin-top: var(--s3); padding-top: var(--s3); border-top: 1px solid var(--hairline); }
+.pay-note { max-width: var(--measure); margin-top: var(--s4); }
+
+/* tick / cross lists inside the payment routes */
+/* the ✓ and — already sit in the markup, so no pseudo-element marker here —
+   just hang them in the margin so the text lines up */
+.pay-list { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.pay-list li {
+  padding-left: 24px; text-indent: -24px;
+  margin-bottom: var(--s1); color: var(--ink-2);
+}
+.pay-list li strong { color: var(--ink); }
+
+.lesson-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); margin-top: auto; padding-top: var(--s3); }
+.red { color: var(--accent); }
+
+section.single-section, section.block-section, section.other-section, section.choose-section { padding: var(--s7) 0; }
+@media (max-width: 768px) {
+  section.single-section, section.block-section, section.other-section, section.choose-section { padding: var(--s6) 0; }
+}
+section.block-section, section.choose-section { background: var(--surface-2); }
+
+/* pricing feature lists — the tick is a styled marker rather than a literal
+   character in the copy, so it matches the lesson pages and can never double */
+.lesson-card ul, .price-card ul, .other-card ul, .choose-card ul { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.lesson-card ul li, .price-card ul li, .other-card ul li, .choose-card ul li {
+  position: relative; padding-left: 26px; margin-bottom: var(--s1); color: var(--ink-2);
+}
+.lesson-card ul li::before, .price-card ul li::before,
+.other-card ul li::before, .choose-card ul li::before {
+  content: "✓"; position: absolute; left: 0; top: 0; color: var(--ink-2); font-weight: 600;
+}
+
+
+/* the section-level badge rule was overriding the accent on the highlighted
+   package, leaving white text on a light grey pill */
+section.block-section .top-badge.best, section.block-section .top-badge.gold,
+section.block-section .card-tag.best, .top-badge.best, .top-badge.gold {
+  background: var(--accent); color: var(--accent-ink);
+}
+
+/* the four package buttons alternated between filled and plain in the original
+   markup, which read as broken rather than as a hierarchy. One treatment for a
+   row of equal choices; the "most popular" badge does the singling out. */
+.price-card .btn, .price-card .btn-secondary,
+.pay-grid .btn, .pay-grid .btn-secondary,
+.lesson-card .btn-primary {
+  background: var(--accent) !important; color: var(--accent-ink) !important;
+  padding-left: 24px !important; padding-right: 24px !important;
+  text-decoration: none !important; width: 100%;
+}
+.price-card .btn, .pay-grid .btn { margin-top: auto; }
+.lesson-card-actions .btn-secondary {
+  background: transparent !important; color: var(--accent) !important;
+  padding-left: 0 !important; padding-right: 0 !important; width: auto;
+}
