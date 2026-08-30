@@ -628,3 +628,188 @@ section.hero:has(+ .hero-media), main .hero:has(+ .hero-media) { padding-bottom:
 .stat-row div { display: flex; flex-direction: column; gap: 4px; }
 .stat-row dt, .stat-row .figure { font-size: var(--f-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
 .stat-row dd, .stat-row .label-sm { margin: 0; color: var(--ink-2); }
+
+/* -------------------------------------------------- prose / legal pages --
+   terms, privacy, app-privacy, app-support, thank-you. Their body markup is
+   kept exactly as written; these rules give it the system's typography. */
+section.page-hero { padding: var(--s8) 0 var(--s5); background: var(--surface); }
+@media (max-width: 768px) { section.page-hero { padding: var(--s6) 0 var(--s4); } }
+.page-hero-inner, .header-inner {
+  width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter);
+}
+.page-hero h1 { max-width: 18ch; }
+.page-hero p, .subtitle { margin-top: var(--s3); font-size: var(--f-lead); color: var(--ink-2); max-width: var(--measure); }
+
+.last-updated, .updated, .status {
+  display: inline-block; margin-top: var(--s3); padding: 6px 16px;
+  background: var(--surface-2); color: var(--ink-2);
+  border-radius: 999px; font-size: 14px; font-weight: 600;
+}
+
+main .card, .highlight-box, .contact-box, .note, .support-option, .next-steps {
+  background: var(--surface-2); color: var(--ink);
+  border: 0; border-radius: var(--r-panel); padding: var(--s4);
+  margin-bottom: var(--s3); max-width: none;
+}
+main .card h2, main .card h3, .highlight-box h2, .highlight-box h3 { margin-bottom: var(--s2); }
+main .card p, main .card li, .highlight-box p, .contact-box p, .note p, .support-option p { color: var(--ink-2); }
+main .card p + p, main .card ul, main .card ol { margin-top: var(--s2); }
+main .card h3, .support-option h3 { margin-top: var(--s3); }
+main .card > :first-child, .support-option > :first-child { margin-top: 0; }
+main ul, main ol { padding-left: 22px; }
+main li { margin-bottom: 6px; }
+main h2 { margin-top: var(--s5); }
+main h3 { margin-top: var(--s3); }
+main p + p, main h2 + p, main h3 + p { margin-top: var(--s2); }
+main section > .wrap > p, main .page-hero-inner > p { max-width: var(--measure); }
+
+.num { color: var(--ink-2); font-weight: 600; }
+.check-circle { font-size: var(--f-head); line-height: 1; color: var(--accent); }
+.footer-note { color: var(--ink-2); font-size: 14px; margin-top: var(--s3); }
+.buttons { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s4); }
+.button, .button-primary, .button-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 12px 24px; font-weight: 600;
+  border-radius: 999px; border: 0;
+}
+.button-primary { background: var(--accent); color: var(--accent-ink); }
+.button-secondary { background: transparent; color: var(--accent); padding-left: 0; padding-right: 0; }
+.button:hover { text-decoration: none; opacity: .85; }
+
+/* ============================ REMAINING PAGE COMPONENTS ===================
+   contact, book, about, gallery and socials keep their own markup; these map
+   their component names onto the same primitives used everywhere else. Named
+   explicitly rather than by wildcard so nothing is styled by accident. */
+
+section.areas-section, section.booking-section, section.contact-main-section,
+section.contact-options-section, section.cta-section, section.difference-section,
+section.faq-section, section.featured-section, section.final-cta-section,
+section.gallery-section, section.links-section, section.payment-section,
+section.promise-section, section.service-links-section, section.service-section,
+section.steps-section, section.story-section, section.timeline-section,
+section.book-hero, section.find-hero, section.gallery-hero { padding: var(--s7) 0; }
+@media (max-width: 768px) {
+  section.areas-section, section.booking-section, section.contact-main-section,
+  section.contact-options-section, section.cta-section, section.difference-section,
+  section.faq-section, section.featured-section, section.final-cta-section,
+  section.gallery-section, section.links-section, section.payment-section,
+  section.promise-section, section.service-links-section, section.service-section,
+  section.steps-section, section.story-section, section.timeline-section,
+  section.book-hero, section.find-hero, section.gallery-hero { padding: var(--s6) 0; }
+}
+section.booking-section, section.contact-options-section, section.difference-section,
+section.featured-section, section.payment-section, section.service-section,
+section.steps-section, section.timeline-section { background: var(--surface-2); }
+
+/* content wrappers */
+.areas-inner, .contact-inner, .faq-inner, .featured-inner, .gallery-hero-inner,
+.story-inner, .timeline-inner, .trust-inner, .booking-wrap, .gallery-intro {
+  width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter);
+}
+.book-hero, .find-hero, .gallery-hero { background: var(--surface); }
+.book-hero h1, .find-hero h1, .gallery-hero h1 { max-width: 16ch; }
+
+/* section headings */
+.booking-head, .difference-head, .faq-head, .links-head, .options-head,
+.payment-head, .promise-head, .service-head, .steps-head { margin-bottom: var(--s5); }
+.booking-head p, .difference-head p, .faq-head p, .links-head p, .options-head p,
+.payment-head p, .promise-head p, .service-head p, .steps-head p {
+  margin-top: var(--s2); font-size: var(--f-lead); color: var(--ink-2); max-width: var(--measure);
+}
+.areas-copy, .faq-copy, .featured-copy, .story-copy, .timeline-copy { max-width: var(--measure); }
+.areas-copy p, .faq-copy p, .featured-copy p, .story-copy p, .timeline-copy p { color: var(--ink-2); }
+.hero-card { max-width: var(--maxw); }
+.hero-note { margin-top: var(--s3); font-size: 14px; color: var(--ink-2); }
+
+/* grids */
+.difference-grid, .featured-panel-grid, .options-grid, .payment-grid,
+.promise-grid, .service-grid, .social-grid, .stats-grid, .trust-grid {
+  display: grid; gap: var(--s5); margin-top: var(--s5);
+  grid-template-columns: repeat(3, 1fr);
+}
+.stats-grid, .trust-grid { grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: var(--s4); }
+.payment-grid, .featured-panel-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) {
+  .difference-grid, .options-grid, .promise-grid, .service-grid, .social-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 640px) {
+  .difference-grid, .featured-panel-grid, .options-grid, .payment-grid, .promise-grid,
+  .service-grid, .social-grid, .stats-grid, .trust-grid { grid-template-columns: 1fr; }
+}
+
+/* card-shaped things */
+.contact-card, .cta-card, .difference-card, .faq-card, .final-cta-card,
+.info-card, .option-card, .promise-card, .featured-panel, .tally-panel,
+.fast-reply-box, .payment-note-box, .info-strip, .quick-contact, .mini-stat {
+  background: var(--surface-2); color: var(--ink);
+  border: 0; border-radius: var(--r-card); padding: var(--s4);
+  display: flex; flex-direction: column; gap: var(--s1);
+}
+.section-alt .contact-card, .section-alt .option-card, .booking-section .info-card,
+.difference-section .difference-card, .payment-section .payment-note-box,
+.service-section .service-grid > *, .steps-section .info-card,
+.timeline-section .timeline-item, .featured-section .featured-panel { background: var(--surface); }
+.contact-card p, .cta-card p, .difference-card p, .faq-card p, .info-card p,
+.option-card p, .promise-card p, .featured-panel p, .mini-stat span { color: var(--ink-2); }
+.contact-card-intro { color: var(--ink-2); margin-bottom: var(--s3); }
+.contact-icon, .difference-icon, .option-icon, .promise-icon, .social-icon,
+.timeline-number, .social-arrow { color: var(--ink-2); font-size: 14px; font-weight: 600; }
+
+/* lists */
+.contact-list, .faq-list, .featured-list, .timeline-list { list-style: none; margin: var(--s3) 0 0; padding: 0; }
+.contact-item, .timeline-item { padding: var(--s3) 0; border-top: 1px solid var(--hairline); }
+.contact-list .contact-item:last-child, .timeline-list .timeline-item:last-child { border-bottom: 1px solid var(--hairline); }
+.featured-list li { margin-bottom: var(--s1); color: var(--ink-2); }
+.faq-question { font-size: var(--f-lead); font-weight: 600; letter-spacing: -.01em; margin-bottom: var(--s1); }
+.faq-answer { color: var(--ink-2); max-width: var(--measure); }
+.social-text { color: var(--ink-2); }
+.brand-rating { font-size: 14px; color: var(--ink-2); }
+.hero-logo-wrap img { max-height: 56px; width: auto; }
+
+/* action rows */
+.cta-actions, .quick-actions, .story-actions {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); margin-top: var(--s5);
+}
+.btn-call { background: transparent !important; color: var(--accent) !important; padding-left: 0; padding-right: 0; }
+
+/* gallery */
+.gallery-controls, .gallery-toolbar { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s4); }
+.filter-btn {
+  min-height: 40px; padding: 8px 18px; font: inherit; font-size: 14px; font-weight: 600;
+  background: var(--surface-2); color: var(--ink-2);
+  border: 0; border-radius: 999px; cursor: pointer;
+}
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active { background: var(--accent); color: var(--accent-ink); }
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s2); margin-top: var(--s5); }
+@media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.gallery-grid img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--r-card); background: var(--surface-2); }
+.gallery-cta { margin-top: var(--s5); }
+
+/* social link icons — decorative, so they never carry meaning alone */
+.icon-book, .icon-email, .icon-facebook, .icon-instagram, .icon-phone,
+.icon-review, .icon-tiktok, .icon-web, .icon-whatsapp, .icon-youtube {
+  color: var(--ink-2); flex: none;
+}
+
+/* gallery lightbox */
+.gallery-modal {
+  position: fixed; inset: 0; z-index: 90;
+  display: none; align-items: center; justify-content: center;
+  padding: var(--s4); background: rgba(0,0,0,.92);
+}
+.gallery-modal.open, .gallery-modal[aria-hidden="false"] { display: flex; }
+.modal-box { display: flex; flex-direction: column; gap: var(--s3); max-width: 900px; width: 100%; }
+.modal-img-wrap { display: flex; justify-content: center; }
+.modal-img-wrap img { max-height: 76vh; width: auto; border-radius: var(--r-card); }
+.modal-controls { display: flex; align-items: center; justify-content: center; gap: var(--s4); }
+.modal-counter { color: #f5f5f7; font-size: 14px; font-variant-numeric: tabular-nums; }
+.modal-arrow, .modal-close {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; font-size: 24px; line-height: 1;
+  background: rgba(255,255,255,.14); color: #ffffff;
+  border: 0; border-radius: 999px; cursor: pointer;
+}
+.modal-arrow:hover, .modal-close:hover { background: rgba(255,255,255,.26); }
+.modal-close { position: fixed; top: var(--s3); right: var(--s3); }

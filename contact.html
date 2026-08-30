@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
      Advertising and analytics storage default to denied until the visitor chooses. -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -32,7 +31,6 @@ gtag('config', 'AW-18198829338');
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Contact SAR Driving School | Milton Keynes</title>
@@ -52,1107 +50,10 @@ gtag('config', 'AW-18198829338');
 <meta name="twitter:title" content="Contact SAR Driving School | Milton Keynes">
 <meta name="twitter:description" content="Call, WhatsApp or message SAR Driving School about driving lessons in Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.">
 <meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
-
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    :root {
-      --red: #ed1c24;
-      --red-dark: #b80f16;
-      --dark: #0b0b0b;
-      --black: #050505;
-      --soft: #101010;
-      --card: #151515;
-      --muted: #cfcfcf;
-      --border: rgba(255,255,255,0.12);
-      --green: #25D366;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      width: 100%;
-      overflow-x: hidden;
-      background: var(--dark);
-      color: #ffffff;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    /* NAV */
-    nav {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
-      position: relative;
-      z-index: 50;
-    }
-
-    .nav-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 16px;
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo-img {
-      width: 150px;
-      height: auto;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 24px;
-      align-items: center;
-    }
-
-    nav a {
-      color: #000000;
-      font-weight: 800;
-      font-size: 0.9rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--red);
-    }
-
-    .btn-nav {
-      background: var(--red);
-      color: #ffffff !important;
-      padding: 12px 21px;
-      border-radius: 11px;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(237,28,36,0.22);
-    }
-
-    .hamburger {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      z-index: 201;
-    }
-
-    .hamburger span {
-      width: 26px;
-      height: 3px;
-      background: #000000;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* SHARED */
-    .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-      display: inline-block;
-    }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-whatsapp {
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      border: 1px solid;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #ffffff;
-      border-color: var(--red);
-      box-shadow: 0 12px 28px rgba(237,28,36,0.24);
-    }
-
-    .btn-primary:hover {
-      background: var(--red-dark);
-      border-color: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
-      color: #ffffff;
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp {
-      background: rgba(37,211,102,0.10);
-      color: #ffffff;
-      border-color: rgba(37,211,102,0.48);
-    }
-
-    .btn-whatsapp:hover {
-      background: rgba(37,211,102,0.16);
-      transform: translateY(-2px);
-    }
-
-    /* HERO */
-    .page-hero {
-      position: relative;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 46%, rgba(0,0,0,0.32) 100%),
-        url("images/contact-bg.webp") center/cover no-repeat;
-      min-height: 540px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      padding: 72px 0;
-    }
-
-    .page-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 70%, rgba(237,28,36,0.22), transparent 34%),
-        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38));
-      pointer-events: none;
-    }
-
-    .page-hero-inner {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-card {
-      max-width: 800px;
-      padding: 34px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.40));
-      border: 1px solid rgba(237,28,36,0.32);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.42);
-      backdrop-filter: blur(5px);
-    }
-
-    .page-hero h1 {
-      font-size: clamp(2.45rem, 6vw, 4.45rem);
-      line-height: 1.04;
-      color: #ffffff;
-      margin-bottom: 16px;
-      letter-spacing: -2px;
-    }
-
-    .page-hero h1 span {
-      color: var(--red);
-    }
-
-    .page-hero p {
-      color: #e0e0e0;
-      font-size: 1.06rem;
-      line-height: 1.7;
-      max-width: 730px;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions,
-    .cta-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-note {
-      margin-top: 16px;
-      color: #e8e8e8;
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    /* TRUST STRIP */
-    .trust-strip {
-      background: #0c0c0c;
-      padding: 18px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .trust-card {
-      background: #141414;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-    }
-
-    .trust-card strong {
-      display: block;
-      color: #ffffff;
-      font-size: 0.98rem;
-      margin-bottom: 5px;
-    }
-
-    .trust-card span {
-      color: #bfbfbf;
-      line-height: 1.45;
-      font-size: 0.86rem;
-    }
-
-    /* CONTACT MAIN */
-    .contact-main-section {
-      position: relative;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(237,28,36,0.12), transparent 34%),
-        radial-gradient(circle at 85% 85%, rgba(237,28,36,0.09), transparent 30%),
-        #0b0b0b;
-      padding: 76px 0;
-      overflow: hidden;
-    }
-
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .contact-card,
-    .tally-panel {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 26px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
-
-    .contact-card {
-      padding: 34px;
-    }
-
-    .contact-card h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 2.8rem);
-      line-height: 1.08;
-      margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-
-    .contact-card-intro {
-      color: #cfcfcf;
-      line-height: 1.75;
-      font-size: 1rem;
-      margin-bottom: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 0;
-      margin-bottom: 24px;
-    }
-
-    .contact-item {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 14px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.11);
-      transition: transform 0.25s ease;
-    }
-
-    .contact-item:hover {
-      transform: translateX(4px);
-    }
-
-    .contact-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: rgba(237,28,36,0.14);
-      border: 1px solid rgba(237,28,36,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 1.15rem;
-    }
-
-    .contact-item strong {
-      display: block;
-      color: #ffffff;
-      font-size: 1.04rem;
-      margin-bottom: 5px;
-    }
-
-    .contact-item a,
-    .contact-item span {
-      color: #cfcfcf;
-      line-height: 1.55;
-      font-size: 0.96rem;
-    }
-
-    .contact-item a:hover {
-      color: #ffffff;
-    }
-
-    .fast-reply-box {
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.16), rgba(255,255,255,0.035)),
-        rgba(0,0,0,0.32);
-      border: 1px solid rgba(237,28,36,0.28);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .fast-reply-box h3 {
-      color: #ffffff;
-      font-size: 1.25rem;
-      margin-bottom: 9px;
-    }
-
-    .fast-reply-box p {
-      color: #cfcfcf;
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-
-    .quick-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .tally-panel {
-      overflow: hidden;
-      position: relative;
-      padding: 0;
-    }
-
-    .tally-panel iframe {
-      display: block;
-      width: 100%;
-      border: none;
-      background: transparent;
-    }
-
-    /* QUICK MESSAGE */
-    .quick-message {
-      background: #101010;
-      padding: 74px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .quick-message-panel {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
-      align-items: center;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(237,28,36,0.18), transparent 32%),
-        #141414;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 36px;
-    }
-
-    .quick-message h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .quick-message p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
-    }
-
-    .message-card {
-      background: rgba(0,0,0,0.42);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 24px;
-    }
-
-    .message-card strong {
-      display: block;
-      margin-bottom: 10px;
-      color: #ffffff;
-      font-size: 1.05rem;
-    }
-
-    .message-card p {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 18px;
-      color: #e8e8e8;
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    /* OPTIONS / SERVICES */
-    .contact-options-section,
-    .service-links-section,
-    .faq-section {
-      background: #0b0b0b;
-      padding: 74px 0;
-    }
-
-    .service-links-section {
-      background: #101010;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .options-head {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 34px;
-    }
-
-    .options-head h2,
-    .faq-copy h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3rem);
-      line-height: 1.08;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .options-head p,
-    .faq-copy p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      font-size: 1.04rem;
-    }
-
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .option-card,
-    .service-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02)),
-        #151515;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 20px;
-      padding: 22px;
-      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    }
-
-    .option-card {
-      text-align: center;
-    }
-
-    .option-card:hover,
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(237,28,36,0.5);
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.12), rgba(255,255,255,0.02)),
-        #151515;
-    }
-
-    .option-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 14px;
-      font-size: 1.25rem;
-      box-shadow: 0 12px 26px rgba(237,28,36,0.24);
-    }
-
-    .option-card h3,
-    .service-card h3 {
-      color: #ffffff;
-      font-size: 1.15rem;
-      margin-bottom: 9px;
-    }
-
-    .service-card h3 {
-      font-size: 1.22rem;
-    }
-
-    .option-card p,
-    .service-card p {
-      color: #bfbfbf;
-      line-height: 1.6;
-      font-size: 0.94rem;
-      margin-bottom: 16px;
-    }
-
-    .service-card a {
-      display: inline-flex;
-      min-height: 46px;
-      padding: 0 16px;
-      border-radius: 12px;
-      background: var(--red);
-      color: #ffffff;
-      font-weight: 900;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .service-card a:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-    }
-
-    /* FAQ */
-    .faq-inner {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 42px;
-      align-items: start;
-    }
-
-    .faq-copy p {
-      margin-bottom: 20px;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .faq-item {
-      background: #121212;
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      min-height: 64px;
-      background: transparent;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 20px;
-      font: inherit;
-      font-weight: 900;
-      text-align: left;
-    }
-
-    .faq-question span {
-      color: var(--red);
-      font-size: 1.5rem;
-      line-height: 1;
-      transition: transform 0.2s ease;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.25s ease;
-    }
-
-    .faq-answer p {
-      color: #cfcfcf;
-      line-height: 1.7;
-      padding: 0 20px 20px;
-      font-size: 0.96rem;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 180px;
-    }
-
-    .faq-item.active .faq-question span {
-      transform: rotate(45deg);
-    }
-
-    /* FINAL CTA */
-    .final-cta-section {
-      background: #202020;
-      padding: 76px 0;
-      text-align: center;
-    }
-
-    .final-cta-card {
-      max-width: 1000px;
-      margin: 0 auto;
-      background:
-        linear-gradient(135deg, rgba(237,28,36,0.18), rgba(255,255,255,0.035)),
-        #101010;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 46px 28px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
-    }
-
-    .final-cta-card h2 {
-      color: #ffffff;
-      font-size: clamp(1.95rem, 4vw, 3.1rem);
-      margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
-
-    .final-cta-card p {
-      color: #d0d0d0;
-      line-height: 1.7;
-      font-size: 1.04rem;
-      max-width: 720px;
-      margin: 0 auto 24px;
-    }
-
-    .final-cta-card .cta-actions {
-      justify-content: center;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 34px 0;
-      text-align: center;
-      color: #999;
-      background: #050505;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-local {
-      max-width: var(--max);
-      margin: 0 auto 24px;
-      padding: 0 16px;
-    }
-
-    .footer-local h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 18px;
-    }
-
-    .footer-links a {
-      color: #cfcfcf;
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .footer-links a:hover {
-      color: var(--red);
-    }
-
-    .terms-link {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: #cfcfcf;
-      font-weight: 800;
-    }
-
-    .terms-link:hover {
-      color: var(--red);
-    }
-
-    /* FLOATING ACTIONS */
-    .floating-actions {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 9999;
-    }
-
-    .float-btn {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease;
-    }
-
-    .float-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .float-call {
-      background: var(--red);
-    }
-
-    .float-whatsapp {
-      background: var(--green);
-    }
-
-    .float-btn svg {
-      width: 27px;
-      height: 27px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1020px) {
-      .contact-inner,
-      .quick-message-panel,
-      .faq-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .options-grid,
-      .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        width: min(100% - 28px, var(--max));
-      }
-
-      .nav-inner {
-        min-height: 82px;
-      }
-
-      .logo-img {
-        width: 140px;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      nav ul {
-        display: none;
-        position: absolute;
-        top: 82px;
-        left: 0;
-        right: 0;
-        background: #ffffff;
-        flex-direction: column;
-        padding: 12px 16px 20px;
-        border-top: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        z-index: 200;
-        gap: 0;
-      }
-
-      nav ul.open {
-        display: flex;
-      }
-
-      nav ul li {
-        width: 100%;
-      }
-
-      nav ul a {
-        display: block;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.08);
-        font-size: 0.9rem;
-      }
-
-      .btn-nav {
-        margin-top: 8px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .page-hero {
-        min-height: auto;
-        padding: 54px 0;
-        background:
-          linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.78)),
-          url("images/contact-bg.webp") center right/cover no-repeat;
-      }
-
-      .hero-card {
-        padding: 22px 18px;
-        border-radius: 22px;
-      }
-
-      .page-hero h1 {
-        font-size: clamp(2rem, 8vw, 2.75rem);
-        line-height: 1.08;
-        letter-spacing: -1px;
-      }
-
-      .page-hero p {
-        font-size: 0.95rem;
-      }
-
-      .hero-actions,
-      .cta-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .btn-primary,
-      .btn-secondary,
-      .btn-whatsapp,
-      .service-card a {
-        width: 100%;
-        min-height: 52px;
-        font-size: 0.9rem;
-      }
-
-      .contact-main-section,
-      .quick-message,
-      .contact-options-section,
-      .service-links-section,
-      .faq-section,
-      .final-cta-section {
-        padding: 46px 0;
-      }
-
-      .contact-card,
-      .tally-panel,
-      .quick-message-panel,
-      .final-cta-card {
-        border-radius: 20px;
-      }
-
-      .contact-card {
-        padding: 22px;
-      }
-
-      .contact-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .contact-icon {
-        margin-bottom: 2px;
-      }
-
-      .options-grid,
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trust-card {
-        padding: 13px 10px;
-      }
-
-      .quick-message-panel {
-        padding: 22px;
-      }
-
-      .message-card {
-        padding: 18px;
-        border-radius: 16px;
-      }
-
-      .message-card p {
-        padding: 14px;
-        border-radius: 14px;
-      }
-
-      .floating-actions {
-        right: 14px;
-        bottom: 14px;
-        gap: 10px;
-      }
-
-      .float-btn {
-        width: 50px;
-        height: 50px;
-      }
-
-      .float-btn svg {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .container {
-        width: min(100% - 22px, var(--max));
-      }
-
-      .page-hero h1,
-      .contact-card h2,
-      .quick-message h2,
-      .options-head h2,
-      .faq-copy h2,
-      .final-cta-card h2 {
-        font-size: 1.75rem;
-      }
-    }
-  
-    /* REQUEST A CALLBACK */
-    .callback {
-      background: #f6f7f9;
-      padding: 66px 0;
-      border-top: 1px solid rgba(17,24,39,0.08);
-      border-bottom: 1px solid rgba(17,24,39,0.08);
-    }
-
-    .callback-inner {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .callback h2 {
-      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 14px;
-    }
-
-    .callback-points {
-      list-style: none;
-      margin: 18px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .callback-points li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.97rem;
-      line-height: 1.5;
-    }
-
-    .callback-points li::before {
-      content: "\2713";
-      flex: 0 0 22px;
-      height: 22px;
-      margin-top: 1px;
-      border-radius: 50%;
-      background: var(--red);
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 900;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .callback-card {
-      background: #ffffff;
-      border: 1px solid rgba(17,24,39,0.11);
-      border-radius: 26px;
-      box-shadow: 0 14px 40px rgba(17,24,39,0.07);
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .callback-card iframe {
-      display: block;
-      width: 100%;
-      border: none;
-      background: transparent;
-    }
-
-    .callback-alt {
-      margin-top: 16px;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .callback-alt a { color: var(--red); font-weight: 800; }
-
-    @media (max-width: 900px) {
-      .callback-inner { grid-template-columns: 1fr; gap: 22px; }
-      .callback { padding: 52px 0; }
-    }
-  </style>
-
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1245,38 +146,41 @@ gtag('config', 'AW-18198829338');
   ]
 }
 </script>
-<link rel="stylesheet" href="theme-white-red.css">
+<link rel="stylesheet" href="sar-apple.css">
 </head>
 
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="logo" aria-label="SAR Driving School">
-        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="SAR Driving School" class="logo-img" width="420" height="280"></picture>
-      </a>
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
 
-      <ul id="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="gallery.html">Pass Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="socials.html">Find us</a></li>
-        <li><a href="instructor-training.html">Instructor Training</a></li>
-        <li><a href="book.html" class="btn-nav">Book now</a></li>
-      </ul>
-    </div>
-  </nav>
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
 
-  <main>
+<main id="main">
+
 
     <section class="page-hero">
       <div class="container page-hero-inner">
@@ -1601,49 +505,71 @@ gtag('config', 'AW-18198829338');
       </div>
     </section>
 
-  </main>
+  
+</main>
 
-  <footer>
-    <div class="footer-local">
-      <h3>Useful Driving Lesson Pages</h3>
-      <div class="footer-links">
-        <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
-        <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
-        <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
-        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
-        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
-        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
       <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
       <a href="instructor-training.html">Become a Driving Instructor</a>
       <a href="gift-vouchers.html">Gift Vouchers</a>
-      </div>
     </div>
 
-    <a href="terms.html" class="terms-link">Terms &amp; Conditions</a>
-    <a href="privacy.html" class="terms-link">Privacy &amp; Cookies</a>
-    <a href="#" class="terms-link" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">Cookie settings</a>
-    <p class="trader-identity">SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot; Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot; <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot; <a href="tel:+447902023737">079 02 02 37 37</a></p>
-  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
-  </footer>
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
 
-  <div class="floating-actions">
-    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
-        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
-      </svg>
-    </a>
-
-    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" aria-label="WhatsApp SAR Driving School">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-      </svg>
-    </a>
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
   </div>
+</footer>
 
-  <script async src="https://tally.so/widgets/embed.js"></script>
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
 
-  <script>
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script async src="https://tally.so/widgets/embed.js"></script>
+<script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
 
@@ -1678,6 +604,6 @@ gtag('config', 'AW-18198829338');
     });
   </script>
 
-  <script src="cookie-consent.js" defer></script>
+<script src="cookie-consent.js" defer></script>
 </body>
 </html>
