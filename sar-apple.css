@@ -576,8 +576,8 @@ footer a:hover { color: var(--ink); }
   display: block; width: 100%; max-width: var(--maxw); margin: 0 auto;
 }
 .hero-media img {
-  aspect-ratio: 16 / 9; object-fit: cover;
-  border-radius: var(--r-panel); background: var(--surface-2);
+  /* no forced aspect-ratio: the mobile montage is a wide 2.2:1 crop and the
+     page photos are 16:9, so each is left at its own proportions */
+  height: auto; border-radius: var(--r-panel); background: var(--surface-2);
 }
-@media (max-width: 640px) { .hero-media img { aspect-ratio: 4 / 3; } }
 section.hero:has(+ .hero-media), main .hero:has(+ .hero-media) { padding-bottom: var(--s5); }
