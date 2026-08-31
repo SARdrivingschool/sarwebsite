@@ -331,14 +331,16 @@ gtag('config', 'AW-18198829338');
         </div>
 
         <div class="booking-wrap">
-          <form class="form" id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
-            <!-- PASTE YOUR WEB3FORMS ACCESS KEY BETWEEN THE QUOTES BELOW -->
-            <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
-            <input type="hidden" name="subject" value="New lesson enquiry from sardrivingschool.co.uk">
-            <input type="hidden" name="from_name" value="SAR Driving School website">
-            <input type="hidden" name="redirect" value="https://sardrivingschool.co.uk/thank-you.html">
+          <form class="form" id="enquiryForm" action="https://formsubmit.co/sardrivingschool@gmail.com" method="POST">
+            <!-- FormSubmit needs no account and no key. The first real submission
+                 triggers a one-off confirmation email — click the link in it and
+                 the form is live from then on. -->
+            <input type="hidden" name="_subject" value="New lesson enquiry from sardrivingschool.co.uk">
+            <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <!-- spam trap: real people never fill this in -->
-            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
 
             <div class="field">
               <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
@@ -684,30 +686,18 @@ gtag('config', 'AW-18198829338');
 </script>
 
 
+
+
 <script>
 (function () {
+  // No interception — the browser posts the form itself, so it works with or
+  // without JavaScript. This only stops double-taps and shows progress.
   var form = document.getElementById('enquiryForm');
-  if (!form || !window.fetch) return;               // no JS? the normal POST still works
-  var status = document.getElementById('formStatus');
   var button = document.getElementById('formSubmit');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  if (!form || !button) return;
+  form.addEventListener('submit', function () {
     button.disabled = true;
-    var label = button.textContent;
     button.textContent = 'Sending\u2026';
-    status.className = 'form-status';
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d.success) { window.location.href = 'thank-you.html'; return; }
-        throw new Error(d.message || 'send failed');
-      })
-      .catch(function () {
-        status.textContent = 'That did not send. Please call 079 02 02 37 37 or message us on WhatsApp and we will sort it straight away.';
-        status.className = 'form-status err show';
-        button.disabled = false;
-        button.textContent = label;
-      });
   });
 })();
 </script>
