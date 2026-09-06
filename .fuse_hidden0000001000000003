@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAR Driving School App Privacy Policy</title>
+  <meta
+    name="description"
+    content="Privacy notice for the SAR Driving School staff app: what we record about pupils, why, and what you can ask us to do with it."
+  />
+<link rel="canonical" href="https://sardrivingschool.co.uk/app-privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/app-privacy.html">
+<meta property="og:title" content="SAR Driving School App Privacy Policy">
+<meta property="og:description" content="Privacy notice for the SAR Driving School staff app: what we record about pupils, why, and what you can ask us to do with it.">
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+<h1>App Privacy Policy</h1>
+
+      <p class="subtitle">
+        What SAR Driving School records about its pupils in the app its
+        instructors use, why we hold it, and what you can ask us to do with it.
+      </p>
+
+      <span class="updated">Last updated: 21 August 2026</span>
+      </div>
+</section>
+
+
+    <section class="card">
+      <h2>1. Who is responsible, and what the app is</h2>
+
+      <p>
+        <strong>SAR Driving School</strong> is the data controller. That means
+        we decide what is recorded, and we are answerable for it.
+      </p>
+
+      <p>
+        The SAR app is a working tool for our instructors and the office. It
+        holds the diary, pupil records, lesson history and payments.
+      </p>
+
+      <div class="note">
+        <strong>Pupils do not have accounts and cannot sign in.</strong>
+        There is no pupil app, no sign-up, and no way for anyone outside the
+        school to reach your record. Only your own instructor and the owner of
+        SAR can see it. Booking, changing and cancelling lessons happens with
+        your instructor exactly as it always has.
+      </div>
+
+      <p>
+        This notice is written for pupils and for the parents of pupils under
+        18. If you would rather have it explained on the telephone, call the
+        number at the bottom and we will talk it through.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>2. What we record about you</h2>
+
+      <p>
+        Your instructor enters this when you book and as your lessons go on.
+        Some of it is optional and simply left blank if you would rather not
+        give it.
+      </p>
+
+      <h3>So we can find you and teach you</h3>
+      <ul>
+        <li>Your name</li>
+        <li>Your telephone number, and your email address if you give one</li>
+        <li>The address or postcode we pick you up from, and drop you at</li>
+        <li>Whether you are learning manual or automatic</li>
+        <li>Your provisional licence number, if you give it to us</li>
+        <li>Whether you have passed your theory test, and when</li>
+      </ul>
+
+      <h3>So we can run your lessons</h3>
+      <ul>
+        <li>Every lesson: date, time, length, where it started and finished</li>
+        <li>Whether a lesson was taught, cancelled, or missed</li>
+        <li>What your instructor covered, and what to work on next</li>
+        <li>A rating for each driving skill, so progress can be tracked over time</li>
+        <li>Which days and times usually suit you</li>
+      </ul>
+
+      <h3>So we can charge you correctly</h3>
+      <ul>
+        <li>The hourly rate agreed for each lesson</li>
+        <li>What has been paid, how, and when</li>
+        <li>Anything still owed, and any block of hours paid for in advance</li>
+      </ul>
+
+      <h3>Your driving test</h3>
+      <ul>
+        <li>The date and test centre</li>
+        <li>The result, and the number of faults, once you have taken it</li>
+      </ul>
+
+      <h3>Notes</h3>
+      <p>
+        Your instructor can write notes about your lessons. These are working
+        notes about your driving, and you are entitled to see them — see
+        <em>Your rights</em> below.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. What we do not do</h2>
+
+      <ul>
+        <li>
+          We do not use your phone's location. The app opens Apple Maps for
+          directions and nothing more.
+        </li>
+        <li>
+          We do not track you, and there is no analytics or advertising in the
+          app.
+        </li>
+        <li>The app does not send notifications.</li>
+        <li>
+          We do not sell, rent or share your information with anyone for
+          marketing.
+        </li>
+        <li>
+          We do not use your information to make automated decisions about you.
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Why we are allowed to hold it</h2>
+
+      <p>Under UK data protection law we rely on two grounds:</p>
+
+      <ul>
+        <li>
+          <strong>Performance of a contract.</strong> We cannot teach you to
+          drive, pick you up, or charge you the right amount without your name,
+          contact details, address and lesson history.
+        </li>
+        <li>
+          <strong>Legitimate interests.</strong> Running a driving school means
+          keeping records of what was taught, what was paid, and how pupils are
+          progressing. We have balanced this against your privacy and kept what
+          we record to what the job needs.
+        </li>
+      </ul>
+
+      <p>
+        Where something is genuinely optional — your email address, for
+        instance — you are free to withhold it.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. Who else can see it</h2>
+
+      <p>
+        <strong>
+          Nobody at another driving school, and nobody who buys data.
+        </strong>
+      </p>
+
+      <p>
+        Your record is stored using <strong>Google Firebase</strong>, which
+        provides the database and sign-in for the app. Google processes it on
+        our instructions and for no purpose of their own. The data is held in
+        Google's <strong>London (europe-west2)</strong> region, so it stays in
+        the UK.
+      </p>
+
+      <p>
+        We will only ever hand information to anyone else if the law requires
+        it — for example a lawful request from the police, DVSA, or a court.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Keeping it safe</h2>
+
+      <ul>
+        <li>
+          Only signed-in staff can reach any of it, and the rules that enforce
+          this run on the server, not in the app. Hiding a screen is not
+          security; the database itself refuses.
+        </li>
+        <li>
+          Each instructor can see their own pupils. The owner can see the whole
+          school.
+        </li>
+        <li>
+          Passwords are handled by Google's sign-in service. SAR never sees or
+          stores them.
+        </li>
+        <li>
+          Records are not deleted outright but marked as removed, so an accident
+          cannot quietly destroy someone's history.
+        </li>
+      </ul>
+
+      <p>
+        No digital system can be guaranteed to be completely secure, but we take
+        reasonable steps to protect the information we hold.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>7. How long we keep it</h2>
+
+      <ul>
+        <li>
+          <strong>While you are learning with us</strong>, and then for
+          <strong>six years</strong> after your last lesson. That is how long
+          HMRC requires business and payment records to be kept.
+        </li>
+        <li>
+          <strong>Lesson and progress records</strong> are kept for the same
+          period. They are what lets us answer questions about what was taught
+          and when.
+        </li>
+      </ul>
+
+      <p>
+        Records are never sold or reused. If you want your record removed
+        sooner, ask — see below.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Deleting your information</h2>
+
+      <p>
+        Because pupils have no accounts, there is no account for a pupil to
+        delete. To have your record removed, contact us using the details at
+        the bottom of this page and we will do it, except where we are required
+        to keep something for tax or accounting.
+      </p>
+
+      <p>
+        Staff accounts are created by the school and disabled by the school when
+        someone leaves. A member of staff who wants their own account removed
+        should contact us in the same way.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. Your rights</h2>
+
+      <p>You can ask us to:</p>
+
+      <ul>
+        <li><strong>Show you</strong> everything we hold about you</li>
+        <li><strong>Correct</strong> anything wrong</li>
+        <li>
+          <strong>Delete</strong> your record, where we are not required to keep
+          it for tax or accounting
+        </li>
+        <li><strong>Stop or limit</strong> what we do with it</li>
+        <li>
+          <strong>Hand it over</strong> in a portable form, to you or to another
+          school
+        </li>
+        <li>
+          <strong>Object</strong> to us relying on legitimate interests
+        </li>
+      </ul>
+
+      <p>
+        Ask by WhatsApp, telephone or email using the details below. We will
+        respond within one month, and it costs you nothing.
+      </p>
+
+      <p>
+        <strong>If you are under 18</strong>, you have exactly the same rights,
+        and a parent or guardian may exercise them on your behalf.
+      </p>
+
+      <p>
+        If you think we have got it wrong, please tell us first and we will try
+        to put it right. You can also complain to the Information
+        Commissioner's Office:
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://ico.org.uk/make-a-complaint" rel="noopener">
+            ico.org.uk/make-a-complaint
+          </a>
+        </li>
+        <li>0303 123 1113</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>10. Pupils under 18</h2>
+
+      <p>
+        You can hold a provisional licence and take driving lessons in the
+        United Kingdom before you are 18, so some of our pupils are 16 or 17.
+      </p>
+
+      <p>
+        We record the same information for them as for anyone else, and no more.
+        A parent or guardian may exercise any of the rights above on their
+        behalf.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>11. Changes to this notice</h2>
+
+      <p>
+        If we change what we record or why, we will update this page and change
+        the date at the top.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>12. Getting in touch</h2>
+
+      <p>
+        If you have questions about this notice, your information, or the SAR
+        app, contact us:
+      </p>
+
+      <div class="contact-box">
+        <strong>SAR Driving School</strong><br />
+        Milton Keynes, United Kingdom<br /><br />
+
+        Email:
+        <a href="mailto:info@sardrivingschool.co.uk">
+          info@sardrivingschool.co.uk
+        </a>
+        <br />
+
+        WhatsApp or telephone:
+        <a href="tel:+447902023737">
+          07902 023737
+        </a>
+        <br />
+
+        Website:
+        <a href="https://sardrivingschool.co.uk">
+          sardrivingschool.co.uk
+        </a>
+      </div>
+    </section>
+
+  
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

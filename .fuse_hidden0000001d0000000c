@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact SAR Driving School | Milton Keynes</title>
+  <meta name="description" content="Call, WhatsApp or message SAR Driving School about driving lessons in Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/contact.html">
+<meta property="og:title" content="Contact SAR Driving School | Milton Keynes">
+<meta property="og:description" content="Call, WhatsApp or message SAR Driving School about driving lessons in Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact SAR Driving School | Milton Keynes">
+<meta name="twitter:description" content="Call, WhatsApp or message SAR Driving School about driving lessons in Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <div class="hero-card">
+          <div class="section-label">Get in touch</div>
+          <h1>Contact <span>SAR Driving School</span></h1>
+          <p>
+            Message us about manual, automatic or refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas.
+          </p>
+
+          <div class="hero-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson →</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
+            <a href="tel:+447902023737" class="btn-secondary">Call SAR</a>
+          </div>
+
+          <p class="hero-note">
+            Usually replies quickly — send your area, lesson type, experience level and availability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-card">
+          <strong>260+ Five-Star Reviews</strong>
+          <span>Trusted by local learners.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>Manual & Automatic</strong>
+          <span>Choose the lesson type that suits you.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>DVSA Approved</strong>
+          <span>Professional driving instructors.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>From £38/hr</strong>
+          <span>Clear lesson prices.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-main-section">
+      <div class="container contact-inner">
+
+        <div class="contact-card">
+          <div class="section-label">Fastest contact</div>
+          <h2>Talk to us</h2>
+          <p class="contact-card-intro">
+            WhatsApp is usually the quickest way to reach us. Include your area, lesson type, experience level and availability so we can check the right instructor faster.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:+447902023737">07902 023737</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank">Message us on WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Areas covered</strong>
+                <span>Milton Keynes, Bletchley, Bedford, Leighton Buzzard and nearby areas, subject to instructor availability.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fast-reply-box">
+            <h3>Need a fast reply?</h3>
+            <p>Send your name, area, preferred lesson type and days/times you are available.</p>
+
+            <div class="quick-actions">
+              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-whatsapp">WhatsApp Now</a>
+              <a href="book.html" class="btn-primary">Book a Lesson</a>
+              <a href="pricing.html" class="btn-secondary">View Pricing</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="form" id="enquiryForm" action="https://formsubmit.co/sardrivingschool@gmail.com" method="POST">
+            <!-- FormSubmit needs no account and no key. The first real submission
+                 triggers a one-off confirmation email — click the link in it and
+                 the form is live from then on. -->
+            <input type="hidden" name="_subject" value="New enquiry from the contact page">
+            <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- spam trap: real people never fill this in -->
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="Name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="f-phone">Mobile number <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <span class="hint">We&rsquo;ll usually reply by WhatsApp or text.</span>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Email address</label>
+              <input id="f-email" name="Email" type="email" autocomplete="email">
+              <span class="hint">Optional &mdash; only if you&rsquo;d rather we emailed you.</span>
+            </div>
+
+            <div class="field">
+              <label for="f-postcode">Pickup postcode <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-postcode" name="Pickup postcode" type="text" autocomplete="postal-code" required>
+              <span class="hint">So we can check which instructor covers your area.</span>
+            </div>
+
+            <fieldset class="fieldset">
+              <legend>Manual or automatic? <span class="req" aria-hidden="true">*</span></legend>
+              <div class="chips">
+                <label><input type="radio" name="Transmission" value="Manual" required><span>Manual</span></label>
+                <label><input type="radio" name="Transmission" value="Automatic"><span>Automatic</span></label>
+                <label><input type="radio" name="Transmission" value="Not sure yet"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>How much driving have you done?</legend>
+              <div class="chips">
+                <label><input type="radio" name="Experience" value="Never driven"><span>Never driven</span></label>
+                <label><input type="radio" name="Experience" value="Some lessons"><span>Some lessons</span></label>
+                <label><input type="radio" name="Experience" value="Test booked"><span>Test booked</span></label>
+                <label><input type="radio" name="Experience" value="Returning driver"><span>Returning driver</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-package">What are you interested in?</label>
+              <select id="f-package" name="Package">
+                <option value="Not sure yet">Not sure yet &mdash; happy to be advised</option>
+                <option value="Single lesson">Single lesson</option>
+                <option value="5 hour block">5 hour starter block</option>
+                <option value="10 hour block">10 hour block</option>
+                <option value="20 hour block">20 hour block</option>
+                <option value="30 hour block">30 hour block</option>
+                <option value="Intensive course">Intensive course</option>
+                <option value="Refresher lessons">Refresher lessons</option>
+                <option value="Test car hire">Driving test car hire</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="f-times">Best days and times <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="f-times" name="Best days and times" required placeholder="For example: weekday evenings after 5pm, or Saturday mornings"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="f-notes">Anything else we should know?</label>
+              <textarea id="f-notes" name="Notes" placeholder="Instructor preference, test date, nervous driver, anything at all"></textarea>
+            </div>
+
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary" id="formSubmit">Send enquiry</button>
+
+            <p class="form-note">
+              We answer 9am&ndash;8pm, seven days a week. Your details are only used to arrange
+              your lessons &mdash; see our <a href="privacy.html">privacy notice</a>.
+            </p>
+          </form>
+
+      </div>
+    </section>
+
+    
+<section class="callback" id="callback">
+  <div class="container callback-inner">
+    <div>
+      <div class="section-label">Prefer a phone call?</div>
+      <h2>We&rsquo;ll call you back</h2>
+      <p>
+        Not everyone wants to message on WhatsApp. Call us straight away, or send us a text
+        with your details and we&rsquo;ll ring you back at a time that suits you.
+      </p>
+
+      <ul class="callback-points">
+        <li>Tell us when to call &mdash; mornings, afternoons or evenings</li>
+        <li>We&rsquo;ll confirm instructor availability in your area</li>
+        <li>No obligation &mdash; ask us anything about lessons or prices</li>
+      </ul>
+    </div>
+
+    <div class="callback-card">
+      <div class="callback-choose">
+        <a href="tel:+447902023737" class="callback-action callback-action-call">
+          <span class="callback-action-label">Call us now</span>
+          <span class="callback-action-sub">079 02 02 37 37 &middot; straight through to the office</span>
+        </a>
+
+        <a href="sms:+447902023737?&body=Hi%20SAR%2C%20please%20call%20me%20back.%0A%0AName%3A%0APostcode%3A%0AManual%20or%20automatic%3A%0ABest%20time%20to%20call%3A" class="callback-action callback-action-text">
+          <span class="callback-action-label">Text us and we&rsquo;ll call you</span>
+          <span class="callback-action-sub">Opens a ready-written message &mdash; just fill in the gaps and send</span>
+        </a>
+      </div>
+
+      <div class="callback-preview">
+        <strong>Your text will look like this:</strong>
+        <p>
+          Hi SAR, please call me back.<br><br>
+          Name:<br>
+          Postcode:<br>
+          Manual or automatic:<br>
+          Best time to call:
+        </p>
+      </div>
+
+      <p class="callback-hours">We answer 9am&ndash;8pm, seven days a week. Outside those hours we&rsquo;ll call you back the next morning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quick-message">
+      <div class="container quick-message-panel">
+        <div>
+          <div class="section-label">Quick Enquiry</div>
+          <h2>Message us in under 30 seconds</h2>
+          <p>
+            To check availability faster, send the details below. This helps us reply with the right instructor and lesson option.
+          </p>
+        </div>
+
+        <div class="message-card">
+          <strong>We&rsquo;ll fill this in for you:</strong>
+          <p>
+            Hi SAR, I&#x27;d like to book driving lessons.<br>
+            &nbsp;<br>
+            Name:<br>
+            Pickup postcode:<br>
+            Manual or automatic:<br>
+            Experience: never driven / some lessons / test booked<br>
+            Best days &amp; times:<br>
+            Instructor preference (optional):
+          </p>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-primary">
+            Send WhatsApp Message →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-options-section">
+      <div class="container">
+        <div class="options-head">
+          <div class="section-label">Before you message</div>
+          <h2>Help us reply faster</h2>
+          <p>
+            Include these details in your message so we can quickly check the right instructor and availability.
+          </p>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card">
+            <div class="option-icon">📍</div>
+            <h3>Your area</h3>
+            <p>Tell us your postcode or town so we can check local availability.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🚗</div>
+            <h3>Lesson type</h3>
+            <p>Manual, automatic, refresher, intensive course or unsure.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🕒</div>
+            <h3>Availability</h3>
+            <p>Let us know which days and times normally work for you.</p>
+          </div>
+
+          <div class="option-card">
+            <div class="option-icon">🎯</div>
+            <h3>Your experience</h3>
+            <p>Beginner, partly trained, test booked or returning to driving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-links-section">
+      <div class="container">
+        <div class="options-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Choose the right lesson type</h2>
+          <p>View more information about each lesson type before booking.</p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want a full manual licence and maximum flexibility.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who want a smoother learning experience.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>Great for confidence building, parking, roundabouts and returning drivers.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container faq-inner">
+        <div class="faq-copy">
+          <div class="section-label">Common questions</div>
+          <h2>Quick answers before booking</h2>
+          <p>
+            These are the usual details learners ask before starting lessons with SAR Driving School.
+          </p>
+          <a href="pricing.html" class="btn-primary">View Pricing</a>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">How quickly can I start lessons? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Availability depends on your area, lesson type and instructor schedule. Message your postcode and availability so we can check properly.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Do you offer manual and automatic? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Yes, SAR Driving School offers manual and automatic lessons depending on instructor availability in your area.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Can I book if I am nervous? <span>+</span></button>
+            <div class="faq-answer">
+              <p>Yes. Lessons are calm, patient and tailored to your confidence level. Nervous learners are welcome.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">Do you cover outside Milton Keynes? <span>+</span></button>
+            <div class="faq-answer">
+              <p>We may cover nearby areas such as Bletchley, Bedford and Leighton Buzzard, depending on instructor availability and travel time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta-section">
+      <div class="container">
+        <div class="final-cta-card">
+          <div class="section-label">Ready to start?</div>
+          <h2>Let’s get your first lesson arranged</h2>
+          <p>
+            Send your details and we’ll help you choose the right lesson type, check availability and confirm the next step.
+          </p>
+
+          <div class="cta-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+            <a href="pricing.html" class="btn-secondary">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        navMenu.classList.toggle('open');
+      });
+
+      navMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open');
+          navMenu.classList.remove('open');
+        });
+      });
+    }
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function(item) {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', function() {
+        faqItems.forEach(function(other) {
+          if (other !== item) {
+            other.classList.remove('active');
+          }
+        });
+
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+<script>
+(function () {
+  // No interception — the browser posts the form itself, so it works with or
+  // without JavaScript. This only stops double-taps and shows progress.
+  var form = document.getElementById('enquiryForm');
+  var button = document.getElementById('formSubmit');
+  if (!form || !button) return;
+  form.addEventListener('submit', function () {
+    button.disabled = true;
+    button.textContent = 'Sending\u2026';
+  });
+})();
+</script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

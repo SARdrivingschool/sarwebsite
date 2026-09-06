@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Thank You | SAR Driving School</title>
+<meta name="description" content="Thanks for getting in touch with SAR Driving School. We'll be back to you shortly to arrange your driving lessons in Milton Keynes.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/thank-you.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/thank-you.html">
+<meta property="og:title" content="Thank You | SAR Driving School">
+<meta property="og:description" content="Thanks for getting in touch with SAR Driving School. We'll be back to you shortly to arrange your driving lessons in Milton Keynes.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thank You | SAR Driving School">
+<meta name="twitter:description" content="Thanks for getting in touch with SAR Driving School. We'll be back to you shortly to arrange your driving lessons in Milton Keynes.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="card">
+<div class="check-circle">
+<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+</div>
+<h1>Thank <span>You!</span></h1>
+<p>We've received your booking request with SAR Driving School.</p>
+<div class="next-steps">
+<h2>What happens next</h2>
+<p>One of our instructors will be in touch shortly to confirm your lesson details and answer any questions. Keep an eye on your phone and messages!</p>
+</div>
+<a href="/" class="btn">Back to Home</a>
+<p class="footer-note">SAR Driving School &mdash; Bletchley &amp; Milton Keynes</p>
+</div>
+  
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

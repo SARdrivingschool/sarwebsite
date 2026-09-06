@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Recent Driving Test Passes | SAR Driving School</title>
+  <meta name="description" content="Real learners who passed their driving test with SAR Driving School across Milton Keynes and surrounding areas. Manual and automatic lessons available.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/gallery.html">
+<meta property="og:title" content="Recent Driving Test Passes | SAR Driving School">
+<meta property="og:description" content="Real learners who passed their driving test with SAR Driving School across Milton Keynes and surrounding areas. Manual and automatic lessons available.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recent Driving Test Passes | SAR Driving School">
+<meta name="twitter:description" content="Real learners who passed their driving test with SAR Driving School across Milton Keynes and surrounding areas. Manual and automatic lessons available.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+
+    <section class="gallery-hero">
+      <div class="container gallery-hero-inner">
+        <div class="hero-card">
+          <div class="section-label">Pass Gallery</div>
+          <h1>Real learners. Real passes. <span>Real confidence.</span></h1>
+          <p>
+            Browse recent learner pass photos from SAR Driving School. Every pass is a proud moment and proof of the progress pupils make with structured lessons and patient instruction.
+          </p>
+
+          <div class="hero-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson →</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20saw%20your%20pass%20gallery%20and%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-whatsapp">WhatsApp Availability</a>
+            <a href="pricing.html" class="btn-secondary">View Pricing</a>
+          </div>
+
+          <p class="hero-note">
+            Want your pass photo here next? Send your area, lesson type and availability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-inner">
+        <div class="trust-card">
+          <strong>260+ Reviews</strong>
+          <span>Trusted by local learners.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>5.0 Rated</strong>
+          <span>Strong Google feedback.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>DVSA Approved</strong>
+          <span>Professional instructors.</span>
+        </div>
+
+        <div class="trust-card">
+          <strong>Manual & Auto</strong>
+          <span>Lesson options available.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="container">
+
+        <div class="gallery-intro">
+          <div class="section-label">Recent success</div>
+          <h2>Our happy passers</h2>
+          <p>
+            These pass photos show real pupils who completed their driving journey with SAR Driving School.
+            Use this page to see the kind of results local learners are achieving across Milton Keynes and surrounding areas.
+          </p>
+        </div>
+
+        <div class="gallery-toolbar">
+
+          <div class="gallery-controls">
+            <button class="filter-btn active" data-limit="12" type="button">Show 12</button>
+            <button class="filter-btn" data-limit="24" type="button">Show 24</button>
+            <button class="filter-btn" id="show-all-btn" type="button">Show all</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid"></div>
+
+        <div class="gallery-cta">
+          <div>
+            <div class="section-label">Ready to pass?</div>
+            <h2>Your pass photo could be next</h2>
+            <p>
+              Start your driving journey with SAR Driving School and learn with patient, supportive instructors across Milton Keynes and surrounding areas.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a href="book.html" class="btn-primary">Book a Lesson</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20saw%20your%20pass%20gallery%20and%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="container">
+        <div class="service-head">
+          <div class="section-label">Lesson options</div>
+          <h2>Choose the lesson type that suits you</h2>
+          <p>
+            Whether you want a manual licence, a smoother automatic learning experience or refresher support, we can help you choose the right option.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3>Manual Driving Lessons</h3>
+            <p>Best for learners who want full licence flexibility and strong car control.</p>
+            <a href="manual-driving-lessons-milton-keynes.html">View Manual Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Automatic Driving Lessons</h3>
+            <p>Ideal for nervous learners or pupils who want no clutch or gear changes.</p>
+            <a href="automatic-driving-lessons-milton-keynes.html">View Automatic Lessons</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Refresher Lessons</h3>
+            <p>Great for returning drivers, parking, roundabouts, motorway driving and confidence.</p>
+            <a href="refresher-driving-lessons-milton-keynes.html">View Refresher Lessons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-section">
+      <div class="container">
+        <div class="areas-head">
+          <div class="section-label">Areas covered</div>
+          <h2>Local driving lessons near you</h2>
+          <p>
+            SAR Driving School covers Milton Keynes and nearby areas, subject to instructor availability and travel time.
+          </p>
+        </div>
+
+        <div class="areas-grid">
+          <div class="area-card">
+            <h3>Milton Keynes</h3>
+            <p>Manual, automatic and refresher lessons available.</p>
+            <a href="driving-lessons-milton-keynes.html">View MK Lessons</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bletchley</h3>
+            <p>Local route knowledge and test preparation support.</p>
+            <a href="driving-lessons-bletchley.html">View Bletchley</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Bedford</h3>
+            <p>Lessons subject to instructor area and availability.</p>
+            <a href="driving-lessons-bedford.html">View Bedford</a>
+          </div>
+
+          <div class="area-card">
+            <h3>Leighton Buzzard</h3>
+            <p>Driving lesson availability depends on schedule.</p>
+            <a href="driving-lessons-leighton-buzzard.html">View Leighton Buzzard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-message">
+      <div class="container quick-message-panel">
+        <div>
+          <div class="section-label">Quick Enquiry</div>
+          <h2>Message us in under 30 seconds</h2>
+          <p>
+            To check availability faster, send your area, lesson type, experience level and best days or times.
+          </p>
+        </div>
+
+        <div class="message-card">
+          <strong>We&rsquo;ll fill this in for you:</strong>
+          <p>
+            Hi SAR, I saw your pass gallery and I&#x27;d like to book driving lessons.<br>
+            &nbsp;<br>
+            Name:<br>
+            Pickup postcode:<br>
+            Manual or automatic:<br>
+            Experience: never driven / some lessons / test booked<br>
+            Best days &amp; times:<br>
+            Instructor preference (optional):
+          </p>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20saw%20your%20pass%20gallery%20and%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn-primary">
+            Send WhatsApp Message →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  
+</main>
+
+<div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+
+    <div class="modal-box">
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="SAR Driving School pass photo">
+      </div>
+
+      <div class="modal-controls">
+        <button class="modal-arrow" id="modal-prev" aria-label="Previous image">‹</button>
+        <div class="modal-counter" id="modal-counter">1 / 12</div>
+        <button class="modal-arrow" id="modal-next" aria-label="Next image">›</button>
+      </div>
+    </div>
+  </div>
+
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script>
+    const hamburger = document.getElementById('hamburger'); // legacy: absent in the new header
+    const navMenu = document.getElementById('nav');
+
+    if (hamburger && navMenu) {
+      hamburger && hamburger.addEventListener('click', function() {
+        hamburger && hamburger.classList.toggle('open');
+        navMenu && navMenu.classList.toggle('open');
+      });
+
+      navMenu && navMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger && hamburger.classList.remove('open');
+          navMenu && navMenu.classList.remove('open');
+        });
+      });
+    }
+
+    const totalImages = 226;
+
+    // Display order: newest pass first. Photos 160+ were added later, so the
+    // sequence is explicit rather than a plain 1..N count.
+    const displayOrder = [
+      226,
+      225,
+      224,
+      223,
+      222,
+      221,
+      220,
+      219,
+      218,
+      217,
+      216,
+      160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 1, 2, 3, 4,
+      5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+      25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 35, 38, 39, 40, 41, 176, 42, 177,
+      178, 43, 179, 44, 180, 181, 182, 45, 46, 47, 183, 184, 48, 185, 186, 49, 50, 187, 51, 52,
+      53, 188, 189, 54, 190, 55, 56, 191, 57, 192, 193, 58, 59, 60, 194, 61, 195, 62, 196, 197,
+      63, 64, 65, 198, 66, 199, 200, 67, 68, 69, 70, 201, 71, 202, 203, 204, 72, 205, 73, 206,
+      74, 75, 207, 208, 209, 76, 77, 210, 211, 78, 79, 80, 81, 212, 213, 214, 215, 82, 83, 84,
+      85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104,
+      105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124,
+      125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144,
+      145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159
+    ];
+    const imageFolder = "images/pass-gallery/";
+    const imageExtension = ".webp";
+
+    const galleryGrid = document.getElementById("gallery-grid");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const showAllBtn = document.getElementById("show-all-btn");
+    if (showAllBtn) { showAllBtn.dataset.limit = String(totalImages); }
+
+    const modal = document.getElementById("gallery-modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalClose = document.getElementById("modal-close");
+    const modalPrev = document.getElementById("modal-prev");
+    const modalNext = document.getElementById("modal-next");
+    const modalCounter = document.getElementById("modal-counter");
+
+    let currentLimit = 12;
+    let currentIndex = 0;
+    let visibleImages = [];
+    let touchStartX = 0;
+
+    function getImagePath(number) {
+      // full-size image, used by the lightbox
+      const padded = String(number).padStart(3, "0");
+      return imageFolder + "pass-" + padded + imageExtension;
+    }
+
+    function getThumbPath(number) {
+      // small image, used by the grid - roughly a tenth the weight
+      const padded = String(number).padStart(3, "0");
+      return imageFolder + "pass-" + padded + "-thumb" + imageExtension;
+    }
+
+    function buildImages(limit) {
+      visibleImages = [];
+
+      for (let i = 0; i < limit && i < displayOrder.length; i++) {
+        const n = displayOrder[i];
+        visibleImages.push({
+          src: getImagePath(n),
+          thumb: getThumbPath(n),
+          number: i + 1
+        });
+      }
+    }
+
+    function renderGallery(limit) {
+      currentLimit = limit;
+      buildImages(limit);
+      galleryGrid.innerHTML = "";
+
+      visibleImages.forEach(function(image, index) {
+        const card = document.createElement("button");
+        card.className = "gallery-card";
+        card.type = "button";
+        card.style.animationDelay = Math.min(index * 0.025, 0.35) + "s";
+        card.setAttribute("aria-label", "View SAR Driving School pass photo " + image.number);
+
+        const img = document.createElement("img");
+        img.src = image.thumb;
+        img.alt = "SAR Driving School learner pass photo " + image.number;
+        img.loading = index < 4 ? "eager" : "lazy";
+        img.decoding = "async";
+
+        img.onerror = function() {
+          card.style.display = "none";
+        };
+
+        card.appendChild(img);
+
+        card.addEventListener("click", function() {
+          openModal(index);
+        });
+
+        galleryGrid.appendChild(card);
+      });
+    }
+
+    function openModal(index) {
+      currentIndex = index;
+      updateModal();
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function updateModal() {
+      const image = visibleImages[currentIndex];
+      modalImg.src = image.src;
+      modalImg.alt = "SAR Driving School learner pass photo " + image.number;
+      modalCounter.textContent = (currentIndex + 1) + " / " + visibleImages.length;
+    }
+
+    function showPrev() {
+      currentIndex = currentIndex === 0 ? visibleImages.length - 1 : currentIndex - 1;
+      updateModal();
+    }
+
+    function showNext() {
+      currentIndex = currentIndex === visibleImages.length - 1 ? 0 : currentIndex + 1;
+      updateModal();
+    }
+
+    filterButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        const limit = Number(button.dataset.limit);
+
+        filterButtons.forEach(function(btn) {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        renderGallery(limit);
+      });
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modalPrev.addEventListener("click", showPrev);
+    modalNext.addEventListener("click", showNext);
+
+    modal.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    modal.addEventListener("touchstart", function(event) {
+      touchStartX = event.changedTouches[0].screenX;
+    });
+
+    modal.addEventListener("touchend", function(event) {
+      const touchEndX = event.changedTouches[0].screenX;
+      const distance = touchStartX - touchEndX;
+
+      if (Math.abs(distance) > 50) {
+        if (distance > 0) {
+          showNext();
+        } else {
+          showPrev();
+        }
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (!modal.classList.contains("open")) return;
+
+      if (event.key === "Escape") closeModal();
+      if (event.key === "ArrowLeft") showPrev();
+      if (event.key === "ArrowRight") showNext();
+    });
+
+    renderGallery(currentLimit);
+  </script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

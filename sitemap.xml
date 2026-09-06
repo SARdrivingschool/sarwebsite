@@ -133,4 +133,16 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://sardrivingschool.co.uk/app-privacy.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sardrivingschool.co.uk/app-support.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

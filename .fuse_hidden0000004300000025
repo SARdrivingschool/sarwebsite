@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Privacy & Cookie Policy | SAR Driving School</title>
+  <meta name="description" content="How SAR Driving School Ltd collects, uses and protects your personal information, and how we use cookies on this website.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/privacy.html">
+<meta property="og:title" content="Privacy & Cookie Policy | SAR Driving School">
+<meta property="og:description" content="How SAR Driving School Ltd collects, uses and protects your personal information, and how we use cookies on this website.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy & Cookie Policy | SAR Driving School">
+<meta name="twitter:description" content="How SAR Driving School Ltd collects, uses and protects your personal information, and how we use cookies on this website.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Legal</div>
+        <h1>Privacy &amp; Cookie Policy</h1>
+        <p>How we collect, use and protect your personal information, and how we use cookies on this website.</p>
+      </div>
+    </section>
+
+    <section class="terms-section">
+      <div class="terms-inner">
+
+        <div class="terms-block">
+          <h2><span class="num">1</span> Who we are</h2>
+          <p>SAR Driving School ("we", "us", "our") provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and surrounding areas.</p>
+          <p>For the purposes of UK data protection law, SAR Driving School Ltd is the <strong>data controller</strong> for the personal information described in this policy.</p>
+          <ul>
+            <li>Registered name: <strong>SAR Driving School Ltd</strong></li>
+            <li>Registered in England and Wales, company number <strong>16949309</strong></li>
+            <li>Registered office: <strong>10 Western Road, Wolverton, Milton Keynes MK12 5BE</strong></li>
+            <li>Email: <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a></li>
+            <li>Phone: <a href="tel:+447902023737">079 02 02 37 37</a></li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">2</span> The information we collect</h2>
+          <p>We collect only what we need to answer your enquiry and deliver driving lessons.</p>
+          <ul>
+            <li><strong>Enquiry details</strong> &mdash; your name, phone number, email address, pickup postcode or area, whether you want manual or automatic lessons, your experience level, your availability and any instructor preference you tell us</li>
+            <li><strong>Booking and lesson records</strong> &mdash; lessons booked, attended and cancelled, and notes on your progress kept by your instructor</li>
+            <li><strong>Payment information</strong> &mdash; where you pay online, your payment is processed by Stripe. We receive confirmation that a payment succeeded and the amount. <strong>We never see or store your full card number.</strong></li>
+            <li><strong>Website usage</strong> &mdash; if you accept advertising cookies, information about how you reached our site and which pages you viewed. See section 7.</li>
+          </ul>
+          <p>We do not knowingly collect information from anyone under 17. If a parent or guardian arranges lessons on behalf of a learner, we will hold the learner&rsquo;s details for the purpose of delivering those lessons.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">3</span> How we collect it</h2>
+          <ul>
+            <li>Forms on this website</li>
+            <li>WhatsApp messages you send us</li>
+            <li>Phone calls, text messages and callback requests</li>
+            <li>Email</li>
+            <li>Direct messages on Instagram, TikTok and Facebook</li>
+            <li>Online payments made through Stripe</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">4</span> Why we use it, and our lawful basis</h2>
+          <ul>
+            <li><strong>To answer your enquiry and arrange lessons</strong> &mdash; steps taken at your request before entering into a contract, and performance of that contract</li>
+            <li><strong>To deliver and manage your lessons</strong>, including allocating a suitable instructor and keeping progress records &mdash; performance of our contract with you</li>
+            <li><strong>To take payment and keep accounting records</strong> &mdash; performance of our contract, and our legal obligations</li>
+            <li><strong>To measure how well our advertising works</strong> &mdash; your consent, given through the cookie banner</li>
+            <li><strong>To handle complaints and protect our legal position</strong> &mdash; our legitimate interests in running the business fairly</li>
+          </ul>
+          <p>We do not sell your personal information, and we do not use it for automated decision-making or profiling.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">5</span> Who we share it with</h2>
+          <p>We share your information only where we need to. The organisations below act as our service providers or, where indicated, as separate controllers.</p>
+          <ul>
+            <li><strong>Your driving instructor</strong> &mdash; the SAR instructor allocated to you receives the details needed to contact you and teach you</li>
+            <li><strong>FormSubmit</strong> &mdash; delivers the enquiry and booking forms on this website to us by email</li>
+            <li><strong>Stripe</strong> &mdash; processes online card payments</li>
+            <li><strong>Google</strong> &mdash; where you accept advertising cookies, Google receives information about your visit so we can measure our advertising. Google acts as a separate controller for some of this data.</li>
+            <li><strong>WhatsApp / Meta</strong> &mdash; if you choose to message us on WhatsApp or social media, that platform processes the message under its own privacy policy</li>
+            <li><strong>Our accountant, and professional or legal advisers</strong> where necessary</li>
+          </ul>
+          <p>We may also disclose information where we are required to by law, or to establish or defend legal claims.</p>
+          <p>Some of these providers are based outside the UK. Where information is transferred abroad, it is protected by the safeguards recognised under UK data protection law, such as the UK International Data Transfer Agreement or an adequacy decision.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">6</span> How long we keep it</h2>
+          <ul>
+            <li><strong>Enquiries that do not become bookings</strong> &mdash; up to 12 months, then deleted</li>
+            <li><strong>Pupil and lesson records</strong> &mdash; for the duration of your lessons and up to 3 years afterwards, in case of a query or dispute</li>
+            <li><strong>Payment and accounting records</strong> &mdash; 6 years, as required by HMRC</li>
+          </ul>
+          <p>You can ask us to delete your information sooner &mdash; see section 8.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">7</span> Cookies</h2>
+          <p>A cookie is a small file stored on your device. We use two kinds.</p>
+          <ul>
+            <li><strong>Essential cookies</strong> &mdash; needed for the site to work and to remember your cookie choice. These are always set, and do not require your consent.</li>
+            <li><strong>Advertising cookies</strong> &mdash; set by Google so we can measure how well our Google Ads perform. <strong>These are only set if you press &ldquo;Accept&rdquo; on our cookie banner.</strong> Until you do, they are switched off.</li>
+          </ul>
+          <p>You do not have to accept advertising cookies, and the site works normally if you refuse. You can change your mind at any time using the <a href="#" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">cookie settings</a> link, or by clearing cookies in your browser.</p>
+          <p>Our payment pages are hosted by Stripe and may set their own cookies that are strictly necessary for the payment to work. Our enquiry forms are part of this website and set no cookies of their own.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">8</span> Your rights</h2>
+          <p>Under UK data protection law you have the right to:</p>
+          <ul>
+            <li>Ask for a copy of the personal information we hold about you</li>
+            <li>Ask us to correct anything that is wrong</li>
+            <li>Ask us to delete your information</li>
+            <li>Ask us to restrict how we use it, or object to our using it</li>
+            <li>Ask us to transfer it to another provider</li>
+            <li>Withdraw your consent to advertising cookies at any time</li>
+          </ul>
+          <p>To exercise any of these, email <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>. We will respond within one month. There is no charge.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">9</span> Complaints</h2>
+          <p>If you are unhappy with how we have handled your information, please contact us first at <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> so we can put it right.</p>
+          <p>You also have the right to complain to the Information Commissioner&rsquo;s Office (ICO), the UK regulator for data protection:</p>
+          <ul>
+            <li>Website: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a></li>
+            <li>Helpline: 0303 123 1113</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">10</span> Changes to this policy</h2>
+          <p>We may update this policy from time to time. The current version is always the one published on this page, and the date below tells you when it last changed.</p>
+        </div>
+
+        <div style="text-align:center; margin-top: 2rem;">
+          <a href="contact.html" class="btn-primary">Contact us about your data &rarr;</a>
+        </div>
+
+        <p class="last-updated">Last updated: 6 September 2026</p>
+
+      </div>
+    </section>
+
+  
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Automatic Driving Lessons Milton Keynes | SAR</title>
+  <meta name="description" content="Automatic driving lessons in Milton Keynes from £38 per hour. Ideal for nervous beginners and anyone wanting quicker, simpler progress.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/automatic-driving-lessons-milton-keynes.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/automatic-driving-lessons-milton-keynes.html">
+<meta property="og:title" content="Automatic Driving Lessons Milton Keynes | SAR">
+<meta property="og:description" content="Automatic driving lessons in Milton Keynes from £38 per hour. Ideal for nervous beginners and anyone wanting quicker, simpler progress.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automatic Driving Lessons Milton Keynes | SAR">
+<meta name="twitter:description" content="Automatic driving lessons in Milton Keynes from £38 per hour. Ideal for nervous beginners and anyone wanting quicker, simpler progress.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  
+<link rel="stylesheet" href="sar-apple.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="SAR Driving School">
+        <picture><source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)"><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="SAR Driving School" class="logo-img" width="420" height="280"></picture>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="instructor-training.html">Instructor Training</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="label hero-label">Automatic Driving Lessons Milton Keynes</div>
+
+          <h1>
+            Automatic Driving Lessons<br>
+            In <span>Milton Keynes</span>
+          </h1>
+
+          <p>
+            Learn in an automatic car with patient DVSA-approved instructors. Ideal for beginners,
+            nervous learners and pupils who want a smoother, simpler way to build confidence on the road.
+          </p>
+
+          <div class="actions">
+            <a href="book.html" class="btn btn-primary">Book Automatic Lessons →</a>
+            <a href="contact.html" class="btn btn-secondary">Check Availability</a>
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20automatic%20driving%20lessons%20in%20Milton%20Keynes.%0A%0AName%3A%0APickup%20postcode%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-whatsapp">WhatsApp Us</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <strong>£38/hr</strong>
+              <span>Automatic lessons from</span>
+            </div>
+
+            <div class="stat-card">
+              <strong>5.0</strong>
+              <span>Rated by learners on Google</span>
+            </div>
+
+            <div class="stat-card">
+              <strong>260+</strong>
+              <span>Google reviews from local learners</span>
+            </div>
+
+            <div class="stat-card">
+              <strong>DVSA</strong>
+              <span>Approved instructors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<figure class="hero-media">
+  <img src="images/female-driver-right-side.webp" alt="A SAR Driving School pupil at the wheel of a tuition car" width="1672" height="941" fetchpriority="high" decoding="async">
+</figure>
+
+
+    <section class="dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Automatic Lessons</div>
+          <h2>Learn to drive automatic with calm, structured lessons</h2>
+          <p>
+            Automatic driving lessons are a great option if you want to focus more on steering,
+            observations, road positioning and decision-making without worrying about clutch control
+            or gear changes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Great for beginners</h3>
+            <p>Start from the basics with clear, patient instruction and a steady lesson plan.</p>
+          </div>
+
+          <div class="card">
+            <h3>Ideal for nervous learners</h3>
+            <p>Automatic lessons can feel simpler and smoother, helping nervous pupils build confidence.</p>
+          </div>
+
+          <div class="card">
+            <h3>Test preparation</h3>
+            <p>Prepare for your driving test with structured practice, mock tests and local route knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">What We Cover</div>
+          <h2>Automatic driving skills we help you build</h2>
+          <p>
+            Lessons are planned around your ability, confidence and driving goals.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Junctions & Roundabouts</h3>
+            <p>Build confidence with observations, lane choice, signalling, timing and safe decisions.</p>
+          </div>
+
+          <div class="card">
+            <h3>Parking Practice</h3>
+            <p>Practise bay parking, reverse parking, parallel parking and safe observations.</p>
+          </div>
+
+          <div class="card">
+            <h3>Independent Driving</h3>
+            <p>Improve planning, awareness and confidence when following signs or sat nav-style routes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Areas Covered</div>
+          <h2>Automatic driving lessons across Milton Keynes</h2>
+          <p>
+            We cover Milton Keynes and nearby areas for automatic driving lessons.
+          </p>
+        </div>
+
+        <div class="area-list">
+          <div class="area-pill">Milton Keynes</div>
+          <div class="area-pill">Bletchley</div>
+          <div class="area-pill">Wolverton</div>
+          <div class="area-pill">Newport Pagnell</div>
+          <div class="area-pill">Stony Stratford</div>
+          <div class="area-pill">Bedford</div>
+          <div class="area-pill">Leighton Buzzard</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container">
+        <div class="section-head center">
+          <div class="label">How It Works</div>
+          <h2>Start automatic lessons in three simple steps</h2>
+          <p>
+            Send your details, we check availability, then you start structured automatic lessons.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Send your details</h3>
+            <p>Tell us your area, experience level and availability.</p>
+          </div>
+
+          <div class="card">
+            <h3>2. We check availability</h3>
+            <p>We’ll let you know what lesson times are available.</p>
+          </div>
+
+          <div class="card">
+            <h3>3. Start learning</h3>
+            <p>Begin automatic lessons designed around your confidence and test goals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">FAQ</div>
+          <h2>Automatic driving lesson questions</h2>
+          <p>Quick answers for learners looking for automatic driving lessons in Milton Keynes.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>How much are automatic driving lessons?</h3>
+            <p>Automatic driving lessons start from £38 per hour.</p>
+          </div>
+
+          <div class="card">
+            <h3>Are automatic lessons easier than manual?</h3>
+            <p>Many learners find automatic lessons simpler because there is no clutch or gear changing.</p>
+          </div>
+
+          <div class="card">
+            <h3>Do automatic lessons help nervous learners?</h3>
+            <p>Yes, automatic lessons can help nervous learners focus more on road awareness and confidence.</p>
+          </div>
+
+          <div class="card">
+            <h3>Can I take my driving test in an automatic car?</h3>
+            <p>Yes, but passing in an automatic means your licence is for automatic vehicles only.</p>
+          </div>
+
+          <div class="card">
+            <h3>Do you cover Bletchley?</h3>
+            <p>Yes, automatic lessons are available across Milton Keynes, including Bletchley and nearby areas.</p>
+          </div>
+
+          <div class="card">
+            <h3>Can I use your car for my test?</h3>
+            <p>Yes, subject to assessment and DVSA test-standard driving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container text">
+        <div class="label">Local Automatic Driving School</div>
+        <h2>Automatic driving lessons in Milton Keynes</h2>
+        <p>
+          SAR Driving School provides automatic driving lessons across Milton Keynes, Bletchley,
+          Wolverton, Newport Pagnell, Stony Stratford and nearby areas. Our DVSA-approved instructors
+          help beginners, nervous learners and pupils preparing for their driving test with structured
+          automatic lessons, local route knowledge, parking practice, roundabouts, mock tests and
+          confidence-building support.
+        </p>
+      </div>
+    </section>
+
+    
+<section class="callback" id="callback">
+  <div class="container callback-inner">
+    <div>
+      <div class="label">Prefer a phone call?</div>
+      <h2>We&rsquo;ll call you back</h2>
+      <p>
+        Not everyone wants to message on WhatsApp. Call us straight away, or send us a text
+        with your details and we&rsquo;ll ring you back at a time that suits you.
+      </p>
+
+      <ul class="callback-points">
+        <li>Tell us when to call &mdash; mornings, afternoons or evenings</li>
+        <li>We&rsquo;ll confirm instructor availability in your area</li>
+        <li>No obligation &mdash; ask us anything about lessons or prices</li>
+      </ul>
+    </div>
+
+    <div class="callback-card">
+      <div class="callback-choose">
+        <a href="tel:+447902023737" class="callback-action callback-action-call">
+          <span class="callback-action-label">Call us now</span>
+          <span class="callback-action-sub">079 02 02 37 37 &middot; straight through to the office</span>
+        </a>
+
+        <a href="sms:+447902023737?&body=Hi%20SAR%2C%20please%20call%20me%20back.%0A%0AName%3A%0APostcode%3A%0AManual%20or%20automatic%3A%0ABest%20time%20to%20call%3A" class="callback-action callback-action-text">
+          <span class="callback-action-label">Text us and we&rsquo;ll call you</span>
+          <span class="callback-action-sub">Opens a ready-written message &mdash; just fill in the gaps and send</span>
+        </a>
+      </div>
+
+      <div class="callback-preview">
+        <strong>Your text will look like this:</strong>
+        <p>
+          Hi SAR, please call me back.<br><br>
+          Name:<br>
+          Postcode:<br>
+          Manual or automatic:<br>
+          Best time to call:
+        </p>
+      </div>
+
+      <p class="callback-hours">We answer 9am&ndash;8pm, seven days a week. Outside those hours we&rsquo;ll call you back the next morning.</p>
+    </div>
+  </div>
+</section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="label">Ready to start?</div>
+            <h2>Book automatic driving lessons in Milton Keynes</h2>
+            <p>
+              Send us your area, availability and experience level. We’ll let you know what we can offer.
+            </p>
+
+            <div class="actions">
+              <a href="book.html" class="btn btn-primary">Book Automatic Lessons →</a>
+              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20automatic%20driving%20lessons%20in%20Milton%20Keynes.%0A%0AName%3A%0APickup%20postcode%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-secondary">WhatsApp Us</a>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <strong>Let’s get you test ready.</strong>
+            <span>Automatic driving lessons available across Milton Keynes and nearby areas.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-local">
+      <h3>Local Driving Lesson Areas</h3>
+
+      <div class="footer-links">
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+      </div>
+    </div>
+      <a href="terms.html">Terms &amp; Conditions</a>
+  <a href="privacy.html">Privacy &amp; Cookies</a>
+  <a href="#" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">Cookie settings</a>
+    <p class="trader-identity">SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot; Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot; <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot; <a href="tel:+447902023737">079 02 02 37 37</a></p>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+  </footer>
+
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20automatic%20driving%20lessons%20in%20Milton%20Keynes.%0A%0AName%3A%0APickup%20postcode%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("open");
+      navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        hamburger.classList.remove("open");
+        navMenu.classList.remove("open");
+      });
+    });
+  </script>
+  <script src="cookie-consent.js" defer></script>
+</body>
+</html>

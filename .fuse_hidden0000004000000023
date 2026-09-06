@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Driving Lesson Prices Milton Keynes | SAR Driving School</title>
+  <meta name="description" content="Driving lessons from £38 per hour in Milton Keynes, with block booking rates down to £34/hr. Clear pricing, no hidden extras, two simple ways to pay.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/pricing.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/pricing.html">
+<meta property="og:title" content="Driving Lesson Prices Milton Keynes | SAR Driving School">
+<meta property="og:description" content="Driving lessons from £38 per hour in Milton Keynes, with block booking rates down to £34/hr. Clear pricing, no hidden extras, two simple ways to pay.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Driving Lesson Prices Milton Keynes | SAR Driving School">
+<meta name="twitter:description" content="Driving lessons from £38 per hour in Milton Keynes, with block booking rates down to £34/hr. Clear pricing, no hidden extras, two simple ways to pay.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo" aria-label="SAR Driving School">
+      <picture><source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)"><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="SAR Driving School" class="logo-img" width="420" height="280"></picture>
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="instructor-training.html">Instructor Training</a></li>
+      <li><a href="book.html" class="btn-nav">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-card">
+      <div class="section-label">Transparent pricing</div>
+
+      <h1>
+        Simple, honest<br>
+        <span>driving lesson prices</span>
+      </h1>
+
+      <p>
+        Manual and automatic driving lessons from £38 per hour. Save more with block bookings, or pay online securely by card using Stripe.
+      </p>
+
+      <div class="hero-price-row">
+        <div class="hero-price-pill red">From £38/hr</div>
+        <div class="hero-price-pill">10 hours: £360</div>
+        <div class="hero-price-pill">Online payment available</div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#block-bookings" class="btn btn-primary">View Block Prices →</a>
+        <a href="#pay-online" class="btn btn-secondary">Pay Online</a>
+        <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20have%20a%20question%20about%20lesson%20prices.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0APackage%20I%27m%20interested%20in%3A%20single%20lesson%20%2F%205hr%20%2F%2010hr%20%2F%2020hr%20%2F%2030hr%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-whatsapp">Ask on WhatsApp</a>
+      </div>
+
+      <p class="hero-note">
+        Block rates are the same whether you pay your instructor or pay SAR Driving School. Paying us adds 5% and protects your balance.
+      </p>
+    </div>
+  </div>
+</section>
+<figure class="hero-media">
+  <img src="images/SAR DRIVING SCHOOL MAIN BACKGROUND PIC.webp" alt="SAR Driving School tuition cars" width="1672" height="941" fetchpriority="high" decoding="async">
+</figure>
+
+
+<section class="trust-strip">
+  <div class="container trust-strip-grid">
+    <div><strong>260+ Five-Star Reviews</strong></div>
+    <div><strong>Manual & Automatic</strong></div>
+    <div><strong>DVSA Approved</strong></div>
+    <div><strong>Secure Online Payment</strong></div>
+  </div>
+</section>
+
+<section class="price-nav">
+  <div class="container price-nav-row">
+    <a href="#single-lessons">Single Lessons</a>
+    <a href="#block-bookings">Block Bookings</a>
+    <a href="#pay-online">Pay Online</a>
+    <a href="#other-options">Other Options</a>
+    <a href="#choose-package">Choose Package</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</section>
+
+
+<section class="pay-routes" id="how-to-pay">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">How to pay</div>
+      <h2>Two ways to pay for your lessons</h2>
+      <p>
+        Block booking rates are available whichever way you pay &mdash; the rate is the same.
+        The only difference is who holds your money, and what happens if something goes wrong.
+      </p>
+    </div>
+
+    <div class="pay-grid">
+      <div class="pay-card">
+        <h3>Pay your instructor</h3>
+        <div class="pay-rate">£38<small>/hr, or block rates</small></div>
+        <p>Bank transfer or cash to your instructor, as most of our pupils do.</p>
+        <ul class="pay-list">
+          <li class="yes"><span>&#10003;</span><span><strong>Full block rates &mdash; down to £34/hr on 30 hours</strong></span></li>
+          <li class="yes"><span>&#10003;</span><span>No fee at all &mdash; you pay the rate and nothing on top</span></li>
+          <li class="yes"><span>&#10003;</span><span>Pay as you go, or pay for a block up front</span></li>
+          <li class="no"><span>&mdash;</span><span>Your balance sits with your instructor, not the company</span></li>
+          <li class="no"><span>&mdash;</span><span>If you change instructor, unused hours are between you and them</span></li>
+        </ul>
+        <p class="pay-foot">Best if you know your instructor, you are happy paying as you go, or you simply want the lowest possible price.</p>
+      </div>
+
+      <div class="pay-card highlight">
+        <div class="pay-tag">Recommended for blocks</div>
+        <h3>Pay SAR Driving School</h3>
+        <div class="pay-rate">+5%<small> protected balance</small></div>
+        <p>Paid to the company in advance. Same block rate, plus protection on the money you have paid.</p>
+        <ul class="pay-list">
+          <li class="yes"><span>&#10003;</span><span>Same block rates &mdash; you are not paying more per hour</span></li>
+          <li class="yes"><span>&#10003;</span><span><strong>Your hours are held by SAR Driving School Ltd</strong>, so they survive if your instructor stops teaching</span></li>
+          <li class="yes"><span>&#10003;</span><span>Free instructor swap &mdash; your remaining hours move with you</span></li>
+          <li class="yes"><span>&#10003;</span><span>Covered by our published refund and cancellation terms</span></li>
+          <li class="yes"><span>&#10003;</span><span>Cover arranged if your instructor is ill or on holiday</span></li>
+        </ul>
+        <p class="pay-foot">
+          <strong>The 5% is the same however you pay us</strong> &mdash; card, Apple Pay, Google Pay or bank transfer.
+          It buys protection on your balance, and it is never a charge for using a card.
+          On a 30 hour block that is £51 on top of a block that already saves you £120.
+        </p>
+      </div>
+    </div>
+
+    <p class="pay-note" style="max-width:70ch;margin:26px auto 0;text-align:center;font-size:.95rem">
+      Worth being straight about why the protection exists: if you hand an instructor £1,020 for thirty
+      hours and they later stop teaching, that money is with them, not with us. Paying the company is how
+      you avoid that. Paying your instructor is cheaper. Both are legitimate &mdash; pick the one that suits you.
+    </p>
+  </div>
+</section>
+
+<section class="single-section" id="single-lessons">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Single lessons</div>
+      <h2>Start with the lesson type that suits you</h2>
+      <p>
+        Manual, automatic and refresher lessons are £38 per hour, or less on a block. Pay your instructor and there is no fee. Pay SAR Driving School and it is 5% more, which protects your balance.
+      </p>
+    </div>
+
+    <div class="single-grid">
+      <div class="lesson-card">
+        <div class="card-tag">Manual</div>
+        <h3>Manual driving lessons</h3>
+        <p>Ideal if you want a full manual licence and the flexibility to drive both manual and automatic cars after passing.</p>
+
+        <ul>
+          <li>Manual lessons from £38 per hour</li>
+          <li>DVSA-approved instructors</li>
+          <li>Clutch, gears and car control</li>
+          <li>Local test route knowledge</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>per hour</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="manual-driving-lessons-milton-keynes.html" class="btn btn-primary">View Manual Lessons</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-tag">Automatic</div>
+        <h3>Automatic driving lessons</h3>
+        <p>Ideal for nervous learners, beginners and pupils who want a smoother learning experience without clutch or gear changes.</p>
+
+        <ul>
+          <li>Automatic lessons from £38 per hour</li>
+          <li>No clutch or gear changes</li>
+          <li>Good for nervous learners</li>
+          <li>Structured test preparation</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>per hour</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="automatic-driving-lessons-milton-keynes.html" class="btn btn-primary">View Automatic Lessons</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
+        </div>
+      </div>
+
+      <div class="lesson-card">
+        <div class="card-tag">Refresher</div>
+        <h3>Refresher driving lessons</h3>
+        <p>Useful for confidence building, parking, roundabouts, motorway driving, returning drivers and pre-test practice.</p>
+
+        <ul>
+          <li>Refresher lessons from £38</li>
+          <li>Parking and roundabouts support</li>
+          <li>Manual or automatic available</li>
+          <li>Tailored to your needs</li>
+        </ul>
+
+        <div class="card-price">
+          <strong>£38</strong>
+          <span>from</span>
+        </div>
+
+        <div class="lesson-card-actions">
+          <a href="refresher-driving-lessons-milton-keynes.html" class="btn btn-primary">View Refresher Lessons</a>
+          <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-secondary">Book 1 Hour Online - £39.90</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block-section" id="block-bookings">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Block bookings</div>
+      <h2>Save more when you book more hours</h2>
+      <p>
+        Block rates are available whichever way you pay, and the rate per hour is identical. Pay your instructor directly and there is no fee at all. Pay SAR Driving School and 5% is added, which means your hours are held by the company, covered by our refund terms, and stay with you if you change instructor.
+      </p>
+    </div>
+
+    <div class="block-grid">
+      <div class="price-card">
+        <div class="save-badge">Save £5</div>
+        <h3>5 hour starter block</h3>
+        <p>A good option if you are new to driving and want to get started before deciding your next step.</p>
+
+        <ul>
+          <li>5 hours of lessons</li>
+          <li>Beginner friendly</li>
+          <li>Tailored lesson plan</li>
+          <li>Confidence building</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£190</s> normally at £38/hr</div>
+          <strong class="main-price">£185</strong>
+          <span class="per-hour">£37/hr equivalent</span>
+          <span class="online-note">Or £194.25 paid to SAR, protected balance</span>
+        </div>
+
+        <a href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05" target="_blank" class="btn btn-secondary">Book 5 Hours Online</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="top-badge">Most Popular</div>
+        <h3>10 hour block</h3>
+        <p>Perfect for learners who want consistent progress and a clear routine with their instructor.</p>
+
+        <ul>
+          <li>10 hours of lessons</li>
+          <li>Manual or automatic</li>
+          <li>Progress tracked clearly</li>
+          <li>Suitable for weekly lessons</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£380</s> normally at £38/hr</div>
+          <strong class="main-price">£360</strong>
+          <span class="per-hour">£36/hr equivalent</span>
+          <span class="online-note">Or £378 paid to SAR, protected balance</span>
+        </div>
+
+        <a href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04" target="_blank" class="btn btn-primary">Book 10 Hours Online</a>
+      </div>
+
+      <div class="price-card">
+        <div class="save-badge">Save £60</div>
+        <h3>20 hour block</h3>
+        <p>Great for learners who want a solid foundation and are committed to building consistent progress.</p>
+
+        <ul>
+          <li>20 hours of lessons</li>
+          <li>Manual or automatic</li>
+          <li>Structured progress plan</li>
+          <li>Ideal for most learners</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£760</s> normally at £38/hr</div>
+          <strong class="main-price">£700</strong>
+          <span class="per-hour">£35/hr equivalent</span>
+          <span class="online-note">Or £735 paid to SAR, protected balance</span>
+        </div>
+
+        <a href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06" target="_blank" class="btn btn-secondary">Book 20 Hours Online</a>
+      </div>
+
+      <div class="price-card best">
+        <div class="top-badge gold">Best Value</div>
+        <h3>30 hour block</h3>
+        <p>Our biggest block for serious learners who want consistent, structured lessons and test preparation.</p>
+
+        <ul>
+          <li>30 hours of lessons</li>
+          <li>Manual or automatic</li>
+          <li>Full test preparation included</li>
+          <li>Best saving per hour</li>
+        </ul>
+
+        <div class="price-area">
+          <div class="was-price"><s>£1,140</s> normally at £38/hr</div>
+          <strong class="main-price">£1,020</strong>
+          <span class="per-hour">£34/hr equivalent · save £120</span>
+          <span class="online-note">Or £1,071 paid to SAR, protected balance</span>
+        </div>
+
+        <a href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07" target="_blank" class="btn btn-primary">Book 30 Hours Online</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="payment-section" id="pay-online">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Secure online payments</div>
+      <h2>Pay online for lessons and block bookings</h2>
+      <p>
+        Pay SAR Driving School securely by card, Apple Pay, Google Pay or bank transfer. Paying us adds 5% whichever method you choose, and protects your balance. Paying your instructor direct is the same block rate with no fee.
+      </p>
+    </div>
+
+    <div class="payment-grid">
+      <div class="payment-card">
+        <h3>1 Hour Lesson</h3>
+        <p>Single 1 hour driving lesson with SAR Driving School.</p>
+
+        <div class="payment-price">
+          <strong>£39.90</strong>
+          <span>£38 paid to your instructor &middot; £39.90 paid to SAR</span>
+        </div>
+
+        <a href="https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" target="_blank" class="btn btn-primary">Book 1 Hour</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>5 Hour Block</h3>
+        <p>Starter block booking for beginners or learners wanting a short package.</p>
+
+        <div class="payment-price">
+          <strong>£194.25</strong>
+          <span>£185 paid to your instructor &middot; £194.25 paid to SAR</span>
+        </div>
+
+        <a href="https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05" target="_blank" class="btn btn-secondary">Book 5 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>10 Hour Block</h3>
+        <p>Most popular block booking for steady weekly progress.</p>
+
+        <div class="payment-price">
+          <strong>£378</strong>
+          <span>£360 paid to your instructor &middot; £378 paid to SAR</span>
+        </div>
+
+        <a href="https://book.stripe.com/8x2bJ2c5B9izglPf31bII04" target="_blank" class="btn btn-primary">Book 10 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>20 Hour Block</h3>
+        <p>Strong package for learners who want consistent structured progress.</p>
+
+        <div class="payment-price">
+          <strong>£735</strong>
+          <span>£700 paid to your instructor &middot; £735 paid to SAR</span>
+        </div>
+
+        <a href="https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06" target="_blank" class="btn btn-secondary">Book 20 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>30 Hour Block</h3>
+        <p>Best value block booking for serious learners and full test preparation.</p>
+
+        <div class="payment-price">
+          <strong>£1,071</strong>
+          <span>£1,020 paid to your instructor &middot; £1,071 paid to SAR</span>
+        </div>
+
+        <a href="https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07" target="_blank" class="btn btn-primary">Book 30 Hours</a>
+      </div>
+
+      <div class="payment-card">
+        <h3>Custom Payment</h3>
+        <p>Use this option only if SAR Driving School has confirmed a custom amount with you.</p>
+
+        <div class="payment-price">
+          <strong>Custom</strong>
+          <span>Enter the agreed amount at checkout</span>
+        </div>
+
+        <a href="https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09" target="_blank" class="btn btn-secondary">Pay Custom Amount</a>
+      </div>
+    </div>
+
+    <div class="payment-note-box">
+      All payments made to SAR Driving School carry a 5% charge, the same whichever method you use, and it protects the balance you have paid. Paying your instructor directly avoids the fee entirely and gets you the same block rate — the difference is who holds your money, not the price per hour. Once payment is made, our team will contact you to arrange your lesson date, time and instructor. Use the custom payment option only if an amount has been agreed with SAR Driving School.
+    </div>
+  </div>
+</section>
+
+<section class="other-section" id="other-options">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Other options</div>
+      <h2>Intensive lessons and test car hire</h2>
+      <p>
+        Some options need to be checked first because they depend on your level, test date, instructor availability and whether you are test-ready.
+      </p>
+    </div>
+
+    <div class="other-grid">
+      <div class="other-card">
+        <div>
+          <h3>Intensive driving lessons</h3>
+          <p>Intensive lessons are arranged depending on your current level, test date and how many hours you realistically need.</p>
+          <ul>
+            <li>Manual or automatic</li>
+            <li>Plan built around your level</li>
+            <li>Useful if your test is approaching</li>
+            <li>Availability confirmed first</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Ask About Intensive</a>
+        </div>
+        <div class="ask-price">Ask first</div>
+      </div>
+
+      <div class="other-card">
+        <div>
+          <h3>Driving test car hire</h3>
+          <p>Use of instructor car for your driving test may be available, subject to assessment and DVSA test-standard driving.</p>
+          <ul>
+            <li>Assessment required first</li>
+            <li>Instructor car for test day</li>
+            <li>Subject to availability</li>
+            <li>Only when driving is test-ready</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary">Ask About Test Car Hire</a>
+        </div>
+        <div class="ask-price">Ask first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="choose-section" id="choose-package">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Choose the right package</div>
+      <h2>Not sure what to book?</h2>
+      <p>
+        Use this as a simple guide. We can confirm the best option once you send your area, lesson type, experience level and availability.
+      </p>
+    </div>
+
+    <div class="choose-grid">
+      <div class="choose-card">
+        <h3>First lesson / unsure</h3>
+        <p>Start with a normal single lesson so the instructor can assess your current level and learning style.</p>
+        <span class="mini-price">Start from £38/hr</span>
+      </div>
+
+      <div class="choose-card">
+        <h3>Weekly progress</h3>
+        <p>The 10-hour block is best if you want to secure consistent lesson time and build momentum.</p>
+        <span class="mini-price">Most popular: £360</span>
+      </div>
+
+      <div class="choose-card">
+        <h3>Serious learners</h3>
+        <p>The 20-hour or 30-hour block is better if you want a stronger plan and more consistent progress.</p>
+        <span class="mini-price">Best value: £1,020</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="callback" id="callback">
+  <div class="container callback-inner">
+    <div>
+      <div class="section-label">Prefer a phone call?</div>
+      <h2>We&rsquo;ll call you back</h2>
+      <p>
+        Not everyone wants to message on WhatsApp. Call us straight away, or send us a text
+        with your details and we&rsquo;ll ring you back at a time that suits you.
+      </p>
+
+      <ul class="callback-points">
+        <li>Tell us when to call &mdash; mornings, afternoons or evenings</li>
+        <li>We&rsquo;ll confirm instructor availability in your area</li>
+        <li>No obligation &mdash; ask us anything about lessons or prices</li>
+      </ul>
+    </div>
+
+    <div class="callback-card">
+      <div class="callback-choose">
+        <a href="tel:+447902023737" class="callback-action callback-action-call">
+          <span class="callback-action-label">Call us now</span>
+          <span class="callback-action-sub">079 02 02 37 37 &middot; straight through to the office</span>
+        </a>
+
+        <a href="sms:+447902023737?&body=Hi%20SAR%2C%20please%20call%20me%20back.%0A%0AName%3A%0APostcode%3A%0AManual%20or%20automatic%3A%0ABest%20time%20to%20call%3A" class="callback-action callback-action-text">
+          <span class="callback-action-label">Text us and we&rsquo;ll call you</span>
+          <span class="callback-action-sub">Opens a ready-written message &mdash; just fill in the gaps and send</span>
+        </a>
+      </div>
+
+      <div class="callback-preview">
+        <strong>Your text will look like this:</strong>
+        <p>
+          Hi SAR, please call me back.<br><br>
+          Name:<br>
+          Postcode:<br>
+          Manual or automatic:<br>
+          Best time to call:
+        </p>
+      </div>
+
+      <p class="callback-hours">We answer 9am&ndash;8pm, seven days a week. Outside those hours we&rsquo;ll call you back the next morning.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quick-message">
+  <div class="container quick-message-panel">
+    <div>
+      <div class="section-label">Quick price enquiry</div>
+      <h2>Message us in under 30 seconds</h2>
+      <p>
+        To check the best package faster, send your area, lesson type, experience level and availability on WhatsApp.
+      </p>
+    </div>
+
+    <div class="message-card">
+      <strong>We&rsquo;ll fill this in for you:</strong>
+          <p>
+            Hi SAR, I have a question about lesson prices.<br>
+            &nbsp;<br>
+            Name:<br>
+            Pickup postcode:<br>
+            Manual or automatic:<br>
+            Experience: never driven / some lessons / test booked<br>
+            Best days &amp; times:<br>
+            Package I&#x27;m interested in: single lesson / 5hr / 10hr / 20hr / 30hr<br>
+            Instructor preference (optional):
+          </p>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20have%20a%20question%20about%20lesson%20prices.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0APackage%20I%27m%20interested%20in%3A%20single%20lesson%20%2F%205hr%20%2F%2010hr%20%2F%2020hr%20%2F%2030hr%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-primary">
+        Send WhatsApp Message →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Pricing FAQ</div>
+      <h2>Common questions about lesson prices</h2>
+      <p>
+        Quick answers before you book manual, automatic, refresher or block lessons.
+      </p>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>How much are manual driving lessons?</h3>
+        <p>Manual driving lessons are £38 per hour, and less on a block. Paid to your instructor there is no fee. Paid to SAR Driving School it is £39.90 for a single hour, the extra 5% protecting your balance.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How much are automatic driving lessons?</h3>
+        <p>Automatic driving lessons are £38 per hour, and less on a block. Paid to your instructor there is no fee. Paid to SAR Driving School it is £39.90 for a single hour, the extra 5% protecting your balance.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Are block bookings cheaper?</h3>
+        <p>Yes. A 5-hour block saves £5, 10 hours saves £20, 20 hours saves £60 and 30 hours saves £120.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why does paying SAR cost 5% more?</h3>
+        <p>It is not higher per hour — block rates are identical either way. Paying SAR Driving School adds 5%, which applies whichever method you use and is never a charge for paying by card. It buys protection: your hours are held by the company, they survive if your instructor stops teaching, they move with you if you switch instructor, and they are covered by our published refund terms.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I pay a custom amount?</h3>
+        <p>Yes. Use the custom payment option only if SAR Driving School has confirmed a custom amount with you.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I book?</h3>
+        <p>You can pay online securely by card, book through the website, or message us on WhatsApp. We’ll contact you to arrange lesson date, time and instructor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <div class="section-label">Ready to start?</div>
+        <h2>Ready to book your first lesson?</h2>
+        <p>
+          Choose your lesson type, pay online securely, or send your preferred availability and we’ll help arrange the right instructor for your area.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#pay-online" class="btn btn-primary">Pay Online →</a>
+          <a href="book.html" class="btn btn-secondary">Book Now</a>
+          <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20have%20a%20question%20about%20lesson%20prices.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0APackage%20I%27m%20interested%20in%3A%20single%20lesson%20%2F%205hr%20%2F%2010hr%20%2F%2020hr%20%2F%2030hr%0AInstructor%20preference%20%28optional%29%3A" target="_blank" class="btn btn-secondary">Message on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <strong>Book online or message us.</strong>
+        <span>You can pay online securely by card, or message us on WhatsApp if you want help choosing the right package.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-local">
+    <h3>Useful Driving Lesson Pages</h3>
+    <div class="footer-links">
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+  </div>
+
+  <a href="terms.html">Terms &amp; Conditions</a>
+  <a href="privacy.html">Privacy &amp; Cookies</a>
+  <a href="#" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">Cookie settings</a>
+  <p class="trader-identity">SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot; Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot; <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot; <a href="tel:+447902023737">079 02 02 37 37</a></p>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+</footer>
+
+<div class="floating-actions">
+  <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+    </svg>
+  </a>
+
+  <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20have%20a%20question%20about%20lesson%20prices.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0APackage%20I%27m%20interested%20in%3A%20single%20lesson%20%2F%205hr%20%2F%2010hr%20%2F%2020hr%20%2F%2030hr%0AInstructor%20preference%20%28optional%29%3A" target="_blank" aria-label="WhatsApp SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.940 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", function () {
+    hamburger.classList.toggle("open");
+    navMenu.classList.toggle("open");
+  });
+
+  navMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      hamburger.classList.remove("open");
+      navMenu.classList.remove("open");
+    });
+  });
+}
+</script>
+  <script src="cookie-consent.js" defer></script>
+</body>
+</html>

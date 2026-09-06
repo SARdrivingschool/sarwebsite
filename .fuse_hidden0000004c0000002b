@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Terms & Conditions | SAR Driving School</title>
+  <meta name="description" content="Terms and conditions for driving lessons with SAR Driving School Ltd, including booking, cancellation, payment and your statutory right to cancel.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/terms.html">
+<meta property="og:title" content="Terms & Conditions | SAR Driving School">
+<meta property="og:description" content="Terms and conditions for driving lessons with SAR Driving School Ltd, including booking, cancellation, payment and your statutory right to cancel.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms & Conditions | SAR Driving School">
+<meta name="twitter:description" content="Terms and conditions for driving lessons with SAR Driving School Ltd, including booking, cancellation, payment and your statutory right to cancel.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="sar-apple.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="images/logo.webp" type="image/webp">
+        <img src="images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="gallery.html">Pass Gallery</a></li>
+      <li><a href="instructor-training.html">Instructor training</a></li>
+      <li><a href="socials.html">Find us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="book.html" class="nav-cta">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Legal</div>
+        <h1>Terms & Conditions</h1>
+        <p>Please read these terms carefully before booking driving lessons with SAR Driving School. By booking a lesson or block, you agree to these terms in full.</p>
+      </div>
+    </section>
+
+    <section class="terms-section">
+      <div class="terms-inner">
+
+        <div class="terms-block">
+          <h2><span class="num">1</span> About SAR Driving School</h2>
+          <p><strong>SAR Driving School Ltd</strong> ("we", "us", "our") provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Leighton Buzzard and surrounding areas. Our instructors are DVSA-approved.</p>
+          <p>We are a company registered in England and Wales, company number <strong>16949309</strong>. Our registered office is 10 Western Road, Wolverton, Milton Keynes MK12 5BE. You can contact us at <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> or on 079 02 02 37 37.</p>
+          <p>By booking a lesson or block of lessons with SAR Driving School, you ("the pupil") agree to be bound by these terms and conditions.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">2</span> Booking & Confirmation</h2>
+          <p>A booking is not confirmed until you have received written confirmation from SAR Driving School via WhatsApp, SMS or email. Submitting a booking request form does not guarantee availability.</p>
+          <ul>
+            <li>Lesson availability depends on instructor schedule, area and lesson type</li>
+            <li>We reserve the right to decline any booking request</li>
+            <li>Confirmed lesson times must be agreed between pupil and instructor</li>
+            <li>Block bookings must be used within 12 months of purchase</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">3</span> Lesson Cancellation by the Pupil</h2>
+          <div class="highlight-box">
+            ⚠️ A minimum of 48 hours notice is required to cancel or reschedule a lesson. Cancellations made with less than 48 hours notice will be charged in full.
+          </div>
+          <p>If you cancel or reschedule a lesson with less than 48 hours notice, the full lesson fee will be deducted from your remaining hours or charged to you directly. This applies regardless of the reason given.</p>
+          <ul>
+            <li>Cancellations must be made directly by contacting your instructor or SAR Driving School via WhatsApp or phone</li>
+            <li>Cancellations via third parties are not accepted</li>
+            <li>Repeated short-notice cancellations may result in lessons being suspended or block hours being forfeited</li>
+            <li>If you fail to show for a booked lesson without notice, the full lesson will be charged</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">4</span> Lesson Cancellation by SAR Driving School</h2>
+          <p>If we need to cancel a lesson, we will give you as much notice as possible. Where cancellation is made by us, your lesson will be rescheduled or the lesson credit returned to your block.</p>
+          <ul>
+            <li>We are not liable for cancellations caused by vehicle breakdown, illness or circumstances outside our control</li>
+            <li>In the case of instructor illness or unavailability, we will attempt to arrange a replacement or reschedule</li>
+            <li>No compensation is payable for cancellations made by SAR Driving School in good faith</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">5</span> Payments</h2>
+          <p>There are two ways to pay for lessons, and you may choose either. Our published hourly and block rates are the same under both.</p>
+
+          <p><strong>Paying your instructor directly.</strong> Lessons and blocks are charged at our published rates, currently from £38 per hour and reducing on larger blocks, normally paid by bank transfer or cash to your instructor. <strong>No additional charge applies.</strong> Where you pay your instructor directly, any balance you have paid in advance is held by that instructor and not by SAR Driving School Ltd, and it is not covered by the protections described below.</p>
+
+          <p><strong>Paying SAR Driving School Ltd (protected balance).</strong> Payments made to the company are charged at the same published rates <strong>plus 5%</strong>. That 5% applies to every payment made to us regardless of the method used &mdash; card, Apple Pay, Google Pay or bank transfer &mdash; and is not, and must not be treated as, a charge for paying by card. It is the price of the following protections, which apply only to balances held by the company:</p>
+          <ul>
+            <li>Your balance is held by SAR Driving School Ltd rather than by an individual instructor, and remains payable to you in lessons if your instructor ceases to teach with us</li>
+            <li>Your unused hours are covered by the refund terms in section 6 below</li>
+            <li>Any remaining hours move with you if your instructor changes, at no further cost</li>
+            <li>Where your instructor is unavailable through illness or holiday, we will seek to arrange cover</li>
+          </ul>
+          <p>The 5% is shown separately at the point of payment and is non-refundable once lessons have begun. It does not alter the per-hour rate, which is identical under both payment routes.</p>
+          <ul>
+            <li>Single lesson fees are due at the time of the lesson</li>
+            <li>Block booking fees are due in full before lessons begin</li>
+            <li>Unpaid lessons may result in future bookings being withheld</li>
+            <li>SAR Driving School reserves the right to update lesson prices with reasonable notice</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">6</span> Refund Policy</h2>
+          <div class="highlight-box">
+            ⚠️ All payments made to SAR Driving School are non-refundable except in the specific circumstances listed below. Dissatisfaction with progress, change of mind, passing your test early or finding another instructor are not valid grounds for a refund.
+          </div>
+          <p>Refunds will only be considered in the following circumstances:</p>
+          <ul>
+            <li>SAR Driving School is permanently unable to provide lessons and no alternative instructor can be arranged</li>
+            <li>A medical condition prevents the pupil from ever driving, supported by a doctor's letter</li>
+            <li>A lesson was paid for but not delivered due to our error, and cannot be rescheduled</li>
+          </ul>
+          <p>The following are explicitly not valid grounds for a refund:</p>
+          <ul>
+            <li>Change of mind after booking or paying</li>
+            <li>Deciding to use a different driving school</li>
+            <li>Dissatisfaction with progress speed</li>
+            <li>Passing your driving test and having unused block hours remaining</li>
+            <li>Moving area or changing availability</li>
+            <li>Relationship breakdown with an instructor where lessons can continue with another instructor</li>
+            <li>Lessons cancelled by the pupil with less than 48 hours notice</li>
+            <li>Failure to attend a booked lesson</li>
+          </ul>
+          <p>Any refund requests must be submitted in writing to info@sardrivingschool.co.uk. Refund decisions are at the sole discretion of SAR Driving School and will be responded to within 14 days.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">7</span> Your legal right to cancel online purchases</h2>
+          <p>This section applies where you buy lessons from us online or over the phone, rather than face to face. It sets out rights you have under the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. These rights are in addition to, and are not affected by, our own cancellation and refund terms above.</p>
+          <ul>
+            <li>You have the right to cancel within <strong>14 days of the day the contract is made</strong>, without giving any reason</li>
+            <li>To cancel, tell us clearly &mdash; email <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a>, message us on WhatsApp, or call 079 02 02 37 37. You may use the cancellation form below but you do not have to.</li>
+            <li>If you cancel in time, we will refund you <strong>within 14 days</strong> of being told, using the same payment method you used</li>
+          </ul>
+          <p><strong>If you want lessons to start during the 14-day period.</strong> We will not begin lessons within the cancellation period unless you expressly ask us to. If you do ask us to start and you then cancel within the 14 days, you will be charged only for the lessons actually delivered up to the point you cancelled, in proportion to the total price agreed. Once the service you bought has been fully delivered, the 14-day right no longer applies.</p>
+          <p><strong>Model cancellation form</strong> &mdash; you may copy and send this to us, but you are free to cancel in your own words instead:</p>
+          <p class="quote-panel">
+            To SAR Driving School, info@sardrivingschool.co.uk &mdash;<br>
+            I hereby give notice that I cancel my contract for the supply of the following service: [describe the lessons or package].<br>
+            Ordered on: [date]<br>
+            Name: [your name]<br>
+            Address: [your address]<br>
+            Date: [today&rsquo;s date]
+          </p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">8</span> Block Booking Terms</h2>
+          <p>Block bookings are purchased as a bundle of hours at a discounted rate. The following conditions apply:</p>
+          <ul>
+            <li>Block hours must be used within 12 months of the purchase date</li>
+            <li>Unused hours after 12 months will be forfeited with no refund</li>
+            <li>Block hours cannot be transferred to another pupil</li>
+            <li>Block hours cannot be exchanged for cash or credit</li>
+            <li>The block booking discount applies only to the bundle purchased and not to additional individual lessons</li>
+            <li>Hours used are deducted at the standard lesson duration regardless of early finish</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">9</span> Pupil Responsibilities</h2>
+          <p>As a pupil, you are responsible for the following:</p>
+          <ul>
+            <li>Being ready at the agreed pickup point at the agreed time</li>
+            <li>Holding a valid provisional driving licence throughout all lessons</li>
+            <li>Informing SAR Driving School of any medical conditions, eyesight issues or DVLA notifications that may affect your ability to drive</li>
+            <li>Behaving respectfully toward instructors at all times</li>
+            <li>Not attending a lesson under the influence of alcohol, drugs or medication that impairs driving ability</li>
+            <li>Wearing appropriate footwear and being fit to drive at each lesson</li>
+          </ul>
+          <p>SAR Driving School reserves the right to terminate a lesson immediately if a pupil is deemed unfit to drive, behaves inappropriately or puts the instructor or public at risk. A full lesson charge will apply in these circumstances.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">10</span> Test Preparation & Pass Guarantee</h2>
+          <p>SAR Driving School does not guarantee a pass at the DVSA practical driving test. The number of lessons required to reach test standard varies by individual. We provide structured, professional instruction but cannot be held responsible for test outcomes.</p>
+          <ul>
+            <li>We do not offer refunds based on test failures</li>
+            <li>The decision on test readiness is made by the instructor in consultation with the pupil</li>
+            <li>We are not liable for DVSA test centre changes, cancellations or waiting times</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">11</span> Use of Instructor Vehicle</h2>
+          <p>All lessons take place in an insured, dual-control vehicle provided by the instructor. Pupils must not interfere with dual controls, safety equipment or vehicle settings.</p>
+          <ul>
+            <li>Any damage caused to the vehicle by reckless or deliberate actions by the pupil may be charged to the pupil</li>
+            <li>SAR Driving School is not liable for personal belongings left in the instructor vehicle</li>
+            <li>The instructor has the right to end any lesson immediately if the vehicle is being driven dangerously</li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">12</span> Privacy &amp; Data</h2>
+          <p>Personal information provided when booking (name, phone number, email, pickup area) is used to arrange and manage your driving lessons.</p>
+          <p><strong>We never sell your personal information.</strong> We do share it with the service providers we need to run the business &mdash; your allocated instructor, our form provider, our payment processor and, where you have accepted advertising cookies, Google. Each of these is explained in full in our <a href="privacy.html">Privacy &amp; Cookie Policy</a>.</p>
+          <ul>
+            <li>Contact details may be used to send lesson reminders or confirm bookings</li>
+            <li>You may request deletion of your personal data at any time by emailing info@sardrivingschool.co.uk</li>
+            <li>You have the right to complain to the Information Commissioner&rsquo;s Office &mdash; see our <a href="privacy.html">Privacy &amp; Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">13</span> Complaints</h2>
+          <p>If you have a complaint about your lessons or the service provided, please contact us in writing at info@sardrivingschool.co.uk. We aim to respond to all complaints within 7 working days.</p>
+          <p>Complaints raised on public platforms (Google, social media) before contacting us directly will not be treated as a formal complaint and will not trigger a refund or compensation review.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">14</span> Changes to These Terms</h2>
+          <p>SAR Driving School reserves the right to update these terms and conditions at any time. The current version will always be available on this page. Continued use of our services after any update constitutes acceptance of the revised terms.</p>
+        </div>
+
+        <div class="terms-block">
+          <h2><span class="num">15</span> Governing Law</h2>
+          <p>These terms and conditions are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        </div>
+
+        <div style="text-align:center; margin-top: 2rem;">
+          <a href="book.html" class="btn-primary">Book your lessons →</a>
+        </div>
+
+        <p class="last-updated">Last updated: August 2026 — SAR Driving School, Milton Keynes</p>
+
+      </div>
+    </section>
+
+  
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <h2>Local driving lesson areas</h2>
+    <div class="foot-links">
+      <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+      <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+      <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+      <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="manual-driving-lessons-milton-keynes.html">Manual Driving Lessons Milton Keynes</a>
+      <a href="automatic-driving-lessons-milton-keynes.html">Automatic Driving Lessons Milton Keynes</a>
+      <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+      <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
+    </div>
+
+    <div class="foot-legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy &amp; Cookies</a>
+      <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
+    </div>
+
+    <p class="foot-fine">
+      SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot;
+      Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot;
+      <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot;
+      <a href="tel:+447902023737">079 02 02 37 37</a>
+    </p>
+    <p class="foot-fine">© 2026 SAR Driving School. Milton Keynes &amp; surrounding areas.</p>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+447902023737" aria-label="Call SAR Driving School">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+  </a>
+  <a target="_blank" rel="noopener" aria-label="WhatsApp SAR Driving School"
+     href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+  </a>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>

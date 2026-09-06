@@ -285,18 +285,93 @@ gtag('config', 'AW-18198829338');
           </div>
         </div>
 
-        <div class="tally-panel">
-          <iframe
-            data-tally-src="https://tally.so/embed/pbkYAq?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="900"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Send SAR Driving School a message"
-          ></iframe>
-        </div>
+        <form class="form" id="enquiryForm" action="https://formsubmit.co/sardrivingschool@gmail.com" method="POST">
+            <!-- FormSubmit needs no account and no key. The first real submission
+                 triggers a one-off confirmation email — click the link in it and
+                 the form is live from then on. -->
+            <input type="hidden" name="_subject" value="New enquiry from the contact page">
+            <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- spam trap: real people never fill this in -->
+            <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="Name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="f-phone">Mobile number <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <span class="hint">We&rsquo;ll usually reply by WhatsApp or text.</span>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Email address</label>
+              <input id="f-email" name="Email" type="email" autocomplete="email">
+              <span class="hint">Optional &mdash; only if you&rsquo;d rather we emailed you.</span>
+            </div>
+
+            <div class="field">
+              <label for="f-postcode">Pickup postcode <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-postcode" name="Pickup postcode" type="text" autocomplete="postal-code" required>
+              <span class="hint">So we can check which instructor covers your area.</span>
+            </div>
+
+            <fieldset class="fieldset">
+              <legend>Manual or automatic? <span class="req" aria-hidden="true">*</span></legend>
+              <div class="chips">
+                <label><input type="radio" name="Transmission" value="Manual" required><span>Manual</span></label>
+                <label><input type="radio" name="Transmission" value="Automatic"><span>Automatic</span></label>
+                <label><input type="radio" name="Transmission" value="Not sure yet"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <legend>How much driving have you done?</legend>
+              <div class="chips">
+                <label><input type="radio" name="Experience" value="Never driven"><span>Never driven</span></label>
+                <label><input type="radio" name="Experience" value="Some lessons"><span>Some lessons</span></label>
+                <label><input type="radio" name="Experience" value="Test booked"><span>Test booked</span></label>
+                <label><input type="radio" name="Experience" value="Returning driver"><span>Returning driver</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-package">What are you interested in?</label>
+              <select id="f-package" name="Package">
+                <option value="Not sure yet">Not sure yet &mdash; happy to be advised</option>
+                <option value="Single lesson">Single lesson</option>
+                <option value="5 hour block">5 hour starter block</option>
+                <option value="10 hour block">10 hour block</option>
+                <option value="20 hour block">20 hour block</option>
+                <option value="30 hour block">30 hour block</option>
+                <option value="Intensive course">Intensive course</option>
+                <option value="Refresher lessons">Refresher lessons</option>
+                <option value="Test car hire">Driving test car hire</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="f-times">Best days and times <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="f-times" name="Best days and times" required placeholder="For example: weekday evenings after 5pm, or Saturday mornings"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="f-notes">Anything else we should know?</label>
+              <textarea id="f-notes" name="Notes" placeholder="Instructor preference, test date, nervous driver, anything at all"></textarea>
+            </div>
+
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary" id="formSubmit">Send enquiry</button>
+
+            <p class="form-note">
+              We answer 9am&ndash;8pm, seven days a week. Your details are only used to arrange
+              your lessons &mdash; see our <a href="privacy.html">privacy notice</a>.
+            </p>
+          </form>
 
       </div>
     </section>
@@ -523,11 +598,13 @@ gtag('config', 'AW-18198829338');
       <a href="refresher-driving-lessons-milton-keynes.html">Refresher Driving Lessons Milton Keynes</a>
       <a href="instructor-training.html">Become a Driving Instructor</a>
       <a href="gift-vouchers.html">Gift Vouchers</a>
+      <a href="video-review.html">Video Review</a>
     </div>
 
     <div class="foot-legal">
       <a href="terms.html">Terms &amp; Conditions</a>
       <a href="privacy.html">Privacy &amp; Cookies</a>
+      <a href="app-support.html">App Support</a>
       <button type="button" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}">Cookie settings</button>
     </div>
 
@@ -568,8 +645,6 @@ gtag('config', 'AW-18198829338');
   });
 })();
 </script>
-
-<script async src="https://tally.so/widgets/embed.js"></script>
 <script>
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -604,6 +679,20 @@ gtag('config', 'AW-18198829338');
       });
     });
   </script>
+
+<script>
+(function () {
+  // No interception — the browser posts the form itself, so it works with or
+  // without JavaScript. This only stops double-taps and shows progress.
+  var form = document.getElementById('enquiryForm');
+  var button = document.getElementById('formSubmit');
+  if (!form || !button) return;
+  form.addEventListener('submit', function () {
+    button.disabled = true;
+    button.textContent = 'Sending\u2026';
+  });
+})();
+</script>
 
 <script src="cookie-consent.js" defer></script>
 </body>

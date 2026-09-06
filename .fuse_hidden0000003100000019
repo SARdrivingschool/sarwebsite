@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <!-- Consent Mode v2 — must run BEFORE gtag.js loads.
+     Advertising and analytics storage default to denied until the visitor chooses. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  analytics_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  var sarConsent = localStorage.getItem('sar-consent');
+  if (sarConsent === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted'
+    });
+  }
+} catch (e) {}
+gtag('js', new Date());
+gtag('config', 'AW-18198829338');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18198829338"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Driving Lesson Gift Vouchers | SAR Driving School</title>
+  <meta name="description" content="Give driving lessons as a gift in Milton Keynes. Gift vouchers for single lessons or block bookings, valid for 12 months, sent by email or printed.">
+<link rel="canonical" href="https://sardrivingschool.co.uk/gift-vouchers.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://sardrivingschool.co.uk/gift-vouchers.html">
+<meta property="og:title" content="Driving Lesson Gift Vouchers | SAR Driving School">
+<meta property="og:description" content="Give driving lessons as a gift in Milton Keynes. Gift vouchers for single lessons or block bookings, valid for 12 months, sent by email or printed.">
+<meta property="og:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SAR Driving School tuition car in Milton Keynes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Driving Lesson Gift Vouchers | SAR Driving School">
+<meta name="twitter:description" content="Give driving lessons as a gift in Milton Keynes. Gift vouchers for single lessons or block bookings, valid for 12 months, sent by email or printed.">
+<meta name="twitter:image" content="https://sardrivingschool.co.uk/images/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  
+<link rel="stylesheet" href="sar-apple.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://sardrivingschool.co.uk/#organisation",
+  "name": "SAR Driving School",
+  "legalName": "SAR Driving School Ltd",
+  "url": "https://sardrivingschool.co.uk/",
+  "logo": "https://sardrivingschool.co.uk/images/logo.webp",
+  "image": "https://sardrivingschool.co.uk/images/og-image.jpg",
+  "description": "SAR Driving School provides manual, automatic and refresher driving lessons across Milton Keynes, Bletchley, Bedford, Northampton and Leighton Buzzard.",
+  "telephone": "+447902023737",
+  "email": "info@sardrivingschool.co.uk",
+  "priceRange": "££",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10 Western Road, Wolverton",
+    "addressLocality": "Milton Keynes",
+    "postalCode": "MK12 5BE",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Milton Keynes"
+    },
+    {
+      "@type": "Place",
+      "name": "Bletchley"
+    },
+    {
+      "@type": "Place",
+      "name": "Wolverton"
+    },
+    {
+      "@type": "Place",
+      "name": "Newport Pagnell"
+    },
+    {
+      "@type": "Place",
+      "name": "Stony Stratford"
+    },
+    {
+      "@type": "City",
+      "name": "Bedford"
+    },
+    {
+      "@type": "City",
+      "name": "Northampton"
+    },
+    {
+      "@type": "Place",
+      "name": "Leighton Buzzard"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sardrivingschool",
+    "https://www.tiktok.com/@sardrivingschool",
+    "https://www.youtube.com/@SARdrivingschool"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Manual driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Automatic driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Refresher driving lessons"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Driving instructor training"
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="SAR Driving School">
+        <picture><source srcset="images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)"><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="SAR Driving School" class="logo-img" width="420" height="280"></picture>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Pass Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="socials.html">Find us</a></li>
+        <li><a href="instructor-training.html">Instructor Training</a></li>
+        <li><a href="book.html" class="btn-nav">Book now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="label hero-label">🎁 Gift Vouchers</div>
+
+          <h1>
+            Give the Gift of<br>
+            <span>Driving Lessons</span>
+          </h1>
+
+          <p>
+            A driving lesson gift voucher is one of the few presents that actually changes something.
+            Buy any value from a single lesson upwards, for a birthday, Christmas, a passed exam,
+            or just to get someone started.
+          </p>
+
+          <div class="actions">
+            <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20buy%20a%20driving%20lesson%20gift%20voucher.%0A%0AYour%20name%3A%0ARecipient%27s%20name%3A%0AVoucher%20value%3A%201%20lesson%20%28%C2%A338%29%20%2F%205%20hours%20%28%C2%A3185%29%20%2F%2010%20hours%20%28%C2%A3360%29%20%2F%20other%0AOccasion%20%28optional%29%3A%0AEmail%20or%20printed%3A%0ADate%20you%20need%20it%20by%3A" target="_blank" class="btn btn-primary">Order a voucher →</a>
+            <a href="tel:+447902023737" class="btn btn-secondary">Call 079 02 02 37 37</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <strong>12 months</strong>
+              <span>Valid from the date of purchase</span>
+            </div>
+            <div class="stat-card">
+              <strong>Any value</strong>
+              <span>From a single lesson upwards</span>
+            </div>
+            <div class="stat-card">
+              <strong>Email or print</strong>
+              <span>Whichever suits the occasion</span>
+            </div>
+            <div class="stat-card">
+              <strong>260+</strong>
+              <span>Five-star reviews</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<figure class="hero-media">
+  <img src="images/female-driver-right-side.webp" alt="A SAR Driving School pupil at the wheel of a tuition car" width="1672" height="941" fetchpriority="high" decoding="async">
+</figure>
+
+
+    <section class="dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Popular amounts</div>
+          <h2>Choose what suits</h2>
+          <p>
+            These are our usual lesson and block prices &mdash; a voucher can be any of them, or any
+            other amount you'd like to put towards someone's lessons.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>One lesson</h3>
+            <p>An hour with a DVSA-approved instructor. A good way to let someone try it before committing.</p>
+            <span class="price">£38</span>
+          </div>
+
+          <div class="card">
+            <h3>Five hour block</h3>
+            <p>Enough to get properly started and see real progress. Our most common first-time gift.</p>
+            <span class="price">£185</span>
+          </div>
+
+          <div class="card">
+            <h3>Ten hour block</h3>
+            <p>A serious head start. Works well as a joint gift from family, or a milestone birthday present.</p>
+            <span class="price">£360</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">How it works</div>
+          <h2>Three steps</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Tell us what you want</h3>
+            <p>Message or call us with the value, who it's for, and whether you'd like it emailed or as something printed to hand over.</p>
+          </div>
+
+          <div class="card">
+            <h3>2. We send it across</h3>
+            <p>We'll confirm the amount and send the voucher, usually the same day. Leave us a little longer if you want it posted.</p>
+          </div>
+
+          <div class="card">
+            <h3>3. They book their lessons</h3>
+            <p>They get in touch whenever they're ready, we match them with an instructor, and the voucher comes off their lessons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="label">Good to know</div>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>How long is it valid?</h3>
+            <p>12 months from the date you buy it. If someone is close to the deadline and hasn't used it, talk to us rather than losing it.</p>
+          </div>
+
+          <div class="card">
+            <h3>Can I choose the amount?</h3>
+            <p>Yes. The amounts above are the common ones, but a voucher can be for any value you'd like to put towards someone's lessons.</p>
+          </div>
+
+          <div class="card">
+            <h3>What if they already have an instructor?</h3>
+            <p>Vouchers are for lessons with SAR Driving School. If they're already learning elsewhere, it's worth checking with them first.</p>
+          </div>
+
+          <div class="card">
+            <h3>Do they need a provisional licence?</h3>
+            <p>They'll need one before their first lesson, but not before you buy. It's a good nudge to get them to apply for it.</p>
+          </div>
+
+          <div class="card">
+            <h3>Can it go towards a block booking?</h3>
+            <p>Yes. A voucher can cover a block outright or come off the cost of one.</p>
+          </div>
+
+          <div class="card">
+            <h3>Is it refundable?</h3>
+            <p>Vouchers aren't refundable once issued, but they can be transferred to someone else. Just let us know.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container text">
+        <div class="label">Driving Lesson Gift Vouchers</div>
+        <h2>Driving lesson gift vouchers in Milton Keynes</h2>
+        <p>
+          SAR Driving School gift vouchers can be used towards manual, automatic or refresher driving
+          lessons across Milton Keynes, Bletchley, Wolverton, Newport Pagnell, Stony Stratford, Bedford,
+          Northampton and Leighton Buzzard. A popular present for seventeenth birthdays, Christmas,
+          exam results and new starters.
+        </p>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <div class="label">Ready to order?</div>
+            <h2>Send us the details</h2>
+            <p>
+              Tell us the value, who it's for and when you need it. We'll do the rest and get it
+              back to you quickly.
+            </p>
+
+            <div class="actions">
+              <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20buy%20a%20driving%20lesson%20gift%20voucher.%0A%0AYour%20name%3A%0ARecipient%27s%20name%3A%0AVoucher%20value%3A%201%20lesson%20%28%C2%A338%29%20%2F%205%20hours%20%28%C2%A3185%29%20%2F%2010%20hours%20%28%C2%A3360%29%20%2F%20other%0AOccasion%20%28optional%29%3A%0AEmail%20or%20printed%3A%0ADate%20you%20need%20it%20by%3A" target="_blank" class="btn btn-primary">Order on WhatsApp →</a>
+              <a href="contact.html" class="btn btn-secondary">Other ways to reach us</a>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <strong>Last-minute?</strong>
+            <span>We can usually email a voucher the same day, so it still works if you have left it late.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <footer>
+    <div class="footer-local">
+        <h3>Local Driving Lesson Areas</h3>
+
+        <div class="footer-links">
+        <a href="driving-lessons-milton-keynes.html">Driving Lessons Milton Keynes</a>
+        <a href="driving-lessons-bletchley.html">Driving Lessons Bletchley</a>
+        <a href="driving-lessons-bedford.html">Driving Lessons Bedford</a>
+        <a href="driving-lessons-leighton-buzzard.html">Driving Lessons Leighton Buzzard</a>
+      <a href="driving-lessons-northampton.html">Driving Lessons Northampton</a>
+      <a href="instructor-training.html">Become a Driving Instructor</a>
+        </div>
+    </div>
+      <a href="terms.html">Terms &amp; Conditions</a>
+  <a href="privacy.html">Privacy &amp; Cookies</a>
+  <a href="#" onclick="if(window.sarOpenCookieSettings){sarOpenCookieSettings();}return false;">Cookie settings</a>
+    <p class="trader-identity">SAR Driving School Ltd &middot; Registered in England and Wales, company no. 16949309 &middot; Registered office: 10 Western Road, Wolverton, Milton Keynes MK12 5BE &middot; <a href="mailto:info@sardrivingschool.co.uk">info@sardrivingschool.co.uk</a> &middot; <a href="tel:+447902023737">079 02 02 37 37</a></p>
+  <p>© 2026 SAR Driving School. Milton Keynes & surrounding areas.</p>
+    </footer>
+
+  <div class="floating-actions">
+    <a class="float-btn float-call" href="tel:+447902023737" aria-label="Call SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <a class="float-btn float-whatsapp" href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20driving%20lessons%20in%20Milton%20Keynes.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A%0AInstructor%20preference%20%28optional%29%3A" target="_blank" aria-label="WhatsApp SAR Driving School">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("open");
+      navMenu.classList.toggle("open");
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        hamburger.classList.remove("open");
+        navMenu.classList.remove("open");
+      });
+    });
+  </script>
+  <script src="cookie-consent.js" defer></script>
+</body>
+</html>
