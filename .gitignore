@@ -33,3 +33,9 @@ random /
 hihihji.png
 ef48f685-e1b8-469a-9500-ed88a697450e.png
 32bc3927-0d0a-487f-ab39-3015530486f5.JPG
+
+# FUSE artefacts from the Claude desktop bridge — never commit
+.fuse_hidden*
+
+# Archived clutter moved out of the deploy (kept on disk, not in git)
+_archive/
