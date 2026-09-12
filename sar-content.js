@@ -181,3 +181,44 @@
   preload(nums[1]);
   start();
 })();
+
+/* ---- Lesson cost calculator (pricing page) ---- */
+(function () {
+  'use strict';
+  var c = document.getElementById('calculator'); if (!c) return;
+  var STD = +c.getAttribute('data-std'), OUT = +c.getAttribute('data-outer'), OUTMIN = +c.getAttribute('data-outer-min'), FEE = +c.getAttribute('data-fee');
+  var BH = JSON.parse(c.getAttribute('data-blocks')), BP = JSON.parse(c.getAttribute('data-block-prices'));
+  var LH = JSON.parse(c.getAttribute('data-lessons')), LP = JSON.parse(c.getAttribute('data-lesson-prices'));
+  var area = document.getElementById('calc-area'), hours = document.getElementById('calc-hours'), out = document.getElementById('calc-hours-out');
+  var direct = document.getElementById('calc-direct'), sar = document.getElementById('calc-sar'), rate = document.getElementById('calc-rate'), note = document.getElementById('calc-note'), cta = document.getElementById('calc-cta');
+  var presets = c.querySelectorAll('.p-calc-presets button');
+  function gbp(n) { return '£' + (Math.round(n * 100) / 100).toLocaleString('en-GB', { minimumFractionDigits: (n % 1) ? 2 : 0, maximumFractionDigits: 2 }); }
+  function calc() {
+    var h = +hours.value, outer = area.value === 'outer', msg = '', price;
+    if (outer) {
+      if (h < OUTMIN) { h = OUTMIN; hours.value = h; }
+      price = h * OUT; msg = OUT + ' an hour with a ' + OUTMIN + '-hour minimum in ' + area.options[area.selectedIndex].text + '. Ask us about block rates.';
+      msg = '£' + msg;
+    } else {
+      var bi = BH.indexOf(h), li = LH.indexOf(h);
+      if (bi > -1) { price = BP[bi]; msg = h + '-hour block rate applied — saves ' + gbp(h * STD - price) + ' against paying hourly.'; }
+      else if (li > -1) { price = LP[li]; msg = 'Single lesson price.'; }
+      else {
+        // nearest block below + hourly top-up
+        var best = 0, bp = 0; for (var i = 0; i < BH.length; i++) if (BH[i] <= h && BH[i] > best) { best = BH[i]; bp = BP[i]; }
+        price = bp + (h - best) * STD;
+        msg = best ? (best + '-hour block plus ' + (h - best) + ' hour' + (h - best === 1 ? '' : 's') + ' at £' + STD + '. A ' + nextBlock(h) + '-hour block would cost ' + gbp(nextPrice(h)) + '.') : 'Hourly rate of £' + STD + '.';
+      }
+    }
+    out.textContent = h; direct.textContent = gbp(price); sar.textContent = gbp(price * (1 + FEE / 100)); rate.textContent = gbp(price / h); note.textContent = msg;
+    presets.forEach(function (b) { b.classList.toggle('is-on', +b.getAttribute('data-h') === h); });
+    var t = (c.querySelector('input[name=calc-t]:checked') || {}).value || '';
+    cta.href = '/book.html#match'; cta.textContent = 'Request ' + h + ' hour' + (h === 1 ? '' : 's') + (t ? ' · ' + t.toLowerCase() : '');
+  }
+  function nextBlock(h) { for (var i = 0; i < BH.length; i++) if (BH[i] > h) return BH[i]; return BH[BH.length - 1]; }
+  function nextPrice(h) { for (var i = 0; i < BH.length; i++) if (BH[i] > h) return BP[i]; return BP[BP.length - 1]; }
+  hours.addEventListener('input', calc); area.addEventListener('change', calc);
+  c.querySelectorAll('input[name=calc-t]').forEach(function (r) { r.addEventListener('change', calc); });
+  presets.forEach(function (b) { b.addEventListener('click', function () { hours.value = b.getAttribute('data-h'); calc(); }); });
+  calc();
+})();

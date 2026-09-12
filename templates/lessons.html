@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block schema %}
+{% include "_schema_org.html" %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Lessons</span></nav>
+    <p class="c-eyebrow">Driving lessons</p>
+    <h1>Find the right driving lesson for you</h1>
+    <p class="lead">Manual, automatic and refresher lessons across Milton Keynes and the surrounding areas, with DVSA-approved instructors, a structured syllabus and your progress recorded every lesson.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
+      <a class="btn btn-quiet arrow" href="/pricing.html">View prices</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="grid grid-3">
+      <div class="card">
+        <p class="c-eyebrow">Most requested</p>
+        <h2 style="font-size:24px">Automatic driving lessons</h2>
+        <p class="price">From £{{ P.hourly.standard }} an hour</p>
+        <p class="muted">No clutch, no gears — just the road. Ideal for nervous learners, complete beginners and anyone who wants the simplest route to a licence.</p>
+        <ul class="c-list">
+          <li>Less to think about, so you progress faster</li>
+          <li>Great for nervous learners</li>
+          <li>Pick-up from home or an agreed location</li>
+          <li>Progress tracked every lesson</li>
+        </ul>
+        <a class="go" href="/automatic-driving-lessons-milton-keynes.html">Automatic lessons in Milton Keynes →</a>
+      </div>
+      <div class="card">
+        <p class="c-eyebrow">Full flexibility</p>
+        <h2 style="font-size:24px">Manual driving lessons</h2>
+        <p class="price">From £{{ P.hourly.standard }} an hour</p>
+        <p class="muted">A manual licence lets you drive both manual and automatic cars afterwards — the most flexible option if you're happy to learn clutch control.</p>
+        <ul class="c-list">
+          <li>Clutch, gears and full car control</li>
+          <li>Suitable for complete beginners</li>
+          <li>Pick-up from home or an agreed location</li>
+          <li>Progress tracked every lesson</li>
+        </ul>
+        <a class="go" href="/manual-driving-lessons-milton-keynes.html">Manual lessons in Milton Keynes →</a>
+      </div>
+      <div class="card">
+        <p class="c-eyebrow">Already licensed</p>
+        <h2 style="font-size:24px">Refresher lessons</h2>
+        <p class="price">From £{{ P.hourly.standard }} an hour · manual or automatic</p>
+        <p class="muted">Haven't driven in a while, or never felt confident? Rebuild it at your own pace — parking, roundabouts, motorways, or simply getting back behind the wheel.</p>
+        <ul class="c-list">
+          <li>Tailored to what you want to fix</li>
+          <li>No judgement, no pressure</li>
+          <li>Parking, roundabouts and motorway confidence</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <a class="go" href="/refresher-driving-lessons-milton-keynes.html">Refresher lessons →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What a SAR lesson looks like</h2>
+      <p>Every SAR instructor teaches the same structured syllabus, so you get the same standard whoever you're matched with — and your progress is written down after every drive.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>A syllabus, not random drives</h3><p>{{ syllabus_count }} topics from the cockpit drill and moving off, through junctions, mini and multi-lane roundabouts, meeting traffic and manoeuvres, to independent driving by sat-nav and signs. Nothing is left to chance before your test.</p></div>
+      <div class="card"><h3>Progress you can see</h3><p>Your instructor rates each topic after every lesson in your printed progress logbook and in your instructor's SAR app, so you know exactly what's covered, what needs work and when you're ready to book a test.</p></div>
+      <div class="card"><h3>Local roads, explained</h3><p>Most SAR pupils sit their test at Bletchley. Our instructors teach the roads around it every week — and have filmed the trickiest ones so you can watch before you drive them.</p><a class="go" href="/bletchley-test-centre/hotspots/">Bletchley hotspot guides →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Other ways we can help</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Intensive lessons</h3><p class="muted">Arranged around your level, your test date and how many hours you realistically need. We confirm availability first.</p><a class="go" href="/book.html#match">Ask about intensive →</a></div>
+      <div class="card"><h3>Driving test car hire</h3><p class="muted">Test booked but no car? Use of a SAR instructor's car for your test, subject to an assessment lesson and driving to DVSA test standard.</p><a class="go" href="/book.html#match">Ask about test car hire →</a></div>
+      <div class="card"><h3>Driving Video Review</h3><p class="muted">Send us dashcam footage of your driving and a qualified SAR instructor identifies the faults and tells you what to work on — without booking a lesson.</p><a class="go" href="/video-review.html">Driving Video Review →</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Not sure where to start?</h2></div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Never driven?</h3><p class="muted">Most beginners choose automatic. If you want the flexibility of a manual licence, manual it is — either way your first lesson is an assessment of where you are.</p></div>
+      <div class="card"><h3>Had lessons before?</h3><p class="muted">Tell us roughly how many hours and what you found hard. Your instructor picks up from there rather than starting again.</p></div>
+      <div class="card"><h3>Test already booked?</h3><p class="muted">Say so in your request. We'll prioritise matching you with an instructor who has time before your date, and can talk through test car hire.</p></div>
+    </div>
+  </div>
+</section>
+
+{% with cta_title="Ready to find your instructor?", cta_text="Tell us your postcode, manual or automatic and when you're free. A DVSA-approved SAR instructor gets in touch — usually the same day." %}{% include "_cta.html" %}{% endwith %}
+{% endblock %}

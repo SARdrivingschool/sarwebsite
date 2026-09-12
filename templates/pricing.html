@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block schema %}
+{% include "_schema_org.html" %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+<script type="application/ld+json">
+{{ faq_schema | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="h-hero p-hero">
+  <div class="wrap h-hero-grid">
+    <div>
+      <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Prices</span></nav>
+      <h1>Simple, honest driving lesson prices</h1>
+      <p class="lead">Manual and automatic lessons are <strong>£{{ P.hourly.standard }} an hour</strong> in {{ P.hourly.standardAreas }}. Block bookings bring that down to £{{ '%g' % (P.blocks[-1].direct / P.blocks[-1].hours) }}. Nothing to pay until you've met your instructor.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
+        <a class="btn btn-quiet arrow" href="#blocks">See block prices</a>
+      </div>
+    </div>
+
+    <div class="p-calc" id="calculator" data-std="{{ P.hourly.standard }}" data-outer="{{ P.hourly.outer }}" data-outer-min="{{ P.hourly.outerMinHours }}" data-fee="{{ P.sarFeePercent }}" data-blocks='{{ P.blocks | map(attribute="hours") | list | tojson }}' data-block-prices='{{ P.blocks | map(attribute="direct") | list | tojson }}' data-lessons='{{ P.lessons | map(attribute="hours") | list | tojson }}' data-lesson-prices='{{ P.lessons | map(attribute="direct") | list | tojson }}'>
+      <h2 class="p-calc-title">Lesson cost calculator</h2>
+      <div class="p-calc-row">
+        <span class="m-label">Transmission</span>
+        <div class="m-chips" role="radiogroup" aria-label="Transmission">
+          <label><input type="radio" name="calc-t" value="Automatic" checked><span>Automatic</span></label>
+          <label><input type="radio" name="calc-t" value="Manual"><span>Manual</span></label>
+        </div>
+      </div>
+      <div class="p-calc-row">
+        <label class="m-label" for="calc-area">Pickup area</label>
+        <select class="m-input" id="calc-area">
+          <option value="std">Milton Keynes / Bletchley</option>
+          <option value="std">Leighton Buzzard</option>
+          <option value="outer">Bedford</option>
+          <option value="outer">Northampton</option>
+        </select>
+      </div>
+      <div class="p-calc-row">
+        <label class="m-label" for="calc-hours">Hours <span class="m-opt">(<output id="calc-hours-out">10</output>)</span></label>
+        <input type="range" id="calc-hours" min="1" max="30" step="1" value="10" list="calc-ticks">
+        <datalist id="calc-ticks"><option value="1"></option><option value="5"></option><option value="10"></option><option value="20"></option><option value="30"></option></datalist>
+        <div class="p-calc-presets">
+          <button type="button" data-h="1">1</button><button type="button" data-h="5">5</button><button type="button" data-h="10">10</button><button type="button" data-h="20">20</button><button type="button" data-h="30">30</button>
+        </div>
+      </div>
+      <div class="p-calc-out">
+        <div class="p-calc-fig">
+          <span class="p-calc-amt" id="calc-direct">£360</span>
+          <span class="p-calc-sub">paid to your instructor · <span id="calc-rate">£36</span>/hr · no fee</span>
+        </div>
+        <div class="p-calc-fig p-calc-fig-alt">
+          <span class="p-calc-amt" id="calc-sar">£378</span>
+          <span class="p-calc-sub">paid to SAR · balance protected · +{{ P.sarFeePercent }}%</span>
+        </div>
+        <p class="p-calc-note" id="calc-note">Block rate applied.</p>
+      </div>
+      <a class="btn btn-primary" href="/book.html#match" id="calc-cta">Request lessons</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="blocks">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lessons and block bookings</h2>
+      <p>The same rate whichever way you pay. Pay your instructor directly and there's no fee at all; pay SAR Driving School and it's {{ P.sarFeePercent }}% more, which protects the balance you've paid.</p>
+    </div>
+    <div class="p-table-wrap">
+      <table class="p-table">
+        <thead><tr><th scope="col">Lessons</th><th scope="col">Per hour</th><th scope="col">Pay your instructor<br><small>no fee</small></th><th scope="col">Pay SAR<br><small>protected balance</small></th></tr></thead>
+        <tbody>
+          {% for l in P.lessons %}
+          <tr><th scope="row">{{ l.label }}</th><td>£{{ '%g' % (l.direct / l.hours) }}</td><td>£{{ '%g' % l.direct }}</td><td>£{{ '%.2f' % (l.direct * (1 + P.sarFeePercent/100)) }}{% if l.hours == 1 %} <a class="p-pay" href="{{ P.single.stripe }}" target="_blank" rel="noopener">Pay online</a>{% endif %}</td></tr>
+          {% endfor %}
+          {% for b in P.blocks %}
+          <tr class="p-block"><th scope="row">{{ b.hours }} hour block{% if b.tag %} <span class="p-tag">{{ b.tag }}</span>{% endif %}</th><td>£{{ '%g' % (b.direct / b.hours) }}</td><td>£{{ '{:,}'.format(b.direct) }}</td><td>£{{ '{:,.2f}'.format(b.sar).rstrip('0').rstrip('.') }} <a class="p-pay" href="{{ b.stripe }}" target="_blank" rel="noopener">Pay online</a></td></tr>
+          {% endfor %}
+          <tr><th scope="row">{{ P.hourly.outerAreas }}</th><td>£{{ P.hourly.outer }}</td><td colspan="2">{{ P.hourly.outerMinHours }}-hour minimum per lesson so your instructor can travel to you. Ask us about block rates.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:var(--s3)">Block hours are used within {{ P.blockValidityMonths }} months. Manual and automatic cost the same.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Two ways to pay</h2>
+      <p>The rate is identical. The difference is who holds your money, and what happens if something goes wrong.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Pay your instructor</h3>
+        <p class="muted">Bank transfer or cash, as most of our pupils do. Pay as you go or pay for a block up front.</p>
+        <ul class="c-list">
+          <li>Full block rates — down to £{{ '%g' % (P.blocks[-1].direct / P.blocks[-1].hours) }} an hour on 30 hours</li>
+          <li>No fee at all</li>
+          <li>Your balance sits with your instructor, not the company</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pay SAR Driving School</h3>
+        <p class="muted">Paid to the company in advance — card, Apple Pay, Google Pay or bank transfer. Same block rate plus {{ P.sarFeePercent }}%.</p>
+        <ul class="c-list">
+          <li>Your hours are held by SAR Driving School Ltd, so they survive if your instructor stops teaching</li>
+          <li>Free instructor swap — remaining hours move with you</li>
+          <li>Cover arranged if your instructor is ill or on holiday</li>
+          <li>Covered by our published <a href="/terms.html">refund and cancellation terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:var(--s4);max-width:var(--measure)">Worth being straight about why the protection exists: hand an instructor £{{ '{:,}'.format(P.blocks[-1].direct) }} for thirty hours and they later stop teaching, and that money is with them, not with us. The {{ P.sarFeePercent }}% is the same however you pay — it is never a charge for using a card.</p>
+  </div>
+</section>
+
+<section class="section-alt" id="other-options">
+  <div class="wrap">
+    <div class="section-head"><h2>Other options</h2></div>
+    <div class="grid grid-4">
+      {% for o in P.other %}
+      <div class="card"><h3>{{ o.name }}</h3><p class="price">{{ o.price }}</p><p class="muted">{{ o.text }}</p><a class="go" href="{{ o.href }}">{{ o.cta }} →</a></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Cancellations</h2></div>
+    <div class="p-table-wrap" style="max-width:640px">
+      <table class="p-table">
+        <tbody>{% for c in P.cancellation %}<tr><th scope="row">{{ c.when }}</th><td>{{ c.charge }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:var(--s3)">Full details in our <a href="/terms.html">terms and conditions</a>.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Common questions about prices</h2></div>
+    <div class="faq">
+      {% for q in faqs %}<details><summary>{{ q.q }}</summary><p>{{ q.a }}</p></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% with cta_title="Ready to start?", cta_text="Tell us your postcode, manual or automatic and when you're free. A DVSA-approved SAR instructor gets in touch — usually the same day — and you pay only once you've agreed your first lesson." %}{% include "_cta.html" %}{% endwith %}
+{% endblock %}

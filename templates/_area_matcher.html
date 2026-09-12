@@ -1,0 +1,12 @@
+<section class="soft m-area">
+  <div class="container">
+    <div class="h-match-grid h-match-formfirst">
+      <div class="h-match-copy">
+        <h2>Find your instructor in {{ town }}</h2>
+        <p class="lead">Tell us your postcode, manual or automatic, and when you're free. We match you with a DVSA-approved SAR instructor who covers {{ town }} — and they contact you directly, usually the same day.</p>
+        <p class="muted">Prefer to talk? <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A" target="_blank" rel="noopener">Message us on WhatsApp</a> or call <a href="tel:+447902023737">079 02 02 37 37</a>.</p>
+      </div>
+      {% with id="match", heading="Request your instructor" %}{% include "_matcher.html" %}{% endwith %}
+    </div>
+  </div>
+</section>

@@ -136,9 +136,9 @@
       <p>The same hourly rate whether you pay your instructor directly or pay SAR. Block bookings bring the price down.</p>
     </div>
     <div class="h-price-grid">
-      <div class="h-price"><span class="h-amt">£38<small> / hour</small></span><strong>Manual lessons</strong><p>1, 1.5 or 2-hour lessons in a dual-controlled manual car.</p><a href="/manual-driving-lessons-milton-keynes.html">Manual lessons →</a></div>
-      <div class="h-price"><span class="h-amt">£38<small> / hour</small></span><strong>Automatic lessons</strong><p>Our most popular choice for beginners and nervous learners.</p><a href="/automatic-driving-lessons-milton-keynes.html">Automatic lessons →</a></div>
-      <div class="h-price"><span class="h-amt">£185<small> / 5 hours</small></span><strong>Block bookings</strong><p>5, 10, 20 and 30-hour blocks from £34 an hour. Hours are yours to use within six months.</p><a href="/pricing.html#block-bookings">All prices →</a></div>
+      <div class="h-price"><span class="h-amt">£{{ P.hourly.standard }}<small> / hour</small></span><strong>Manual lessons</strong><p>1, 1.5 or 2-hour lessons in a dual-controlled manual car.</p><a href="/manual-driving-lessons-milton-keynes.html">Manual lessons →</a></div>
+      <div class="h-price"><span class="h-amt">£{{ P.hourly.standard }}<small> / hour</small></span><strong>Automatic lessons</strong><p>Our most popular choice for beginners and nervous learners.</p><a href="/automatic-driving-lessons-milton-keynes.html">Automatic lessons →</a></div>
+      <div class="h-price"><span class="h-amt">£{{ P.blocks[0].direct }}<small> / {{ P.blocks[0].hours }} hours</small></span><strong>Block bookings</strong><p>5, 10, 20 and 30-hour blocks from £{{ '%g' % (P.blocks[-1].direct / P.blocks[-1].hours) }} an hour. Hours are yours to use within {{ P.blockValidityMonths }} months.</p><a href="/pricing.html#block-bookings">All prices →</a></div>
     </div>
     <div class="btn-row c-more"><a class="btn btn-primary" href="/pricing.html">See full pricing</a></div>
   </div>

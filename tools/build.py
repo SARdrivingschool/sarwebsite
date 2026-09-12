@@ -30,6 +30,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://sardrivingschool.co.uk"
 CONTENT = json.loads((ROOT / "content" / "videos.json").read_text(encoding="utf-8"))
+P = json.loads((ROOT / "content" / "pricing.json").read_text(encoding="utf-8"))
 VIDEOS = [v for v in CONTENT["videos"]]
 CATS = CONTENT["categories"]
 SECTIONS = CONTENT["learnSections"]
@@ -234,18 +235,51 @@ generated.append(write("/index.html", env.get_template("home.html").render(
     seo_description="Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, 260+ five-star reviews. Tell us your postcode and we'll match you with an instructor.",
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
-    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS,
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
+)))
+
+# ---------- Pricing ----------
+_lo = P["blocks"][-1]["direct"] / P["blocks"][-1]["hours"]
+PRICE_FAQS = [
+    {"q": "How much are driving lessons in Milton Keynes?", "a": f"Manual and automatic lessons are £{P['hourly']['standard']} an hour in {P['hourly']['standardAreas']}, or from £{_lo:g} an hour on a 30-hour block. {P['hourly']['outerAreas']} are £{P['hourly']['outer']} an hour with a {P['hourly']['outerMinHours']}-hour minimum."},
+    {"q": "Are block bookings cheaper?", "a": "Yes. " + ", ".join(f"{b['hours']} hours saves £{b['hours']*P['hourly']['standard']-b['direct']:g}" for b in P["blocks"]) + " compared with paying hourly. Block hours are used within " + str(P["blockValidityMonths"]) + " months."},
+    {"q": "Why does paying SAR cost 5% more?", "a": "The hourly rate is identical either way. Paying SAR Driving School adds 5%, whichever payment method you use, and buys protection: your hours are held by the company, move with you if you change instructor, and are covered by our refund terms. It is never a charge for using a card."},
+    {"q": "Do I pay before my first lesson?", "a": "No. Request an instructor, agree your first lesson with them, then pay — your instructor directly with no fee, or SAR with a protected balance."},
+    {"q": "Do manual and automatic cost the same?", "a": "Yes — the same hourly and block rates for both."},
+    {"q": "What if I need to cancel a lesson?", "a": "More than 48 hours' notice is free; 24–48 hours is charged at 50%; under 24 hours or a no-show is charged in full. Full details are in our terms."},
+    {"q": "Can I use your car for my driving test?", "a": "Yes, subject to an assessment lesson and driving to DVSA test standard. Ask us about driving test car hire."},
+]
+generated.append(write("/pricing.html", env.get_template("pricing.html").render(
+    site=SITE, path="/pricing.html", nav="prices", P=P,
+    seo_title="Driving Lesson Prices Milton Keynes | SAR Driving School",
+    seo_description=f"Manual and automatic driving lessons from £{P['hourly']['standard']} an hour in Milton Keynes, block bookings from £{_lo:g} an hour. Work out your cost in seconds, pay your instructor or pay SAR with a protected balance.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("Prices", "/pricing.html")]),
+    faq_schema={"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in PRICE_FAQS]},
+    faqs=PRICE_FAQS, categories=CATS,
+)))
+
+# ---------- Lessons + About ----------
+SYLLABUS_TOPICS = 53  # matches src/constants/syllabus.json in the SAR instructor app
+generated.append(write("/lessons.html", env.get_template("lessons.html").render(
+    site=SITE, path="/lessons.html", nav="lessons", P=P, syllabus_count=SYLLABUS_TOPICS,
+    seo_title="Driving Lessons & Lesson Types | SAR Driving School",
+    seo_description=f"Manual, automatic and refresher driving lessons in Milton Keynes from £{P['hourly']['standard']} an hour. One structured syllabus, progress recorded every lesson, DVSA-approved instructors.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("Lessons", "/lessons.html")]), categories=CATS,
+)))
+generated.append(write("/about.html", env.get_template("about.html").render(
+    site=SITE, path="/about.html", nav="about", P=P, syllabus_count=SYLLABUS_TOPICS, hotspot_count=len(hotspots),
+    newest_passes=_np, pass_total=_pt,
+    seo_title="About SAR Driving School | Milton Keynes",
+    seo_description="A family-run Milton Keynes driving school with DVSA-approved instructors, one structured syllabus, progress recorded every lesson and 260+ five-star reviews. Here's how SAR works.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("About", "/about.html")]), categories=CATS,
 )))
 
 # ---------- Book + thank-you ----------
-PAY = [
-    {"name": "1 hour lesson", "sar": "£39.90", "direct": "£38", "href": "https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03", "cta": "Pay for 1 hour"},
-    {"name": "5 hour block", "sar": "£194.25", "direct": "£185", "href": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05", "cta": "Pay for 5 hours"},
-    {"name": "10 hour block", "sar": "£378", "direct": "£360", "href": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04", "cta": "Pay for 10 hours"},
-    {"name": "20 hour block", "sar": "£735", "direct": "£700", "href": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06", "cta": "Pay for 20 hours"},
-    {"name": "30 hour block", "sar": "£1,071", "direct": "£1,020", "href": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07", "cta": "Pay for 30 hours"},
-    {"name": "Custom amount", "sar": "As agreed with SAR", "direct": "", "note": "Only use this if SAR has confirmed a custom amount with you — you enter it at checkout.", "href": "https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09", "cta": "Pay a custom amount"},
-]
+def _gbp(n):
+    return "£" + (f"{n:,.2f}".rstrip("0").rstrip(".") if n % 1 else f"{int(n):,}")
+PAY = [{"name": "1 hour lesson", "sar": _gbp(P["single"]["sar"]), "direct": _gbp(P["single"]["direct"]), "href": P["single"]["stripe"], "cta": "Pay for 1 hour"}]
+PAY += [{"name": f"{b['hours']} hour block", "sar": _gbp(b["sar"]), "direct": _gbp(b["direct"]), "href": b["stripe"], "cta": f"Pay for {b['hours']} hours"} for b in P["blocks"]]
+PAY.append({"name": "Custom amount", "sar": "As agreed with SAR", "direct": "", "note": "Only use this if SAR has confirmed a custom amount with you — you enter it at checkout.", "href": P["custom"]["stripe"], "cta": "Pay a custom amount"})
 BOOK_FAQS = [
     {"q": "Do I have to pay before my first lesson?", "a": "No. Send your request, agree your first lesson with your instructor, then pay — either your instructor directly with no fee, or SAR Driving School with a protected balance."},
     {"q": "Can I choose my instructor?", "a": "You book with SAR and we match you to a DVSA-approved SAR instructor based on your area, transmission and availability. If you have a preference — for example a female instructor — put it in the notes and we'll do our best."},
@@ -283,6 +317,26 @@ def inject(name, section_class, wrap_class, indent):
 
 inject("driving-lessons-bletchley.html", "soft", "container", "    ")
 
+def inject_block(name, start, end, html, indent):
+    f = ROOT / name
+    if not f.exists(): return
+    s = f.read_text(encoding="utf-8")
+    if start not in s or end not in s: return
+    html = "\n".join((indent + ln) if ln.strip() else ln for ln in html.splitlines())
+    i = s.index(start) + len(start); j = s.index(end)
+    s = s[:i] + "\n" + html + "\n" + " " * len(indent) + s[j:]
+    f.write_text(s, encoding="utf-8")
+
+AREA_PAGES = {
+    "driving-lessons-milton-keynes.html": "Milton Keynes", "driving-lessons-bletchley.html": "Bletchley",
+    "driving-lessons-bedford.html": "Bedford", "driving-lessons-northampton.html": "Northampton",
+    "driving-lessons-leighton-buzzard.html": "Leighton Buzzard",
+}
+for _name, _town in AREA_PAGES.items():
+    _html = env.get_template("_area_matcher.html").render(town=_town, path="/" + _name)
+    inject_block(_name, "<!-- sar:matcher:start -->", "<!-- sar:matcher:end -->", _html, "    ")
+inject("driving-lessons-milton-keynes.html", "soft", "container", "    ")
+
 # ---------- Asset version stamp (cache-busting) ----------
 # Browsers may cache sar-apple.css / sar-content.js for a day (vercel.json). Every
 # build stamps the current content hash on those URLs in EVERY page so a deploy
@@ -311,7 +365,7 @@ for name in static:
     pri = "1.0" if name == "index.html" else "0.8"
     urls.append((loc, pri))
 for path in generated:
-    if path in ("/index.html", "/thank-you.html"): continue
+    if path in ("/index.html", "/thank-you.html"): continue  # "/" is listed with the static pages
     pri = "0.9" if path.count("/") <= 3 else "0.7"
     urls.append((SITE + path, pri))
 seen = set(); lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
