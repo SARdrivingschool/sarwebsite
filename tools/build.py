@@ -35,9 +35,11 @@ VIDEOS = [v for v in CONTENT["videos"]]
 CATS = CONTENT["categories"]
 SECTIONS = CONTENT["learnSections"]
 
-# Newest gallery numbers known to be Bletchley passes (used on the hub until
-# content/passes.json carries a testCentre field per pass).
-RECENT_BLETCHLEY_PASSES = [229, 228, 227, 226, 225, 224]
+# content/passes.json is the single source for the pass gallery, the homepage
+# carousel/strip, the about page and the Bletchley hub. Newest first.
+PASSES = json.loads((ROOT / "content" / "passes.json").read_text(encoding="utf-8"))["passes"]
+PASS_TOTAL = len(PASSES)
+RECENT_BLETCHLEY_PASSES = [p["n"] for p in PASSES if p.get("testCentre") == "Bletchley"][:6]
 
 env = Environment(
     loader=FileSystemLoader(str(ROOT / "templates")),
@@ -206,12 +208,8 @@ for s in SECTIONS:
 
 # ---------- Homepage (generated from templates/home.html) ----------
 def newest_passes(n=6):
-    """Read the gallery's display order so the homepage strip always shows the newest passes."""
-    g = (ROOT / "gallery.html").read_text(encoding="utf-8")
-    m = re.search(r"const displayOrder = \[(.*?)\];", g, re.S)
-    order = [int(x) for x in re.findall(r"\d+", m.group(1))] if m else []
-    t = re.search(r"const totalImages = (\d+);", g)
-    return order[:n], (int(t.group(1)) if t else len(order))
+    """Pass numbers in display order (newest first) from content/passes.json, plus the total."""
+    return [p["n"] for p in PASSES][:n], PASS_TOTAL
 
 HOME_FAQS = [
     {"q": "How much are driving lessons?", "a": "Manual and automatic driving lessons start from £38 per hour, with block bookings from £34 an hour."},
@@ -336,6 +334,18 @@ for _name, _town in AREA_PAGES.items():
     _html = env.get_template("_area_matcher.html").render(town=_town, path="/" + _name)
     inject_block(_name, "<!-- sar:matcher:start -->", "<!-- sar:matcher:end -->", _html, "    ")
 inject("driving-lessons-milton-keynes.html", "soft", "container", "    ")
+
+# ---------- Pass gallery (generated from content/passes.json) ----------
+_centre_order = ["Bletchley", "Bedford", "Leighton Buzzard", "Northampton"]
+_centres = [{"name": c, "key": c.lower().replace(" ", "-"), "count": sum(1 for p in PASSES if p.get("testCentre") == c)}
+            for c in _centre_order if any(p.get("testCentre") == c for p in PASSES)]
+_counts = {"first": sum(1 for p in PASSES if p.get("firstTime"))}
+generated.append(write("/gallery.html", env.get_template("gallery.html").render(
+    site=SITE, path="/gallery.html", nav="passes", P=P, passes=PASSES, pass_total=PASS_TOTAL, centres=_centres, counts=_counts,
+    seo_title="Recent Driving Test Passes | SAR Driving School",
+    seo_description=f"{PASS_TOTAL} real SAR Driving School pupils photographed on the day they passed their driving test — most at Bletchley test centre. Filter by first-time passes and test centre.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("Passes", "/gallery.html")]), categories=CATS,
+)))
 
 # ---------- Asset version stamp (cache-busting) ----------
 # Browsers may cache sar-apple.css / sar-content.js for a day (vercel.json). Every

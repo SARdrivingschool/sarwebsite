@@ -66,7 +66,7 @@ def swap_hero(name, s):
     return s
 
 # Pages rendered by tools/build.py — never patch these
-GENERATED = {"index.html", "book.html", "thank-you.html", "pricing.html", "lessons.html", "about.html"}
+GENERATED = {"index.html", "book.html", "thank-you.html", "pricing.html", "lessons.html", "about.html", "gallery.html"}
 
 changed = []
 for p in sorted(ROOT.glob("*.html")):

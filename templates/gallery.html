@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block schema %}
+{% include "_schema_org.html" %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Passes</span></nav>
+    <p class="c-eyebrow">Pass gallery</p>
+    <h1>Real learners. Real passes. Real confidence.</h1>
+    <p class="lead">Every photo here is a SAR pupil on the day they passed — {{ pass_total }} of them since January 2026, most at Bletchley test centre. No stock photos, no models: just the people who did it.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
+      <a class="btn btn-quiet arrow" href="/pricing.html">View prices</a>
+    </div>
+  </div>
+</section>
+
+<section class="g-gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ pass_total }} passes, newest first</h2>
+      <p>Filter by first-time passes or by test centre. We show the pupil's first name, test centre and first-time status where they're recorded on the pass graphic — older photos are just the moment itself.</p>
+    </div>
+    <div class="c-chips g-chips" role="group" aria-label="Filter passes">
+      <button class="c-chip is-on" type="button" data-gfilter="all" aria-pressed="true">All<span>{{ pass_total }}</span></button>
+      <button class="c-chip" type="button" data-gfilter="first" aria-pressed="false">First-time passes<span>{{ counts.first }}</span></button>
+      {% for c in centres %}
+      <button class="c-chip" type="button" data-gfilter="centre:{{ c.key }}" aria-pressed="false">{{ c.name }}<span>{{ c.count }}</span></button>
+      {% endfor %}
+    </div>
+    <p class="g-status muted" aria-live="polite" data-gstatus></p>
+    <div class="g-grid" data-ggrid>
+      {% for p in passes %}
+      {% set num = '%03d' % p.n %}
+      {% set alt = (p.name ~ ', ' if p.name else 'A SAR Driving School pupil, ') ~ ('first-time pass' if p.firstTime else 'passed') ~ (' at ' ~ p.testCentre if p.testCentre else '') ~ ' with SAR Driving School' %}
+      <button class="g-card" type="button" data-n="{{ p.n }}" data-first="{{ '1' if p.firstTime else '0' }}" data-centre="{{ p.testCentre|lower|replace(' ', '-') if p.testCentre else '' }}" data-full="/images/pass-gallery/pass-{{ num }}.webp" data-caption="{{ (p.name or 'SAR pupil') ~ (' · First-time pass' if p.firstTime else '') ~ (' · ' ~ p.testCentre if p.testCentre else '') ~ (' · ' ~ p.faults ~ ' minor' ~ ('s' if p.faults != 1 else '') if p.faults is defined else '') }}" aria-label="Open pass photo: {{ alt }}">
+        <img src="/images/pass-gallery/pass-{{ num }}-thumb.webp" alt="{{ alt }}" width="496" height="620" loading="{{ 'eager' if loop.index <= 6 else 'lazy' }}" decoding="async">
+        {% if p.name or p.testCentre or p.firstTime %}
+        <span class="g-meta">
+          {% if p.firstTime %}<span class="g-badge">First time</span>{% endif %}
+          {% if p.name %}<strong>{{ p.name }}</strong>{% endif %}
+          {% if p.testCentre %}<span class="g-centre">{{ p.testCentre }}</span>{% endif %}
+        </span>
+        {% endif %}
+      </button>
+      {% endfor %}
+    </div>
+    <div class="btn-row c-more g-more">
+      <button class="btn btn-secondary" type="button" data-gmore>Show more passes</button>
+      <button class="btn btn-quiet" type="button" data-gall>Show all</button>
+    </div>
+  </div>
+</section>
+
+<dialog class="g-lightbox" data-glightbox aria-label="Pass photo">
+  <button class="g-lb-close" type="button" data-gclose aria-label="Close">×</button>
+  <button class="g-lb-nav g-lb-prev" type="button" data-gprev aria-label="Previous pass">‹</button>
+  <figure class="g-lb-fig">
+    <img data-gimg src="" alt="" width="1080" height="1350" decoding="async">
+    <figcaption><span data-gcap></span> <span class="g-lb-count" data-gcount></span></figcaption>
+  </figure>
+  <button class="g-lb-nav g-lb-next" type="button" data-gnext aria-label="Next pass">›</button>
+</dialog>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Your pass photo could be next</h2>
+      <p>Most SAR pupils sit their test at Bletchley, and every SAR instructor teaches the roads around it every week. Watch the trickiest ones before you drive them, then tell us your postcode and we'll match you with an instructor.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Manual driving lessons</h3><p class="muted">Full licence flexibility and complete car control, from £{{ P.hourly.standard }} an hour.</p><a class="go" href="/manual-driving-lessons-milton-keynes.html">Manual lessons →</a></div>
+      <div class="card"><h3>Automatic driving lessons</h3><p class="muted">No clutch, no gears — the simplest route to a licence, and ideal for nervous learners.</p><a class="go" href="/automatic-driving-lessons-milton-keynes.html">Automatic lessons →</a></div>
+      <div class="card"><h3>Bletchley Test Centre guides</h3><p class="muted">Free video guides to the roundabouts and roads around the test centre, filmed by SAR instructors.</p><a class="go" href="/bletchley-test-centre/">Bletchley Test Centre →</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Areas we cover</h2><p>Lessons start from your door, subject to instructor availability.</p></div>
+    <div class="grid grid-4">
+      <div class="card"><h3>Milton Keynes</h3><p class="muted">Manual, automatic and refresher lessons across MK.</p><a class="go" href="/driving-lessons-milton-keynes.html">Milton Keynes →</a></div>
+      <div class="card"><h3>Bletchley</h3><p class="muted">Local road knowledge and test-centre preparation.</p><a class="go" href="/driving-lessons-bletchley.html">Bletchley →</a></div>
+      <div class="card"><h3>Bedford</h3><p class="muted">Lessons subject to instructor area and availability.</p><a class="go" href="/driving-lessons-bedford.html">Bedford →</a></div>
+      <div class="card"><h3>Leighton Buzzard</h3><p class="muted">Availability depends on instructor schedules.</p><a class="go" href="/driving-lessons-leighton-buzzard.html">Leighton Buzzard →</a></div>
+    </div>
+  </div>
+</section>
+
+{% with cta_title="Want your pass photo here next?", cta_text="Tell us your postcode, manual or automatic and when you're free. A DVSA-approved SAR instructor gets in touch — usually the same day." %}{% include "_cta.html" %}{% endwith %}
+{% endblock %}
