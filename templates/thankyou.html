@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block schema %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block main %}
+<section class="closing" style="padding-top:var(--s7)">
+  <div class="wrap" style="max-width:720px">
+    <div class="check-circle" style="margin:0 auto var(--s4)"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1 style="font-size:clamp(32px,4.5vw,48px)">Thank you — we've got it</h1>
+    <p class="lead">Your request has reached the SAR office. Here's exactly what happens next.</p>
+    <ol class="h-steps h-steps-3" style="text-align:left;margin-top:var(--s6)">
+      <li><strong>We match you</strong><p>We check which DVSA-approved SAR instructor covers your postcode, your transmission and the times you gave us.</p></li>
+      <li><strong>Your instructor contacts you</strong><p>Usually the same day, by call or WhatsApp, to introduce themselves and agree your first lesson. Keep an eye on your phone — the number may be new to you.</p></li>
+      <li><strong>Nothing to pay yet</strong><p>Agree your first lesson first. Then pay your instructor directly with no fee, or pay SAR with a protected balance — your choice.</p></li>
+    </ol>
+    <p class="muted" style="margin-top:var(--s5)">Haven't heard from us by the next working day? Message <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%20sent%20an%20instructor%20request%20on%20the%20website%20and%20haven%27t%20heard%20back%20yet." target="_blank" rel="noopener">079 02 02 37 37 on WhatsApp</a> and we'll sort it straight away.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/bletchley-test-centre/hotspots/">Watch the Bletchley guides while you wait</a>
+      <a class="btn btn-quiet arrow" href="/">Back to home</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

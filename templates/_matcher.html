@@ -1,0 +1,92 @@
+{# Find Your Instructor — progressive-enhancement multi-step form.
+   Without JS: one plain form, all fields visible, native POST to FormSubmit.
+   With JS (sar-content.js): four steps, postcode coverage check, chips.
+   Params: id (unique per page), heading, compact (bool) #}
+<div class="m-box" id="{{ id or 'match' }}">
+  <form class="m-form" action="https://formsubmit.co/sardrivingschool@gmail.com" method="POST" data-matcher>
+    <input type="hidden" name="_subject" value="Instructor match request — sardrivingschool.co.uk">
+    <input type="hidden" name="_next" value="https://sardrivingschool.co.uk/thank-you.html">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="Page" value="{{ path }}">
+    <input type="hidden" name="Coverage" value="" data-coverage>
+    <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+    <div class="m-head">
+      <h2 class="m-title">{{ heading or "Find your driving instructor" }}</h2>
+      <ol class="m-steps" aria-hidden="true"><li class="is-on">Area</li><li>Car</li><li>Times</li><li>You</li></ol>
+    </div>
+
+    <fieldset class="m-step" data-step="1">
+      <legend class="m-q">Where will your lessons start?</legend>
+      <div class="m-row">
+        <label class="m-label" for="{{ id or 'match' }}-pc">Pickup postcode</label>
+        <input class="m-input" id="{{ id or 'match' }}-pc" name="Pickup postcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="e.g. MK3 6DH" required maxlength="10" data-postcode>
+        <p class="m-hint" data-coverage-msg>Every SAR lesson starts from your address in Milton Keynes. Bedford, Northampton and Leighton Buzzard are covered too.</p>
+      </div>
+      <div class="m-actions"><button type="button" class="btn btn-primary" data-next>Continue</button></div>
+    </fieldset>
+
+    <fieldset class="m-step" data-step="2">
+      <legend class="m-q">Manual or automatic?</legend>
+      <div class="m-chips m-chips-big">
+        <label><input type="radio" name="Transmission" value="Automatic" required><span><strong>Automatic</strong><small>Easier to learn — our most popular choice</small></span></label>
+        <label><input type="radio" name="Transmission" value="Manual"><span><strong>Manual</strong><small>Full licence flexibility</small></span></label>
+        <label><input type="radio" name="Transmission" value="Not sure yet"><span><strong>Not sure yet</strong><small>We'll help you decide</small></span></label>
+      </div>
+      <div class="m-actions"><button type="button" class="btn btn-quiet" data-back>Back</button><button type="button" class="btn btn-primary" data-next>Continue</button></div>
+    </fieldset>
+
+    <fieldset class="m-step" data-step="3">
+      <legend class="m-q">When are you usually free?</legend>
+      <div class="m-chips">
+        <label><input type="checkbox" name="Availability" value="Weekday mornings"><span>Weekday mornings</span></label>
+        <label><input type="checkbox" name="Availability" value="Weekday afternoons"><span>Weekday afternoons</span></label>
+        <label><input type="checkbox" name="Availability" value="Weekday evenings"><span>Weekday evenings</span></label>
+        <label><input type="checkbox" name="Availability" value="Weekends"><span>Weekends</span></label>
+        <label><input type="checkbox" name="Availability" value="Flexible"><span>I'm flexible</span></label>
+      </div>
+      <p class="m-q m-q-sub">How much driving have you done?</p>
+      <div class="m-chips">
+        <label><input type="radio" name="Experience" value="Never driven"><span>Never driven</span></label>
+        <label><input type="radio" name="Experience" value="Some lessons"><span>Some lessons</span></label>
+        <label><input type="radio" name="Experience" value="Test booked"><span>Test booked</span></label>
+        <label><input type="radio" name="Experience" value="Returning driver"><span>Returning driver</span></label>
+      </div>
+      <div class="m-actions"><button type="button" class="btn btn-quiet" data-back>Back</button><button type="button" class="btn btn-primary" data-next>Continue</button></div>
+    </fieldset>
+
+    <fieldset class="m-step" data-step="4">
+      <legend class="m-q">Where should your instructor contact you?</legend>
+      <div class="m-grid">
+        <div class="m-row">
+          <label class="m-label" for="{{ id or 'match' }}-name">Your name</label>
+          <input class="m-input" id="{{ id or 'match' }}-name" name="Name" type="text" autocomplete="name" required>
+        </div>
+        <div class="m-row">
+          <label class="m-label" for="{{ id or 'match' }}-phone">Mobile number</label>
+          <input class="m-input" id="{{ id or 'match' }}-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="m-row">
+          <label class="m-label" for="{{ id or 'match' }}-email">Email <span class="m-opt">(optional)</span></label>
+          <input class="m-input" id="{{ id or 'match' }}-email" name="Email" type="email" autocomplete="email">
+        </div>
+        <div class="m-row">
+          <label class="m-label" for="{{ id or 'match' }}-src">How did you find us? <span class="m-opt">(optional)</span></label>
+          <select class="m-input" id="{{ id or 'match' }}-src" name="How did you hear about us">
+            <option value="">Choose…</option>
+            <option>TikTok</option><option>Instagram</option><option>Google search</option><option>Google Maps / reviews</option><option>Facebook</option><option>YouTube</option><option>Friend or family</option><option>Saw a SAR car</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="m-row">
+        <label class="m-label" for="{{ id or 'match' }}-notes">Anything else? <span class="m-opt">(optional)</span></label>
+        <textarea class="m-input" id="{{ id or 'match' }}-notes" name="Notes" rows="2" placeholder="Test date, nervous driver, instructor preference — anything at all"></textarea>
+      </div>
+      <div class="m-actions"><button type="button" class="btn btn-quiet" data-back>Back</button><button type="submit" class="btn btn-primary" data-submit>Request my instructor</button></div>
+      <p class="m-fine">We match you with a DVSA-approved SAR instructor based on your area, transmission and availability, and they contact you directly — usually the same day. Your details are only used to arrange lessons. <a href="/privacy.html">Privacy notice</a>.</p>
+    </fieldset>
+
+    <p class="m-status" role="status" aria-live="polite" data-status></p>
+  </form>
+</div>

@@ -31,9 +31,12 @@ HOME_BLOCK = HOME_ANCHOR + '\n  <!-- sar:hotspots:start -->\n  <!-- sar:hotspots
 BLETCH_ANCHOR = '    <section class="soft">\n      <div class="container">\n        <div class="section-head">\n          <div class="label">Bletchley Test Route Practice</div>'
 BLETCH_BLOCK = '    <!-- sar:hotspots:start -->\n    <!-- sar:hotspots:end -->\n\n' + BLETCH_ANCHOR
 
+# Pages rendered by tools/build.py — never patch these
+GENERATED = {"index.html", "book.html", "thank-you.html"}
+
 changed = []
 for p in sorted(ROOT.glob("*.html")):
-    if p.name.startswith("google"): continue
+    if p.name.startswith("google") or p.name in GENERATED: continue
     s = p.read_text(encoding="utf-8"); o = s
     # header (two historical markups)
     s = re.sub(r'    <ul class="nav" id="nav">.*?</ul>', nav_html("nav", "nav-cta", "nav"), s, count=1, flags=re.S)
@@ -45,6 +48,10 @@ for p in sorted(ROOT.glob("*.html")):
     # script
     if "sar-content.js" not in s and '<script src="cookie-consent.js" defer></script>' in s:
         s = s.replace('<script src="cookie-consent.js" defer></script>', '<script src="sar-content.js" defer></script>\n<script src="cookie-consent.js" defer></script>', 1)
+    # sticky mobile bar (shared markup lives in templates/_bar.html)
+    if 'class="b-bar"' not in s and '<script src="sar-content.js" defer></script>' in s:
+        bar = (ROOT / "templates" / "_bar.html").read_text(encoding="utf-8")
+        s = s.replace('<script src="sar-content.js" defer></script>', bar + '\n<script src="sar-content.js" defer></script>', 1)
     # markers
     if p.name == "index.html" and "sar:hotspots:start" not in s and HOME_ANCHOR in s:
         s = s.replace(HOME_ANCHOR, HOME_BLOCK, 1)
@@ -54,7 +61,7 @@ for p in sorted(ROOT.glob("*.html")):
         p.write_text(s, encoding="utf-8"); changed.append(p.name)
 
 print(f"patched {len(changed)} pages")
-todo = [p.name for p in ROOT.glob("*.html") if not p.name.startswith("google") and '/learn/">Learn</a>' not in p.read_text(encoding="utf-8")]
+todo = [p.name for p in ROOT.glob("*.html") if not p.name.startswith("google") and p.name not in GENERATED and '/learn/">Learn</a>' not in p.read_text(encoding="utf-8")]
 print("pages still without the new nav:", todo or "none")
-for n in ("index.html", "driving-lessons-bletchley.html"):
+for n in ("driving-lessons-bletchley.html",):
     print(n, "markers:", "yes" if "sar:hotspots:start" in (ROOT / n).read_text(encoding="utf-8") else "NO")

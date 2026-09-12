@@ -57,3 +57,86 @@
     });
   }
 })();
+
+/* ---- Find Your Instructor: steps, postcode coverage, validation ---- */
+(function () {
+  'use strict';
+  var AREAS = [
+    { re: /^MK(1[0-9]|[1-9]|4[6-9]|19)$/i, key: 'mk', msg: 'Milton Keynes — covered. Lessons from £38 an hour.' },
+    { re: /^MK4[0-5]$/i, key: 'bedford', msg: 'Bedford — covered. £43 an hour with a 2-hour minimum, so your instructor can travel to you.' },
+    { re: /^NN[1-7]$/i, key: 'northampton', msg: 'Northampton — covered. £43 an hour with a 2-hour minimum, so your instructor can travel to you.' },
+    { re: /^LU7$/i, key: 'leighton-buzzard', msg: 'Leighton Buzzard — covered. Lessons from £38 an hour.' }
+  ];
+  var PC = /^([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})?$/i;
+
+  function coverage(raw) {
+    var m = PC.exec((raw || '').trim().replace(/\s+/g, ' '));
+    if (!m) return null;
+    var out = m[1].toUpperCase();
+    for (var i = 0; i < AREAS.length; i++) if (AREAS[i].re.test(out)) return { key: AREAS[i].key, msg: AREAS[i].msg, outward: out };
+    return { key: 'other', outward: out, msg: 'We don\'t currently cover ' + out + ' as a pickup area. Leave your details and we\'ll tell you as soon as a SAR instructor is nearby — or continue if your lessons can start from a Milton Keynes address.' };
+  }
+
+  document.querySelectorAll('form[data-matcher]').forEach(function (form) {
+    form.setAttribute('novalidate', '');
+    form.classList.add('is-js');
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.m-step'));
+    var dots = form.querySelectorAll('.m-steps li');
+    var status = form.querySelector('[data-status]');
+    var pc = form.querySelector('[data-postcode]');
+    var covMsg = form.querySelector('[data-coverage-msg]');
+    var covField = form.querySelector('[data-coverage]');
+    var cur = 0;
+
+    function show(i) {
+      cur = i;
+      steps.forEach(function (s, k) { s.hidden = k !== i; });
+      dots.forEach(function (d, k) { d.classList.toggle('is-on', k <= i); d.classList.toggle('is-done', k < i); });
+      status.textContent = '';
+      var first = steps[i].querySelector('input:not([type=hidden]):not([type=radio]):not([type=checkbox]), select, textarea');
+      if (first && i > 0) { try { first.focus({ preventScroll: true }); } catch (e) {} }
+      if (i > 0) { var r = form.getBoundingClientRect(); if (r.top < 0) form.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
+    }
+    function valid(i) {
+      var s = steps[i];
+      var els = s.querySelectorAll('input, select, textarea');
+      for (var k = 0; k < els.length; k++) {
+        var el = els[k];
+        if (el.type === 'radio') {
+          if (el.required && !s.querySelector('input[name="' + el.name + '"]:checked')) { status.textContent = 'Please choose an option to continue.'; return false; }
+          continue;
+        }
+        if (!el.checkValidity()) {
+          el.focus(); el.classList.add('is-bad');
+          status.textContent = el.validationMessage || 'Please check this field.';
+          return false;
+        }
+        el.classList.remove('is-bad');
+      }
+      if (i === 0 && pc) {
+        var c = coverage(pc.value);
+        if (!c) { pc.focus(); pc.classList.add('is-bad'); status.textContent = 'That doesn\'t look like a UK postcode — try the format MK3 6DH.'; return false; }
+      }
+      return true;
+    }
+    function updateCoverage() {
+      var c = coverage(pc.value);
+      pc.classList.remove('is-bad');
+      if (!c) { covMsg.textContent = 'Every SAR lesson starts from your address in Milton Keynes. Bedford, Northampton and Leighton Buzzard are covered too.'; covMsg.className = 'm-hint'; covField.value = ''; return; }
+      covMsg.textContent = c.msg; covMsg.className = 'm-hint ' + (c.key === 'other' ? 'is-warn' : 'is-ok'); covField.value = c.key + ' (' + c.outward + ')';
+    }
+    if (pc) { pc.addEventListener('input', updateCoverage); pc.addEventListener('blur', updateCoverage); }
+
+    form.querySelectorAll('[data-next]').forEach(function (b) { b.addEventListener('click', function () { if (valid(cur)) show(Math.min(cur + 1, steps.length - 1)); }); });
+    form.querySelectorAll('[data-back]').forEach(function (b) { b.addEventListener('click', function () { show(Math.max(cur - 1, 0)); }); });
+    form.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); if (valid(cur)) show(cur + 1); }
+    });
+    form.addEventListener('submit', function (e) {
+      for (var i = 0; i < steps.length; i++) { if (!valid(i)) { e.preventDefault(); show(i); return; } }
+      var btn = form.querySelector('[data-submit]'); if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      if (window.gtag) { try { gtag('event', 'generate_lead', { form: 'matcher', coverage: covField.value }); } catch (err) {} }
+    });
+    show(0);
+  });
+})();

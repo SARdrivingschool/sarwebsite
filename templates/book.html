@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block schema %}
+{% include "_schema_org.html" %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="h-match" id="find">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Book lessons</span></nav>
+    <div class="h-match-grid h-match-formfirst">
+      <div class="h-match-copy">
+        <p class="c-eyebrow">Book driving lessons</p>
+        <h1 style="font-size:clamp(34px,4.6vw,52px)">Find your driving instructor</h1>
+        <p class="lead">Two minutes, no account. Tell us where your lessons will start, manual or automatic, and when you're free. SAR matches you with a DVSA-approved instructor who covers your area — and they contact you directly, usually the same day.</p>
+        <ol>
+          <li><span class="h-n">1</span><span><strong>Your postcode</strong> — every lesson starts from your door.</span></li>
+          <li><span class="h-n">2</span><span><strong>Manual or automatic</strong> — or let us advise.</span></li>
+          <li><span class="h-n">3</span><span><strong>When you're free</strong> — days, evenings or weekends.</span></li>
+          <li><span class="h-n">4</span><span><strong>Your instructor gets in touch</strong> — to agree your first lesson.</span></li>
+        </ol>
+        <p class="muted" style="margin-top:var(--s4)">Prefer to talk? <a href="https://wa.me/447902023737?text=Hi%20SAR%2C%20I%27d%20like%20to%20book%20driving%20lessons.%0A%0AName%3A%0APickup%20postcode%3A%0AManual%20or%20automatic%3A%0AExperience%3A%20never%20driven%20%2F%20some%20lessons%20%2F%20test%20booked%0ABest%20days%20%26%20times%3A" target="_blank" rel="noopener">WhatsApp us</a>, call <a href="tel:+447902023737">079 02 02 37 37</a>, or <a href="sms:+447902023737?&body=Hi%20SAR%2C%20please%20call%20me%20back.%0A%0AName%3A%0APostcode%3A%0AManual%20or%20automatic%3A%0ABest%20time%20to%20call%3A">text us and we'll call you back</a>. We answer 9am–8pm, seven days a week.</p>
+      </div>
+      {% with id="match", heading="Request your instructor" %}{% include "_matcher.html" %}{% endwith %}
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What happens after you send it</h2>
+    </div>
+    <ol class="h-steps h-steps-4">
+      <li><strong>We read it the same day</strong><p>Your request goes straight to the SAR office — a person, not a queue.</p></li>
+      <li><strong>We match you</strong><p>Area first, then manual or automatic, then the times you gave us.</p></li>
+      <li><strong>Your instructor calls or messages</strong><p>To introduce themselves and agree your first lesson.</p></li>
+      <li><strong>You pay when you're ready</strong><p>Your instructor directly with no fee, or SAR with a protected balance. Nothing to pay up front.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="pay-online">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Already spoken to us? Pay online</h2>
+      <p>For learners who have already been matched and want to pay SAR Driving School in advance. Paying SAR adds 5% and protects your balance; the same block rates are available with no fee by paying your instructor directly. Not sure? <a href="/pricing.html#how-to-pay">How paying works →</a></p>
+    </div>
+    <div class="grid grid-3">
+      {% for p in pay %}
+      <div class="card">
+        <h3>{{ p.name }}</h3>
+        <p class="price">{{ p.sar }} <span class="muted" style="font-weight:400">to SAR, protected</span></p>
+        {% if p.direct %}<p class="muted">{{ p.direct }} to your instructor, no fee</p>{% endif %}{% if p.note %}<p class="muted">{{ p.note }}</p>{% endif %}
+        <a class="go" href="{{ p.href }}" target="_blank" rel="noopener">{{ p.cta }} →</a>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="muted" style="margin-top:var(--s4)">Secure card payment through Stripe. Block hours are used within six months — see our <a href="/terms.html">terms</a>.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Before you book</h2></div>
+    <div class="faq">
+      {% for q in faqs %}
+      <details><summary>{{ q.q }}</summary><p>{{ q.a }}</p></details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -203,6 +203,69 @@ for s in SECTIONS:
     )))
 
 
+# ---------- Homepage (generated from templates/home.html) ----------
+def newest_passes(n=6):
+    """Read the gallery's display order so the homepage strip always shows the newest passes."""
+    g = (ROOT / "gallery.html").read_text(encoding="utf-8")
+    m = re.search(r"const displayOrder = \[(.*?)\];", g, re.S)
+    order = [int(x) for x in re.findall(r"\d+", m.group(1))] if m else []
+    t = re.search(r"const totalImages = (\d+);", g)
+    return order[:n], (int(t.group(1)) if t else len(order))
+
+HOME_FAQS = [
+    {"q": "How much are driving lessons?", "a": "Manual and automatic driving lessons start from £38 per hour, with block bookings from £34 an hour."},
+    {"q": "Do you offer automatic driving lessons?", "a": "Yes, automatic driving lessons are available across Milton Keynes and nearby areas."},
+    {"q": "Do you offer manual driving lessons?", "a": "Yes, manual driving lessons are available from £38 per hour."},
+    {"q": "How does instructor matching work?", "a": "Tell us your pickup postcode, whether you want manual or automatic, and when you're free. SAR matches you with a DVSA-approved SAR instructor who covers your area and times, and they contact you directly — usually the same day."},
+    {"q": "Can I use your car for my driving test?", "a": "Yes, subject to assessment and DVSA test-standard driving."},
+    {"q": "Do you offer refresher lessons?", "a": "Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building."},
+    {"q": "Do you cover Bletchley test centre?", "a": "Yes. Most SAR pupils take their test at Bletchley, and our free Bletchley Test Centre guides cover the roads and roundabouts around it."},
+]
+HOME_REVIEWS = [
+    {"name": "Japhet Ndembo", "when": "January 2026", "text": "I had a great experience with SAR Driving School. The instructor was calm, professional, and explained everything clearly, which made learning to drive easy. I gained a lot of confidence and would definitely recommend SAR Driving School."},
+    {"name": "Siva Jampula", "when": "January 2026", "text": "I had an excellent experience with SAR Driving School in Bletchley, Milton Keynes… I really appreciated the structured lessons, punctuality, and focus on safe driving habits. I highly recommend SAR Driving School to any learner looking for reliable and high quality driving lessons."},
+    {"name": "Irta Gudha", "when": "January 2026", "text": "Very professional and patient driving instructor. Clear instructions, friendly attitude, and great support throughout my lessons. Highly recommend!"},
+]
+_np, _pt = newest_passes(6)
+generated.append(write("/index.html", env.get_template("home.html").render(
+    site=SITE, path="/", nav="home",
+    seo_title="Driving Lessons Milton Keynes | SAR Driving School",
+    seo_description="Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, 260+ five-star reviews. Tell us your postcode and we'll match you with an instructor.",
+    faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
+                "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, pass_total=_pt, categories=CATS,
+)))
+
+# ---------- Book + thank-you ----------
+PAY = [
+    {"name": "1 hour lesson", "sar": "£39.90", "direct": "£38", "href": "https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03", "cta": "Pay for 1 hour"},
+    {"name": "5 hour block", "sar": "£194.25", "direct": "£185", "href": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05", "cta": "Pay for 5 hours"},
+    {"name": "10 hour block", "sar": "£378", "direct": "£360", "href": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04", "cta": "Pay for 10 hours"},
+    {"name": "20 hour block", "sar": "£735", "direct": "£700", "href": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06", "cta": "Pay for 20 hours"},
+    {"name": "30 hour block", "sar": "£1,071", "direct": "£1,020", "href": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07", "cta": "Pay for 30 hours"},
+    {"name": "Custom amount", "sar": "As agreed with SAR", "direct": "", "note": "Only use this if SAR has confirmed a custom amount with you — you enter it at checkout.", "href": "https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09", "cta": "Pay a custom amount"},
+]
+BOOK_FAQS = [
+    {"q": "Do I have to pay before my first lesson?", "a": "No. Send your request, agree your first lesson with your instructor, then pay — either your instructor directly with no fee, or SAR Driving School with a protected balance."},
+    {"q": "Can I choose my instructor?", "a": "You book with SAR and we match you to a DVSA-approved SAR instructor based on your area, transmission and availability. If you have a preference — for example a female instructor — put it in the notes and we'll do our best."},
+    {"q": "What if my instructor isn't right for me?", "a": "Tell us. Pupils can change instructor within SAR, and if you've paid SAR your remaining hours move with you."},
+    {"q": "How quickly will I hear back?", "a": "Usually the same day. We answer 9am–8pm, seven days a week; requests sent late in the evening are answered the next morning."},
+    {"q": "Where do lessons start?", "a": "From your address in Milton Keynes. Bedford and Northampton are covered at £43 an hour with a 2-hour minimum; Leighton Buzzard at £38 an hour."},
+]
+generated.append(write("/book.html", env.get_template("book.html").render(
+    site=SITE, path="/book.html", nav="book",
+    seo_title="Book Driving Lessons | Find Your Instructor | SAR Driving School Milton Keynes",
+    seo_description="Tell us your postcode, manual or automatic and when you're free — SAR matches you with a DVSA-approved instructor in Milton Keynes, usually the same day. No account, nothing to pay up front.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("Book lessons", "/book.html")]),
+    pay=PAY, faqs=BOOK_FAQS, categories=CATS,
+)))
+generated.append(write("/thank-you.html", env.get_template("thankyou.html").render(
+    site=SITE, path="/thank-you.html", nav="",
+    seo_title="Thank You | SAR Driving School",
+    seo_description="Thanks for getting in touch with SAR Driving School. We'll be back to you shortly to arrange your driving lessons in Milton Keynes.",
+    categories=CATS,
+)))
+
 # ---------- Inject featured cards into the hand-written pages ----------
 def inject(name, section_class, wrap_class, indent):
     f = ROOT / name
@@ -217,7 +280,6 @@ def inject(name, section_class, wrap_class, indent):
     s = s[:i] + "\n" + html + "\n" + " " * len(indent) + s[j:]
     f.write_text(s, encoding="utf-8"); print(f"  injected {len(featured)} cards into {name}")
 
-inject("index.html", "section-alt", "wrap", "  ")
 inject("driving-lessons-bletchley.html", "soft", "container", "    ")
 
 # ---------- Sitemap ----------
@@ -230,6 +292,7 @@ for name in static:
     pri = "1.0" if name == "index.html" else "0.8"
     urls.append((loc, pri))
 for path in generated:
+    if path in ("/index.html", "/thank-you.html"): continue
     pri = "0.9" if path.count("/") <= 3 else "0.7"
     urls.append((SITE + path, pri))
 seen = set(); lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
