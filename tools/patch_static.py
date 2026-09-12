@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 NEW_ITEMS = [
     ("index.html", "Home"), ("lessons.html", "Lessons"), ("pricing.html", "Prices"),
     ("/bletchley-test-centre/", "Bletchley"), ("/learn/", "Learn"), ("gallery.html", "Passes"),
-    ("about.html", "About"), ("contact.html", "Contact"),
+    ("reviews.html", "Reviews"), ("about.html", "About"), ("contact.html", "Contact"),
 ]
 def nav_html(cls_ul, cls_cta, id_ul):
     items = "".join(f'      <li><a href="{h}">{t}</a></li>\n' for h, t in NEW_ITEMS)
@@ -66,7 +66,7 @@ def swap_hero(name, s):
     return s
 
 # Pages rendered by tools/build.py — never patch these
-GENERATED = {"index.html", "book.html", "thank-you.html", "pricing.html", "lessons.html", "about.html", "gallery.html"}
+GENERATED = {"index.html", "book.html", "thank-you.html", "pricing.html", "lessons.html", "about.html", "gallery.html", "reviews.html"}
 
 changed = []
 for p in sorted(ROOT.glob("*.html")):

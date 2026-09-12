@@ -23,16 +23,8 @@
   <div class="wrap">
     <div class="section-head">
       <h2>{{ pass_total }} passes, newest first</h2>
-      <p>Filter by first-time passes or by test centre. We show the pupil's first name, test centre and first-time status where they're recorded on the pass graphic — older photos are just the moment itself.</p>
+      <p>Every photo is a real SAR pupil on their pass day. We show the pupil's name where they're recorded on the pass graphic.</p>
     </div>
-    <div class="c-chips g-chips" role="group" aria-label="Filter passes">
-      <button class="c-chip is-on" type="button" data-gfilter="all" aria-pressed="true">All<span>{{ pass_total }}</span></button>
-      <button class="c-chip" type="button" data-gfilter="first" aria-pressed="false">First-time passes<span>{{ counts.first }}</span></button>
-      {% for c in centres %}
-      <button class="c-chip" type="button" data-gfilter="centre:{{ c.key }}" aria-pressed="false">{{ c.name }}<span>{{ c.count }}</span></button>
-      {% endfor %}
-    </div>
-    <p class="g-status muted" aria-live="polite" data-gstatus></p>
     <div class="g-grid" data-ggrid>
       {% for p in passes %}
       {% set num = '%03d' % p.n %}

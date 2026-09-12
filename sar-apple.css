@@ -1324,9 +1324,7 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 @media (max-width: 640px) { .p-calc { padding: var(--s4); border-radius: 20px; } .p-table { font-size: 15px; } .p-table th, .p-table td { padding: 12px 10px; } .p-pay { display: block; margin: 4px 0 0; } }
 
 /* Pass gallery (g-) */
-.g-gallery .section-head { margin-bottom: var(--s4); }
-.g-chips { margin-bottom: var(--s3); }
-.g-status { font-size: 14px; margin: 0 0 var(--s3); min-height: 1.4em; }
+.g-gallery .section-head { margin-bottom: var(--s5); }
 .g-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s3); }
 .g-card { appearance: none; border: 0; padding: 0; margin: 0; background: var(--surface-2); border-radius: var(--r-card); overflow: hidden; cursor: zoom-in; text-align: left; font: inherit; color: inherit; display: flex; flex-direction: column; position: relative; }
 .g-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .35s ease; }
@@ -1359,3 +1357,48 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   .g-lb-prev { left: 16px; } .g-lb-next { right: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .g-card img { transition: none; } .g-card:hover img { transform: none; } }
+
+/* ------------------------------------------------- reviews (/reviews.html) -- */
+.r-rating { display: flex; align-items: center; gap: 10px; margin-top: var(--s3); font-size: var(--f-body); color: var(--ink-2); }
+.r-rating .h-stars { color: var(--accent); letter-spacing: 2px; font-size: 20px; }
+.r-rating strong { color: var(--ink); }
+
+.r-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s3); align-items: start; }
+.r-card {
+  --r-cardbg: var(--surface-2);
+  background: var(--r-cardbg); border-radius: var(--r-card);
+  padding: var(--s4); gap: var(--s2);
+}
+.section-alt .r-card { --r-cardbg: var(--surface); }
+.r-card[hidden] { display: none; }
+.r-card .stars { color: var(--accent); letter-spacing: .08em; }
+
+/* Long reviews are clamped on screen; the toggle is added by JS only when the
+   text actually overflows, so short reviews never get a pointless button. */
+.r-body { position: relative; }
+.r-body.is-clamped p {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 8;
+  overflow: hidden;
+}
+.r-body.is-clamped::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3.2em;
+  background: linear-gradient(to bottom, transparent, var(--r-cardbg));
+  pointer-events: none;
+}
+.r-toggle {
+  appearance: none; border: 0; background: none; padding: 0; margin-top: var(--s1);
+  font: inherit; font-size: 15px; font-weight: 600; color: var(--accent); cursor: pointer;
+  align-self: flex-start;
+}
+.r-toggle:hover { text-decoration: underline; }
+.r-toggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+.r-more { justify-content: center; gap: var(--s3); }
+.r-more[hidden] { display: none; }
+.r-foot { margin-top: var(--s5); font-size: 15px; text-align: center; }
+
+@media (max-width: 900px) { .r-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .r-grid { grid-template-columns: 1fr; gap: var(--s2); }
+  .r-card { padding: var(--s3); }
+}

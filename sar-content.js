@@ -223,39 +223,26 @@
   calc();
 })();
 
-/* Pass gallery: filter chips, paging and a lightbox. Cards are rendered by tools/build.py from content/passes.json. */
+/* Pass gallery: paging and lightbox. Cards are rendered by tools/build.py from content/passes.json. */
 (function () {
   'use strict';
   var grid = document.querySelector('[data-ggrid]');
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.g-card'));
-  var chips = document.querySelectorAll('.c-chip[data-gfilter]');
   var more = document.querySelector('[data-gmore]'), all = document.querySelector('[data-gall]');
-  var moreRow = document.querySelector('.g-more'), status = document.querySelector('[data-gstatus]');
+  var moreRow = document.querySelector('.g-more');
   var PAGE = window.matchMedia('(max-width: 640px)').matches ? 16 : 24;
-  var filter = 'all', limit = PAGE, visible = [];
+  var limit = PAGE;
 
-  function matches(card) {
-    if (filter === 'all') return true;
-    if (filter === 'first') return card.getAttribute('data-first') === '1';
-    if (filter.indexOf('centre:') === 0) return card.getAttribute('data-centre') === filter.slice(7);
-    return true;
-  }
   function apply() {
-    visible = cards.filter(matches);
     var shown = 0;
-    cards.forEach(function (c) { c.hidden = true; });
-    visible.forEach(function (c, i) { if (i < limit) { c.hidden = false; shown++; } });
-    if (moreRow) moreRow.hidden = shown >= visible.length;
-    if (status) status.textContent = visible.length ? ('Showing ' + shown + ' of ' + visible.length + (filter === 'all' ? ' passes' : ' matching passes')) : 'No passes recorded for this filter yet.';
-  }
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      filter = chip.getAttribute('data-gfilter'); limit = PAGE;
-      chips.forEach(function (c) { var on = c === chip; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-      apply();
+    cards.forEach(function (c, i) {
+      c.hidden = i >= limit;
+      if (i < limit) shown++;
     });
-  });
+    if (moreRow) moreRow.hidden = shown >= cards.length;
+  }
+
   if (more) more.addEventListener('click', function () { limit += PAGE; apply(); });
   if (all) all.addEventListener('click', function () { limit = cards.length; apply(); });
   apply();
@@ -265,27 +252,32 @@
   if (!lb || typeof lb.showModal !== 'function') return;
   var img = lb.querySelector('[data-gimg]'), cap = lb.querySelector('[data-gcap]'), count = lb.querySelector('[data-gcount]');
   var idx = 0, opener = null;
+
   function show(i) {
-    if (!visible.length) return;
-    idx = (i + visible.length) % visible.length;
-    var c = visible[idx];
+    if (!cards.length) return;
+    idx = (i + cards.length) % cards.length;
+    var c = cards[idx];
     img.src = c.getAttribute('data-full');
     img.alt = c.querySelector('img').alt;
     cap.textContent = c.getAttribute('data-caption') || '';
-    count.textContent = (idx + 1) + ' of ' + visible.length;
-    var nx = visible[(idx + 1) % visible.length];
+    count.textContent = (idx + 1) + ' of ' + cards.length;
+    var nx = cards[(idx + 1) % cards.length];
     if (nx) { var pre = new Image(); pre.src = nx.getAttribute('data-full'); }
   }
+
   function open(card) {
-    opener = card; show(visible.indexOf(card));
+    opener = card; show(cards.indexOf(card));
     lb.showModal(); document.documentElement.style.overflow = 'hidden';
   }
+
   function close() { if (lb.open) lb.close(); }
+
   lb.addEventListener('close', function () {
     document.documentElement.style.overflow = '';
     img.removeAttribute('src');
     if (opener) opener.focus();
   });
+
   cards.forEach(function (c) { c.addEventListener('click', function () { open(c); }); });
   lb.querySelector('[data-gclose]').addEventListener('click', close);
   lb.querySelector('[data-gprev]').addEventListener('click', function () { show(idx - 1); });
@@ -295,10 +287,64 @@
     if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
     else if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
   });
+
   var tx = 0;
   lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', function (e) {
     var dx = e.changedTouches[0].clientX - tx;
     if (Math.abs(dx) > 50) show(dx < 0 ? idx + 1 : idx - 1);
   }, { passive: true });
+})();
+
+/* Reviews page: paging plus a read-more toggle on any review that overflows.
+   Cards are rendered by tools/build.py from content/reviews.json. */
+(function () {
+  'use strict';
+  var grid = document.querySelector('[data-rgrid]');
+  if (!grid) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.r-card'));
+  var more = document.querySelector('[data-rmore]'), all = document.querySelector('[data-rall]');
+  var moreRow = document.querySelector('.r-more');
+  var PAGE = window.matchMedia('(max-width: 640px)').matches ? 6 : 9;
+  var limit = PAGE;
+
+  // A clamped review only earns a toggle if it genuinely overflows. Cards must
+  // be visible to measure, so this runs after each paging step.
+  function clamp(card) {
+    if (card.dataset.rdone) return;
+    var body = card.querySelector('[data-rbody]'), p = body && body.querySelector('p');
+    if (!p) return;
+    card.dataset.rdone = '1';
+    body.classList.add('is-clamped');
+    if (p.scrollHeight - p.clientHeight < 4) { body.classList.remove('is-clamped'); return; }
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'r-toggle';
+    btn.textContent = 'Read full review';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function () {
+      var clamped = body.classList.toggle('is-clamped');
+      btn.textContent = clamped ? 'Read full review' : 'Show less';
+      btn.setAttribute('aria-expanded', clamped ? 'false' : 'true');
+    });
+    body.insertAdjacentElement('afterend', btn);
+  }
+
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c, i) {
+      c.hidden = i >= limit;
+      if (i < limit) shown++;
+    });
+    if (moreRow) moreRow.hidden = shown >= cards.length;
+    cards.slice(0, limit).forEach(clamp);
+  }
+
+  if (more) more.addEventListener('click', function () {
+    var first = cards[limit];
+    limit += PAGE; apply();
+    if (first) { try { first.querySelector('cite').focus({ preventScroll: true }); } catch (e) {} }
+  });
+  if (all) all.addEventListener('click', function () { limit = cards.length; apply(); });
+  apply();
 })();

@@ -1,0 +1,23 @@
+{
+ "_comment": "Reviewer names corrected by eye against the source screenshot, keyed by the screenshot stem. Tesseract cannot tell q from g at this size (Waqas/Wagas, Aatiqa/Aatiga, Sadiq/Sadig), drops accents, and occasionally lowercases an initial or keeps the link icon. Everything here was checked against the image; do not regenerate it from OCR.",
+ "Screenshot_2026-08-28_at_09.33.35": "shreya Pillai",
+ "review-002": "Zoya Farooq",
+ "review-008": "sava uca",
+ "review-021": "mazz shaz",
+ "review-023": "Iyssha",
+ "review-035": "Elevó Coregura",
+ "review-042": "Nisanur Yurdagül",
+ "review-111": "Waqas Saeed",
+ "review-114": "Dóra Molnár",
+ "review-135": "Syed Anwer",
+ "review-160": "Abu Sadiq",
+ "review-168": "Sinjini Sarkar",
+ "review-171": "Sunny Mittal",
+ "review-178": "Aatiqa",
+ "review-181": "Sendy Balanga",
+ "review-201": "Syedhasibullah Anwari",
+ "review-213": "Suryalok Sarkar",
+ "review-220": "Ali Ahmad",
+ "review-226": "Wendinso (Fatimata) Zabre",
+ "review-231": "Shaqeba Jamil"
+}

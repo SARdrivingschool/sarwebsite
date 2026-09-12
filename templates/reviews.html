@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block schema %}
+{% include "_schema_org.html" %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Reviews</span></nav>
+    <p class="c-eyebrow">Reviews</p>
+    <h1>What SAR learners actually say</h1>
+    <p class="lead">Every review below is a real Google review, left by a real SAR pupil, quoted word for word. Nothing here is edited, shortened or written by us.</p>
+    <p class="r-rating"><span class="h-stars" aria-hidden="true">★★★★★</span><span><strong>{{ rating }}</strong> average &middot; {{ review_total }} reviews from SAR pupils</span></p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
+      <a class="btn btn-quiet arrow" href="{{ google_url }}" rel="noopener">Read them on Google</a>
+    </div>
+  </div>
+</section>
+
+<section class="r-reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ review_total }} reviews, newest first</h2>
+      <p>Pupils write these on Google after their lessons or their test. We can't edit them, and we haven't — long ones are shortened on screen only, with the full text a tap away.</p>
+    </div>
+    <div class="r-grid" data-rgrid>
+      {% for r in reviews %}
+      <blockquote class="review r-card">
+        <span class="stars" aria-label="Five out of five">★★★★★</span>
+        <div class="r-body" data-rbody>
+          <p>&ldquo;{{ r.text }}&rdquo;</p>
+        </div>
+        <footer>
+          <cite>{{ r.name }}</cite>
+          <small>Google review{% if r.when %} &middot; {{ r.when }}{% endif %}</small>
+        </footer>
+      </blockquote>
+      {% endfor %}
+    </div>
+    <div class="btn-row c-more r-more">
+      <button class="btn btn-secondary" type="button" data-rmore>Show more reviews</button>
+      <button class="btn btn-quiet" type="button" data-rall>Show all</button>
+    </div>
+    <p class="r-foot muted">These are the reviews we've captured so far. The live list — including any left today — is on <a href="{{ google_url }}" rel="noopener">our Google listing</a>.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why pupils keep saying the same things</h2>
+      <p>Read enough of these and a pattern shows up: calm instructors, lessons that adapt to you, and structure you can actually see. That isn't luck — it's how SAR is set up.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>One structured syllabus</h3><p class="muted">Every SAR instructor teaches the same {{ syllabus_count }} topics, and your progress is recorded lesson by lesson so you always know what's left.</p><a class="go" href="/lessons.html">How lessons work →</a></div>
+      <div class="card"><h3>Matched, not assigned</h3><p class="muted">We match you to an instructor by your area, transmission and availability — and if the fit isn't right, you can change instructor and keep your hours.</p><a class="go" href="/book.html#match">Find your instructor →</a></div>
+      <div class="card"><h3>Proof, not promises</h3><p class="muted">{{ pass_total }} pupils photographed on the day they passed, most of them at Bletchley test centre.</p><a class="go" href="/gallery.html">See the passes →</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>Areas we cover</h2><p>Lessons start from your door, subject to instructor availability.</p></div>
+    <div class="grid grid-4">
+      <div class="card"><h3>Milton Keynes</h3><p class="muted">Manual, automatic and refresher lessons across MK.</p><a class="go" href="/driving-lessons-milton-keynes.html">Milton Keynes →</a></div>
+      <div class="card"><h3>Bletchley</h3><p class="muted">Local road knowledge and test-centre preparation.</p><a class="go" href="/driving-lessons-bletchley.html">Bletchley →</a></div>
+      <div class="card"><h3>Bedford</h3><p class="muted">Lessons subject to instructor area and availability.</p><a class="go" href="/driving-lessons-bedford.html">Bedford →</a></div>
+      <div class="card"><h3>Leighton Buzzard</h3><p class="muted">Availability depends on instructor schedules.</p><a class="go" href="/driving-lessons-leighton-buzzard.html">Leighton Buzzard →</a></div>
+    </div>
+  </div>
+</section>
+
+{% with cta_title="Ready to write one of these yourself?", cta_text="Tell us your postcode, manual or automatic and when you're free. A DVSA-approved SAR instructor gets in touch — usually the same day." %}{% include "_cta.html" %}{% endwith %}
+{% endblock %}

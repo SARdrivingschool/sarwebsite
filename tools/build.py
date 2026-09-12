@@ -41,6 +41,14 @@ PASSES = json.loads((ROOT / "content" / "passes.json").read_text(encoding="utf-8
 PASS_TOTAL = len(PASSES)
 RECENT_BLETCHLEY_PASSES = [p["n"] for p in PASSES if p.get("testCentre") == "Bletchley"][:6]
 
+# content/reviews.json holds verbatim Google reviews, newest first. Built by
+# tools/parse_reviews.py from the review screenshots, then curated by hand.
+_R = json.loads((ROOT / "content" / "reviews.json").read_text(encoding="utf-8"))
+REVIEWS = _R["reviews"]
+R_META = _R.get("meta", {})
+REVIEW_TOTAL = len(REVIEWS)
+GOOGLE_URL = R_META.get("googleUrl", "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews")
+
 env = Environment(
     loader=FileSystemLoader(str(ROOT / "templates")),
     autoescape=select_autoescape(["html"]),
@@ -336,15 +344,21 @@ for _name, _town in AREA_PAGES.items():
 inject("driving-lessons-milton-keynes.html", "soft", "container", "    ")
 
 # ---------- Pass gallery (generated from content/passes.json) ----------
-_centre_order = ["Bletchley", "Bedford", "Leighton Buzzard", "Northampton"]
-_centres = [{"name": c, "key": c.lower().replace(" ", "-"), "count": sum(1 for p in PASSES if p.get("testCentre") == c)}
-            for c in _centre_order if any(p.get("testCentre") == c for p in PASSES)]
-_counts = {"first": sum(1 for p in PASSES if p.get("firstTime"))}
 generated.append(write("/gallery.html", env.get_template("gallery.html").render(
-    site=SITE, path="/gallery.html", nav="passes", P=P, passes=PASSES, pass_total=PASS_TOTAL, centres=_centres, counts=_counts,
+    site=SITE, path="/gallery.html", nav="passes", P=P, passes=PASSES, pass_total=PASS_TOTAL,
     seo_title="Recent Driving Test Passes | SAR Driving School",
-    seo_description=f"{PASS_TOTAL} real SAR Driving School pupils photographed on the day they passed their driving test — most at Bletchley test centre. Filter by first-time passes and test centre.",
+    seo_description=f"{PASS_TOTAL} real SAR Driving School pupils photographed on the day they passed their driving test at Bletchley test centre.",
     breadcrumbs=breadcrumb_schema([("Home", "/"), ("Passes", "/gallery.html")]), categories=CATS,
+)))
+
+# ---------- Reviews (generated from content/reviews.json) ----------
+generated.append(write("/reviews.html", env.get_template("reviews.html").render(
+    site=SITE, path="/reviews.html", nav="reviews", P=P,
+    reviews=REVIEWS, review_total=REVIEW_TOTAL, rating=R_META.get("rating", "5.0"),
+    google_url=GOOGLE_URL, pass_total=PASS_TOTAL, syllabus_count=SYLLABUS_TOPICS,
+    seo_title="Reviews — What SAR Driving School Learners Say | Milton Keynes",
+    seo_description=f"{REVIEW_TOTAL} five-star Google reviews from SAR Driving School pupils in Milton Keynes, quoted word for word. Read what learners say about their instructors and lessons.",
+    breadcrumbs=breadcrumb_schema([("Home", "/"), ("Reviews", "/reviews.html")]), categories=CATS,
 )))
 
 # ---------- Asset version stamp (cache-busting) ----------
