@@ -16,12 +16,12 @@
         <a class="btn btn-quiet arrow" href="/pricing.html">View prices</a>
       </div>
     </div>
-    <div class="h-media">
-      <picture>
-        <source srcset="/images/hero-pupil-600.webp" media="(max-width: 640px)">
-        <img src="/images/hero-pupil-900.webp" alt="A SAR Driving School pupil holding their pass certificate beside a SAR tuition car" width="900" height="1125" fetchpriority="high" decoding="async">
-      </picture>
-      <span class="h-media-tag">Another SAR pass</span>
+    <div class="h-media h-carousel" data-passes="{{ all_passes|join(',') }}" aria-roledescription="carousel" aria-label="Recent SAR passes">
+      <img class="h-slide is-on" src="/images/pass-gallery/pass-{{ '%03d' % all_passes[0] }}.webp" alt="A SAR Driving School pupil on the day they passed their driving test" width="1080" height="1350" fetchpriority="high" decoding="async">
+      <img class="h-slide" alt="" width="1080" height="1350" decoding="async" aria-hidden="true">
+      <button type="button" class="h-cbtn h-cprev" aria-label="Previous pass"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg></button>
+      <button type="button" class="h-cbtn h-cnext" aria-label="Next pass"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg></button>
+      <span class="h-media-tag" aria-live="off"><span data-ccount>1</span> of {{ pass_total }} passes</span>
     </div>
   </div>
 </section>

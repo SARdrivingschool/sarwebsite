@@ -227,13 +227,14 @@ HOME_REVIEWS = [
     {"name": "Irta Gudha", "when": "January 2026", "text": "Very professional and patient driving instructor. Clear instructions, friendly attitude, and great support throughout my lessons. Highly recommend!"},
 ]
 _np, _pt = newest_passes(6)
+_all, _ = newest_passes(10000)
 generated.append(write("/index.html", env.get_template("home.html").render(
     site=SITE, path="/", nav="home",
     seo_title="Driving Lessons Milton Keynes | SAR Driving School",
     seo_description="Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, 260+ five-star reviews. Tell us your postcode and we'll match you with an instructor.",
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
-    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, pass_total=_pt, categories=CATS,
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS,
 )))
 
 # ---------- Book + thank-you ----------

@@ -140,3 +140,43 @@
     show(0);
   });
 })();
+
+/* ---- Hero pass carousel: crossfade through every pass, newest first ---- */
+(function () {
+  'use strict';
+  var box = document.querySelector('.h-carousel');
+  if (!box) return;
+  var nums = (box.getAttribute('data-passes') || '').split(',').map(function (n) { return parseInt(n, 10); }).filter(Boolean);
+  if (nums.length < 2) return;
+  var slides = box.querySelectorAll('.h-slide');
+  var count = box.querySelector('[data-ccount]');
+  var i = 0, cur = 0, timer = null, busy = false;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function src(n) { return '/images/pass-gallery/pass-' + ('000' + n).slice(-3) + '.webp'; }
+  function preload(n) { var im = new Image(); im.src = src(n); return im; }
+  function go(dir) {
+    if (busy) return; busy = true;
+    i = (i + dir + nums.length) % nums.length;
+    var nxt = slides[1 - cur], prev = slides[cur];
+    var im = new Image();
+    im.onload = function () {
+      nxt.src = src(nums[i]); nxt.alt = 'A SAR Driving School pupil on the day they passed their driving test';
+      nxt.setAttribute('aria-hidden', 'false'); prev.setAttribute('aria-hidden', 'true');
+      nxt.classList.add('is-on'); prev.classList.remove('is-on');
+      cur = 1 - cur; if (count) count.textContent = String(i + 1);
+      preload(nums[(i + 1) % nums.length]);
+      busy = false;
+    };
+    im.onerror = function () { busy = false; };
+    im.src = src(nums[i]);
+  }
+  function start() { if (reduce || timer) return; timer = setInterval(function () { go(1); }, 3200); }
+  function stop() { clearInterval(timer); timer = null; }
+  box.querySelector('.h-cnext').addEventListener('click', function () { stop(); go(1); start(); });
+  box.querySelector('.h-cprev').addEventListener('click', function () { stop(); go(-1); start(); });
+  box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', start);
+  box.addEventListener('focusin', stop); box.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  preload(nums[1]);
+  start();
+})();
