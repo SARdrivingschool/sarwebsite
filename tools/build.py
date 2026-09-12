@@ -283,6 +283,24 @@ def inject(name, section_class, wrap_class, indent):
 
 inject("driving-lessons-bletchley.html", "soft", "container", "    ")
 
+# ---------- Asset version stamp (cache-busting) ----------
+# Browsers may cache sar-apple.css / sar-content.js for a day (vercel.json). Every
+# build stamps the current content hash on those URLs in EVERY page so a deploy
+# always ships fresh CSS/JS without waiting for caches to expire.
+import hashlib
+def _ver(name):
+    return hashlib.md5((ROOT / name).read_bytes()).hexdigest()[:8]
+_vcss, _vjs = _ver("sar-apple.css"), _ver("sar-content.js")
+_stamped = 0
+for f in list(ROOT.glob("*.html")) + list(ROOT.glob("bletchley-test-centre/**/*.html")) + list(ROOT.glob("learn/**/*.html")):
+    if f.name.startswith("google"): continue
+    h = f.read_text(encoding="utf-8"); o = h
+    h = re.sub(r'(href="/?sar-apple\.css)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vcss + '"', h)
+    h = re.sub(r'(src="/?sar-content\.js)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vjs + '"', h)
+    if h != o:
+        f.write_text(h, encoding="utf-8"); _stamped += 1
+print(f"Asset versions: css={_vcss} js={_vjs} (stamped {_stamped} pages)")
+
 # ---------- Sitemap ----------
 EXCLUDE = {"thank-you.html", "google0e1b20059f84a409.html"}
 static = sorted(p.name for p in ROOT.glob("*.html") if p.name not in EXCLUDE)

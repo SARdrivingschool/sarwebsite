@@ -1283,7 +1283,7 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 }
 
 /* Hero pass carousel */
-.h-carousel { aspect-ratio: 4 / 5; width: 100%; }
+.h-carousel { aspect-ratio: 4 / 5; width: 100%; cursor: pointer; }
 .h-carousel .h-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s ease; }
 .h-carousel .h-slide.is-on { opacity: 1; }
 .h-cbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--ink); display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .16s ease; box-shadow: 0 4px 14px rgba(0,0,0,.25); z-index: 2; }

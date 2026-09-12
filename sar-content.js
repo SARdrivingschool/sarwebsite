@@ -170,10 +170,11 @@
     im.onerror = function () { busy = false; };
     im.src = src(nums[i]);
   }
-  function start() { if (reduce || timer) return; timer = setInterval(function () { go(1); }, 3200); }
+  function start() { if (reduce || timer) return; timer = setInterval(function () { go(1); }, 2500); }
   function stop() { clearInterval(timer); timer = null; }
   box.querySelector('.h-cnext').addEventListener('click', function () { stop(); go(1); start(); });
   box.querySelector('.h-cprev').addEventListener('click', function () { stop(); go(-1); start(); });
+  box.addEventListener('click', function (e) { if (e.target.closest('.h-cbtn')) return; stop(); go(1); start(); });
   box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', start);
   box.addEventListener('focusin', stop); box.addEventListener('focusout', start);
   document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
