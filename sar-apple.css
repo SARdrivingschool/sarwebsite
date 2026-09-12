@@ -1261,3 +1261,23 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 .check-circle svg { width: 56px; height: 56px; display: block; }
 @media (max-width: 960px) { .h-steps-4, .h-steps-3 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .h-steps-3 { grid-template-columns: 1fr; } }
+
+/* Desktop layout tune (Phase 2.1) */
+@media (min-width: 961px) {
+  .h-hero { padding: var(--s7) 0; }
+  .h-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, 440px); gap: var(--s7); justify-content: space-between; }
+  .h-hero h1 { font-size: clamp(44px, 4.6vw, 68px); }
+  .h-hero .lead { font-size: 21px; max-width: 34ch; }
+  .h-trust ul { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s3); justify-items: center; }
+  .h-trust li { white-space: nowrap; }
+  .h-match-grid { grid-template-columns: minmax(0, 1fr) minmax(460px, 560px); gap: var(--s7); }
+  .h-why .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .h-why .card p { font-size: 15px; }
+}
+@media (min-width: 961px) and (max-width: 1200px) {
+  .h-why .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .h-steps { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1400px) {
+  :root { --maxw: 1200px; }
+}
