@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+<script type="application/ld+json">
+{{ itemlist | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/learn/">Learn</a><span>/</span><span aria-current="page">{{ section.title }}</span></nav>
+    <p class="c-eyebrow">Learn</p>
+    <h1>{{ section.title }}</h1>
+    <p class="lead">{{ section.intro }}</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="c-vgrid">
+      {% for v in videos %}{% set show_series = true %}{% include "_card.html" %}{% endfor %}
+    </div>
+    {% if videos|length == 0 %}<p class="c-empty">Guides for this section are being filmed. Follow SAR on <a href="/socials.html">TikTok or Instagram</a> to see them first.</p>{% endif %}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2>More to explore</h2></div>
+    <div class="grid grid-3">
+      {% for s in other_sections %}
+      <a class="card c-section-card" href="/learn/{{ s.slug }}/"><h3>{{ s.title }}</h3><p>{{ s.intro }}</p><span class="go">{{ s.count }} guide{% if s.count != 1 %}s{% endif %} →</span></a>
+      {% endfor %}
+      <a class="card c-section-card" href="/bletchley-test-centre/hotspots/"><h3>Bletchley Test Centre Hotspots</h3><p>Roads and roundabouts around the test centre, filmed on the route.</p><span class="go">{{ hotspot_count }} guides →</span></a>
+    </div>
+  </div>
+</section>
+
+{% include "_cta.html" %}
+{% endblock %}

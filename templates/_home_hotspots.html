@@ -1,0 +1,13 @@
+{# Injected into index.html / driving-lessons-bletchley.html between sar:hotspots markers #}
+<section class="{{ section_class }} c-home-hotspots">
+  <div class="{{ wrap_class }}">
+    <div class="section-head">
+      <h2>Learn the roads around Bletchley</h2>
+      <p>Taking your test at Bletchley? Explore SAR's local driving guides covering some of the area's trickier roads, roundabouts and junctions — filmed on the road by our instructors.</p>
+    </div>
+    <div class="c-vgrid">
+      {% for v in featured %}{% set show_series = true %}{% include "_card.html" %}{% endfor %}
+    </div>
+    <div class="btn-row c-more"><a class="btn btn-primary" href="/bletchley-test-centre/hotspots/">Explore Bletchley Test Centre hotspots</a><a class="btn btn-quiet" href="/learn/">All free guides</a></div>
+  </div>
+</section>

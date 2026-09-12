@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+<script type="application/ld+json">
+{{ faq_schema | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Bletchley Test Centre</span></nav>
+    <p class="c-eyebrow">Local guide</p>
+    <h1>Bletchley Driving Test Centre</h1>
+    <p class="lead">Everything SAR learners use to prepare for a test at Bletchley: the roads and roundabouts worth knowing, real video guides filmed on the routes around the centre, and what to expect on the day.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/bletchley-test-centre/hotspots/">Explore the hotspots</a>
+      <a class="btn btn-quiet" href="/driving-lessons-bletchley.html">Driving lessons in Bletchley</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Know the tricky areas before your test</h2>
+      <p>Short video guides filmed by SAR instructors on the roads, roundabouts and junctions around Bletchley Test Centre. Each one explains the layout, what to plan for, and where learners most often pick up faults.</p>
+    </div>
+    <div class="c-vgrid">
+      {% for v in featured %}{% include "_card.html" %}{% endfor %}
+    </div>
+    <p class="c-more"><a class="btn btn-quiet" href="/bletchley-test-centre/hotspots/">See all {{ hotspot_count }} Bletchley hotspot guides →</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Areas learners may benefit from practising</h2>
+      <p>Test routes are not published and examiners vary them, so no road is guaranteed to come up. These are the areas around the centre that SAR instructors make sure their pupils are comfortable with.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Roman Roundabout</h3>
+        <p>The large multi-lane roundabout linking Bletchley to the A5, IKEA and Central Milton Keynes. Two give-way lines on some approaches, faded markings on others, and several ways to be asked through it.</p>
+        <a class="go" href="/bletchley-test-centre/hotspots/roman-roundabout-ikea-left-lane/">Six-part video series →</a>
+      </div>
+      <div class="card">
+        <h3>Redmoor Roundabout</h3>
+        <p>Reading overhead signs and lane arrows to follow the A5 south or Milton Keynes East without changing lanes on the roundabout.</p>
+        <a class="go" href="/bletchley-test-centre/hotspots/redmoor-roundabout-a5-south/">Watch the guide →</a>
+      </div>
+      <div class="card">
+        <h3>Residential streets</h3>
+        <p>Narrow two-way streets like Regent Street: tight turns in, meeting traffic, bends where positioning matters and forced turns at no-entry signs.</p>
+        <a class="go" href="/bletchley-test-centre/hotspots/regent-street/">Watch the guide →</a>
+      </div>
+      <div class="card">
+        <h3>Traffic calming</h3>
+        <p>Speed humps and cushions around Water Eaton and the estates — spotting the sign before the marking and getting your speed right.</p>
+        <a class="go" href="/bletchley-test-centre/hotspots/spot-the-mistake-speed-hump/">Spot the mistake →</a>
+      </div>
+      <div class="card">
+        <h3>Lane choice at roundabouts</h3>
+        <p>Which lane to use when both go ahead, when the left is left-only, and when there are three. A quick quiz to test yourself before a lesson.</p>
+        <a class="go" href="/learn/roundabouts/which-lane-quiz/">Take the quiz →</a>
+      </div>
+      <div class="card">
+        <h3>More coming</h3>
+        <p>Kelly's Kitchen, Fenny Stratford, Lomond Drive and the Brunel roundabout are filmed and being written up. Follow SAR on TikTok or Instagram to see them first.</p>
+        <a class="go" href="/socials.html">Follow SAR →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About the test centre</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Where it is</h3>
+        <p>Bletchley Driving Test Centre, Block 4, Government Buildings, Wilton Avenue, Bletchley, Milton Keynes MK3 6DH. There is parking at the centre and toilets are available.</p>
+        <p><a href="https://www.gov.uk/find-driving-test-centre" rel="noopener" target="_blank">Check the centre on GOV.UK</a> for current opening details before your test.</p>
+      </div>
+      <div class="card">
+        <h3>Pass rates</h3>
+        <p>DVSA publishes pass rates for every test centre. Figures move year to year and depend far more on preparation than on the centre itself, so we don't quote a number here — <a href="https://www.gov.uk/government/statistical-data-sets/car-driving-test-data-by-test-centre" rel="noopener" target="_blank">see the official data on GOV.UK</a>.</p>
+      </div>
+      <div class="card">
+        <h3>On the day</h3>
+        <p>Bring your photocard licence. You'll be asked one "tell me" question before you drive and one "show me" question on the move, then around 40 minutes of driving including independent driving by sat-nav or signs and one manoeuvre.</p>
+        <p><a href="/learn/show-me-tell-me/">Show me / tell me answers →</a></p>
+      </div>
+      <div class="card">
+        <h3>Test-day car</h3>
+        <p>SAR pupils normally take the test in the car they learned in, with their instructor. If you need a car and instructor for a test already booked, see <a href="/pricing.html#other-options">driving test car hire</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recent passes at Bletchley</h2>
+      <p>Most SAR pupils sit their test at Bletchley. Here are some of the latest.</p>
+    </div>
+    <div class="passes">
+      {% for n in recent_passes %}<a href="/gallery.html" aria-label="See the full pass gallery"><img src="/images/pass-gallery/pass-{{ n }}-thumb.webp" alt="A SAR Driving School pupil on the day they passed" width="496" height="620" loading="lazy" decoding="async"></a>
+      {% endfor %}
+    </div>
+    <p class="c-more"><a class="btn btn-quiet" href="/gallery.html">See the full pass gallery →</a></p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Common questions</h2></div>
+    <div class="faq">
+      {% for q in faqs %}
+      <details>
+        <summary>{{ q.q }}</summary>
+        <p>{{ q.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "_cta.html" %}
+{% endblock %}

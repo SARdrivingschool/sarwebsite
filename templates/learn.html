@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Learn</span></nav>
+    <p class="c-eyebrow">Free guides</p>
+    <h1>Learn to drive with SAR</h1>
+    <p class="lead">Short, honest video guides from SAR instructors — the same explanations our pupils get in the car. Roundabouts, show me / tell me, and the mistakes that actually fail people. Free, and built for Milton Keynes and Bletchley learners.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="grid grid-3 c-sections">
+      {% for s in sections %}
+      <a class="card c-section-card" href="/learn/{{ s.slug }}/">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.intro }}</p>
+        <span class="go">{{ s.count }} guide{% if s.count != 1 %}s{% endif %} →</span>
+      </a>
+      {% endfor %}
+      <a class="card c-section-card" href="/bletchley-test-centre/hotspots/">
+        <h3>Bletchley Test Centre Hotspots</h3>
+        <p>The roads, roundabouts and junctions around Bletchley Test Centre, filmed and explained on the road itself.</p>
+        <span class="go">{{ hotspot_count }} guides →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest guides</h2>
+    </div>
+    <div class="c-vgrid">
+      {% for v in latest %}{% set show_series = true %}{% include "_card.html" %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% with cta_title="Prefer to learn it in the car?", cta_text="Every SAR lesson follows a structured syllabus and your progress is recorded each time — so what you watch here is what you'll practise on the road. Tell us your postcode and we'll match you with a DVSA-approved instructor." %}{% include "_cta.html" %}{% endwith %}
+{% endblock %}

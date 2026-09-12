@@ -1,0 +1,13 @@
+{# Video card. Expects v (video record) and optional show_series #}
+<a class="c-vcard" href="{{ v.url }}" data-cat="{{ v.category }}">
+  <span class="c-vcard-media">
+    <img src="{{ v.card }}" alt="" width="480" height="854" loading="lazy" decoding="async">
+    <span class="c-vcard-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="c-vcard-dur">{{ v.durationLabel }}</span>
+  </span>
+  <span class="c-vcard-body">
+    {% if v.series and show_series %}<span class="c-vcard-kicker">{{ v.series.name }} · Part {{ v.series.part }} of {{ v.series.of }}</span>{% elif v.location %}<span class="c-vcard-kicker">{{ v.location }}</span>{% else %}<span class="c-vcard-kicker">{{ categories[v.category] }}</span>{% endif %}
+    <span class="c-vcard-title">{{ v.title }}</span>
+    <span class="c-vcard-go">Watch guide →</span>
+  </span>
+</a>

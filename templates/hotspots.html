@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+<script type="application/ld+json">
+{{ itemlist | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero c-hubhero">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/bletchley-test-centre/">Bletchley Test Centre</a><span>/</span><span aria-current="page">Hotspots</span></nav>
+    <p class="c-eyebrow">Bletchley Test Centre</p>
+    <h1>Bletchley Test Centre Hotspots</h1>
+    <p class="lead">Know the tricky areas before your test. Explore the roads, roundabouts and junctions around Bletchley that learners may benefit from understanding and practising — each one filmed and explained by a SAR instructor.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="c-chips" role="group" aria-label="Filter guides">
+      <button type="button" class="c-chip is-on" data-filter="all" aria-pressed="true">All <span>{{ videos|length }}</span></button>
+      {% for key, label in cats_used %}<button type="button" class="c-chip" data-filter="{{ key }}" aria-pressed="false">{{ label }} <span>{{ cat_counts[key] }}</span></button>
+      {% endfor %}
+    </div>
+    <div class="c-vgrid" id="hotspotGrid">
+      {% for v in videos %}{% set show_series = true %}{% include "_card.html" %}{% endfor %}
+    </div>
+    <p class="c-empty" id="hotspotEmpty" hidden>No guides in this category yet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How to use these guides</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Watch before you drive it</h3><p>Each video is filmed from a SAR car on the road itself, with the lane you need highlighted. Watch it once before your lesson and the layout will already feel familiar.</p></div>
+      <div class="card"><h3>Read the notes</h3><p>Under every video is a written guide: the layout, what to plan for, and where learners most often pick up faults. It's the same thing your instructor will talk you through.</p></div>
+      <div class="card"><h3>Drive to the day</h3><p>Roads and markings change and no road is guaranteed to be on your test. Use the guides to build understanding, then follow the signs, markings and traffic in front of you.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "_cta.html" %}
+{% endblock %}

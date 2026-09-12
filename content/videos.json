@@ -1,0 +1,845 @@
+{
+  "_readme": "One record per video. Add a record, drop the encoded MP4 in video/<kind>/, the poster/card webp in images/hotspots/, then run: python3 tools/build.py. Set video.youtube to a YouTube ID to switch that page to the YouTube player (the MP4 can then be deleted).",
+  "videos": [
+    {
+      "slug": "roman-roundabout-ikea-left-lane",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — straight ahead to the IKEA roundabout (left lane)",
+      "shortTitle": "Straight ahead, left lane",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 1,
+        "of": 6
+      },
+      "durationSec": 88,
+      "published": "2026-08-30",
+      "featured": true,
+      "order": 1,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-ikea-left-lane.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-ikea-left-lane-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-ikea-left-lane-card.webp",
+      "summary": "Going straight ahead from the Roman Roundabout towards the IKEA roundabout using the left-hand lane. This part covers reading the give-way line, waiting for a natural gap and holding good lane discipline all the way round.",
+      "sections": [
+        {
+          "h": "The layout",
+          "p": [
+            "The Roman Roundabout sits on the A5 side of Bletchley and links the town to the IKEA roundabout and Central Milton Keynes. Approaching from Bletchley, both the left and the middle lane are marked for straight ahead, so you have a choice. In this part we use the left lane."
+          ]
+        },
+        {
+          "h": "What to plan for",
+          "list": [
+            "Priority at the give-way line goes to traffic coming from your right — look early and keep looking, because the roundabout is wide and vehicles arrive quickly.",
+            "Don't rush it. Take your time and wait for a real gap rather than forcing one.",
+            "Watch for a 'blocker' — a vehicle on your right that is about to pass you while the traffic behind it has stopped or is being held. That is often the safest moment to enter.",
+            "Once you are on, keep close to the kerb on your left and stay in the outer lane all the way round."
+          ]
+        },
+        {
+          "h": "Where learners lose marks",
+          "p": [
+            "Drifting from the left lane into the middle lane part-way round is the common fault here. It forces the driver beside you to slow down and can be marked as a lane-discipline or positioning fault. Keeping tight to the left kerb prevents it."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Road layouts and markings change. Always drive to what you can see on the day, follow the signs and markings in front of you and give way where the road requires it."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Normal driving position"
+      ],
+      "related": [
+        "roman-roundabout-ikea-middle-lane",
+        "roman-roundabout-to-central-bletchley",
+        "roman-roundabout-right-to-fenny-stratford"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Straight Ahead in the Left Lane | SAR Driving School",
+        "description": "How to go straight ahead at the Roman Roundabout in Bletchley using the left lane: priority, spotting a gap and keeping lane discipline. Video guide from SAR Driving School."
+      }
+    },
+    {
+      "slug": "roman-roundabout-ikea-middle-lane",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — straight ahead to the IKEA roundabout (middle lane)",
+      "shortTitle": "Straight ahead, middle lane",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 2,
+        "of": 6
+      },
+      "durationSec": 78,
+      "published": "2026-08-30",
+      "featured": false,
+      "order": 2,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-ikea-middle-lane.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-ikea-middle-lane-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-ikea-middle-lane-card.webp",
+      "summary": "The same straight-ahead route, this time from the middle lane. Because the lane to your left also goes straight ahead, you must hold your own lane, keep close to the centre island and finish in the overtaking lane.",
+      "sections": [
+        {
+          "h": "The layout",
+          "p": [
+            "Both the left and the middle lane are marked for straight ahead here, so it is a choice. Taking the middle lane is perfectly acceptable — but it changes where you must finish."
+          ]
+        },
+        {
+          "h": "What to plan for",
+          "list": [
+            "At the give-way line, priority goes to traffic coming from your right. Look for the area we highlight in the video and give way to anyone already on the roundabout.",
+            "A blocker can help you again here — a vehicle on your right that is leaving the roundabout gives you a safe moment to go.",
+            "Once you are on, be careful with lane positioning. The lane to your left is also going straight ahead, so you need to stay within your own lane.",
+            "Keep close to the centre island and finish in the overtaking (right-hand) lane on the exit."
+          ]
+        },
+        {
+          "h": "Where learners lose marks",
+          "p": [
+            "It is very common for learners to spill from the middle lane into the left lane as they come round. Reduce your speed, keep close to the centre island and finish in the overtaking lane — then move back to the left with mirrors and a signal once it is safe."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "If you are unsure which lane to take, the left lane (part 1) is the simpler option because you finish in the left lane and don't need to change lanes afterwards."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Normal driving position"
+      ],
+      "related": [
+        "roman-roundabout-ikea-left-lane",
+        "roman-roundabout-to-central-bletchley",
+        "which-lane-quiz"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Straight Ahead in the Middle Lane | SAR Driving School",
+        "description": "Using the middle lane to go straight ahead at the Roman Roundabout, Bletchley: staying in lane, hugging the centre island and finishing in the overtaking lane. SAR video guide."
+      }
+    },
+    {
+      "slug": "roman-roundabout-right-to-fenny-stratford",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — turning right towards Fenny Stratford",
+      "shortTitle": "Turning right to Fenny Stratford",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 3,
+        "of": 6
+      },
+      "durationSec": 142,
+      "published": "2026-08-31",
+      "featured": false,
+      "order": 3,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-right-to-fenny-stratford.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-right-to-fenny-stratford-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-right-to-fenny-stratford-card.webp",
+      "summary": "Turning right at the Roman Roundabout towards Fenny Stratford. The key is planning the lane change early — by the overhead bridge — and reading what the vehicle on your right is actually doing before you commit.",
+      "sections": [
+        {
+          "h": "The approach",
+          "p": [
+            "As you approach, look out for the overhead bridge. It is best to start planning your lane change by the bridge, because changing lanes later can become difficult, especially during busy periods. On this approach you are likely to be in the middle lane; as you are turning right, the road markings show you need to move into the right-hand lane for the turn."
+          ]
+        },
+        {
+          "h": "At the give-way line",
+          "list": [
+            "Priority goes to traffic coming from your right — check the highlighted area and give priority before entering.",
+            "This is where many learners get confused about when it is safe to go and when they need to wait.",
+            "Look at the vehicle on the roundabout to your right: its position, the direction of its front wheels and its speed.",
+            "If it is positioned and angled towards the exit beside you, it may be leaving the roundabout. Once you are sure it is exiting, it can act as a useful blocker and give you an opportunity to enter safely.",
+            "If it is positioned towards you and continuing around the roundabout, you must wait and give priority."
+          ]
+        },
+        {
+          "h": "On the roundabout",
+          "p": [
+            "Maintain the correct lane position. Once you are past the first exit, the left-hand side of the roundabout no longer concerns you — you simply drive between the two islands and follow your lane around. As your lane is the only lane that turns from this direction, you should exit into the left-hand lane. Avoid finishing in the overtaking lane unless there is a reason to."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Plan ahead, choose the correct lane early, and maintain good lane discipline throughout. Never assume a vehicle is exiting because it is indicating — wait until its position and speed confirm it."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Turning right"
+      ],
+      "related": [
+        "roman-roundabout-to-fenny-stratford",
+        "roman-roundabout-right-to-old-bletchley",
+        "roman-roundabout-ikea-left-lane"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Turning Right to Fenny Stratford | SAR Driving School",
+        "description": "Turning right at the Roman Roundabout towards Fenny Stratford: when to change lanes, how to judge the vehicle on your right and where to finish. SAR video guide."
+      }
+    },
+    {
+      "slug": "roman-roundabout-to-central-bletchley",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — heading into Central Bletchley",
+      "shortTitle": "Into Central Bletchley",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 4,
+        "of": 6
+      },
+      "durationSec": 124,
+      "published": "2026-09-08",
+      "featured": false,
+      "order": 4,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-to-central-bletchley.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-to-central-bletchley-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-to-central-bletchley-card.webp",
+      "summary": "Approaching the Roman Roundabout from the Fenny Stratford side with three lanes to choose from, heading straight ahead into Central Bletchley. Two give-way lines, and a simple rule: middle to middle.",
+      "sections": [
+        {
+          "h": "The layout",
+          "p": [
+            "Notice there are three lanes on this approach. To get to Central Bletchley you need to head straight ahead. In the video we use the middle lane, so that we finish in the left-hand lane on the exit and not in the overtaking lane."
+          ]
+        },
+        {
+          "h": "The first give-way line",
+          "p": [
+            "Give priority to traffic coming from your right before you enter. As you are in the middle lane, just think 'middle to middle' — enter and stay in the middle."
+          ]
+        },
+        {
+          "h": "The second give-way line",
+          "list": [
+            "This roundabout has a second give-way line part-way round. Again, give priority to traffic coming from your right before you continue.",
+            "Keep your car positioned in the outer lane. The lane to your right goes in the same direction, but that traffic will finish in the overtaking lane.",
+            "Exit into the left-hand lane."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Two give-way lines means two separate checks. Treat the second one with the same care as the first — don't carry your speed through it."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Approaching junctions"
+      ],
+      "related": [
+        "roman-roundabout-to-fenny-stratford",
+        "roman-roundabout-right-to-old-bletchley",
+        "roman-roundabout-ikea-middle-lane"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Heading Into Central Bletchley | SAR Driving School",
+        "description": "Three lanes, two give-way lines: how to go straight ahead at the Roman Roundabout into Central Bletchley using the middle lane. SAR video guide for Bletchley learners."
+      }
+    },
+    {
+      "slug": "roman-roundabout-to-fenny-stratford",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — straight ahead to Fenny Stratford",
+      "shortTitle": "Straight ahead to Fenny Stratford",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 5,
+        "of": 6
+      },
+      "durationSec": 89,
+      "published": "2026-09-08",
+      "featured": false,
+      "order": 5,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-to-fenny-stratford.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-to-fenny-stratford-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-to-fenny-stratford-card.webp",
+      "summary": "Fenny Stratford is straight ahead from this approach, so the left lane is the one to use — the right lane only goes right. The markings are faded here and there is an extra mini-roundabout on the second part.",
+      "sections": [
+        {
+          "h": "The layout",
+          "p": [
+            "From this direction Fenny Stratford is straight ahead, which means on this occasion we use the left lane, as the right lane only goes right. The road markings here are faded and very faint, but you still have to give way to the right at the roundabout."
+          ]
+        },
+        {
+          "h": "What to plan for",
+          "list": [
+            "As you enter, be very careful — this is where a lot of learners lose marks.",
+            "Keep your positioning to the outer lane as much as possible. It is very easy to drift into the middle lane and make the vehicle beside you slow down.",
+            "On the second part of the roundabout you have to give priority to the right again, as there is an additional mini-roundabout here."
+          ]
+        },
+        {
+          "h": "Where learners lose marks",
+          "p": [
+            "Drifting inwards on the first part, and forgetting that the mini-roundabout on the second part is a separate give-way. Both are observation and positioning faults that are easy to avoid once you know they are coming."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Faded markings don't remove the rules. Give way to the right at every give-way line, and hold the outer lane when you're going straight ahead from the left lane."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Mini roundabouts",
+        "Lane discipline"
+      ],
+      "related": [
+        "roman-roundabout-right-to-fenny-stratford",
+        "roman-roundabout-to-central-bletchley",
+        "roman-roundabout-ikea-left-lane"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Straight Ahead to Fenny Stratford | SAR Driving School",
+        "description": "Using the left lane straight ahead at the Roman Roundabout to Fenny Stratford, dealing with faded markings and the extra mini-roundabout. SAR Driving School video guide."
+      }
+    },
+    {
+      "slug": "roman-roundabout-right-to-old-bletchley",
+      "kind": "hotspot",
+      "title": "Roman Roundabout — turning right for Old Bletchley and Central Bletchley",
+      "shortTitle": "Turning right to Old Bletchley",
+      "location": "Roman Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": {
+        "name": "Roman Roundabout",
+        "part": 6,
+        "of": 6
+      },
+      "durationSec": 120,
+      "published": "2026-09-09",
+      "featured": true,
+      "order": 6,
+      "video": {
+        "file": "/video/hotspots/roman-roundabout-right-to-old-bletchley.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/roman-roundabout-right-to-old-bletchley-poster.webp",
+      "card": "/images/hotspots/roman-roundabout-right-to-old-bletchley-card.webp",
+      "summary": "The examiner may ask you to turn right or to follow the signs for Old Bletchley or Central Bletchley. Use the right lane, hug the centre island, and finish in the overtaking lane before moving back to the left — this is the most common place learners pick up a fault on the Roman.",
+      "sections": [
+        {
+          "h": "The layout",
+          "p": [
+            "For a right turn here we use the right-hand lane, just as the road markings show. The middle lane does also head right, but the markings are poor and it is a narrow space within the roundabout, so it is best to keep to the right lane on this occasion."
+          ]
+        },
+        {
+          "h": "What to plan for",
+          "list": [
+            "Give priority to traffic already on the roundabout before you enter.",
+            "As you enter, get yourself over to the centre island and hug it round. Remember to hug the roundabout the whole way.",
+            "There is a second give-way — give priority to the right again."
+          ]
+        },
+        {
+          "h": "Where learners lose marks",
+          "p": [
+            "This is the most common place learners pick up faults on the Roman Roundabout. Because we use the right lane to turn right, we must finish in the overtaking lane, by the fence. If we finish in the left lane we cross the path of the vehicle on our left. The safest way is to finish on the right, then mirrors, signal, and move back into the left lane once you are clear of the roundabout."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Right lane in, overtaking lane out, then a proper mirror–signal–manoeuvre lane change back to the left. Don't cut across on the exit."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Turning right",
+        "Lane discipline"
+      ],
+      "related": [
+        "roman-roundabout-right-to-fenny-stratford",
+        "roman-roundabout-to-central-bletchley",
+        "roman-roundabout-ikea-middle-lane"
+      ],
+      "seo": {
+        "title": "Roman Roundabout Bletchley — Turning Right to Old Bletchley | SAR Driving School",
+        "description": "Turning right at the Roman Roundabout for Old Bletchley or Central Bletchley: right lane in, hug the island, finish in the overtaking lane. The most common fault spot, explained on video."
+      }
+    },
+    {
+      "slug": "redmoor-roundabout-a5-south",
+      "kind": "hotspot",
+      "title": "Redmoor Roundabout — 2nd exit for Dunstable (A5 south)",
+      "shortTitle": "Redmoor Roundabout, A5 south",
+      "location": "Redmoor Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": 145,
+      "published": "2026-09-11",
+      "featured": true,
+      "order": 7,
+      "video": {
+        "file": "/video/hotspots/redmoor-roundabout-a5-south.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/redmoor-roundabout-a5-south-poster.webp",
+      "card": "/images/hotspots/redmoor-roundabout-a5-south-card.webp",
+      "summary": "The examiner may say 'follow the signs for Dunstable' or 'the A5 south' as you get near the Redmoor Roundabout. This guide is about reading the overhead signs and the road markings so you know you are already in the correct lane — and don't drift out of it.",
+      "sections": [
+        {
+          "h": "Read the signs",
+          "list": [
+            "The first overhead sign shows that the left lane heads towards the A5 south.",
+            "The second sign confirms that the A5 south is the second exit. Keep this in mind as you get closer.",
+            "Turning left takes you to Milton Keynes East; straight ahead takes you to the A5 south."
+          ]
+        },
+        {
+          "h": "Read the road",
+          "p": [
+            "Our current lane — the left lane — has arrows for left and straight ahead. That tells us we are already in the correct lane for the second exit. Closer to the roundabout, there is a left-only marking, but that applies to vehicles coming from our right joining the roundabout — the straight-ahead marking for our lane still applies."
+          ]
+        },
+        {
+          "h": "On the roundabout",
+          "p": [
+            "Follow your lane past the first exit and it will take you straight to the second exit. You don't need to change lanes, and you should not drift out of your lane."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Signs first, then markings, then position. If both the overhead sign and the arrow on the road agree, trust them and hold your lane."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Approaching junctions"
+      ],
+      "related": [
+        "roman-roundabout-ikea-left-lane",
+        "which-lane-quiz",
+        "regent-street"
+      ],
+      "seo": {
+        "title": "Redmoor Roundabout Bletchley — 2nd Exit for the A5 South | SAR Driving School",
+        "description": "How to read the overhead signs and road markings at the Redmoor Roundabout, Bletchley, to take the second exit for Dunstable and the A5 south without changing lanes."
+      }
+    },
+    {
+      "slug": "regent-street",
+      "kind": "hotspot",
+      "title": "Regent Street, Bletchley — tight left turn and a two-way bend",
+      "shortTitle": "Regent Street",
+      "location": "Regent Street, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roads",
+      "series": null,
+      "durationSec": 101,
+      "published": "2026-08-29",
+      "featured": true,
+      "order": 8,
+      "video": {
+        "file": "/video/hotspots/regent-street.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/regent-street-poster.webp",
+      "card": "/images/hotspots/regent-street-card.webp",
+      "summary": "A narrow residential street with a very tight left turn in, a bend where positioning matters, and a no-entry that forces a sharp left at the end. Speed down early, steer smoothly, and keep to your own side.",
+      "sections": [
+        {
+          "h": "The turn in",
+          "list": [
+            "The junction into Regent Street is very tight, so reduce your speed on the approach.",
+            "If there is a vehicle waiting to come out, it is best to hold back and let them out first — there isn't room for both of you, and you risk mounting the kerb as you turn in.",
+            "Finish the turn on your own side. If something is coming the other way it shouldn't have to slow down for you."
+          ]
+        },
+        {
+          "h": "The bend",
+          "p": [
+            "Positioning is the thing learners often get wrong here. Keep to your own side as much as you can — it is a two-way street and something could come round the bend towards you."
+          ]
+        },
+        {
+          "h": "The end of the street",
+          "p": [
+            "There is a no-entry just around the bend, so you have to turn left here — it is not a choice. It is a sharp bend as well, so the same rules apply as when you first came into the street: get your speed down early and steer smoothly through it."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Narrow streets reward patience. Hold back for oncoming vehicles, keep left, and never let the car's speed decide your steering."
+          ]
+        }
+      ],
+      "skills": [
+        "Turning left",
+        "Meeting traffic",
+        "Normal driving position",
+        "Clearance to obstructions"
+      ],
+      "related": [
+        "spot-the-mistake-speed-hump",
+        "redmoor-roundabout-a5-south",
+        "roman-roundabout-ikea-left-lane"
+      ],
+      "seo": {
+        "title": "Regent Street, Bletchley — Tight Left Turn and Two-Way Bend | SAR Driving School",
+        "description": "Regent Street in Bletchley: a tight left turn in, a bend where positioning matters and a forced left at the no-entry. What to plan for, explained on video by SAR Driving School."
+      }
+    },
+    {
+      "slug": "spot-the-mistake-speed-hump",
+      "kind": "hotspot",
+      "title": "Can you spot the mistake? Speed humps on a mock test",
+      "shortTitle": "Spot the mistake: speed humps",
+      "location": "Water Eaton, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "mistakes",
+      "series": null,
+      "durationSec": 80,
+      "published": "2026-09-04",
+      "featured": false,
+      "order": 9,
+      "video": {
+        "file": "/video/hotspots/spot-the-mistake-speed-hump.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/spot-the-mistake-speed-hump-poster.webp",
+      "card": "/images/hotspots/spot-the-mistake-speed-hump-card.webp",
+      "summary": "A real mock-test debrief. On the double roundabout at Water Eaton there is a large sign warning of a speed hump ahead. The road marking is faded — but the sign isn't. What speed should you be doing over a raised hump, and what did the learner do?",
+      "sections": [
+        {
+          "h": "What happened",
+          "p": [
+            "Coming off the double roundabout at Water Eaton there is a big sign on the left-hand side warning of a speed hump ahead. The hump's own marking is a bit faded, but you can still see the raised area. The learner didn't remember what speed they were doing over it — and the instructor's estimate was around 26 mph."
+          ]
+        },
+        {
+          "h": "What should have happened",
+          "list": [
+            "The sign is the cue. When you see a speed-hump sign, you should be planning to slow down before you reach the hump — not reacting to the hump itself.",
+            "A raised hump with a tarmac surface like this one is normally taken at roughly 10–12 mph.",
+            "Faded markings are not an excuse: there are still large signs around 50–80 yards before the hump."
+          ]
+        },
+        {
+          "h": "Why it matters on test",
+          "p": [
+            "Approaching a traffic-calming feature too fast is a control and awareness issue. It can be marked as a fault in its own right, and it makes the car harder to control over the hump."
+          ]
+        },
+        {
+          "h": "Remember",
+          "p": [
+            "Signs before markings. If the paint is faded, the sign still tells you what's coming — plan your speed from the sign."
+          ]
+        }
+      ],
+      "skills": [
+        "Normal driving position",
+        "Following distance",
+        "Stopping normally"
+      ],
+      "related": [
+        "regent-street",
+        "dvsa-top-10-reasons-for-failing",
+        "redmoor-roundabout-a5-south"
+      ],
+      "seo": {
+        "title": "Can You Spot the Mistake? Speed Humps at Water Eaton, Bletchley | SAR Driving School",
+        "description": "A real mock-test debrief from Water Eaton, Bletchley: the speed-hump sign, the faded marking and the speed the learner should have been doing. Watch and test yourself."
+      }
+    },
+    {
+      "slug": "dvsa-top-10-reasons-for-failing",
+      "kind": "learn",
+      "learnSection": "driving-test-tips",
+      "title": "The 10 most common reasons people fail the driving test",
+      "shortTitle": "DVSA top 10 fail reasons",
+      "location": "",
+      "area": "",
+      "testCentre": "",
+      "category": "test-tips",
+      "series": null,
+      "durationSec": 35,
+      "published": "2026-08-28",
+      "featured": true,
+      "order": 10,
+      "video": {
+        "file": "/video/learn/dvsa-top-10-reasons-for-failing.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/dvsa-top-10-reasons-for-failing-poster.webp",
+      "card": "/images/hotspots/dvsa-top-10-reasons-for-failing-card.webp",
+      "summary": "Counting down the ten most common serious faults from DVSA's published test data. It isn't parallel parking — the top two, every single year, are junctions and mirrors.",
+      "sections": [
+        {
+          "h": "The countdown",
+          "list": [
+            "10 — Move off: control. Stalling, rolling back, or pulling away with the handbrake still on.",
+            "9 — Positioning: normal driving. Hugging the kerb, or drifting towards the middle of the road.",
+            "8 — Move off: safely. Pulling away without proper observation.",
+            "7 — Response to signs: road markings. Straddling lanes, ignoring hatched areas, or the wrong lane at a roundabout.",
+            "6 — Response to signs: traffic signs. Missing a give-way, a no-entry, or a change in the speed limit.",
+            "5 — Control: steering. Losing steering control, mounting a kerb or over-correcting.",
+            "4 — Response to signs: traffic lights. Moving on red-and-amber, sitting through a green, or blocking a box junction.",
+            "3 — Junctions: turning right. Cutting the corner, or sitting in the wrong position to turn.",
+            "2 — Mirrors: changing direction. Turning, moving out or changing lane before checking the mirror.",
+            "1 — Junctions: observation. Emerging without looking properly — or looking, and not seeing."
+          ]
+        },
+        {
+          "h": "What it tells you",
+          "p": [
+            "Numbers one and two come down to the same thing: looking properly, in good time. That is exactly what structured lessons drill on every drive. Four parts of our Roman Roundabout series are about precisely this."
+          ]
+        },
+        {
+          "h": "Source",
+          "p": [
+            "Based on DVSA's published test-fault data. The order shifts slightly from year to year; the top two have not."
+          ]
+        }
+      ],
+      "skills": [
+        "Approaching junctions",
+        "Emerging — open",
+        "Emerging — closed",
+        "Turning right",
+        "Steering"
+      ],
+      "related": [
+        "spot-the-mistake-speed-hump",
+        "roman-roundabout-right-to-fenny-stratford",
+        "which-lane-quiz"
+      ],
+      "seo": {
+        "title": "The 10 Most Common Reasons for Failing the Driving Test | SAR Driving School",
+        "description": "DVSA's ten most common serious faults, counted down — and why junction observation and mirrors top the list every year. Short video from SAR Driving School, Milton Keynes."
+      }
+    },
+    {
+      "slug": "show-me-tell-me-brakes",
+      "kind": "learn",
+      "learnSection": "show-me-tell-me",
+      "title": "Show Me, Tell Me — the brakes question",
+      "shortTitle": "Tell me: checking the brakes",
+      "location": "",
+      "area": "",
+      "testCentre": "",
+      "category": "show-me-tell-me",
+      "series": {
+        "name": "Show Me / Tell Me",
+        "part": 1,
+        "of": 21
+      },
+      "durationSec": 49,
+      "published": "2026-08-28",
+      "featured": false,
+      "order": 11,
+      "video": {
+        "file": "/video/learn/show-me-tell-me-episode-1.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/show-me-tell-me-episode-1-poster.webp",
+      "card": "/images/hotspots/show-me-tell-me-episode-1-card.webp",
+      "summary": "\"Tell me how you'd check that the brakes are working before starting a journey.\" Three sentences — that is the whole answer.",
+      "sections": [
+        {
+          "h": "The question",
+          "p": [
+            "\"Tell me how you'd check that the brakes are working before starting a journey.\" This is a 'tell me' question, asked at the start of the test before you drive."
+          ]
+        },
+        {
+          "h": "Say this",
+          "list": [
+            "Not spongy or slack — the pedal should feel firm, not sink towards the floor.",
+            "Test them as you set off — a gentle press at low speed, before you build any speed up.",
+            "It should not pull — if the car pulls to one side under braking, something is wrong."
+          ]
+        },
+        {
+          "h": "The answer, in order",
+          "p": [
+            "All three, in order: not spongy or slack; test them as you set off; it should not pull. Keep it short — the examiner is listening for the points, not a speech."
+          ]
+        },
+        {
+          "h": "The series",
+          "p": [
+            "There are 14 'tell me' and 7 'show me' questions. We cover one a week — one short video each — so you have all 21 before your test."
+          ]
+        }
+      ],
+      "skills": [
+        "Controls and instruments",
+        "Cockpit drill"
+      ],
+      "related": [
+        "dvsa-top-10-reasons-for-failing",
+        "which-lane-quiz"
+      ],
+      "seo": {
+        "title": "Show Me Tell Me — How Would You Check the Brakes? | SAR Driving School",
+        "description": "The three-sentence answer to the 'tell me how you'd check the brakes' question, from SAR Driving School's Show Me / Tell Me series. Episode 1 of 21."
+      }
+    },
+    {
+      "slug": "which-lane-quiz",
+      "kind": "learn",
+      "learnSection": "roundabouts",
+      "title": "Which lane? A three-question roundabout quiz",
+      "shortTitle": "Which lane? quiz",
+      "location": "",
+      "area": "",
+      "testCentre": "",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": 51,
+      "published": "2026-08-28",
+      "featured": false,
+      "order": 12,
+      "video": {
+        "file": "/video/learn/which-lane-quiz.mp4",
+        "youtube": ""
+      },
+      "poster": "/images/hotspots/which-lane-quiz-poster.webp",
+      "card": "/images/hotspots/which-lane-quiz-card.webp",
+      "summary": "Three roundabout approaches, three lane choices. Read the paint, pick your lane, keep score. Question two catches nearly everybody.",
+      "sections": [
+        {
+          "h": "Question 1",
+          "p": [
+            "You are going straight ahead. Both lanes are marked for ahead. Which lane should you normally use?"
+          ],
+          "answer": "Lane A — the left. B is allowed, just not ideal: it puts you in the overtaking lane on the way out, and you finish with a lane to cross. Normally, take the left."
+        },
+        {
+          "h": "Question 2",
+          "p": [
+            "Again, straight ahead — but this time the left lane is marked left-turn only."
+          ],
+          "answer": "Lane B — the right. Straight ahead now means the right-hand lane. This is the one that catches nearly everybody."
+        },
+        {
+          "h": "Question 3",
+          "p": [
+            "Three lanes, straight ahead. Left is left-only, right is right-only."
+          ],
+          "answer": "Lane B — the middle. It is the only one marked for ahead."
+        },
+        {
+          "h": "How did you do?",
+          "list": [
+            "3/3 — Ready for anything. Roundabouts are not your problem.",
+            "2/3 — Solid. Question two catches nearly everybody.",
+            "0–1 — Worth an hour with an instructor before your test."
+          ]
+        }
+      ],
+      "skills": [
+        "Standard roundabouts",
+        "Multi-lane roundabouts",
+        "Lane discipline"
+      ],
+      "related": [
+        "roman-roundabout-ikea-left-lane",
+        "roman-roundabout-ikea-middle-lane",
+        "redmoor-roundabout-a5-south"
+      ],
+      "seo": {
+        "title": "Which Lane? A Quick Roundabout Quiz | SAR Driving School",
+        "description": "Three roundabout lane-choice questions with answers explained. Read the road markings, pick your lane and see how you score. From SAR Driving School, Milton Keynes."
+      }
+    }
+  ],
+  "learnSections": [
+    {
+      "slug": "roundabouts",
+      "title": "Roundabouts",
+      "intro": "Lane choice, priority and positioning — the area learners find hardest, and the one our Bletchley videos cover in most depth.",
+      "includeHotspotCategories": [
+        "roundabouts"
+      ]
+    },
+    {
+      "slug": "show-me-tell-me",
+      "title": "Show Me / Tell Me",
+      "intro": "All 21 questions, one short answer each, released one a week. Learn them before your test — you'll be asked one 'tell me' before you drive and one 'show me' on the move.",
+      "includeHotspotCategories": []
+    },
+    {
+      "slug": "driving-test-tips",
+      "title": "Driving Test Tips",
+      "intro": "What DVSA data says people actually fail on, real mock-test debriefs, and how to avoid the same mistakes.",
+      "includeHotspotCategories": [
+        "mistakes"
+      ]
+    }
+  ],
+  "categories": {
+    "roundabouts": "Roundabouts",
+    "junctions": "Junctions",
+    "roads": "Roads & bends",
+    "mistakes": "Common mistakes",
+    "test-tips": "Driving test tips",
+    "show-me-tell-me": "Show Me / Tell Me"
+  }
+}

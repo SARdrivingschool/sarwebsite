@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+{% include "_gtag.html" %}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>{{ seo_title }}</title>
+<meta name="description" content="{{ seo_description }}">
+<link rel="canonical" href="{{ site }}{{ path }}">
+<meta property="og:type" content="{{ og_type or 'website' }}">
+<meta property="og:site_name" content="SAR Driving School">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="{{ site }}{{ path }}">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:description" content="{{ seo_description }}">
+<meta property="og:image" content="{{ site }}{{ og_image or '/images/og-image.jpg' }}">
+{% if not og_image %}<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">{% endif %}
+<meta property="og:image:alt" content="{{ og_alt or 'SAR Driving School, Milton Keynes' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo_title }}">
+<meta name="twitter:description" content="{{ seo_description }}">
+<meta name="twitter:image" content="{{ site }}{{ og_image or '/images/og-image.jpg' }}">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{% block schema %}{% endblock %}
+<link rel="stylesheet" href="/sar-apple.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="SAR Driving School — home">
+      <picture>
+        <source srcset="/images/logo-dark.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="/images/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/logo.webp" type="image/webp">
+        <img src="/images/logo.png" alt="SAR Driving School" width="420" height="280">
+      </picture>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav" id="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/lessons.html">Lessons</a></li>
+      <li><a href="/pricing.html">Prices</a></li>
+      <li><a href="/bletchley-test-centre/"{% if nav == 'bletchley' %} aria-current="page"{% endif %}>Bletchley</a></li>
+      <li><a href="/learn/"{% if nav == 'learn' %} aria-current="page"{% endif %}>Learn</a></li>
+      <li><a href="/gallery.html">Passes</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/book.html" class="nav-cta">Book lessons</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+
+{% include "_footer.html" %}
+
+<script>
+(function () {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
+<script src="/sar-content.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
+</body>
+</html>

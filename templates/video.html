@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block schema %}
+<script type="application/ld+json">
+{{ breadcrumbs | tojson }}
+</script>
+<script type="application/ld+json">
+{{ video_schema | tojson }}
+</script>
+{% endblock %}
+{% block main %}
+<section class="c-detail">
+  <div class="wrap">
+    <nav class="c-crumbs" aria-label="Breadcrumb">
+      {% for c in crumbs %}{% if not loop.last %}<a href="{{ c.url }}">{{ c.name }}</a><span>/</span>{% else %}<span aria-current="page">{{ c.name }}</span>{% endif %}{% endfor %}
+    </nav>
+
+    <div class="c-layout">
+      <div class="c-player-col">
+        <div class="c-player" data-file="{{ v.video.file }}" data-youtube="{{ v.video.youtube }}" data-title="{{ v.title }}">
+          <img class="c-player-poster" src="{{ v.poster }}" alt="" width="720" height="1280" fetchpriority="high" decoding="async">
+          <button type="button" class="c-player-btn" aria-label="Play: {{ v.title }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span>Watch guide · {{ v.durationLabel }}</span>
+          </button>
+        </div>
+        {% if v.series %}
+        <nav class="c-series" aria-label="{{ v.series.name }} series">
+          <p class="c-series-name">{{ v.series.name }} · Part {{ v.series.part }} of {{ v.series.of }}</p>
+          <ol class="c-series-list">
+            {% for s in series_items %}<li{% if s.slug == v.slug %} aria-current="page"{% endif %}><a href="{{ s.url }}"><span>{{ s.series.part }}</span> {{ s.shortTitle }}</a></li>
+            {% endfor %}
+          </ol>
+        </nav>
+        {% endif %}
+      </div>
+
+      <article class="c-content">
+        <p class="c-eyebrow">{% if v.location %}{{ v.location }}{% else %}{{ categories[v.category] }}{% endif %}{% if v.series %} · Part {{ v.series.part }} of {{ v.series.of }}{% endif %}</p>
+        <h1>{{ v.title }}</h1>
+        <p class="lead">{{ v.summary }}</p>
+
+        {% for s in v.sections %}
+        <div class="c-block">
+          <h2>{{ s.h }}</h2>
+          {% for p in s.p or [] %}<p>{{ p }}</p>{% endfor %}
+          {% if s.list %}<ul class="c-list">{% for li in s.list %}<li>{{ li }}</li>{% endfor %}</ul>{% endif %}
+          {% if s.answer %}<details class="c-answer"><summary>Show the answer</summary><p>{{ s.answer }}</p></details>{% endif %}
+        </div>
+        {% endfor %}
+
+        {% if v.skills %}
+        <div class="c-block">
+          <h2>Skills this covers</h2>
+          <p class="c-skills-intro">Part of the structured SAR syllabus your instructor tracks each lesson.</p>
+          <ul class="c-tags">{% for sk in v.skills %}<li>{{ sk }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+
+        <p class="c-note">Filmed by a SAR Driving School instructor. Road layouts, signs and markings change — always drive to what you can see on the day. No road is guaranteed to appear on a driving test.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% if related %}
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head"><h2>Related guides</h2></div>
+    <div class="c-vgrid">
+      {% for r in related %}{% set v = r %}{% set show_series = true %}{% include "_card.html" %}{% endfor %}
+    </div>
+    <p class="c-more">{% if v.kind == 'hotspot' %}<a class="btn btn-quiet" href="/bletchley-test-centre/hotspots/">All Bletchley hotspots →</a>{% else %}<a class="btn btn-quiet" href="/learn/">All learning guides →</a>{% endif %}</p>
+  </div>
+</section>
+{% endif %}
+
+{% include "_cta.html" %}
+{% endblock %}
