@@ -47,6 +47,10 @@ _R = json.loads((ROOT / "content" / "reviews.json").read_text(encoding="utf-8"))
 REVIEWS = _R["reviews"]
 R_META = _R.get("meta", {})
 REVIEW_TOTAL = len(REVIEWS)
+# What Google actually shows on the listing today — the single source for every
+# "N five-star reviews" claim on the site. Update it in content/reviews.json and
+# rebuild; the pass below rewrites every page.
+GOOGLE_TOTAL = R_META.get("totalOnGoogle") or REVIEW_TOTAL
 GOOGLE_URL = R_META.get("googleUrl", "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews")
 
 env = Environment(
@@ -238,10 +242,10 @@ _all, _ = newest_passes(10000)
 generated.append(write("/index.html", env.get_template("home.html").render(
     site=SITE, path="/", nav="home",
     seo_title="Driving Lessons Milton Keynes | SAR Driving School",
-    seo_description="Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, 260+ five-star reviews. Tell us your postcode and we'll match you with an instructor.",
+    seo_description=f"Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, {GOOGLE_TOTAL} five-star reviews. Tell us your postcode and we'll match you with an instructor.",
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
-    faqs=HOME_FAQS, reviews=HOME_REVIEWS, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, google_total=GOOGLE_TOTAL, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
 )))
 
 # ---------- Pricing ----------
@@ -274,9 +278,9 @@ generated.append(write("/lessons.html", env.get_template("lessons.html").render(
 )))
 generated.append(write("/about.html", env.get_template("about.html").render(
     site=SITE, path="/about.html", nav="about", P=P, syllabus_count=SYLLABUS_TOPICS, hotspot_count=len(hotspots),
-    newest_passes=_np, pass_total=_pt,
+    newest_passes=_np, pass_total=_pt, google_total=GOOGLE_TOTAL,
     seo_title="About SAR Driving School | Milton Keynes",
-    seo_description="A family-run Milton Keynes driving school with DVSA-approved instructors, one structured syllabus, progress recorded every lesson and 260+ five-star reviews. Here's how SAR works.",
+    seo_description=f"A family-run Milton Keynes driving school with DVSA-approved instructors, one structured syllabus, progress recorded every lesson and {GOOGLE_TOTAL} five-star reviews. Here's how SAR works.",
     breadcrumbs=breadcrumb_schema([("Home", "/"), ("About", "/about.html")]), categories=CATS,
 )))
 
@@ -354,7 +358,8 @@ generated.append(write("/gallery.html", env.get_template("gallery.html").render(
 # ---------- Reviews (generated from content/reviews.json) ----------
 generated.append(write("/reviews.html", env.get_template("reviews.html").render(
     site=SITE, path="/reviews.html", nav="reviews", P=P,
-    reviews=REVIEWS, review_total=REVIEW_TOTAL, rating=R_META.get("rating", "5.0"),
+    reviews=REVIEWS, review_total=REVIEW_TOTAL, google_total=GOOGLE_TOTAL,
+    rating=R_META.get("rating", "5.0"),
     google_url=GOOGLE_URL, pass_total=PASS_TOTAL, syllabus_count=SYLLABUS_TOPICS,
     seo_title="Reviews — What SAR Driving School Learners Say | Milton Keynes",
     seo_description=f"{REVIEW_TOTAL} five-star Google reviews from SAR Driving School pupils in Milton Keynes, quoted word for word. Read what learners say about their instructors and lessons.",
@@ -369,15 +374,37 @@ import hashlib
 def _ver(name):
     return hashlib.md5((ROOT / name).read_bytes()).hexdigest()[:8]
 _vcss, _vjs = _ver("sar-apple.css"), _ver("sar-content.js")
-_stamped = 0
+
+# Every "260+ five-star reviews" style claim, in whatever markup it is wrapped in,
+# is rewritten to the live Google total. reviews.html is skipped: it deliberately
+# states how many reviews are reproduced on the page, which is a smaller number.
+# The number and the word "reviews" are often in adjacent tags with indentation
+# between them, so the gap has to allow tags and whitespace — but nothing that
+# would let the match jump across a sentence into an unrelated number.
+# Guards, learned the hard way: never match a percent-escape (a WhatsApp deep
+# link contains "%20review"), require a plausible count (3-4 digits, or 2 with a
+# "+"), and require the plural, so "a 20 minute review" is left alone.
+_COUNT = re.compile(
+    r"(?<![%\w])(?:\d{3,4}\+?|\d{2}\+)"
+    r"(?=(?:</?[a-z][^>]*>|[\s·&;#]){0,40}?"
+    r"(?:five[-\s]star\s*)?(?:google\s*)?reviews\b)", re.I)
+_recount = 0
+_changed = []
 for f in list(ROOT.glob("*.html")) + list(ROOT.glob("bletchley-test-centre/**/*.html")) + list(ROOT.glob("learn/**/*.html")):
     if f.name.startswith("google"): continue
     h = f.read_text(encoding="utf-8"); o = h
     h = re.sub(r'(href="/?sar-apple\.css)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vcss + '"', h)
     h = re.sub(r'(src="/?sar-content\.js)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vjs + '"', h)
+    if f.name != "reviews.html":
+        hits = [m.group(0) for m in _COUNT.finditer(h) if m.group(0) != str(GOOGLE_TOTAL)]
+        if hits:
+            _recount += 1
+            _changed.append((f.name, hits))
+        h = _COUNT.sub(str(GOOGLE_TOTAL), h)
     if h != o:
-        f.write_text(h, encoding="utf-8"); _stamped += 1
-print(f"Asset versions: css={_vcss} js={_vjs} (stamped {_stamped} pages)")
+        f.write_text(h, encoding="utf-8")
+print(f"Asset versions: css={_vcss} js={_vjs}; review count -> {GOOGLE_TOTAL} on {_recount} pages")
+for _n, _h in _changed: print(f"   {_n}: {_h}")
 
 # ---------- Sitemap ----------
 EXCLUDE = {"thank-you.html", "google0e1b20059f84a409.html"}

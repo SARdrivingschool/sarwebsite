@@ -12,7 +12,7 @@
     <p class="c-eyebrow">Reviews</p>
     <h1>What SAR learners actually say</h1>
     <p class="lead">Every review below is a real Google review, left by a real SAR pupil, quoted word for word. Nothing here is edited, shortened or written by us.</p>
-    <p class="r-rating"><span class="h-stars" aria-hidden="true">★★★★★</span><span><strong>{{ rating }}</strong> average &middot; {{ review_total }} reviews from SAR pupils</span></p>
+    <p class="r-rating"><span class="h-stars" aria-hidden="true">★★★★★</span><span><strong>{{ rating }}</strong> average from {{ google_total }} Google reviews</span></p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
       <a class="btn btn-quiet arrow" href="{{ google_url }}" rel="noopener">Read them on Google</a>
@@ -23,8 +23,8 @@
 <section class="r-reviews" id="reviews">
   <div class="wrap">
     <div class="section-head">
-      <h2>{{ review_total }} reviews, newest first</h2>
-      <p>Pupils write these on Google after their lessons or their test. We can't edit them, and we haven't — long ones are shortened on screen only, with the full text a tap away.</p>
+      <h2>{{ review_total }} of them, newest first</h2>
+      <p>Pupils write these on Google after their lessons or their test. We can't edit them, and we haven't — long ones are shortened on screen only, with the full text a tap away. The {{ google_total - review_total }} not shown here are mostly star ratings left without a written review.</p>
     </div>
     <div class="r-grid" data-rgrid>
       {% for r in reviews %}
