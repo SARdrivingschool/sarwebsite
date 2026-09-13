@@ -2,6 +2,30 @@
  "_readme": "One entry per pass graphic, in display order (newest first). name/testCentre/faults are optional — only shown when present. When you add a pass: add {n, name, firstTime, testCentre} at the TOP of this list, drop pass-NNN.webp + pass-NNN-thumb.webp in images/pass-gallery/, run tools/build.py.",
  "passes": [
   {
+   "n": 233,
+   "name": "Soroush",
+   "firstTime": true,
+   "testCentre": "Bletchley"
+  },
+  {
+   "n": 232,
+   "name": "Ayomidi",
+   "firstTime": true,
+   "testCentre": "Bletchley"
+  },
+  {
+   "n": 231,
+   "name": "Elykha",
+   "firstTime": true,
+   "testCentre": "Northampton"
+  },
+  {
+   "n": 230,
+   "name": "Wesley",
+   "firstTime": true,
+   "testCentre": "Bletchley"
+  },
+  {
    "n": 229,
    "name": "Akmal",
    "firstTime": true,

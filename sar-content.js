@@ -260,7 +260,9 @@
     img.src = c.getAttribute('data-full');
     img.alt = c.querySelector('img').alt;
     cap.textContent = c.getAttribute('data-caption') || '';
-    count.textContent = (idx + 1) + ' of ' + cards.length;
+    // No running total here: the gallery deliberately does not state how many
+    // passes there are.
+    if (count) count.textContent = '';
     var nx = cards[(idx + 1) % cards.length];
     if (nx) { var pre = new Image(); pre.src = nx.getAttribute('data-full'); }
   }

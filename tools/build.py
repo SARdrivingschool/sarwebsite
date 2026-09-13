@@ -351,7 +351,7 @@ inject("driving-lessons-milton-keynes.html", "soft", "container", "    ")
 generated.append(write("/gallery.html", env.get_template("gallery.html").render(
     site=SITE, path="/gallery.html", nav="passes", P=P, passes=PASSES, pass_total=PASS_TOTAL,
     seo_title="Recent Driving Test Passes | SAR Driving School",
-    seo_description=f"{PASS_TOTAL} real SAR Driving School pupils photographed on the day they passed their driving test at Bletchley test centre.",
+    seo_description="Real SAR Driving School pupils photographed on the day they passed their driving test, most of them at Bletchley test centre. No stock photos, no models.",
     breadcrumbs=breadcrumb_schema([("Home", "/"), ("Passes", "/gallery.html")]), categories=CATS,
 )))
 
