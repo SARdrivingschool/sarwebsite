@@ -51,6 +51,9 @@ REVIEW_TOTAL = len(REVIEWS)
 # "N five-star reviews" claim on the site. Update it in content/reviews.json and
 # rebuild; the pass below rewrites every page.
 GOOGLE_TOTAL = R_META.get("totalOnGoogle") or REVIEW_TOTAL
+# The copy says "270+" (it only ever undersells as the real total climbs);
+# GOOGLE_TOTAL stays numeric for the arithmetic on the reviews page.
+GOOGLE_LABEL = R_META.get("totalLabel") or str(GOOGLE_TOTAL)
 GOOGLE_URL = R_META.get("googleUrl", "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews")
 
 env = Environment(
@@ -242,10 +245,10 @@ _all, _ = newest_passes(10000)
 generated.append(write("/index.html", env.get_template("home.html").render(
     site=SITE, path="/", nav="home",
     seo_title="Driving Lessons Milton Keynes | SAR Driving School",
-    seo_description=f"Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, {GOOGLE_TOTAL} five-star reviews. Tell us your postcode and we'll match you with an instructor.",
+    seo_description=f"Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, {GOOGLE_LABEL} five-star reviews. Tell us your postcode and we'll match you with an instructor.",
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
-    faqs=HOME_FAQS, reviews=HOME_REVIEWS, google_total=GOOGLE_TOTAL, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, google_total=GOOGLE_LABEL, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
 )))
 
 # ---------- Pricing ----------
@@ -278,9 +281,9 @@ generated.append(write("/lessons.html", env.get_template("lessons.html").render(
 )))
 generated.append(write("/about.html", env.get_template("about.html").render(
     site=SITE, path="/about.html", nav="about", P=P, syllabus_count=SYLLABUS_TOPICS, hotspot_count=len(hotspots),
-    newest_passes=_np, pass_total=_pt, google_total=GOOGLE_TOTAL,
+    newest_passes=_np, pass_total=_pt, google_total=GOOGLE_LABEL,
     seo_title="About SAR Driving School | Milton Keynes",
-    seo_description=f"A family-run Milton Keynes driving school with DVSA-approved instructors, one structured syllabus, progress recorded every lesson and {GOOGLE_TOTAL} five-star reviews. Here's how SAR works.",
+    seo_description=f"A family-run Milton Keynes driving school with DVSA-approved instructors, one structured syllabus, progress recorded every lesson and {GOOGLE_LABEL} five-star reviews. Here's how SAR works.",
     breadcrumbs=breadcrumb_schema([("Home", "/"), ("About", "/about.html")]), categories=CATS,
 )))
 
@@ -358,7 +361,8 @@ generated.append(write("/gallery.html", env.get_template("gallery.html").render(
 # ---------- Reviews (generated from content/reviews.json) ----------
 generated.append(write("/reviews.html", env.get_template("reviews.html").render(
     site=SITE, path="/reviews.html", nav="reviews", P=P,
-    reviews=REVIEWS, review_total=REVIEW_TOTAL, google_total=GOOGLE_TOTAL,
+    reviews=REVIEWS, review_total=REVIEW_TOTAL, google_total=GOOGLE_LABEL,
+    google_count=GOOGLE_TOTAL,
     rating=R_META.get("rating", "5.0"),
     google_url=GOOGLE_URL, pass_total=PASS_TOTAL, syllabus_count=SYLLABUS_TOPICS,
     seo_title="Reviews — What SAR Driving School Learners Say | Milton Keynes",
@@ -396,14 +400,14 @@ for f in list(ROOT.glob("*.html")) + list(ROOT.glob("bletchley-test-centre/**/*.
     h = re.sub(r'(href="/?sar-apple\.css)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vcss + '"', h)
     h = re.sub(r'(src="/?sar-content\.js)(\?v=[0-9a-f]+)?"', r'\1?v=' + _vjs + '"', h)
     if f.name != "reviews.html":
-        hits = [m.group(0) for m in _COUNT.finditer(h) if m.group(0) != str(GOOGLE_TOTAL)]
+        hits = [m.group(0) for m in _COUNT.finditer(h) if m.group(0) != GOOGLE_LABEL]
         if hits:
             _recount += 1
             _changed.append((f.name, hits))
-        h = _COUNT.sub(str(GOOGLE_TOTAL), h)
+        h = _COUNT.sub(GOOGLE_LABEL, h)
     if h != o:
         f.write_text(h, encoding="utf-8")
-print(f"Asset versions: css={_vcss} js={_vjs}; review count -> {GOOGLE_TOTAL} on {_recount} pages")
+print(f"Asset versions: css={_vcss} js={_vjs}; review count -> {GOOGLE_LABEL} on {_recount} pages")
 for _n, _h in _changed: print(f"   {_n}: {_h}")
 
 # ---------- Sitemap ----------

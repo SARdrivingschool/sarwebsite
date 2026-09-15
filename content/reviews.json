@@ -4,8 +4,9 @@
   "googleUrl": "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews",
   "source": "Google reviews, captured as screenshots and OCR'd by tools/parse_reviews.py. Names re-read at 3x by tools/name_ocr.py and every one checked by eye against its screenshot; corrections live in content/review-name-fixes.json.",
   "captured": "2026-08-30",
-  "totalOnGoogle": 268,
-  "totalChecked": "2026-09-13"
+  "totalOnGoogle": 270,
+  "totalChecked": "2026-09-15",
+  "totalLabel": "270+"
  },
  "reviews": [
   {
