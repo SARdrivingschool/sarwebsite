@@ -259,7 +259,7 @@ PRICE_FAQS = [
     {"q": "Why does paying SAR cost 5% more?", "a": "The hourly rate is identical either way. Paying SAR Driving School adds 5%, whichever payment method you use, and buys protection: your hours are held by the company, move with you if you change instructor, and are covered by our refund terms. It is never a charge for using a card."},
     {"q": "Do I pay before my first lesson?", "a": "No. Request an instructor, agree your first lesson with them, then pay — your instructor directly with no fee, or SAR with a protected balance."},
     {"q": "Do manual and automatic cost the same?", "a": "Yes — the same hourly and block rates for both."},
-    {"q": "What if I need to cancel a lesson?", "a": "More than 48 hours' notice is free; 24–48 hours is charged at 50%; under 24 hours or a no-show is charged in full. Full details are in our terms."},
+    {"q": "What if I need to cancel a lesson?", "a": "48 hours' notice or more is free; less than 48 but at least 24 hours is charged at 50%; under 24 hours or a no-show is charged in full. Full details are in our terms."},
     {"q": "Can I use your car for my driving test?", "a": "Yes, subject to an assessment lesson and driving to DVSA test standard. Ask us about driving test car hire."},
 ]
 generated.append(write("/pricing.html", env.get_template("pricing.html").render(

@@ -1,36 +1,115 @@
 {
-  "_readme": "Single source of truth for prices. Change a number here, run tools/build.py, and pricing.html, lessons.html, book.html and the homepage all update. Amounts are pounds.",
-  "hourly": {
-    "standard": 38,
-    "standardAreas": "Milton Keynes, Bletchley and Leighton Buzzard",
-    "outer": 43,
-    "outerAreas": "Bedford and Northampton",
-    "outerMinHours": 2
+ "_readme": "Single source of truth for prices. Change a number here, run tools/build.py, and pricing.html, lessons.html, book.html and the homepage all update. Amounts are pounds.",
+ "hourly": {
+  "standard": 38,
+  "standardAreas": "Milton Keynes, Bletchley and Leighton Buzzard",
+  "outer": 43,
+  "outerAreas": "Bedford and Northampton",
+  "outerMinHours": 2
+ },
+ "lessons": [
+  {
+   "hours": 1,
+   "direct": 38,
+   "label": "1 hour"
   },
-  "lessons": [
-    { "hours": 1,   "direct": 38,  "label": "1 hour" },
-    { "hours": 1.5, "direct": 57,  "label": "1½ hours" },
-    { "hours": 2,   "direct": 76,  "label": "2 hours" }
-  ],
-  "blocks": [
-    { "hours": 5,  "direct": 185,  "sar": 194.25, "stripe": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05",  "blurb": "A good way to start: five lessons to settle in and find your rhythm.", "tag": "Starter" },
-    { "hours": 10, "direct": 360,  "sar": 378,    "stripe": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04", "blurb": "Our most popular block — consistent weekly progress with a clear plan.", "tag": "Most popular" },
-    { "hours": 20, "direct": 700,  "sar": 735,    "stripe": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06", "blurb": "A solid foundation for learners committed to steady progress.", "tag": "" },
-    { "hours": 30, "direct": 1020, "sar": 1071,   "stripe": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07", "blurb": "For serious learners: the full syllabus through to test preparation.", "tag": "Best value" }
-  ],
-  "single": { "direct": 38, "sar": 39.90, "stripe": "https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03" },
-  "custom": { "stripe": "https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09" },
-  "sarFeePercent": 5,
-  "blockValidityMonths": 6,
-  "cancellation": [
-    { "when": "More than 48 hours' notice", "charge": "Free" },
-    { "when": "24–48 hours' notice", "charge": "50% of the lesson" },
-    { "when": "Under 24 hours, or no-show", "charge": "Full lesson" }
-  ],
-  "other": [
-    { "name": "Refresher lessons", "price": "From £38 an hour", "text": "Parking, roundabouts, motorway driving, returning drivers, or simply getting your confidence back. Manual or automatic.", "href": "/refresher-driving-lessons-milton-keynes.html", "cta": "Refresher lessons" },
-    { "name": "Intensive lessons", "price": "Priced on your plan", "text": "Arranged around your current level, your test date and how many hours you realistically need. We confirm availability first.", "href": "/book.html", "cta": "Ask about intensive" },
-    { "name": "Driving test car hire", "price": "On request", "text": "Use of a SAR instructor's car for your test, subject to an assessment lesson and driving to DVSA test standard.", "href": "/book.html", "cta": "Ask about test car hire" },
-    { "name": "Gift vouchers", "price": "Any amount", "text": "Driving lessons as a present — for a 17th birthday, or anyone who keeps putting it off.", "href": "/gift-vouchers.html", "cta": "Gift vouchers" }
-  ]
+  {
+   "hours": 1.5,
+   "direct": 57,
+   "label": "1½ hours"
+  },
+  {
+   "hours": 2,
+   "direct": 76,
+   "label": "2 hours"
+  }
+ ],
+ "blocks": [
+  {
+   "hours": 5,
+   "direct": 185,
+   "sar": 194.25,
+   "stripe": "https://buy.stripe.com/cNi7sM3z52Ubd9D6wvbII05",
+   "blurb": "A good way to start: five lessons to settle in and find your rhythm.",
+   "tag": "Starter"
+  },
+  {
+   "hours": 10,
+   "direct": 360,
+   "sar": 378,
+   "stripe": "https://book.stripe.com/8x2bJ2c5B9izglPf31bII04",
+   "blurb": "Our most popular block — consistent weekly progress with a clear plan.",
+   "tag": "Most popular"
+  },
+  {
+   "hours": 20,
+   "direct": 700,
+   "sar": 735,
+   "stripe": "https://book.stripe.com/4gM00k7Pl1Q70mR5srbII06",
+   "blurb": "A solid foundation for learners committed to steady progress.",
+   "tag": ""
+  },
+  {
+   "hours": 30,
+   "direct": 1020,
+   "sar": 1071,
+   "stripe": "https://book.stripe.com/5kQ7sMc5BcuLglP4onbII07",
+   "blurb": "For serious learners: the full syllabus through to test preparation.",
+   "tag": "Best value"
+  }
+ ],
+ "single": {
+  "direct": 38,
+  "sar": 39.9,
+  "stripe": "https://book.stripe.com/eVq8wQb1xfGXc5z7AzbII03"
+ },
+ "custom": {
+  "stripe": "https://buy.stripe.com/28E7sM7Pl0M33z3aMLbII09"
+ },
+ "sarFeePercent": 5,
+ "blockValidityMonths": 6,
+ "cancellation": [
+  {
+   "when": "48 hours' notice or more",
+   "charge": "No charge"
+  },
+  {
+   "when": "24 to 48 hours' notice",
+   "charge": "50% of the lesson"
+  },
+  {
+   "when": "Under 24 hours, or no-show",
+   "charge": "Full lesson"
+  }
+ ],
+ "other": [
+  {
+   "name": "Refresher lessons",
+   "price": "From £38 an hour",
+   "text": "Parking, roundabouts, motorway driving, returning drivers, or simply getting your confidence back. Manual or automatic.",
+   "href": "/refresher-driving-lessons-milton-keynes.html",
+   "cta": "Refresher lessons"
+  },
+  {
+   "name": "Intensive lessons",
+   "price": "Priced on your plan",
+   "text": "Arranged around your current level, your test date and how many hours you realistically need. We confirm availability first.",
+   "href": "/book.html",
+   "cta": "Ask about intensive"
+  },
+  {
+   "name": "Driving test car hire",
+   "price": "On request",
+   "text": "Use of a SAR instructor's car for your test, subject to an assessment lesson and driving to DVSA test standard.",
+   "href": "/book.html",
+   "cta": "Ask about test car hire"
+  },
+  {
+   "name": "Gift vouchers",
+   "price": "Any amount",
+   "text": "Driving lessons as a present — for a 17th birthday, or anyone who keeps putting it off.",
+   "href": "/gift-vouchers.html",
+   "cta": "Gift vouchers"
+  }
+ ]
 }
