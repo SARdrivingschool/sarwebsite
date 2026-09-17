@@ -1,0 +1,24 @@
+<section class="{{ adi_section_class | default('section-alt') }} i-adi">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ adi_heading | default('Our instructors qualify with us too') }}</h2>
+      <p>{{ adi_intro | default('SAR trains people through the ADI qualification as well as teaching learners to drive. These are trainees who passed a stage of it with us — the same DVSA practical test standard, marked harder.') }}</p>
+    </div>
+    <div class="i-adi-grid">
+      {% for p in adi_passes %}
+      <figure class="i-adi-card">
+        <img src="{{ p.thumb }}" alt="{{ p.name }}, passed {{ p.stageFull or p.stage }}{{ ' first time' if p.firstTime else '' }} at {{ p.testCentre }} with SAR Driving School" width="496" height="620" loading="lazy" decoding="async">
+        <figcaption>
+          {% if p.firstTime %}<span class="i-adi-badge">First time</span>{% endif %}
+          <strong>{{ p.name }}</strong>
+          <span>{{ p.stage }}</span>
+          <span class="muted">{{ p.testCentre }}{% if p.when %} &middot; {{ p.when }}{% endif %}</span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% if adi_cta | default(true) %}
+    <div class="btn-row c-more"><a class="btn btn-quiet arrow" href="/instructor-training.html">Train as a driving instructor with SAR</a></div>
+    {% endif %}
+  </div>
+</section>

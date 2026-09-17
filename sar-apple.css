@@ -1402,3 +1402,15 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   .r-grid { grid-template-columns: 1fr; gap: var(--s2); }
   .r-card { padding: var(--s3); }
 }
+
+/* --------------------------------- instructor (ADI) qualifications -- */
+/* Deliberately not the .g-card pass-gallery styling: these are trainee
+   instructors, not pupils, and should not read as the same thing. */
+.i-adi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 260px)); gap: var(--s3); }
+.i-adi-card { margin: 0; background: var(--surface); border-radius: var(--r-card); overflow: hidden; border: 1px solid var(--hairline); }
+.section-alt .i-adi-card { background: var(--surface-2); }
+.i-adi-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.i-adi-card figcaption { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px 14px; font-size: 14px; color: var(--ink-2); }
+.i-adi-card figcaption strong { color: var(--ink); font-size: var(--f-body); }
+.i-adi-badge { align-self: flex-start; margin-bottom: 4px; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+@media (max-width: 640px) { .i-adi-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); } }

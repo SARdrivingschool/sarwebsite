@@ -161,6 +161,10 @@
   </div>
 </section>
 
+{% if adi_passes %}
+{% with adi_section_class = "" %}{% include "_instructor_passes.html" %}{% endwith %}
+{% endif %}
+
 <section class="section-alt">
   <div class="wrap">
     <div class="section-head"><h2>Common questions</h2></div>

@@ -54,6 +54,11 @@ GOOGLE_TOTAL = R_META.get("totalOnGoogle") or REVIEW_TOTAL
 # The copy says "270+" (it only ever undersells as the real total climbs);
 # GOOGLE_TOTAL stays numeric for the arithmetic on the reviews page.
 GOOGLE_LABEL = R_META.get("totalLabel") or str(GOOGLE_TOTAL)
+# Trainee instructors who passed an ADI stage. Separate from PASSES on purpose:
+# that list is pupils who passed the learner test and drives the gallery count.
+_ADI = json.loads((ROOT / "content" / "instructor-passes.json").read_text(encoding="utf-8"))
+ADI_PASSES = _ADI["passes"]
+
 GOOGLE_URL = R_META.get("googleUrl", "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews")
 
 env = Environment(
@@ -248,7 +253,7 @@ generated.append(write("/index.html", env.get_template("home.html").render(
     seo_description=f"Manual and automatic driving lessons in Milton Keynes from £38/hr. DVSA-approved instructors, {GOOGLE_LABEL} five-star reviews. Tell us your postcode and we'll match you with an instructor.",
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage",
                 "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in HOME_FAQS]},
-    faqs=HOME_FAQS, reviews=HOME_REVIEWS, google_total=GOOGLE_LABEL, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
+    faqs=HOME_FAQS, reviews=HOME_REVIEWS, google_total=GOOGLE_LABEL, adi_passes=ADI_PASSES, featured=featured, newest_passes=_np, all_passes=_all, pass_total=_pt, categories=CATS, P=P,
 )))
 
 # ---------- Pricing ----------
@@ -349,6 +354,13 @@ for _name, _town in AREA_PAGES.items():
     _html = env.get_template("_area_matcher.html").render(town=_town, path="/" + _name)
     inject_block(_name, "<!-- sar:matcher:start -->", "<!-- sar:matcher:end -->", _html, "    ")
 inject("driving-lessons-milton-keynes.html", "soft", "container", "    ")
+
+# ---------- ADI qualifications block on the instructor-training page ----------
+_adi_html = env.get_template("_instructor_passes.html").render(
+    adi_passes=ADI_PASSES, adi_section_class="soft", adi_cta=False,
+    adi_heading="Trainees who have qualified with us",
+    adi_intro="Not a promise that you will pass — a record of people who did. Every one is a real DVSA result, named, with the test centre and date.")
+inject_block("instructor-training.html", "<!-- sar:adi:start -->", "<!-- sar:adi:end -->", _adi_html, "    ")
 
 # ---------- Pass gallery (generated from content/passes.json) ----------
 generated.append(write("/gallery.html", env.get_template("gallery.html").render(
