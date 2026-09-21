@@ -1,5 +1,5 @@
 {
-  "_readme": "One record per video. Add a record, drop the encoded MP4 in video/<kind>/, the poster/card webp in images/hotspots/, then run: python3 tools/build.py. Set video.youtube to a YouTube ID to switch that page to the YouTube player (the MP4 can then be deleted).",
+  "_readme": "One record per video. Add a record, drop the encoded MP4 in video/<kind>/, the poster/card webp in images/hotspots/, then run: python3 tools/build.py. Set video.youtube to a YouTube ID to switch that page to the YouTube player (the MP4 can then be deleted). Set orientation to \"landscape\" for a 16:9 upload — the player box and poster switch to 16:9; leave it out for the default 9:16 portrait. Card images stay 9:16 either way.",
   "videos": [
     {
       "slug": "roman-roundabout-ikea-left-lane",
@@ -863,9 +863,9 @@
         "Turning right"
       ],
       "related": [
+        "bond-avenue-double-roundabout",
         "roman-roundabout-ikea-left-lane",
-        "roman-roundabout-ikea-middle-lane",
-        "which-lane-quiz"
+        "roman-roundabout-ikea-middle-lane"
       ],
       "seo": {
         "title": "Denbigh (IKEA) Roundabout, Bletchley — Turning Right, 3rd Exit | SAR Driving School",
@@ -1008,6 +1008,83 @@
       "seo": {
         "title": "Redmoor Roundabout Bletchley — 4th Exit for West Bletchley | SAR Driving School",
         "description": "Taking the fourth exit for West Bletchley at the Redmoor Roundabout, Milton Keynes: reading the numbered sign, getting into the right-hand lane early and counting the exits."
+      }
+    },
+    {
+      "slug": "bond-avenue-double-roundabout",
+      "kind": "hotspot",
+      "title": "Bond Avenue — the double roundabout, straight ahead",
+      "shortTitle": "Bond Avenue double roundabout",
+      "location": "Bond Avenue double roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": 86,
+      "published": "2026-09-21",
+      "featured": true,
+      "order": 16,
+      "orientation": "landscape",
+      "video": {
+        "file": "",
+        "youtube": "gS8EdodTVyc"
+      },
+      "poster": "/images/hotspots/bond-avenue-double-roundabout-poster.webp",
+      "card": "/images/hotspots/bond-avenue-double-roundabout-card.webp",
+      "summary": "Two small roundabouts one after the other on Bond Avenue, with road markings that have worn quite faded. Going straight ahead means reading those markings early, moving across for the second roundabout at the right moment, and expecting that other drivers may have misread them.",
+      "sections": [
+        {
+          "h": "What you'll be asked to do",
+          "list": [
+            "The instruction is to follow the road ahead at the roundabout.",
+            "You are advised to use the right-hand lane for the second roundabout."
+          ]
+        },
+        {
+          "h": "The markings are faded",
+          "p": [
+            "The road markings on the approach have worn quite faded, so read them early rather than leaving it until the give-way line. The markings show that this lane takes you straight ahead."
+          ]
+        },
+        {
+          "h": "First roundabout",
+          "p": [
+            "Pay attention to the markings, make sure you have positioned yourself in the correct lane, and give priority to traffic coming from your right."
+          ]
+        },
+        {
+          "h": "Between the two",
+          "p": [
+            "This is where the close attention pays off. You need to move across for the second roundabout — check your right mirror first, then move."
+          ]
+        },
+        {
+          "h": "Anticipate other drivers",
+          "p": [
+            "Because the markings are faded, another vehicle may misread them and end up in the wrong lane. Expecting that in advance is what lets you stay aware and react safely rather than being surprised by it."
+          ]
+        },
+        {
+          "h": "Second roundabout",
+          "p": [
+            "Give priority to traffic from the right again as you enter."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Reading road markings",
+        "Anticipation"
+      ],
+      "related": [
+        "denbigh-roundabout-right-3rd-exit",
+        "redmoor-roundabout-central-bletchley",
+        "which-lane-quiz"
+      ],
+      "seo": {
+        "title": "Bond Avenue Double Roundabout, Bletchley — Straight Ahead | SAR Driving School",
+        "description": "The Bond Avenue double roundabout on the Bletchley test route: faded road markings, which lane to use, when to move across for the second roundabout, and why to expect other drivers to get it wrong."
       }
     }
   ],

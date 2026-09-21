@@ -14,10 +14,10 @@
       {% for c in crumbs %}{% if not loop.last %}<a href="{{ c.url }}">{{ c.name }}</a><span>/</span>{% else %}<span aria-current="page">{{ c.name }}</span>{% endif %}{% endfor %}
     </nav>
 
-    <div class="c-layout">
+    <div class="c-layout{% if v.orientation == 'landscape' %} c-layout-wide{% endif %}">
       <div class="c-player-col">
-        <div class="c-player" data-file="{{ v.video.file }}" data-youtube="{{ v.video.youtube }}" data-title="{{ v.title }}">
-          <img class="c-player-poster" src="{{ v.poster }}" alt="" width="720" height="1280" fetchpriority="high" decoding="async">
+        <div class="c-player{% if v.orientation == 'landscape' %} is-wide{% endif %}" data-file="{{ v.video.file }}" data-youtube="{{ v.video.youtube }}" data-title="{{ v.title }}">
+          <img class="c-player-poster" src="{{ v.poster }}" alt="" width="{{ 1280 if v.orientation == 'landscape' else 720 }}" height="{{ 720 if v.orientation == 'landscape' else 1280 }}" fetchpriority="high" decoding="async">
           <button type="button" class="c-player-btn" aria-label="Play: {{ v.title }}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             <span>Watch guide · {{ v.durationLabel }}</span>
