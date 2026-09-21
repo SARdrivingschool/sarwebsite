@@ -150,7 +150,9 @@ faqs = [
 ]
 faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
               "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]}
-featured = [v for v in hotspots if v.get("featured")][:4]
+# Featured cards (homepage, Bletchley hub, area pages): newest first by publish date.
+featured = sorted([v for v in hotspots if v.get("featured")],
+                  key=lambda v: (v.get("published") or "", -v["order"]), reverse=True)[:4]
 generated.append(write("/bletchley-test-centre/", env.get_template("hub.html").render(
     site=SITE, path="/bletchley-test-centre/", nav="bletchley",
     seo_title="Bletchley Driving Test Centre Guide — Hotspots, Roads & Tips | SAR Driving School",

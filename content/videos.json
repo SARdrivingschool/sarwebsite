@@ -821,7 +821,7 @@
       "series": null,
       "durationSec": 95,
       "published": "2026-09-18",
-      "featured": false,
+      "featured": true,
       "order": 13,
       "video": {
         "file": "",
@@ -884,7 +884,7 @@
       "series": null,
       "durationSec": 179,
       "published": "2026-09-15",
-      "featured": false,
+      "featured": true,
       "order": 14,
       "video": {
         "file": "",
@@ -957,7 +957,7 @@
       "series": null,
       "durationSec": 147,
       "published": "2026-09-13",
-      "featured": false,
+      "featured": true,
       "order": 15,
       "video": {
         "file": "",
