@@ -97,7 +97,7 @@ gtag('config', 'AW-18198829338');
 }</script><script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Manual and automatic driving lessons start from \u00a338 per hour, with block bookings from \u00a334 an hour."}, "name": "How much are driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, automatic driving lessons are available across Milton Keynes and nearby areas."}, "name": "Do you offer automatic driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, manual driving lessons are available from \u00a338 per hour."}, "name": "Do you offer manual driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Tell us your pickup postcode, whether you want manual or automatic, and when you\u0027re free. SAR matches you with a DVSA-approved SAR instructor who covers your area and times, and they contact you directly \u2014 usually the same day."}, "name": "How does instructor matching work?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, subject to assessment and DVSA test-standard driving."}, "name": "Can I use your car for my driving test?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building."}, "name": "Do you offer refresher lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most SAR pupils take their test at Bletchley, and our free Bletchley Test Centre guides cover the roads and roundabouts around it."}, "name": "Do you cover Bletchley test centre?"}]}
 </script>
-<link rel="stylesheet" href="/sar-apple.css?v=c36bd149">
+<link rel="stylesheet" href="/sar-apple.css?v=546fe593">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -239,7 +239,8 @@ gtag('config', 'AW-18198829338');
         </div>
         <div class="m-row">
           <label class="m-label" for="match-phone">Mobile number</label>
-          <input class="m-input" id="match-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <input class="m-input" id="match-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07123 456789" maxlength="20" pattern="(?:\+?44\s?7|\(?07)\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{3}" title="A UK mobile, e.g. 07123 456789" data-uk-phone required>
+          <p class="m-hint">Your instructor confirms lessons by text or WhatsApp, so please double-check it.</p>
         </div>
         <div class="m-row">
           <label class="m-label" for="match-email">Email <span class="m-opt">(optional)</span></label>
@@ -558,7 +559,7 @@ gtag('config', 'AW-18198829338');
   });
 })();
 </script>
-<script src="/sar-content.js?v=6286a9a7" defer></script>
+<script src="/sar-content.js?v=a84e046d" defer></script>
 <script src="/cookie-consent.js" defer></script>
 </body>
 </html>

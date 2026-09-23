@@ -133,7 +133,9 @@
       if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA' && cur < steps.length - 1) { e.preventDefault(); if (valid(cur)) show(cur + 1); }
     });
     form.addEventListener('submit', function (e) {
-      for (var i = 0; i < steps.length; i++) { if (!valid(i)) { e.preventDefault(); show(i); return; } }
+      // show() clears the status line, so re-run the check after it to leave
+      // the reason on screen — otherwise a bad last step fails silently.
+      for (var i = 0; i < steps.length; i++) { if (!valid(i)) { e.preventDefault(); show(i); valid(i); return; } }
       var btn = form.querySelector('[data-submit]'); if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       if (window.gtag) { try { gtag('event', 'generate_lead', { form: 'matcher', coverage: covField.value }); } catch (err) {} }
     });
@@ -349,4 +351,96 @@
   });
   if (all) all.addEventListener('click', function () { limit = cards.length; apply(); });
   apply();
+})();
+
+/* ---- Phone check: a UK mobile that's one digit short is a lost enquiry ---- */
+(function () {
+  'use strict';
+
+  var EXAMPLE = '07123 456789';
+
+  // Strip everything people type around a number, and fold +44 / 0044 to 0.
+  function tidy(v) {
+    var s = String(v || '').replace(/[\s()\.\-‐-― ]/g, '');
+    if (/^00/.test(s)) s = '+' + s.slice(2);
+    if (/^\+440/.test(s)) s = '0' + s.slice(4);   // +4407… — common mistake
+    if (/^\+44/.test(s)) s = '0' + s.slice(3);
+    if (/^447\d{9}$/.test(s)) s = '0' + s.slice(2);   // 44… with the + left off
+    return s;
+  }
+
+  function check(v) {
+    var s = tidy(v);
+    if (!s) return { empty: true };
+
+    // UK mobile: 07 + 9 digits.
+    if (/^07\d{9}$/.test(s)) {
+      return { ok: true, local: s, pretty: s.slice(0, 5) + ' ' + s.slice(5), e164: '+44' + s.slice(1) };
+    }
+
+    // Another country, written properly with a + and its country code.
+    if (/^\+[1-9]\d{7,14}$/.test(s)) {
+      return { ok: true, local: s, pretty: s, e164: s };
+    }
+
+    if (/^07/.test(s) && /^[\d]+$/.test(s.slice(1))) {
+      var n = s.length, short = 11 - n;
+      if (short > 0) {
+        return { msg: 'That mobile number is ' + short + ' digit' + (short > 1 ? 's' : '') +
+                      ' short — a UK mobile has 11, like ' + EXAMPLE + '.' };
+      }
+      return { msg: 'That mobile number has ' + (-short) + ' digit' + (-short > 1 ? 's' : '') +
+                    ' too many — a UK mobile has 11, like ' + EXAMPLE + '.' };
+    }
+
+    // UK landline — valid, but an instructor can't text or WhatsApp it.
+    if (/^0[1235][\d]{8,9}$/.test(s)) {
+      return { msg: 'That looks like a landline. Please give a mobile — your instructor confirms lessons by text or WhatsApp.' };
+    }
+
+    if (/^\d+$/.test(s) && s.length === 10 && /^7/.test(s)) {
+      return { msg: 'Please include the leading 0 — a UK mobile looks like ' + EXAMPLE + '.' };
+    }
+
+    if (/^\+/.test(s)) {
+      return { msg: 'That international number doesn\'t look complete — please include the country code and the full number.' };
+    }
+
+    return { msg: 'That doesn\'t look like a UK mobile. It should start 07 and have 11 digits, like ' + EXAMPLE + '.' };
+  }
+
+  document.querySelectorAll('input[data-uk-phone]').forEach(function (el) {
+    // The pattern attribute is the no-JavaScript fallback; from here the
+    // checks below are better than it, and they also allow non-UK numbers.
+    el.removeAttribute('pattern');
+
+    var form = el.form;
+    var hidden = null;
+    if (form) {
+      hidden = form.querySelector('input[name="WhatsApp"]');
+      if (!hidden) {
+        hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'WhatsApp';
+        form.appendChild(hidden);
+      }
+    }
+
+    function apply(showState) {
+      var r = check(el.value);
+      el.setCustomValidity(r.ok || r.empty ? '' : r.msg);
+      if (hidden) hidden.value = r.ok ? 'https://wa.me/' + r.e164.replace('+', '') : '';
+      if (showState) {
+        el.classList.toggle('is-bad', !!r.msg);
+        if (r.ok && r.pretty) el.value = r.pretty;
+      } else if (!r.msg) {
+        el.classList.remove('is-bad');
+      }
+      return r;
+    }
+
+    el.addEventListener('input', function () { apply(false); });
+    el.addEventListener('blur', function () { if (el.value.trim()) apply(true); });
+    apply(false);   // browser may have autofilled before we got here
+  });
 })();

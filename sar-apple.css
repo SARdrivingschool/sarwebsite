@@ -1160,6 +1160,7 @@ select {
 .m-input { width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; min-height: 48px; border: 1px solid var(--hairline); border-radius: 12px; background: var(--surface); color: var(--ink); }
 .m-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
 .m-input.is-bad { border-color: var(--accent); }
+.form input.is-bad, .form select.is-bad, .form textarea.is-bad { border-color: var(--accent); }
 textarea.m-input { resize: vertical; min-height: 72px; }
 .m-hint { font-size: 14px; color: var(--ink-2); margin: 2px 0 0; }
 .m-hint.is-ok { color: #1a7f37; font-weight: 600; }

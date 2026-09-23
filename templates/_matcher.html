@@ -65,7 +65,8 @@
         </div>
         <div class="m-row">
           <label class="m-label" for="{{ id or 'match' }}-phone">Mobile number</label>
-          <input class="m-input" id="{{ id or 'match' }}-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <input class="m-input" id="{{ id or 'match' }}-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07123 456789" maxlength="20" pattern="(?:\+?44\s?7|\(?07)\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{3}" title="A UK mobile, e.g. 07123 456789" data-uk-phone required>
+          <p class="m-hint">Your instructor confirms lessons by text or WhatsApp, so please double-check it.</p>
         </div>
         <div class="m-row">
           <label class="m-label" for="{{ id or 'match' }}-email">Email <span class="m-opt">(optional)</span></label>
