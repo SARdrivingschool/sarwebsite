@@ -3,12 +3,82 @@
     "rating": "5.0",
     "googleUrl": "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews",
     "source": "Google reviews, captured as screenshots and OCR'd by tools/parse_reviews.py. Names re-read at 3x by tools/name_ocr.py and every one checked by eye against its screenshot; corrections live in content/review-name-fixes.json.",
-    "captured": "2026-08-30",
+    "captured": "2026-09-30",
     "totalOnGoogle": 285,
     "totalChecked": "2026-09-30",
     "totalLabel": "285+"
   },
   "reviews": [
+    {
+      "name": "Rubí Noore",
+      "when": "September 2026",
+      "date": "2026-09-28",
+      "text": "Best driving school! I am deeply grateful for everything Sikandar has taught me. If you are looking for a good driving instructor, don't hesitate to get in touch with him. He will teach you the exact skills, confidence, and knowledge you need to pass on your first attempt. Highly recommended, thanks for everything Sikandar!",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Ava",
+      "when": "September 2026",
+      "date": "2026-09-27",
+      "text": "We had Sikandar as our driving instructor. She passed first time under his guidance. Such a pleasant and stress free experience. Very calm and patient and helped put us at ease every step of the way. Would highly recommend this driving school and this instructor personally.",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Lauryn Ashleigh",
+      "when": "September 2026",
+      "date": "2026-09-24",
+      "text": "I was ditched 6 days before my driving test by a different driving school, drive Johnson’s, but SAR driving school saved me! Despite my panic they helped me out, helping me find a car I was used to driving and an instructor the very same day! My instructor Rizwan was amazing helping me to polish uk my skills in time. He was always punctual and really helpful and clear with explaining different things. I passed today first time, and cannot recommend this school more for the Milton Keynes area!",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Motocross Radford",
+      "when": "September 2026",
+      "date": "2026-09-24",
+      "text": "I had a amazing experience with SAR, it was quick to get me some lesson before my test, The instructor was amazing aswell told me everything I need to know, was very patient with me 100% would recommend.",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Alex",
+      "when": "September 2026",
+      "date": "2026-09-23",
+      "text": "Just passed my driving test on my first attempt with SAR Driving School! My instructor Sikandar was genuinely so incredible, he always believed in me and made me feel confident, taught me how to drive from when I was at ground zero, and broke down any mistakes I made throughout and how to correct them. I couldn’t have asked for anyone better. If you’re looking into getting driving lessons don’t hesitate to choose SAR Driving School. They’re an incredible team who will be there to support you no matter where you are on your driving journey. They also post great high-quality informative videos on social media on things such as tricky areas and roundabouts for the Bletchley driving test, to help you outside of lessons. I seriously couldn’t be happier and thank you Sikandar once again for being the best!",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Martina Costa",
+      "when": "September 2026",
+      "date": "2026-09-23",
+      "text": "Sikandar is a brilliant driving instructor. Genuinely recommend if you are an MK resident and trying to get your driving license asap!",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Abhay Rindhe",
+      "when": "September 2026",
+      "date": "2026-09-23",
+      "text": "Rizwan is a master of his craft and a brilliant instructor! He is profoundly patient, clear in his communication, and makes every lesson highly productive. He knows exactly how to build your road awareness while keeping you entirely at ease under pressure. I passed my test smoothly and feel incredibly safe on the road thanks to him. He is highly recommended",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Hollie-Jasmine",
+      "when": "September 2026",
+      "date": "2026-09-23",
+      "text": "SAR driving is a fantastic driving school. Noman is an incredible driving instructor. His patience, kindness and dedication to teaching really made a difference to my knowledge, skills and overall driving ability. I would highly recommend SAR and Noman as a driving instructor. Thank you so much to Noman and his colleagues you are changing peoples lives!",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Michelle Flower",
+      "when": "September 2026",
+      "date": "2026-09-16",
+      "text": "Aina is such a patient and knowledgeable instructor who really helped me to overcome my nerves and become a confident driver. She explained everything clearly and helped me to develop all the skills I needed to pass and be a good driver. Totally recommend SAR driving school to everyone.",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
+    {
+      "name": "Adria Domarkaite",
+      "when": "September 2026",
+      "date": "2026-09-09",
+      "text": "100% recommend SAR driving school for automatic driving lessons! just over a month ago i was still doing manual lessons, changing instructors regulary because nobody was teaching me well and then i decided to switch to automatic with Rizwan from SAR, with a month left till my exam. It was the best decision I couldve made because he prepared me so well in the little time we had, I became confident on the road and had good control of the car very soon after i switched. I just finished my exam around 30 mins ago and I passed with 2 minors. I also had Sikandar for a week or so and he was also very good at teaching. I will recommend both instructors/SAR school to anybody in the future and if you are searching for an instructor, as somebody who has had 4 different instructors, this school has been the best ! Thank you",
+      "source": "Google screenshot supplied 2026-09-30"
+    },
     {
       "name": "shreya Pillai",
       "when": "August 2026",
