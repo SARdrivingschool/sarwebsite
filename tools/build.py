@@ -243,11 +243,19 @@ HOME_FAQS = [
     {"q": "Do you offer refresher lessons?", "a": "Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building."},
     {"q": "Do you cover Bletchley test centre?", "a": "Yes. Most SAR pupils take their test at Bletchley, and our free Bletchley Test Centre guides cover the roads and roundabouts around it."},
 ]
-HOME_REVIEWS = [
-    {"name": "Japhet Ndembo", "when": "January 2026", "text": "I had a great experience with SAR Driving School. The instructor was calm, professional, and explained everything clearly, which made learning to drive easy. I gained a lot of confidence and would definitely recommend SAR Driving School."},
-    {"name": "Siva Jampula", "when": "January 2026", "text": "I had an excellent experience with SAR Driving School in Bletchley, Milton Keynes… I really appreciated the structured lessons, punctuality, and focus on safe driving habits. I highly recommend SAR Driving School to any learner looking for reliable and high quality driving lessons."},
-    {"name": "Irta Gudha", "when": "January 2026", "text": "Very professional and patient driving instructor. Clear instructions, friendly attitude, and great support throughout my lessons. Highly recommend!"},
+# The three quotes on the homepage. Picked by hand, but only the name and date
+# live here — the words come straight out of content/reviews.json, so there is
+# one copy of what each pupil actually wrote and it cannot drift.
+HOME_PICKS = [
+    ("Rub\u00ed Noore", "2026-09-28"),
+    ("Abhay Rindhe", "2026-09-23"),
+    ("Michelle Flower", "2026-09-16"),
 ]
+_rev_by_key = {(r["name"], r["date"]): r for r in REVIEWS}
+_missing = [k for k in HOME_PICKS if k not in _rev_by_key]
+if _missing:
+    raise SystemExit(f"HOME_PICKS not found in reviews.json: {_missing}")
+HOME_REVIEWS = [_rev_by_key[k] for k in HOME_PICKS]
 _np, _pt = newest_passes(6)
 _all, _ = newest_passes(10000)
 generated.append(write("/index.html", env.get_template("home.html").render(
