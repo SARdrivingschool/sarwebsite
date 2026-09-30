@@ -20,7 +20,7 @@
           <img class="c-player-poster" src="{{ v.poster }}" alt="" width="{{ 1280 if v.orientation == 'landscape' else 720 }}" height="{{ 720 if v.orientation == 'landscape' else 1280 }}" fetchpriority="high" decoding="async">
           <button type="button" class="c-player-btn" aria-label="Play: {{ v.title }}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            <span>Watch guide · {{ v.durationLabel }}</span>
+            <span>Watch guide{% if v.durationLabel %} · {{ v.durationLabel }}{% endif %}</span>
           </button>
         </div>
         {% if v.series %}

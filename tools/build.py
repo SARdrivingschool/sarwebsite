@@ -83,7 +83,7 @@ def url_for(v):
 by_slug = {}
 for v in VIDEOS:
     v["url"] = url_for(v)
-    v["durationLabel"] = dur_label(v["durationSec"])
+    v["durationLabel"] = dur_label(v["durationSec"]) if v.get("durationSec") else ""
     by_slug[v["slug"]] = v
 
 hotspots = sorted([v for v in VIDEOS if v["kind"] == "hotspot"], key=lambda v: v["order"])
@@ -114,9 +114,10 @@ def video_schema(v):
         "description": v["seo"]["description"],
         "thumbnailUrl": [SITE + v["poster"]],
         "uploadDate": v["published"],
-        "duration": iso_dur(v["durationSec"]),
         "publisher": {"@type": "Organization", "name": "SAR Driving School", "logo": {"@type": "ImageObject", "url": SITE + "/images/logo.webp"}},
     }
+    if v.get("durationSec"):
+        d["duration"] = iso_dur(v["durationSec"])
     if v["video"].get("youtube"):
         d["embedUrl"] = f"https://www.youtube-nocookie.com/embed/{v['video']['youtube']}"
     if v["video"].get("file"):

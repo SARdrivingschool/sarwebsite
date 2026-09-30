@@ -1086,6 +1086,62 @@
         "title": "Bond Avenue Double Roundabout, Bletchley — Straight Ahead | SAR Driving School",
         "description": "The Bond Avenue double roundabout on the Bletchley test route: faded road markings, which lane to use, when to move across for the second roundabout, and why to expect other drivers to get it wrong."
       }
+    },
+    {
+      "slug": "bletchley-test-route-0810",
+      "kind": "hotspot",
+      "orientation": "landscape",
+      "title": "Bletchley driving test route 08:10 — full guide, every tricky area explained",
+      "shortTitle": "Test route 08:10",
+      "location": "Bletchley Test Centre",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "test-routes",
+      "series": null,
+      "durationSec": null,
+      "published": "2026-09-30",
+      "featured": true,
+      "order": 17,
+      "video": {
+        "file": "",
+        "youtube": "2k-0shVrj8s"
+      },
+      "poster": "/images/hotspots/bletchley-test-route-0810-poster.webp",
+      "card": "/images/hotspots/bletchley-test-route-0810-card.webp",
+      "summary": "A full run of one of the driving test routes out of Bletchley test centre, taken on the 08:10 slot, with the tricky areas explained as they come up.",
+      "sections": [
+        {
+          "h": "The route, in order",
+          "list": [
+            "Fenny Stratford double roundabout",
+            "A5 northbound",
+            "Caldecotte",
+            "Denbigh (IKEA) roundabout",
+            "Roman roundabout",
+            "Brunel roundabout"
+          ]
+        },
+        {
+          "h": "How to use it",
+          "p": [
+            "Watch the run once end to end so the order of the route is familiar, then go back to the individual guides below for the junctions you want to work on.",
+            "Examiners use several routes out of Bletchley, so treat this as one example rather than the route you will be given on the day. What carries over is the roads and the junctions, not the order."
+          ]
+        }
+      ],
+      "skills": [
+        "Test route familiarisation",
+        "Roundabouts"
+      ],
+      "related": [
+        "denbigh-roundabout-right-3rd-exit",
+        "roman-roundabout-ikea-left-lane",
+        "roman-roundabout-to-fenny-stratford"
+      ],
+      "seo": {
+        "title": "Bletchley Driving Test Route (08:10) — Full Guide | SAR Driving School",
+        "description": "A full drive of one Bletchley test route: Fenny Stratford double roundabout, the A5 north, Caldecotte, the IKEA and Roman roundabouts and Brunel, with the tricky areas explained."
+      }
     }
   ],
   "learnSections": [
@@ -1118,6 +1174,7 @@
     "roads": "Roads & bends",
     "mistakes": "Common mistakes",
     "test-tips": "Driving test tips",
-    "show-me-tell-me": "Show Me / Tell Me"
+    "show-me-tell-me": "Show Me / Tell Me",
+    "test-routes": "Test routes"
   }
 }
