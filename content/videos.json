@@ -1142,6 +1142,78 @@
         "title": "Bletchley Driving Test Route (08:10) — Full Guide | SAR Driving School",
         "description": "A full drive of one Bletchley test route: Fenny Stratford double roundabout, the A5 north, Caldecotte, the IKEA and Roman roundabouts and Brunel, with the tricky areas explained."
       }
+    },
+    {
+      "slug": "mini-roundabout-aylesbury-street",
+      "kind": "hotspot",
+      "title": "Mini roundabout, Aylesbury Street — turning right",
+      "shortTitle": "Aylesbury Street mini roundabout",
+      "location": "Aylesbury Street mini roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": 70,
+      "published": "2026-10-02",
+      "featured": true,
+      "order": 18,
+      "video": {
+        "file": "",
+        "youtube": "hsns3w5tk9A"
+      },
+      "poster": "/images/hotspots/mini-roundabout-aylesbury-street-poster.webp",
+      "card": "/images/hotspots/mini-roundabout-aylesbury-street-card.webp",
+      "summary": "A mini roundabout that comes up often on the Bletchley test routes. In theory it is simple; in practice it is one of the most common places for a learner to clip the kerb, because the gap between the painted circle and the kerb is very tight.",
+      "sections": [
+        {
+          "h": "Why this one catches people out",
+          "p": [
+            "It appears regularly on the Bletchley test routes and does not look difficult on paper. It is still a very common place for learners to catch the kerb, so it is worth knowing what to expect before you get there."
+          ]
+        },
+        {
+          "h": "On approach",
+          "list": [
+            "The instruction will be to turn right.",
+            "It can be a busy mini roundabout — assess it carefully and decide early rather than at the line.",
+            "Take your time and look for vehicles coming from your right.",
+            "Only emerge once you are confident it is safe."
+          ]
+        },
+        {
+          "h": "Going round the marking",
+          "p": [
+            "Learners often fail to go fully around the painted circle. Make your best effort to go around it — that is what the marking is there for."
+          ]
+        },
+        {
+          "h": "When the gap is too tight",
+          "p": [
+            "The space between the marking and the kerb here is very tight. If you need to, letting a tyre run slightly over the marking is the safer choice — better than forcing the car wide and risking the kerb."
+          ]
+        },
+        {
+          "h": "Where it takes you",
+          "p": [
+            "The sign on the exit reads Manor Road and Aylesbury Street."
+          ]
+        }
+      ],
+      "skills": [
+        "Mini roundabouts",
+        "Turning right",
+        "Clutch and steering control",
+        "Observation"
+      ],
+      "related": [
+        "bond-avenue-double-roundabout",
+        "denbigh-roundabout-right-3rd-exit",
+        "which-lane-quiz"
+      ],
+      "seo": {
+        "title": "Aylesbury Street Mini Roundabout, Bletchley — Turning Right | SAR Driving School",
+        "description": "The Aylesbury Street mini roundabout on the Bletchley test routes: why learners clip the kerb turning right, how to assess it on approach, and what to do when the gap is too tight."
+      }
     }
   ],
   "learnSections": [
