@@ -1090,7 +1090,6 @@
     {
       "slug": "bletchley-test-route-0810",
       "kind": "hotspot",
-      "orientation": "landscape",
       "title": "Bletchley driving test route 08:10 — full guide, every tricky area explained",
       "shortTitle": "Test route 08:10",
       "location": "Bletchley Test Centre",
@@ -1098,7 +1097,7 @@
       "testCentre": "Bletchley",
       "category": "test-routes",
       "series": null,
-      "durationSec": null,
+      "durationSec": 1541,
       "published": "2026-09-30",
       "featured": true,
       "order": 17,
@@ -1108,30 +1107,40 @@
       },
       "poster": "/images/hotspots/bletchley-test-route-0810-poster.webp",
       "card": "/images/hotspots/bletchley-test-route-0810-card.webp",
-      "summary": "A full run of one of the driving test routes out of Bletchley test centre, taken on the 08:10 slot, with the tricky areas explained as they come up.",
+      "summary": "A full run of one of the driving test routes out of Bletchley test centre, taken on the 08:10 slot, with every junction named on screen as it comes up and the tricky areas explained as you reach them.",
       "sections": [
         {
           "h": "The route, in order",
           "list": [
-            "Fenny Stratford double roundabout",
-            "A5 northbound",
-            "Caldecotte",
-            "Denbigh (IKEA) roundabout",
-            "Roman roundabout",
-            "Brunel roundabout"
+            "Church Green Road, then Buckingham Road",
+            "Water Eaton Road — third exit",
+            "Manor Road — first exit",
+            "Pinewood Drive, then Sycamore Avenue",
+            "Aylesbury Street — including the mini roundabout",
+            "Watling Street",
+            "A5 north — first exit, then Bletcham Roundabout",
+            "Caldecotte Roundabout — third exit",
+            "A4146 Bletcham Way, then V10 Brickhill Street — first exit",
+            "Chase Avenue, Simpson Road and Simpson Drive",
+            "Groveway — first exit onto V7 Saxon Street (B4034)",
+            "Roman Roundabout — straight ahead, second exit",
+            "Brunel Roundabout — second exit",
+            "Buckingham Road (B4034) back towards the test centre"
           ]
         },
         {
           "h": "How to use it",
           "p": [
-            "Watch the run once end to end so the order of the route is familiar, then go back to the individual guides below for the junctions you want to work on.",
-            "Examiners use several routes out of Bletchley, so treat this as one example rather than the route you will be given on the day. What carries over is the roads and the junctions, not the order."
+            "Watch the run once end to end so the order of the route is familiar, then go back to the individual guides for the junctions you want to work on.",
+            "Examiners use several routes out of Bletchley, so treat this as one example rather than the route you will be given on the day. The other guides on this site cover tricky areas that come up across different routes, not just this one — which is why they are worth knowing whichever route you draw."
           ]
         }
       ],
       "skills": [
         "Test route familiarisation",
-        "Roundabouts"
+        "Roundabouts",
+        "Multi-lane roundabouts",
+        "Following signs"
       ],
       "related": [
         "denbigh-roundabout-right-3rd-exit",
@@ -1140,7 +1149,7 @@
       ],
       "seo": {
         "title": "Bletchley Driving Test Route (08:10) — Full Guide | SAR Driving School",
-        "description": "A full drive of one Bletchley test route: Fenny Stratford double roundabout, the A5 north, Caldecotte, the IKEA and Roman roundabouts and Brunel, with the tricky areas explained."
+        "description": "A full drive of one Bletchley test route, every junction named as it comes up: Water Eaton Road, Aylesbury Street, Watling Street, the A5 north, Caldecotte, Simpson, Groveway, the Roman and Brunel roundabouts."
       }
     },
     {
