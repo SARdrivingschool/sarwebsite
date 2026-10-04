@@ -3,12 +3,47 @@
     "rating": "5.0",
     "googleUrl": "https://www.google.com/search?q=SAR+Driving+School+Milton+Keynes+reviews",
     "source": "Google reviews, captured as screenshots and OCR'd by tools/parse_reviews.py. Names re-read at 3x by tools/name_ocr.py and every one checked by eye against its screenshot; corrections live in content/review-name-fixes.json.",
-    "captured": "2026-09-30",
+    "captured": "2026-10-04",
     "totalOnGoogle": 290,
     "totalChecked": "2026-10-03",
     "totalLabel": "290+"
   },
   "reviews": [
+    {
+      "name": "Gopak MG",
+      "when": "October 2026",
+      "date": "2026-10-03",
+      "text": "I just passed my driving test, and it’s all thanks to Raph at SAR Driving School! He is a fantastic instructor who made me feel completely prepared and confident on the road. Highly recommend him to anyone looking to learn!",
+      "source": "Google screenshot supplied 2026-10-04"
+    },
+    {
+      "name": "Jacob Mwale",
+      "when": "October 2026",
+      "date": "2026-10-03",
+      "text": "I had a really positive experience and would highly recommend to anyone looking to learn how to drive. My instructor was professional, patient, friendly and very knowledgeable. They explained everything clearly, made me feel comfortable and help me improve. The lessons were well organised, and I always felt that I was making progress after each session.",
+      "source": "Google screenshot supplied 2026-10-04"
+    },
+    {
+      "name": "Maryam",
+      "when": "October 2026",
+      "date": "2026-10-03",
+      "text": "A huge thanks to my amazing driving instructor, Samira! She always explained things clearly, helped build my confidence on tricky maneuvers, and ensured I was genuinely a safe and prepared driver. I couldn't have done it without her support! I highly recommend Samira to anyone starting their driving journey ❤️",
+      "source": "Google screenshot supplied 2026-10-04"
+    },
+    {
+      "name": "charlene mapundu",
+      "when": "October 2026",
+      "date": "2026-10-03",
+      "text": "I was initially taught by Ikra, who was a great instructor and helped me build my confidence and develop my driving skills. Dua then took me for my driving test, and I’m very, very happy to say that I PASSED! 🎉 I’m so grateful to both Ikra and Dua for their patience, encouragement and support throughout my lessons and test. Thank you both for helping me achieve this milestone! I would definitely recommend them to anyone learning to drive.",
+      "source": "Google screenshot supplied 2026-10-04"
+    },
+    {
+      "name": "Nura ismail",
+      "when": "October 2026",
+      "date": "2026-10-03",
+      "text": "I cannot thank Haroon from SAR Driving School enough for all his help and support in getting me through my driving test! Haroon kindly took me on at the last minute, and despite the short time we had together, he was incredibly patient, supportive and committed to helping me succeed. Not only did he help improve my driving skills, but he also played a huge part in building my confidence and preparing me mentally for the test. His teaching style, encouragement and belief in my ability made such a difference, and I’m so grateful that I had him as my instructor. I would highly recommend SAR Driving school to anyone looking for a reliable, patient and dedicated driving Instructor.",
+      "source": "Google screenshot supplied 2026-10-04"
+    },
     {
       "name": "Rubí Noore",
       "when": "September 2026",
