@@ -1223,6 +1223,150 @@
         "title": "Aylesbury Street Mini Roundabout, Bletchley — Turning Right | SAR Driving School",
         "description": "The Aylesbury Street mini roundabout on the Bletchley test routes: why learners clip the kerb turning right, how to assess it on approach, and what to do when the gap is too tight."
       }
+    },
+    {
+      "slug": "caldecotte-roundabout-narrow-lanes",
+      "kind": "hotspot",
+      "title": "Caldecotte Roundabout — narrow lanes and lane discipline",
+      "shortTitle": "Caldecotte Roundabout",
+      "location": "Caldecotte Roundabout, Milton Keynes",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": null,
+      "published": "2026-10-08",
+      "featured": false,
+      "order": 19,
+      "video": {
+        "file": "",
+        "youtube": "Zlk3adKxa0M"
+      },
+      "poster": "/images/hotspots/caldecotte-roundabout-narrow-lanes-poster.webp",
+      "card": "/images/hotspots/caldecotte-roundabout-narrow-lanes-card.webp",
+      "summary": "A short guide to Caldecotte roundabout on the Bletchley test route, covering the narrow lanes and holding your lane through them.",
+      "sections": [
+        {
+          "h": "What this covers",
+          "list": [
+            "The narrow lanes at Caldecotte roundabout",
+            "Lane discipline through and off the roundabout"
+          ]
+        },
+        {
+          "h": "Where it sits on the route",
+          "p": [
+            "This is one of the points covered in the full Bletchley test route run — watch that for the whole drive in order, or use this short on its own."
+          ]
+        }
+      ],
+      "skills": [
+        "Roundabouts",
+        "Lane discipline"
+      ],
+      "related": [
+        "bletchley-test-route-0810"
+      ],
+      "seo": {
+        "title": "Caldecotte Roundabout, Bletchley — Driving Test Guide | SAR Driving School",
+        "description": "A short guide to Caldecotte roundabout on the Bletchley test route, covering the narrow lanes and holding your lane through them."
+      }
+    },
+    {
+      "slug": "fenny-stratford-double-roundabout",
+      "kind": "hotspot",
+      "title": "Fenny Stratford double roundabout",
+      "shortTitle": "Fenny Stratford double roundabout",
+      "location": "Fenny Stratford, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": null,
+      "published": "2026-10-08",
+      "featured": false,
+      "order": 20,
+      "video": {
+        "file": "",
+        "youtube": "V_BlhmWz4eM"
+      },
+      "poster": "/images/hotspots/fenny-stratford-double-roundabout-poster.webp",
+      "card": "/images/hotspots/fenny-stratford-double-roundabout-card.webp",
+      "summary": "A short guide to the Fenny Stratford double roundabout on the Bletchley test route — the two roundabouts taken one after the other.",
+      "sections": [
+        {
+          "h": "What this covers",
+          "list": [
+            "The double roundabout at Fenny Stratford",
+            "Taking the second roundabout straight after the first"
+          ]
+        },
+        {
+          "h": "Where it sits on the route",
+          "p": [
+            "This is one of the points covered in the full Bletchley test route run — watch that for the whole drive in order, or use this short on its own."
+          ]
+        }
+      ],
+      "skills": [
+        "Roundabouts",
+        "Double roundabouts"
+      ],
+      "related": [
+        "bletchley-test-route-0810"
+      ],
+      "seo": {
+        "title": "Fenny Stratford double roundabout, Bletchley — Driving Test Guide | SAR Driving School",
+        "description": "A short guide to the Fenny Stratford double roundabout on the Bletchley test route — the two roundabouts taken one after the other."
+      }
+    },
+    {
+      "slug": "simpson-road-meeting-situation",
+      "kind": "hotspot",
+      "title": "Simpson Road — meeting situations on a narrow road",
+      "shortTitle": "Simpson Road meeting situation",
+      "location": "Simpson Road, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roads",
+      "series": null,
+      "durationSec": null,
+      "published": "2026-10-08",
+      "featured": false,
+      "order": 21,
+      "video": {
+        "file": "",
+        "youtube": "oRnrrGRYmYE"
+      },
+      "poster": "/images/hotspots/simpson-road-meeting-situation-poster.webp",
+      "card": "/images/hotspots/simpson-road-meeting-situation-card.webp",
+      "summary": "A short guide to the meeting situation on Simpson Road, on the Bletchley test route — a narrow stretch where you have to decide who goes first.",
+      "sections": [
+        {
+          "h": "What this covers",
+          "list": [
+            "The narrow stretch of Simpson Road",
+            "Judging a meeting situation and who has priority"
+          ]
+        },
+        {
+          "h": "Where it sits on the route",
+          "p": [
+            "This is one of the points covered in the full Bletchley test route run — watch that for the whole drive in order, or use this short on its own."
+          ]
+        }
+      ],
+      "skills": [
+        "Meeting situations",
+        "Narrow roads"
+      ],
+      "related": [
+        "bletchley-test-route-0810"
+      ],
+      "seo": {
+        "title": "Simpson Road meeting situation, Bletchley — Driving Test Guide | SAR Driving School",
+        "description": "A short guide to the meeting situation on Simpson Road, on the Bletchley test route — a narrow stretch where you have to decide who goes first."
+      }
     }
   ],
   "learnSections": [
