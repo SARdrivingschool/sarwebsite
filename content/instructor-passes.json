@@ -2,6 +2,18 @@
  "_readme": "Trainees who have passed a stage of the ADI qualification with SAR. Kept apart from content/passes.json on purpose: that file is pupils who passed the learner driving test, and its count drives the pass gallery. Add an entry here, drop the graphic in images/instructor-passes/, run tools/build.py.",
  "passes": [
   {
+   "n": 2,
+   "name": "Ali",
+   "stage": "ADI Part 2",
+   "stageFull": "ADI Part 2 (driving ability)",
+   "firstTime": true,
+   "testCentre": "Bedford",
+   "when": "October 2026",
+   "date": "2026-10-16",
+   "image": "/images/instructor-passes/adi-002.webp",
+   "thumb": "/images/instructor-passes/adi-002-thumb.webp"
+  },
+  {
    "n": 1,
    "name": "Farhan",
    "stage": "ADI Part 2",
