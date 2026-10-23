@@ -2,6 +2,60 @@
   "_readme": "One entry per pass graphic, in display order (newest first). name/testCentre/faults are optional — only shown when present. When you add a pass: add {n, name, firstTime, testCentre} at the TOP of this list, drop pass-NNN.webp + pass-NNN-thumb.webp in images/pass-gallery/, run tools/build.py.",
   "passes": [
     {
+      "n": 294,
+      "name": "Jay",
+      "firstTime": true,
+      "testCentre": "Leighton Buzzard"
+    },
+    {
+      "n": 293,
+      "name": "Edwin",
+      "firstTime": true,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 292,
+      "name": "Liam",
+      "firstTime": true,
+      "testCentre": "Leighton Buzzard"
+    },
+    {
+      "n": 291,
+      "name": "Florina",
+      "firstTime": true,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 290,
+      "name": "Kian",
+      "firstTime": false,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 289,
+      "name": "Hristian",
+      "firstTime": true,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 288,
+      "name": "Georgia",
+      "firstTime": true,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 287,
+      "name": "Sadie",
+      "firstTime": true,
+      "testCentre": "Bletchley"
+    },
+    {
+      "n": 286,
+      "name": "Mueez",
+      "firstTime": false,
+      "testCentre": "Bletchley"
+    },
+    {
       "n": 285,
       "name": "Afolasade",
       "firstTime": true,
