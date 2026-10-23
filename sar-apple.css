@@ -1200,6 +1200,7 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 .h-hero h1 { font-size: clamp(38px, 5.4vw, 64px); max-width: 14ch; }
 .h-hero .lead { margin-top: var(--s3); }
 .h-hero .btn-row { margin-top: var(--s5); }
+.h-hero-rating { display: none; }
 .h-media { position: relative; aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden; background: var(--surface-2); box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 20px 48px rgba(0,0,0,.14); }
 .h-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .h-media-tag { position: absolute; left: var(--s3); bottom: var(--s3); padding: 8px 12px; border-radius: 999px; background: rgba(0,0,0,.62); color: #fff; font-size: 13px; font-weight: 600; }
@@ -1238,7 +1239,9 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 .h-areas a.is-primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
 
 @media (max-width: 960px) {
-  .h-hero-grid, .h-match-grid { grid-template-columns: 1fr; }
+  /* minmax(0,...) not 1fr: a bare 1fr floors at min-content, which pushed
+     the matcher copy 3px past the viewport at 320px. */
+  .h-hero-grid, .h-match-grid { grid-template-columns: minmax(0, 1fr); }
   .h-match-formfirst .m-box { order: -1; }
   .h-media { max-width: 420px; }
   .h-steps { grid-template-columns: repeat(3, 1fr); }
@@ -1251,8 +1254,21 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   .m-grid .m-row + .m-row { margin-top: 0; }
   .m-head { flex-direction: column; align-items: flex-start; }
   .h-hero { padding-top: var(--s5); }
+  /* Stacked hero: the 64px desktop column gap and the 48px button offset
+     pushed the pass photo below the fold. Tighter values put it on screen. */
+  .h-hero-grid { gap: var(--s3); }
+  .h-hero .lead { margin-top: var(--s2); }
+  .h-hero .btn-row { margin-top: var(--s4); }
+  .h-hero-rating { display: flex; align-items: center; gap: 8px; margin: var(--s3) 0 0; font-size: 15px; font-weight: 600; color: var(--ink); }
+  .h-hero-rating .h-stars { color: var(--accent); letter-spacing: 1px; }
+  .h-hero-rating a { color: inherit; text-decoration: none; }
   .h-media { max-width: none; aspect-ratio: 4 / 3; }
-  .h-trust ul { justify-content: flex-start; }
+  /* Five nowrap rows stacked into a tall column. Two up, and drop the
+     rating item because the hero badge above already carries it. */
+  .h-trust ul { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2) var(--s3); justify-content: start; }
+  .h-trust li { white-space: normal; align-items: flex-start; font-size: 13px; line-height: 1.35; }
+  .h-trust li svg { margin-top: 1px; }
+  .h-trust li:first-child { display: none; }
   .h-steps { grid-template-columns: 1fr 1fr; }
   .h-price-grid { grid-template-columns: 1fr; }
 }
@@ -1278,6 +1294,12 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   .h-why .grid-4 { grid-template-columns: repeat(4, 1fr); }
   .h-why .card p { font-size: 15px; }
 }
+/* The 5-across trust row needs ~1100px before its nowrap items fit; below
+   that it forced 74px of horizontal scroll (iPad landscape). */
+@media (min-width: 961px) and (max-width: 1100px) {
+  .h-trust ul { grid-template-columns: repeat(3, 1fr); gap: var(--s2) var(--s3); }
+  .h-trust li { white-space: normal; }
+}
 @media (min-width: 961px) and (max-width: 1200px) {
   .h-why .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .h-steps { grid-template-columns: repeat(3, 1fr); }
@@ -1296,7 +1318,7 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 .h-carousel:hover .h-cbtn, .h-carousel:focus-within .h-cbtn { opacity: 1; }
 .h-carousel .h-media-tag { z-index: 2; left: auto; right: var(--s3); bottom: auto; top: var(--s3); }
 @media (hover: none) { .h-cbtn { opacity: 1; background: rgba(255,255,255,.75); } }
-@media (max-width: 640px) { .h-media.h-carousel { aspect-ratio: 4 / 5; max-width: 340px; margin: var(--s4) auto 0; } }
+@media (max-width: 640px) { .h-media.h-carousel { aspect-ratio: 4 / 5; max-width: 340px; margin: 0 auto; } }
 @media (prefers-reduced-motion: reduce) { .h-carousel .h-slide { transition: none; } }
 
 /* Pricing page (p-) */
