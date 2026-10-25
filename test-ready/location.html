@@ -22,6 +22,7 @@
       <div class="tr-buttons" id="loc-directions"></div>
 
       <h2>Video guide</h2>
+      <p id="loc-progress" class="tr-hint" role="status"></p>
       <div id="loc-videos"></div>
 
       <h2 id="loc-tips-heading" hidden>Driving tips</h2>
@@ -45,17 +46,19 @@
       var status = document.getElementById('tr-status');
       var id = new URLSearchParams(window.location.search).get('id');
       var uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+      var userId = null;
+      var videoIds = [];
 
       function fail(message) {
         status.textContent = message;
       }
 
-      function setText(id, value) {
-        var el = document.getElementById(id);
+      function setText(elementId, value) {
+        var el = document.getElementById(elementId);
         if (value && String(value).trim()) {
           el.textContent = String(value).trim();
           el.hidden = false;
-          var heading = document.getElementById(id + '-heading');
+          var heading = document.getElementById(elementId + '-heading');
           if (heading) heading.hidden = false;
         }
       }
@@ -87,8 +90,67 @@
           var watch = embedId
             ? '<p><a href="https://www.youtube.com/watch?v=' + embedId + '">Watch on YouTube</a></p>'
             : '';
-          return '<div class="tr-video"><h3>' + title + '</h3>' + player + watch + '</div>';
+          return '<div class="tr-video" data-video-block="' + T.esc(v.id) + '"><h3>' + title + '</h3>' + player + watch +
+            '<div class="tr-watch" data-watch-slot="' + T.esc(v.id) + '"></div></div>';
         }).join('');
+      }
+
+      // Watched ticks: signed-in people only. Everyone else sees a sign-in prompt.
+      function renderWatchControls(watched) {
+        var inProgress = document.getElementById('loc-progress');
+        if (!userId) {
+          inProgress.innerHTML = 'Want to tick off videos as you watch them? <a href="account.html">Sign in</a>.';
+          return;
+        }
+        var done = 0;
+        videoIds.forEach(function (vid) {
+          var slot = document.querySelector('[data-watch-slot="' + vid + '"]');
+          if (!slot) return;
+          var isWatched = watched.indexOf(vid) !== -1;
+          if (isWatched) done += 1;
+          slot.innerHTML =
+            '<button class="tr-button ' + (isWatched ? 'tr-secondary' : 'tr-quiet') + '" type="button" data-toggle="' + T.esc(vid) + '" aria-pressed="' + (isWatched ? 'true' : 'false') + '">' +
+              (isWatched ? 'Watched: tap to undo' : 'Mark as watched') +
+            '</button>' +
+            '<span class="tr-watch-state' + (isWatched ? '' : ' is-off') + '">' + (isWatched ? 'Ticked off' : 'Not yet watched') + '</span>';
+        });
+        inProgress.textContent = videoIds.length ? done + ' of ' + videoIds.length + ' videos watched.' : '';
+      }
+
+      function toggleWatched(videoId, button) {
+        var pressed = button.getAttribute('aria-pressed') === 'true';
+        button.disabled = true;
+        var request = pressed
+          ? client.from('user_video_progress').delete().eq('user_id', userId).eq('video_id', videoId)
+          : client.from('user_video_progress').upsert({ user_id: userId, video_id: videoId }, { onConflict: 'user_id,video_id' });
+        request.then(function (result) {
+          button.disabled = false;
+          if (result.error) {
+            document.getElementById('loc-progress').textContent = 'That did not save. Please try again.';
+            return;
+          }
+          loadWatched();
+        });
+      }
+
+      function loadWatched() {
+        if (!userId || !videoIds.length) {
+          renderWatchControls([]);
+          return;
+        }
+        client.from('user_video_progress').select('video_id').eq('user_id', userId).in('video_id', videoIds)
+          .then(function (result) {
+            var watched = (result.data || []).map(function (r) { return r.video_id; });
+            renderWatchControls(watched);
+          });
+      }
+
+      function setupWatching() {
+        client.auth.getSession().then(function (result) {
+          var session = result.data && result.data.session;
+          userId = session && session.user ? session.user.id : null;
+          loadWatched();
+        });
       }
 
       if (!client || !id || !uuid.test(id)) {
@@ -97,7 +159,7 @@
       }
 
       client.from('tricky_locations')
-        .select('id, name, category, instructor_difficulty, description, driving_tips, common_mistakes, latitude, longitude, location_videos(sort_order, videos(title, hosting_reference, publication_status))')
+        .select('id, name, category, instructor_difficulty, description, driving_tips, common_mistakes, latitude, longitude, location_videos(sort_order, videos(id, title, hosting_reference, publication_status))')
         .eq('id', id)
         .eq('publication_status', 'published')
         .maybeSingle()
@@ -129,10 +191,18 @@
             .filter(function (lv) { return lv.videos && lv.videos.publication_status === 'published'; })
             .sort(function (a, b) { return a.sort_order - b.sort_order; })
             .map(function (lv) { return lv.videos; });
+          videoIds = videos.map(function (v) { return v.id; });
           renderVideos(videos);
 
           setText('loc-tips', row.driving_tips);
           setText('loc-mistakes', row.common_mistakes);
+
+          document.getElementById('loc-videos').addEventListener('click', function (event) {
+            var button = event.target.closest('[data-toggle]');
+            if (button && userId) toggleWatched(button.getAttribute('data-toggle'), button);
+          });
+
+          setupWatching();
         });
     })();
   </script>

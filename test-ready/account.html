@@ -29,6 +29,19 @@
           <button class="tr-button" type="submit" id="sign-in-button">Sign in</button>
         </div>
         <p class="tr-message" id="sign-in-message" role="status"></p>
+        <p style="margin:0"><button class="tr-link-button" type="button" id="forgot-button" aria-expanded="false" aria-controls="reset-form">Forgotten your password?</button></p>
+      </form>
+
+      <form class="tr-form" id="reset-form" novalidate hidden>
+        <h2 style="margin:0">Reset your password</h2>
+        <p style="margin:0">Enter the email address for your account. We will send you a link to choose a new password.</p>
+        <label>Email address
+          <input type="email" id="reset-email" name="email" autocomplete="email" required>
+        </label>
+        <div class="tr-buttons" style="margin:0">
+          <button class="tr-button" type="submit" id="reset-button">Send reset link</button>
+        </div>
+        <p class="tr-message" id="reset-message" role="status"></p>
       </form>
 
       <form class="tr-form" id="sign-up-form" novalidate>
@@ -43,6 +56,20 @@
           <button class="tr-button tr-secondary" type="submit" id="sign-up-button">Create account</button>
         </div>
         <p class="tr-message" id="sign-up-message" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Shown after someone opens the reset link from their email -->
+    <section id="new-password" hidden>
+      <form class="tr-form" id="new-password-form" novalidate>
+        <h2 style="margin:0">Choose a new password</h2>
+        <label>New password <span class="tr-hint">At least 8 characters.</span>
+          <input type="password" id="np-password" name="password" autocomplete="new-password" minlength="8" required>
+        </label>
+        <div class="tr-buttons" style="margin:0">
+          <button class="tr-button" type="submit" id="np-button">Save new password</button>
+        </div>
+        <p class="tr-message" id="np-message" role="status"></p>
       </form>
     </section>
 
@@ -74,7 +101,9 @@
       var client = T.client();
       var signedOut = document.getElementById('signed-out');
       var signedIn = document.getElementById('signed-in');
+      var newPassword = document.getElementById('new-password');
       var who = document.getElementById('who');
+      var recovering = false;
 
       function setMessage(id, text, ok) {
         var el = document.getElementById(id);
@@ -89,6 +118,7 @@
       }
 
       function showSession(session) {
+        if (recovering) return;
         if (session && session.user) {
           signedOut.hidden = true;
           signedIn.hidden = false;
@@ -105,12 +135,29 @@
         return;
       }
 
+      // Opening the reset link from the email signs the person in for recovery only.
+      client.auth.onAuthStateChange(function (event, session) {
+        if (event === 'PASSWORD_RECOVERY') {
+          recovering = true;
+          signedOut.hidden = true;
+          signedIn.hidden = true;
+          newPassword.hidden = false;
+          return;
+        }
+        showSession(session);
+      });
+
       client.auth.getSession().then(function (result) {
         showSession(result.data && result.data.session);
       });
 
-      client.auth.onAuthStateChange(function (_event, session) {
-        showSession(session);
+      document.getElementById('forgot-button').addEventListener('click', function () {
+        var form = document.getElementById('reset-form');
+        var show = form.hidden;
+        form.hidden = !show;
+        this.setAttribute('aria-expanded', show ? 'true' : 'false');
+        var typed = document.getElementById('in-email').value.trim();
+        if (typed) document.getElementById('reset-email').value = typed;
       });
 
       document.getElementById('sign-in-form').addEventListener('submit', function (event) {
@@ -129,6 +176,47 @@
             return;
           }
           setMessage('sign-in-message', '', true);
+          showSession(result.data.session);
+        });
+      });
+
+      document.getElementById('reset-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = document.getElementById('reset-email').value.trim();
+        if (!email) {
+          setMessage('reset-message', 'Enter the email address for your account.', false);
+          return;
+        }
+        setBusy('reset-button', true, 'Send reset link', 'Sending…');
+        var redirectTo = new URL('account.html', window.location.href).href;
+        client.auth.resetPasswordForEmail(email, { redirectTo: redirectTo }).then(function (result) {
+          setBusy('reset-button', false, 'Send reset link', 'Sending…');
+          if (result.error) {
+            setMessage('reset-message', 'We could not send the reset link. Please try again in a few minutes.', false);
+            return;
+          }
+          setMessage('reset-message', 'If an account exists for that email, a reset link is on its way. Check your inbox and spam folder.', true);
+        });
+      });
+
+      document.getElementById('new-password-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var password = document.getElementById('np-password').value;
+        if (password.length < 8) {
+          setMessage('np-message', 'Choose a password of at least 8 characters.', false);
+          return;
+        }
+        setBusy('np-button', true, 'Save new password', 'Saving…');
+        client.auth.updateUser({ password: password }).then(function (result) {
+          setBusy('np-button', false, 'Save new password', 'Saving…');
+          if (result.error) {
+            setMessage('np-message', 'We could not save the new password. Please request a new reset link.', false);
+            return;
+          }
+          recovering = false;
+          newPassword.hidden = true;
+          setMessage('np-message', '', true);
+          client.auth.getSession().then(function (r) { showSession(r.data && r.data.session); });
         });
       });
 

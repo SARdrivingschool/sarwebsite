@@ -124,3 +124,12 @@ p { margin: 0 0 14px; }
   body { font-size: 20px; }
   h1 { font-size: 40px; }
 }
+
+/* Added: forgotten password link and watched ticks */
+.tr-link-button { background: none; border: 0; padding: 10px 0; min-height: 44px; color: var(--tr-red); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; text-align: left; }
+.tr-watch { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.tr-watch-state { font-weight: 700; color: var(--tr-green); }
+.tr-watch-state.is-off { color: var(--tr-muted); font-weight: 600; }
+
+/* Hidden must always win over layout rules. */
+[hidden] { display: none !important; }
