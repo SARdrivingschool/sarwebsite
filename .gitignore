@@ -41,3 +41,10 @@ ef48f685-e1b8-469a-9500-ed88a697450e.png
 
 # Archived clutter moved out of the deploy (kept on disk, not in git)
 _archive/
+
+# Claude's working folders - screenshots, video frames, before/after copies
+Claude outputs/_vis/
+Claude outputs/_wip/
+Claude outputs/_vidframes/
+Claude outputs/_check/
+Claude outputs/_frames*/
