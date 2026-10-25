@@ -1,11 +1,16 @@
 {
- "_readme": "Single source of truth for prices. Change a number here, run tools/build.py, and pricing.html, lessons.html, book.html and the homepage all update. Amounts are pounds.",
+ "_readme": "Single source of truth for prices. One rate, \u00a338/hr, for pickups within hourly.radiusMiles of hourly.origin; anything further is a personalised quote, decided by the learner's postcode and never by town name. Block prices assume a pickup inside the radius. Change a number here, run tools/build.py, and pricing.html, lessons.html, book.html and the homepage all update. Amounts are pounds.",
  "hourly": {
   "standard": 38,
-  "standardAreas": "Milton Keynes, Bletchley and Leighton Buzzard",
-  "outer": 43,
-  "outerAreas": "Bedford and Northampton",
-  "outerMinHours": 2
+  "radiusMiles": 10,
+  "origin": {
+   "label": "Central Milton Keynes",
+   "postcode": "MK9 1EN",
+   "lat": 52.038252,
+   "lon": -0.777458
+  },
+  "policy": "Driving lessons are \u00a338 per hour for pickup locations within 10 miles of Central Milton Keynes. If you're located further away, contact our team for a personalised quote.",
+  "outsideShort": "Outside 10 miles \u2014 personalised quote"
  },
  "lessons": [
   {

@@ -1396,6 +1396,11 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 }
 
 /* Pricing page (p-) */
+.p-pc { display: flex; gap: var(--s2); align-items: center; }
+.p-pc .m-input { flex: 1 1 auto; min-width: 0; text-transform: uppercase; }
+.p-pc .btn { flex: none; padding-left: var(--s3); padding-right: var(--s3); }
+@media (max-width: 480px) { .p-pc { flex-wrap: wrap; } .p-pc .btn { width: 100%; } }
+
 .p-hero .h-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 480px); align-items: start; }
 .p-calc { background: var(--surface); border: 1px solid var(--hairline); border-radius: 28px; padding: var(--s5); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.06); display: grid; gap: var(--s4); }
 .p-calc-title { font-size: 22px; margin: 0; }

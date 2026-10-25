@@ -14,14 +14,14 @@
     <div>
       <nav class="c-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Prices</span></nav>
       <h1>Simple, honest driving lesson prices</h1>
-      <p class="lead">Manual and automatic lessons are <strong>£{{ P.hourly.standard }} an hour</strong> in {{ P.hourly.standardAreas }}. Block bookings bring that down to £{{ '%g' % (P.blocks[-1].direct / P.blocks[-1].hours) }}. Nothing to pay until you've met your instructor.</p>
+      <p class="lead">Manual and automatic lessons are <strong>£{{ P.hourly.standard }} an hour</strong> for pickups within {{ P.hourly.radiusMiles }} miles of {{ P.hourly.origin.label }}. Block bookings bring that down to £{{ '%g' % (P.blocks[-1].direct / P.blocks[-1].hours) }}. Further out, send us your postcode for a personalised quote. Nothing to pay until you've met your instructor.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/book.html#match">Find your instructor</a>
         <a class="btn btn-quiet arrow" href="#blocks">See block prices</a>
       </div>
     </div>
 
-    <div class="p-calc" id="calculator" data-std="{{ P.hourly.standard }}" data-outer="{{ P.hourly.outer }}" data-outer-min="{{ P.hourly.outerMinHours }}" data-fee="{{ P.sarFeePercent }}" data-blocks='{{ P.blocks | map(attribute="hours") | list | tojson }}' data-block-prices='{{ P.blocks | map(attribute="direct") | list | tojson }}' data-lessons='{{ P.lessons | map(attribute="hours") | list | tojson }}' data-lesson-prices='{{ P.lessons | map(attribute="direct") | list | tojson }}'>
+    <div class="p-calc" id="calculator" data-std="{{ P.hourly.standard }}" data-radius="{{ P.hourly.radiusMiles }}" data-origin-lat="{{ P.hourly.origin.lat }}" data-origin-lon="{{ P.hourly.origin.lon }}" data-origin-label="{{ P.hourly.origin.label }}" data-fee="{{ P.sarFeePercent }}" data-blocks='{{ P.blocks | map(attribute="hours") | list | tojson }}' data-block-prices='{{ P.blocks | map(attribute="direct") | list | tojson }}' data-lessons='{{ P.lessons | map(attribute="hours") | list | tojson }}' data-lesson-prices='{{ P.lessons | map(attribute="direct") | list | tojson }}'>
       <h2 class="p-calc-title">Lesson cost calculator</h2>
       <div class="p-calc-row">
         <span class="m-label">Transmission</span>
@@ -31,13 +31,13 @@
         </div>
       </div>
       <div class="p-calc-row">
-        <label class="m-label" for="calc-area">Pickup area</label>
-        <select class="m-input" id="calc-area">
-          <option value="std">Milton Keynes / Bletchley</option>
-          <option value="std">Leighton Buzzard</option>
-          <option value="outer">Bedford</option>
-          <option value="outer">Northampton</option>
-        </select>
+        <label class="m-label" for="calc-pc">Pickup postcode</label>
+        <div class="p-pc">
+          <input class="m-input" id="calc-pc" type="text" inputmode="text" autocomplete="postal-code" spellcheck="false"
+                 maxlength="9" placeholder="MK9 1EN" aria-describedby="calc-pc-msg">
+          <button class="btn btn-quiet" type="button" id="calc-pc-go">Check</button>
+        </div>
+        <p class="m-hint" id="calc-pc-msg" role="status" aria-live="polite">Lessons are £{{ P.hourly.standard }} an hour within {{ P.hourly.radiusMiles }} miles of {{ P.hourly.origin.label }}. Enter a postcode to check.</p>
       </div>
       <div class="p-calc-row">
         <label class="m-label" for="calc-hours">Hours <span class="m-opt">(<output id="calc-hours-out">10</output>)</span></label>
@@ -79,11 +79,11 @@
           {% for b in P.blocks %}
           <tr class="p-block"><th scope="row">{{ b.hours }} hour block{% if b.tag %} <span class="p-tag">{{ b.tag }}</span>{% endif %}</th><td>£{{ '%g' % (b.direct / b.hours) }}</td><td>£{{ '{:,}'.format(b.direct) }}</td><td>£{{ '{:,.2f}'.format(b.sar).rstrip('0').rstrip('.') }} <a class="p-pay" href="{{ b.stripe }}" target="_blank" rel="noopener">Pay online</a></td></tr>
           {% endfor %}
-          <tr><th scope="row">{{ P.hourly.outerAreas }}</th><td>£{{ P.hourly.outer }}</td><td colspan="2">{{ P.hourly.outerMinHours }}-hour minimum per lesson so your instructor can travel to you. Ask us about block rates.</td></tr>
+          <tr><th scope="row">Over {{ P.hourly.radiusMiles }} miles out</th><td>Quote</td><td colspan="2">Pickups beyond {{ P.hourly.radiusMiles }} miles of {{ P.hourly.origin.label }} are priced individually. <a href="/book.html#match">Send us your postcode</a> and we'll come back with a figure.</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="muted" style="margin-top:var(--s3)">Block hours are used within {{ P.blockValidityMonths }} months. Manual and automatic cost the same.</p>
+    <p class="muted" style="margin-top:var(--s3)">Block hours are used within {{ P.blockValidityMonths }} months. Manual and automatic cost the same. Hourly and block prices shown are for pickups within {{ P.hourly.radiusMiles }} miles of {{ P.hourly.origin.label }}.</p>
   </div>
 </section>
 

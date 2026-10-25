@@ -235,9 +235,9 @@ def newest_passes(n=6):
     return [p["n"] for p in PASSES][:n], PASS_TOTAL
 
 HOME_FAQS = [
-    {"q": "How much are driving lessons?", "a": "Manual and automatic driving lessons start from £38 per hour, with block bookings from £34 an hour."},
+    {"q": "How much are driving lessons?", "a": "Manual and automatic driving lessons are £38 per hour for pickup locations within 10 miles of Central Milton Keynes, with block bookings from £34 an hour. If you are further away, send us your postcode and we will give you a personalised quote."},
     {"q": "Do you offer automatic driving lessons?", "a": "Yes, automatic driving lessons are available across Milton Keynes and nearby areas."},
-    {"q": "Do you offer manual driving lessons?", "a": "Yes, manual driving lessons are available from £38 per hour."},
+    {"q": "Do you offer manual driving lessons?", "a": "Yes. Manual and automatic cost the same — £38 per hour within 10 miles of Central Milton Keynes, and a personalised quote further out."},
     {"q": "How does instructor matching work?", "a": "Tell us your pickup postcode, whether you want manual or automatic, and when you're free. SAR matches you with a DVSA-approved SAR instructor who covers your area and times, and they contact you directly — usually the same day."},
     {"q": "Can I use your car for my driving test?", "a": "Yes, subject to assessment and DVSA test-standard driving."},
     {"q": "Do you offer refresher lessons?", "a": "Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building."},
@@ -270,8 +270,8 @@ generated.append(write("/index.html", env.get_template("home.html").render(
 # ---------- Pricing ----------
 _lo = P["blocks"][-1]["direct"] / P["blocks"][-1]["hours"]
 PRICE_FAQS = [
-    {"q": "How much are driving lessons in Milton Keynes?", "a": f"Manual and automatic lessons are £{P['hourly']['standard']} an hour in {P['hourly']['standardAreas']}, or from £{_lo:g} an hour on a 30-hour block. {P['hourly']['outerAreas']} are £{P['hourly']['outer']} an hour with a {P['hourly']['outerMinHours']}-hour minimum."},
-    {"q": "Are block bookings cheaper?", "a": "Yes. " + ", ".join(f"{b['hours']} hours saves £{b['hours']*P['hourly']['standard']-b['direct']:g}" for b in P["blocks"]) + " compared with paying hourly. Block hours are used within " + str(P["blockValidityMonths"]) + " months."},
+    {"q": "How much are driving lessons in Milton Keynes?", "a": f"Manual and automatic lessons are £{P['hourly']['standard']} an hour for pickups within {P['hourly']['radiusMiles']} miles of {P['hourly']['origin']['label']}, or from £{_lo:g} an hour on a 30-hour block. Further out, send us your postcode and we'll quote you."},
+    {"q": "Are block bookings cheaper?", "a": "Yes. " + ", ".join(f"{b['hours']} hours saves £{b['hours']*P['hourly']['standard']-b['direct']:g}" for b in P["blocks"]) + " compared with paying hourly. Block hours are used within " + str(P["blockValidityMonths"]) + f" months. Block prices are for pickups within {P['hourly']['radiusMiles']} miles of {P['hourly']['origin']['label']}; further out we quote you first."},
     {"q": "Why does paying SAR cost 5% more?", "a": "The hourly rate is identical either way. Paying SAR Driving School adds 5%, whichever payment method you use, and buys protection: your hours are held by the company, move with you if you change instructor, and are covered by our refund terms. It is never a charge for using a card."},
     {"q": "Do I pay before my first lesson?", "a": "No. Request an instructor, agree your first lesson with them, then pay — your instructor directly with no fee, or SAR with a protected balance."},
     {"q": "Do manual and automatic cost the same?", "a": "Yes — the same hourly and block rates for both."},
@@ -281,7 +281,7 @@ PRICE_FAQS = [
 generated.append(write("/pricing.html", env.get_template("pricing.html").render(
     site=SITE, path="/pricing.html", nav="prices", P=P,
     seo_title="Driving Lesson Prices Milton Keynes | SAR Driving School",
-    seo_description=f"Manual and automatic driving lessons from £{P['hourly']['standard']} an hour in Milton Keynes, block bookings from £{_lo:g} an hour. Work out your cost in seconds, pay your instructor or pay SAR with a protected balance.",
+    seo_description=f"Manual and automatic driving lessons £{P['hourly']['standard']} an hour within {P['hourly']['radiusMiles']} miles of Central Milton Keynes, block bookings from £{_lo:g} an hour. Check your postcode and work out your cost in seconds.",
     breadcrumbs=breadcrumb_schema([("Home", "/"), ("Prices", "/pricing.html")]),
     faq_schema={"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in PRICE_FAQS]},
     faqs=PRICE_FAQS, categories=CATS,
@@ -314,7 +314,7 @@ BOOK_FAQS = [
     {"q": "Can I choose my instructor?", "a": "You book with SAR and we match you to a DVSA-approved SAR instructor based on your area, transmission and availability. If you have a preference — for example a female instructor — put it in the notes and we'll do our best."},
     {"q": "What if my instructor isn't right for me?", "a": "Tell us. Pupils can change instructor within SAR, and if you've paid SAR your remaining hours move with you."},
     {"q": "How quickly will I hear back?", "a": "Usually the same day. We answer 9am–8pm, seven days a week; requests sent late in the evening are answered the next morning."},
-    {"q": "Where do lessons start?", "a": "From your address in Milton Keynes. Bedford and Northampton are covered at £43 an hour with a 2-hour minimum; Leighton Buzzard at £38 an hour."},
+    {"q": "Where do lessons start?", "a": f"From your own address. Pickups within {P['hourly']['radiusMiles']} miles of {P['hourly']['origin']['label']} are £{P['hourly']['standard']} an hour — that covers Milton Keynes, Bletchley and the surrounding villages. Further out, including most of Bedford and Northampton, send us your postcode for a personalised quote."},
 ]
 generated.append(write("/book.html", env.get_template("book.html").render(
     site=SITE, path="/book.html", nav="book",

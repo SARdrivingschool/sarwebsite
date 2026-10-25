@@ -58,24 +58,65 @@
   }
 })();
 
+/* ---- Postcode distance check -------------------------------------------
+   One rate inside the radius, a personalised quote outside it, decided by
+   where the postcode actually is rather than which town it is in. Lookup is
+   postcodes.io: public, no key, nothing to expose. Anything the lookup cannot
+   answer resolves to "we'll confirm" and never to a confident price, and a
+   postcode within half a mile of the line is treated as needing confirmation
+   because postcode coordinates are a centroid, not a doorstep. */
+(function () {
+  'use strict';
+  var SAR = window.SAR = window.SAR || {};
+  var CACHE = {};
+  var FULL = /^[A-Z]{1,2}\d[A-Z\d]?\s\d[A-Z]{2}$/;
+  var EDGE = 0.5;   // miles either side of the line we will not call
+
+  SAR.tidyPostcode = function (raw) {
+    var v = (raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (v.length < 5 || v.length > 7) return null;
+    return v.slice(0, v.length - 3) + ' ' + v.slice(-3);
+  };
+  SAR.isPostcode = function (raw) {
+    var p = SAR.tidyPostcode(raw);
+    return !!p && FULL.test(p);
+  };
+  SAR.miles = function (la1, lo1, la2, lo2) {
+    var R = 3958.7613, r = Math.PI / 180;
+    var dLa = (la2 - la1) * r, dLo = (lo2 - lo1) * r;
+    var a = Math.sin(dLa / 2) * Math.sin(dLa / 2) +
+            Math.cos(la1 * r) * Math.cos(la2 * r) * Math.sin(dLo / 2) * Math.sin(dLo / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  };
+
+  // cb({ok:true, pc, miles, inside, edge}) | cb({ok:false, pc, reason:'format'|'notfound'|'offline'})
+  SAR.checkPostcode = function (raw, origin, radius, cb) {
+    var pc = SAR.tidyPostcode(raw);
+    if (!pc || !FULL.test(pc)) { cb({ ok: false, pc: pc, reason: 'format' }); return; }
+    if (CACHE[pc]) { cb(CACHE[pc]); return; }
+    if (!window.fetch) { cb({ ok: false, pc: pc, reason: 'offline' }); return; }
+
+    var settled = false;
+    function finish(r) { if (settled) return; settled = true; if (r.ok || r.reason === 'notfound') CACHE[pc] = r; cb(r); }
+    setTimeout(function () { finish({ ok: false, pc: pc, reason: 'offline' }); }, 6000);
+
+    fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(pc.replace(/\s/g, '')))
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        var res = j && j.result;
+        if (!res || typeof res.latitude !== 'number') { finish({ ok: false, pc: pc, reason: 'notfound' }); return; }
+        var d = SAR.miles(origin.lat, origin.lon, res.latitude, res.longitude);
+        finish({ ok: true, pc: pc, miles: d, inside: d <= radius, edge: Math.abs(d - radius) <= EDGE });
+      })
+      .catch(function () { finish({ ok: false, pc: pc, reason: 'offline' }); });
+  };
+})();
+
 /* ---- Find Your Instructor: steps, postcode coverage, validation ---- */
 (function () {
   'use strict';
-  var AREAS = [
-    { re: /^MK(1[0-9]|[1-9]|4[6-9]|19)$/i, key: 'mk', msg: 'Milton Keynes — covered. Lessons from £38 an hour.' },
-    { re: /^MK4[0-5]$/i, key: 'bedford', msg: 'Bedford — covered. £43 an hour with a 2-hour minimum, so your instructor can travel to you.' },
-    { re: /^NN[1-7]$/i, key: 'northampton', msg: 'Northampton — covered. £43 an hour with a 2-hour minimum, so your instructor can travel to you.' },
-    { re: /^LU7$/i, key: 'leighton-buzzard', msg: 'Leighton Buzzard — covered. Lessons from £38 an hour.' }
-  ];
-  var PC = /^([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})?$/i;
-
-  function coverage(raw) {
-    var m = PC.exec((raw || '').trim().replace(/\s+/g, ' '));
-    if (!m) return null;
-    var out = m[1].toUpperCase();
-    for (var i = 0; i < AREAS.length; i++) if (AREAS[i].re.test(out)) return { key: AREAS[i].key, msg: AREAS[i].msg, outward: out };
-    return { key: 'other', outward: out, msg: 'We don\'t currently cover ' + out + ' as a pickup area. Leave your details and we\'ll tell you as soon as a SAR instructor is nearby — or continue if your lessons can start from a Milton Keynes address.' };
-  }
+  var RATE = 38, RADIUS = 10;
+  var ORIGIN = { lat: 52.038252, lon: -0.777458, label: 'Central Milton Keynes' };
 
   document.querySelectorAll('form[data-matcher]').forEach(function (form) {
     form.setAttribute('novalidate', '');
@@ -113,19 +154,68 @@
         }
         el.classList.remove('is-bad');
       }
+      // Format only. The distance lookup never blocks an enquiry: if it is
+      // slow, down or inconclusive the learner still gets through.
       if (i === 0 && pc) {
-        var c = coverage(pc.value);
-        if (!c) { pc.focus(); pc.classList.add('is-bad'); status.textContent = 'That doesn\'t look like a UK postcode — try the format MK3 6DH.'; return false; }
+        if (!window.SAR || !SAR.isPostcode(pc.value)) {
+          pc.focus(); pc.classList.add('is-bad');
+          status.textContent = 'That doesn\'t look like a full UK postcode — try the format MK3 6DH.';
+          return false;
+        }
+        pc.value = SAR.tidyPostcode(pc.value);
       }
       return true;
     }
-    function updateCoverage() {
-      var c = coverage(pc.value);
-      pc.classList.remove('is-bad');
-      if (!c) { covMsg.textContent = 'Every SAR lesson starts from your address in Milton Keynes. Bedford, Northampton and Leighton Buzzard are covered too.'; covMsg.className = 'm-hint'; covField.value = ''; return; }
-      covMsg.textContent = c.msg; covMsg.className = 'm-hint ' + (c.key === 'other' ? 'is-warn' : 'is-ok'); covField.value = c.key + ' (' + c.outward + ')';
+    var covSeq = 0;
+    function setCov(text, cls, field) {
+      covMsg.textContent = text;
+      covMsg.className = 'm-hint' + (cls ? ' ' + cls : '');
+      covField.value = field || '';
     }
-    if (pc) { pc.addEventListener('input', updateCoverage); pc.addEventListener('blur', updateCoverage); }
+    function idleCoverage() {
+      setCov('Lessons are \u00a3' + RATE + ' an hour for pickups within ' + RADIUS +
+             ' miles of ' + ORIGIN.label + '. Enter your postcode and we\'ll check.', '', '');
+    }
+    function updateCoverage() {
+      pc.classList.remove('is-bad');
+      if (!window.SAR) return;
+      var raw = pc.value;
+      if (!SAR.isPostcode(raw)) { idleCoverage(); return; }
+      var tidy = SAR.tidyPostcode(raw);
+      var seq = ++covSeq;
+      setCov('Checking ' + tidy + '\u2026', '', tidy + ' \u00b7 checking');
+      SAR.checkPostcode(raw, ORIGIN, RADIUS, function (r) {
+        if (seq !== covSeq) return;                       // a newer postcode won
+        if (!r.ok) {
+          if (r.reason === 'notfound') {
+            setCov('We couldn\'t find ' + (r.pc || tidy) + '. Check it over \u2014 you can still send the enquiry and we\'ll confirm your rate.', 'is-warn', (r.pc || tidy) + ' \u00b7 not found');
+          } else {
+            setCov('We couldn\'t check the distance just now. Send the enquiry anyway and we\'ll confirm your rate.', 'is-warn', (r.pc || tidy) + ' \u00b7 lookup unavailable');
+          }
+          return;
+        }
+        var d = r.miles.toFixed(1);
+        if (r.edge) {
+          setCov(r.pc + ' is right on our ' + RADIUS + '-mile boundary, about ' + d +
+                 ' miles out. We\'ll confirm your rate before anything is booked.', 'is-warn',
+                 r.pc + ' \u00b7 ' + d + ' mi \u00b7 boundary');
+        } else if (r.inside) {
+          setCov('Good news \u2014 ' + r.pc + ' is about ' + d + ' miles from ' + ORIGIN.label +
+                 ', so you qualify for our standard rate of \u00a3' + RATE + ' an hour.', 'is-ok',
+                 r.pc + ' \u00b7 ' + d + ' mi \u00b7 inside');
+        } else {
+          setCov(r.pc + ' is about ' + d + ' miles from ' + ORIGIN.label + ', outside our ' + RADIUS +
+                 '-mile standard-rate area. Send the enquiry and we\'ll come back with a personalised quote.', 'is-warn',
+                 r.pc + ' \u00b7 ' + d + ' mi \u00b7 outside (quote)');
+        }
+      });
+    }
+    if (pc) {
+      var covTimer = null;
+      pc.addEventListener('input', function () { clearTimeout(covTimer); covTimer = setTimeout(updateCoverage, 450); });
+      pc.addEventListener('blur', function () { clearTimeout(covTimer); updateCoverage(); });
+      idleCoverage();
+    }
 
     form.querySelectorAll('[data-next]').forEach(function (b) { b.addEventListener('click', function () { if (valid(cur)) show(Math.min(cur + 1, steps.length - 1)); }); });
     form.querySelectorAll('[data-back]').forEach(function (b) { b.addEventListener('click', function () { show(Math.max(cur - 1, 0)); }); });
@@ -269,38 +359,83 @@
 (function () {
   'use strict';
   var c = document.getElementById('calculator'); if (!c) return;
-  var STD = +c.getAttribute('data-std'), OUT = +c.getAttribute('data-outer'), OUTMIN = +c.getAttribute('data-outer-min'), FEE = +c.getAttribute('data-fee');
+  var STD = +c.getAttribute('data-std'), FEE = +c.getAttribute('data-fee');
+  var RADIUS = +c.getAttribute('data-radius');
+  var ORIGIN = { lat: +c.getAttribute('data-origin-lat'), lon: +c.getAttribute('data-origin-lon'), label: c.getAttribute('data-origin-label') };
   var BH = JSON.parse(c.getAttribute('data-blocks')), BP = JSON.parse(c.getAttribute('data-block-prices'));
   var LH = JSON.parse(c.getAttribute('data-lessons')), LP = JSON.parse(c.getAttribute('data-lesson-prices'));
-  var area = document.getElementById('calc-area'), hours = document.getElementById('calc-hours'), out = document.getElementById('calc-hours-out');
+  var hours = document.getElementById('calc-hours'), out = document.getElementById('calc-hours-out');
+  var pcIn = document.getElementById('calc-pc'), pcGo = document.getElementById('calc-pc-go'), pcMsg = document.getElementById('calc-pc-msg');
   var direct = document.getElementById('calc-direct'), sar = document.getElementById('calc-sar'), rate = document.getElementById('calc-rate'), note = document.getElementById('calc-note'), cta = document.getElementById('calc-cta');
   var presets = c.querySelectorAll('.p-calc-presets button');
   function gbp(n) { return '£' + (Math.round(n * 100) / 100).toLocaleString('en-GB', { minimumFractionDigits: (n % 1) ? 2 : 0, maximumFractionDigits: 2 }); }
   function calc() {
-    var h = +hours.value, outer = area.value === 'outer', msg = '', price;
-    if (outer) {
-      if (h < OUTMIN) { h = OUTMIN; hours.value = h; }
-      price = h * OUT; msg = OUT + ' an hour with a ' + OUTMIN + '-hour minimum in ' + area.options[area.selectedIndex].text + '. Ask us about block rates.';
-      msg = '£' + msg;
-    } else {
-      var bi = BH.indexOf(h), li = LH.indexOf(h);
-      if (bi > -1) { price = BP[bi]; msg = h + '-hour block rate applied — saves ' + gbp(h * STD - price) + ' against paying hourly.'; }
-      else if (li > -1) { price = LP[li]; msg = 'Single lesson price.'; }
-      else {
-        // nearest block below + hourly top-up
-        var best = 0, bp = 0; for (var i = 0; i < BH.length; i++) if (BH[i] <= h && BH[i] > best) { best = BH[i]; bp = BP[i]; }
-        price = bp + (h - best) * STD;
-        msg = best ? (best + '-hour block plus ' + (h - best) + ' hour' + (h - best === 1 ? '' : 's') + ' at £' + STD + '. A ' + nextBlock(h) + '-hour block would cost ' + gbp(nextPrice(h)) + '.') : 'Hourly rate of £' + STD + '.';
-      }
+    var h = +hours.value, msg = '', price;
+    var bi = BH.indexOf(h), li = LH.indexOf(h);
+    if (bi > -1) { price = BP[bi]; msg = h + '-hour block rate applied — saves ' + gbp(h * STD - price) + ' against paying hourly.'; }
+    else if (li > -1) { price = LP[li]; msg = 'Single lesson price.'; }
+    else {
+      // nearest block below + hourly top-up
+      var best = 0, bp = 0; for (var i = 0; i < BH.length; i++) if (BH[i] <= h && BH[i] > best) { best = BH[i]; bp = BP[i]; }
+      price = bp + (h - best) * STD;
+      msg = best ? (best + '-hour block plus ' + (h - best) + ' hour' + (h - best === 1 ? '' : 's') + ' at £' + STD + '. A ' + nextBlock(h) + '-hour block would cost ' + gbp(nextPrice(h)) + '.') : 'Hourly rate of £' + STD + '.';
     }
+    if (outside) msg = 'Your postcode is outside the ' + RADIUS + '-mile standard-rate area, so these figures are a guide only — ask us for a quote.';
     out.textContent = h; direct.textContent = gbp(price); sar.textContent = gbp(price * (1 + FEE / 100)); rate.textContent = gbp(price / h); note.textContent = msg;
     presets.forEach(function (b) { b.classList.toggle('is-on', +b.getAttribute('data-h') === h); });
     var t = (c.querySelector('input[name=calc-t]:checked') || {}).value || '';
     cta.href = '/book.html#match'; cta.textContent = 'Request ' + h + ' hour' + (h === 1 ? '' : 's') + (t ? ' · ' + t.toLowerCase() : '');
   }
+  var outside = false;
+  function setPc(text, cls) { pcMsg.textContent = text; pcMsg.className = 'm-hint' + (cls ? ' ' + cls : ''); }
+  var pcSeq = 0;
+  function checkPc() {
+    if (!pcIn || !window.SAR) return;
+    if (!SAR.isPostcode(pcIn.value)) {
+      outside = false;
+      setPc(pcIn.value.trim()
+        ? 'That doesn\'t look like a full UK postcode — try the format MK9 1EN.'
+        : 'Lessons are £' + STD + ' an hour within ' + RADIUS + ' miles of ' + ORIGIN.label + '. Enter a postcode to check.',
+        pcIn.value.trim() ? 'is-warn' : '');
+      calc(); return;
+    }
+    var seq = ++pcSeq, tidy = SAR.tidyPostcode(pcIn.value);
+    pcIn.value = tidy;
+    setPc('Checking ' + tidy + '…');
+    SAR.checkPostcode(tidy, ORIGIN, RADIUS, function (r) {
+      if (seq !== pcSeq) return;
+      if (!r.ok) {
+        outside = false;
+        setPc(r.reason === 'notfound'
+          ? 'We couldn\'t find ' + tidy + '. Check it over, or ask us and we\'ll confirm your rate.'
+          : 'We couldn\'t check the distance just now. Ask us and we\'ll confirm your rate.', 'is-warn');
+      } else if (r.edge) {
+        outside = false;
+        setPc(tidy + ' sits right on the ' + RADIUS + '-mile boundary, about ' + r.miles.toFixed(1) +
+              ' miles out — we\'ll confirm your rate before anything is booked.', 'is-warn');
+      } else if (r.inside) {
+        outside = false;
+        setPc('Good news! Your postcode qualifies for our standard rate of £' + STD + ' per hour (about ' +
+              r.miles.toFixed(1) + ' miles from ' + ORIGIN.label + ').', 'is-ok');
+      } else {
+        outside = true;
+        setPc('Your location is outside our standard ' + RADIUS + '-mile coverage area (about ' +
+              r.miles.toFixed(1) + ' miles). Please send us an enquiry for a personalised quote.', 'is-warn');
+      }
+      calc();
+    });
+  }
+  if (pcIn) {
+    var pcTimer = null;
+    pcIn.addEventListener('input', function () { clearTimeout(pcTimer); pcTimer = setTimeout(checkPc, 450); });
+    pcIn.addEventListener('blur', function () { clearTimeout(pcTimer); checkPc(); });
+    pcIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); clearTimeout(pcTimer); checkPc(); } });
+  }
+  if (pcGo) pcGo.addEventListener('click', checkPc);
+
   function nextBlock(h) { for (var i = 0; i < BH.length; i++) if (BH[i] > h) return BH[i]; return BH[BH.length - 1]; }
   function nextPrice(h) { for (var i = 0; i < BH.length; i++) if (BH[i] > h) return BP[i]; return BP[BP.length - 1]; }
-  hours.addEventListener('input', calc); area.addEventListener('change', calc);
+  hours.addEventListener('input', calc);
   c.querySelectorAll('input[name=calc-t]').forEach(function (r) { r.addEventListener('change', calc); });
   presets.forEach(function (b) { b.addEventListener('click', function () { hours.value = b.getAttribute('data-h'); calc(); }); });
   calc();
