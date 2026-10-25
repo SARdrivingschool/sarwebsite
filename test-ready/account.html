@@ -264,7 +264,10 @@
             setMessage('sign-up-message', 'We could not create the account. Check the details and try again.', false);
             return;
           }
-          if (result.data && result.data.session) {
+          var user = result.data && result.data.user;
+          if (user && Array.isArray(user.identities) && user.identities.length === 0) {
+            setMessage('sign-up-message', 'An account already exists for this email. Sign in above, or use Forgotten your password.', false);
+          } else if (result.data && result.data.session) {
             setMessage('sign-up-message', 'Your account is ready.', true);
           } else {
             setMessage('sign-up-message', 'Check your email to confirm your account, then sign in here.', true);
