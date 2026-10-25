@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SAR Test Ready: tricky roads and junctions | SAR Driving School</title>
+  <meta name="description" content="Practise the tricky roundabouts, junctions and areas on the Bletchley test route, with video guides from SAR Driving School.">
+  <link rel="stylesheet" href="test-ready.css">
+</head>
+<body>
+  <a class="tr-skip" href="#main">Skip to content</a>
+  <header class="tr-header" id="tr-header"></header>
+
+  <main id="main" class="tr-wrap">
+    <h1>SAR Test Ready</h1>
+    <p class="tr-lead">Find the tricky roads and junctions on the Bletchley test route. Pick a place to see its video guide and where to find it on the map.</p>
+
+    <div class="tr-notice" role="note">
+      <strong>Free preview.</strong> Every guide is open to view for now.
+    </div>
+
+    <h2 id="levels-heading">Choose a level</h2>
+    <div class="tr-filters" role="group" aria-labelledby="levels-heading">
+      <button class="tr-chip" type="button" data-level="all" aria-pressed="true">All levels</button>
+      <button class="tr-chip" type="button" data-level="green" aria-pressed="false">Beginner</button>
+      <button class="tr-chip" type="button" data-level="amber" aria-pressed="false">Intermediate</button>
+      <button class="tr-chip" type="button" data-level="red" aria-pressed="false">Advanced</button>
+    </div>
+
+    <p class="tr-status" id="tr-status" role="status">Loading guides…</p>
+    <div id="tr-list"></div>
+
+    <p class="tr-footer">
+      SAR Test Ready is made by SAR Driving School. The practice routes are independently developed and are not official DVSA test routes.
+    </p>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="test-ready.js"></script>
+  <script>
+    (function () {
+      var T = window.TR;
+      T.renderHeader('guides');
+      var client = T.client();
+      var level = 'all';
+      var locations = [];
+      var status = document.getElementById('tr-status');
+      var list = document.getElementById('tr-list');
+
+      function sortByLevelThenName(a, b) {
+        var byLevel = T.LEVELS[a.level].order - T.LEVELS[b.level].order;
+        return byLevel || a.name.localeCompare(b.name);
+      }
+
+      function render() {
+        var shown = locations.filter(function (l) { return level === 'all' || l.level === level; });
+        if (shown.length === 0) {
+          list.innerHTML = '';
+          status.textContent = 'No guides at this level yet.';
+          return;
+        }
+        status.textContent = '';
+        var html = '';
+        T.CATEGORY_ORDER.forEach(function (category) {
+          var items = shown.filter(function (l) { return l.category === category; }).sort(sortByLevelThenName);
+          if (items.length === 0) return;
+          html += '<h2>' + T.esc(T.CATEGORY_TITLES[category]) + ' <span class="tr-section-count">(' + items.length + ')</span></h2>';
+          items.forEach(function (l) {
+            var lvl = T.LEVELS[l.level];
+            var video = l.videoCount > 0
+              ? '<span class="tr-pill">Video guide</span>'
+              : '<span class="tr-soon">Video coming soon</span>';
+            html += '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
+              '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
+              '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + '</span>' +
+              '</a>';
+          });
+        });
+        list.innerHTML = html;
+      }
+
+      document.querySelectorAll('[data-level]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          level = button.getAttribute('data-level');
+          document.querySelectorAll('[data-level]').forEach(function (b) {
+            b.setAttribute('aria-pressed', b === button ? 'true' : 'false');
+          });
+          render();
+        });
+      });
+
+      if (!client) {
+        status.textContent = 'The guides could not load. Please try again later.';
+        return;
+      }
+
+      client.from('tricky_locations')
+        .select('id, name, category, instructor_difficulty, location_videos(videos(publication_status))')
+        .eq('publication_status', 'published')
+        .order('name')
+        .then(function (result) {
+          if (result.error) {
+            status.textContent = 'The guides could not load. Please try again later.';
+            return;
+          }
+          locations = (result.data || [])
+            .filter(function (row) { return T.CATEGORY_ORDER.indexOf(row.category) !== -1 && T.LEVELS[row.instructor_difficulty]; })
+            .map(function (row) {
+              var videos = (row.location_videos || []).filter(function (lv) {
+                return lv.videos && lv.videos.publication_status === 'published';
+              });
+              return {
+                id: row.id,
+                name: row.name,
+                category: row.category,
+                level: row.instructor_difficulty,
+                videoCount: videos.length
+              };
+            });
+          render();
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Guide | SAR Test Ready</title>
+  <link rel="stylesheet" href="test-ready.css">
+</head>
+<body>
+  <a class="tr-skip" href="#main">Skip to content</a>
+  <header class="tr-header" id="tr-header"></header>
+
+  <main id="main" class="tr-wrap">
+    <p class="tr-status" id="tr-status" role="status">Loading…</p>
+
+    <article id="tr-location" hidden>
+      <h1 id="loc-name"></h1>
+      <p><span id="loc-level"></span></p>
+      <p class="tr-lead" id="loc-description"></p>
+
+      <div class="tr-buttons" id="loc-directions"></div>
+
+      <h2>Video guide</h2>
+      <div id="loc-videos"></div>
+
+      <h2 id="loc-tips-heading" hidden>Driving tips</h2>
+      <p class="tr-tips" id="loc-tips" hidden></p>
+
+      <h2 id="loc-mistakes-heading" hidden>Common mistakes</h2>
+      <p class="tr-tips" id="loc-mistakes" hidden></p>
+    </article>
+
+    <a class="tr-button tr-quiet tr-back" href="index.html">Back to all guides</a>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="test-ready.js"></script>
+  <script>
+    (function () {
+      var T = window.TR;
+      T.renderHeader('guides');
+      var client = T.client();
+      var status = document.getElementById('tr-status');
+      var id = new URLSearchParams(window.location.search).get('id');
+      var uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+      function fail(message) {
+        status.textContent = message;
+      }
+
+      function setText(id, value) {
+        var el = document.getElementById(id);
+        if (value && String(value).trim()) {
+          el.textContent = String(value).trim();
+          el.hidden = false;
+          var heading = document.getElementById(id + '-heading');
+          if (heading) heading.hidden = false;
+        }
+      }
+
+      function renderDirections(lat, lon, name) {
+        var holder = document.getElementById('loc-directions');
+        if (lat == null || lon == null) {
+          holder.innerHTML = '';
+          return;
+        }
+        var label = T.esc(name);
+        holder.innerHTML =
+          '<a class="tr-button" href="https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lon + '" aria-label="Get directions to ' + label + ' in Google Maps">Directions (Google Maps)</a>' +
+          '<a class="tr-button tr-secondary" href="https://maps.apple.com/?daddr=' + lat + ',' + lon + '" aria-label="Get directions to ' + label + ' in Apple Maps">Directions (Apple Maps)</a>';
+      }
+
+      function renderVideos(videos) {
+        var holder = document.getElementById('loc-videos');
+        if (!videos.length) {
+          holder.innerHTML = '<p class="tr-soon">Video coming soon.</p>';
+          return;
+        }
+        holder.innerHTML = videos.map(function (v, index) {
+          var embedId = T.youtubeId(v.hosting_reference);
+          var title = v.title ? T.esc(v.title) : 'Video ' + (index + 1);
+          var player = embedId
+            ? '<iframe src="https://www.youtube-nocookie.com/embed/' + embedId + '" title="' + title + '" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+            : '';
+          var watch = embedId
+            ? '<p><a href="https://www.youtube.com/watch?v=' + embedId + '">Watch on YouTube</a></p>'
+            : '';
+          return '<div class="tr-video"><h3>' + title + '</h3>' + player + watch + '</div>';
+        }).join('');
+      }
+
+      if (!client || !id || !uuid.test(id)) {
+        fail('This guide could not be found.');
+        return;
+      }
+
+      client.from('tricky_locations')
+        .select('id, name, category, instructor_difficulty, description, driving_tips, common_mistakes, latitude, longitude, location_videos(sort_order, videos(title, hosting_reference, publication_status))')
+        .eq('id', id)
+        .eq('publication_status', 'published')
+        .maybeSingle()
+        .then(function (result) {
+          if (result.error) {
+            fail('This guide could not load. Please try again later.');
+            return;
+          }
+          var row = result.data;
+          if (!row || !T.LEVELS[row.instructor_difficulty]) {
+            fail('This guide could not be found.');
+            return;
+          }
+
+          document.title = row.name + ' | SAR Test Ready';
+          status.textContent = '';
+          document.getElementById('tr-location').hidden = false;
+
+          var level = T.LEVELS[row.instructor_difficulty];
+          document.getElementById('loc-name').textContent = row.name;
+          var pill = document.getElementById('loc-level');
+          pill.textContent = level.label;
+          pill.className = 'tr-pill ' + level.className;
+
+          setText('loc-description', row.description);
+          renderDirections(row.latitude, row.longitude, row.name);
+
+          var videos = (row.location_videos || [])
+            .filter(function (lv) { return lv.videos && lv.videos.publication_status === 'published'; })
+            .sort(function (a, b) { return a.sort_order - b.sort_order; })
+            .map(function (lv) { return lv.videos; });
+          renderVideos(videos);
+
+          setText('loc-tips', row.driving_tips);
+          setText('loc-mistakes', row.common_mistakes);
+        });
+    })();
+  </script>
+</body>
+</html>

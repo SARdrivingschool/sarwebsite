@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Your SAR Test Ready account | SAR Driving School</title>
+  <link rel="stylesheet" href="test-ready.css">
+</head>
+<body>
+  <a class="tr-skip" href="#main">Skip to content</a>
+  <header class="tr-header" id="tr-header"></header>
+
+  <main id="main" class="tr-wrap">
+    <h1>Your account</h1>
+    <p class="tr-lead">Use the same email and password as the SAR Test Ready app.</p>
+
+    <!-- Shown when nobody is signed in -->
+    <section id="signed-out" hidden>
+      <form class="tr-form" id="sign-in-form" novalidate>
+        <h2 style="margin:0">Sign in</h2>
+        <label>Email address
+          <input type="email" id="in-email" name="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input type="password" id="in-password" name="password" autocomplete="current-password" required>
+        </label>
+        <div class="tr-buttons" style="margin:0">
+          <button class="tr-button" type="submit" id="sign-in-button">Sign in</button>
+        </div>
+        <p class="tr-message" id="sign-in-message" role="status"></p>
+      </form>
+
+      <form class="tr-form" id="sign-up-form" novalidate>
+        <h2 style="margin:0">Create an account</h2>
+        <label>Email address
+          <input type="email" id="up-email" name="email" autocomplete="email" required>
+        </label>
+        <label>Choose a password <span class="tr-hint">At least 8 characters.</span>
+          <input type="password" id="up-password" name="password" autocomplete="new-password" minlength="8" required>
+        </label>
+        <div class="tr-buttons" style="margin:0">
+          <button class="tr-button tr-secondary" type="submit" id="sign-up-button">Create account</button>
+        </div>
+        <p class="tr-message" id="sign-up-message" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Shown when someone is signed in -->
+    <section id="signed-in" hidden>
+      <p>You are signed in as <strong id="who"></strong>.</p>
+      <div class="tr-buttons">
+        <a class="tr-button" href="index.html">Go to the guides</a>
+        <button class="tr-button tr-quiet" type="button" id="sign-out-button">Sign out</button>
+      </div>
+    </section>
+
+    <div class="tr-notice" role="note">
+      <strong>Pro subscription: coming soon.</strong> Payments are not switched on yet, so nothing is charged here.
+    </div>
+
+    <p class="tr-footer">
+      Your account is kept private. It is used only to sign you in to SAR Test Ready.
+    </p>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="test-ready.js"></script>
+  <script>
+    (function () {
+      var T = window.TR;
+      T.renderHeader('account');
+      var client = T.client();
+      var signedOut = document.getElementById('signed-out');
+      var signedIn = document.getElementById('signed-in');
+      var who = document.getElementById('who');
+
+      function setMessage(id, text, ok) {
+        var el = document.getElementById(id);
+        el.textContent = text;
+        el.className = 'tr-message ' + (ok ? 'is-ok' : 'is-error');
+      }
+
+      function setBusy(buttonId, busy, idleText, busyText) {
+        var button = document.getElementById(buttonId);
+        button.disabled = busy;
+        button.textContent = busy ? busyText : idleText;
+      }
+
+      function showSession(session) {
+        if (session && session.user) {
+          signedOut.hidden = true;
+          signedIn.hidden = false;
+          who.textContent = session.user.email;
+        } else {
+          signedOut.hidden = false;
+          signedIn.hidden = true;
+        }
+      }
+
+      if (!client) {
+        setMessage('sign-in-message', 'Accounts are unavailable right now. Please try again later.', false);
+        signedOut.hidden = false;
+        return;
+      }
+
+      client.auth.getSession().then(function (result) {
+        showSession(result.data && result.data.session);
+      });
+
+      client.auth.onAuthStateChange(function (_event, session) {
+        showSession(session);
+      });
+
+      document.getElementById('sign-in-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = document.getElementById('in-email').value.trim();
+        var password = document.getElementById('in-password').value;
+        if (!email || !password) {
+          setMessage('sign-in-message', 'Enter your email and password.', false);
+          return;
+        }
+        setBusy('sign-in-button', true, 'Sign in', 'Signing in…');
+        client.auth.signInWithPassword({ email: email, password: password }).then(function (result) {
+          setBusy('sign-in-button', false, 'Sign in', 'Signing in…');
+          if (result.error) {
+            setMessage('sign-in-message', 'That email or password is not right. Please try again.', false);
+            return;
+          }
+          setMessage('sign-in-message', '', true);
+        });
+      });
+
+      document.getElementById('sign-up-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = document.getElementById('up-email').value.trim();
+        var password = document.getElementById('up-password').value;
+        if (!email || password.length < 8) {
+          setMessage('sign-up-message', 'Enter an email address and a password of at least 8 characters.', false);
+          return;
+        }
+        setBusy('sign-up-button', true, 'Create account', 'Creating account…');
+        client.auth.signUp({ email: email, password: password }).then(function (result) {
+          setBusy('sign-up-button', false, 'Create account', 'Creating account…');
+          if (result.error) {
+            setMessage('sign-up-message', 'We could not create the account. Check the details and try again.', false);
+            return;
+          }
+          if (result.data && result.data.session) {
+            setMessage('sign-up-message', 'Your account is ready.', true);
+          } else {
+            setMessage('sign-up-message', 'Check your email to confirm your account, then sign in here.', true);
+          }
+        });
+      });
+
+      document.getElementById('sign-out-button').addEventListener('click', function () {
+        client.auth.signOut().then(function () {
+          showSession(null);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
