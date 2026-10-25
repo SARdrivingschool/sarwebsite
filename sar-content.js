@@ -464,17 +464,38 @@
   var cards = Array.prototype.slice.call(grid.querySelectorAll('.g-card'));
   var more = document.querySelector('[data-gmore]'), all = document.querySelector('[data-gall]');
   var moreRow = document.querySelector('.g-more');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('[data-gfilters] .g-chip'));
+  var live = document.querySelector('[data-gcount-live]');
   var PAGE = window.matchMedia('(max-width: 640px)').matches ? 16 : 24;
-  var limit = PAGE;
+  var limit = PAGE, filter = 'all';
+  // The visible set drives paging AND the lightbox, so arrowing through a
+  // filtered gallery never lands on a card that is not on screen.
+  var visible = cards.slice();
+
+  function matches(c) {
+    if (filter === 'all') return true;
+    if (filter === 'first') return c.getAttribute('data-first') === '1';
+    if (filter.indexOf('centre:') === 0) return c.getAttribute('data-centre') === filter.slice(7);
+    return true;
+  }
 
   function apply() {
-    var shown = 0;
-    cards.forEach(function (c, i) {
-      c.hidden = i >= limit;
-      if (i < limit) shown++;
-    });
-    if (moreRow) moreRow.hidden = shown >= cards.length;
+    visible = cards.filter(matches);
+    cards.forEach(function (c) { c.hidden = true; });
+    visible.forEach(function (c, i) { c.hidden = i >= limit; });
+    if (moreRow) moreRow.hidden = visible.length <= limit;
+    if (live) live.textContent = 'Showing ' + Math.min(limit, visible.length) + ' of ' + visible.length + ' passes.';
   }
+
+  chips.forEach(function (ch) {
+    ch.addEventListener('click', function () {
+      filter = ch.getAttribute('data-filter') || 'all';
+      limit = PAGE;
+      chips.forEach(function (o) { o.classList.toggle('is-on', o === ch); o.setAttribute('aria-pressed', o === ch ? 'true' : 'false'); });
+      apply();
+    });
+    ch.setAttribute('aria-pressed', ch.classList.contains('is-on') ? 'true' : 'false');
+  });
 
   if (more) more.addEventListener('click', function () { limit += PAGE; apply(); });
   if (all) all.addEventListener('click', function () { limit = cards.length; apply(); });
@@ -487,21 +508,21 @@
   var idx = 0, opener = null;
 
   function show(i) {
-    if (!cards.length) return;
-    idx = (i + cards.length) % cards.length;
-    var c = cards[idx];
+    if (!visible.length) return;
+    idx = (i + visible.length) % visible.length;
+    var c = visible[idx];
     img.src = c.getAttribute('data-full');
     img.alt = c.querySelector('img').alt;
     cap.textContent = c.getAttribute('data-caption') || '';
     // No running total here: the gallery deliberately does not state how many
     // passes there are.
     if (count) count.textContent = '';
-    var nx = cards[(idx + 1) % cards.length];
+    var nx = visible[(idx + 1) % visible.length];
     if (nx) { var pre = new Image(); pre.src = nx.getAttribute('data-full'); }
   }
 
   function open(card) {
-    opener = card; show(cards.indexOf(card));
+    opener = card; show(visible.indexOf(card));
     lb.showModal(); document.documentElement.style.overflow = 'hidden';
   }
 

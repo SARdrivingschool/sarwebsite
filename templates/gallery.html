@@ -25,6 +25,18 @@
       <h2>Newest first</h2>
       <p>Every photo is a real SAR pupil on their pass day. We show the pupil's name where they're recorded on the pass graphic.</p>
     </div>
+    {% set centres = passes | map(attribute='testCentre') | select | list %}
+    {% set centre_counts = centres | unique | map('string') | list %}
+    <div class="g-filters" data-gfilters role="group" aria-label="Filter passes">
+      <button type="button" class="g-chip is-on" data-filter="all">All<span>{{ passes | length }}</span></button>
+      <button type="button" class="g-chip" data-filter="first">First time<span>{{ passes | selectattr('firstTime') | list | length }}</span></button>
+      {% for c in centre_counts | sort %}
+      {% set n = centres | select('equalto', c) | list | length %}
+      <button type="button" class="g-chip" data-filter="centre:{{ c|lower|replace(' ', '-') }}">{{ c }}<span>{{ n }}</span></button>
+      {% endfor %}
+    </div>
+    <p class="muted g-filter-note">The test centre isn’t recorded on every pass graphic, so filtering by centre shows only the ones where we have it.</p>
+    <p class="m-sr" role="status" aria-live="polite" data-gcount-live></p>
     <div class="g-grid" data-ggrid>
       {% for p in passes %}
       {% set num = '%03d' % p.n %}
