@@ -1397,6 +1397,19 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   .h-cf-item { transition: none; }
 }
 
+/* Sequential guide paging */
+.c-seq { border-top: 1px solid var(--hairline); padding: var(--s4) 0; }
+.c-seq-row { display: flex; gap: var(--s3); justify-content: space-between; align-items: stretch; }
+.c-seq-link { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; text-decoration: none;
+  color: var(--ink); background: var(--surface-2); border: 1px solid var(--hairline); border-radius: var(--r-card);
+  padding: var(--s3); min-height: 44px; transition: border-color .16s ease, background .16s ease; }
+.c-seq-link:hover { border-color: var(--accent); }
+.c-seq-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.c-seq-link span { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.c-seq-link strong { font-size: 15px; line-height: 1.35; }
+.c-seq-next { text-align: right; align-items: flex-end; }
+@media (max-width: 640px) { .c-seq-row { flex-direction: column; } .c-seq-next { text-align: left; align-items: flex-start; } }
+
 /* Pricing page (p-) */
 .p-pc { display: flex; gap: var(--s2); align-items: center; }
 .p-pc .m-input { flex: 1 1 auto; min-width: 0; text-transform: uppercase; }

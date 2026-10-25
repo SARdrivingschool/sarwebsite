@@ -191,11 +191,18 @@ def render_video(v):
     if v.get("series"):
         series_items = sorted([x for x in VIDEOS if x.get("series") and x["series"]["name"] == v["series"]["name"]], key=lambda x: x["series"]["part"])
     related = [by_slug[s] for s in v.get("related", []) if s in by_slug][:3]
+    # Sequential paging through the hotspot set, so a guide is never a dead end.
+    prev_v = next_v = None
+    if v["kind"] == "hotspot":
+        i = hotspots.index(v)
+        prev_v = hotspots[i - 1] if i > 0 else None
+        next_v = hotspots[i + 1] if i < len(hotspots) - 1 else None
     return write(v["url"], env.get_template("video.html").render(
         site=SITE, path=v["url"], nav=nav, og_type="video.other", og_image=v["poster"], og_alt=v["title"],
         seo_title=v["seo"]["title"], seo_description=v["seo"]["description"],
         breadcrumbs=breadcrumb_schema([(c["name"], c["url"]) for c in crumbs]), crumbs=crumbs,
         video_schema=video_schema(v), v=v, series_items=series_items, related=related, categories=CATS,
+        prev_v=prev_v, next_v=next_v,
     ))
 
 for v in VIDEOS:

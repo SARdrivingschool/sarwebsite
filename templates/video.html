@@ -74,5 +74,14 @@
 </section>
 {% endif %}
 
+{% if prev_v or next_v %}
+<nav class="c-seq" aria-label="More Bletchley hotspot guides">
+  <div class="wrap c-seq-row">
+    {% if prev_v %}<a class="c-seq-link c-seq-prev" href="{{ prev_v.url }}"><span>Previous guide</span><strong>{{ prev_v.shortTitle }}</strong></a>{% else %}<span></span>{% endif %}
+    {% if next_v %}<a class="c-seq-link c-seq-next" href="{{ next_v.url }}"><span>Next guide</span><strong>{{ next_v.shortTitle }}</strong></a>{% endif %}
+  </div>
+</nav>
+{% endif %}
+
 {% include "_cta.html" %}
 {% endblock %}
