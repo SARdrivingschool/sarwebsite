@@ -12,7 +12,7 @@
   <a class="tr-skip" href="#main">Skip to content</a>
   <header class="tr-header" id="tr-header"></header>
 
-  <main id="main" class="tr-wrap">
+  <main id="main" class="tr-wrap tr-wide">
     <h1>SAR Test Ready</h1>
     <p class="tr-lead">Find the tricky roads and junctions on the Bletchley test route. Pick a place to see its video guide and where to find it on the map.</p>
 
@@ -20,7 +20,10 @@
       <strong>Free preview.</strong> Every guide is open to view for now.
     </div>
 
-    <h2 id="levels-heading">Choose a level</h2>
+    <h2 id="types-heading">1. Choose a type of place</h2>
+    <div class="tr-cats" id="tr-cats" role="group" aria-labelledby="types-heading"></div>
+
+    <h2 id="levels-heading">2. Choose a level <span class="tr-section-count">(optional)</span></h2>
     <div class="tr-filters" role="group" aria-labelledby="levels-heading">
       <button class="tr-chip" type="button" data-level="all" aria-pressed="true">All levels</button>
       <button class="tr-chip" type="button" data-level="green" aria-pressed="false">Beginner</button>
@@ -29,7 +32,8 @@
     </div>
 
     <p class="tr-status" id="tr-status" role="status">Loading guides…</p>
-    <div id="tr-list"></div>
+    <h2 id="list-heading" class="tr-list-heading" hidden></h2>
+    <div class="tr-grid" id="tr-list"></div>
 
     <p class="tr-footer">
       SAR Test Ready is made by SAR Driving School. The practice routes are independently developed and are not official DVSA test routes.
@@ -46,51 +50,78 @@
       T.renderHeader('guides');
       var client = T.client();
       var level = 'all';
+      var category = 'roundabout';
       var locations = [];
       var signedIn = false;
       var watchedIds = [];
       var status = document.getElementById('tr-status');
       var list = document.getElementById('tr-list');
+      var cats = document.getElementById('tr-cats');
+      var listHeading = document.getElementById('list-heading');
 
       function sortByLevelThenName(a, b) {
         var byLevel = T.LEVELS[a.level].order - T.LEVELS[b.level].order;
         return byLevel || a.name.localeCompare(b.name);
       }
 
+      function countIn(cat) {
+        return locations.filter(function (l) { return l.category === cat; }).length;
+      }
+
+      // One big button per type of place, with how many there are. Only one shows at a time.
+      function renderCategories() {
+        var html = '';
+        T.CATEGORY_ORDER.forEach(function (cat) {
+          var n = countIn(cat);
+          if (n === 0) return;
+          var pressed = cat === category;
+          html += '<button class="tr-cat" type="button" data-cat="' + cat + '" aria-pressed="' + (pressed ? 'true' : 'false') + '">' +
+            T.esc(T.CATEGORY_TITLES[cat]) + ' <span class="tr-cat-count">' + n + '</span></button>';
+        });
+        cats.innerHTML = html;
+      }
+
       function render() {
-        var shown = locations.filter(function (l) { return level === 'all' || l.level === level; });
+        var shown = locations.filter(function (l) {
+          return l.category === category && (level === 'all' || l.level === level);
+        }).sort(sortByLevelThenName);
+
+        listHeading.hidden = false;
+        listHeading.textContent = T.CATEGORY_TITLES[category] + ' (' + shown.length + ')';
+
         if (shown.length === 0) {
           list.innerHTML = '';
-          status.textContent = 'No guides at this level yet.';
+          status.textContent = 'No ' + T.CATEGORY_TITLES[category].toLowerCase() + ' at this level yet.';
           return;
         }
         status.textContent = '';
-        var html = '';
-        T.CATEGORY_ORDER.forEach(function (category) {
-          var items = shown.filter(function (l) { return l.category === category; }).sort(sortByLevelThenName);
-          if (items.length === 0) return;
-          html += '<h2>' + T.esc(T.CATEGORY_TITLES[category]) + ' <span class="tr-section-count">(' + items.length + ')</span></h2>';
-          items.forEach(function (l) {
-            var lvl = T.LEVELS[l.level];
-            var video = l.videoCount > 0
-              ? '<span class="tr-pill">Video guide</span>'
-              : '<span class="tr-soon">Video coming soon</span>';
-            var watchedText = '';
-            if (signedIn && l.videoCount > 0) {
-              watchedText = l.watchedCount === l.videoCount
-                ? '<span class="tr-watch-state">Watched</span>'
-                : '<span class="tr-watch-state is-off">' + l.watchedCount + ' of ' + l.videoCount + ' watched</span>';
-            }
-            var cover = window.SAR_COVERS && window.SAR_COVERS[l.name];
-            html += '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
-              (cover ? '<img class="tr-card-cover" src="' + cover + '" alt="" loading="lazy" width="900" height="506">' : '') +
-              '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
-              '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + watchedText + '</span>' +
-              '</a>';
-          });
-        });
-        list.innerHTML = html;
+        list.innerHTML = shown.map(function (l) {
+          var lvl = T.LEVELS[l.level];
+          var video = l.videoCount > 0
+            ? '<span class="tr-pill">Video guide</span>'
+            : '<span class="tr-soon">Video coming soon</span>';
+          var watchedText = '';
+          if (signedIn && l.videoCount > 0) {
+            watchedText = l.watchedCount === l.videoCount
+              ? '<span class="tr-watch-state">Watched</span>'
+              : '<span class="tr-watch-state is-off">' + l.watchedCount + ' of ' + l.videoCount + ' watched</span>';
+          }
+          var cover = window.SAR_COVERS && window.SAR_COVERS[l.name];
+          return '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
+            (cover ? '<img class="tr-card-cover" src="' + cover + '" alt="" loading="lazy" width="900" height="506">' : '') +
+            '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
+            '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + watchedText + '</span>' +
+            '</a>';
+        }).join('');
       }
+
+      cats.addEventListener('click', function (event) {
+        var button = event.target.closest('[data-cat]');
+        if (!button) return;
+        category = button.getAttribute('data-cat');
+        renderCategories();
+        render();
+      });
 
       document.querySelectorAll('[data-level]').forEach(function (button) {
         button.addEventListener('click', function () {
@@ -133,7 +164,13 @@
                 watchedCount: 0
               };
             });
-          loadProgress().then(render, render);
+          // Start on the first type that has guides.
+          if (countIn(category) === 0) {
+            var first = T.CATEGORY_ORDER.filter(function (c) { return countIn(c) > 0; })[0];
+            if (first) category = first;
+          }
+          renderCategories();
+          loadProgress().then(function () { renderCategories(); render(); }, function () { renderCategories(); render(); });
         });
 
       function loadProgress() {

@@ -139,3 +139,17 @@ p { margin: 0 0 14px; }
 
 /* Cover photos for guides */
 .tr-card-cover, .tr-hero-cover { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin: 0 0 12px; background: var(--tr-soft); }
+
+/* Desktop guide list: type of place buttons, then a grid of guides. */
+.tr-wide { max-width: 1120px; }
+.tr-cats { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 20px; }
+.tr-cat { min-height: 56px; padding: 12px 20px; border-radius: 14px; border: 2px solid var(--tr-line); background: var(--tr-white); color: var(--tr-ink); font: inherit; font-weight: 700; cursor: pointer; }
+.tr-cat[aria-pressed="true"] { background: var(--tr-red); border-color: var(--tr-red); color: var(--tr-white); }
+.tr-cat-count { display: inline-block; min-width: 1.8em; margin-left: 4px; padding: 2px 8px; border-radius: 12px; background: rgba(0,0,0,0.08); font-size: 16px; }
+.tr-cat[aria-pressed="true"] .tr-cat-count { background: rgba(255,255,255,0.25); }
+.tr-list-heading { margin-top: 8px; }
+.tr-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.tr-grid .tr-card { margin-bottom: 0; }
+@media (min-width: 900px) {
+  .tr-grid { grid-template-columns: repeat(3, 1fr); }
+}
