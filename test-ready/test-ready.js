@@ -51,7 +51,7 @@
     if (!el) return;
     el.innerHTML =
       '<div class="tr-wrap tr-head-row">' +
-        '<a class="tr-brand" href="index.html">SAR Test Ready</a>' +
+        '<a class="tr-brand" href="index.html"><img src="/images/logo-head.png" alt="SAR Driving School" width="321" height="138"></a>' +
         '<nav class="tr-nav" aria-label="SAR Test Ready">' +
           '<a href="index.html"' + (active === 'guides' ? ' aria-current="page"' : '') + '>Guides</a>' +
           '<a href="account.html" id="tr-account-link"' + (active === 'account' ? ' aria-current="page"' : '') + '>Sign in</a>' +
