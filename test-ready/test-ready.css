@@ -136,3 +136,6 @@ p { margin: 0 0 14px; }
 
 /* Header uses the SAR logo image. */
 .tr-brand img { display: block; height: 52px; width: auto; }
+
+/* Cover photos for guides */
+.tr-card-cover, .tr-hero-cover { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin: 0 0 12px; background: var(--tr-soft); }

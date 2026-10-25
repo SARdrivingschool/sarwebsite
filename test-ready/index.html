@@ -38,6 +38,7 @@
 
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="covers.js"></script>
   <script src="test-ready.js"></script>
   <script>
     (function () {
@@ -80,7 +81,9 @@
                 ? '<span class="tr-watch-state">Watched</span>'
                 : '<span class="tr-watch-state is-off">' + l.watchedCount + ' of ' + l.videoCount + ' watched</span>';
             }
+            var cover = window.SAR_COVERS && window.SAR_COVERS[l.name];
             html += '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
+              (cover ? '<img class="tr-card-cover" src="' + cover + '" alt="" loading="lazy" width="900" height="506">' : '') +
               '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
               '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + watchedText + '</span>' +
               '</a>';

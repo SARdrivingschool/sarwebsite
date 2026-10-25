@@ -15,6 +15,7 @@
     <p class="tr-status" id="tr-status" role="status">Loading…</p>
 
     <article id="tr-location" hidden>
+      <img id="loc-cover" class="tr-hero-cover" alt="" width="900" height="506" hidden>
       <h1 id="loc-name"></h1>
       <p><span id="loc-level"></span></p>
       <p class="tr-lead" id="loc-description"></p>
@@ -37,6 +38,7 @@
 
   <script src="config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="covers.js"></script>
   <script src="test-ready.js"></script>
   <script>
     (function () {
@@ -180,6 +182,12 @@
 
           var level = T.LEVELS[row.instructor_difficulty];
           document.getElementById('loc-name').textContent = row.name;
+          var cover = window.SAR_COVERS && window.SAR_COVERS[row.name];
+          if (cover) {
+            var hero = document.getElementById('loc-cover');
+            hero.src = cover;
+            hero.hidden = false;
+          }
           var pill = document.getElementById('loc-level');
           pill.textContent = level.label;
           pill.className = 'tr-pill ' + level.className;
