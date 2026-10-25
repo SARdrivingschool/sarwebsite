@@ -46,6 +46,8 @@
       var client = T.client();
       var level = 'all';
       var locations = [];
+      var signedIn = false;
+      var watchedIds = [];
       var status = document.getElementById('tr-status');
       var list = document.getElementById('tr-list');
 
@@ -72,9 +74,15 @@
             var video = l.videoCount > 0
               ? '<span class="tr-pill">Video guide</span>'
               : '<span class="tr-soon">Video coming soon</span>';
+            var watchedText = '';
+            if (signedIn && l.videoCount > 0) {
+              watchedText = l.watchedCount === l.videoCount
+                ? '<span class="tr-watch-state">Watched</span>'
+                : '<span class="tr-watch-state is-off">' + l.watchedCount + ' of ' + l.videoCount + ' watched</span>';
+            }
             html += '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
               '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
-              '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + '</span>' +
+              '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + watchedText + '</span>' +
               '</a>';
           });
         });
@@ -97,7 +105,7 @@
       }
 
       client.from('tricky_locations')
-        .select('id, name, category, instructor_difficulty, location_videos(videos(publication_status))')
+        .select('id, name, category, instructor_difficulty, location_videos(videos(id, publication_status))')
         .eq('publication_status', 'published')
         .order('name')
         .then(function (result) {
@@ -111,16 +119,34 @@
               var videos = (row.location_videos || []).filter(function (lv) {
                 return lv.videos && lv.videos.publication_status === 'published';
               });
+              var ids = videos.map(function (lv) { return lv.videos.id; });
               return {
                 id: row.id,
                 name: row.name,
                 category: row.category,
                 level: row.instructor_difficulty,
-                videoCount: videos.length
+                videoCount: videos.length,
+                videoIds: ids,
+                watchedCount: 0
               };
             });
-          render();
+          loadProgress().then(render, render);
         });
+
+      function loadProgress() {
+        return client.auth.getSession().then(function (r) {
+          var session = r.data && r.data.session;
+          if (!session) return;
+          signedIn = true;
+          return client.from('user_video_progress').select('video_id').eq('user_id', session.user.id)
+            .then(function (res) {
+              watchedIds = (res.data || []).map(function (row) { return row.video_id; });
+              locations.forEach(function (l) {
+                l.watchedCount = l.videoIds.filter(function (vid) { return watchedIds.indexOf(vid) !== -1; }).length;
+              });
+            });
+        });
+      }
     })();
   </script>
 </body>

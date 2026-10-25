@@ -76,6 +76,7 @@
     <!-- Shown when someone is signed in -->
     <section id="signed-in" hidden>
       <p>You are signed in as <strong id="who"></strong>.</p>
+      <div class="tr-form" id="progress-summary" aria-live="polite"><h2 style="margin:0">Your progress</h2><p id="progress-text" style="margin:0">Loading…</p></div>
       <div class="tr-buttons">
         <a class="tr-button" href="index.html">Go to the guides</a>
         <button class="tr-button tr-quiet" type="button" id="sign-out-button">Sign out</button>
@@ -117,12 +118,40 @@
         button.textContent = busy ? busyText : idleText;
       }
 
+      function loadProgress(userId) {
+        var text = document.getElementById('progress-text');
+        Promise.all([
+          client.from('tricky_locations').select('id, location_videos(videos(id, publication_status))').eq('publication_status', 'published'),
+          client.from('user_video_progress').select('video_id').eq('user_id', userId)
+        ]).then(function (results) {
+          if (results[0].error || results[1].error) {
+            text.textContent = 'Your progress could not load. Please try again later.';
+            return;
+          }
+          var watched = (results[1].data || []).map(function (r) { return r.video_id; });
+          var totalVideos = 0, watchedVideos = 0, guidesDone = 0, guides = 0;
+          (results[0].data || []).forEach(function (loc) {
+            var ids = (loc.location_videos || [])
+              .filter(function (lv) { return lv.videos && lv.videos.publication_status === 'published'; })
+              .map(function (lv) { return lv.videos.id; });
+            if (!ids.length) return;
+            guides += 1;
+            var done = ids.filter(function (id) { return watched.indexOf(id) !== -1; }).length;
+            totalVideos += ids.length;
+            watchedVideos += done;
+            if (done === ids.length) guidesDone += 1;
+          });
+          text.innerHTML = '<strong>' + watchedVideos + '</strong> of ' + totalVideos + ' guide videos watched. <strong>' + guidesDone + '</strong> of ' + guides + ' guides finished. <a href="index.html">Go to the guides</a>';
+        });
+      }
+
       function showSession(session) {
         if (recovering) return;
         if (session && session.user) {
           signedOut.hidden = true;
           signedIn.hidden = false;
           who.textContent = session.user.email;
+          loadProgress(session.user.id);
         } else {
           signedOut.hidden = false;
           signedIn.hidden = true;
