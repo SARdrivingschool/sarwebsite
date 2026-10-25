@@ -143,44 +143,125 @@
   });
 })();
 
-/* ---- Hero pass carousel: crossfade through every pass, newest first ---- */
+/* ---- Hero pass coverflow: centre card plus neighbours, newest first ----
+   Seven card elements are recycled rather than created per step, so an
+   image only ever changes while its card is off-stage and invisible. The
+   centre card shows the full-size photo; the rest show gallery thumbs, and
+   the next one along is preloaded so promoting it to centre never flashes. */
 (function () {
   'use strict';
   var box = document.querySelector('.h-carousel');
   if (!box) return;
-  var nums = (box.getAttribute('data-passes') || '').split(',').map(function (n) { return parseInt(n, 10); }).filter(Boolean);
+  var track = box.querySelector('[data-cf]');
+  if (!track) return;
+  var nums = (box.getAttribute('data-passes') || '').split(',')
+    .map(function (n) { return parseInt(n, 10); }).filter(Boolean);
   if (nums.length < 2) return;
-  var slides = box.querySelectorAll('.h-slide');
-  var count = box.querySelector('[data-ccount]');
-  var i = 0, cur = 0, timer = null, busy = false;
+
+  var WING = 3, SPAN = WING * 2 + 1, DELAY = 3800, SWIPE = 40;
+  var ALT = 'A SAR Driving School pupil on the day they passed their driving test';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function src(n) { return '/images/pass-gallery/pass-' + ('000' + n).slice(-3) + '.webp'; }
-  function preload(n) { var im = new Image(); im.src = src(n); return im; }
-  function go(dir) {
-    if (busy) return; busy = true;
-    i = (i + dir + nums.length) % nums.length;
-    var nxt = slides[1 - cur], prev = slides[cur];
-    var im = new Image();
-    im.onload = function () {
-      nxt.src = src(nums[i]); nxt.alt = 'A SAR Driving School pupil on the day they passed their driving test';
-      nxt.setAttribute('aria-hidden', 'false'); prev.setAttribute('aria-hidden', 'true');
-      nxt.classList.add('is-on'); prev.classList.remove('is-on');
-      cur = 1 - cur; if (count) count.textContent = String(i + 1);
-      preload(nums[(i + 1) % nums.length]);
-      busy = false;
-    };
-    im.onerror = function () { busy = false; };
-    im.src = src(nums[i]);
+  var pad = function (n) { return ('000' + n).slice(-3); };
+  var thumb = function (n) { return '/images/pass-gallery/pass-' + pad(n) + '-thumb.webp'; };
+  var full  = function (n) { return '/images/pass-gallery/pass-' + pad(n) + '.webp'; };
+  var at = function (k) { return nums[((k % nums.length) + nums.length) % nums.length]; };
+
+  // Slot 0 is the card the page was served with, so the LCP image is reused.
+  var els = [track.querySelector('.h-cf-item')];
+  if (!els[0]) return;
+  for (var s = 1; s < SPAN; s++) {
+    var fig = document.createElement('figure');
+    fig.className = 'h-cf-item';
+    var im = document.createElement('img');
+    im.width = 1080; im.height = 1350; im.decoding = 'async'; im.alt = '';
+    im.setAttribute('aria-hidden', 'true');
+    fig.appendChild(im);
+    track.appendChild(fig);
+    els.push(fig);
   }
-  function start() { if (reduce || timer) return; timer = setInterval(function () { go(1); }, 2500); }
-  function stop() { clearInterval(timer); timer = null; }
+  els[0].firstElementChild.setAttribute('data-n', String(nums[0]));
+  els[0].firstElementChild.setAttribute('data-q', 'full');
+
+  var centre = 0, timer = null;
+
+  function paint(el, n, k) {
+    var img = el.firstElementChild;
+    var q = k === 0 ? 'full' : 'thumb';
+    if (img.getAttribute('data-n') !== String(n) || img.getAttribute('data-q') !== q) {
+      img.src = (k === 0 ? full : thumb)(n);
+      img.setAttribute('data-n', String(n));
+      img.setAttribute('data-q', q);
+    }
+    if (k === 0) { img.alt = ALT; img.removeAttribute('aria-hidden'); }
+    else { img.alt = ''; img.setAttribute('aria-hidden', 'true'); }
+  }
+
+  function layout() {
+    for (var k = -WING; k <= WING; k++) {
+      var slot = (((centre + k) % SPAN) + SPAN) % SPAN;
+      els[slot].setAttribute('data-off', String(k));
+      paint(els[slot], at(centre + k), k);
+    }
+  }
+
+  var warm = {};
+  function preload(n) { if (warm[n]) return; warm[n] = new Image(); warm[n].src = full(n); }
+
+  function go(dir) {
+    centre += dir;
+    layout();
+    preload(at(centre + (dir >= 0 ? 1 : -1)));
+  }
+
+  function start() { if (reduce || timer) return; timer = setInterval(function () { go(1); }, DELAY); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
   box.querySelector('.h-cnext').addEventListener('click', function () { stop(); go(1); start(); });
   box.querySelector('.h-cprev').addEventListener('click', function () { stop(); go(-1); start(); });
-  box.addEventListener('click', function (e) { if (e.target.closest('.h-cbtn')) return; stop(); go(1); start(); });
-  box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', start);
-  box.addEventListener('focusin', stop); box.addEventListener('focusout', start);
+  box.addEventListener('mouseenter', stop);
+  box.addEventListener('mouseleave', start);
+  box.addEventListener('focusin', stop);
+  box.addEventListener('focusout', start);
   document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
-  preload(nums[1]);
+
+  box.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); stop(); go(1); start(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); go(-1); start(); }
+  });
+
+  // Drag and swipe. The whole track follows the pointer, damped, and snaps
+  // on release; a short drag counts as a tap and advances one card.
+  var down = false, x0 = 0, y0 = 0, dx = 0, locked = false, id = null;
+  function setDrag(px) { track.style.setProperty('--cf-drag', px + 'px'); }
+  box.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.h-cbtn')) return;
+    down = true; locked = false; dx = 0; x0 = e.clientX; y0 = e.clientY; id = e.pointerId;
+    stop(); box.classList.add('is-drag');
+  });
+  box.addEventListener('pointermove', function (e) {
+    if (!down || e.pointerId !== id) return;
+    dx = e.clientX - x0;
+    if (!locked) {
+      if (Math.abs(e.clientY - y0) > Math.abs(dx) && Math.abs(e.clientY - y0) > 8) {
+        down = false; box.classList.remove('is-drag'); setDrag(0); start(); return;
+      }
+      if (Math.abs(dx) > 8) { locked = true; try { box.setPointerCapture(id); } catch (err) {} }
+    }
+    if (locked) setDrag(dx * 0.4);
+  });
+  function release() {
+    if (!down) return;
+    down = false; box.classList.remove('is-drag'); setDrag(0);
+    if (Math.abs(dx) > SWIPE) go(dx < 0 ? 1 : -1);
+    else if (!locked) go(1);
+    start();
+  }
+  box.addEventListener('pointerup', release);
+  box.addEventListener('pointercancel', function () { down = false; locked = false; box.classList.remove('is-drag'); setDrag(0); start(); });
+  box.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+  layout();
+  preload(at(1));
   start();
 })();
 

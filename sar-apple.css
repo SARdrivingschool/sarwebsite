@@ -1285,7 +1285,9 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 /* Desktop layout tune (Phase 2.1) */
 @media (min-width: 961px) {
   .h-hero { padding: var(--s7) 0; }
-  .h-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, 440px); gap: var(--s7); justify-content: space-between; }
+  /* Media column widened from 440px so the coverflow has room; the stage is
+     square now rather than 4/5, so the hero row height barely moves. */
+  .h-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, 520px); gap: var(--s6); justify-content: space-between; }
   .h-hero h1 { font-size: clamp(44px, 4.6vw, 68px); }
   .h-hero .lead { font-size: 21px; max-width: 34ch; }
   .h-trust ul { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s3); justify-items: center; }
@@ -1308,18 +1310,90 @@ textarea.m-input { resize: vertical; min-height: 72px; }
   :root { --maxw: 1200px; }
 }
 
-/* Hero pass carousel */
-.h-carousel { aspect-ratio: 4 / 5; width: 100%; cursor: pointer; }
-.h-carousel .h-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s ease; }
-.h-carousel .h-slide.is-on { opacity: 1; }
-.h-cbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--ink); display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .16s ease; box-shadow: 0 4px 14px rgba(0,0,0,.25); z-index: 2; }
+/* Hero pass coverflow.
+   The stage is a plain clipping box; the rounded corners and shadow that
+   used to sit on .h-media now belong to each card, because the cards have
+   to overlap and spill past the stage edges. Positions are driven by the
+   --cf-* numbers so a breakpoint only has to change the numbers.
+   Every pass image is 1080x1350, and every card is 4/5, so object-fit
+   never crops or stretches a photo. */
+.h-media.h-carousel {
+  --cf-w: 64%;      /* centre card width, as a share of the stage */
+  --cf-x1: 56%;     /* neighbour shift, as a share of a card's own width */
+  --cf-s1: .86;
+  --cf-o1: 1;
+  --cf-x2: 100%;
+  --cf-s2: .72;
+  --cf-o2: .72;
+  --cf-x3: 132%;
+  --cf-s3: .62;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.h-carousel.is-drag { cursor: grabbing; }
+/* Masked on the track, not the stage, so the arrows stay fully opaque. */
+.h-cf { position: absolute; inset: 0; transform: translate3d(var(--cf-drag, 0px), 0, 0);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); }
+.h-carousel.is-drag .h-cf { transition: none; }
+
+.h-cf-item {
+  --tx: 0%; --sc: 1; --op: 1; --z: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--cf-w);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 18px 44px rgba(0,0,0,.18);
+  transform: translate(calc(-50% + var(--tx)), -50%) scale(var(--sc));
+  opacity: var(--op);
+  z-index: var(--z);
+  transition: transform .6s var(--ease), opacity .6s var(--ease);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.h-cf-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.h-cf-item[data-off="0"]  { --tx: 0%; --sc: 1; --op: 1; --z: 6; }
+.h-cf-item[data-off="1"]  { --tx: var(--cf-x1); --sc: var(--cf-s1); --op: var(--cf-o1); --z: 5; }
+.h-cf-item[data-off="-1"] { --tx: calc(-1 * var(--cf-x1)); --sc: var(--cf-s1); --op: var(--cf-o1); --z: 5; }
+.h-cf-item[data-off="2"]  { --tx: var(--cf-x2); --sc: var(--cf-s2); --op: var(--cf-o2); --z: 4; }
+.h-cf-item[data-off="-2"] { --tx: calc(-1 * var(--cf-x2)); --sc: var(--cf-s2); --op: var(--cf-o2); --z: 4; }
+.h-cf-item[data-off="3"]  { --tx: var(--cf-x3); --sc: var(--cf-s3); --op: 0; --z: 3; }
+.h-cf-item[data-off="-3"] { --tx: calc(-1 * var(--cf-x3)); --sc: var(--cf-s3); --op: 0; --z: 3; }
+
+.h-cbtn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--ink); display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .16s ease; box-shadow: 0 4px 14px rgba(0,0,0,.25); z-index: 8; }
 .h-cbtn svg { width: 22px; height: 22px; fill: currentColor; }
-.h-cprev { left: var(--s2); } .h-cnext { right: var(--s2); }
+.h-cprev { left: 0; } .h-cnext { right: 0; }
 .h-carousel:hover .h-cbtn, .h-carousel:focus-within .h-cbtn { opacity: 1; }
-.h-carousel .h-media-tag { z-index: 2; left: auto; right: var(--s3); bottom: auto; top: var(--s3); }
+.h-carousel .h-media-tag { z-index: 8; left: auto; right: var(--s3); bottom: auto; top: var(--s3); }
 @media (hover: none) { .h-cbtn { opacity: 1; background: rgba(255,255,255,.75); } }
-@media (max-width: 640px) { .h-media.h-carousel { aspect-ratio: 4 / 5; max-width: 340px; margin: 0 auto; } }
-@media (prefers-reduced-motion: reduce) { .h-carousel .h-slide { transition: none; } }
+
+/* Stacked layout: the stage is the full column, so the cards can be bigger. */
+@media (max-width: 960px) {
+  .h-media.h-carousel { --cf-w: 58%; --cf-x1: 58%; --cf-s1: .84; --cf-x2: 104%; --cf-s2: .70; aspect-ratio: 1 / 1; }
+}
+/* Phones: one prominent photo with a slim peek either side. */
+@media (max-width: 640px) {
+  .h-media.h-carousel { --cf-w: 72%; --cf-x1: 62%; --cf-s1: .82; --cf-o1: .9; --cf-x2: 104%; --cf-s2: .7; --cf-o2: 0; aspect-ratio: 1 / 1.04; max-width: 420px; margin: 0 auto; }
+  .h-cf-item { border-radius: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .h-cf-item { transition: none; }
+}
 
 /* Pricing page (p-) */
 .p-hero .h-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(360px, 480px); align-items: start; }
