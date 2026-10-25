@@ -97,7 +97,7 @@ gtag('config', 'AW-18198829338');
 }</script><script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Manual and automatic driving lessons are \u00a338 per hour for pickup locations within 10 miles of Central Milton Keynes, with block bookings from \u00a334 an hour. If you are further away, send us your postcode and we will give you a personalised quote."}, "name": "How much are driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, automatic driving lessons are available across Milton Keynes and nearby areas."}, "name": "Do you offer automatic driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Manual and automatic cost the same \u2014 \u00a338 per hour within 10 miles of Central Milton Keynes, and a personalised quote further out."}, "name": "Do you offer manual driving lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Tell us your pickup postcode, whether you want manual or automatic, and when you\u0027re free. SAR matches you with a DVSA-approved SAR instructor who covers your area and times, and they contact you directly \u2014 usually the same day."}, "name": "How does instructor matching work?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, subject to assessment and DVSA test-standard driving."}, "name": "Can I use your car for my driving test?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes, refresher lessons are available for parking, roundabouts, motorway driving and confidence building."}, "name": "Do you offer refresher lessons?"}, {"@type": "Question", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most SAR pupils take their test at Bletchley, and our free Bletchley Test Centre guides cover the roads and roundabouts around it."}, "name": "Do you cover Bletchley test centre?"}]}
 </script>
-<link rel="stylesheet" href="/sar-apple.css?v=9e3eac89">
+<link rel="stylesheet" href="/sar-apple.css?v=e05a19c3">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -193,6 +193,7 @@ gtag('config', 'AW-18198829338');
     <div class="m-head">
       <h2 class="m-title">Find your driving instructor</h2>
       <ol class="m-steps" aria-hidden="true"><li class="is-on">Area</li><li>Car</li><li>Times</li><li>You</li></ol>
+      <p class="m-sr" role="status" aria-live="polite" data-stepnum></p>
     </div>
 
     <fieldset class="m-step" data-step="1">
@@ -200,7 +201,7 @@ gtag('config', 'AW-18198829338');
       <div class="m-row">
         <label class="m-label" for="match-pc">Pickup postcode</label>
         <input class="m-input" id="match-pc" name="Pickup postcode" type="text" inputmode="text" autocomplete="postal-code" placeholder="e.g. MK3 6DH" required maxlength="10" data-postcode>
-        <p class="m-hint" data-coverage-msg>Every SAR lesson starts from your address in Milton Keynes. Bedford, Northampton and Leighton Buzzard are covered too.</p>
+        <p class="m-hint" data-coverage-msg>Lessons are £38 an hour for pickups within 10 miles of Central Milton Keynes. Further out we’ll quote you — either way, send the enquiry.</p>
       </div>
       <div class="m-actions"><button type="button" class="btn btn-primary" data-next>Continue</button></div>
     </fieldset>
@@ -230,6 +231,37 @@ gtag('config', 'AW-18198829338');
         <label><input type="radio" name="Experience" value="Some lessons"><span>Some lessons</span></label>
         <label><input type="radio" name="Experience" value="Test booked"><span>Test booked</span></label>
         <label><input type="radio" name="Experience" value="Returning driver"><span>Returning driver</span></label>
+      </div>
+
+      <div data-test-fields hidden>
+        <p class="m-q m-q-sub">Your test — all optional</p>
+        <div class="m-grid">
+          <div class="m-row">
+            <label class="m-label" for="match-testdate">Test date</label>
+            <input class="m-input" id="match-testdate" name="Test date" type="date">
+          </div>
+          <div class="m-row">
+            <label class="m-label" for="match-testcentre">Test centre</label>
+            <select class="m-input" id="match-testcentre" name="Test centre">
+              <option value="">Choose…</option>
+              <option>Bletchley</option>
+              <option>Leighton Buzzard</option>
+              <option>Bedford</option>
+              <option>Northampton</option>
+              <option>Luton</option>
+              <option>Somewhere else</option>
+            </select>
+          </div>
+        </div>
+        <div class="m-row">
+          <span class="m-label">Will you need a SAR car for the test?</span>
+          <div class="m-chips">
+            <label><input type="radio" name="Car for test" value="Yes"><span>Yes please</span></label>
+            <label><input type="radio" name="Car for test" value="No, I have my own"><span>No, I have my own</span></label>
+            <label><input type="radio" name="Car for test" value="Not sure yet"><span>Not sure yet</span></label>
+          </div>
+          <p class="m-hint">Using a SAR car for your test depends on an assessment lesson and driving to DVSA standard — we’ll go through it with you.</p>
+        </div>
       </div>
       <div class="m-actions"><button type="button" class="btn btn-quiet" data-back>Back</button><button type="button" class="btn btn-primary" data-next>Continue</button></div>
     </fieldset>
@@ -567,7 +599,7 @@ gtag('config', 'AW-18198829338');
   });
 })();
 </script>
-<script src="/sar-content.js?v=6fdc8969" defer></script>
+<script src="/sar-content.js?v=f90c02bd" defer></script>
 <script src="/cookie-consent.js" defer></script>
 </body>
 </html>

@@ -127,12 +127,15 @@
     var pc = form.querySelector('[data-postcode]');
     var covMsg = form.querySelector('[data-coverage-msg]');
     var covField = form.querySelector('[data-coverage]');
+    var stepNum = form.querySelector('[data-stepnum]');
+    var testFields = form.querySelector('[data-test-fields]');
     var cur = 0;
 
     function show(i) {
       cur = i;
       steps.forEach(function (s, k) { s.hidden = k !== i; });
       dots.forEach(function (d, k) { d.classList.toggle('is-on', k <= i); d.classList.toggle('is-done', k < i); });
+      if (stepNum) stepNum.textContent = 'Step ' + (i + 1) + ' of ' + steps.length;
       status.textContent = '';
       var first = steps[i].querySelector('input:not([type=hidden]):not([type=radio]):not([type=checkbox]), select, textarea');
       if (first && i > 0) { try { first.focus({ preventScroll: true }); } catch (e) {} }
@@ -215,6 +218,18 @@
       pc.addEventListener('input', function () { clearTimeout(covTimer); covTimer = setTimeout(updateCoverage, 450); });
       pc.addEventListener('blur', function () { clearTimeout(covTimer); updateCoverage(); });
       idleCoverage();
+    }
+
+    // Test date, centre and car question only matter once a test is booked.
+    if (testFields) {
+      var expRadios = form.querySelectorAll('input[name="Experience"]');
+      var syncTest = function () {
+        var on = false;
+        expRadios.forEach(function (r) { if (r.checked && r.value === 'Test booked') on = true; });
+        testFields.hidden = !on;
+      };
+      expRadios.forEach(function (r) { r.addEventListener('change', syncTest); });
+      syncTest();
     }
 
     form.querySelectorAll('[data-next]').forEach(function (b) { b.addEventListener('click', function () { if (valid(cur)) show(Math.min(cur + 1, steps.length - 1)); }); });
