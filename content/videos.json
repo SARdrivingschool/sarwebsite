@@ -1367,6 +1367,122 @@
         "title": "Simpson Road meeting situation, Bletchley — Driving Test Guide | SAR Driving School",
         "description": "A short guide to the meeting situation on Simpson Road, on the Bletchley test route — a narrow stretch where you have to decide who goes first."
       }
+    },
+    {
+      "slug": "stoke-road-roundabout-third-exit",
+      "kind": "hotspot",
+      "title": "Stoke Road Roundabout — turning right, taking the third exit",
+      "shortTitle": "Stoke Road Roundabout — third exit",
+      "location": "Stoke Road Roundabout, Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": 98,
+      "published": "2026-10-25",
+      "featured": true,
+      "order": 22,
+      "video": {
+        "file": "",
+        "youtube": "0I_xKo0bzf0"
+      },
+      "poster": "/images/hotspots/stoke-road-roundabout-third-exit-poster.webp",
+      "card": "/images/hotspots/stoke-road-roundabout-third-exit-card.webp",
+      "summary": "Turning right at Stoke Road Roundabout in Bletchley, taking the third exit. It is a wide roundabout, so the video covers checking your left mirror before you move across, in case a vehicle is undertaking you.",
+      "sections": [
+        {
+          "h": "What this covers",
+          "list": [
+            "Turning right and taking the third exit",
+            "Why this roundabout being wide changes what you check",
+            "Checking the left mirror before moving across",
+            "What to do if a vehicle is undertaking you",
+            "Exiting into the right lane when it is safe"
+          ]
+        },
+        {
+          "h": "The point most learners miss",
+          "p": [
+            "The roundabout is wide, so there is room for another vehicle to come up on your left while you are still going round. Before you move across towards the exit, check your left mirror. If someone is undertaking you, hold your position and exit into the right lane once it is safe, rather than moving across into them."
+          ]
+        },
+        {
+          "h": "Front and rear view",
+          "p": [
+            "The video shows the forward view and the view behind at the same time, so you can see what is coming up on your left as well as the road ahead."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Turning right",
+        "Mirror checks",
+        "Lane discipline"
+      ],
+      "related": [
+        "denbigh-roundabout-second-exit",
+        "bond-avenue-double-roundabout",
+        "bletchley-test-route-0810"
+      ],
+      "seo": {
+        "title": "Stoke Road Roundabout third exit, Bletchley | SAR Driving School",
+        "description": "Turning right at Stoke Road Roundabout in Bletchley and taking the third exit, including the left-mirror check that catches learners out on a wide roundabout."
+      }
+    },
+    {
+      "slug": "denbigh-roundabout-second-exit",
+      "kind": "hotspot",
+      "title": "Denbigh (IKEA) Roundabout — taking the second exit towards the Roman roundabout",
+      "shortTitle": "Denbigh (IKEA) Roundabout — second exit",
+      "location": "Denbigh Roundabout (IKEA), Bletchley",
+      "area": "Bletchley",
+      "testCentre": "Bletchley",
+      "category": "roundabouts",
+      "series": null,
+      "durationSec": null,
+      "published": "2026-10-25",
+      "featured": true,
+      "order": 23,
+      "video": {
+        "file": "",
+        "youtube": "6X3CTCyZp6E"
+      },
+      "poster": "/images/hotspots/denbigh-roundabout-second-exit-poster.webp",
+      "card": "/images/hotspots/denbigh-roundabout-second-exit-card.webp",
+      "summary": "Taking the second exit at the Denbigh (IKEA) roundabout and carrying on towards the Roman roundabout — a stretch that comes up often on the Bletchley test route, and one learners regularly pick the wrong lane for.",
+      "sections": [
+        {
+          "h": "What this covers",
+          "list": [
+            "Taking the second exit at the Denbigh (IKEA) roundabout",
+            "Reading the road markings to work out which lane you need",
+            "The lane learners pick here by mistake",
+            "Carrying on towards the Roman roundabout"
+          ]
+        },
+        {
+          "h": "Where it sits on the route",
+          "p": [
+            "Denbigh roundabout into the Roman roundabout is a very common run on the Bletchley test route. The video opens with an overhead view of both roundabouts so you can see the whole move before the drive starts.",
+            "This is part one, covering the Denbigh roundabout. The Roman roundabout has its own guides for each lane."
+          ]
+        }
+      ],
+      "skills": [
+        "Multi-lane roundabouts",
+        "Lane discipline",
+        "Reading road markings"
+      ],
+      "related": [
+        "roman-roundabout-ikea-left-lane",
+        "roman-roundabout-ikea-middle-lane",
+        "denbigh-roundabout-right-3rd-exit",
+        "stoke-road-roundabout-third-exit"
+      ],
+      "seo": {
+        "title": "Denbigh (IKEA) Roundabout second exit | SAR Driving School",
+        "description": "Taking the second exit at the Denbigh (IKEA) roundabout towards the Roman roundabout, and how to read the road markings so you pick the right lane."
+      }
     }
   ],
   "learnSections": [
