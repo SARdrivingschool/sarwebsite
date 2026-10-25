@@ -263,6 +263,8 @@ a.card:hover .go { text-decoration: underline; }
 .foot-links a { color: var(--ink-2); }
 .foot-links a:hover { color: var(--ink); }
 .foot-legal { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); padding-top: var(--s3); border-top: 1px solid var(--hairline); }
+.foot-do { margin-bottom: var(--s2); }
+.foot-do a { font-weight: 600; color: var(--ink); }
 .foot-legal a, .foot-legal button {
   color: var(--ink-2); font: inherit; background: none; border: 0; padding: 0; cursor: pointer;
 }
@@ -1396,6 +1398,19 @@ textarea.m-input { resize: vertical; min-height: 72px; }
 @media (prefers-reduced-motion: reduce) {
   .h-cf-item { transition: none; }
 }
+
+/* Inline links inside prose carry an underline as well as the accent colour:
+   red on near-black only reaches 2.4:1 against the surrounding text, well
+   under the 3:1 that colour-alone distinction needs. Buttons, card links and
+   nav are excluded - they are not inside a block of text. */
+p > a:not(.btn):not(.go):not(.p-pay):not(.c-seq-link):not(.m-pay),
+td > a:not(.btn):not(.go):not(.p-pay),
+li > a:not(.btn):not(.go):not(.c-seq-link):not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+p > a:not(.btn):not(.go):hover, td > a:not(.btn):hover { text-decoration-thickness: 2px; }
 
 /* Sequential guide paging */
 .c-seq { border-top: 1px solid var(--hairline); padding: var(--s4) 0; }

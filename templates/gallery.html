@@ -41,14 +41,10 @@
       {% for p in passes %}
       {% set num = '%03d' % p.n %}
       {% set alt = (p.name ~ ', ' if p.name else 'A SAR Driving School pupil, ') ~ ('first-time pass' if p.firstTime else 'passed') ~ (' at ' ~ p.testCentre if p.testCentre else '') ~ ' with SAR Driving School' %}
-      <button class="g-card" type="button" data-n="{{ p.n }}" data-first="{{ '1' if p.firstTime else '0' }}" data-centre="{{ p.testCentre|lower|replace(' ', '-') if p.testCentre else '' }}" data-full="/images/pass-gallery/pass-{{ num }}.webp" data-caption="{{ (p.name or 'SAR pupil') ~ (' · First-time pass' if p.firstTime else '') ~ (' · ' ~ p.testCentre if p.testCentre else '') ~ (' · ' ~ p.faults ~ ' minor' ~ ('s' if p.faults != 1 else '') if p.faults is defined else '') }}" aria-label="Open pass photo: {{ alt }}">
+      <button class="g-card" type="button" data-n="{{ p.n }}" data-first="{{ '1' if p.firstTime else '0' }}" data-centre="{{ p.testCentre|lower|replace(' ', '-') if p.testCentre else '' }}" data-full="/images/pass-gallery/pass-{{ num }}.webp" data-caption="{{ (p.name or 'SAR pupil') ~ (' · First-time pass' if p.firstTime else '') ~ (' · ' ~ p.testCentre if p.testCentre else '') ~ (' · ' ~ p.faults ~ ' minor' ~ ('s' if p.faults != 1 else '') if p.faults is defined else '') }}" aria-label="{% if p.firstTime %}First time {% endif %}{% if p.name %}{{ p.name }} {% endif %}{% if p.testCentre %}{{ p.testCentre }}{% endif %}. Open pass photo.">
         <img src="/images/pass-gallery/pass-{{ num }}-thumb.webp" alt="{{ alt }}" width="496" height="620" loading="{{ 'eager' if loop.index <= 6 else 'lazy' }}" decoding="async">
         {% if p.name or p.testCentre or p.firstTime %}
-        <span class="g-meta">
-          {% if p.firstTime %}<span class="g-badge">First time</span>{% endif %}
-          {% if p.name %}<strong>{{ p.name }}</strong>{% endif %}
-          {% if p.testCentre %}<span class="g-centre">{{ p.testCentre }}</span>{% endif %}
-        </span>
+        <span class="g-meta">{% if p.firstTime %}<span class="g-badge">First time</span> {% endif %}{% if p.name %}<strong>{{ p.name }}</strong> {% endif %}{% if p.testCentre %}<span class="g-centre">{{ p.testCentre }}</span>{% endif %}</span>
         {% endif %}
       </button>
       {% endfor %}
