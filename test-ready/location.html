@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Guide | SAR Test Ready</title>
-  <link rel="stylesheet" href="test-ready.css">
+  <link rel="stylesheet" href="/test-ready/test-ready.css">
 </head>
 <body>
   <a class="tr-skip" href="#main">Skip to content</a>
@@ -33,17 +33,17 @@
       <p class="tr-tips" id="loc-mistakes" hidden></p>
     </article>
 
-    <a class="tr-button tr-quiet tr-back" href="index.html">Back to all guides</a>
+    <a class="tr-button tr-quiet tr-back" href="/test-ready/index.html">Back to all guides</a>
 
     <p class="tr-footer">
       <a href="/privacy.html">Privacy notice</a> · <a href="/terms.html">Terms</a>
     </p>
   </main>
 
-  <script src="config.js"></script>
+  <script src="/test-ready/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="covers.js"></script>
-  <script src="test-ready.js"></script>
+  <script src="/test-ready/covers.js"></script>
+  <script src="/test-ready/test-ready.js"></script>
   <script>
     (function () {
       var T = window.TR;
@@ -105,7 +105,7 @@
       function renderWatchControls(watched) {
         var inProgress = document.getElementById('loc-progress');
         if (!userId) {
-          inProgress.innerHTML = 'Want to tick off videos as you watch them? <a href="account.html">Sign in</a>.';
+          inProgress.innerHTML = 'Want to tick off videos as you watch them? <a href="/test-ready/account.html">Sign in</a>.';
           return;
         }
         var done = 0;

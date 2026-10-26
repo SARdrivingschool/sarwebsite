@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Your SAR Test Ready account | SAR Driving School</title>
-  <link rel="stylesheet" href="test-ready.css">
+  <link rel="stylesheet" href="/test-ready/test-ready.css">
 </head>
 <body>
   <a class="tr-skip" href="#main">Skip to content</a>
@@ -79,7 +79,7 @@
       <p>You are signed in as <strong id="who"></strong>.</p>
       <div class="tr-form" id="progress-summary" aria-live="polite"><h2 style="margin:0">Your progress</h2><p id="progress-text" style="margin:0">Loading…</p></div>
       <div class="tr-buttons">
-        <a class="tr-button" href="index.html">Go to the guides</a>
+        <a class="tr-button" href="/test-ready/index.html">Go to the guides</a>
         <button class="tr-button tr-quiet" type="button" id="sign-out-button">Sign out</button>
       </div>
     </section>
@@ -94,9 +94,9 @@
     </p>
   </main>
 
-  <script src="config.js"></script>
+  <script src="/test-ready/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="test-ready.js"></script>
+  <script src="/test-ready/test-ready.js"></script>
   <script>
     (function () {
       var T = window.TR;
@@ -143,7 +143,7 @@
             watchedVideos += done;
             if (done === ids.length) guidesDone += 1;
           });
-          text.innerHTML = '<strong>' + watchedVideos + '</strong> of ' + totalVideos + ' guide videos watched. <strong>' + guidesDone + '</strong> of ' + guides + ' guides finished. <a href="index.html">Go to the guides</a>';
+          text.innerHTML = '<strong>' + watchedVideos + '</strong> of ' + totalVideos + ' guide videos watched. <strong>' + guidesDone + '</strong> of ' + guides + ' guides finished. <a href="/test-ready/index.html">Go to the guides</a>';
         });
       }
 
@@ -219,7 +219,7 @@
           return;
         }
         setBusy('reset-button', true, 'Send reset link', 'Sending…');
-        var redirectTo = new URL('account.html', window.location.href).href;
+        var redirectTo = new URL('/test-ready/account.html', window.location.href).href;
         client.auth.resetPasswordForEmail(email, { redirectTo: redirectTo }).then(function (result) {
           setBusy('reset-button', false, 'Send reset link', 'Sending…');
           if (result.error) {

@@ -51,10 +51,10 @@
     if (!el) return;
     el.innerHTML =
       '<div class="tr-wrap tr-head-row">' +
-        '<a class="tr-brand" href="index.html"><img src="/images/logo-head.png" alt="SAR Driving School" width="321" height="138"></a>' +
+        '<a class="tr-brand" href="/test-ready/index.html"><img src="/images/logo-head.png" alt="SAR Driving School" width="321" height="138"></a>' +
         '<nav class="tr-nav" aria-label="SAR Test Ready">' +
-          '<a href="index.html"' + (active === 'guides' ? ' aria-current="page"' : '') + '>Guides</a>' +
-          '<a href="account.html" id="tr-account-link"' + (active === 'account' ? ' aria-current="page"' : '') + '>Sign in</a>' +
+          '<a href="/test-ready/index.html"' + (active === 'guides' ? ' aria-current="page"' : '') + '>Guides</a>' +
+          '<a href="/test-ready/account.html" id="tr-account-link"' + (active === 'account' ? ' aria-current="page"' : '') + '>Sign in</a>' +
           '<a href="https://sardrivingschool.co.uk/">SAR website</a>' +
         '</nav>' +
       '</div>';

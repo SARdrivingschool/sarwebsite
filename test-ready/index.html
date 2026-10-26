@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>SAR Test Ready: tricky roads and junctions | SAR Driving School</title>
   <meta name="description" content="Practise the tricky roundabouts, junctions and areas on the Bletchley test route, with video guides from SAR Driving School.">
-  <link rel="stylesheet" href="test-ready.css">
+  <link rel="stylesheet" href="/test-ready/test-ready.css">
 </head>
 <body>
   <a class="tr-skip" href="#main">Skip to content</a>
@@ -41,10 +41,10 @@
     </p>
   </main>
 
-  <script src="config.js"></script>
+  <script src="/test-ready/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="covers.js"></script>
-  <script src="test-ready.js"></script>
+  <script src="/test-ready/covers.js"></script>
+  <script src="/test-ready/test-ready.js"></script>
   <script>
     (function () {
       var T = window.TR;
@@ -108,7 +108,7 @@
               : '<span class="tr-watch-state is-off">' + l.watchedCount + ' of ' + l.videoCount + ' watched</span>';
           }
           var cover = window.SAR_COVERS && window.SAR_COVERS[l.name];
-          return '<a class="tr-card" href="location.html?id=' + encodeURIComponent(l.id) + '">' +
+          return '<a class="tr-card" href="/test-ready/location.html?id=' + encodeURIComponent(l.id) + '">' +
             (cover ? '<img class="tr-card-cover" src="' + cover + '" alt="" loading="lazy" width="900" height="506">' : '') +
             '<span class="tr-card-name">' + T.esc(l.name) + '</span>' +
             '<span class="tr-card-meta"><span class="tr-pill ' + lvl.className + '">' + lvl.label + '</span>' + video + watchedText + '</span>' +
