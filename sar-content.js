@@ -696,3 +696,34 @@
     apply(false);   // browser may have autofilled before we got here
   });
 })();
+
+/* ---- Instant enquiry confirmation ----
+   When any enquiry form passes its checks and is sent to FormSubmit, also tell
+   /api/enquiry so the pupil gets a WhatsApp (SMS if not on WhatsApp). The email
+   to SAR still goes through FormSubmit as before. Failures are silent so the
+   form never looks broken to the pupil. */
+(function () {
+  'use strict';
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!form || e.defaultPrevented) return;
+    if (!/formsubmit/i.test(form.getAttribute('action') || '')) return;
+    var f = form.elements;
+    var phone = f.Phone ? String(f.Phone.value || '').trim() : '';
+    if (!phone) return;
+    var payload = {
+      Name: f.Name ? String(f.Name.value || '').trim() : '',
+      Phone: phone,
+      Page: f.Page ? String(f.Page.value || '') : location.pathname,
+      _honey: f._honey ? String(f._honey.value || '') : ''
+    };
+    try {
+      fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function () {});
+    } catch (err) { /* ignore: the email to SAR still goes */ }
+  });
+})();
