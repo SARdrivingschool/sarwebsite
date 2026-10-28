@@ -29,5 +29,6 @@ window.SAR_COVERS = {
   "Whaddon Way": "/images/test-ready/covers/whaddon-way.jpg",
   "St Clements Drive": "/images/test-ready/covers/st-clements-drive.jpg",
   "Simpson Road": "/images/test-ready/covers/simpson-road.jpg",
-  "Sherwood Drive": "/images/test-ready/covers/sherwood-drive.jpg"
+  "Sherwood Drive": "/images/test-ready/covers/sherwood-drive.jpg",
+  "Kingsmead roundabout": "/images/test-ready/covers/kingsmead-roundabout.jpg"
 };
