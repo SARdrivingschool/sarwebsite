@@ -81,6 +81,16 @@
     var p = SAR.tidyPostcode(raw);
     return !!p && FULL.test(p);
   };
+  // An outward code on its own ("MK3", "LU7") is a perfectly normal thing for a
+  // pupil to type. It is not enough to measure a distance from, but it must
+  // never block an enquiry.
+  SAR.isOutwardOnly = function (raw) {
+    var v = (raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    return /^[A-Z]{1,2}\d[A-Z\d]?$/.test(v);
+  };
+  SAR.looksLikePostcode = function (raw) {
+    return SAR.isPostcode(raw) || SAR.isOutwardOnly(raw);
+  };
   SAR.miles = function (la1, lo1, la2, lo2) {
     var R = 3958.7613, r = Math.PI / 180;
     var dLa = (la2 - la1) * r, dLo = (lo2 - lo1) * r;
@@ -160,12 +170,12 @@
       // Format only. The distance lookup never blocks an enquiry: if it is
       // slow, down or inconclusive the learner still gets through.
       if (i === 0 && pc) {
-        if (!window.SAR || !SAR.isPostcode(pc.value)) {
+        if (!window.SAR || !SAR.looksLikePostcode(pc.value)) {
           pc.focus(); pc.classList.add('is-bad');
-          status.textContent = 'That doesn\'t look like a full UK postcode — try the format MK3 6DH.';
+          status.textContent = 'That doesn\'t look like a UK postcode — try MK3 6DH, or just MK3.';
           return false;
         }
-        pc.value = SAR.tidyPostcode(pc.value);
+        if (SAR.isPostcode(pc.value)) pc.value = SAR.tidyPostcode(pc.value);
       }
       return true;
     }
@@ -183,7 +193,14 @@
       pc.classList.remove('is-bad');
       if (!window.SAR) return;
       var raw = pc.value;
-      if (!SAR.isPostcode(raw)) { idleCoverage(); return; }
+      if (!SAR.isPostcode(raw)) {
+        if (SAR.isOutwardOnly(raw)) {
+          setCov('Thanks \u2014 add the rest of the postcode and we\'ll check your rate now, or '
+               + 'send it as it is and we\'ll confirm when we come back to you.', '',
+                 raw.toUpperCase().trim() + ' \u00b7 outward only');
+        } else { idleCoverage(); }
+        return;
+      }
       var tidy = SAR.tidyPostcode(raw);
       var seq = ++covSeq;
       setCov('Checking ' + tidy + '\u2026', '', tidy + ' \u00b7 checking');
