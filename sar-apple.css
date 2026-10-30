@@ -133,6 +133,15 @@ section { padding: var(--s7) 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
+/* Eleven nav items (Test Ready joined them) no longer fit on one line between
+   901px and ~1140px at the full 24px gap, so the bar wrapped to two rows.
+   Tighten the gap and type a touch in that band only; 1141px and up, and the
+   mobile drawer below 901px, are untouched. */
+@media (min-width: 901px) and (max-width: 1140px) {
+  .site-head .nav { gap: 14px; }
+  .site-head .nav a { font-size: 13px; }
+}
+
 @media (max-width: 900px) {
   .menu-btn { display: block; }
   .site-head .nav {
@@ -1559,3 +1568,12 @@ p > a:not(.btn):not(.go):hover, td > a:not(.btn):hover { text-decoration-thickne
 .i-adi-card figcaption strong { color: var(--ink); font-size: var(--f-body); }
 .i-adi-badge { align-self: flex-start; margin-bottom: 4px; padding: 2px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; letter-spacing: .02em; }
 @media (max-width: 640px) { .i-adi-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); } }
+
+/* Same eleven-item squeeze for the older header on the area pages. It has to
+   live at the end of the file: the base .nav-links rules come later than the
+   block above and would otherwise win. */
+@media (min-width: 901px) and (max-width: 1140px) {
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 13px; }
+  .nav-links .btn-nav { padding-left: 12px; padding-right: 12px; }
+}

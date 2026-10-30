@@ -453,6 +453,13 @@ for path in generated:
     if path in ("/index.html", "/thank-you.html"): continue  # "/" is listed with the static pages
     pri = "0.9" if path.count("/") <= 3 else "0.7"
     urls.append((SITE + path, pri))
+# Hand-written sections that live in their own folders. Only pages that are
+# genuinely indexable belong here: /test-ready/location.html is driven by a
+# query string and its content is already published as the hotspot pages,
+# and /test-ready/account.html is a sign-in page. Both stay noindex.
+EXTRA = [("/test-ready/", "0.9")]
+for path, pri in EXTRA:
+    urls.append((SITE + path, pri))
 seen = set(); lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for loc, pri in urls:
     if loc in seen: continue
