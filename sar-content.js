@@ -727,17 +727,21 @@
    ourselves. If any of this throws, the old behaviour takes over. */
 (function () {
   'use strict';
-  var FIELDS = ['Name', 'Phone', 'Email', 'Pickup postcode', 'Transmission',
-                'Experience', 'Availability', 'Test date', 'Test centre',
-                'Car for test', 'Notes', 'Coverage', 'Page',
-                'How did you hear about us', 'Message'];
+  // Everything on the form goes to the API except FormSubmit's own controls,
+  // so a field added to a form later still reaches SAR without a code change.
+  var SKIP = /^_/;
 
   function collect(form) {
     var fd, out = { _honey: '' };
     try { fd = new FormData(form); } catch (err) { return null; }
     out._honey = fd.get('_honey') || '';
-    FIELDS.forEach(function (n) {
-      var all = fd.getAll(n).filter(function (v) { return v !== null && String(v).trim() !== ''; });
+    var keys = [];
+    fd.forEach(function (v, k) { if (keys.indexOf(k) < 0) keys.push(k); });
+    keys.forEach(function (n) {
+      if (SKIP.test(n)) return;
+      var all = fd.getAll(n).filter(function (v) {
+        return typeof v === 'string' && v.trim() !== '';
+      });
       if (all.length) out[n] = all.join(', ');
     });
     // Names the API expects, mapped from the form's own field names.
@@ -775,17 +779,21 @@
     // 2. The formatted email, best effort, in an iframe so a dead provider
     //    cannot show the pupil a Cloudflare error page.
     try {
-      var name = 'fs-' + Date.now();
+      var fname = 'fs-' + Date.now();
       var frame = document.createElement('iframe');
-      frame.name = name; frame.style.display = 'none';
+      frame.name = fname;
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('tabindex', '-1');
+      frame.style.cssText = 'position:absolute;left:-9999px;width:0;height:0;border:0';
       document.body.appendChild(frame);
-      var clone = form.cloneNode(true);
-      clone.target = name;
-      clone.style.display = 'none';
-      var nx = clone.querySelector('[name="_next"]');
-      if (nx) nx.parentNode.removeChild(nx);   // the iframe must not navigate us
-      document.body.appendChild(clone);
-      clone.submit();
+      // Retarget the real form rather than cloning it: cloneNode copies
+      // attributes, not what the pupil typed, so a clone posts an empty form.
+      var prev = form.getAttribute('target');
+      form.setAttribute('target', fname);
+      // Call submit() off the prototype — a field named "submit" shadows it.
+      HTMLFormElement.prototype.submit.call(form);
+      if (prev === null) form.removeAttribute('target');
+      else form.setAttribute('target', prev);
     } catch (err) { /* the lead is already away */ }
 
     // 3. Thank-you page either way, and never leave them waiting.
