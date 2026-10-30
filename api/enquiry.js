@@ -47,11 +47,34 @@ module.exports = async (req, res) => {
   if (seen.size > 500) seen.clear();
 
   const page = String(data.Page || data.page || "").slice(0, 80);
+
+  // The lead itself goes to SAR from here, not only to the form provider.
+  // FormSubmit went down on 30 Oct 2026 (Cloudflare 521) and every enquiry in
+  // that window was lost, because nothing else told SAR an enquiry existed.
+  const NOTIFY = M.env('SAR_NOTIFY_NUMBER', '');
+  const lead = [
+    'SAR enquiry',
+    'Name: ' + String(data.Name || data.name || '?').slice(0, 60),
+    'Phone: ' + String(data.Phone || data.phone || '?').slice(0, 20),
+    data.Postcode ? 'Postcode: ' + String(data.Postcode).slice(0, 10) : '',
+    data.Transmission ? 'Car: ' + String(data.Transmission).slice(0, 20) : '',
+    data.Experience ? 'Experience: ' + String(data.Experience).slice(0, 30) : '',
+    data.Availability ? 'Free: ' + String(data.Availability).slice(0, 80) : '',
+    data.Coverage ? 'Area: ' + String(data.Coverage).slice(0, 50) : '',
+    data.Email ? 'Email: ' + String(data.Email).slice(0, 60) : '',
+    data.TestDate ? 'Test: ' + String(data.TestDate).slice(0, 30) : '',
+    data.Notes ? 'Notes: ' + String(data.Notes).slice(0, 200) : '',
+    'Page: ' + page,
+  ].filter(Boolean).join('\n');
   // Always send both: WhatsApp from SAR's number, and an SMS at the same time.
-  const [wa, sms] = await Promise.allSettled([
+  const [wa, sms, own] = await Promise.allSettled([
     M.sendWhatsAppTemplate(phone, name),
     M.sendSms(phone, name),
+    NOTIFY ? M.sendSmsRaw(NOTIFY, lead) : Promise.resolve(null),
   ]);
+  if (!NOTIFY) console.warn('[enquiry] SAR_NOTIFY_NUMBER not set - the lead is NOT being sent to SAR');
+  else if (own.status === 'fulfilled') console.log('[enquiry] lead sent to SAR', own.value);
+  else console.error('[enquiry] LEAD NOT DELIVERED TO SAR', own.reason && own.reason.message);
   if (wa.status === "fulfilled") console.log("[enquiry] WhatsApp queued", M.mask(phone), wa.value, page);
   else console.error("[enquiry] WhatsApp failed", wa.reason && wa.reason.message);
   if (sms.status === "fulfilled") console.log("[enquiry] SMS", sms.value ? "sent" : "skipped", M.mask(phone), sms.value, page);
@@ -59,5 +82,9 @@ module.exports = async (req, res) => {
   const channels = [];
   if (wa.status === "fulfilled") channels.push("whatsapp");
   if (sms.status === "fulfilled" && sms.value) channels.push("sms");
-  res.status(channels.length ? 200 : 502).json({ ok: channels.length > 0, channels });
+  const leadDelivered = own.status === 'fulfilled' && own.value;
+  if (leadDelivered) channels.push('lead-to-sar');
+  // The pupil's confirmation is nice to have. Getting the lead to SAR is not,
+  // so that is what decides the status code.
+  res.status(leadDelivered || !NOTIFY ? 200 : 502).json({ ok: true, channels, lead: !!leadDelivered });
 };

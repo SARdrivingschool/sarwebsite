@@ -102,6 +102,28 @@ async function sendSms(toE164Num, name) {
   return data.sid || null;
 }
 
+// Generic SMS, any body, any recipient. Used to get the lead itself to SAR so
+// that an outage at the form provider cannot lose an enquiry.
+async function sendSmsRaw(toE164Num, body) {
+  const sid = env('TWILIO_ACCOUNT_SID');
+  const tok = env('TWILIO_AUTH_TOKEN');
+  if (!sid || !tok || !toE164Num) return null;
+  const params = new URLSearchParams({ To: toE164Num, Body: String(body).slice(0, 1500) });
+  if (env('TWILIO_MESSAGING_SERVICE_SID')) params.set('MessagingServiceSid', env('TWILIO_MESSAGING_SERVICE_SID'));
+  else params.set('From', env('TWILIO_SMS_FROM', 'SAR Driving'));
+  const r = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic ' + Buffer.from(`${sid}:${tok}`).toString('base64'),
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params.toString(),
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error('SMS send failed: ' + r.status + ' ' + (data.message || JSON.stringify(data)));
+  return data.sid || null;
+}
+
 // ---------- helpers ----------
 const mask = (p) => (p ? String(p).slice(0, 5) + '****' + String(p).slice(-3) : '');
 
@@ -120,4 +142,4 @@ function safeEqual(a, b) {
   return x.length === y.length && crypto.timingSafeEqual(x, y);
 }
 
-module.exports = { env, toE164, isUkMobile, firstName, sendWhatsAppTemplate, sendSms, smsText, mask, readRaw, safeEqual, crypto };
+module.exports = { env, toE164, isUkMobile, firstName, sendWhatsAppTemplate, sendSms, sendSmsRaw, smsText, mask, readRaw, safeEqual, crypto };

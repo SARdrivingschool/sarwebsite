@@ -714,33 +714,82 @@
   });
 })();
 
-/* ---- Instant enquiry confirmation ----
-   When any enquiry form passes its checks and is sent to FormSubmit, also tell
-   /api/enquiry so the pupil gets a WhatsApp (SMS if not on WhatsApp). The email
-   to SAR still goes through FormSubmit as before. Failures are silent so the
-   form never looks broken to the pupil. */
+/* ---- Enquiry delivery ----
+   On 30 October 2026 FormSubmit's own servers went down (Cloudflare 521) and
+   every enquiry sent during that window was lost, because FormSubmit was the
+   only thing that told SAR an enquiry existed. It is no longer the critical
+   path.
+
+   The whole enquiry now goes to /api/enquiry, which texts the lead to SAR and
+   sends the pupil their confirmation. FormSubmit is still posted to, for the
+   formatted email, but through a hidden iframe so that an outage there cannot
+   strand the pupil on an error page. We do the redirect to the thank-you page
+   ourselves. If any of this throws, the old behaviour takes over. */
 (function () {
   'use strict';
+  var FIELDS = ['Name', 'Phone', 'Email', 'Pickup postcode', 'Transmission',
+                'Experience', 'Availability', 'Test date', 'Test centre',
+                'Car for test', 'Notes', 'Coverage', 'Page',
+                'How did you hear about us', 'Message'];
+
+  function collect(form) {
+    var fd, out = { _honey: '' };
+    try { fd = new FormData(form); } catch (err) { return null; }
+    out._honey = fd.get('_honey') || '';
+    FIELDS.forEach(function (n) {
+      var all = fd.getAll(n).filter(function (v) { return v !== null && String(v).trim() !== ''; });
+      if (all.length) out[n] = all.join(', ');
+    });
+    // Names the API expects, mapped from the form's own field names.
+    out.Postcode = out['Pickup postcode'] || '';
+    out.TestDate = out['Test date'] || '';
+    out.Page = out.Page || location.pathname;
+    return out;
+  }
+
   document.addEventListener('submit', function (e) {
     var form = e.target;
     if (!form || e.defaultPrevented) return;
     if (!/formsubmit/i.test(form.getAttribute('action') || '')) return;
-    var f = form.elements;
-    var phone = f.Phone ? String(f.Phone.value || '').trim() : '';
-    if (!phone) return;
-    var payload = {
-      Name: f.Name ? String(f.Name.value || '').trim() : '',
-      Phone: phone,
-      Page: f.Page ? String(f.Page.value || '') : location.pathname,
-      _honey: f._honey ? String(f._honey.value || '') : ''
-    };
+
+    var payload = collect(form);
+    if (!payload || !payload.Phone) return;   // let the browser do its thing
+
+    var next = (form.querySelector('[name="_next"]') || {}).value || '/thank-you.html';
+    var done = false;
+    function go() { if (!done) { done = true; location.href = next; } }
+
+    e.preventDefault();
+
+    // 1. The lead. This is the path that must not fail.
+    var sent;
     try {
-      fetch('/api/enquiry', {
+      sent = fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         keepalive: true
       }).catch(function () {});
-    } catch (err) { /* ignore: the email to SAR still goes */ }
+    } catch (err) { sent = null; }
+
+    // 2. The formatted email, best effort, in an iframe so a dead provider
+    //    cannot show the pupil a Cloudflare error page.
+    try {
+      var name = 'fs-' + Date.now();
+      var frame = document.createElement('iframe');
+      frame.name = name; frame.style.display = 'none';
+      document.body.appendChild(frame);
+      var clone = form.cloneNode(true);
+      clone.target = name;
+      clone.style.display = 'none';
+      var nx = clone.querySelector('[name="_next"]');
+      if (nx) nx.parentNode.removeChild(nx);   // the iframe must not navigate us
+      document.body.appendChild(clone);
+      clone.submit();
+    } catch (err) { /* the lead is already away */ }
+
+    // 3. Thank-you page either way, and never leave them waiting.
+    if (sent && sent.then) { sent.then(go, go); } else { go(); }
+    setTimeout(go, 2500);
   });
 })();
